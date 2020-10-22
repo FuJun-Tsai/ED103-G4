@@ -14,6 +14,11 @@
 // //layout
 // @import "../layout/header";
 // @import "../layout/footer";
+
+
+
+
+
 .memberpage {
     width: 1200px;
     max-width: 100%;
@@ -62,8 +67,7 @@
                                 max-width: 30%;
                             }
                             button {
-                                @include btnYellowS;
-                                color: $textColor-style2;
+                                @include btnBrown_6;
                                 margin: 8px;
                                 outline: none;
                                 @include rwd(md_cellphone) {
@@ -84,8 +88,7 @@
                                 max-width: 30%;
                             }
                             button {
-                                @include btnYellowS;
-                                color: $textColor-style2;
+                                @include btnBrown_6;
                                 margin: 8px;
                                 outline: none;
                                 @include rwd(md_cellphone) {
@@ -99,7 +102,7 @@
         }
         .my_main {
             vertical-align: top;
-            display: inline-block;
+            display: none;
             width: 69%;
             margin-top: 60px;
             height: calc(100vh - 254px);
@@ -180,7 +183,7 @@
         }
         .my_group {
             vertical-align: top;
-            display: inline-block;
+            display: none;
             width: 69%;
             margin-top: 60px;
             @include rwd(md_small) {
@@ -204,7 +207,7 @@
         }
         .my_jion {
             vertical-align: top;
-            display: inline-block;
+            display: none;
             width: 69%;
             margin-top: 60px;
             @include rwd(md_small) {
@@ -228,7 +231,7 @@
         }
         .my_collect {
             vertical-align: top;
-            display: inline-block;
+            display: none;
             width: 69%;
             margin-top: 60px;
             @include rwd(md_small) {
@@ -371,7 +374,7 @@
         }
         .my_article {
             vertical-align: top;
-            display: inline-block;
+            display: none;
             width: 69%;
             margin: 60px 0;
             @include rwd(md_small) {
@@ -519,7 +522,7 @@
         }
         .my_friend {
             vertical-align: top;
-            display: inline-block;
+            display: none;
             width: 69%;
             margin: 60px 0;
             @include rwd(md_small) {
@@ -604,6 +607,9 @@
                     }
                 }
             }
+        }
+        .-on{
+            display: inline-block;
         }
     }
 }
