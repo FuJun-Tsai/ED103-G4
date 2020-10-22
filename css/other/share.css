@@ -189,7 +189,7 @@ img {
     bottom: 40%;
     display: inline-block;
     border-radius: 50%;
-    background-image: url("../image/btnCust.png");
+    background-image: url("./../../image/btnCust.png");
     background-size: contain;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     transition: filter 0.1s;
