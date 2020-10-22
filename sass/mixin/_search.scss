@@ -65,6 +65,7 @@
 }
 
 body {
+    // font-size: $fontSize!important;
     section {
         .back:nth-child(1) {
             background-image: url(./../image/資產9.svg);
@@ -89,6 +90,7 @@ body {
                 input[type="text"] {
                     width: calc(100% - 100px);
                     margin-bottom: 12px !important;
+                    font-size: 16px!important;
                 }
                 .kind {
                     display: block;
@@ -102,6 +104,9 @@ body {
                 .mess,
                 .group {
                     cursor: pointer;
+                }
+                button {
+                    font-size: $fontSize;
                 }
             }
             label {}
@@ -183,6 +188,7 @@ body {
                     @include borderT;
                     padding: 0 20px;
                     cursor: pointer;
+                    font-size: $fontSize;
                 }
                 li:first-child {
                     border-radius: 16px 0 0 16px;
