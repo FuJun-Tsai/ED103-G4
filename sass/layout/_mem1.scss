@@ -1,0 +1,609 @@
+//base
+// @import "../base/var";
+// @import "../base/reset";
+// @import "../base/color";
+// @import "../base/font";
+// //mixin
+// // @import "../mixin/box";
+// @import "../mixin/box";
+// @import "../mixin/rwd";
+// @import "../mixin/grid";
+// @import "../mixin/img";
+// @import "../mixin/btn_style";
+// @import "../mixin/gradient";
+// //layout
+// @import "../layout/header";
+// @import "../layout/footer";
+.memberpage {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    .myallpage {
+        .member_side {
+            display: inline-block;
+            width: 30%;
+            @include rwd(md_small) {
+                width: 100%;
+            }
+            @include rwd(md_cellphone) {
+                width: 100%;
+            }
+            .avatar {
+                margin: 0 auto;
+                text-align: center;
+                img {
+                    margin: 0 auto;
+                    max-width: 200px;
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+            .name {
+                width: 100%;
+                padding: 15px;
+                text-align: center;
+                h5 {
+                    display: inline-block;
+                    padding: 6px 8px;
+                }
+            }
+            .mypa {
+                .mylist {
+                    ul:nth-child(1) {
+                        text-align: center;
+                        width: 100%;
+                        li {
+                            @include rwd(md_small) {
+                                display: inline-block;
+                                max-width: 30%;
+                            }
+                            @include rwd(md_cellphone) {
+                                display: inline-block;
+                                max-width: 30%;
+                            }
+                            button {
+                                @include btnYellowS;
+                                color: $textColor-style2;
+                                margin: 8px;
+                                outline: none;
+                                @include rwd(md_cellphone) {
+                                    max-width: 90%;
+                                }
+                            }
+                        }
+                    }
+                    ul:nth-child(2) {
+                        text-align: center;
+                        li {
+                            @include rwd(md_small) {
+                                display: inline-block;
+                                max-width: 30%;
+                            }
+                            @include rwd(md_cellphone) {
+                                display: inline-block;
+                                max-width: 30%;
+                            }
+                            button {
+                                @include btnYellowS;
+                                color: $textColor-style2;
+                                margin: 8px;
+                                outline: none;
+                                @include rwd(md_cellphone) {
+                                    max-width: 90%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .my_main {
+            vertical-align: top;
+            display: inline-block;
+            width: 69%;
+            margin-top: 60px;
+            height: calc(100vh - 254px);
+            @include rwd(md_small) {
+                margin-top: 0;
+                width: 100%;
+            }
+            @include rwd(md_cellphone) {
+                margin-top: 0;
+                width: 100%;
+            }
+            .block {
+                @include box(700px, 24px);
+                .title {
+                    margin: 0 auto;
+                    padding: 10px 20px;
+                    background-color: $bgColor-style2;
+                    border-radius: 20px 20px 0 0;
+                    text-align: center;
+                    font-weight: $fontWeight_700;
+                }
+                .small-block {
+                    margin: 0 auto;
+                    max-width: 600px;
+                    width: 100%;
+                    padding-top: 30px;
+                    @include rwd(md_cellphone) {
+                        padding-top: 10px;
+                    }
+                    .part {
+                        display: inline-block;
+                        width: 49.9%;
+                        padding: 8px 0;
+                        @include rwd(md_cellphone) {
+                            width: 100%;
+                            padding-left: 6%;
+                        }
+                        .small_title {
+                            display: inline-block;
+                            text-align: right;
+                            font-weight: bolder;
+                        }
+                        .content {
+                            display: inline-block;
+                            padding-left: 6%;
+                            font-weight: 400;
+                            line-height: 1.3;
+                        }
+                        .change {
+                            @include btnYellowNew($bgColor-style5, $textColor-style1, 40px, 30px);
+                            width: 40px;
+                            height: 30px;
+                            margin-left: 3%;
+                            outline: none;
+                        }
+                    }
+                }
+                .part:nth-child(7) {
+                    width: 100%;
+                    height: 300px;
+                    .small_title {
+                        vertical-align: top;
+                    }
+                    .change {
+                        vertical-align: top;
+                    }
+                    .content {
+                        width: 70%;
+                        display: inline-block;
+                        margin: 0 auto;
+                        padding-left: 3%;
+                        @include rwd(md_cellphone) {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .my_group {
+            vertical-align: top;
+            display: inline-block;
+            width: 69%;
+            margin-top: 60px;
+            @include rwd(md_small) {
+                margin-top: 0;
+                width: 100%;
+            }
+            @include rwd(md_cellphone) {
+                margin-top: 0;
+                width: 100%;
+            }
+            .block {
+                @include box(700px, 24px);
+                .title {
+                    margin: 0 auto;
+                    padding: 10px 20px;
+                    background-color: $bgColor-style2;
+                    border-radius: 20px 20px 0 0;
+                    text-align: center;
+                }
+            }
+        }
+        .my_jion {
+            vertical-align: top;
+            display: inline-block;
+            width: 69%;
+            margin-top: 60px;
+            @include rwd(md_small) {
+                margin-top: 0;
+                width: 100%;
+            }
+            @include rwd(md_cellphone) {
+                margin-top: 0;
+                width: 100%;
+            }
+            .block {
+                @include box(700px, 24px);
+                .title {
+                    margin: 0 auto;
+                    padding: 10px 20px;
+                    border-radius: 20px 20px 0 0;
+                    background-color: $bgColor-style2;
+                    text-align: center;
+                }
+            }
+        }
+        .my_collect {
+            vertical-align: top;
+            display: inline-block;
+            width: 69%;
+            margin-top: 60px;
+            @include rwd(md_small) {
+                margin-top: 0;
+                width: 100%;
+            }
+            @include rwd(md_cellphone) {
+                margin-top: 0;
+                width: 100%;
+            }
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: hsla(0, 0%, 0%, .3);
+                opacity: 0;
+                z-index: -1;
+                transition: opacity .1s;
+                article {
+                    background-color: white;
+                    width: 400px;
+                    max-width: 800px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px #ddd;
+                    padding: 10px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            .-on {
+                opacity: 1;
+                z-index: 1;
+            }
+            .block {
+                @include box(700px, 24px);
+                .title {
+                    margin: 0 auto;
+                    padding: 10px 20px;
+                    background-color: $bgColor-style2;
+                    border-radius: 20px 20px 0 0;
+                    text-align: center;
+                }
+                .small-block {
+                    margin: 0 auto;
+                    // max-width: 600px;
+                    width: 100%;
+                    padding-top: 30px;
+                    @include rwd(md_cellphone) {
+                        padding-top: 10px;
+                    }
+                    .tab_list_block {
+                        padding-left: 3%;
+                        .tab_list {
+                            display: flex;
+                            // justify-content: space-evenly;
+                            li {
+                                a {
+                                    display: inline-block;
+                                    border: 1px solid #ccc;
+                                    padding: 5px;
+                                    cursor: pointer;
+                                    color: #ccc;
+                                    position: relative;
+                                    font-size: 18px;
+                                }
+                                .-on {
+                                    border: 1px solid black;
+                                    color: black;
+                                }
+                            }
+                        }
+                    }
+                    .tab_contents {
+                        display: inline-block;
+                        .tab {
+                            display: none;
+                        }
+                        .-on {
+                            display: block;
+                            text-align: left;
+                            margin-top: 10px;
+                            .page {
+                                display: none;
+                            }
+                            .-on {
+                                display: flex;
+                                justify-content: space-evenly;
+                                flex-wrap: wrap;
+                                .box {
+                                    display: inline-block;
+                                    width: 150px;
+                                    margin: .5rem;
+                                    padding: 8px;
+                                    border: 3px solid $bgColor-style2;
+                                    border-radius: 3px;
+                                    margin-bottom: 10px;
+                                    .small-title {
+                                        height: 48px;
+                                        padding-top: 5px;
+                                        line-height: 1.2;
+                                        font-weight: 700;
+                                        img {
+                                            float: right;
+                                            cursor: pointer;
+                                            width: 15px;
+                                        }
+                                    }
+                                    .pic {
+                                        img {
+                                            border-radius: 4px;
+                                            max-width: 148px;
+                                            width: 100%;
+                                            height: 120px;
+                                        }
+                                    }
+                                    .author {
+                                        padding: 5px 0;
+                                    }
+                                    .date {
+                                        padding-bottom: 5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .change_page {
+                        text-align: center;
+                        button {
+                            outline: none;
+                            @include btnYellowS;
+                            margin: 30px;
+                        }
+                    }
+                }
+            }
+        }
+        .my_article {
+            vertical-align: top;
+            display: inline-block;
+            width: 69%;
+            margin: 60px 0;
+            @include rwd(md_small) {
+                margin-top: 0;
+                width: 100%;
+            }
+            @include rwd(md_cellphone) {
+                margin-top: 0;
+                width: 100%;
+            }
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: hsla(0, 0%, 0%, .3);
+                opacity: 0;
+                z-index: -1;
+                transition: opacity .1s;
+                article {
+                    background-color: white;
+                    width: 400px;
+                    max-width: 800px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px #ddd;
+                    padding: 10px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            .-on {
+                opacity: 1;
+                z-index: 1;
+            }
+            .block {
+                @include box(700px, 24px);
+                .title {
+                    margin: 0 auto;
+                    padding: 10px 20px;
+                    background-color: $bgColor-style2;
+                    border-radius: 20px 20px 0 0;
+                    text-align: center;
+                }
+                .small-block {
+                    margin: 0 auto;
+                    // max-width: 600px;
+                    width: 100%;
+                    padding-top: 30px;
+                    @include rwd(md_cellphone) {
+                        padding-top: 10px;
+                    }
+                    .tab_list_block {
+                        padding-left: 3%;
+                        .tab_list {
+                            display: flex;
+                            // justify-content: space-evenly;
+                            li {
+                                a {
+                                    display: inline-block;
+                                    border: 1px solid #ccc;
+                                    padding: 5px;
+                                    cursor: pointer;
+                                    color: #ccc;
+                                    position: relative;
+                                    font-size: 18px;
+                                }
+                                .-on {
+                                    border: 1px solid black;
+                                    color: black;
+                                }
+                            }
+                        }
+                    }
+                    .tab_contents {
+                        display: inline-block;
+                        .tab {
+                            display: none;
+                        }
+                        .-on {
+                            display: block;
+                            text-align: left;
+                            margin-top: 10px;
+                            .page {
+                                display: none;
+                            }
+                            .-on {
+                                display: flex;
+                                justify-content: space-evenly;
+                                flex-wrap: wrap;
+                                .box {
+                                    display: inline-block;
+                                    width: 150px;
+                                    margin: .5rem;
+                                    padding: 8px;
+                                    border: 3px solid $bgColor-style2;
+                                    border-radius: 3px;
+                                    margin-bottom: 10px;
+                                    .small-title {
+                                        height: 48px;
+                                        padding-top: 5px;
+                                        line-height: 1.2;
+                                        font-weight: 700;
+                                        img {
+                                            float: right;
+                                            cursor: pointer;
+                                            width: 15px;
+                                        }
+                                    }
+                                    .pic {
+                                        img {
+                                            border-radius: 4px;
+                                            max-width: 148px;
+                                            width: 100%;
+                                            height: 120px;
+                                        }
+                                    }
+                                    .author {
+                                        padding: 5px 0;
+                                    }
+                                    .date {
+                                        padding-bottom: 5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .change_page {
+                        text-align: center;
+                        .Previous_page {
+                            outline: none;
+                            @include btnYellowNew($bgColor-style5, $textColor-style1, 90px, 40px);
+                            margin: 30px 15px 0 0;
+                        }
+                        .Next_page {
+                            outline: none;
+                            @include btnYellowNew($bgColor-style5, $textColor-style1, 90px, 40px);
+                            margin: 30px 0 0 15px;
+                        }
+                    }
+                }
+            }
+        }
+        .my_friend {
+            vertical-align: top;
+            display: inline-block;
+            width: 69%;
+            margin: 60px 0;
+            @include rwd(md_small) {
+                margin-top: 0;
+                width: 100%;
+            }
+            @include rwd(md_cellphone) {
+                margin-top: 0;
+                width: 100%;
+            }
+            .block {
+                @include box(700px, 24px);
+                .title {
+                    margin: 0 auto;
+                    padding: 10px 20px;
+                    background-color: $bgColor-style2;
+                    border-radius: 20px 20px 0 0;
+                    text-align: center;
+                }
+                .fd_search {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    text-align: right;
+                }
+                .fd_list {
+                    overflow-y: auto;
+                    height: 60vh;
+                    .fd_ul {
+                        li:nth-child(2n+1) {
+                            background-color: bisque;
+                            border-radius: 5px;
+                        }
+                        li {
+                            width: 100%;
+                            margin: 0 auto;
+                            padding: 10px;
+                            .fd_name {
+                                display: inline-block;
+                                width: 49%;
+                                vertical-align: middle;
+                                // @include rwd(md_cellphone){
+                                //   width: 20%;
+                                // }
+                                div {
+                                    img {
+                                        border-radius: 50%;
+                                        max-width: 80px;
+                                        height: 80px;
+                                    }
+                                }
+                                h4 {
+                                    display: inline-block;
+                                }
+                            }
+                            .button_box {
+                                display: inline-flex;
+                                justify-content: flex-end;
+                                button {
+                                    outline: none;
+                                    @include btnBlue_3;
+                                    width: 70px;
+                                    background-color: #c75174;
+                                    font-size: 14px;
+                                    margin-right: 10px;
+                                    font-weight: 400;
+                                    &:hover {
+                                        color: #c75174;
+                                    }
+                                    i {
+                                        color: #FFF;
+                                        font-size: 14px;
+                                        &:hover {
+                                            color: #c75174;
+                                        }
+                                    }
+                                    @include rwd(md_cellphone) {
+                                        margin-right: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,196 @@
+@mixin borderT {
+    border: 1px solid black;
+}
+
+@mixin img($h, $url) {
+    height: $h;
+    background-image: url(#{$url});
+    background-position: center center;
+    background-repeat: no-repeat;
+    // background-size: cover;
+}
+
+* {
+    p {
+        line-height: 20px;
+    }
+}
+
+#R1 {
+    .rep {
+        @include img(500px, './../image/1-600.png');
+    }
+}
+
+#R2 {
+    .rep {
+        @include img(500px, './../image/2-600.png');
+    }
+}
+
+#R3 {
+    .rep {
+        @include img(500px, './../image/3-600.png');
+    }
+}
+
+#R4 {
+    .rep {
+        @include img(500px, './../image/4-600.png');
+    }
+}
+
+#R5 {
+    .rep {
+        @include img(500px, './../image/3-600.png');
+    }
+}
+
+#R6 {
+    .rep {
+        @include img(500px, './../image/2-600.png');
+    }
+}
+
+#R7 {
+    .rep {
+        @include img(500px, './../image/4-600.png');
+    }
+}
+
+#R8 {
+    .rep {
+        @include img(500px, './../image/1-600.png');
+    }
+}
+
+body {
+    section {
+        .back:nth-child(1) {
+            background-image: url(./../image/資產9.svg);
+            height: 100vh;
+            width: 300px;
+            position: fixed;
+            left: 0;
+            opacity: 0.5;
+        }
+        .back:nth-child(2) {
+            background-image: url(./../image/資產10.svg);
+            height: 100vh;
+            width: 300px;
+            position: fixed;
+            right: 0;
+            opacity: 0.5;
+        }
+        .content {
+            @include box(1200px, 0);
+            .selection {
+                // @include borderT;
+                input[type="text"] {
+                    width: calc(100% - 100px);
+                    margin-bottom: 12px !important;
+                }
+                .kind {
+                    display: block;
+                    margin-bottom: 12px !important;
+                }
+                .sort {
+                    display: flex;
+                    flex-direction: row;
+                }
+                .like,
+                .mess,
+                .group {
+                    cursor: pointer;
+                }
+            }
+            label {}
+            .result {
+                margin-top: 20px;
+                .rest {
+                    margin: 80px 0px;
+                    .detail {
+                        position: relative;
+                        padding-bottom: 50px;
+                        h3 {
+                            margin-top: 8px !important;
+                            margin-bottom: 24px !important;
+                        }
+                        p {
+                            display: inline-block;
+                            margin-left: 20px;
+                            width: 100%;
+                            line-height: 2rem;
+                            font-size: $fontSize;
+                        }
+                        .kind {
+                            @include box(60px, 8px);
+                            // @include borderT;
+                            text-align: center;
+                            display: inline-block;
+                            margin: 12px;
+                            padding: 5px 10px;
+                            font-size: 14px;
+                            background-color: #FFE1A4;
+                            border: 0.1px solid;
+                        }
+                        .style {
+                            @include box(60px, 8px);
+                            // @include borderT;
+                            text-align: center;
+                            display: inline-block;
+                            margin: 12px;
+                            padding: 5px 10px;
+                            font-size: 14px;
+                            background-color: #FFE1A4;
+                            border: 0.1px solid;
+                        }
+                        .record {
+                            position: absolute;
+                            display: flex;
+                            flex-direction: row;
+                            right: 0;
+                            top: 0;
+                            img {
+                                margin-right: 12px;
+                            }
+                        }
+                        .insearch {
+                            height: 130px !important;
+                            border: none !important;
+                            overflow: hidden !important;
+                            //important複寫在單一餐廳頁的屬性
+                        }
+                        .go {
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            .btnRed {
+                                @include btnBlue_3;
+                            }
+                            .btnBlue {
+                                @include btnPurple_4;
+                            }
+                        }
+                    }
+                }
+            }
+            .page {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                li {
+                    @include borderT;
+                    padding: 0 20px;
+                    cursor: pointer;
+                }
+                li:first-child {
+                    border-radius: 16px 0 0 16px;
+                }
+                li:last-child {
+                    border-radius: 0 16px 16px 0;
+                }
+            }
+        }
+    }
+}

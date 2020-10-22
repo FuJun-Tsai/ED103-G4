@@ -1,0 +1,204 @@
+* {
+    .togray {
+        filter: brightness(55%);
+    }
+    .bold {
+        font-weight: bold;
+    }
+    .italic {
+        font-style: italic;
+    }
+    .underline {
+        text-decoration: underline;
+    }
+    .used {
+        color: wheat;
+        background-color: black;
+    }
+    #leavemessage::-webkit-scrollbar-track {
+        background-color: #ffc0cb;
+    }
+    //捲軸寬度
+    #leavemessage::-webkit-scrollbar {
+        width: 6px;
+        background-color: black;
+    }
+    //捲軸本體顏色
+    #leavemessage::-webkit-scrollbar-thumb {
+        background-color: #bb6573;
+    }
+    .bread {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    P {
+        line-height: 20px;
+    }
+}
+
+// body{
+section {
+    .content {
+        #name {
+            margin-bottom: 24px;
+        }
+        div {
+            #kind {
+                @include box(60px, 8px);
+                // @include borderT;
+                text-align: center;
+                display: inline-block;
+                margin: 12px;
+                padding: 5px 10px;
+                font-size: 14px;
+                background-color: #FFE1A4;
+                border: 0.1px solid;
+            }
+            #style {
+                @include box(60px, 8px);
+                // @include borderT;
+                text-align: center;
+                display: inline-block;
+                margin: 12px;
+                padding: 5px 10px;
+                font-size: 14px;
+                background-color: #FFE1A4;
+                border: 0.1px solid;
+            }
+        }
+        #introduction {
+            display: flex;
+            flex-direction: row;
+            @include box(100%, 0);
+            .container {
+                .row {
+                    #imgs {
+                        .large {
+                            margin: 4px 0;
+                            img {
+                                display: inline-block;
+                                @include box(600px, 0);
+                            }
+                        }
+                        .small {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            // @include borderT;
+                            @include box(600px, 0);
+                            margin: 0;
+                            font-size: 0;
+                            overflow: auto;
+                            img:nth-child(1) {
+                                margin-left: 0;
+                            }
+                            img {
+                                margin-left: 5px;
+                                margin-top: 12px;
+                                cursor: pointer;
+                                width: 140px;
+                                height: 140px;
+                            }
+                        }
+                    }
+                    #detail {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        div {
+                            .btnRed {
+                                @include btnBlue_3;
+                            }
+                            .btnBlue {
+                                @include btnPurple_4;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        h4 {
+            margin: 24px;
+        }
+        #leavemessage {
+            @include borderT;
+            @include box(1200px, 0);
+            height: 400px;
+            overflow: auto;
+            user-select: none;
+            .L {
+                background-color: white;
+                @include borderT;
+                @include box(90%, 0);
+                margin: 20px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                img {
+                    border-radius: 50%;
+                    // width: 40px;
+                    // height: 40px;
+                    margin: 20px;
+                }
+            }
+        }
+        .messaging {
+            background-color: white;
+            @include borderT;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            img {
+                margin: 20px;
+                border-radius: 50%;
+            }
+            #send {
+                height: 60px;
+                textarea {
+                    position: absolute;
+                    resize: none;
+                    border: none;
+                    height: 32px;
+                    left: 102px;
+                    width: calc(100% - 200px);
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    background-color: transparent;
+                    border-bottom: 1px solid black;
+                }
+                .features {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    width: 200px;
+                    height: 24px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    i {
+                        cursor: pointer;
+                        padding: 4px 16px;
+                        text-align: center;
+                        @include box(48px, 12px);
+                        @include borderT;
+                    }
+                }
+                button {
+                    display: inline-block;
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    @include btnYellowS;
+                    width: 80px !important;
+                    height: 40px !important;
+                    line-height: 40px !important;
+                }
+            }
+        }
+    }
+}
+
+// }

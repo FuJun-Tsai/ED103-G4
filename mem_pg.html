@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/head_footer_style.css">
+    <link rel="stylesheet" href="./css/other/hover-min.css">
+    <link rel="stylesheet" href="./css/other/animation.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <title>會員專區</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <!-- <link rel="stylesheet" href="./mem_pg.css"> -->
+    <link rel="stylesheet" href="css/mem.css">
+    <script src="./js/mem_pg.js"></script>
+    <script src="./mem_pg.vue"></script>
+    <script src="./js/header_fixed.js"></script>
+</head>
+
+<body>
+    <header>
+        <section>
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./image/logoHeader.svg" alt="">
+                </a>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li class="hvr-pulse-grow">
+                        <a href="./game.html"> 吃吃配對</a>
+                    </li>
+                    <li class="hvr-pulse-grow">
+                        <a href="./searchrestaurant.html">餐廳介紹</a>
+                    </li>
+                    <li class="hvr-pulse-grow">
+                        <a href="./share.html">吃貨分享</a>
+                    </li>
+                    <li class="hvr-pulse-grow">
+                        <a href="./about_us.html">關於我們</a>
+                    </li>
+                    <li>
+                        <a href="./open_group.html" class="hvr-pulse-grow"><button>揪團去!</button></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="member">
+                <div class="icon">
+                    <a href="./login.html">
+                        <img src="./image/icon.svg" alt="">
+                    </a>
+                </div>
+                <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+            </div>
+            <div id="menu-bar">
+                <div id="menu" onclick="onClickMenu()">
+                    <div id="bar1" class="bar"></div>
+                    <div id="bar2" class="bar"></div>
+                    <div id="bar3" class="bar"></div>
+                </div>
+                <ul class="nav1" id="nav1">
+                    <div class="member">
+                        <div class="icon">
+                            <a href="./login.html">
+                                <img src="./image/icon.svg" alt="">
+                            </a>
+                        </div>
+                        <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+                    </div>
+                    <li>
+                        <a href="./game.html">吃吃配對</a>
+                    </li>
+                    <li>
+                        <a href="./searchrestaurant.html">餐廳介紹</a>
+                    </li>
+                    <li>
+                        <a href="./share.html"> 吃貨分享</a>
+                    </li>
+                    <li>
+                        <a href="./about_us.html">關於我們</a>
+                    </li>
+                    <li>
+                        <a href="./open_group.html" class="hvr-pulse-grow"><button>揪團去!</button></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-bg" id="menu-bg"></div>
+        </section>
+    </header>
+
+    <!-- ***************************** -->
+
+    <section class="memberpage">
+        <div class="myallpage" id="app">
+            <div class="member-side">
+                <div class="avatar">
+                    <img src="https://fakeimg.pl/200x200/">
+                </div>
+                <div class="name">
+                    <h5>阿土伯
+                    </h5>
+                </div>
+                <div class="mypa ">
+                    <div class="mylist justify-content-center">
+                        <ul>
+                            <li>
+                                <button @click="content='myself'">我的資訊</button>
+                            </li>
+                            <li>
+                                <button @click="content='mysg'">我的開團</button>
+                            </li>
+                            <li>
+                                <button @click="content='mysa'">我的參團</button>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <button @click="content='mylove'">我的收藏</button>
+                            </li>
+                            <li>
+                                <button @click="content='myword'">我的文章</button>
+                            </li>
+                            <li>
+                                <button @click="content='myfd'">我的好友</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <component :is="content"></component>
+
+        </div>
+    </section>
+
+    <!-- ***************************** -->
+    <footer>
+        <div class="footer">
+            <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
+        </div>
+    </footer>
+
+    <!--hambuger-->
+    <script>
+        function onClickMenu() {
+            document.getElementById("menu").classList.toggle("change");
+            document.getElementById("nav1").classList.toggle("change");
+            document.getElementById("menu-bg").classList.toggle("change-bg");
+        }
+
+        function onClickSubMenu() {
+            document.getElementById("sub_menu").classList.toggle("change1");
+            document.querySelector(".nav1>li:nth-child(1)").classList.toggle("none");
+            document.querySelector(".nav1>li:nth-child(3)").classList.toggle("none");
+            document.querySelector(".nav1>li:nth-child(4)").classList.toggle("none");
+            document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
+        }
+    </script>
+    <script>
+        Vue.component('myself', {
+            template: `
+            <div class="my_main">
+                <div class="block">
+                    <div class="title">
+                    我的資訊
+                    </div>
+                    <div class="small-block">
+                        <div class="part">
+                            <div class="small-title">
+                            姓名:
+                            </div>
+                            <div class="content" id="name">
+                            孫小美
+                            </div>
+                            <button class="change">
+                            修改
+                            </button>
+                        </div>
+                        <div class="part">
+                            <div class="small-title">
+                            帳號:
+                            </div>
+                            <div class="content">
+                            meimei2
+                            </div>
+                        </div>
+                        <div class="part">
+                            <div class="small-title">
+                            年齡:
+                            </div>
+                            <div class="content">
+                            20-25
+                            </div>
+                        </div>
+                        <div class="part">
+                            <div class="small-title">
+                            密碼:
+                            </div>
+                            <div class="content" id="psw">
+                            mei000
+                            </div>
+                            <button class="change">
+                            修改
+                            </button>
+                        </div>
+                        <div class="part">
+                            <div class="small-title">
+                            性別:
+                            </div>
+                            <div class="content">
+                            女性
+                            </div>
+                        </div>
+                        <div class="part">
+                            <div class="small-title">
+                            信箱:
+                            </div>
+                            <div class="content" id="email">
+                            meimei@mail.com
+                            </div>
+                            <button class="change">
+                            修改
+                            </button>
+                        </div>
+                        <div class="part">
+                            <div class="small-title">
+                                自我介紹:
+                            </div>
+                            <button class="change">
+                                修改
+                            </button>
+                            <div class="content" id="introduce">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni aliquid mollitia veritatis. Blanditiis impedit ab nihil ratione, pariatur sed voluptates harum laborum quo rem eos atque? Laboriosam placeat fugit beatae?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `,
+        });
+
+        Vue.component('mysg', {
+            template: `
+            <div class="my_group">
+                我的開團
+                666666
+            </div>
+            `,
+        });
+
+        Vue.component('mysa', {
+            template: `
+            <div class="my_jion">
+                我的參團
+            </div>
+            `,
+        });
+        Vue.component('mylove', {
+            template: `
+            <div class="my_collect">
+                我的收藏
+            </div>
+            `,
+        });
+        Vue.component('myword', {
+            template: `
+            <div class="my_artical">
+                我的文章
+            </div>
+            `,
+        });
+        Vue.component('myfd', {
+            template: `
+            <div class="my_friend">
+                我的好友
+            </div>
+            `,
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                content: 'myself',
+            },
+        });
+    </script>
+</body>
+
+</html>
