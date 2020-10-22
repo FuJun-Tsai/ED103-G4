@@ -16,7 +16,7 @@
         background-color: black;
     }
     #leavemessage::-webkit-scrollbar-track {
-        background-color: #ffc0cb;
+        background-color: #FFE1A4;
     }
     //捲軸寬度
     #leavemessage::-webkit-scrollbar {
@@ -36,11 +36,13 @@
     }
 }
 
+
 // body{
 section {
     .content {
         #name {
             margin-bottom: 24px;
+            border-left: 8px solid #9B1E23;
         }
         div {
             #kind {
@@ -77,7 +79,7 @@ section {
                             margin: 4px 0;
                             img {
                                 display: inline-block;
-                                @include box(600px, 0);
+                                @include box(600px, 24px);
                             }
                         }
                         .small {
@@ -85,19 +87,21 @@ section {
                             flex-direction: row;
                             justify-content: space-between;
                             // @include borderT;
-                            @include box(600px, 0);
+                            @include box(600px, 24px);
                             margin: 0;
+                            margin-top: 8px;
                             font-size: 0;
                             overflow: auto;
-                            img:nth-child(1) {
+                            img:first-child {
                                 margin-left: 0;
                             }
                             img {
                                 margin-left: 5px;
-                                margin-top: 12px;
                                 cursor: pointer;
-                                width: 140px;
-                                height: 140px;
+                                @include box(140px ,24px);
+                            }
+                            img:last-child {
+                                margin-right: 0;
                             }
                         }
                     }
@@ -129,19 +133,22 @@ section {
             .L {
                 background-color: white;
                 @include borderT;
-                @include box(90%, 0);
+                @include box(90%, 24px);
                 margin: 20px;
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
                 align-items: center;
+                position: relative;
                 img {
                     border-radius: 50%;
                     // width: 40px;
                     // height: 40px;
                     margin: 20px;
                 }
+
             }
+
         }
         .messaging {
             background-color: white;

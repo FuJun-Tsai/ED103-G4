@@ -18,50 +18,79 @@
 
 #R1 {
     .rep {
-        @include img(500px, './../image/1-600.png');
+        div{
+            @include img(500px, './../image/1-600.png');
+        }
     }
 }
 
 #R2 {
     .rep {
-        @include img(500px, './../image/2-600.png');
+        div{
+            @include img(500px, './../image/2-600.png');
+        }
     }
 }
 
 #R3 {
     .rep {
-        @include img(500px, './../image/3-600.png');
+        div{
+            @include img(500px, './../image/3-600.png');
+        }
     }
 }
 
 #R4 {
     .rep {
-        @include img(500px, './../image/4-600.png');
+        div{
+            @include img(500px, './../image/4-600.png');
+        }
     }
 }
 
 #R5 {
     .rep {
-        @include img(500px, './../image/3-600.png');
+        div{
+            @include img(500px, './../image/3-600.png');
+        }
     }
 }
 
 #R6 {
     .rep {
-        @include img(500px, './../image/2-600.png');
+        div{
+            @include img(500px, './../image/2-600.png');
+        }
     }
 }
 
 #R7 {
     .rep {
-        @include img(500px, './../image/4-600.png');
+        div{
+            @include img(500px, './../image/4-600.png');
+        }
     }
 }
 
 #R8 {
     .rep {
-        @include img(500px, './../image/1-600.png');
+        div{
+            @include img(500px, './../image/1-600.png');
+        }
     }
+}
+
+p::-webkit-scrollbar-track {
+    background-color: #FFE1A4;
+}
+//捲軸寬度
+p::-webkit-scrollbar {
+    width: 6px;
+    background-color: black;
+}
+//捲軸本體顏色
+p::-webkit-scrollbar-thumb {
+    background-color: #bb6573;
 }
 
 body {
@@ -108,7 +137,21 @@ body {
             .result {
                 margin-top: 20px;
                 .rest {
+                    border-radius: 24px;
+                    @include lineGradient(50%,345deg,#F2AB39,transparent);
                     margin: 80px 0px;
+                    .rep{
+                        margin: 0px;
+                        border-radius: 16px;
+                        div{
+                            margin-left: -30px;
+                            border-radius: 24px 0px 0px 24px;
+                            @media screen and (max-width:992px){
+                                border-radius: 24px;
+                                margin: 0;
+                            }   
+                        }
+                    }
                     .detail {
                         position: relative;
                         padding-bottom: 50px;
@@ -122,6 +165,8 @@ body {
                             width: 100%;
                             line-height: 2rem;
                             font-size: $fontSize;
+                            height: 100px;
+                            overflow: auto;
                         }
                         .kind {
                             @include box(60px, 8px);
