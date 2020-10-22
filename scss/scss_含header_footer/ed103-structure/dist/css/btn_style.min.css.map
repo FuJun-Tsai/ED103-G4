@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../../sass/base/btn_style.scss"
-    ],
-    "names": [],
-    "file": "btn_style.min.css"
-}
