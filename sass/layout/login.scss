@@ -1,4 +1,6 @@
 @import "../base/var";
+// @import "../base/reset";
+@import "../base/reset_bootstrap";
 @import "../base/color";
 @import "../base/font";
 //mixin
@@ -11,7 +13,7 @@
 @import "../mixin/light-box";
 @import "../mixin/example";
 @import "../mixin/search";
+@import "../mixin/bootstrap_nopm";
+@import "../mixin/circle";
 //layout
 @import "../layout/login1";
-// @import "../base/reset";
-// @import "../base/reset_bootstrap";
