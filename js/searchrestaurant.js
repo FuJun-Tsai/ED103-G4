@@ -55,7 +55,7 @@ $(document).ready(function(){
         for(let i=0;i<=$('.page li').length;i+=1){
             $(`.page li:nth-child(${i})`).attr('data-page',`${i-1}`);
         }
-        
+
         $('.page li').on('click',function(){
             // index = $('.page li').index(this);
             index = $(this).attr('data-page');
@@ -118,7 +118,6 @@ $(document).ready(function(){
                     }
                 }
             }
-            
         }
         // 條件 餐廳
 
