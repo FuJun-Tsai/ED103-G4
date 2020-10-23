@@ -8,12 +8,12 @@ section {
         margin-right: 5px;
         cursor: pointer;
     }
-    .wrapper {
+    .den_wrapper {
         // background-image: url(../../image/background_round.svg);
         // background-size: cover;
         // background-position: left 50%;
         // background-position: center center;
-        .gif {
+        .den_gif {
             position: absolute;
             bottom: 0;
             right: 0;
@@ -34,7 +34,7 @@ section {
                 height: 50%;
             }
         }
-        .background_round {
+        .den_background_round {
             background-image: url(../image/14.svg);
             // opacity: .7;
             z-index: -60;
@@ -47,19 +47,19 @@ section {
             // background-repeat: no-repeat;
             // background-size: cover;
         }
-        .container {
+        .den_container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 30px;
             // border: 1px solid;
             // box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
-            .row {
+            .den_row {
                 h3 {
                     background-color: $bgColor-style2;
                     display: inline-block;
                     padding: 15px 20px;
                 }
-                .title {
+                .den_title {
                     width: 100%;
                     // border: 1px solid green;
                     .title_left {
@@ -101,10 +101,10 @@ section {
                         }
                     }
                 }
-                .search {
+                .den_search {
                     padding: 10px 0px;
                     // border: 1px solid red;
-                    .search_icon {
+                    .den_search_icon {
                         margin: 0 auto;
                         position: relative;
                         width: 70%;
@@ -129,10 +129,10 @@ section {
                     display: inline-block;
                     // background-color: $bgColor-style2;
                 }
-                .Condition_search {
-                    .row {
-                        .selection {
-                            .res_type {
+                .den_Condition_search {
+                    .den_row {
+                        .den_selection {
+                            .den_res_type {
                                 padding: 20px 15%;
                                 // text-align: center;
                                 h3 {
@@ -147,7 +147,7 @@ section {
                                     vertical-align: bottom;
                                 }
                             }
-                            .cooking_style {
+                            .den_cooking_style {
                                 padding: 20px 15%;
                                 // text-align: center;
                                 h3 {
@@ -165,18 +165,18 @@ section {
                         }
                     }
                 }
-                #tab1 {
+                #den_tab1 {
                     display: block;
                     // display: none;
                     .result_owl {
                         // border: 1px solid green;
                         width: 100%;
-                        .row {
+                        .den_row {
                             padding: 0 10px;
                             display: flex;
                             margin: 50px 0;
                             text-align: center;
-                            .nav_left {
+                            .den_nav_left {
                                 flex: 0 0 5%;
                                 align-self: center;
                                 img {
@@ -185,9 +185,9 @@ section {
                                     cursor: pointer;
                                 }
                             }
-                            .content_range {
+                            .den_content_range {
                                 overflow: hidden;
-                                .content {
+                                .den_content {
                                     // border: 1px solid blue;
                                     flex: 1 1 90%;
                                     // overflow: scroll;
@@ -225,7 +225,7 @@ section {
                                     }
                                 }
                             }
-                            .nav_right {
+                            .den_nav_right {
                                 flex: 0 0 5%;
                                 align-self: center;
                                 img {
@@ -236,14 +236,14 @@ section {
                             }
                         }
                     }
-                    .Fill_Information_wrapper {
+                    .den_Fill_Information_wrapper {
                         display: flex;
                         justify-content: space-around;
-                        .Fill_Information {
+                        .den_Fill_Information {
                             flex: 0 1 45%;
                             // border: 1px solid red;
                             text-align: center;
-                            .Information_title {
+                            .den_Information_title {
                                 text-align: left;
                             }
                             form {
@@ -276,7 +276,7 @@ section {
                                 }
                             }
                         }
-                        .friend_window {
+                        .den_friend_window {
                             flex: 0 1 45%;
                             // border: 1px solid blue;
                             text-align: center;
@@ -321,7 +321,7 @@ section {
                             }
                         }
                     }
-                    .button {
+                    .den_button {
                         // text-align: center;
                         width: 13%;
                         margin: auto;
@@ -334,14 +334,14 @@ section {
                         }
                     }
                 }
-                #tab2 {
+                #den_tab2 {
                     // border: 1px solid red;
                     display: none;
-                    .foodGroup {
+                    .den_foodGroup {
                         overflow-y: scroll;
                         margin: 10px 0px;
                         height: 1024px;
-                        .eatGroup {
+                        .den_eatGroup {
                             background-color: rgba(245, 222, 179, .2);
                             display: flex;
                             // border: 1px solid #cccccc;
@@ -362,7 +362,7 @@ section {
                                 height: 200px;
                                 border-radius: 100%;
                             }
-                            .eatGroup_content {
+                            .den_eatGroup_content {
                                 padding-left: 20px;
                                 flex: 1;
                                 // border: 1px solid;
@@ -372,7 +372,7 @@ section {
                                     background-color: rgba(255, 255, 255, .1);
                                 }
                             }
-                            .eatGroup_button {
+                            .den_eatGroup_button {
                                 align-self: flex-end;
                                 padding-bottom: 15px;
                                 button {
@@ -389,7 +389,7 @@ section {
     }
 }
 
-.box {
+.den_box {
     @include light-box-setting(100%, 95vh, absolute);
     // border: 10px solid rgba(22, 22, 22, .6);
     box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
@@ -423,7 +423,7 @@ section {
             margin: auto;
         }
     }
-    .box_row {
+    .den_box_row {
         display: flex;
         // align-items: center;
         // padding: 5% 15px;
@@ -471,7 +471,7 @@ section {
             }
         }
     }
-    .box_button {
+    .den_box_button {
         display: none;
         text-align: center;
         button {
@@ -480,7 +480,7 @@ section {
     }
 }
 
-.box2 {
+.den_box2 {
     @include light-box-setting(100%, 115%, absolute);
     // border: 10px solid rgba(22, 22, 22, .6);
     box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
@@ -512,7 +512,7 @@ section {
             margin: auto;
         }
     }
-    .box2_row {
+    .den_box2_row {
         display: flex;
         align-items: center;
         // padding: 8% 15px;
@@ -540,7 +540,7 @@ section {
                 padding: 3px;
                 object-fit: cover;
             }
-            .box_button {
+            .den_box_button {
                 text-align: center;
                 width: 40%;
                 // border: 1px solid;
@@ -611,7 +611,7 @@ section {
     }
 }
 
-.box3 {
+.den_box3 {
     @include light-box-setting(100%, 115%, absolute);
     // border: 10px solid rgba(22, 22, 22, .6);
     box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
@@ -643,7 +643,7 @@ section {
             margin: auto;
         }
     }
-    .box3_row {
+    .den_box3_row {
         display: flex;
         align-items: center;
         // padding: 8% 15px;
@@ -671,7 +671,7 @@ section {
                 padding: 3px;
                 object-fit: cover;
             }
-            .box_button {
+            .den_box_button {
                 text-align: center;
                 width: 40%;
                 // border: 1px solid;
