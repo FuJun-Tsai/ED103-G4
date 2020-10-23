@@ -38,18 +38,36 @@ $(document).ready(function(){
     for(let i=1;i<=pages;i+=1){
         $('.page').append(`<li>${i}</li>`);
     };
+    for(let i=0;i<=$('.page li').length;i+=1){
+        $(`.page li:nth-child(${i})`).attr('data-page',`${i-1}`);
+    }
+
+    $('.page li:nth-child(1)').css({'color':'black'});
 
     function createpage(){
         $('.page').empty('li');
         // 分頁
+
         for(let i=1;i<=Math.ceil(show.length/4);i+=1){
             $('.page').append(`<li>${i}</li>`);
         };
-        $('.page li').click(function(){
-            showpage();
+
+        for(let i=0;i<=$('.page li').length;i+=1){
+            $(`.page li:nth-child(${i})`).attr('data-page',`${i-1}`);
+        }
+        
+        $('.page li').on('click',function(){
+            // index = $('.page li').index(this);
+            index = $(this).attr('data-page');
+            $('.page li').css({'color':'cornflowerblue'});
+            $(this).css({'color':'black'});
+            showresult();
         });
+
+        $('.page li:nth-child(1)').css({'color':'black'});
     }
-    showpage();
+
+    showresult();
 
     $('.kind input').on('click',function(){
         
@@ -118,6 +136,7 @@ $(document).ready(function(){
                 show.push($(`#R${i}`).attr('id'));
             }
             createpage();
+            showresult();
         }else{
             show = [];
             if((RK.length+RS.length)==0){
@@ -151,7 +170,7 @@ $(document).ready(function(){
 
             };
             createpage();
-
+            showresult();
         };
 
     };
@@ -160,8 +179,6 @@ $(document).ready(function(){
         let word = $('#searchword').val();
         let total = $('.rest').length;
         show = [];
-        console.log(word);
-        console.log(total);
 
         if(word.length>0){
             for(let i=1;i<total;i+=1){
@@ -174,7 +191,7 @@ $(document).ready(function(){
         console.log(show);
 
         createpage();
-        showpage();
+        showresult();
 
     });
 
@@ -185,16 +202,22 @@ $(document).ready(function(){
 
     // });
 
-    function showpage(){
-        $('.rest').css({'display':'none ',});
+    function showresult(){
+        $('.rest').css({'display':'none',});
+        console.log(show);
+        console.log(index);
+        console.log($('.page li').length);
         for(let i=0;i<=3;i+=1){
             $(`#${show[i + index * 4]}`).css({'display':'block',});
         };
     };
     
-    $('.page li').click(function(){
-        index = $('.page li').index(this);
-        showpage();
+    $('.page li').on('click',function(){
+        // index = $('.page li').index(this);
+        index = $(this).attr('data-page');
+        $('.page li').css({'color':'cornflowerblue'});
+        $(this).css({'color':'black'});
+        showresult();
     });
 
 });

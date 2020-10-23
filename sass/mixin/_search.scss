@@ -183,7 +183,7 @@ body {
                             overflow: auto;
                         }
                         .kind {
-                            @include box(60px, 8px);
+                            @include box(70px, 8px);
                             // @include borderT;
                             text-align: center;
                             display: inline-block;
@@ -194,7 +194,7 @@ body {
                             border: 0.1px solid;
                         }
                         .style {
-                            @include box(60px, 8px);
+                            @include box(70px, 8px);
                             // @include borderT;
                             text-align: center;
                             display: inline-block;
@@ -249,16 +249,11 @@ body {
                 flex-direction: row;
                 justify-content: center;
                 li {
-                    @include borderT;
                     padding: 0 20px;
                     cursor: pointer;
                     font-size: $fontSize;
-                }
-                li:first-child {
-                    border-radius: 16px 0 0 16px;
-                }
-                li:last-child {
-                    border-radius: 0 16px 16px 0;
+                    color: cornflowerblue;
+                    text-decoration: underline;
                 }
             }
         }
