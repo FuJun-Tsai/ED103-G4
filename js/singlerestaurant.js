@@ -29,16 +29,21 @@ $(document).ready(function(){
     let today = new Date();
     day = today.getDay();
 
-    $(`#week #${day}`).css({
+    $(`#${day}`).css({
         'color':'red',
-        'fontSize':'18px',
+        'fontSize':'20px',
+    });
+    
+    $(`#${day} span`).css({
+        'color':'red',
+        'fontSize':'20px',
     });
 
     function largeH(){
         let ww = $(window).width();
         // console.log(ww);
-        if(ww<600){
-            $('.large').css({'height':`${ww}px`});
+        if(ww<660){
+            $('.large').css({'height':`${ww - 80}px`});
         }else{
             $('.large').css({'height':'600px'});
         }
@@ -46,9 +51,12 @@ $(document).ready(function(){
 
     largeH();
 
-    $(window).resize(function(){
+    window.addEventListener('resize',function(){
         largeH();
     });
+
+
+    
 
     // m_MouseDown = false;
     // selected = '';
