@@ -1,5 +1,5 @@
-$(function() {  
-  $('.btn_js')
+$(document).ready(function(){
+	$('.btn_js')
     .on('mouseenter', function(e) {
 			var parentOffset = $(this).offset(),
       		relX = e.pageX - parentOffset.left,

@@ -46,9 +46,10 @@ $bg-color: #eeeeee !default;
   line-height: $btn-height;
   text-align: center;
   font-weight: bold;
-  border: 2px solid currentColor;
+  border: 2px solid $use_color;
   border-radius: $bd_radius;
   background-color: $use_color;
+  outline: none;
   // $btn-color: #fff;
   // $btn-color-dark: shade($btn-color, 40%);
   // color: tint($btn-color);
@@ -155,9 +156,20 @@ $bg-color: #eeeeee !default;
 }
 //小頁籤(會員頁)
 .btn_10{
-  @include btn(100px, 40px, #DF7219, 15px);
+  @include btn(60px, 30px, #DF7219, 15px);
 }
-//
+//會員頁按鈕
+.btn_11{
+  @include btn(150px, 50px, #FFE1A4, 15px);
+}
+//會員頁title{
+.btn_12{
+  @include btn(700px, 50px, #9B1E23, 20px 20px 0 0);
+  &:hover{
+    color:#fff;
+  }
+}
+//header專用按鈕
 .btn_header {
   @include size(100%, $btn-height);
   max-width: $btn-width;

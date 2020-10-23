@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="./css/head_footer_style.css">
     <link rel="stylesheet" href="./css/other/hover-min.css">
     <link rel="stylesheet" href="./css/other/animation.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script> -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="./js/header_fixed.js"></script>
     <title>會員專區</title>
-    <link rel="stylesheet" href="./css/mem.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">   
-    <!-- <script src="mem_pg.vue"></script> -->
+    <link rel="stylesheet" href="./css/mem.css"> <!--他的css -->
+    <link rel="stylesheet" href="./css/btn_hover.css"><!--按鈕的css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><!--冰山icon的css -->
+    <script src="./js/mem_pg.js"></script>   <!--他的js -->
+    <script src="js/btn_hover.js"></script> <!--按鈕js -->
 </head>
 
 <body style="background-image: url(./image/bigbg.svg);">
@@ -100,28 +102,26 @@
                     <h5>阿土伯
                     </h5>
                 </div>
-                <div class="mypa ">
+                <div class="mypa">
                     <div class="mylist justify-content-center">
                         <ul>
                             <li>
-                                <button data-target="my_main" class="tabbtn -on">我的資訊</button>
+                                <button data-target="my_main" class="tabbtn -on btn_11 btn_js">我的資訊<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_group" class="tabbtn">我的開團</button>
+                                <button data-target="my_group" class="tabbtn btn_11 btn_js">我的開團<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_jion" class="tabbtn">我的參團</button>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <button data-target="my_collect" class="tabbtn">我的收藏</button>
+                                <button data-target="my_jion" class="tabbtn btn_11 btn_js">我的參團<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_article" class="tabbtn">我的文章</button>
+                                <button data-target="my_collect" class="tabbtn btn_11 btn_js">我的收藏<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_friend" class="tabbtn">我的好友</button>
+                                <button data-target="my_article" class="tabbtn btn_11 btn_js">我的文章<span></span></button>
+                            </li>
+                            <li>
+                                <button data-target="my_friend" class="tabbtn btn_11 btn_js">我的好友<span></span></button>
                             </li>
                         </ul>
                     </div>
@@ -129,7 +129,7 @@
             </div>
             <div class="my_main tabbtn_1 -on">
                 <div class="block">
-                    <h3 class="title">
+                    <h3 class="title btn_12 btn_js">
                         我的資訊
                     </h3>
                     <div class="small-block">
@@ -140,8 +140,8 @@
                             <h5 class="content" id="name">
                                 孫小美
                             </h5>
-                            <button class="change">
-                                修改
+                            <button class="change btn_10 btn_js">
+                                修改<span></span>
                             </button>
                         </div>
                         <div class="part">
@@ -168,7 +168,7 @@
                                 mei000
                             </h5>
                             <button class="change">
-                                修改
+                                修改<span></span>
                             </button>
                         </div>
                         <div class="part">
@@ -187,7 +187,7 @@
                                 meimei@mail.com
                             </h5>
                             <button class="change">
-                                修改
+                                修改<span></span>
                             </button>
                         </div>
                         <div class="part">
@@ -195,7 +195,7 @@
                                 自我介紹:
                             </h4>
                             <button class="change">
-                                修改
+                                修改<span></span>
                             </button>
                             <h5 class="content" id="introduce">
                                 自我介紹似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。要想清楚，自我介紹，到底是一種怎麼樣的存在。我們要學會站在別人的角度思考。做好自我介紹這件事，可以說已經成為了全民運動。若能夠洞悉自我介紹各種層面的含義，勢必能讓思維再提高一個層級
@@ -801,7 +801,7 @@
         }
     </script>
 
-    <script src="./js/mem_pg.js"></script>
+    
     
 </body>
 
