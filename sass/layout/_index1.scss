@@ -1787,8 +1787,9 @@ section.third_screen {
 //         }
 //     }
 // }
-section {
-    // position: relative;
+#section3 {
+    position: relative;
+    overflow: hidden;
     .fourth_screen_circle_orange {
         @include circle_bigOrange;
         top: 50%;
