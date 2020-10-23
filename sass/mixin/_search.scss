@@ -160,15 +160,24 @@ body {
                     .detail {
                         position: relative;
                         padding-bottom: 50px;
+                        @media screen and (max-width:992px){
+                            padding-bottom: 100px;
+                        }
+                        h2 {
+                            margin-top: 24px;
+                            border-left: 8px solid #9B1E23;
+                            padding-left: 8px;
+                        }
                         h3 {
                             margin-top: 8px !important;
-                            margin-bottom: 24px !important;
                         }
                         p {
                             display: inline-block;
-                            margin-left: 20px;
+                            // margin-left: 20px;
+                            padding-left: 20px;
                             width: 100%;
-                            line-height: 2rem;
+                            // max-width: ;
+                            line-height: 2rem !important;
                             font-size: $fontSize;
                             height: 100px;
                             overflow: auto;
@@ -199,16 +208,19 @@ body {
                             position: absolute;
                             display: flex;
                             flex-direction: row;
-                            right: 0;
-                            top: 0;
+                            right: 12px;
+                            top: 24px;
                             img {
                                 margin-right: 12px;
                             }
                         }
                         .insearch {
                             height: 130px !important;
+                            // border: 6px solid #FFE1A4 !important;
+                            // border-right: none !important;
                             border: none !important;
-                            overflow: hidden !important;
+                            overflow: auto !important;
+
                             //important複寫在單一餐廳頁的屬性
                         }
                         .go {
@@ -217,9 +229,16 @@ body {
                             right: 0;
                             .btnRed {
                                 @include btnBlue_3;
+                                margin-bottom: 24px;
                             }
                             .btnBlue {
                                 @include btnPurple_4;
+                                margin-bottom: 24px;
+                            }
+                            .btnsingle{
+                                @include btnBrown_5;
+                                margin-bottom: 24px !important;
+
                             }
                         }
                     }
