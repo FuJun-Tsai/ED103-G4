@@ -65,6 +65,7 @@ $(document).ready(function(){
         });
 
         $('.page li:nth-child(1)').css({'color':'black'});
+
     }
 
     showresult();
@@ -209,9 +210,14 @@ $(document).ready(function(){
 
     function showresult(){
         $('.rest').css({'display':'none',});
+        $('.error').css({'display':'none'});
+
         for(let i=0;i<=3;i+=1){
             $(`#${show[i + index * 4]}`).css({'display':'block',});
         };
+        if(show.length == 0){
+            $('.error').css({'display':'block'});
+        }
     };
     
     $('.page li').on('click',function(){
@@ -220,6 +226,24 @@ $(document).ready(function(){
         $('.page li').css({'color':'cornflowerblue'});
         $(this).css({'color':'black'});
         showresult();
+
+    });
+
+    imgcube();
+
+    function imgcube(){
+        let imgwidth = $('.rep div').width();
+        if($(window).width()<600){
+            $('.rep div').height(imgwidth);
+            // console.log(imgwidth);
+        }else{
+            $('.rep div').height(487.5);
+        }
+    };
+
+    window.addEventListener('resize',function(){
+            imgcube();
+            console.log($(window).width());
     });
 
 });

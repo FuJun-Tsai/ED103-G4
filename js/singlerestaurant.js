@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $('.small img').click(function(){
+    $('.small img').on('click',function(){
         $('.small img').addClass('togray');
         $(this).removeClass('togray');
         let src = $(this).attr('src');
@@ -8,12 +8,19 @@ $(document).ready(function(){
 
     });
 
-    $('#send').submit(function(){
+    $('#send').on('submit',function(){
         let content = $('textarea').val();
+        let array = content.split('');
         let id = $('#leavemessage div:last-child').attr('id').split('L')[1];
         id = parseInt(id);
         id+=1;
-        
+        for(let i=0;i<=array.length-1;i+=1){
+            if(array[i].charCodeAt()==10){
+                array[i]='<br>';
+            }
+            content = array.join('');
+        }
+
         $('#leavemessage').append(`
         <div id='L${id}' class='L'  >
             <img src="http://fakeimg.pl/60x60" alt="">
