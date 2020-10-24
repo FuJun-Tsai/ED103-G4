@@ -164,6 +164,7 @@ section {
                             justify-content: space-around;
                             .btnRed {
                                 @include btnBlue_3;
+                                // @include btn ($btn-width,$btn-height,$use_color,$bd_radius);
                             }
                             .btnBlue {
                                 @include btnPurple_4;
