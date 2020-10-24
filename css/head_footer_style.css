@@ -306,6 +306,7 @@ body section .back:nth-child(1) {
   position: fixed;
   left: 0;
   opacity: 0.5;
+  z-index: -1;
 }
 
 body section .back:nth-child(2) {
@@ -315,6 +316,7 @@ body section .back:nth-child(2) {
   position: fixed;
   right: 0;
   opacity: 0.5;
+  z-index: -1;
 }
 
 body section .content {
@@ -568,7 +570,7 @@ body section .content .page {
 }
 
 body section .content .page li {
-  padding: 0 20px;
+  padding: 20px 20px;
   cursor: pointer;
   font-size: 16px;
   color: cornflowerblue;

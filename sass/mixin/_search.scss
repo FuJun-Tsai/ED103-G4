@@ -103,6 +103,7 @@ body {
             position: fixed;
             left: 0;
             opacity: 0.5;
+            z-index: -1;
         }
         .back:nth-child(2) {
             background-image: url(./../image/資產10.svg);
@@ -111,6 +112,7 @@ body {
             position: fixed;
             right: 0;
             opacity: 0.5;
+            z-index: -1;
         }
         .content {
             @include box(1200px, 0);
@@ -250,7 +252,7 @@ body {
                 flex-direction: row;
                 justify-content: center;
                 li {
-                    padding: 0 20px;
+                    padding: 20px 20px;
                     cursor: pointer;
                     font-size: $fontSize;
                     color: cornflowerblue;

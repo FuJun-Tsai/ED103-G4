@@ -59,7 +59,10 @@ $(document).ready(function(){
         $('.page li').on('click',function(){
             // index = $('.page li').index(this);
             index = $(this).attr('data-page');
-            $('.page li').css({'color':'cornflowerblue'});
+            $('.page li').css({
+                'color':'cornflowerblue',
+                'cursor':'pointer',
+            });
             $(this).css({'color':'black'});
             showresult();
         });
