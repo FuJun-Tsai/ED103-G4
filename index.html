@@ -21,7 +21,7 @@
 
     <!--[if IE]>
 		<script type="text/javascript">
-			 var console = { log: function() {} };
+			var console = { log: function() {} };
 		</script>
 	<![endif]-->
 
@@ -30,9 +30,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
 
-    <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+    <!-- <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
     <script type="text/javascript" src="./js/jquery.slimscroll.min.js"></script>
-    <script type="text/javascript" src="./js/examples.js"></script>
+    <script type="text/javascript" src="./js/examples.js"></script> -->
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -311,10 +311,10 @@
                     </div>
 
                     <button id="Rarrow">
-                        <img src="./image/chevron-circle-right-solid.svg" alt="">
+                        <img src="./image/index/arrow_right.svg" alt="">
                     </button>
                     <button id="Larrow">
-                        <img src="./image/chevron-circle-left-solid.svg" alt="">
+                        <img src="./image/index/arrow_left.svg" alt="">
                     </button>
                 </div>
 
@@ -372,11 +372,10 @@
 
         <div class="section" id="section2">
             <section class="third_screen">
-                <div class="circle_orange">
-                    <h2>吃吃配對</h2>
-                    <h4>不知道吃什麼嗎？想認識新朋友嗎？<br> 進入遊戲配對，尋找餐廳和吃友～
-                    </h4>
-                </div>
+                <div class="circle_orange"></div>
+                <h2>吃吃配對</h2>
+                <h4>不知道吃什麼嗎？想認識新朋友嗎？<br> 進入遊戲配對，尋找餐廳和吃友～
+                </h4>
                 <div class="useCellPhone"></div>
                 <div class="friends"></div>
                 <div class="video">
@@ -388,188 +387,71 @@
 
         <div class="section" id="section3">
             <section class="fourth_screen">
-                <div class="circle_orange">
-                    <div class="center"></div>
-                    <div class="up">
-                        <div class="up_left">
-                            <div class="twoCircle">
-                                <div class="color">
-                                    <h2>最新貼文</h2>
-                                </div>
-                                <div class="black">
-                                    <div class="heart">
-                                        <div class="icon"></div>
-                                        <h4>5</h4>
-                                    </div>
-                                    <div class="comment">
-                                        <div class="icon"></div>
-                                        <h4>3</h4>
-                                    </div>
-                                    <div class="share">
-                                        <div class="icon"></div>
-                                        <h4>7</h4>
-                                    </div>
-                                </div>
-                                <!-- <button> -->
-                                <div class="button">
 
-                                </div>
-                                <!-- </button> -->
+                <div class="header_padding"></div>
+
+                <div class="fourth_screen_circle_orange"></div>
+
+
+                <div class="chu_container">
+
+                    <div class="chu_row1">
+
+                        <div class="chu_left">
+                            <div class="chu_left_icon1">
+                                <img src="./image/user.png" alt="">
                             </div>
-                            <div class="userComment">
-                                <div class="user"></div>
-                                <div class="name_date_comment">
-                                    <div class="name_date">
-                                        <div class="name">
-                                            <h4>張惠妹</h4>
-                                        </div>
-                                        <div class="date">
-                                            <h4>2020.10.17</h4>
-                                        </div>
-                                    </div>
-                                    <div class="comment">
-                                        <h4>：津之園分量超大!吃不完</h4>
-                                    </div>
-                                </div>
+                            <div class="chu_left_icon3">
+                                <img src="./image/index/fourth_screen_hollowHeart.svg" alt="">
+                                <p>35</p>
+                            </div>
+                            <p class="chu_left_content"><img src="./image/index/fourth_screen_speaker.svg" alt="">
+                                皇家蝦捲好好吃</p>
+                            <span>＜最多收藏貼文＞</span>
+                            <div class="chu_left_icon2">
+                                <img src="./image/index/arrow_right.svg" alt="">
                             </div>
                         </div>
-
-                        <div class="up_right">
-                            <div class="twoCircle">
-                                <div class="color">
-                                    <h2>最多收藏</h2>
-                                </div>
-                                <div class="black">
-                                    <div class="heart">
-                                        <div class="icon"></div>
-                                        <h4>27</h4>
-                                    </div>
-                                    <div class="comment">
-                                        <div class="icon"></div>
-                                        <h4>13</h4>
-                                    </div>
-                                    <div class="share">
-                                        <div class="icon"></div>
-                                        <h4>5</h4>
-                                    </div>
-                                </div>
-                                <!-- <button> -->
-                                <div class="button">
-
-                                </div>
-                                <!-- </button> -->
+                        <div class="chu_center">
+                            <div class="chu_center_icon1">
+                                <img src="./image/user.png" alt="">
                             </div>
-                            <div class="userComment">
-                                <div class="user"></div>
-                                <div class="name_date_comment">
-                                    <div class="name_date">
-                                        <div class="name">
-                                            <h4>周節倫</h4>
-                                        </div>
-                                        <div class="date">
-                                            <h4>2020.10.07</h4>
-                                        </div>
-                                    </div>
-                                    <div class="comment">
-                                        <h4>：黃家蝦捲好好吃~</h4>
-                                    </div>
-                                </div>
+                            <div class="chu_center_icon3">
+                                <img src="./image/index/fourth_screen_comment.svg" alt="">
+                                <p>22</p>
+                            </div>
+                            <p class="chu_center_content"><img src="./image/index/fourth_screen_speaker.svg" alt="">
+                                乾杯燒肉好好吃</p>
+                            <span>＜最多留言貼文＞</span>
+                            <div class="chu_center_icon2">
+                                <img src="./image/index/arrow_right.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="chu_right">
+                            <div class="chu_right_icon1">
+                                <img src="./image/user.png" alt="">
+                            </div>
+                            <div class="chu_right_icon3">
+                                <img src="./image/index/fourth_screen_share.svg" alt="">
+                                <p>13</p>
+                            </div>
+                            <p class="chu_right_content"><img src="./image/index/fourth_screen_speaker.svg" alt="">
+                                爭鮮好好吃</p>
+                            <span>＜最多分享貼文＞</span>
+                            <div class="chu_right_icon2">
+                                <img src="./image/index/arrow_right.svg" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="down">
-                        <div class="down_left">
-                            <div class="twoCircle">
-                                <div class="color">
-                                    <h2>最多留言</h2>
-                                </div>
-                                <div class="black">
-                                    <div class="heart">
-                                        <div class="icon"></div>
-                                        <h4>7</h4>
-                                    </div>
-                                    <div class="comment">
-                                        <div class="icon"></div>
-                                        <h4>33</h4>
-                                    </div>
-                                    <div class="share">
-                                        <div class="icon"></div>
-                                        <h4>19</h4>
-                                    </div>
-                                </div>
-                                <!-- <button> -->
-                                <div class="button">
-
-                                </div>
-                                <!-- </button> -->
-                            </div>
-                            <div class="userComment">
-                                <div class="user"></div>
-                                <div class="name_date_comment">
-                                    <div class="name_date">
-                                        <div class="name">
-                                            <h4>A-LINNN</h4>
-                                        </div>
-                                        <div class="date">
-                                            <h4>2020.10.01</h4>
-                                        </div>
-                                    </div>
-                                    <div class="comment">
-                                        <h4>：吃友配對好好玩XDD</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="down_right">
-                            <div class="twoCircle">
-                                <div class="color">
-                                    <h2>最多分享</h2>
-                                </div>
-                                <div class="black">
-                                    <div class="heart">
-                                        <div class="icon"></div>
-                                        <h4>15</h4>
-                                    </div>
-                                    <div class="comment">
-                                        <div class="icon"></div>
-                                        <h4>3</h4>
-                                    </div>
-                                    <div class="share">
-                                        <div class="icon"></div>
-                                        <h4>26</h4>
-                                    </div>
-                                </div>
-                                <!-- <button> -->
-                                <div class="button">
-
-                                </div>
-                                <!-- </button> -->
-                            </div>
-                            <div class="userComment">
-                                <div class="user"></div>
-                                <div class="name_date_comment">
-                                    <div class="name_date">
-                                        <div class="name">
-                                            <h4>李蹤剩</h4>
-                                        </div>
-                                        <div class="date">
-                                            <h4>2020.10.05</h4>
-                                        </div>
-                                    </div>
-                                    <div class="comment">
-                                        <h4>：吃合菜變得好方便</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="chu_button">
+                        <button><h3>查看更多分享</h3></button>
                     </div>
-                    <button><h3>查看更多分享</h3></button>
+
                 </div>
+                <div class="fourth_screen_friends"></div>
+
             </section>
         </div>
-
-
-
 
         <!-- ***************************** -->
         <footer>
