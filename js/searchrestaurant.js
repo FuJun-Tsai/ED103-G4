@@ -194,18 +194,18 @@ $(document).ready(function(){
 
     });
 
-    $('#searchword').on('click',function(){
+    // $('#searchword').on('click',function(){
         
-        show = [];
-        for(let i=1;i<=$('.rest').length;i+=1){
-            show.push($(`#R${i}`).attr('id'));
-        }
+    //     show = [];
+    //     for(let i=1;i<=$('.rest').length;i+=1){
+    //         show.push($(`#R${i}`).attr('id'));
+    //     }
 
-        console.log(show);
-        createpage();
-        showresult();
+    //     console.log(show);
+    //     createpage();
+    //     showresult();
         
-    });
+    // });
 
 
     function showresult(){
