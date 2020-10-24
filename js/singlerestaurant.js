@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $('.small img').click(function(){
+    $('.small img').on('click',function(){
         $('.small img').addClass('togray');
         $(this).removeClass('togray');
         let src = $(this).attr('src');
@@ -8,12 +8,18 @@ $(document).ready(function(){
 
     });
 
-    $('#send').submit(function(){
+    $('#send').on('submit',function(){
         let content = $('textarea').val();
+        let array = content.split('');
         let id = $('#leavemessage div:last-child').attr('id').split('L')[1];
         id = parseInt(id);
         id+=1;
-        
+        for(let i=0;i<=array.length-1;i+=1){
+            if(array[i].charCodeAt()==10){
+                array[i]='<br>';
+            }
+            content = array.join('');
+        }
 
         $('#leavemessage').append(`
         <div id='L${id}' class='L'  >
@@ -29,16 +35,21 @@ $(document).ready(function(){
     let today = new Date();
     day = today.getDay();
 
-    $(`#week #${day}`).css({
+    $(`#${day}`).css({
         'color':'red',
-        'fontSize':'18px',
+        'fontSize':'20px',
+    });
+    
+    $(`#${day} span`).css({
+        'color':'red',
+        'fontSize':'20px',
     });
 
     function largeH(){
         let ww = $(window).width();
         // console.log(ww);
-        if(ww<600){
-            $('.large').css({'height':`${ww}px`});
+        if(ww<660){
+            $('.large').css({'height':`${ww - 80}px`});
         }else{
             $('.large').css({'height':'600px'});
         }
@@ -46,7 +57,7 @@ $(document).ready(function(){
 
     largeH();
 
-    $(window).resize(function(){
+    window.addEventListener('resize',function(){
         largeH();
     });
 
