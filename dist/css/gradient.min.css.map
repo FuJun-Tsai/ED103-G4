@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../sass/mixin/gradient.scss"
+    ],
+    "names": [],
+    "file": "gradient.min.css"
+}

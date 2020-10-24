@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,AAAA,CACA,WAAW,CAAE,CAAC,CACd,YAAY,CAAE,CAAC,CACf,SAAS,CAAE,MAAM,CACpB,AACD,AAAA,UAAU,CAAE,gBAAgB,CAAE,aAAa,CAAE,aAAa,CAAE,aAAa,CAAE,aAAa,AAAA,CAGpF,SAAS,CAAE,MAAM,CACpB",
+    "sources": [
+        "../../sass/mixin/bootstrap_nopm.scss"
+    ],
+    "names": [],
+    "file": "bootstrap_nopm.min.css"
+}
