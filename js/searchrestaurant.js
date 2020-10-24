@@ -16,7 +16,7 @@ $(document).ready(function(){
     $('.chi').text('中台');
     $('.sea').text('東南亞');
 
-    $('.kind input').click(function(){
+    $('.kind input').on('click',function(){
         if($(this).prop('checked')){
             $('.kind input:checkbox').prop('checked',false);
             $(this).prop('checked',true);
@@ -174,38 +174,41 @@ $(document).ready(function(){
 
     };
 
-    $('#searchwordbtn').click(function(){
+    $('#searchwordbtn').on('click',function(){
         let word = $('#searchword').val();
         let total = $('.rest').length;
-        show = [];
-
+        
         if(word.length>0){
+            show = [];
             for(let i=1;i<total;i+=1){
                 if($(`#R${i} h2`).text().indexOf($.trim(word)) != -1){
                     show.push($(`#R${i}`).attr('id'));
+                    console.log('key');
                 }
             }
         }
-
-        console.log(show);
 
         createpage();
         showresult();
 
     });
 
-    // $('#searchword').click(function(){
-    //     if($(this).val().length==0){
-    //         $('.rest').css({'display':'block',});
-    //     }
+    $('#searchword').on('click',function(){
+        
+        show = [];
+        for(let i=1;i<=$('.rest').length;i+=1){
+            show.push($(`#R${i}`).attr('id'));
+        }
 
-    // });
+        console.log(show);
+        createpage();
+        showresult();
+        
+    });
+
 
     function showresult(){
         $('.rest').css({'display':'none',});
-        console.log(show);
-        console.log(index);
-        console.log($('.page li').length);
         for(let i=0;i<=3;i+=1){
             $(`#${show[i + index * 4]}`).css({'display':'block',});
         };

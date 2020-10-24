@@ -14,7 +14,6 @@ $(document).ready(function(){
         id = parseInt(id);
         id+=1;
         
-
         $('#leavemessage').append(`
         <div id='L${id}' class='L'  >
             <img src="http://fakeimg.pl/60x60" alt="">
@@ -54,9 +53,6 @@ $(document).ready(function(){
     window.addEventListener('resize',function(){
         largeH();
     });
-
-
-    
 
     // m_MouseDown = false;
     // selected = '';
