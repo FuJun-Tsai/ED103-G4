@@ -1,24 +1,3 @@
-//base
-// @import "../base/var";
-// @import "../base/reset";
-// @import "../base/color";
-// @import "../base/font";
-// //mixin
-// // @import "../mixin/box";
-// @import "../mixin/box";
-// @import "../mixin/rwd";
-// @import "../mixin/grid";
-// @import "../mixin/img";
-// @import "../mixin/btn_style";
-// @import "../mixin/gradient";
-// //layout
-// @import "../layout/header";
-// @import "../layout/footer";
-
-
-
-
-
 .memberpage {
     width: 1200px;
     max-width: 100%;
@@ -94,7 +73,13 @@
             .block {
                 @include box(700px, 24px);
                 .title {
-                    width: 700px;
+                    margin: 0 auto;
+                    padding: 10px 20px;
+                    border-radius: 20px 20px 0 0;
+                    background-color: #9B1E23;
+                    text-align: center;
+                    color: #FFF;
+                    font-weight: bold;
                 }
                 .small-block {
                     margin: 0 auto;
@@ -106,7 +91,7 @@
                     }
                     .part {
                         display: inline-block;
-                        width: 49.9%;
+                        width: 45%;
                         padding: 8px 0;
                         @include rwd(md_cellphone) {
                             width: 100%;
@@ -124,9 +109,10 @@
                             line-height: 1.3;
                             width: auto;
                         }
-                        .change {
-                        }
                     }
+                }
+                .part:nth-child(2n+2){
+                    width: 54%;
                 }
                 .part:nth-child(7) {
                     width: 100%;

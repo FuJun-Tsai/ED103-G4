@@ -1,3 +1,29 @@
+// function doFirst(){
+//   //先跟HTML畫面產生關聯, 再建事件聆聽功能
+//   document.getElementById('theFile').onchange = fileChange;
+// }
+// function fileChange() {
+//   let file = document.getElementById('theFile').files[0];
+//   let readFile = new FileReader();
+//   readFile.readAsDataURL(file);
+//   readFile.addEventListener('load',function(e){
+//     console.log(123);
+//       let image = document.getElementById('avatar_change');
+//       image.src = readFile.result;
+//   });
+// }
+// window.addEventListener('load',doFirst);
+
+function doFirst(){
+  document.getElementById('theFile').onchange = fileChange;
+}
+function fileChange(){
+  let res= $('#theFile').val();
+  let arr= res.split("\\");
+  var filename=arr.slice(-1)[0];
+
+}
+
 $(document).ready(function(){
   //會員專區修改
   id = '';
