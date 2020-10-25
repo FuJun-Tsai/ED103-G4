@@ -97,17 +97,24 @@
         <div class="myallpage" id="app">
             <div class="member_side">
                 <div class="avatar">
-                    <img id="avatar_change" src="image/member/haachama_chama.jpg">
-                    <p id="namefile">Only pics allowed! (jpg,jpeg,bmp,png)</p>
-                    <button type="button" class="btn_10 btn_js">更換
+                    <div class="pic_change">
+                        <img id="avatar_change" src="image/member/haachama_chama.jpg">
+                        <div class="upload">
+                        	<p id="namefile">只收圖片檔喔! (jpg,jpeg,bmp,png)</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn_10 btn_js btn1">更換
                         <span></span>
+                        <input type="file" value="" name="theFile" id="theFile" class="theFile">
                     </button>
-                    <input type="file" value="" name="theFile" id="theFile" class="theFile">
-                    <input type="submit" value="送出" class="btn btn-primary" id="submitbtn">
-                    <!-- <button type="button" class="btn btn-default " disabled="disabled" id="fakebtn">拒絕! <i class="fa fa-minus-circle"></i></button> -->
+                    <button type="button" class="btn_10 btn_js btn2">送出
+                        <span></span>
+                        <input type="submit" value="送出" class="btn-primary " id="submitbtn">
+                    </button>
+                    <button type="button" class="btn btn-default " disabled="disabled" id="fakebtn">拒絕!</button>
                 </div>
                 <div class="name">
-                    <h5>阿土伯
+                    <h5 id="user_name">阿土伯
                     </h5>
                 </div>
                 <div class="mypa">
@@ -241,21 +248,21 @@
                     <div class="small-block">
                         <div class="tab_list_block">
                             <ul class="tab_list">
-                            <li>
-                                <a href="#" data-target="tab_gruop_collection" class="tab -on">
-                                美食團蒐藏
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" data-target="tab_restaurant_collection" class="tab">
-                                餐廳蒐藏
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" data-target="tab_article_collection" class="tab">
-                                文章蒐藏
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="#" data-target="tab_gruop_collection" class="tab -on btn_5 btn_js">
+                                    美食團蒐藏<span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-target="tab_restaurant_collection" class="tab btn_5 btn_js">
+                                    餐廳蒐藏<span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-target="tab_article_collection" class="tab btn_5 btn_js">
+                                    文章蒐藏<span></span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <div class="tab_contents">
@@ -442,18 +449,18 @@
                                 </div>
                             </div>
                             <div class="tab tab_restaurant_collection">
-                            餐廳的內容
+                            餐廳的內容<span></span>
                             </div>
                             <div class="tab tab_article_collection">
-                            文章的內容
+                            文章的內容<span></span>
                             </div>
                         </div>
                         <div class="change_page">
-                            <button class="Previous_page">
-                            上一頁
+                            <button class="Previous_page btn_11 btn_js">
+                            上一頁<span></span>
                             </button>
-                            <button class="Next_page">
-                            下一頁
+                            <button class="Next_page btn_11 btn_js">
+                            下一頁<span></span>
                             </button>
                         </div>
                     </div>
@@ -475,18 +482,18 @@
                         <div class="tab_list_block">
                             <ul class="tab_list">
                             <li>
-                                <a href="#" data-target="tab-date" class="tab -on">
-                                日期排序
+                                <a href="#" data-target="tab-date" class="tab -on btn_5 btn_js">
+                                日期排序<span></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" data-target="tab_leave_a_comment" class="tab">
-                                留言排序
+                                <a href="#" data-target="tab_leave_a_comment" class="tab btn_5 btn_js">
+                                留言排序<span></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" data-target="tab_like" class="tab">
-                                愛心排序
+                                <a href="#" data-target="tab_like" class="tab btn_5 btn_js">
+                                愛心排序<span></span>
                                 </a>
                             </li>
                             </ul>
@@ -682,11 +689,11 @@
                             </div>
                         </div>
                         <div class="change_page">
-                            <button class="Previous_page">
-                            上一頁
+                            <button class="Previous_page btn_11 btn_js">
+                            上一頁<span></span>
                             </button>
-                            <button class="Next_page">
-                            下一頁
+                            <button class="Next_page btn_11 btn_js">
+                            下一頁<span></span>
                             </button>
                         </div>
                     </div>
