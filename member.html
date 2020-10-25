@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/other/animation.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script> -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+
     <script src="./js/header_fixed.js"></script>
     <title>會員專區</title>
     <link rel="stylesheet" href="./css/mem.css"> <!--他的css -->
@@ -97,10 +98,13 @@
             <div class="member_side">
                 <div class="avatar">
                     <img id="avatar_change" src="image/member/haachama_chama.jpg">
+                    <p id="namefile">Only pics allowed! (jpg,jpeg,bmp,png)</p>
                     <button type="button" class="btn_10 btn_js">更換
                         <span></span>
                     </button>
-                    <input type="file" id="theFile">
+                    <input type="file" value="" name="theFile" id="theFile" class="theFile">
+                    <input type="submit" value="送出" class="btn btn-primary" id="submitbtn">
+                    <!-- <button type="button" class="btn btn-default " disabled="disabled" id="fakebtn">拒絕! <i class="fa fa-minus-circle"></i></button> -->
                 </div>
                 <div class="name">
                     <h5>阿土伯
