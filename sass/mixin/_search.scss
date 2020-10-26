@@ -268,7 +268,12 @@ body {
                             .btnsingle{
                                 @include btnBrown_5;
                                 margin-bottom: 24px !important;
-
+                                @media screen and (max-width:600px){
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    transform: translate(0,-100%);
+                                }
                             }
                         }
                     }
