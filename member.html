@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/head_footer_style.css">
+    <link rel="stylesheet" href="./css/background.css">
     <link rel="stylesheet" href="./css/other/hover-min.css">
     <link rel="stylesheet" href="./css/other/animation.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script> -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+
     <script src="./js/header_fixed.js"></script>
     <title>會員專區</title>
     <link rel="stylesheet" href="./css/mem.css"> <!--他的css -->
@@ -19,7 +21,7 @@
     <script src="js/btn_hover.js"></script> <!--按鈕js -->
 </head>
 
-<body style="background-image: url(./image/bigbg.svg);">
+<body>
     <header>
         <section>
             <div class="logo">
@@ -89,6 +91,18 @@
             <div class="menu-bg" id="menu-bg"></div>
         </section>
     </header>
+    <!-- 背景泡泡 -->
+    <div id="bubbles">
+        <div class="bubble x1"></div>
+        <div class="bubble x2"></div>
+        <div class="bubble x3"></div>
+        <div class="bubble x4"></div>
+        <div class="bubble x5"></div>
+        <div class="bubble x6"></div>
+        <div class="bubble x7"></div>
+        <div class="bubble x8"></div>
+        <div class="bubble x9"></div>
+    </div>
 
     <!-- ***************************** -->
 
@@ -96,10 +110,24 @@
         <div class="myallpage" id="app">
             <div class="member_side">
                 <div class="avatar">
-                    <img src="https://fakeimg.pl/200x200/">
+                    <div class="pic_change">
+                        <img id="avatar_change" src="image/member/haachama_chama.jpg">
+                        <div class="upload">
+                        	<p id="namefile">只收圖片檔喔! (jpg,jpeg,bmp,png)</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn_10 btn_js btn1">更換
+                        <span></span>
+                        <input type="file" value="" name="theFile" id="theFile" class="theFile">
+                    </button>
+                    <button type="button" class="btn_10 btn_js btn2">送出
+                        <span></span>
+                        <input type="submit" value="送出" class="btn-primary " id="submitbtn">
+                    </button>
+                    <button type="button" class="btn btn-default " disabled="disabled" id="fakebtn">拒絕!</button>
                 </div>
                 <div class="name">
-                    <h5>阿土伯
+                    <h5 id="user_name">阿土伯
                     </h5>
                 </div>
                 <div class="mypa">
@@ -129,7 +157,7 @@
             </div>
             <div class="my_main tabbtn_1 -on">
                 <div class="block">
-                    <h3 class="title btn_12 btn_js">
+                    <h3 class="title">
                         我的資訊
                     </h3>
                     <div class="small-block">
@@ -167,7 +195,7 @@
                             <h5 class="content" id="psw">
                                 mei000
                             </h5>
-                            <button class="change">
+                            <button class="change btn_10 btn_js">
                                 修改<span></span>
                             </button>
                         </div>
@@ -186,7 +214,7 @@
                             <h5 class="content" id="email">
                                 meimei@mail.com
                             </h5>
-                            <button class="change">
+                            <button class="change btn_10 btn_js">
                                 修改<span></span>
                             </button>
                         </div>
@@ -194,7 +222,7 @@
                             <h4 class="small_title">
                                 自我介紹:
                             </h4>
-                            <button class="change">
+                            <button class="change btn_10 btn_js">
                                 修改<span></span>
                             </button>
                             <h5 class="content" id="introduce">
@@ -233,21 +261,21 @@
                     <div class="small-block">
                         <div class="tab_list_block">
                             <ul class="tab_list">
-                            <li>
-                                <a href="#" data-target="tab_gruop_collection" class="tab -on">
-                                美食團蒐藏
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" data-target="tab_restaurant_collection" class="tab">
-                                餐廳蒐藏
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" data-target="tab_article_collection" class="tab">
-                                文章蒐藏
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="#" data-target="tab_gruop_collection" class="tab -on btn_5 btn_js">
+                                    美食團蒐藏<span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-target="tab_restaurant_collection" class="tab btn_5 btn_js">
+                                    餐廳蒐藏<span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-target="tab_article_collection" class="tab btn_5 btn_js">
+                                    文章蒐藏<span></span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <div class="tab_contents">
@@ -434,18 +462,18 @@
                                 </div>
                             </div>
                             <div class="tab tab_restaurant_collection">
-                            餐廳的內容
+                            餐廳的內容<span></span>
                             </div>
                             <div class="tab tab_article_collection">
-                            文章的內容
+                            文章的內容<span></span>
                             </div>
                         </div>
                         <div class="change_page">
-                            <button class="Previous_page">
-                            上一頁
+                            <button class="Previous_page btn_11 btn_js">
+                            上一頁<span></span>
                             </button>
-                            <button class="Next_page">
-                            下一頁
+                            <button class="Next_page btn_11 btn_js">
+                            下一頁<span></span>
                             </button>
                         </div>
                     </div>
@@ -467,18 +495,18 @@
                         <div class="tab_list_block">
                             <ul class="tab_list">
                             <li>
-                                <a href="#" data-target="tab-date" class="tab -on">
-                                日期排序
+                                <a href="#" data-target="tab-date" class="tab -on btn_5 btn_js">
+                                日期排序<span></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" data-target="tab_leave_a_comment" class="tab">
-                                留言排序
+                                <a href="#" data-target="tab_leave_a_comment" class="tab btn_5 btn_js">
+                                留言排序<span></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" data-target="tab_like" class="tab">
-                                愛心排序
+                                <a href="#" data-target="tab_like" class="tab btn_5 btn_js">
+                                愛心排序<span></span>
                                 </a>
                             </li>
                             </ul>
@@ -674,11 +702,11 @@
                             </div>
                         </div>
                         <div class="change_page">
-                            <button class="Previous_page">
-                            上一頁
+                            <button class="Previous_page btn_11 btn_js">
+                            上一頁<span></span>
                             </button>
-                            <button class="Next_page">
-                            下一頁
+                            <button class="Next_page btn_11 btn_js">
+                            下一頁<span></span>
                             </button>
                         </div>
                     </div>
