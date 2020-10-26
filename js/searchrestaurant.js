@@ -16,7 +16,7 @@ $(document).ready(function(){
     $('.chi').text('中台');
     $('.sea').text('東南亞');
 
-    $('.kind input').click(function(){
+    $('.kind input').on('click',function(){
         if($(this).prop('checked')){
             $('.kind input:checkbox').prop('checked',false);
             $(this).prop('checked',true);
@@ -38,18 +38,37 @@ $(document).ready(function(){
     for(let i=1;i<=pages;i+=1){
         $('.page').append(`<li>${i}</li>`);
     };
+    for(let i=0;i<=$('.page li').length;i+=1){
+        $(`.page li:nth-child(${i})`).attr('data-page',`${i-1}`);
+    }
+
+    $('.page li:nth-child(1)').css({'color':'black'});
 
     function createpage(){
         $('.page').empty('li');
         // 分頁
+
         for(let i=1;i<=Math.ceil(show.length/4);i+=1){
             $('.page').append(`<li>${i}</li>`);
         };
-        $('.page li').click(function(){
-            showpage();
+
+        for(let i=0;i<=$('.page li').length;i+=1){
+            $(`.page li:nth-child(${i})`).attr('data-page',`${i-1}`);
+        }
+
+        $('.page li').on('click',function(){
+            // index = $('.page li').index(this);
+            index = $(this).attr('data-page');
+            $('.page li').css({'color':'cornflowerblue'});
+            $(this).css({'color':'black'});
+            showresult();
         });
+
+        $('.page li:nth-child(1)').css({'color':'black'});
+
     }
-    showpage();
+
+    showresult();
 
     $('.kind input').on('click',function(){
         
@@ -100,7 +119,6 @@ $(document).ready(function(){
                     }
                 }
             }
-            
         }
         // 條件 餐廳
 
@@ -118,6 +136,7 @@ $(document).ready(function(){
                 show.push($(`#R${i}`).attr('id'));
             }
             createpage();
+            showresult();
         }else{
             show = [];
             if((RK.length+RS.length)==0){
@@ -151,50 +170,80 @@ $(document).ready(function(){
 
             };
             createpage();
-
+            showresult();
         };
 
     };
 
-    $('#searchwordbtn').click(function(){
+    $('#searchwordbtn').on('click',function(){
         let word = $('#searchword').val();
         let total = $('.rest').length;
-        show = [];
-        console.log(word);
-        console.log(total);
-
+        
         if(word.length>0){
+            show = [];
             for(let i=1;i<total;i+=1){
                 if($(`#R${i} h2`).text().indexOf($.trim(word)) != -1){
                     show.push($(`#R${i}`).attr('id'));
+                    console.log('key');
                 }
             }
         }
 
-        console.log(show);
-
         createpage();
-        showpage();
+        showresult();
 
     });
 
-    // $('#searchword').click(function(){
-    //     if($(this).val().length==0){
-    //         $('.rest').css({'display':'block',});
+    // $('#searchword').on('click',function(){
+        
+    //     show = [];
+    //     for(let i=1;i<=$('.rest').length;i+=1){
+    //         show.push($(`#R${i}`).attr('id'));
     //     }
 
+    //     console.log(show);
+    //     createpage();
+    //     showresult();
+        
     // });
 
-    function showpage(){
-        $('.rest').css({'display':'none ',});
+
+    function showresult(){
+        $('.rest').css({'display':'none',});
+        $('.error').css({'display':'none'});
+
         for(let i=0;i<=3;i+=1){
             $(`#${show[i + index * 4]}`).css({'display':'block',});
         };
+        if(show.length == 0){
+            $('.error').css({'display':'block'});
+        }
     };
     
-    $('.page li').click(function(){
-        index = $('.page li').index(this);
-        showpage();
+    $('.page li').on('click',function(){
+        // index = $('.page li').index(this);
+        index = $(this).attr('data-page');
+        $('.page li').css({'color':'cornflowerblue'});
+        $(this).css({'color':'black'});
+        showresult();
+
+    });
+
+    imgcube();
+
+    function imgcube(){
+        let imgwidth = $('.rep div').width();
+        if($(window).width()<600){
+            $('.rep div').height(imgwidth);
+            // console.log(imgwidth);
+        }else{
+            $('.rep div').height(487.5);
+        }
+    };
+
+    window.addEventListener('resize',function(){
+            imgcube();
+            console.log($(window).width());
     });
 
 });
