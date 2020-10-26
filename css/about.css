@@ -602,11 +602,6 @@ body section .content .page li {
 
 body {
   width: 100%;
-  background-image: url("../image/14.svg");
-  background-size: 100%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 body .container {
@@ -617,7 +612,7 @@ body .container hr {
   margin: 10% 0;
 }
 
-body .container .row .col-md-6 h2 {
+body .container .row .col-md-6 h3 {
   font-weight: 700;
   padding-left: 2%;
   border-left: 10px solid #9B1E23;
@@ -632,8 +627,8 @@ body .container .row .col-md-6 .img_block img {
   max-width: 100%;
 }
 
-body .container .row .col-md-6 .content_block h3 {
-  margin-bottom: 5%;
+body .container .row .col-md-6 .content_block h4 {
+  margin-bottom: 10%;
   margin-top: 25%;
   font-weight: 700;
 }
@@ -644,13 +639,14 @@ body .container .row .col-md-6 .content_block p {
   vertical-align: middle;
   width: 90%;
   text-align: justify;
+  font-size: 16px;
 }
 
 body .container .sec1 {
   margin-bottom: 5%;
 }
 
-body .container .sec1 h2 {
+body .container .sec1 h3 {
   font-weight: 700;
   text-align: center;
   display: inline-block;
@@ -658,7 +654,7 @@ body .container .sec1 h2 {
   border-left: 10px solid #9B1E23;
 }
 
-body .container .sec1 h3 {
+body .container .sec1 h4 {
   text-align: center;
   margin: 10% 0 0 0;
 }
@@ -693,6 +689,7 @@ body .container .row .col-md-12 .para h2 {
 
 body .container .row .col-md-12 .para p {
   margin-bottom: 10%;
+  font-size: 16px;
 }
 
 body .container .row .col-md-12 .para a {
@@ -700,7 +697,7 @@ body .container .row .col-md-12 .para a {
   color: blue;
 }
 
-body .container .row .col-md-12.-qa h2 {
+body .container .row .col-md-12.-qa h3 {
   margin: 0 0 5% 0;
   padding-left: 2%;
   border-left: 10px solid #9B1E23;
@@ -741,6 +738,7 @@ body .container .row .col-md-12.-qa .content {
 body .container .row .col-md-12.-qa .content p {
   font-size: 18px;
   line-height: 30px;
+  font-size: 16px;
 }
 
 body .container .row {
