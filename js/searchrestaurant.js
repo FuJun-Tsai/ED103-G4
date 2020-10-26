@@ -142,6 +142,7 @@ $(document).ready(function(){
             showresult();
         }else{
             show = [];
+            index = 0;
             if((RK.length+RS.length)==0){
                 $('.rest').css({'display':'block',});
             }else if(RK.length==0^RS.length==0){
