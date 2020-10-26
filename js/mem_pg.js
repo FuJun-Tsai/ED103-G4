@@ -1,4 +1,54 @@
+function doFirst(){
+  //先跟HTML畫面產生關聯, 再建事件聆聽功能
+  document.getElementById('theFile').onchange = fileChange;
+}
+function fileChange() {
+
+  let res= $('#theFile').val();
+  let arr= res.split("\\");
+  let filename=arr.slice(-1)[0];
+  filextension=filename.split(".");
+  filext="."+filextension.slice(-1)[0];
+  valid=[".jpg",".png",".jpeg",".bmp"];
+  // console.log(res);
+  // console.log(arr);
+  // console.log(filename);
+  // console.log(filextension);
+  // console.log(filext);
+  //如果檔案不是圖檔，我們秀出error icon, 紅色X,然後取消掉 submit按鈕
+  if (valid.indexOf(filext.toLowerCase())==-1){
+    $("#namefile").css({"color":"red","font-weight":700});
+    $("#namefile").html(filename+"不是圖檔喔!");
+    $(".btn2").hide()
+    // $( "#submitbtn" ).hide();
+    $( "#fakebtn" ).show();
+  }else{
+    let file = document.getElementById('theFile').files[0];
+    let readFile = new FileReader();
+    readFile.readAsDataURL(file);
+    readFile.addEventListener('load',function(e){
+      let image = document.getElementById('avatar_change');
+      image.src = readFile.result;
+    });
+
+    $('#namefile').css({"color":"green","font-weight":700});
+    $('#namefile').html(filename);
+
+    $( ".btn2" ).show();
+    $( "#fakebtn" ).hide();
+  }
+}
+window.addEventListener('load',doFirst);
+
 $(document).ready(function(){
+  //更換大頭貼的hover
+
+  $("#theFile").mouseenter(function(){
+    $(".upload").css("transform" , "translateY(0%)");
+  });
+  $("#theFile").mouseout(function(){
+    $(".upload").css("transform" , "translateY(100%)");
+  });
   //會員專區修改
   id = '';
   $(document).ready(function(){
