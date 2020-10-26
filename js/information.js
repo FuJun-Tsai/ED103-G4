@@ -126,19 +126,19 @@ function writeinfo() {
 }
 // 显示地产信息
 for (var i = 0; i < boxes.length; i++) {
-    boxes[i].onmouseover = function() {
-        info.style.visibility = "visible";
-        info.firstElementChild.firstElementChild.innerHTML = place[Number(this.id.substr(1))].name;
-        info.lastElementChild.children[0].innerHTML = "地主：" + place[Number(this.id.substr(1))].owner;
-        info.lastElementChild.children[1].innerHTML = "价格：" + place[Number(this.id.substr(1))].cost;
-        if (place[Number(this.id.substr(1))].owner == "none" || place[Number(this.id.substr(1))].owner == "sean") {
-            info.lastElementChild.children[0].innerHTML = "地主：无";
-            info.lastElementChild.children[1].innerHTML = "价格：" + place[Number(this.id.substr(1))].value;
-        }
-    }
-    boxes[i].onmouseout = function() {
-        info.style.visibility = "hidden";
-    }
+    // boxes[i].onmouseover = function() {
+    //     info.style.visibility = "visible";
+    //     info.firstElementChild.firstElementChild.innerHTML = place[Number(this.id.substr(1))].name;
+    //     info.lastElementChild.children[0].innerHTML = "地主：" + place[Number(this.id.substr(1))].owner;
+    //     info.lastElementChild.children[1].innerHTML = "价格：" + place[Number(this.id.substr(1))].cost;
+    //     if (place[Number(this.id.substr(1))].owner == "none" || place[Number(this.id.substr(1))].owner == "sean") {
+    //         info.lastElementChild.children[0].innerHTML = "地主：无";
+    //         info.lastElementChild.children[1].innerHTML = "价格：" + place[Number(this.id.substr(1))].value;
+    //     }
+    // }
+    // boxes[i].onmouseout = function() {
+    //     info.style.visibility = "hidden";
+    // }
 }
 
 // boxes[0].onmouseover = function() {
