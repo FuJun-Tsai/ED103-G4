@@ -134,42 +134,68 @@
                             <span>一起加入美食團吧 !</span>
                         </div>
                     </div>
-                    <h3>條件搜尋</h3>
 
                     <div class="den_Condition_search">
                         <div class="den_row">
                             <div class="den_selection col-lg-8">
+                                <h3>條件搜尋:</h3>
                                 <div class="den_res_type">
-                                    <h3>餐廳種類:</h3>
-                                    <input type="radio" name="kind" value="日式" id="kind1">
-                                    <label for="kind1">日式</label>
-                                    <input type="radio" name="kind" value="美式" id="kind2">
-                                    <label for="kind2">美式</label>
-                                    <input type="radio" name="kind" value="西式" id="kind3">
-                                    <label for="kind3">西式</label>
-                                    <input type="radio" name="kind" value="韓式" id="kind4">
-                                    <label for="kind4">韓式</label>
-                                    <input type="radio" name="kind" value="中台" id="kind5">
-                                    <label for="kind5">中台</label>
-                                    <input type="radio" name="kind" value="東南亞" id="kind6">
-                                    <label for="kind6">東南亞</label>
+                                    <h3>餐廳種類</h3>
+                                    <div>
+                                        <input type="radio" name="kind" value="日式" id="kind1">
+                                        <label for="kind1">日式</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="kind" value="美式" id="kind2">
+                                        <label for="kind2">美式</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="kind" value="西式" id="kind3">
+                                        <label for="kind3">西式</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="kind" value="韓式" id="kind4">
+                                        <label for="kind4">韓式</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="kind" value="中台" id="kind5">
+                                        <label for="kind5">中台</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="kind" value="東南亞" id="kind6">
+                                        <label for="kind6">東南亞</label>
+                                    </div>
                                 </div>
                                 <div class="den_cooking_style">
-                                    <h3>料理風格:</h3>
-                                    <input type="checkbox" name="style" value="火鍋" id="style1">
-                                    <label for="style1">火鍋</label>
-                                    <input type="checkbox" name="style" value="燒烤" id="style2">
-                                    <label for="style2">燒烤</label>
-                                    <input type="checkbox" name="style" value="炸物" id="style3">
-                                    <label for="style3">炸物</label>
-                                    <input type="checkbox" name="style" value="快炒" id="style4">
-                                    <label for="style4">快炒</label>
-                                    <input type="checkbox" name="style" value="簡餐" id="style5">
-                                    <label for="style5">簡餐</label>
-                                    <input type="checkbox" name="style" value="排餐" id="style6">
-                                    <label for="style6">排餐</label>
-                                    <input type="checkbox" name="style" value="冷盤" id="style7">
-                                    <label for="style7">冷盤</label>
+                                    <h3>料理風格</h3>
+                                    <div>
+                                        <input type="checkbox" name="style" value="火鍋" id="style1">
+                                        <label for="style1">火鍋</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="style" value="燒烤" id="style2">
+                                        <label for="style2">燒烤</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="style" value="炸物" id="style3">
+                                        <label for="style3">炸物</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="style" value="快炒" id="style4">
+                                        <label for="style4">快炒</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="style" value="簡餐" id="style5">
+                                        <label for="style5">簡餐</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="style" value="排餐" id="style6">
+                                        <label for="style6">排餐</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="style" value="冷盤" id="style7">
+                                        <label for="style7">冷盤</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -752,6 +778,25 @@
 
     <script>
         function doFirst() {
+            //點擊input
+            $('.den_res_type div input').on('click', function() {
+
+                let typeClick = $('.den_res_type div input[name=kind]:checked');
+                let typeClickL = typeClick.length;
+                console.log(typeClickL)
+                if (typeClickL = 1) {
+                    this.css('background', '#222222');
+                }
+
+                // console.log(bbb);
+
+
+            })
+
+
+
+
+
 
             //頁籤
             $('.title_left h2:nth-child(1)').on('click', function() {

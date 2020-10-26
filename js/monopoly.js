@@ -5,11 +5,11 @@ function game() {
     //骰子点数显示
     var num = Math.ceil(Math.random() * 6);
     var bgi = Math.ceil(Math.random() * 2);
-    dice.css("background-image", "url(./image/s" + bgi + ".jpg");
+    dice.css("background-image", "url(./image/den_image/s" + bgi + ".jpg");
 
     setTimeout(function() {
-        dice.css("background-image", "url(./image/" + '0' + num + ".jpg");
-    }, 300);
+        dice.css("background-image", "url(./image/den_image/" + '0' + num + ".jpg");
+    }, 400);
 
     dice.css("pointer-events", "none");
 
@@ -701,40 +701,221 @@ function p1move() {
     boxes[po1].append(i1);
 
 
+
+    // console.log(arr[1]);
+
+
     // $('.box h3').css('background-color', 'rgba(253, 245, 171,1)');
 
     if (po1 == 0 || po1 == 1 || po1 == 2 || po1 == 3 || po1 == 4 || po1 == 5) {
-        // console.log('aaa');
-        // $('#player1').css('transform', 'translate(-40px, -30px) ');
-        $('#player1').attr('src', './image/man.gif');
 
+        let aaa = $('.control h1').text();
+        let bbb = aaa.substr(0, 1)
+        console.log(bbb);
+
+        switch (bbb) {
+            case '乂':
+                $('#player1').attr('src', './image/den_image/allgif/乂小壞乂.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                // $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '大':
+                $('#player1').attr('src', './image/den_image/allgif/大番薯.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                // $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '方':
+                $('#player1').attr('src', './image/den_image/allgif/方塊號.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                // $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '眼':
+                $('#player1').attr('src', './image/den_image/allgif/眼鏡仔.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                // $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '煞':
+                $('#player1').attr('src', './image/den_image/allgif/煞氣乂流氓.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                // $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '辣':
+                $('#player1').attr('src', './image/den_image/allgif/辣個男人.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                // $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '德':
+                $('#player1').attr('src', './image/den_image/allgif/德克斯特.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                // $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+        }
     }
+
 
     if (po1 == 11 || po1 == 12 || po1 == 13 || po1 == 14 || po1 == 15) {
-        // console.log('aaa');
-        // $('#player1').css('transform', 'translate(80px, -20px) scaleX(-1)');
-        $('#player1').attr('src', './image/man.gif');
-        $('#player1').css('transform', 'scaleX(-1)');
 
+        let aaa = $('.control h1').text();
+        let bbb = aaa.substr(0, 1)
+        console.log(bbb);
+
+        switch (bbb) {
+            case '乂':
+                $('#player1').attr('src', './image/den_image/allgif/乂小壞乂.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '大':
+                $('#player1').attr('src', './image/den_image/allgif/大番薯.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '方':
+                $('#player1').attr('src', './image/den_image/allgif/方塊號.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '眼':
+                $('#player1').attr('src', './image/den_image/allgif/眼鏡仔.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '煞':
+                $('#player1').attr('src', './image/den_image/allgif/煞氣乂流氓.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '辣':
+                $('#player1').attr('src', './image/den_image/allgif/辣個男人.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '德':
+                $('#player1').attr('src', './image/den_image/allgif/德克斯特.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+        }
     }
+
+
     if (po1 == 6 || po1 == 7 || po1 == 8 || po1 == 9 || po1 == 10) {
-        // console.log('aaa');
-        $('#player1').attr('src', './image/manjump.gif');
-        // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
 
-        $('#player1').css('transform', 'scaleX(-1)');
-        // $('#player1').width(190).height(190);
+        let aaa = $('.control h1').text();
+        let bbb = aaa.substr(0, 1)
+        console.log(bbb);
 
-
-
+        switch (bbb) {
+            case '乂':
+                $('#player1').attr('src', './image/den_image/allgif/乂小壞乂_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '大':
+                $('#player1').attr('src', './image/den_image/allgif/大番薯_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '方':
+                $('#player1').attr('src', './image/den_image/allgif/方塊號_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '眼':
+                $('#player1').attr('src', './image/den_image/allgif/眼鏡仔_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '煞':
+                $('#player1').attr('src', './image/den_image/allgif/煞氣乂流氓_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '辣':
+                $('#player1').attr('src', './image/den_image/allgif/辣個男人_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '德':
+                $('#player1').attr('src', './image/den_image/allgif/德克斯特_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(-1)');
+                // $('#player1').width(190).height(190);
+                break;
+        }
     }
+
+
     if (po1 == 16 || po1 == 17 || po1 == 18 || po1 == 19) {
-        // console.log('aaa');
-        $('#player1').attr('src', './image/manjump.gif');
-        // $('#player1').css('transform', 'translate(-80px, -20px) ');
-        $('#player1').css('transform', 'scaleX(1)');
 
+        let aaa = $('.control h1').text();
+        let bbb = aaa.substr(0, 1)
+        console.log(bbb);
 
+        switch (bbb) {
+            case '乂':
+                $('#player1').attr('src', './image/den_image/allgif/乂小壞乂_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '大':
+                $('#player1').attr('src', './image/den_image/allgif/大番薯_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '方':
+                $('#player1').attr('src', './image/den_image/allgif/方塊號_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '眼':
+                $('#player1').attr('src', './image/den_image/allgif/眼鏡仔_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '煞':
+                $('#player1').attr('src', './image/den_image/allgif/煞氣乂流氓_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '辣':
+                $('#player1').attr('src', './image/den_image/allgif/辣個男人_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(1)');
+                // $('#player1').width(190).height(190);
+                break;
+            case '德':
+                $('#player1').attr('src', './image/den_image/allgif/德克斯特_jump.gif');
+                // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                $('#player1').css('transform', 'scaleX(1)');
+                // $('#player1').width(190).height(190);
+                break;
+        }
     }
 
 
