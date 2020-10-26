@@ -415,6 +415,12 @@ body section .content .result .rest .detail h2 {
   padding-left: 8px;
 }
 
+@media screen and (max-width: 600px) {
+  body section .content .result .rest .detail h2 {
+    margin-bottom: 24px;
+  }
+}
+
 body section .content .result .rest .detail h3 {
   margin-top: 8px !important;
 }
@@ -474,8 +480,28 @@ body section .content .result .rest .detail .record {
   top: 24px;
 }
 
-body section .content .result .rest .detail .record img {
-  margin-right: 12px;
+@media screen and (max-width: 600px) {
+  body section .content .result .rest .detail .record {
+    top: 68px;
+    left: 32px;
+  }
+}
+
+body section .content .result .rest .detail .record div {
+  margin-right: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body section .content .result .rest .detail .record div i {
+  font-size: 36px;
+}
+
+@media screen and (max-width: 600px) {
+  body section .content .result .rest .detail .record div i {
+    font-size: 16px;
+  }
 }
 
 body section .content .result .rest .detail .insearch {
@@ -567,6 +593,16 @@ body section .content .result .rest .detail .go .btnsingle:hover {
   color: #DF7219;
   border: 0.1px solid #DF7219;
   line-height: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  body section .content .result .rest .detail .go .btnsingle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-transform: translate(0, -100%);
+            transform: translate(0, -100%);
+  }
 }
 
 body section .content .page {
