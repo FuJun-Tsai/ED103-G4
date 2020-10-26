@@ -603,7 +603,6 @@ body section .content .page li {
 .section_res {
   position: relative;
   min-height: 100vh;
-  background-image: url(.././image.svg);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

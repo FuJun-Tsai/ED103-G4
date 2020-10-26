@@ -70,7 +70,6 @@
   height: 55px;
   max-width: 200px;
   text-transform: uppercase;
-  line-height: 55px;
   text-align: center;
   font-weight: bold;
   border: 2px solid #9B1E23;
@@ -113,7 +112,6 @@
   height: 50px;
   max-width: 150px;
   text-transform: uppercase;
-  line-height: 50px;
   text-align: center;
   font-weight: bold;
   border: 2px solid #76AFAF;
@@ -156,7 +154,6 @@
   height: 50px;
   max-width: 150px;
   text-transform: uppercase;
-  line-height: 50px;
   text-align: center;
   font-weight: bold;
   border: 2px solid #C9528E;
@@ -199,7 +196,6 @@
   height: 35px;
   max-width: 80px;
   text-transform: uppercase;
-  line-height: 35px;
   text-align: center;
   font-weight: bold;
   border: 2px solid #DF7219;
@@ -242,7 +238,6 @@
   height: 50px;
   max-width: 150px;
   text-transform: uppercase;
-  line-height: 50px;
   text-align: center;
   font-weight: bold;
   border: 2px solid #DF7219;
@@ -285,7 +280,6 @@
   height: 30px;
   max-width: 50px;
   text-transform: uppercase;
-  line-height: 30px;
   text-align: center;
   font-weight: bold;
   border: 2px solid #DF7219;
@@ -328,7 +322,6 @@
   height: 40px;
   max-width: 40px;
   text-transform: uppercase;
-  line-height: 40px;
   text-align: center;
   font-weight: bold;
   border: 2px solid #000000;
@@ -397,7 +390,6 @@
   height: 30px;
   max-width: 60px;
   text-transform: uppercase;
-  line-height: 30px;
   text-align: center;
   font-weight: bold;
   border: 2px solid #DF7219;
@@ -440,12 +432,11 @@
   height: 50px;
   max-width: 150px;
   text-transform: uppercase;
-  line-height: 50px;
   text-align: center;
   font-weight: bold;
-  border: 2px solid #FFE1A4;
+  border: 2px solid #DF7219;
   border-radius: 15px;
-  background-color: #FFE1A4;
+  background-color: #DF7219;
   outline: none;
   color: white;
   z-index: 2;
@@ -466,7 +457,7 @@
 }
 
 .btn_11:hover {
-  color: #FFE1A4;
+  color: #DF7219;
   cursor: pointer;
 }
 
@@ -483,7 +474,6 @@
   height: 50px;
   max-width: 700px;
   text-transform: uppercase;
-  line-height: 50px;
   text-align: center;
   font-weight: bold;
   border: 2px solid #9B1E23;

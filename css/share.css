@@ -600,15 +600,6 @@ body section .content .page li {
   max-width: 1200px;
 }
 
-body {
-  width: 100%;
-  background-image: url("../image/14.svg");
-  background-size: 100%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 body .btnCust {
   /*自訂按鈕*/
   width: 105px;
