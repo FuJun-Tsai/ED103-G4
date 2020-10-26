@@ -73,16 +73,14 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-weight: normal;
   text-decoration: none;
   color: black;
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 textarea {
@@ -332,8 +330,7 @@ body section .back:nth-child(2) {
 }
 
 body section .content {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 0;
   max-width: 1200px;
@@ -352,13 +349,8 @@ body section .content .selection .kind {
 }
 
 body section .content .selection .sort {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 body section .content .selection .like,
@@ -430,8 +422,7 @@ body section .content .result .rest .detail > p {
 }
 
 body section .content .result .rest .detail .kind {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 70px;
@@ -446,8 +437,7 @@ body section .content .result .rest .detail .kind {
 }
 
 body section .content .result .rest .detail .style {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 70px;
@@ -463,13 +453,8 @@ body section .content .result .rest .detail .style {
 
 body section .content .result .rest .detail .record {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   right: 12px;
   top: 24px;
 }
@@ -570,16 +555,9 @@ body section .content .result .rest .detail .go .btnsingle:hover {
 }
 
 body section .content .page {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 body section .content .page li {
@@ -628,20 +606,87 @@ body section .content .page li {
   text-align: center;
 }
 
-.memberpage .myallpage .member_side .avatar img {
+.memberpage .myallpage .member_side .avatar .pic_change {
+  overflow: hidden;
+  position: relative;
+}
+
+.memberpage .myallpage .member_side .avatar .pic_change img {
   margin: 0 auto;
   max-width: 200px;
+  max-height: 200px;
   width: 100%;
   border-radius: 50%;
 }
 
+.memberpage .myallpage .member_side .avatar .pic_change .upload {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  transition: transform .5s;
+}
+
+.memberpage .myallpage .member_side .avatar .pic_change .upload p {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.699);
+}
+
+.memberpage .myallpage .member_side .avatar .btn1 {
+  margin-top: 10px;
+}
+
+.memberpage .myallpage .member_side .avatar .btn1 .theFile {
+  opacity: 0;
+  width: 60px;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0px;
+  height: 30px;
+  z-index: 10;
+  border-radius: 15px;
+}
+
+.memberpage .myallpage .member_side .avatar .btn2 {
+  display: none;
+}
+
+.memberpage .myallpage .member_side .avatar .btn2 .btn-primary {
+  opacity: 0;
+  width: 60px;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0px;
+  height: 30px;
+  z-index: 10;
+  border-radius: 15px;
+}
+
+.memberpage .myallpage .member_side .avatar .btn-default {
+  display: none;
+  width: 60px;
+  height: 30px;
+  border: 2px solid #DF7219;
+  color: #FFF;
+  background-color: #DF7219;
+  padding: 0;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
 .memberpage .myallpage .member_side .name {
   width: 100%;
-  padding: 15px;
   text-align: center;
 }
 
 .memberpage .myallpage .member_side .name h5 {
+  font-weight: bold;
   display: inline-block;
   padding: 6px 8px;
 }
@@ -698,12 +743,21 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_main .block {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 24px;
   max-width: 700px;
   width: 100%;
+}
+
+.memberpage .myallpage .my_main .block .title {
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 20px 20px 0 0;
+  background-color: #9B1E23;
+  text-align: center;
+  color: #FFF;
+  font-weight: bold;
 }
 
 .memberpage .myallpage .my_main .block .small-block {
@@ -721,7 +775,7 @@ body section .content .page li {
 
 .memberpage .myallpage .my_main .block .small-block .part {
   display: inline-block;
-  width: 49.9%;
+  width: 45%;
   padding: 8px 0;
 }
 
@@ -744,6 +798,10 @@ body section .content .page li {
   font-weight: 400;
   line-height: 1.3;
   width: auto;
+}
+
+.memberpage .myallpage .my_main .block .part:nth-child(2n+2) {
+  width: 54%;
 }
 
 .memberpage .myallpage .my_main .block .part:nth-child(7) {
@@ -794,8 +852,7 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_group .block {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 24px;
   max-width: 700px;
@@ -805,9 +862,11 @@ body section .content .page li {
 .memberpage .myallpage .my_group .block .title {
   margin: 0 auto;
   padding: 10px 20px;
-  background-color: #FFE1A4;
   border-radius: 20px 20px 0 0;
+  background-color: #9B1E23;
   text-align: center;
+  color: #FFF;
+  font-weight: bold;
 }
 
 .memberpage .myallpage .my_jion {
@@ -832,8 +891,7 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_jion .block {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 24px;
   max-width: 700px;
@@ -844,8 +902,10 @@ body section .content .page li {
   margin: 0 auto;
   padding: 10px 20px;
   border-radius: 20px 20px 0 0;
-  background-color: #FFE1A4;
+  background-color: #9B1E23;
   text-align: center;
+  color: #FFF;
+  font-weight: bold;
 }
 
 .memberpage .myallpage .my_collect {
@@ -878,7 +938,6 @@ body section .content .page li {
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 0;
   z-index: -1;
-  -webkit-transition: opacity .1s;
   transition: opacity .1s;
 }
 
@@ -887,14 +946,12 @@ body section .content .page li {
   width: 400px;
   max-width: 800px;
   border-radius: 10px;
-  -webkit-box-shadow: 0 0 10px #ddd;
-          box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px #ddd;
   padding: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .memberpage .myallpage .my_collect .-on {
@@ -903,8 +960,7 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_collect .block {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 24px;
   max-width: 700px;
@@ -914,9 +970,11 @@ body section .content .page li {
 .memberpage .myallpage .my_collect .block .title {
   margin: 0 auto;
   padding: 10px 20px;
-  background-color: #FFE1A4;
   border-radius: 20px 20px 0 0;
+  background-color: #9B1E23;
   text-align: center;
+  color: #FFF;
+  font-weight: bold;
 }
 
 .memberpage .myallpage .my_collect .block .small-block {
@@ -936,24 +994,17 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_collect .block .small-block .tab_list_block .tab_list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .memberpage .myallpage .my_collect .block .small-block .tab_list_block .tab_list li a {
   display: inline-block;
-  border: 1px solid #ccc;
-  padding: 5px;
-  cursor: pointer;
-  color: #ccc;
-  position: relative;
-  font-size: 18px;
+  line-height: 30px;
+  margin: 0 10px;
 }
 
 .memberpage .myallpage .my_collect .block .small-block .tab_list_block .tab_list li .-on {
-  border: 1px solid black;
-  color: black;
+  border: 2px solid #DF7219;
 }
 
 .memberpage .myallpage .my_collect .block .small-block .tab_contents {
@@ -975,14 +1026,9 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_collect .block .small-block .tab_contents .-on .-on {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .memberpage .myallpage .my_collect .block .small-block .tab_contents .-on .-on .box {
@@ -1027,30 +1073,14 @@ body section .content .page li {
   text-align: center;
 }
 
-.memberpage .myallpage .my_collect .block .small-block .change_page button {
-  outline: none;
-  padding: 0;
-  border: 0.1px;
-  display: inline-block;
-  color: gray;
-  background-color: #FFE1A4;
-  width: 150px;
-  height: 50px;
-  border-radius: 25px 25px;
-  font-family: "Microsoft JhengHei", sans-serif;
-  font-size: 16px;
-  text-align: center;
-  line-height: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  margin: 30px;
+.memberpage .myallpage .my_collect .block .small-block .change_page .Previous_page {
+  border-radius: 25px;
+  margin: 30px 15px 0 0;
 }
 
-.memberpage .myallpage .my_collect .block .small-block .change_page button:hover {
-  background-color: white;
-  color: #222222;
-  border: 0.1px solid #FFE1A4;
-  line-height: 50px;
+.memberpage .myallpage .my_collect .block .small-block .change_page .Next_page {
+  border-radius: 25px;
+  margin: 30px 0 0 15px;
 }
 
 .memberpage .myallpage .my_article {
@@ -1083,7 +1113,6 @@ body section .content .page li {
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 0;
   z-index: -1;
-  -webkit-transition: opacity .1s;
   transition: opacity .1s;
 }
 
@@ -1092,24 +1121,21 @@ body section .content .page li {
   width: 400px;
   max-width: 800px;
   border-radius: 10px;
-  -webkit-box-shadow: 0 0 10px #ddd;
-          box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px #ddd;
   padding: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .memberpage .myallpage .my_article .-on {
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
 }
 
 .memberpage .myallpage .my_article .block {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 24px;
   max-width: 700px;
@@ -1119,9 +1145,11 @@ body section .content .page li {
 .memberpage .myallpage .my_article .block .title {
   margin: 0 auto;
   padding: 10px 20px;
-  background-color: #FFE1A4;
   border-radius: 20px 20px 0 0;
+  background-color: #9B1E23;
   text-align: center;
+  color: #FFF;
+  font-weight: bold;
 }
 
 .memberpage .myallpage .my_article .block .small-block {
@@ -1141,24 +1169,17 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_article .block .small-block .tab_list_block .tab_list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .memberpage .myallpage .my_article .block .small-block .tab_list_block .tab_list li a {
   display: inline-block;
-  border: 1px solid #ccc;
-  padding: 5px;
-  cursor: pointer;
-  color: #ccc;
-  position: relative;
-  font-size: 18px;
+  line-height: 30px;
+  margin: 0 10px;
 }
 
 .memberpage .myallpage .my_article .block .small-block .tab_list_block .tab_list li .-on {
-  border: 1px solid black;
-  color: black;
+  border: 2px solid #DF7219;
 }
 
 .memberpage .myallpage .my_article .block .small-block .tab_contents {
@@ -1180,14 +1201,9 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_article .block .small-block .tab_contents .-on .-on {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .memberpage .myallpage .my_article .block .small-block .tab_contents .-on .-on .box {
@@ -1233,61 +1249,13 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_article .block .small-block .change_page .Previous_page {
-  outline: none;
-  padding: 1.5rem 3rem;
-  border: 0.1 solid transparent;
-  display: inline-block;
-  color: #ffffff;
-  background-color: #6BB973;
-  border-radius: 3px;
-  width: 90px;
-  height: 40px;
-  font-family: "Microsoft JhengHei", sans-serif;
-  font-size: 16px;
-  text-align: center;
-  line-height: 1.5;
-  font-weight: 400;
-  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
-  background-size: 300%;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  cursor: pointer;
+  border-radius: 25px;
   margin: 30px 15px 0 0;
 }
 
-.memberpage .myallpage .my_article .block .small-block .change_page .Previous_page:hover {
-  background-position: 100%;
-  color: #6BB973;
-  font-weight: 700;
-}
-
 .memberpage .myallpage .my_article .block .small-block .change_page .Next_page {
-  outline: none;
-  padding: 1.5rem 3rem;
-  border: 0.1 solid transparent;
-  display: inline-block;
-  color: #ffffff;
-  background-color: #6BB973;
-  border-radius: 3px;
-  width: 90px;
-  height: 40px;
-  font-family: "Microsoft JhengHei", sans-serif;
-  font-size: 16px;
-  text-align: center;
-  line-height: 1.5;
-  font-weight: 400;
-  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
-  background-size: 300%;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  cursor: pointer;
+  border-radius: 25px;
   margin: 30px 0 0 15px;
-}
-
-.memberpage .myallpage .my_article .block .small-block .change_page .Next_page:hover {
-  background-position: 100%;
-  color: #6BB973;
-  font-weight: 700;
 }
 
 .memberpage .myallpage .my_friend {
@@ -1312,8 +1280,7 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_friend .block {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 24px;
   max-width: 700px;
@@ -1323,9 +1290,11 @@ body section .content .page li {
 .memberpage .myallpage .my_friend .block .title {
   margin: 0 auto;
   padding: 10px 20px;
-  background-color: #FFE1A4;
   border-radius: 20px 20px 0 0;
+  background-color: #9B1E23;
   text-align: center;
+  color: #FFF;
+  font-weight: bold;
 }
 
 .memberpage .myallpage .my_friend .block .fd_search {
@@ -1367,12 +1336,8 @@ body section .content .page li {
 }
 
 .memberpage .myallpage .my_friend .block .fd_list .fd_ul li .button_box {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .memberpage .myallpage .my_friend .block .fd_list .fd_ul li .button_box button {

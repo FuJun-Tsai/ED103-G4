@@ -73,16 +73,14 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-weight: normal;
   text-decoration: none;
   color: black;
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 textarea {
@@ -332,8 +330,7 @@ body section .back:nth-child(2) {
 }
 
 body section .content {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 0;
   max-width: 1200px;
@@ -352,13 +349,8 @@ body section .content .selection .kind {
 }
 
 body section .content .selection .sort {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 body section .content .selection .like,
@@ -430,8 +422,7 @@ body section .content .result .rest .detail > p {
 }
 
 body section .content .result .rest .detail .kind {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 70px;
@@ -446,8 +437,7 @@ body section .content .result .rest .detail .kind {
 }
 
 body section .content .result .rest .detail .style {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 70px;
@@ -463,13 +453,8 @@ body section .content .result .rest .detail .style {
 
 body section .content .result .rest .detail .record {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   right: 12px;
   top: 24px;
 }
@@ -570,16 +555,9 @@ body section .content .result .rest .detail .go .btnsingle:hover {
 }
 
 body section .content .page {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 body section .content .page li {
@@ -601,8 +579,7 @@ body section .content .page li {
 }
 
 * .togray {
-  -webkit-filter: brightness(55%);
-          filter: brightness(55%);
+  filter: brightness(55%);
 }
 
 * .bold {
@@ -659,8 +636,7 @@ section .content #name {
 }
 
 section .content div #kind {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 60px;
@@ -675,8 +651,7 @@ section .content div #kind {
 }
 
 section .content div #style {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 60px;
@@ -691,15 +666,9 @@ section .content div #style {
 }
 
 section .content #introduction {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  flex-direction: row;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 0;
   width: 100%;
@@ -726,8 +695,7 @@ section .content #introduction .container .single #imgs {
 
 section .content #introduction .container .single #imgs .large {
   padding-left: 15px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 0;
   max-width: 600px;
@@ -736,8 +704,7 @@ section .content #introduction .container .single #imgs .large {
 
 section .content #introduction .container .single #imgs .large #mainimg {
   display: inline-block;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 24px;
   max-width: 600px;
@@ -745,24 +712,14 @@ section .content #introduction .container .single #imgs .large #mainimg {
 }
 
 section .content #introduction .container .single #imgs .small {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   padding-bottom: 40px;
   padding-left: 15px;
   overflow: auto;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 0;
   max-width: 600px;
@@ -771,17 +728,14 @@ section .content #introduction .container .single #imgs .small {
 
 @media screen and (max-width: 710px) {
   section .content #introduction .container .single #imgs .small {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
+    justify-content: start;
     padding-right: 15px;
   }
 }
 
 @media (min-width: 711px) and (max-width: 992px) {
   section .content #introduction .container .single #imgs .small {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0 auto;
     border-radius: 24px;
     width: 100%;
@@ -797,9 +751,7 @@ section .content #introduction .container .single #imgs .small {
 
 @media screen and (max-width: 1200px) {
   section .content #introduction .container .single #imgs .small {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
+    justify-content: start;
     margin: 0 auto;
   }
 }
@@ -807,8 +759,7 @@ section .content #introduction .container .single #imgs .small {
 section .content #introduction .container .single #imgs .small img {
   margin-right: 8px;
   cursor: pointer;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 24px;
   max-width: 140px;
@@ -817,8 +768,7 @@ section .content #introduction .container .single #imgs .small img {
 
 @media (min-width: 710px) and (max-width: 1200px) {
   section .content #introduction .container .single #imgs .small img {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0 auto;
     border-radius: 24px;
     width: 100%;
@@ -830,16 +780,9 @@ section .content #introduction .container .single #imgs .small img:last-child {
 }
 
 section .content #introduction .container .single #detail {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 section .content #introduction .container .single #detail #rint {
@@ -852,15 +795,9 @@ section .content #introduction .container .single #detail #week li {
 
 section .content #introduction .container .single #detail .togroup {
   margin: 40px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 section .content #introduction .container .single #detail .togroup .btnRed {
@@ -918,8 +855,7 @@ section .content h4 {
 }
 
 section .content #leavemessage {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 0;
   max-width: 1200px;
@@ -933,27 +869,17 @@ section .content #leavemessage {
 }
 
 section .content #leavemessage .L {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 24px;
   max-width: 90%;
   width: 100%;
   background-color: white;
   margin: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   position: relative;
 }
 
@@ -966,13 +892,8 @@ section .content .messaging {
   background-color: white;
   border: 6px solid #f2c479;
   border-radius: 0 0 0 24px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   position: relative;
 }
 
@@ -993,8 +914,7 @@ section .content .messaging #send textarea {
   left: 102px;
   width: calc(100% - 200px);
   top: 50%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+  transform: translate(0, -50%);
   background-color: transparent;
   border-bottom: 1px solid black;
 }
@@ -1003,28 +923,19 @@ section .content .messaging #send .features {
   position: absolute;
   bottom: 0;
   left: 50%;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
   width: 200px;
   height: 24px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 section .content .messaging #send .features i {
   cursor: pointer;
   padding: 4px 16px;
   text-align: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 12px;
   max-width: 48px;
@@ -1037,8 +948,7 @@ section .content .messaging #send button {
   position: absolute;
   right: 12px;
   top: 50%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+  transform: translate(0, -50%);
   padding: 0;
   border: 0.1px;
   display: inline-block;

@@ -73,16 +73,14 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-weight: normal;
   text-decoration: none;
   color: black;
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 textarea {
@@ -332,8 +330,7 @@ body section .back:nth-child(2) {
 }
 
 body section .content {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 0;
   max-width: 1200px;
@@ -352,13 +349,8 @@ body section .content .selection .kind {
 }
 
 body section .content .selection .sort {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 body section .content .selection .like,
@@ -430,8 +422,7 @@ body section .content .result .rest .detail > p {
 }
 
 body section .content .result .rest .detail .kind {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 70px;
@@ -446,8 +437,7 @@ body section .content .result .rest .detail .kind {
 }
 
 body section .content .result .rest .detail .style {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 70px;
@@ -463,13 +453,8 @@ body section .content .result .rest .detail .style {
 
 body section .content .result .rest .detail .record {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   right: 12px;
   top: 24px;
 }
@@ -570,16 +555,9 @@ body section .content .result .rest .detail .go .btnsingle:hover {
 }
 
 body section .content .page {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 body section .content .page li {
@@ -690,8 +668,7 @@ section.first_screen .circle_fuchsia {
   position: absolute;
   top: 20%;
   left: 55%;
-  -webkit-transform: translate(-100%, 0);
-          transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
 }
 
 @media all and (min-width: 1440px) and (max-width: 1599px) {
@@ -760,8 +737,7 @@ section.first_screen .circle_fuchsia h2 {
   position: absolute;
   top: 55%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   white-space: nowrap;
 }
 
@@ -1044,8 +1020,7 @@ section.second_screen h2 {
   position: absolute;
   top: 20%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: 2;
   font-weight: 800;
 }
@@ -1079,8 +1054,7 @@ section.second_screen h4.restaurant {
   position: absolute;
   top: 25%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: 2;
   white-space: nowrap;
 }
@@ -1118,19 +1092,15 @@ section.second_screen .circle_orange {
   position: absolute;
   bottom: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 section.second_screen .circle_orange .container {
   width: 90%;
   margin-top: 80px;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1439px) {
@@ -1158,22 +1128,19 @@ section.second_screen .circle_orange .container {
 }
 
 section.second_screen .circle_orange .container .store:nth-child(2n+1) {
-  -webkit-transform: translateY(1050px);
-          transform: translateY(1050px);
+  transform: translateY(1050px);
   width: 15%;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1439px) {
   section.second_screen .circle_orange .container .store:nth-child(2n+1) {
-    -webkit-transform: translateY(1160px);
-            transform: translateY(1160px);
+    transform: translateY(1160px);
   }
 }
 
 @media all and (min-width: 768px) and (max-width: 991px) {
   section.second_screen .circle_orange .container .store:nth-child(2n+1) {
-    -webkit-transform: translateY(1110px);
-            transform: translateY(1110px);
+    transform: translateY(1110px);
   }
 }
 
@@ -1197,42 +1164,36 @@ section.second_screen .circle_orange .container .store:nth-child(2n+1) h4 {
   position: absolute;
   top: 25%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: 2;
 }
 
 section.second_screen .circle_orange .container .store:nth-child(2n) {
-  -webkit-transform: translateY(1150px);
-          transform: translateY(1150px);
+  transform: translateY(1150px);
   width: 25%;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1439px) {
   section.second_screen .circle_orange .container .store:nth-child(2n) {
-    -webkit-transform: translateY(1230px);
-            transform: translateY(1230px);
+    transform: translateY(1230px);
   }
 }
 
 @media all and (min-width: 768px) and (max-width: 991px) {
   section.second_screen .circle_orange .container .store:nth-child(2n) {
-    -webkit-transform: translateY(1185px);
-            transform: translateY(1185px);
+    transform: translateY(1185px);
   }
 }
 
 @media all and (min-width: 576px) and (max-width: 767px) {
   section.second_screen .circle_orange .container .store:nth-child(2n) {
-    -webkit-transform: translateY(1215px);
-            transform: translateY(1215px);
+    transform: translateY(1215px);
   }
 }
 
 @media all and (max-width: 575px) {
   section.second_screen .circle_orange .container .store:nth-child(2n) {
-    -webkit-transform: translateY(1140px);
-            transform: translateY(1140px);
+    transform: translateY(1140px);
   }
 }
 
@@ -1256,28 +1217,24 @@ section.second_screen .circle_orange .container .store:nth-child(2n) h4 {
   position: absolute;
   top: 25%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: 2;
 }
 
 section.second_screen .circle_orange .container .store:nth-child(3) {
-  -webkit-transform: translateY(1250px);
-          transform: translateY(1250px);
+  transform: translateY(1250px);
   width: 35%;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1439px) {
   section.second_screen .circle_orange .container .store:nth-child(3) {
-    -webkit-transform: translateY(1315px);
-            transform: translateY(1315px);
+    transform: translateY(1315px);
   }
 }
 
 @media all and (max-width: 575px) {
   section.second_screen .circle_orange .container .store:nth-child(3) {
-    -webkit-transform: translateY(1210px);
-            transform: translateY(1210px);
+    transform: translateY(1210px);
   }
 }
 
@@ -1305,8 +1262,7 @@ section.second_screen .circle_orange .container .store:nth-child(3) h4 {
   position: absolute;
   top: 25%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: 2;
 }
 
@@ -1448,8 +1404,7 @@ section.second_screen .fourTeam .team_one {
 section.second_screen .fourTeam .team_one .content {
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-35%);
-          transform: translateX(-35%);
+  transform: translateX(-35%);
   top: 25%;
 }
 
@@ -1461,8 +1416,7 @@ section.second_screen .fourTeam .team_one .content h5 {
 section.second_screen .fourTeam .team_one button {
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   bottom: 15%;
   padding: 0;
   border: 0.1px solid #DF7219;
@@ -1561,8 +1515,7 @@ section.second_screen .fourTeam .team_two {
 section.second_screen .fourTeam .team_two .content {
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-35%);
-          transform: translateX(-35%);
+  transform: translateX(-35%);
   top: 25%;
 }
 
@@ -1575,8 +1528,7 @@ section.second_screen .fourTeam .team_two .content h5 {
 section.second_screen .fourTeam .team_two button {
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   bottom: 15%;
   padding: 0;
   border: 0.1px solid #DF7219;
@@ -1673,8 +1625,7 @@ section.second_screen .fourTeam .team_three {
 section.second_screen .fourTeam .team_three .content {
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-35%);
-          transform: translateX(-35%);
+  transform: translateX(-35%);
   top: 25%;
 }
 
@@ -1686,8 +1637,7 @@ section.second_screen .fourTeam .team_three .content h5 {
 section.second_screen .fourTeam .team_three button {
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-35%);
-          transform: translateX(-35%);
+  transform: translateX(-35%);
   bottom: 15%;
   padding: 0;
   border: 0.1px solid #DF7219;
@@ -1784,8 +1734,7 @@ section.second_screen .fourTeam .team_four {
 section.second_screen .fourTeam .team_four .content {
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-35%);
-          transform: translateX(-35%);
+  transform: translateX(-35%);
   top: 25%;
 }
 
@@ -1798,8 +1747,7 @@ section.second_screen .fourTeam .team_four .content h5 {
 section.second_screen .fourTeam .team_four button {
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   bottom: 15%;
   padding: 0;
   border: 0.1px solid #DF7219;
@@ -1980,8 +1928,7 @@ section.third_screen h2 {
   section.third_screen h2 {
     top: 11%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 
@@ -1989,8 +1936,7 @@ section.third_screen h2 {
   section.third_screen h2 {
     top: 13%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 
@@ -2019,8 +1965,7 @@ section.third_screen h4 {
   section.third_screen h4 {
     top: 16%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     white-space: nowrap;
   }
 }
@@ -2029,8 +1974,7 @@ section.third_screen h4 {
   section.third_screen h4 {
     top: 18%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     white-space: nowrap;
   }
 }
@@ -2129,8 +2073,7 @@ section.third_screen .video {
   section.third_screen .video {
     width: 80%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 
@@ -2138,8 +2081,7 @@ section.third_screen .video {
   section.third_screen .video {
     width: 85%;
     right: 50%;
-    -webkit-transform: translateX(50%);
-            transform: translateX(50%);
+    transform: translateX(50%);
   }
 }
 
@@ -2167,8 +2109,7 @@ section.third_screen .video button {
   position: absolute;
   bottom: -15%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 section.third_screen .video button:hover {
@@ -2197,8 +2138,7 @@ section.fourth_screen .fourth_screen_circle_orange {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: -99;
 }
 
@@ -2212,8 +2152,7 @@ section.fourth_screen .fourth_screen_friends {
   position: absolute;
   bottom: 3%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 @media all and (min-width: 992px) and (max-width: 1199px) {
@@ -2247,11 +2186,8 @@ section.fourth_screen .chu_container {
 }
 
 section.fourth_screen .chu_container .chu_row1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   height: 40vh;
   position: relative;
 }
@@ -2262,19 +2198,13 @@ section.fourth_screen .chu_container .chu_row1 * {
 
 @media all and (min-width: 576px) and (max-width: 767px) {
   section.fourth_screen .chu_container .chu_row1 {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 }
 
 @media all and (max-width: 575px) {
   section.fourth_screen .chu_container .chu_row1 {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 }
 
@@ -2313,23 +2243,20 @@ section.fourth_screen .chu_container .chu_row1 .chu_left .chu_left_content {
   padding: 30px 0px;
   font-size: 16px;
   text-align: center;
-  -webkit-transform: translateY(-22px);
-          transform: translateY(-22px);
+  transform: translateY(-22px);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_left .chu_left_content img {
   width: 40px;
   height: 40px;
-  -webkit-transform: translateY(10px);
-          transform: translateY(10px);
+  transform: translateY(10px);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_left span {
   font-size: 24px;
   text-align: center;
   display: block;
-  -webkit-transform: translateY(-18px);
-          transform: translateY(-18px);
+  transform: translateY(-18px);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_left .chu_left_icon2 {
@@ -2347,8 +2274,7 @@ section.fourth_screen .chu_container .chu_row1 .chu_left .chu_left_icon3 {
   position: absolute;
   top: 30px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_left .chu_left_icon3 img {
@@ -2358,8 +2284,7 @@ section.fourth_screen .chu_container .chu_row1 .chu_left .chu_left_icon3 img {
 
 section.fourth_screen .chu_container .chu_row1 .chu_left .chu_left_icon3 p {
   font-size: 16px;
-  -webkit-transform: translateY(-15px);
-          transform: translateY(-15px);
+  transform: translateY(-15px);
   display: inline-block;
 }
 
@@ -2400,23 +2325,20 @@ section.fourth_screen .chu_container .chu_row1 .chu_center .chu_center_content {
   padding: 30px 0px;
   font-size: 16px;
   text-align: center;
-  -webkit-transform: translateY(-22px);
-          transform: translateY(-22px);
+  transform: translateY(-22px);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_center .chu_center_content img {
   width: 40px;
   height: 40px;
-  -webkit-transform: translateY(10px);
-          transform: translateY(10px);
+  transform: translateY(10px);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_center span {
   font-size: 24px;
   text-align: center;
   display: block;
-  -webkit-transform: translateY(-18px);
-          transform: translateY(-18px);
+  transform: translateY(-18px);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_center .chu_center_icon2 {
@@ -2434,8 +2356,7 @@ section.fourth_screen .chu_container .chu_row1 .chu_center .chu_center_icon3 {
   position: absolute;
   top: 30px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_center .chu_center_icon3 img {
@@ -2445,8 +2366,7 @@ section.fourth_screen .chu_container .chu_row1 .chu_center .chu_center_icon3 img
 
 section.fourth_screen .chu_container .chu_row1 .chu_center .chu_center_icon3 p {
   font-size: 16px;
-  -webkit-transform: translateY(-15px);
-          transform: translateY(-15px);
+  transform: translateY(-15px);
   display: inline-block;
 }
 
@@ -2485,23 +2405,20 @@ section.fourth_screen .chu_container .chu_row1 .chu_right .chu_right_content {
   padding: 30px 0px;
   font-size: 16px;
   text-align: center;
-  -webkit-transform: translateY(-22px);
-          transform: translateY(-22px);
+  transform: translateY(-22px);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_right .chu_right_content img {
   width: 40px;
   height: 40px;
-  -webkit-transform: translateY(10px);
-          transform: translateY(10px);
+  transform: translateY(10px);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_right span {
   font-size: 24px;
   text-align: center;
   display: block;
-  -webkit-transform: translateY(-18px);
-          transform: translateY(-18px);
+  transform: translateY(-18px);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_right .chu_right_icon2 {
@@ -2519,8 +2436,7 @@ section.fourth_screen .chu_container .chu_row1 .chu_right .chu_right_icon3 {
   position: absolute;
   top: 30px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 section.fourth_screen .chu_container .chu_row1 .chu_right .chu_right_icon3 img {
@@ -2530,8 +2446,7 @@ section.fourth_screen .chu_container .chu_row1 .chu_right .chu_right_icon3 img {
 
 section.fourth_screen .chu_container .chu_row1 .chu_right .chu_right_icon3 p {
   font-size: 16px;
-  -webkit-transform: translateY(-15px);
-          transform: translateY(-15px);
+  transform: translateY(-15px);
   display: inline-block;
 }
 
@@ -2568,8 +2483,7 @@ section.fourth_screen .chu_container .chu_button button:hover {
     position: absolute;
     bottom: 5%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 
@@ -2578,8 +2492,7 @@ section.fourth_screen .chu_container .chu_button button:hover {
     position: absolute;
     bottom: 5%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 /*# sourceMappingURL=index.css.map */

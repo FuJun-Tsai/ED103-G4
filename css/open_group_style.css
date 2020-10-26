@@ -73,16 +73,14 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-weight: normal;
   text-decoration: none;
   color: black;
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 textarea {
@@ -332,8 +330,7 @@ body section .back:nth-child(2) {
 }
 
 body section .content {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 0;
   max-width: 1200px;
@@ -352,13 +349,8 @@ body section .content .selection .kind {
 }
 
 body section .content .selection .sort {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 body section .content .selection .like,
@@ -430,8 +422,7 @@ body section .content .result .rest .detail > p {
 }
 
 body section .content .result .rest .detail .kind {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 70px;
@@ -446,8 +437,7 @@ body section .content .result .rest .detail .kind {
 }
 
 body section .content .result .rest .detail .style {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 70px;
@@ -463,13 +453,8 @@ body section .content .result .rest .detail .style {
 
 body section .content .result .rest .detail .record {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   right: 12px;
   top: 24px;
 }
@@ -570,16 +555,9 @@ body section .content .result .rest .detail .go .btnsingle:hover {
 }
 
 body section .content .page {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 body section .content .page li {
@@ -624,7 +602,6 @@ section .wrapper .gif img {
 }
 
 section .wrapper .background_round {
-  background-image: url(../image/14.svg);
   z-index: -60;
   position: absolute;
   top: 0;
@@ -759,20 +736,14 @@ section .wrapper .container .row #tab1 .result_owl {
 
 section .wrapper .container .row #tab1 .result_owl .row {
   padding: 0 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 50px 0;
   text-align: center;
 }
 
 section .wrapper .container .row #tab1 .result_owl .row .nav_left {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 5%;
-          flex: 0 0 5%;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  flex: 0 0 5%;
+  align-self: center;
 }
 
 section .wrapper .container .row #tab1 .result_owl .row .nav_left img {
@@ -786,11 +757,7 @@ section .wrapper .container .row #tab1 .result_owl .row .content_range {
 }
 
 section .wrapper .container .row #tab1 .result_owl .row .content_range .content {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 90%;
-          flex: 1 1 90%;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
+  flex: 1 1 90%;
   display: inline-flex;
 }
 
@@ -814,15 +781,12 @@ section .wrapper .container .row #tab1 .result_owl .row .content_range .content 
   height: 250px;
   display: block;
   cursor: pointer;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 section .wrapper .container .row #tab1 .result_owl .row .content_range .content div img:hover {
-  -webkit-filter: brightness(0.5);
-          filter: brightness(0.5);
-  -webkit-transform: scale(1.01);
-          transform: scale(1.01);
+  filter: brightness(0.5);
+  transform: scale(1.01);
 }
 
 section .wrapper .container .row #tab1 .result_owl .row .content_range .content div h6 {
@@ -831,12 +795,8 @@ section .wrapper .container .row #tab1 .result_owl .row .content_range .content 
 }
 
 section .wrapper .container .row #tab1 .result_owl .row .nav_right {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 5%;
-          flex: 0 0 5%;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  flex: 0 0 5%;
+  align-self: center;
 }
 
 section .wrapper .container .row #tab1 .result_owl .row .nav_right img {
@@ -846,17 +806,12 @@ section .wrapper .container .row #tab1 .result_owl .row .nav_right img {
 }
 
 section .wrapper .container .row #tab1 .Fill_Information_wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 section .wrapper .container .row #tab1 .Fill_Information_wrapper .Fill_Information {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 45%;
-          flex: 0 1 45%;
+  flex: 0 1 45%;
   text-align: center;
 }
 
@@ -895,9 +850,7 @@ section .wrapper .container .row #tab1 .Fill_Information_wrapper .Fill_Informati
 }
 
 section .wrapper .container .row #tab1 .Fill_Information_wrapper .friend_window {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 45%;
-          flex: 0 1 45%;
+  flex: 0 1 45%;
   text-align: center;
 }
 
@@ -984,16 +937,10 @@ section .wrapper .container .row #tab2 .foodGroup {
 
 section .wrapper .container .row #tab2 .foodGroup .eatGroup {
   background-color: rgba(245, 222, 179, 0.2);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding: 15px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin: 5px 0px;
 }
 
@@ -1015,9 +962,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup img {
 
 section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_content {
   padding-left: 20px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 
 section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_content h3 {
@@ -1026,8 +971,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_content h3
 }
 
 section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   padding-bottom: 15px;
 }
 
@@ -1064,10 +1008,8 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   width: 70%;
   height: 65vh;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-box-shadow: 8px 10px 10px rgba(22, 22, 22, 0.5);
-          box-shadow: 8px 10px 10px rgba(22, 22, 22, 0.5);
+  transform: translate(-50%, -50%);
+  box-shadow: 8px 10px 10px rgba(22, 22, 22, 0.5);
   display: none;
   background-color: white;
   z-index: 99;
@@ -1089,8 +1031,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   width: 80%;
   height: 8%;
   background-color: black;
-  -webkit-transform: translate(0%, 550%) rotate(45deg);
-          transform: translate(0%, 550%) rotate(45deg);
+  transform: translate(0%, 550%) rotate(45deg);
   margin: auto;
 }
 
@@ -1098,25 +1039,19 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   width: 80%;
   height: 8%;
   background-color: black;
-  -webkit-transform: translate(0%, 450%) rotate(-45deg);
-          transform: translate(0%, 450%) rotate(-45deg);
+  transform: translate(0%, 450%) rotate(-45deg);
   margin: auto;
 }
 
 .box .box_row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .box .box_row .box_row_left {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   text-align: center;
 }
 
@@ -1127,8 +1062,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
 .box .box_row .box_row_left .main_img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .box .box_row .box_row_left img {
@@ -1136,14 +1070,11 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   height: 120px;
   display: inline-block;
   padding: 3px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .box .box_row .box_row_right {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   padding: 30px;
 }
 
@@ -1173,10 +1104,8 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   width: 70%;
   height: 85%;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-box-shadow: 8px 10px 10px rgba(22, 22, 22, 0.5);
-          box-shadow: 8px 10px 10px rgba(22, 22, 22, 0.5);
+  transform: translate(-50%, -50%);
+  box-shadow: 8px 10px 10px rgba(22, 22, 22, 0.5);
   display: none;
   background-color: white;
   z-index: 99;
@@ -1197,8 +1126,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   width: 80%;
   height: 8%;
   background-color: black;
-  -webkit-transform: translate(0%, 550%) rotate(45deg);
-          transform: translate(0%, 550%) rotate(45deg);
+  transform: translate(0%, 550%) rotate(45deg);
   margin: auto;
 }
 
@@ -1206,28 +1134,20 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   width: 80%;
   height: 8%;
   background-color: black;
-  -webkit-transform: translate(0%, 450%) rotate(-45deg);
-          transform: translate(0%, 450%) rotate(-45deg);
+  transform: translate(0%, 450%) rotate(-45deg);
   margin: auto;
 }
 
 .box2 .box2_row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .box2 .box2_row .box2_row_left {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   text-align: center;
 }
 
@@ -1238,8 +1158,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
 .box2 .box2_row .box2_row_left .main_img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .box2 .box2_row .box2_row_left img {
@@ -1247,8 +1166,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   height: 120px;
   display: inline-block;
   padding: 3px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .box2 .box2_row .box2_row_left .box_button {
@@ -1318,9 +1236,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
 }
 
 .box2 .box2_row .box2_row_right {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   padding-left: 20px;
   max-height: 450px;
   overflow: auto;
@@ -1360,10 +1276,8 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   width: 70%;
   height: 85%;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-box-shadow: 8px 10px 10px rgba(22, 22, 22, 0.5);
-          box-shadow: 8px 10px 10px rgba(22, 22, 22, 0.5);
+  transform: translate(-50%, -50%);
+  box-shadow: 8px 10px 10px rgba(22, 22, 22, 0.5);
   display: none;
   background-color: white;
   z-index: 99;
@@ -1384,8 +1298,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   width: 80%;
   height: 8%;
   background-color: black;
-  -webkit-transform: translate(0%, 550%) rotate(45deg);
-          transform: translate(0%, 550%) rotate(45deg);
+  transform: translate(0%, 550%) rotate(45deg);
   margin: auto;
 }
 
@@ -1393,28 +1306,20 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   width: 80%;
   height: 8%;
   background-color: black;
-  -webkit-transform: translate(0%, 450%) rotate(-45deg);
-          transform: translate(0%, 450%) rotate(-45deg);
+  transform: translate(0%, 450%) rotate(-45deg);
   margin: auto;
 }
 
 .box3 .box3_row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .box3 .box3_row .box3_row_left {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   text-align: center;
 }
 
@@ -1425,8 +1330,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
 .box3 .box3_row .box3_row_left .main_img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .box3 .box3_row .box3_row_left img {
@@ -1434,8 +1338,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   height: 120px;
   display: inline-block;
   padding: 3px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .box3 .box3_row .box3_row_left .box_button {
@@ -1484,9 +1387,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
 }
 
 .box3 .box3_row .box3_row_right {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   padding-left: 20px;
   max-height: 450px;
   overflow: auto;
@@ -1555,17 +1456,13 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
     height: 85vh;
   }
   .box .box_row {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     top: 0;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     padding: 15px;
   }
   .box .box_row .box_row_left {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box .box_row .box_row_left .main_img {
     padding: 5px;
@@ -1578,9 +1475,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   }
   .box .box_row .box_row_right {
     padding: 0;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box .box_row .box_row_right h2 {
     margin-top: 15px;
@@ -1640,18 +1535,13 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
     height: 20px;
   }
   section .wrapper .container .row #tab1 .Fill_Information_wrapper {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
   section .wrapper .container .row #tab1 .Fill_Information_wrapper .Fill_Information {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   section .wrapper .container .row #tab1 .Fill_Information_wrapper .friend_window {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   section .wrapper .container .row #tab1 .Fill_Information_wrapper .friend_window .friend_title {
     margin-top: 30px;
@@ -1664,9 +1554,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   }
   section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_content {
     padding: 0;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 80%;
-            flex: 1 1 80%;
+    flex: 1 1 80%;
     text-align: center;
   }
   section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button button {
@@ -1681,17 +1569,13 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
     height: 85vh;
   }
   .box .box_row {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     top: 0;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     padding: 60px 15px 15px 15px;
   }
   .box .box_row .box_row_left {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box .box_row .box_row_left .main_img {
     padding: 5px;
@@ -1704,9 +1588,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   }
   .box .box_row .box_row_right {
     padding: 0;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box .box_row .box_row_right h2 {
     margin-top: 15px;
@@ -1717,22 +1599,16 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
     overflow-y: auto;
   }
   .box2 .box2_row {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     top: 9%;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     padding-bottom: 15%;
   }
   .box2 .box2_row .box2_row_right {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box2 .box2_row .box2_row_left {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box2 .box2_row .box2_row_left .box_button {
     width: 49%;
@@ -1752,22 +1628,16 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
     overflow-y: auto;
   }
   .box3 .box3_row {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     top: 9%;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     padding-bottom: 15%;
   }
   .box3 .box3_row .box3_row_right {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box3 .box3_row .box3_row_left {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box3 .box3_row .box3_row_left .box_button {
     width: 49%;
@@ -1825,18 +1695,13 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
     height: 20px;
   }
   section .wrapper .container .row #tab1 .Fill_Information_wrapper {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
   section .wrapper .container .row #tab1 .Fill_Information_wrapper .Fill_Information {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   section .wrapper .container .row #tab1 .Fill_Information_wrapper .friend_window {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   section .wrapper .container .row #tab1 .Fill_Information_wrapper .friend_window .friend_title {
     margin-top: 30px;
@@ -1848,17 +1713,14 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
     width: 28%;
   }
   section .wrapper .container .row #tab2 .foodGroup .eatGroup {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
   section .wrapper .container .row #tab2 .foodGroup .eatGroup span {
     display: none;
   }
   section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_content {
     padding: 0;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 80%;
-            flex: 1 1 80%;
+    flex: 1 1 80%;
     text-align: center;
   }
   section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button button {
@@ -1873,17 +1735,13 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
     height: 85vh;
   }
   .box .box_row {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     top: 0;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     padding: 55px 15px 15px 15px;
   }
   .box .box_row .box_row_left {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box .box_row .box_row_left .main_img {
     padding: 5px;
@@ -1897,9 +1755,7 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
   }
   .box .box_row .box_row_right {
     padding: 0;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box .box_row .box_row_right h2 {
     margin-top: 15px;
@@ -1910,22 +1766,16 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
     overflow-y: auto;
   }
   .box2 .box2_row {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     top: 9%;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     padding-bottom: 20%;
   }
   .box2 .box2_row .box2_row_right {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box2 .box2_row .box2_row_left {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box2 .box2_row .box2_row_left .box_button {
     width: 49%;
@@ -1945,22 +1795,16 @@ section .wrapper .container .row #tab2 .foodGroup .eatGroup .eatGroup_button but
     overflow-y: auto;
   }
   .box3 .box3_row {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     top: 9%;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     padding-bottom: 20%;
   }
   .box3 .box3_row .box3_row_right {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box3 .box3_row .box3_row_left {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .box3 .box3_row .box3_row_left .box_button {
     width: 49%;

@@ -73,16 +73,14 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-weight: normal;
   text-decoration: none;
   color: black;
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 textarea {
@@ -332,8 +330,7 @@ body section .back:nth-child(2) {
 }
 
 body section .content {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 0;
   max-width: 1200px;
@@ -352,13 +349,8 @@ body section .content .selection .kind {
 }
 
 body section .content .selection .sort {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 body section .content .selection .like,
@@ -430,8 +422,7 @@ body section .content .result .rest .detail > p {
 }
 
 body section .content .result .rest .detail .kind {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 70px;
@@ -446,8 +437,7 @@ body section .content .result .rest .detail .kind {
 }
 
 body section .content .result .rest .detail .style {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   border-radius: 8px;
   max-width: 70px;
@@ -463,13 +453,8 @@ body section .content .result .rest .detail .style {
 
 body section .content .result .rest .detail .record {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   right: 12px;
   top: 24px;
 }
@@ -570,16 +555,9 @@ body section .content .result .rest .detail .go .btnsingle:hover {
 }
 
 body section .content .page {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 body section .content .page li {
@@ -600,15 +578,6 @@ body section .content .page li {
   max-width: 1200px;
 }
 
-body {
-  width: 100%;
-  background-image: url("../image/14.svg");
-  background-size: 100%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 body .btnCust {
   /*自訂按鈕*/
   width: 105px;
@@ -627,42 +596,23 @@ body .btnCust {
   border-radius: 50%;
   background-image: url("../image/btnCust.png");
   background-size: contain;
-  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  -webkit-transition: -webkit-filter 0.1s;
-  transition: -webkit-filter 0.1s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   transition: filter 0.1s;
-  transition: filter 0.1s, -webkit-filter 0.1s;
-  -webkit-animation: flutter 0.5s cubic-bezier(0.04, 0.49, 0.94, 0.44) alternate infinite;
-          animation: flutter 0.5s cubic-bezier(0.04, 0.49, 0.94, 0.44) alternate infinite;
+  animation: flutter 0.5s cubic-bezier(0.04, 0.49, 0.94, 0.44) alternate infinite;
   cursor: pointer;
-}
-
-@-webkit-keyframes flutter {
-  from {
-    -webkit-transform: translateY(5px);
-            transform: translateY(5px);
-  }
-  to {
-    -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
-  }
 }
 
 @keyframes flutter {
   from {
-    -webkit-transform: translateY(5px);
-            transform: translateY(5px);
+    transform: translateY(5px);
   }
   to {
-    -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
+    transform: translateY(-10px);
   }
 }
 
 body .btnCust:hover {
-  -webkit-filter: brightness(1.05);
-          filter: brightness(1.05);
+  filter: brightness(1.05);
 }
 
 body section .container .col-md-12 {
@@ -778,15 +728,13 @@ body section .container .col-md-4 .content .overlay article {
   background-color: white;
   max-width: 70%;
   border-radius: 10px;
-  -webkit-box-shadow: 0 0 10px #ddd;
-          box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px #ddd;
   padding: 3%;
   position: absolute;
   top: 50%;
   left: 50%;
   margin-top: 3%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 body section .container .col-md-4 .content .overlay article .msg-title h2 {
@@ -993,12 +941,8 @@ body .newMoodLightBox {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   z-index: 200;
   top: 0;
@@ -1014,9 +958,7 @@ body .newMoodLightBox .newMoodBlock {
   position: relative;
   border-radius: 10px;
   background-image: url("../../image/15.png");
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 body .newMoodLightBox .newMoodBlock #closeNewMoodBtn {
@@ -1026,7 +968,6 @@ body .newMoodLightBox .newMoodBlock #closeNewMoodBtn {
   position: absolute;
   right: 0px;
   top: 0px;
-  -webkit-transition: all 0.8s;
   transition: all 0.8s;
 }
 
@@ -1042,18 +983,15 @@ body .newMoodLightBox .newMoodBlock #closeNewMoodBtn span.line1, body .newMoodLi
 }
 
 body .newMoodLightBox .newMoodBlock #closeNewMoodBtn span.line1 {
-  -webkit-transform: translate(-50%, -50%) rotate(45deg);
-          transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 body .newMoodLightBox .newMoodBlock #closeNewMoodBtn span.line2 {
-  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-          transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 body .newMoodLightBox .newMoodBlock #closeNewMoodBtn:hover {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 body .newMoodLightBox .newMoodBlock h2 {
@@ -1071,9 +1009,7 @@ body .newMoodLightBox .newMoodBlock #newMoodForm {
 body .newMoodLightBox .newMoodBlock #newMoodForm .moodBox {
   font-size: 16px;
   width: 50%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   width: 100%;
   margin: 0 auto;
 }
@@ -1092,15 +1028,9 @@ body .newMoodLightBox .newMoodBlock #newMoodForm .moodBox .picWrap {
   margin-bottom: 10px;
   text-overflow: ellipsis;
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 body .newMoodLightBox .newMoodBlock #newMoodForm .moodBox .picWrap img {
