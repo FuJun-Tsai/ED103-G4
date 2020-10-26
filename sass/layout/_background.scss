@@ -37,7 +37,7 @@
     transform: scale(0.75);
     opacity: 0.35;
     animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
- }
+}
 .x5 {
     right: 150px;
     transform: scale(0.8);
@@ -61,14 +61,14 @@
     transform: scale(0.75);
     opacity: 0.35;
     animation: moveclouds 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
- }
+}
 .x9 {
     right: 150px;
     transform: scale(0.8);
     opacity: 0.3; 
     animation: moveclouds 18s linear infinite, sideWays 1s ease-in-out infinite alternate;
 }
-@-webkit-keyframes moveclouds { 
+@keyframes moveclouds { 
     0% { 
         top: 95%;
     }
@@ -77,7 +77,7 @@
     }
 }
 
-@-webkit-keyframes sideWays { 
+@keyframes sideWays { 
     0% { 
         margin-left:0px;
     }
@@ -86,38 +86,3 @@
     }
 }
 
-@-moz-keyframes moveclouds {     
-    0% { 
-        top: 95%;
-    }
-
-    100% { 
-        top: -500px;
-    }
-}
-
-@-moz-keyframes sideWays {
-    0% {
-        margin-left:0px;
-    }
-    100% {
-        margin-left:75px;
-    }
-}
-@-o-keyframes moveclouds {
-    0% { 
-        top: 95%;
-    }
-    100% { 
-        top: -500px;
-    }
-}
-
-@-o-keyframes sideWays {
-    0% {
-        margin-left:0px;
-    }
-    100% {
-        margin-left:75px;
-    }
-}
