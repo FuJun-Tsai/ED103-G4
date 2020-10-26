@@ -1,7 +1,10 @@
-html,
-body,
 
-body { overflow: hidden }
+#bubbles { 
+    position: fixed;
+    height: 100vh;
+    width: 100VW;
+    bottom: 10px;
+    overflow: hidden }
 
 .bubble {
     width: 60px;
@@ -45,7 +48,7 @@ body { overflow: hidden }
     right: 200px;
     transform: scale(0.6);
     opacity: 0.5;
-    animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    animation: moveclouds 30s linear infinite, sideWays 5s ease-in-out infinite alternate;
 }
 .x7 {
     right: 350px;
@@ -57,17 +60,17 @@ body { overflow: hidden }
     right: 470px;
     transform: scale(0.75);
     opacity: 0.35;
-    animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    animation: moveclouds 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
  }
 .x9 {
     right: 150px;
     transform: scale(0.8);
     opacity: 0.3; 
-    animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    animation: moveclouds 18s linear infinite, sideWays 1s ease-in-out infinite alternate;
 }
 @-webkit-keyframes moveclouds { 
     0% { 
-        top: 95vh;
+        top: 95%;
     }
     100% { 
         top: -500px;
@@ -79,13 +82,13 @@ body { overflow: hidden }
         margin-left:0px;
     }
     100% { 
-        margin-left:50px;
+        margin-left:75px;
     }
 }
 
 @-moz-keyframes moveclouds {     
     0% { 
-        top: 95vh;
+        top: 95%;
     }
 
     100% { 
@@ -98,12 +101,12 @@ body { overflow: hidden }
         margin-left:0px;
     }
     100% {
-        margin-left:50px;
+        margin-left:75px;
     }
 }
 @-o-keyframes moveclouds {
     0% { 
-        top: 95vh;
+        top: 95%;
     }
     100% { 
         top: -500px;
@@ -115,6 +118,6 @@ body { overflow: hidden }
         margin-left:0px;
     }
     100% {
-        margin-left:50px;
+        margin-left:75px;
     }
 }
