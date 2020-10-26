@@ -224,7 +224,8 @@
                     width: 100%;
                     height: 500px;
                     padding-top: 30px;
-                    display: flex;
+                    // display: flex;
+                    display: none;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
@@ -245,9 +246,132 @@
                         }
                     }
                 }
-                // .have_group{
-
-                // }
+                .have_group{
+                    // .den_box2 {
+                    //     @include light-box-setting(100%, 115%, absolute);
+                    //     box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
+                    //     background-color: white;
+                    //     .leave_btn {
+                    //         position: absolute;
+                    //         top: 20px;
+                    //         right: 20px;
+                    //         width: 50px;
+                    //         height: 50px;
+                    //         z-index: 99;
+                    //         cursor: pointer;
+                    //         .line1 {
+                    //             width: 80%;
+                    //             height: 8%;
+                    //             background-color: black;
+                    //             transform: translate(0%, 550%) rotate(45deg);
+                    //             margin: auto;
+                    //         }
+                    //         .line2 {
+                    //             width: 80%;
+                    //             height: 8%;
+                    //             background-color: black;
+                    //             transform: translate(0%, 450%) rotate(-45deg);
+                    //             margin: auto;
+                    //         }
+                    //     }
+                    //     .den_box2_row {
+                    //         display: flex;
+                    //         align-items: center;
+                    //         position: absolute;
+                    //         top: 50%;
+                    //         transform: translateY(-50%);
+                    //         .box2_row_left {
+                    //             // border: 1px solid red;
+                    //             flex: 1 1 50%;
+                    //             text-align: center;
+                    //             .main_img {
+                    //                 padding: 10px;
+                    //                 img {
+                    //                     width: 100%;
+                    //                     height: 100%;
+                    //                     object-fit: cover;
+                    //                 }
+                    //             }
+                    //             img {
+                    //                 // width: 100px;
+                    //                 // height: 100px;
+                    //                 width: 24%;
+                    //                 height: 120px;
+                    //                 display: inline-block;
+                    //                 padding: 3px;
+                    //                 object-fit: cover;
+                    //             }
+                    //             .den_box_button {
+                    //                 text-align: center;
+                    //                 width: 40%;
+                    //                 // border: 1px solid;
+                    //                 display: inline-block;
+                    //                 margin-top: 15px;
+                    //                 button {
+                    //                     @include btnBrown_6;
+                    //                     width: 150px;
+                    //                     // border-radius: 15px 15px!important;
+                    //                 }
+                    //             }
+                    //             .box_button_close {
+                    //                 display: none;
+                    //                 text-align: center;
+                    //                 width: 40%;
+                    //                 // border: 1px solid;
+                    //                 // display: inline-block;
+                    //                 margin-top: 15px;
+                    //                 button {
+                    //                     @include btnBlue_3;
+                    //                     width: 150px;
+                    //                 }
+                    //             }
+                    //         }
+                    //         .box2_row_right {
+                    //             // border: 1px solid green;
+                    //             flex: 1 1 50%;
+                    //             // padding: 30px;
+                    //             padding-left: 20px;
+                    //             max-height: 450px;
+                    //             overflow: auto;
+                    //             div {
+                    //                 padding: 15px 0px;
+                    //                 // h2 {
+                    //                 //     // color: $btn_color_n_r;
+                    //                 //     display: block;
+                    //                 //     // border: 1px solid red;
+                    //                 //     padding: 10px 5px;
+                    //                 // }
+                    //                 h3 {
+                    //                     display: inline-block;
+                    //                     // border: 1px solid;
+                    //                     // border: 1px solid blue;
+                    //                     padding: 5px;
+                    //                 }
+                    //                 h4 {
+                    //                     display: inline-block;
+                    //                     padding: 5px;
+                    //                 }
+                    //                 h6 {
+                    //                     display: inline-block;
+                    //                     // // border: 1px solid green;
+                    //                     // padding: 5px 10px;
+                    //                     // border-radius: 5px;
+                    //                     // background-color: rgba(128, 128, 128, .6);
+                    //                     // margin: 10px 5px 0px 5px;
+                    //                     margin: 12px;
+                    //                     padding: 5px 10px;
+                    //                     font-size: 14px;
+                    //                     background-color: #FFE1A4;
+                    //                     border: 0.1px solid;
+                    //                     border-radius: 8px;
+                    //                     width: 60px;
+                    //                     text-align: center;
+                    //                 }
+                    //             }
+                    //         }
+                    //     }
+                    // }
+                }
             }
         }
         .my_jion {
