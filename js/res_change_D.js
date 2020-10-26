@@ -1,8 +1,8 @@
 function doFirst() {
     //餐廳種類篩選
-    let resInput = document.querySelectorAll('.res_type input'); //list是陣列
-    let cookInput = document.querySelectorAll('.cooking_style input'); //list是陣列
-    var g = $('.content div');
+    let resInput = document.querySelectorAll('.den_res_type input'); //list是陣列
+    let cookInput = document.querySelectorAll('.den_cooking_style input'); //list是陣列
+    var g = $('.den_content div');
     // let cookInput = document.querySelectorAll('.cooking_style input'); //list是陣列
     for (let i = 0; i < resInput.length; i++) {
         resInput[i].addEventListener('change', function() {
@@ -12,7 +12,7 @@ function doFirst() {
             let Number = resInput[i].value;
             switch (Number) {
                 case '日式':
-                    let a = $('.content div #日式').parent();
+                    let a = $('.den_content div #日式').parent();
                     // if (cookInput)
                     // console.log(cookInput[].checked);
                     for (let i = 0; i < g.length; i++) {
@@ -23,7 +23,7 @@ function doFirst() {
                     }
                     break;
                 case '美式':
-                    let b = $('.content div #美式').parent();
+                    let b = $('.den_content div #美式').parent();
                     for (let i = 0; i < g.length; i++) {
                         g[i].style.display = 'none';
                     }
@@ -32,7 +32,7 @@ function doFirst() {
                     }
                     break;
                 case '西式':
-                    let c = $('.content div #西式').parent();
+                    let c = $('.den_content div #西式').parent();
                     for (let i = 0; i < g.length; i++) {
                         g[i].style.display = 'none';
                     }
@@ -41,7 +41,7 @@ function doFirst() {
                     }
                     break;
                 case '韓式':
-                    let d = $('.content div #韓式').parent();
+                    let d = $('.den_content div #韓式').parent();
                     for (let i = 0; i < g.length; i++) {
                         g[i].style.display = 'none';
                     }
@@ -50,7 +50,7 @@ function doFirst() {
                     }
                     break;
                 case '中台':
-                    let e = $('.content div #中台').parent();
+                    let e = $('.den_content div #中台').parent();
                     for (let i = 0; i < g.length; i++) {
                         g[i].style.display = 'none';
                     }
@@ -59,7 +59,7 @@ function doFirst() {
                     }　
                     break;
                 case '東南亞':
-                    let f = $('.content div #東南亞').parent();
+                    let f = $('.den_content div #東南亞').parent();
                     for (let i = 0; i < g.length; i++) {
                         g[i].style.display = 'none';
                     }
@@ -96,11 +96,11 @@ function doFirst() {
                 console.log('1');
                 // $('.content div')
                 let Number1 = cookInput[i].value;
-                var t = $('.content div');
+                var t = $('.den_content div');
 
                 switch (Number1) {
                     case '火鍋':
-                        let a = $('.content div #火鍋').parent();
+                        let a = $('.den_content div #火鍋').parent();
                         for (let i = 0; i < t.length; i++) {
                             t[i].style.display = 'none';
                         }
@@ -109,7 +109,7 @@ function doFirst() {
                         }
                         break;
                     case '燒烤':
-                        let b = $('.content div #燒烤').parent();
+                        let b = $('.den_content div #燒烤').parent();
                         for (let i = 0; i < t.length; i++) {
                             t[i].style.display = 'none';
                         }

@@ -1,6 +1,6 @@
 function doFirst() {
     //資料傳值到燈箱
-    $('.button').on('click', function() {
+    $('.den_button').on('click', function() {
 
         let resName = $('#resName').val();
         let groupName = $('#groupName').val();
@@ -13,7 +13,7 @@ function doFirst() {
             $('.box2_row_right div:nth-child(1) h3:nth-child(8)').append(resName); {}
         } else {
             alert('請輸入餐廳');
-            $('.box2').css('display', 'none');
+            $('.den_box2').css('display', 'none');
             $('.box_background').css('display', 'none');
         }
         if (groupName != false) {
@@ -21,7 +21,7 @@ function doFirst() {
             $('.box2_row_right div:nth-child(1) h3:nth-child(5)').append(groupName);
         } else {
             alert('請輸入團名');
-            $('.box2').css('display', 'none');
+            $('.den_box2').css('display', 'none');
             $('.box_background').css('display', 'none');
         }
         if (resDate != false) {
@@ -29,7 +29,7 @@ function doFirst() {
             $('.box2_row_right div:nth-child(2) h3:nth-child(8)').append(resDate);
         } else {
             alert('請選擇日期');
-            $('.box2').css('display', 'none');
+            $('.den_box2').css('display', 'none');
             $('.box_background').css('display', 'none');
         }
         if (resTime != '請選擇用餐時間') {
@@ -37,7 +37,7 @@ function doFirst() {
             $('.box2_row_right div:nth-child(2) h3:nth-child(8)').append(' / ' + resTime);
         } else {
             alert('請選擇用餐時間');
-            $('.box2').css('display', 'none');
+            $('.den_box2').css('display', 'none');
             $('.box_background').css('display', 'none');
         }
         if (resMen != '請選擇參加人數') {
@@ -45,7 +45,7 @@ function doFirst() {
             $('.box2_row_right div:nth-child(2) h3:nth-child(5)').append('1' + '/' + resMen);
         } else {
             alert('請選擇參加人數');
-            $('.box2').css('display', 'none');
+            $('.den_box2').css('display', 'none');
             $('.box_background').css('display', 'none');
         }
         console.log(resMen);
