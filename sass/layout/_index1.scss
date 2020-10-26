@@ -1,3 +1,4 @@
+//10.26-16:09
 header {
     height: 0;
     position: fixed;
@@ -87,13 +88,15 @@ section.first_screen {
             top: 43%;
             left: 100%;
         }
-        h2 {
+        p {
+            font-size: 1.5*$fontSize;
             color: white;
             position: absolute;
             top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
             white-space: nowrap;
+            line-height: 28px;
         }
     }
     .circle_purple {
@@ -136,8 +139,8 @@ section.first_screen {
     }
     .circle_food_noodles {
         background-image: url(../image/index/first_screen_friends_food2.svg);
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         position: absolute;
         top: 23%;
         left: 10%;
@@ -155,6 +158,8 @@ section.first_screen {
         @media all and (max-width: 575px) {
             top: 17%;
             left: 60%;
+            width: 80px;
+            height: 80px;
         }
     }
     .circle_food_icecream {
@@ -461,9 +466,9 @@ section.second_screen {
             @media all and (min-width: 768px) and (max-width: 991px) {
                 left: 35%;
             }
-            // @media all and (min-width: 576px) and (max-width: 767px) {
-            //     left: 37%;
-            // }
+            @media all and (min-width: 576px) and (max-width: 767px) {
+                bottom: -1%;
+            }
             @media all and (max-width: 575px) {
                 left: 37%;
                 bottom: 3%;
@@ -489,9 +494,9 @@ section.second_screen {
             @media all and (min-width: 768px) and (max-width: 991px) {
                 right: 35%;
             }
-            // @media all and (min-width: 576px) and (max-width: 767px) {
-            //     right: 37%;
-            // }
+            @media all and (min-width: 576px) and (max-width: 767px) {
+                bottom: -1%;
+            }
             @media all and (max-width: 575px) {
                 right: 37%;
                 bottom: 3%;
@@ -528,7 +533,7 @@ section.second_screen {
                 bottom: 26%;
             }
             @media all and (max-width: 575px) {
-                @include circle(200px, #76AFAF);
+                @include circle(180px, #76AFAF);
                 left: 1%;
                 bottom: 26%;
             }
@@ -537,9 +542,13 @@ section.second_screen {
                 left: 50%;
                 transform: translateX(-35%);
                 top: 25%;
-                h5 {
+                p {
+                    font-size: $fontSize;
                     white-space: nowrap;
                     line-height: 1.5;
+                    @media all and (max-width: 575px) {
+                        font-size: 0.8*$fontSize;
+                    }
                 }
             }
             button {
@@ -586,7 +595,7 @@ section.second_screen {
                 bottom: 1%;
             }
             @media all and (max-width: 575px) {
-                @include circle(200px, #601C8A);
+                @include circle(180px, #601C8A);
                 left: 1%;
                 bottom: 1%;
             }
@@ -595,10 +604,13 @@ section.second_screen {
                 left: 50%;
                 transform: translateX(-35%);
                 top: 25%;
-                h5 {
+                p {
+                    font-size: $fontSize;
                     white-space: nowrap;
                     line-height: 1.5;
-                    color: white;
+                    @media all and (max-width: 575px) {
+                        font-size: 0.8*$fontSize;
+                    }
                 }
             }
             button {
@@ -643,7 +655,7 @@ section.second_screen {
                 bottom: 26%;
             }
             @media all and (max-width: 575px) {
-                @include circle(200px, #F4EFDF);
+                @include circle(180px, #F4EFDF);
                 right: 1%;
                 bottom: 26%;
             }
@@ -652,9 +664,13 @@ section.second_screen {
                 left: 50%;
                 transform: translateX(-35%);
                 top: 25%;
-                h5 {
+                p {
+                    font-size: $fontSize;
                     white-space: nowrap;
                     line-height: 1.5;
+                    @media all and (max-width: 575px) {
+                        font-size: 0.8*$fontSize;
+                    }
                 }
             }
             button {
@@ -699,7 +715,7 @@ section.second_screen {
                 bottom: 1%;
             }
             @media all and (max-width: 575px) {
-                @include circle(200px, #B71E68);
+                @include circle(180px, #B71E68);
                 right: 1%;
                 bottom: 1%;
             }
@@ -708,10 +724,13 @@ section.second_screen {
                 left: 50%;
                 transform: translateX(-35%);
                 top: 25%;
-                h5 {
+                p {
+                    font-size: $fontSize;
                     white-space: nowrap;
                     line-height: 1.5;
-                    color: white;
+                    @media all and (max-width: 575px) {
+                        font-size: 0.8*$fontSize;
+                    }
                 }
             }
             button {
@@ -1805,21 +1824,48 @@ section.third_screen {
 
 
     section.fourth_screen {
+<<<<<<< HEAD
+>>>>>>> dev
+=======
+        border: 1px solid black;
+        overflow: hidden;
 >>>>>>> dev
         height: 100vh;
         position: relative;
-        overflow: hidden;
+        background-image: url(../image/index/first_screen_background.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
         .header_padding {
             height: 120px;
             // border: 1px solid green;
         }
-
         .fourth_screen_circle_orange {
             @include circle_bigOrange;
             top: 50%;
             left: 50%;
             transform: translateX(-50%);
             z-index: -99;
+        }
+        h2{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 13%;
+            @media all and (min-width: 576px) and (max-width: 767px) {
+                left: 12%;
+                transform: translateX(0);
+            }
+        }
+        h4{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 18%;
+            @media all and (min-width: 576px) and (max-width: 767px) {
+                left: 12%;                
+                transform: translateX(0);
+            }
         }
         .fourth_screen_friends {
             background-image: url(../../image/index/fourth_screen_friends.svg);
@@ -1859,6 +1905,7 @@ section.third_screen {
                 justify-content: space-around;
                 height: 40vh;
                 position: relative;
+                transform: translateY(75px);
                 * {
                     color: white;
                 }
@@ -1879,12 +1926,18 @@ section.third_screen {
                     padding: 15px;
                     @media all and (min-width: 576px) and (max-width: 767px) {
                         margin: auto;
+                        left: 15%;
                     }
                     @media all and (max-width: 575px) {
                         margin: auto;
+                        width: 200px;
+                        height: 200px;
                     }
                     .chu_left_icon1 {
                         margin-top: 15px;
+                        @media all and (max-width: 575px) {
+                            margin-top: 0;
+                        }
                         img {
                             width: 40px;
                             height: 40px;
@@ -1907,10 +1960,16 @@ section.third_screen {
                         text-align: center;
                         display: block;
                         transform: translateY(-18px);
+                        @media all and (max-width: 575px) {
+                            font-size: $fontSize;
+                        }
                     }
                     .chu_left_icon2 {
                         text-align: right;
                         margin-top: 5px;
+                        @media all and (max-width: 575px) {
+                            margin-top: -20px;
+                        }
                         img {
                             width: 40px;
                             height: 40px;
@@ -1946,15 +2005,21 @@ section.third_screen {
                     @media all and (min-width: 576px) and (max-width: 767px) {
                         margin: auto;
                         top: 40%;
+                        right: 15%;
                     }
                     @media all and (max-width: 575px) {
                         margin: auto;
-                        top: 40%;
+                        top: 43%;
+                        width: 200px;
+                        height: 200px;
                     }
                     // border: 1px solid blue;
                     // flex: 0 1;
                     .chu_center_icon1 {
                         margin-top: 15px;
+                        @media all and (max-width: 575px) {
+                            margin-top: 0;
+                        }
                         img {
                             width: 40px;
                             height: 40px;
@@ -1976,10 +2041,16 @@ section.third_screen {
                         text-align: center;
                         display: block;
                         transform: translateY(-18px);
+                        @media all and (max-width: 575px) {
+                            font-size: $fontSize;
+                        }
                     }
                     .chu_center_icon2 {
                         text-align: right;
                         margin-top: 5px;
+                        @media all and (max-width: 575px) {
+                            margin-top: -20px;
+                        }
                         img {
                             width: 40px;
                             height: 40px;
@@ -2013,14 +2084,21 @@ section.third_screen {
                     background-color:#B71E68;
                     @media all and (min-width: 576px) and (max-width: 767px) {
                         margin: auto;
+                        left: 15%;
                     }
                     @media all and (max-width: 575px) {
                         margin: auto;
+                        width: 200px;
+                        height: 200px;
+                        transform: translateY(10%);
                     }
                     // border: 1px solid blue;
                     // flex: 0 1;
                     .chu_right_icon1 {
                         margin-top: 15px;
+                        @media all and (max-width: 575px) {
+                            margin-top: 0;
+                        }
                         img {
                             width: 40px;
                             height: 40px;
@@ -2042,10 +2120,16 @@ section.third_screen {
                         text-align: center;
                         display: block;
                         transform: translateY(-18px);
+                        @media all and (max-width: 575px) {
+                            font-size: $fontSize;
+                        }
                     }
                     .chu_right_icon2 {
                         text-align: right;
                         margin-top: 5px;
+                        @media all and (max-width: 575px) {
+                            margin-top: -20px;
+                        }
                         img {
                             width: 40px;
                             height: 40px;
@@ -2075,23 +2159,21 @@ section.third_screen {
                 button {
                     @include btnRed_2;
                 }
+                @media all and (min-width: 768px) and (max-width: 991px) {
+                    transform: translateY(65px);
+                }
                 @media all and (min-width: 576px) and (max-width: 767px) {
                     position: absolute;
-                    bottom: 5%;
-                    left: 50%;
+                    bottom: 1%;
+                    left: 28%;
                     transform: translateX(-50%);
                 }
                 @media all and (max-width: 575px) {
                     position: absolute;
-                    bottom: 5%;
+                    bottom: 1%;
                     left: 50%;
                     transform: translateX(-50%);
                 }
-
-
-
-
-
             }
         }
 }
