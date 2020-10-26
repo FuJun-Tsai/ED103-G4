@@ -689,10 +689,13 @@ upgrade.children[3].onclick = function() {
 
 // 角色移动
 function p1move() {
+
+    // $('#denDice').cla
+
     if (po1 == 19) {
         po1 = -1;
         boxes[0].append(i1);
-        p1.money += 2000;
+        // p1.money += 2000;
     }
     po1++;
     // console.log(i1)
