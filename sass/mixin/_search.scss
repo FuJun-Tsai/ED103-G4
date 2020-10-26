@@ -182,6 +182,9 @@ body {
                             margin-top: 24px;
                             border-left: 8px solid #9B1E23;
                             padding-left: 8px;
+                            @media screen and (max-width:600px){
+                                margin-bottom: 24px;
+                            }
                         }
                         h3 {
                             margin-top: 8px !important;
@@ -225,8 +228,19 @@ body {
                             flex-direction: row;
                             right: 12px;
                             top: 24px;
-                            img {
-                                margin-right: 12px;
+                            @media screen and(max-width:600px){
+                                top: 68px;
+                                left: 32px;
+                            }
+                            div{
+                                margin-right: 20px;
+                                align-items: center;
+                                i {
+                                    font-size: 36px;
+                                    @media screen and (max-width:600px){
+                                        font-size: 16px;
+                                    }
+                                }
                             }
                         }
                         .insearch {
@@ -254,7 +268,12 @@ body {
                             .btnsingle{
                                 @include btnBrown_5;
                                 margin-bottom: 24px !important;
-
+                                @media screen and (max-width:600px){
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    transform: translate(0,-100%);
+                                }
                             }
                         }
                     }
