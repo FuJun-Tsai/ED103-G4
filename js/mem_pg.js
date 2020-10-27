@@ -60,22 +60,57 @@ $(document).ready(function(){
   });
   //會員專區修改
   id = '';
+  // $(document).ready(function(){
+  //   $('.change').click(function(){
+  //     id = $(this).siblings('.content').attr('id');
+  //     let value = $.trim($(`#${id}`).text());
+  //     $(`#${id}`).replaceWith(`<input type="text" value="${value}" class="ok">`);
+  //     $('.ok').css({
+  //       "font-size":"16px",
+  //     });
+  //     $(this).text('確認');
+  //     $(this).on('click',function(){
+  //       let ok = $('.ok').val();
+  //       $(this).siblings('.ok').replaceWith(`<div class="content" id="${id}">${ok}</div>`);
+  //       $(this).text('修改');
+  //     });
+  //   });
+  // });
+  
   $(document).ready(function(){
-    $('.change').click(function(){
+    id = '';
+    ok = '';
+    $('.change').on('click',function(){
       id = $(this).siblings('.content').attr('id');
-      let value = $.trim($(`#${id}`).text());
-      $(`#${id}`).replaceWith(`<input type="text" value="${value}" class="ok">`);
-      $('.ok').css({
-        "font-size":"16px",
-      });
+      infochange(id);
+      let id2 = id;
       $(this).text('確認');
       $(this).on('click',function(){
-        let ok = $('.ok').val();
-        $(this).siblings('.ok').replaceWith(`<div class="content" id="${id}">${ok}</div>`);
-        $(this).text('修改');
+        console.log(id2);
+        infocheck(id2);
       });
     });
+  
+    function infochange(e){
+      console.log(e);
+      let value = $.trim($(`#${e}`).text());
+      $(`#${e}`).replaceWith(`<input type="text" value="${value}" class="ok">`);
+      $('.ok').css({"font-size":"16px",});
+      
+    };
   });
+
+    function infocheck(e){
+      ok = $('.ok').val();
+      $(`${e}`).siblings('.ok').replaceWith(`<div class="content" id="${e}">${ok}</div>`);
+      console.log(e);
+      $('.ok').on('click',function(){
+        infochange(e);
+      });
+      $('.ok').text('修改');
+    }
+
+
   
   //按鈕切換
   $("button.tabbtn").on("click", function(e){
