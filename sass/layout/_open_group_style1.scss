@@ -82,7 +82,7 @@ header {
 }
 
 .den_section {
-    border: 1px solid blue;
+    // border: 1px solid blue;
     margin-top: 20px;
     label {
         font-size: $fontSize*1.375;
@@ -133,7 +133,7 @@ header {
             max-width: 1440px;
             margin: 0 auto;
             padding: 30px;
-            border: 1px solid green;
+            // border: 1px solid green;
             // box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
             .den_row {
                 .den_title {
@@ -143,7 +143,7 @@ header {
                         // border: 1px solid red;
                         // flex: 1 1 50%;
                         margin-bottom: 30px;
-                        border-bottom: 1px solid #DF7219;
+                        // border-bottom: 1px solid #DF7219;
                         h2:nth-child(1) {
                             // background-color: $bgColor-style5;
                             background-color: #DF7219;
@@ -189,11 +189,12 @@ header {
                         // border: 1px solid red;
                         flex: 0 0 15%;
                         .den_selection {
+                            background-color: rgba(245, 222, 179, 0.3);
                             >h3 {
                                 padding: 25px;
                                 display: inline-block;
                                 // padding-right: 15px;
-                                background-color: white;
+                                // background-color: white;
                             }
                             .den_res_type {
                                 padding: 20px 15%;
@@ -210,7 +211,7 @@ header {
                                     width: 80%;
                                     padding: 10px;
                                     cursor: pointer;
-                                    border: 0.1px solid white;
+                                    // border: 0.1px solid white;
                                     input {
                                         width: 20px;
                                         height: 25px;
@@ -244,7 +245,7 @@ header {
                                     padding: 10px;
                                     text-align: center;
                                     cursor: pointer;
-                                    border: 0.1px solid white;
+                                    // border: 0.1px solid white;
                                     input {
                                         width: 20px;
                                         height: 25px;
@@ -263,10 +264,10 @@ header {
                 #den_tab1 {
                     h3 {
                         padding: 15px;
-                        border-bottom: 1px solid rgba(223, 114, 25, .5);
+                        // border-bottom: 1px solid rgba(223, 114, 25, .5);
                         background-color: rgba(223, 114, 25, .5);
                     }
-                    border: 1px solid #cccccc;
+                    // border: 1px solid #cccccc;
                     display: block;
                     flex: 1 1 80%;
                     // display: none;
@@ -289,6 +290,7 @@ header {
                             }
                             .den_content_range {
                                 overflow: hidden;
+                                margin-top: 25px;
                                 .den_content {
                                     // border: 1px solid blue;
                                     flex: 1 1 90%;
@@ -343,6 +345,7 @@ header {
                         display: flex;
                         justify-content: space-around;
                         flex-direction: column;
+                        margin-top: 25px;
                         .den_Fill_Information {
                             flex: 0 1 45%;
                             // border: 1px solid red;
@@ -354,11 +357,11 @@ header {
                                 width: 100%;
                                 display: inline-block;
                                 // padding-top: 4%;
-                                border: 1px solid #cccccc;
-                                padding: 10px;
-                                margin-top: 15px;
+                                // border: 1px solid #cccccc;
+                                padding: 20px;
+                                // margin-top: 15px;
                                 div {
-                                    // width: 60%;
+                                    width: 60%;
                                     // border: 1px solid;
                                     padding: 10px;
                                     display: flow-root;
@@ -400,7 +403,7 @@ header {
                                 display: inline-block;
                                 width: 100%;
                                 // padding-top: 4%;
-                                margin-top: 5%;
+                                // margin-top: 5%;
                                 div {
                                     padding: 10px 10px 10px 15%;
                                     img {
@@ -440,10 +443,16 @@ header {
                 }
                 #den_tab2 {
                     // border: 1px solid red;
+                    flex: 1 1 80%;
                     display: none;
+                    h3 {
+                        padding: 15px;
+                        background-color: rgba(223, 114, 25, 0.5);
+                        ;
+                    }
                     .den_foodGroup {
                         overflow-y: scroll;
-                        margin: 10px 0px;
+                        margin: 25px 0px;
                         height: 1024px;
                         .den_eatGroup {
                             background-color: rgba(245, 222, 179, .2);
@@ -456,6 +465,7 @@ header {
                             &:hover {
                                 cursor: pointer;
                                 background-color: rgba(245, 222, 179, .8);
+                                border: 0.1px solid rgba(245, 222, 179, 1);
                             }
                             span {
                                 font-size: $fontSize*1.5;
@@ -474,6 +484,7 @@ header {
                                     // background-color: white;
                                     padding: 10px;
                                     background-color: rgba(255, 255, 255, .1);
+                                    display: inline-block;
                                 }
                             }
                             .den_eatGroup_button {
