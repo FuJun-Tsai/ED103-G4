@@ -123,8 +123,20 @@ section.first_screen {
         width: 78px;
         height: 78px;
         position: absolute;
-        top: 13%;
+        // top: 13%;
         left: 20%;
+        animation: moveFood_cake 2.5s linear infinite;        
+        @keyframes moveFood_cake { 
+            0% { 
+                top: 13%;
+            }
+            50%{
+                top: 15%;
+            }
+            100% { 
+                top: 13%;
+            }
+        }
         @media all and (min-width: 768px) and (max-width: 991px) {
             top: 20%;
             left: 18%;
@@ -169,6 +181,18 @@ section.first_screen {
         position: absolute;
         top: 47%;
         left: 6%;
+        animation: moveFood_icecream 2.5s linear infinite;        
+        @keyframes moveFood_icecream { 
+            0% { 
+                top: 47%;
+            }
+            50%{
+                top: 50%;
+            }
+            100% { 
+                top: 47%;
+            }
+        }
         @media all and (min-width: 576px) and (max-width: 767px) {
             top: 86%;
             left: 8%;
@@ -181,6 +205,18 @@ section.first_screen {
         position: absolute;
         bottom: 8%;
         left: 40%;
+        animation: moveFood_curry 2.5s linear infinite;        
+        @keyframes moveFood_curry { 
+            0% { 
+                bottom: 8%;
+            }
+            50%{
+                bottom: 10%;
+            }
+            100% { 
+                bottom: 8%;
+            }
+        }
         @media all and (min-width: 1200px) and (max-width: 1439px) {
             left: 44%;
         }
@@ -202,6 +238,18 @@ section.first_screen {
         position: absolute;
         bottom: 16%;
         right: 17%;
+        animation: moveFood_steak 3s linear infinite;        
+        @keyframes moveFood_steak { 
+            0% { 
+                bottom: 16%;
+            }
+            50%{
+                bottom: 13%;
+            }
+            100% { 
+                bottom: 16%;
+            }
+        }
         @media all and (min-width: 1600px) and (max-width: 1920px) {
             bottom: 12%;
         }
@@ -457,6 +505,7 @@ section.second_screen {
             // color: white;
             border-radius: 10px;
             border: none;
+            cursor: pointer;
             @media all and (min-width: 1440px) and (max-width: 1599px) {
                 left: 31%;
             }
@@ -483,6 +532,7 @@ section.second_screen {
             border: none;
             outline: none;
             background-color: transparent;
+            cursor: pointer;
             // color: white;
             // border-radius: 10px;
             @media all and (min-width: 1440px) and (max-width: 1599px) {
@@ -510,6 +560,9 @@ section.second_screen {
             left: 14%;
             bottom: 8%;
             z-index: 2;
+            &:hover{
+                transform: scale(1.1);
+            }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 left: 8%;
             }
@@ -537,6 +590,7 @@ section.second_screen {
                 left: 1%;
                 bottom: 26%;
             }
+        }
             .content {
                 position: absolute;
                 left: 50%;
@@ -570,6 +624,9 @@ section.second_screen {
             left: 33.5%;
             bottom: 12%;
             z-index: 2;
+            &:hover{
+                transform: scale(1.1);
+            }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 left: 30%;
                 bottom: 2%;
@@ -631,6 +688,9 @@ section.second_screen {
             right: 31%;
             bottom: 4%;
             z-index: 2;
+            &:hover{
+                transform: scale(1.1);
+            }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 bottom: 1%;
             }
@@ -690,6 +750,9 @@ section.second_screen {
             right: 13%;
             bottom: 32%;
             z-index: 2;
+            &:hover{
+                transform: scale(1.1);
+            }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 bottom: 23%;
             }
@@ -806,7 +869,7 @@ section.second_screen {
             display: none;
         }
     }
-}
+
 
 section.third_screen {
     border: 1px solid black;
