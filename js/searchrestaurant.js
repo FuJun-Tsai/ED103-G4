@@ -218,6 +218,10 @@ $(document).ready(function(){
 
         for(let i=0;i<=3;i+=1){
             $(`#${show[i + index * 4]}`).css({'display':'block',});
+            TweenLite.from(`#${show[i + index * 4]}`,.5,{
+                opacity:-2,
+                y:-300,
+            },);
         };
         if(show.length == 0){
             $('.error').css({'display':'block'});
@@ -241,7 +245,7 @@ $(document).ready(function(){
             $('.rep div').height(imgwidth);
             // console.log(imgwidth);
         }else{
-            $('.rep div').height(487.5);
+            $('.rep div').height(500);
         }
     };
 

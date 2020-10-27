@@ -37,9 +37,7 @@
     #leavemessage::-webkit-scrollbar-thumb {
         background-color: #bb6573;
     }
-    .small::-webkit-scrollbar {
-        display: none;
-    }
+
 }
 
 
@@ -95,7 +93,7 @@ section {
                         }
                         .large {
                             padding-left: 15px;
-                            // margin-bottom: 30px;
+                            padding-right: 15px;
                             @include box(600px, 0);
                                 #mainimg {
                                     display: inline-block;
@@ -109,11 +107,14 @@ section {
                             align-items: center;
                             padding-bottom: 40px;
                             padding-left: 15px;
+                            padding-right: 15px;
+                            width: 100%;
                             overflow: auto;
-
-
                             @include box(600px, 0);
-                            
+
+                            @media screen and(max-width:652px){
+                                padding-left: 0;
+                            }
                             @media screen and (max-width:710px){
                                 justify-content: start;
                                 padding-right: 15px;
@@ -140,9 +141,6 @@ section {
                                     @include box(100%,24px);
                                 }
                             }
-                            img:last-child {
-                                margin-right: 0 !important;
-                            }
                         }
                     }
                     #detail {
@@ -163,11 +161,11 @@ section {
                             flex-direction: row;
                             justify-content: space-around;
                             .btnRed {
-                                @include btnBlue_3;
+                                // @include btnBlue_3;
                                 // @include btn ($btn-width,$btn-height,$use_color,$bd_radius);
                             }
                             .btnBlue {
-                                @include btnPurple_4;
+                                // @include btnPurple_4;
                             }
                         }
                     }
@@ -177,32 +175,32 @@ section {
         h4 {
             margin: 24px;
         }
-        #leavemessage {
-            @include box(1200px, 0);
-            // @include borderT;
-            border-left: 6px solid #f2c479;
-            border-top: 6px solid #f2c479;
-            border-radius: 24px 0 0 0;
-            // @include lineGradient(50%,345deg,#F2AB39,transparent);
-            background-color: #F2AB39;
-            height: 400px;
-            overflow: auto;
-            .L {
-                @include box(90%, 24px);
-                background-color: white;
-                margin: 20px;
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                position: relative;
-                img {
-                    border-radius: 50%;
-                    // width: 40px;
-                    // height: 40px;
+        .messagecontrol{
+            margin: 0 30px;
+            #leavemessage {
+                @include box(1200px, 0);
+                border-left: 6px solid #f2c479;
+                border-top: 6px solid #f2c479;
+                border-radius: 24px 0 0 0;
+                background-color: #F2AB39;
+                height: 400px;
+                overflow: auto;
+                .L {
+                    @include box(90%, 24px);
+                    background-color: white;
                     margin: 20px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    position: relative;
+                    img {
+                        border-radius: 50%;
+                        // width: 40px;
+                        // height: 40px;
+                        margin: 20px;
+                    }   
                 }
-
             }
 
         }
@@ -251,12 +249,12 @@ section {
                     }
                 }
                 button {
-                    display: inline-block;
+                    // display: inline-block;
                     position: absolute;
                     right: 12px;
                     top: 50%;
                     transform: translate(0, -50%);
-                    @include btnYellowS;
+                    // @include btnYellowS;
                     width: 80px !important;
                     height: 40px !important;
                     line-height: 40px !important;
