@@ -1,8 +1,8 @@
 @import "../base/var";
-// @import "../base/reset";
-@import "../base/reset_bootstrap";
 @import "../base/color";
 @import "../base/font";
+@import "../base/reset_bootstrap";
+
 //mixin
 @import "../mixin/box";
 @import "../mixin/rwd";
@@ -13,7 +13,13 @@
 @import "../mixin/light-box";
 @import "../mixin/example";
 @import "../mixin/search";
-@import "../mixin/bootstrap_nopm";
 @import "../mixin/circle";
+@import "../mixin/forbutton";
+@import "../mixin/btn_hover";
+
+//other
+@import "../vender/other/animation";
+
+
 //layout
 @import "../layout/share1";
