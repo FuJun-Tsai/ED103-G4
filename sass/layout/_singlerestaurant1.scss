@@ -163,11 +163,11 @@ section {
                             flex-direction: row;
                             justify-content: space-around;
                             .btnRed {
-                                @include btnBlue_3;
+                                // @include btnBlue_3;
                                 // @include btn ($btn-width,$btn-height,$use_color,$bd_radius);
                             }
                             .btnBlue {
-                                @include btnPurple_4;
+                                // @include btnPurple_4;
                             }
                         }
                     }
@@ -251,12 +251,12 @@ section {
                     }
                 }
                 button {
-                    display: inline-block;
+                    // display: inline-block;
                     position: absolute;
                     right: 12px;
                     top: 50%;
                     transform: translate(0, -50%);
-                    @include btnYellowS;
+                    // @include btnYellowS;
                     width: 80px !important;
                     height: 40px !important;
                     line-height: 40px !important;

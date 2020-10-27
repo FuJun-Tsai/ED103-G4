@@ -240,13 +240,13 @@ $(document).ready(function(){
     imgcube();
 
     function imgcube(){
-        let imgwidth = $('.rep div').width();
-        if($(window).width()<600){
-            $('.rep div').height(imgwidth);
-            // console.log(imgwidth);
-        }else{
-            $('.rep div').height(487.5);
-        }
+        // let imgwidth = $('.rep div').width();
+        // if($(window).width()<600){
+        //     $('.rep div').height(imgwidth);
+        //     // console.log(imgwidth);
+        // }else{
+        //     $('.rep div').height(487.5);
+        // }
     };
 
     window.addEventListener('resize',function(){
