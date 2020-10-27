@@ -159,7 +159,7 @@ body {
                         position: relative;
                         padding-bottom: 45px;
                         @media screen and (max-width:992px){
-                            padding-bottom: 40px;
+                            padding-bottom: 80px;
                         }
                         h2 {
                             margin-top: 24px;
@@ -227,14 +227,29 @@ body {
                             }
                         }
                         .insearch {
-                            height: 130px !important;
+                            height: 100px !important;
                             // border: 6px solid #FFE1A4 !important;
                             // border-right: none !important;
                             border: none !important;
                             overflow: auto !important;
                             background: none !important;
                             //important複寫在單一餐廳頁的屬性
-                            
+                            .L {
+                                @include box(90%, 24px);
+                                background-color: white;
+                                margin: 20px;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-start;
+                                align-items: center;
+                                position: relative;
+                                img {
+                                    border-radius: 50%;
+                                    // width: 40px;
+                                    // height: 40px;
+                                    margin: 20px;
+                                }   
+                            }
                         }
                         .go {
                             position: absolute;
@@ -257,6 +272,9 @@ body {
                         .btnsingle{
                             position: absolute;
                             margin-bottom: 24px !important;
+                            margin-top: 30px;
+                            left: 36px;
+
                         }
                     }
                 }
