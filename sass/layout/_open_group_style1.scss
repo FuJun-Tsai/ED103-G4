@@ -305,12 +305,13 @@ header {
                                         text-align: center;
                                         margin: 0 5px;
                                         width: 250px;
+                                        position: relative;
                                         // border: 1px solid red;
                                         p {
-                                            background-color: $bgColor-style2;
+                                            background-color: rgba(255, 225, 164, 1);
                                             font-size: 20px;
                                             text-align: center;
-                                            padding: 5px;
+                                            padding: 10px;
                                         }
                                         img {
                                             width: 100%;
@@ -318,14 +319,33 @@ header {
                                             display: block;
                                             cursor: pointer;
                                             object-fit: cover;
-                                            &:hover {
-                                                filter: brightness(.5);
-                                                transform: scale(1.01);
-                                            }
                                         }
                                         h6 {
-                                            padding: 10px 0px;
-                                            background-color: rgba(245, 222, 179, .5);
+                                            padding: 10px;
+                                            // background-color: rgba(245, 222, 179, .5);
+                                            background-color: rgba(22, 22, 22, .5);
+                                            position: absolute;
+                                            top: 50%;
+                                            // left: 50%;
+                                            // transform: translate(-50%, -50%);
+                                            width: 96%;
+                                            display: none;
+                                            // height: 100%;
+                                        }
+                                        &:hover {
+                                            img {
+                                                filter: blur(1.5px);
+                                                transform: scale(1.01);
+                                            }
+                                            h6 {
+                                                display: block;
+                                                cursor: pointer;
+                                                font-weight: $fontWeight_600;
+                                                color: white;
+                                            }
+                                            p {
+                                                background-color: rgba(223, 114, 25, 0.5);
+                                            }
                                         }
                                     }
                                 }
@@ -386,7 +406,7 @@ header {
                         .den_friend_window {
                             flex: 0 1 45%;
                             // border: 1px solid blue;
-                            text-align: center;
+                            // text-align: center;
                             .friend_title {
                                 text-align: left;
                                 h3 {
@@ -397,11 +417,12 @@ header {
                             }
                             form {
                                 text-align: left;
-                                border: 1px solid #cccccc;
+                                // border: 1px solid #cccccc;
                                 // overflow: auto;
                                 overflow-y: scroll;
                                 display: inline-block;
-                                width: 100%;
+                                width: 60%;
+                                padding-top: 20px;
                                 // padding-top: 4%;
                                 // margin-top: 5%;
                                 div {
@@ -455,13 +476,15 @@ header {
                         margin: 25px 0px;
                         height: 1024px;
                         .den_eatGroup {
-                            background-color: rgba(245, 222, 179, .2);
+                            background-color: rgba(245, 222, 179, .4);
                             display: flex;
                             // border: 1px solid #cccccc;
                             align-items: center;
                             padding: 15px;
                             justify-content: center;
                             margin: 5px 0px;
+                            outline: 2px solid white;
+                            outline-offset: -10px;
                             &:hover {
                                 cursor: pointer;
                                 background-color: rgba(245, 222, 179, .8);
@@ -479,12 +502,24 @@ header {
                             .den_eatGroup_content {
                                 padding-left: 20px;
                                 flex: 1;
+                                position: relative;
+                                >div {
+                                    // text-align: right;
+                                    display: inline-block;
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                }
                                 // border: 1px solid;
                                 h3 {
                                     // background-color: white;
                                     padding: 10px;
                                     background-color: rgba(255, 255, 255, .1);
                                     display: inline-block;
+                                }
+                                h4 {
+                                    display: inline-block;
+                                    color: $bgColor-style1;
                                 }
                             }
                             .den_eatGroup_button {
