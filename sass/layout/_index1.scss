@@ -123,8 +123,20 @@ section.first_screen {
         width: 78px;
         height: 78px;
         position: absolute;
-        top: 13%;
+        // top: 13%;
         left: 20%;
+        animation: moveFood_cake 2.5s linear infinite;        
+        @keyframes moveFood_cake { 
+            0% { 
+                top: 13%;
+            }
+            50%{
+                top: 15%;
+            }
+            100% { 
+                top: 13%;
+            }
+        }
         @media all and (min-width: 768px) and (max-width: 991px) {
             top: 20%;
             left: 18%;
@@ -169,6 +181,18 @@ section.first_screen {
         position: absolute;
         top: 47%;
         left: 6%;
+        animation: moveFood_icecream 2.5s linear infinite;        
+        @keyframes moveFood_icecream { 
+            0% { 
+                top: 47%;
+            }
+            50%{
+                top: 50%;
+            }
+            100% { 
+                top: 47%;
+            }
+        }
         @media all and (min-width: 576px) and (max-width: 767px) {
             top: 86%;
             left: 8%;
@@ -181,6 +205,18 @@ section.first_screen {
         position: absolute;
         bottom: 8%;
         left: 40%;
+        animation: moveFood_curry 2.5s linear infinite;        
+        @keyframes moveFood_curry { 
+            0% { 
+                bottom: 8%;
+            }
+            50%{
+                bottom: 10%;
+            }
+            100% { 
+                bottom: 8%;
+            }
+        }
         @media all and (min-width: 1200px) and (max-width: 1439px) {
             left: 44%;
         }
@@ -202,6 +238,18 @@ section.first_screen {
         position: absolute;
         bottom: 16%;
         right: 17%;
+        animation: moveFood_steak 3s linear infinite;        
+        @keyframes moveFood_steak { 
+            0% { 
+                bottom: 16%;
+            }
+            50%{
+                bottom: 13%;
+            }
+            100% { 
+                bottom: 16%;
+            }
+        }
         @media all and (min-width: 1600px) and (max-width: 1920px) {
             bottom: 12%;
         }
@@ -457,6 +505,7 @@ section.second_screen {
             // color: white;
             border-radius: 10px;
             border: none;
+            cursor: pointer;
             @media all and (min-width: 1440px) and (max-width: 1599px) {
                 left: 31%;
             }
@@ -483,6 +532,7 @@ section.second_screen {
             border: none;
             outline: none;
             background-color: transparent;
+            cursor: pointer;
             // color: white;
             // border-radius: 10px;
             @media all and (min-width: 1440px) and (max-width: 1599px) {
@@ -510,6 +560,9 @@ section.second_screen {
             left: 14%;
             bottom: 8%;
             z-index: 2;
+            &:hover{
+                transform: scale(1.1);
+            }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 left: 8%;
             }
@@ -537,6 +590,7 @@ section.second_screen {
                 left: 1%;
                 bottom: 26%;
             }
+        }
             .content {
                 position: absolute;
                 left: 50%;
@@ -570,6 +624,9 @@ section.second_screen {
             left: 33.5%;
             bottom: 12%;
             z-index: 2;
+            &:hover{
+                transform: scale(1.1);
+            }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 left: 30%;
                 bottom: 2%;
@@ -631,6 +688,9 @@ section.second_screen {
             right: 31%;
             bottom: 4%;
             z-index: 2;
+            &:hover{
+                transform: scale(1.1);
+            }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 bottom: 1%;
             }
@@ -690,6 +750,9 @@ section.second_screen {
             right: 13%;
             bottom: 32%;
             z-index: 2;
+            &:hover{
+                transform: scale(1.1);
+            }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 bottom: 23%;
             }
@@ -806,7 +869,7 @@ section.second_screen {
             display: none;
         }
     }
-}
+
 
 section.third_screen {
     border: 1px solid black;
@@ -952,881 +1015,16 @@ section.third_screen {
     }
 }
 
-<<<<<<< HEAD
-// section.fourth_screen {
-//     border: 1px solid black;
-//     overflow: hidden;
-//     height: 100vh;
-//     position: relative;
-//     background-image: url(../image/index/fourth_screen_background.svg);
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     background-position: center center;
-//     z-index: -1;
-//     .circle_orange {
-//         @include circle_bigOrange;
-//         top: 25%;
-//         left: 50%;
-//         transform: translateX(-50%);
-//         z-index: -1;
-//         @media all and (min-width: 1440px) and (max-width: 1599px) {
-//             bottom: -80%;
-//         }
-//         .center {
-//             background-image: url(../image/index/fourth_screen_friends.svg);
-//             width: 362px;
-//             height: 200px;
-//             background-size: contain;
-//             background-repeat: no-repeat;
-//             position: absolute;
-//             top: 25%;
-//             left: 50%;
-//             transform: translateX(-50%);
-//             @media all and (min-width: 1200px) and (max-width: 1439px) {
-//                 top: 20%;
-//             }
-//             @media all and (min-width: 992px) and (max-width: 1199px) {
-//                 display: none;
-//             }
-//             @media all and (min-width: 768px) and (max-width: 991px) {
-//                 display: none;
-//             }
-//             @media all and (min-width: 576px) and (max-width: 767px) {
-//                 display: none;
-//             }
-//             @media all and (max-width: 575px) {
-//                 display: none;
-//             }
-//         }
-//         .up {
-//             // border: 1px solid red;
-//             display: flex;
-//             justify-content: space-around;
-//             margin-left: 150px;
-//             @media all and (min-width: 1200px) and (max-width: 1439px) {
-//                 justify-content: center;
-//                 transform: translateY(-45px);
-//             }
-//             @media all and (min-width: 992px) and (max-width: 1199px) {
-//                 justify-content: center;
-//                 transform: translateY(-65px);
-//             }
-//             @media all and (min-width: 768px) and (max-width: 991px) {
-//                 justify-content: center;
-//                 transform: translateY(-65px);
-//             }
-//             @media all and (min-width: 576px) and (max-width: 767px) {
-//                 display: block;
-//                 z-index: 2;
-//                 position: absolute;
-//                 left: 53%;
-//                 top: -10%;
-//                 transform: translateX(-50%);
-//                 margin-left: 0;
-//             }
-//             @media all and (max-width: 575px) {
-//                 display: block;
-//                 z-index: 2;
-//                 position: absolute;
-//                 left: 50%;
-//                 top: -5%;
-//                 transform: translateX(-50%);
-//                 margin-left: 0;
-//             }
-//             .up_left {
-//                 @media all and (min-width: 1200px) and (max-width: 1439px) {
-//                     margin-right: 200px;
-//                 }
-//                 @media all and (min-width: 992px) and (max-width: 1199px) {
-//                     margin-right: 180px;
-//                 }
-//                 @media all and (min-width: 768px) and (max-width: 991px) {
-//                     margin-right: 100px;
-//                 }
-//                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                     margin-bottom: 200px;
-//                 }
-//                 @media all and (max-width: 575px) {
-//                     margin-bottom: 150px;
-//                 }
-//                 .twoCircle {
-//                     position: relative;
-//                     .color {
-//                         @include circle(225px, #B71E68);
-//                         position: absolute;
-//                         left: -150px;
-//                         @media all and (min-width: 768px) and (max-width: 991px) {
-//                             @include circle(220px, #B71E68);
-//                         }
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             @include circle(180px, #B71E68);
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             @include circle(120px, #B71E68);
-//                             left: -100px;
-//                         }
-//                         h2 {
-//                             color: white;
-//                             position: absolute;
-//                             top: 50%;
-//                             left: 50%;
-//                             transform: translate(-50%, -50%);
-//                             white-space: nowrap;
-//                         }
-//                     }
-//                     .black {
-//                         @include circle(225px, black);
-//                         display: flex;
-//                         flex-direction: column;
-//                         justify-content: space-evenly;
-//                         @media all and (min-width: 768px) and (max-width: 991px) {
-//                             @include circle(220px, black);
-//                         }
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             @include circle(180px, black);
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             @include circle(120px, black);
-//                         }
-//                         .heart {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_hollowHeart.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                         .comment {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_comment.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                         .share {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_share.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                     }
-//                     // button{
-//                     //     position: absolute;
-//                     //     right: -70px;
-//                     //     bottom: 20px;
-//                     .button {
-//                         background-image: url(../image/index/fourth_screen_button.svg);
-//                         width: 45px;
-//                         height: 45px;
-//                         background-size: contain;
-//                         background-repeat: no-repeat;
-//                         position: absolute;
-//                         left: 180px;
-//                         bottom: 0px;
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             left: 145px;
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             left: 100px;
-//                         }
-//                     }
-//                     // }
-//                 }
-//                 .userComment {
-//                     display: flex;
-//                     transform: translateX(-100px);
-//                     margin-top: 5px;
-//                     @media all and (min-width: 576px) and (max-width: 767px) {
-//                         display: none;
-//                     }
-//                     @media all and (max-width: 575px) {
-//                         // margin-top: 5px;
-//                         display: none;
-//                     }
-//                     .user {
-//                         background-image: url(../image/index/fourth_screen_user.svg);
-//                         width: 48px;
-//                         height: 48px;
-//                         background-repeat: no-repeat;
-//                         background-size: contain;
-//                         margin-right: 20px;
-//                         @media all and (max-width: 575px) {
-//                             margin-right: 0;
-//                         }
-//                     }
-//                     .name_date_comment {
-//                         .name_date {
-//                             display: flex;
-//                             .name {
-//                                 margin-right: 10px;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//             .up_right {
-//                 .twoCircle {
-//                     position: relative;
-//                     .color {
-//                         @include circle(225px, #F3EDDE);
-//                         position: absolute;
-//                         left: -150px;
-//                         @media all and (min-width: 768px) and (max-width: 991px) {
-//                             @include circle(220px, #F3EDDE);
-//                         }
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             @include circle(180px, #F3EDDE);
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             @include circle(120px, #F3EDDE);
-//                             left: -100px;
-//                         }
-//                         h2 {
-//                             color: black;
-//                             position: absolute;
-//                             top: 50%;
-//                             left: 50%;
-//                             transform: translate(-50%, -50%);
-//                             white-space: nowrap;
-//                         }
-//                     }
-//                     .black {
-//                         @include circle(225px, black);
-//                         display: flex;
-//                         flex-direction: column;
-//                         justify-content: space-evenly;
-//                         @media all and (min-width: 768px) and (max-width: 991px) {
-//                             @include circle(220px, black);
-//                         }
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             @include circle(180px, black);
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             @include circle(120px, black);
-//                         }
-//                         .heart {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_hollowHeart.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                         .comment {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_comment.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                         .share {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_share.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                     }
-//                     // button{
-//                     //     position: absolute;
-//                     //     right: -70px;
-//                     //     bottom: 20px;
-//                     .button {
-//                         background-image: url(../image/index/fourth_screen_button.svg);
-//                         width: 45px;
-//                         height: 45px;
-//                         background-size: contain;
-//                         background-repeat: no-repeat;
-//                         position: absolute;
-//                         left: 180px;
-//                         bottom: 0px;
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             left: 145px;
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             left: 100px;
-//                         }
-//                     }
-//                     // }
-//                 }
-//                 .userComment {
-//                     display: flex;
-//                     transform: translateX(-100px);
-//                     margin-top: 5px;
-//                     @media all and (min-width: 576px) and (max-width: 767px) {
-//                         display: none;
-//                     }
-//                     @media all and (max-width: 575px) {
-//                         // margin-top: 5px;
-//                         display: none;
-//                     }
-//                     .user {
-//                         background-image: url(../image/index/fourth_screen_user.svg);
-//                         width: 48px;
-//                         height: 48px;
-//                         background-repeat: no-repeat;
-//                         background-size: contain;
-//                         margin-right: 20px;
-//                         @media all and (max-width: 575px) {
-//                             margin-right: 0;
-//                         }
-//                     }
-//                     .name_date_comment {
-//                         .name_date {
-//                             display: flex;
-//                             .name {
-//                                 margin-right: 10px;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//         .down {
-//             // border: 1px solid red;
-//             display: flex;
-//             justify-content: center;
-//             margin-left: 150px;
-//             margin-top: 50px;
-//             @media all and (min-width: 1200px) and (max-width: 1439px) {
-//                 transform: translateY(-100px);
-//             }
-//             @media all and (min-width: 576px) and (max-width: 767px) {
-//                 display: block;
-//                 z-index: 2;
-//                 position: absolute;
-//                 left: 77%;
-//                 transform: translateX(-50%);
-//             }
-//             @media all and (max-width: 575px) {
-//                 display: block;
-//                 z-index: 2;
-//                 position: absolute;
-//                 left: 73%;
-//                 transform: translateX(-50%);
-//                 margin-top: 65px;
-//             }
-//             .down_left {
-//                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                     margin-bottom: 200px;
-//                 }
-//                 @media all and (max-width: 575px) {
-//                     margin-bottom: 150px;
-//                 }
-//                 .twoCircle {
-//                     position: relative;
-//                     margin-right: 785px;
-//                     @media all and (min-width: 1200px) and (max-width: 1439px) {
-//                         margin-right: 530px;
-//                     }
-//                     @media all and (min-width: 992px) and (max-width: 1199px) {
-//                         margin-right: 330px;
-//                     }
-//                     @media all and (min-width: 768px) and (max-width: 991px) {
-//                         margin-right: 170px;
-//                     }
-//                     .color {
-//                         @include circle(225px, #74AAAA);
-//                         position: absolute;
-//                         left: -150px;
-//                         @media all and (min-width: 768px) and (max-width: 991px) {
-//                             @include circle(220px, #74AAAA);
-//                         }
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             @include circle(180px, #74AAAA);
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             @include circle(120px, #74AAAA);
-//                             left: -100px;
-//                         }
-//                         h2 {
-//                             color: black;
-//                             position: absolute;
-//                             top: 50%;
-//                             left: 50%;
-//                             transform: translate(-50%, -50%);
-//                             white-space: nowrap;
-//                         }
-//                     }
-//                     .black {
-//                         @include circle(225px, black);
-//                         display: flex;
-//                         flex-direction: column;
-//                         justify-content: space-evenly;
-//                         @media all and (min-width: 768px) and (max-width: 991px) {
-//                             @include circle(220px, black);
-//                         }
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             @include circle(180px, black);
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             @include circle(120px, black);
-//                         }
-//                         .heart {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_hollowHeart.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                         .comment {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_comment.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                         .share {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_share.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                     }
-//                     // button{
-//                     //     position: absolute;
-//                     //     right: -70px;
-//                     //     bottom: 20px;
-//                     .button {
-//                         background-image: url(../image/index/fourth_screen_button.svg);
-//                         width: 45px;
-//                         height: 45px;
-//                         background-size: contain;
-//                         background-repeat: no-repeat;
-//                         position: absolute;
-//                         left: 180px;
-//                         bottom: 0px;
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             left: 145px;
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             left: 100px;
-//                         }
-//                     }
-//                     // }
-//                 }
-//                 .userComment {
-//                     display: flex;
-//                     transform: translateX(-100px);
-//                     margin-top: 5px;
-//                     @media all and (min-width: 576px) and (max-width: 767px) {
-//                         display: none;
-//                     }
-//                     @media all and (max-width: 575px) {
-//                         // margin-top: 5px;
-//                         display: none;
-//                     }
-//                     .user {
-//                         background-image: url(../image/index/fourth_screen_user.svg);
-//                         width: 48px;
-//                         height: 48px;
-//                         background-repeat: no-repeat;
-//                         background-size: contain;
-//                         margin-right: 20px;
-//                         @media all and (max-width: 575px) {
-//                             margin-right: 0;
-//                         }
-//                     }
-//                     .name_date_comment {
-//                         .name_date {
-//                             display: flex;
-//                             .name {
-//                                 margin-right: 10px;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//             .down_right {
-//                 .twoCircle {
-//                     position: relative;
-//                     .color {
-//                         @include circle(225px, #5A1D81);
-//                         position: absolute;
-//                         left: -150px;
-//                         @media all and (min-width: 768px) and (max-width: 991px) {
-//                             @include circle(220px, #5A1D81);
-//                         }
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             @include circle(180px, #5A1D81);
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             @include circle(120px, #5A1D81);
-//                             left: -100px;
-//                         }
-//                         h2 {
-//                             color: white;
-//                             position: absolute;
-//                             top: 50%;
-//                             left: 50%;
-//                             transform: translate(-50%, -50%);
-//                             white-space: nowrap;
-//                         }
-//                     }
-//                     .black {
-//                         @include circle(225px, black);
-//                         display: flex;
-//                         flex-direction: column;
-//                         justify-content: space-evenly;
-//                         @media all and (min-width: 768px) and (max-width: 991px) {
-//                             @include circle(220px, black);
-//                         }
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             @include circle(180px, black);
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             @include circle(120px, black);
-//                         }
-//                         .heart {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_hollowHeart.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                         .comment {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_comment.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                         .share {
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             .icon {
-//                                 background-image: url(../image/index/fourth_screen_share.svg);
-//                                 width: 25px;
-//                                 height: 25px;
-//                                 background-size: contain;
-//                                 background-repeat: no-repeat;
-//                                 margin-left: 40px;
-//                                 margin-right: 10px;
-//                                 @media all and (min-width: 576px) and (max-width: 767px) {
-//                                     margin-left: 0px;
-//                                 }
-//                                 @media all and (max-width: 575px) {
-//                                     margin-left: 10px;
-//                                 }
-//                             }
-//                             h4 {
-//                                 color: white;
-//                             }
-//                         }
-//                     }
-//                     // button{
-//                     //     position: absolute;
-//                     //     right: -70px;
-//                     //     bottom: 20px;
-//                     .button {
-//                         background-image: url(../image/index/fourth_screen_button.svg);
-//                         width: 45px;
-//                         height: 45px;
-//                         background-size: contain;
-//                         background-repeat: no-repeat;
-//                         position: absolute;
-//                         left: 180px;
-//                         bottom: 0px;
-//                         @media all and (min-width: 576px) and (max-width: 767px) {
-//                             left: 145px;
-//                         }
-//                         @media all and (max-width: 575px) {
-//                             left: 100px;
-//                         }
-//                     }
-//                     // }
-//                 }
-//                 .userComment {
-//                     display: flex;
-//                     transform: translateX(-100px);
-//                     margin-top: 5px;
-//                     @media all and (min-width: 576px) and (max-width: 767px) {
-//                         display: none;
-//                     }
-//                     @media all and (max-width: 575px) {
-//                         // margin-top: 5px;
-//                         display: none;
-//                     }
-//                     .user {
-//                         background-image: url(../image/index/fourth_screen_user.svg);
-//                         width: 48px;
-//                         height: 48px;
-//                         background-repeat: no-repeat;
-//                         background-size: contain;
-//                         margin-right: 20px;
-//                         @media all and (max-width: 575px) {
-//                             margin-right: 0;
-//                         }
-//                     }
-//                     .name_date_comment {
-//                         .name_date {
-//                             display: flex;
-//                             .name {
-//                                 margin-right: 10px;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//         button {
-//             z-index: 99;
-//             @include btnRed_2;
-//             // padding: 10px 28px;
-//             h3 {
-//                 color: #ffffff!important;
-//             }
-//             &:hover {
-//                 h3 {
-//                     color: #000000!important;
-//                 }
-//             }
-//             // border-radius: 10px;
-//             position: absolute;
-//             top: 42%;
-//             left: 50%;
-//             transform: translateX(-50%);
-//             @media all and (min-width: 1200px) and (max-width: 1439px) {
-//                 top: 16%;
-//             }
-//             @media all and (min-width: 768px) and (max-width: 991px) {
-//                 top: 18%;
-//             }
-//             @media all and (min-width: 576px) and (max-width: 767px) {
-//                 top: 44%;
-//             }
-//             @media all and (max-width: 575px) {
-//                 top: 35%;
-//             }
-//         }
-//     }
-// }
-#section3 {
-    position: relative;
-    overflow: hidden;
-    .fourth_screen_circle_orange {
-        @include circle_bigOrange;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -99;
-    }
-    .fourth_screen_friends {
-        background-image: url(../../image/index/fourth_screen_friends.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        // top: 50%;
-        // left: 50%;
-        // transform: translateX(-50%);
-        z-index: -98;
-        width: 50%;
-        height: 50%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .fourth_screen {
-=======
 
 
 
 
     section.fourth_screen {
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> dev
-=======
-        border: 1px solid black;
-        overflow: hidden;
->>>>>>> dev
-        height: 100vh;
-        position: relative;
-        background-image: url(../image/index/first_screen_background.svg);
-=======
         border: 1px solid black;
         overflow: hidden;
         height: 100vh;
         position: relative;
         // background-image: url(../image/index/fourth_screen_background.svg);
->>>>>>> dev
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -1931,11 +1129,7 @@ section.third_screen {
                     padding: 15px;
                     @media all and (min-width: 576px) and (max-width: 767px) {
                         margin: auto;
-<<<<<<< HEAD
-                        left: 15%;
-=======
                         left: 25%;
->>>>>>> dev
                     }
                     @media all and (max-width: 575px) {
                         margin: auto;
@@ -2014,11 +1208,7 @@ section.third_screen {
                     @media all and (min-width: 576px) and (max-width: 767px) {
                         margin: auto;
                         top: 40%;
-<<<<<<< HEAD
-                        right: 15%;
-=======
                         right: 25%;
->>>>>>> dev
                     }
                     @media all and (max-width: 575px) {
                         margin: auto;
@@ -2097,11 +1287,7 @@ section.third_screen {
                     background-color:#B71E68;
                     @media all and (min-width: 576px) and (max-width: 767px) {
                         margin: auto;
-<<<<<<< HEAD
-                        left: 15%;
-=======
                         left: 25%;
->>>>>>> dev
                     }
                     @media all and (max-width: 575px) {
                         margin: auto;
@@ -2173,25 +1359,6 @@ section.third_screen {
             }
             .chu_button {
                 text-align: center;
-<<<<<<< HEAD
-                button {
-                    @include btnRed_2;
-                }
-                @media all and (min-width: 768px) and (max-width: 991px) {
-                    transform: translateY(65px);
-                }
-                @media all and (min-width: 576px) and (max-width: 767px) {
-                    position: absolute;
-                    bottom: 1%;
-                    left: 28%;
-                    transform: translateX(-50%);
-                }
-                @media all and (max-width: 575px) {
-                    position: absolute;
-                    bottom: 1%;
-                    left: 50%;
-                    transform: translateX(-50%);
-=======
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
@@ -2201,7 +1368,6 @@ section.third_screen {
                 }
                 @media all and (max-width: 575px) {
                     bottom: -5%;
->>>>>>> dev
                 }
             }
         }

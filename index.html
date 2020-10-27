@@ -10,14 +10,23 @@
     <meta name="keywords" content="fullpage,jquery,methods,callbacks,demo" />
     <meta name="Resource-type" content="Document" />
     <link rel="stylesheet" href="./css/head_footer_style.css">
-    <link rel="stylesheet" href="./css/other/hover-min.css">
+    <link rel="stylesheet" href="./sass//vender/other/hover-min.css">
     <link rel="stylesheet" href="./js/header_fixed.js">
-    <link rel="stylesheet" href="./css/other/animation.css">
+    <!-- <link rel="stylesheet" href="./css/other/animation.css"> -->
     <link rel="stylesheet" href="./css/index.css">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="./css/other/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
 
     <title>首頁new</title>
+=======
+    <link rel="stylesheet" type="text/css" href="./sass/vender/other/jquery.fullPage.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./css/index.css" /> -->
+    <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
+     <!--按鈕的css -->
+    <link rel="stylesheet" href="./css/background.css">
+    <title>首頁</title>
+>>>>>>> ff3841a833fda0c006607189ed8b087228ab3396
 
     <!--[if IE]>
 		<script type="text/javascript">
@@ -25,14 +34,32 @@
 		</script>
 	<![endif]-->
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script> -->
 
-    <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+
+
+
+
+
+
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/kineticjs/4.3.1/kinetic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.9.2/TweenMax.min.js"></script>
+        <script src="https://www.greensock.com/_js/jquery/jquery.ui.touch-punch.js"></script>
+
+
+
+
+    <!-- 換頻套件 -->
+    <!-- <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
     <script type="text/javascript" src="./js/jquery.slimscroll.min.js"></script>
-    <script type="text/javascript" src="./js/examples.js"></script>
+    <script type="text/javascript" src="./js/examples.js"></script> -->
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -311,6 +338,7 @@
             <section class="second_screen">
 
 
+<<<<<<< HEAD
                 <!-- 背景泡泡 -->
                 <div id="bubbles" style="position:sticky; z-index: 2 !important;">
                     <div class="bubble x1"></div>
@@ -323,6 +351,20 @@
                     <div class="bubble x8"></div>
                     <div class="bubble x9"></div>
                 </div>
+=======
+    <!-- 背景泡泡 -->
+    <div id="bubbles" style="position:sticky; z-index: -1 !important;">
+        <div class="bubble x1"></div>
+        <div class="bubble x2"></div>
+        <div class="bubble x3"></div>
+        <div class="bubble x4"></div>
+        <div class="bubble x5"></div>
+        <div class="bubble x6"></div>
+        <div class="bubble x7"></div>
+        <div class="bubble x8"></div>
+        <div class="bubble x9"></div>
+    </div>
+>>>>>>> ff3841a833fda0c006607189ed8b087228ab3396
 
 
                 <h2>熱門餐廳</h2>
@@ -462,6 +504,7 @@
         <div class="section" id="section3">
             <section class="fourth_screen">
 
+<<<<<<< HEAD
                 <!-- 背景泡泡 -->
                 <div id="bubbles" style="position:sticky; z-index: 2 !important;">
                     <div class="bubble x1"></div>
@@ -474,6 +517,20 @@
                     <div class="bubble x8"></div>
                     <div class="bubble x9"></div>
                 </div>
+=======
+                    <!-- 背景泡泡 -->
+            <div id="bubbles" style="position:sticky; z-index: -1 !important;">
+                <div class="bubble x1"></div>
+                <div class="bubble x2"></div>
+                <div class="bubble x3"></div>
+                <div class="bubble x4"></div>
+                <div class="bubble x5"></div>
+                <div class="bubble x6"></div>
+                <div class="bubble x7"></div>
+                <div class="bubble x8"></div>
+                <div class="bubble x9"></div>
+            </div>
+>>>>>>> ff3841a833fda0c006607189ed8b087228ab3396
 
                 <div class="header_padding"></div>
 
@@ -576,6 +633,36 @@
     <script src="js/btn_hover.js"></script>
     <!--按鈕js -->
 
+        <!-- <script>
+
+            tweenmax測試
+
+            TweenLite.to(
+                '#fifth',2,{
+                    x:300,
+                    y:-300,
+                    width:100,
+                    height:100,
+                    borderRadius:0,
+                    rotation:180, 
+                    scaleX:0.8,
+                }
+
+            TweenMax.to(document.getElementById("#fifth"), 2, {bezier:{curviness: 2, values:[{x: 0, y: 10}, {x: 75, y: 0}, {x: 90, y: -118}], autoRotate:true}, opacity:"1", ease:Power1.easeInOut, repeat: -1, yoyo: true})
+        
+            TweenLite.to(
+                'circle_food_cake',2,{
+                    x:300,
+                    y:-300,
+                    width:100,
+                    height:100,
+                    borderRadius:0,
+                    rotation:180, 
+                    scaleX:0.8,
+                })
+            
+        </script> -->
+        
 </body>
 
 </html>
