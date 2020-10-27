@@ -49,6 +49,15 @@ $(document).ready(function(){
   $("#theFile").mouseout(function(){
     $(".upload").css("transform" , "translateY(100%)");
   });
+
+
+  //開團按鈕hover a
+  $("#no_group .btn_3").mouseover(function(){
+    $(".btn_3 a").css("color","#76AFAF");
+  });
+  $("#no_group .btn_3").mouseout(function(){
+    $(".btn_3 a").css("color","#FFF");
+  });
   //會員專區修改
   id = '';
   $(document).ready(function(){

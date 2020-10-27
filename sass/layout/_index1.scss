@@ -14,7 +14,7 @@ section.first_screen {
     overflow: hidden;
     height: 100vh;
     position: relative;
-    background-image: url(../image/index/first_screen_background.svg);
+    // background-image: url(../image/index/first_screen_background.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -273,7 +273,7 @@ section.second_screen {
     overflow: hidden;
     height: 100vh;
     position: relative;
-    background-image: url(../image/index/second_screen_background.svg);
+    // background-image: url(../image/index/second_screen_background.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -558,7 +558,7 @@ section.second_screen {
                 transform: translateX(-50%);
                 bottom: 15%;
                 // border-radius: 8px;
-                @include btnBrown_5;
+                // @include btnBrown_5;
                 @media all and (max-width: 575px) {
                     bottom: 8%;
                 }
@@ -620,7 +620,6 @@ section.second_screen {
                 transform: translateX(-50%);
                 bottom: 15%;
                 // border-radius: 8px;
-                @include btnBrown_5;
                 @media all and (max-width: 575px) {
                     bottom: 8%;
                 }
@@ -680,7 +679,6 @@ section.second_screen {
                 transform: translateX(-35%);
                 bottom: 15%;
                 // border-radius: 8px;
-                @include btnBrown_5;
                 @media all and (max-width: 575px) {
                     bottom: 8%;
                 }
@@ -740,7 +738,6 @@ section.second_screen {
                 transform: translateX(-50%);
                 bottom: 15%;
                 // border-radius: 8px;
-                @include btnBrown_5;
                 @media all and (max-width: 575px) {
                     bottom: 8%;
                 }
@@ -816,7 +813,7 @@ section.third_screen {
     overflow: hidden;
     height: 100vh;
     position: relative;
-    background-image: url(../image/index/third_screen_background.svg);
+    // background-image: url(../image/index/third_screen_background.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -947,21 +944,10 @@ section.third_screen {
             width: 80%;
         }
         button {
-            @include btnRed_2;
             position: absolute;
             bottom: -15%;
             left: 50%;
             transform: translateX(-50%);
-            // padding: 10px 28px;
-            // border-radius: 10px;
-            // h3 {
-            //     color: #ffffff!important;
-            // }
-            // &:hover {
-            //     h3 {
-            //         color: #000000!important;
-            //     }
-            // }
         }
     }
 }
@@ -1825,6 +1811,7 @@ section.third_screen {
 
     section.fourth_screen {
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> dev
 =======
         border: 1px solid black;
@@ -1833,6 +1820,13 @@ section.third_screen {
         height: 100vh;
         position: relative;
         background-image: url(../image/index/first_screen_background.svg);
+=======
+        border: 1px solid black;
+        overflow: hidden;
+        height: 100vh;
+        position: relative;
+        // background-image: url(../image/index/fourth_screen_background.svg);
+>>>>>>> dev
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -1896,9 +1890,20 @@ section.third_screen {
         }
         .chu_container {
             max-width: 1680px;
+            width: 100%;
             margin: 0 auto;
             // border: 1px solid red;
             height: 80vh;
+            position: absolute;
+            top: 13%;
+            left: 50%;
+            transform: translateX(-50%);
+            @media all and (min-width: 576px) and (max-width: 767px) {
+                top: 14%;
+            }
+            @media all and (max-width: 575px) {
+                top: 10%;
+            }
             .chu_row1 {
                 display: flex;
                 // border: 3px solid green;
@@ -1926,7 +1931,11 @@ section.third_screen {
                     padding: 15px;
                     @media all and (min-width: 576px) and (max-width: 767px) {
                         margin: auto;
+<<<<<<< HEAD
                         left: 15%;
+=======
+                        left: 25%;
+>>>>>>> dev
                     }
                     @media all and (max-width: 575px) {
                         margin: auto;
@@ -2005,7 +2014,11 @@ section.third_screen {
                     @media all and (min-width: 576px) and (max-width: 767px) {
                         margin: auto;
                         top: 40%;
+<<<<<<< HEAD
                         right: 15%;
+=======
+                        right: 25%;
+>>>>>>> dev
                     }
                     @media all and (max-width: 575px) {
                         margin: auto;
@@ -2084,7 +2097,11 @@ section.third_screen {
                     background-color:#B71E68;
                     @media all and (min-width: 576px) and (max-width: 767px) {
                         margin: auto;
+<<<<<<< HEAD
                         left: 15%;
+=======
+                        left: 25%;
+>>>>>>> dev
                     }
                     @media all and (max-width: 575px) {
                         margin: auto;
@@ -2156,6 +2173,7 @@ section.third_screen {
             }
             .chu_button {
                 text-align: center;
+<<<<<<< HEAD
                 button {
                     @include btnRed_2;
                 }
@@ -2173,6 +2191,17 @@ section.third_screen {
                     bottom: 1%;
                     left: 50%;
                     transform: translateX(-50%);
+=======
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                @media all and (min-width: 576px) and (max-width: 767px) {
+                    bottom: 0%;
+                    left: 25%;
+                }
+                @media all and (max-width: 575px) {
+                    bottom: -5%;
+>>>>>>> dev
                 }
             }
         }
