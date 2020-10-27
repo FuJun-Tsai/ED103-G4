@@ -325,12 +325,14 @@ header {
                                             // background-color: rgba(245, 222, 179, .5);
                                             background-color: rgba(22, 22, 22, .5);
                                             position: absolute;
-                                            top: 50%;
-                                            // left: 50%;
-                                            // transform: translate(-50%, -50%);
+                                            top: 55%;
+                                            left: 50%;
+                                            transform: translate(-50%, -50%);
                                             width: 96%;
                                             display: none;
-                                            // height: 100%;
+                                            &:hover {
+                                                background-color: rgba(223, 114, 25, 0.8);
+                                            }
                                         }
                                         &:hover {
                                             img {
@@ -605,14 +607,25 @@ header {
         .box_row_right {
             // border: 1px solid green;
             flex: 1 1 50%;
-            padding: 30px;
+            padding: 15px;
+            span {
+                @include box(60px, 8px);
+                // @include borderT;
+                text-align: center;
+                display: inline-block;
+                margin: 12px;
+                padding: 5px 10px;
+                font-size: 14px;
+                background-color: #FFE1A4;
+                border: 0.1px solid;
+            }
             h2 {
                 // border: 1px solid;
                 color: $btn_color_n_r;
             }
             p {
                 // border: 1px solid red;
-                margin-top: 20px;
+                // margin-top: 20px;
                 line-height: $fontSize*2;
                 overflow: auto;
                 max-height: 300px;
