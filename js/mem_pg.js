@@ -79,9 +79,7 @@ $(document).ready(function(){
   
   //按鈕切換
   $("button.tabbtn").on("click", function(e){
-    e.preventDefault();
-    console.log(123);
-  
+    e.preventDefault();  
     $(this).closest("ul").find("button.tabbtn").removeClass("-on");
     $(this).addClass("-on");
   
