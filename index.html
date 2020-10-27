@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="./js/header_fixed.js">
     <link rel="stylesheet" href="./css/other/animation.css">
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" type="text/css" href="./css/other/jquery.fullPage.css" />
+    <link rel="stylesheet" type="text/css" href="./sass/vender/other/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/btn_hover.css"><!--按鈕的css -->
+    <link rel="stylesheet" href="./css/btn_hover.css"> <!--按鈕的css -->
     <link rel="stylesheet" href="./css/background.css">
     <title>首頁</title>
 
@@ -31,6 +31,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
 
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script> -->
+
+
+    <!-- 換屏套件 -->
     <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
     <script type="text/javascript" src="./js/jquery.slimscroll.min.js"></script>
     <script type="text/javascript" src="./js/examples.js"></script>
@@ -313,7 +317,7 @@
 
 
     <!-- 背景泡泡 -->
-    <div id="bubbles" style="position:sticky; z-index: 2 !important;">
+    <div id="bubbles" style="position:sticky; z-index: -1 !important;">
         <div class="bubble x1"></div>
         <div class="bubble x2"></div>
         <div class="bubble x3"></div>
@@ -464,7 +468,7 @@
             <section class="fourth_screen">
 
                     <!-- 背景泡泡 -->
-            <div id="bubbles" style="position:sticky; z-index: 2 !important;">
+            <div id="bubbles" style="position:sticky; z-index: -1 !important;">
                 <div class="bubble x1"></div>
                 <div class="bubble x2"></div>
                 <div class="bubble x3"></div>
@@ -576,6 +580,36 @@
         </script>
         <script src="js/btn_hover.js"></script> <!--按鈕js -->
 
+        <!-- <script>
+
+            tweenmax測試
+
+            TweenLite.to(
+                '#fifth',2,{
+                    x:300,
+                    y:-300,
+                    width:100,
+                    height:100,
+                    borderRadius:0,
+                    rotation:180, 
+                    scaleX:0.8,
+                }
+
+            TweenMax.to(document.getElementById("#fifth"), 2, {bezier:{curviness: 2, values:[{x: 0, y: 10}, {x: 75, y: 0}, {x: 90, y: -118}], autoRotate:true}, opacity:"1", ease:Power1.easeInOut, repeat: -1, yoyo: true})
+        
+            TweenLite.to(
+                'circle_food_cake',2,{
+                    x:300,
+                    y:-300,
+                    width:100,
+                    height:100,
+                    borderRadius:0,
+                    rotation:180, 
+                    scaleX:0.8,
+                })
+            
+        </script> -->
+        
 </body>
 
 </html>
