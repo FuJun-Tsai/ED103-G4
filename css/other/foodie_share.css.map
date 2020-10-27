@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../sass/page/foodie_share.scss"
-    ],
-    "names": [],
-    "file": "foodie_share.css"
-}
