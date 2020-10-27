@@ -159,7 +159,7 @@ body {
                         position: relative;
                         padding-bottom: 45px;
                         @media screen and (max-width:992px){
-                            padding-bottom: 100px;
+                            padding-bottom: 40px;
                         }
                         h2 {
                             margin-top: 24px;
@@ -238,29 +238,25 @@ body {
                         }
                         .go {
                             position: absolute;
-                            bottom: 0;
-                            right: 0;
+                            bottom: 6px;
+                            right: 10px;
                             a:first-child button{
                                 position: absolute;
-                                width: 101px;
-                                height: 50px;
+                                width: 100px;
+                                height: 40px;
                                 transform: translate(-100%,-100%);
                             }
                             a:last-child button{
                                 position: absolute;
-                                width: 101px;
-                                height: 50px;
-                                transform: translate(-200%,-100%);
+                                width: 100px;
+                                height: 40px;
+                                // right: 0px;
+                                transform: translate(-225%,-100%);
                             }
                         }
                         .btnsingle{
                             position: absolute;
                             margin-bottom: 24px !important;
-                            @media screen and (max-width:600px){
-                                top: 0;
-                                right: 0;
-                                transform: translate(0,-100%);
-                            }
                         }
                     }
                 }
