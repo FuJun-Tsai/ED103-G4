@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/head_footer_style.css">
     <link rel="stylesheet" href="./css/open_group_style.css">
+    <!-- <link rel="stylesheet" href="./css/allstyle.css"> -->
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
     <link rel="stylesheet" href="./css/background.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
@@ -833,8 +834,11 @@
         function doFirst() {
             //點擊input
             $('.den_res_type div input').on('change', function() {
+                $('.den_res_type div').css('background', 'rgba(255, 255, 255, 0)');
+                $('.den_res_type div').css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0)');
 
-                $(this).parent().css('background', '#222222');
+                $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
+                $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
 
                 // let typeClick = $('.den_res_type div input[name=kind]:checked');
                 // let typeClickL = typeClick.length;
