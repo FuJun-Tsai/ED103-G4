@@ -832,19 +832,25 @@
     <script>
         function doFirst() {
             //點擊input
-            $('.den_res_type div input').on('click', function() {
+            $('.den_res_type div input').on('change', function() {
 
-                let typeClick = $('.den_res_type div input[name=kind]:checked');
-                let typeClickL = typeClick.length;
-                console.log(typeClickL)
-                if (typeClickL = 1) {
-                    this.css('background', '#222222');
-                }
+                $(this).parent().css('background', '#222222');
+
+                // let typeClick = $('.den_res_type div input[name=kind]:checked');
+                // let typeClickL = typeClick.length;
+                // console.log(typeClickL)
+                // if (typeClickL = 1) {
+                // this.css('background', '#222222');
+                // }
+
+
+
+
 
                 // console.log(bbb);
 
 
-            })
+            });
 
             //頁籤
             $('.title_left h2:nth-child(1)').on('click', function() {
