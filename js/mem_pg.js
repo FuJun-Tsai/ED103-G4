@@ -78,37 +78,74 @@ $(document).ready(function(){
   // });
   
   $(document).ready(function(){
-    id = '';
-    ok = '';
+    var name = 0;
+    psw = 0;
+    email = 0;
+    introduce = 0;
+
     $('.change').on('click',function(){
-      id = $(this).siblings('.content').attr('id');
-      infochange(id);
-      let id2 = id;
-      $(this).text('確認');
-      $(this).on('click',function(){
-        console.log(id2);
-        infocheck(id2);
-      });
+      let here = $(this).siblings('.content').attr('id');
+      tochange(here);
     });
-  
-    function infochange(e){
-      console.log(e);
-      let value = $.trim($(`#${e}`).text());
-      $(`#${e}`).replaceWith(`<input type="text" value="${value}" class="ok">`);
-      $('.ok').css({"font-size":"16px",});
-      
+
+    function tochange(e){
+      switch (e){
+        case 'name':
+          changethis(name,e);
+          if(name==0){
+            name+=1;
+          }else{
+            name=0;
+          }
+        break;
+        case 'psw':
+          changethis(psw,e);
+          if(psw==0){
+            psw+=1;
+          }else{
+            psw=0;
+          }
+        break;
+        case 'email':
+          changethis(email,e);
+          if(email==0){
+            email+=1;
+          }else{
+            email=0;
+          }
+        break;
+        case 'introduce':
+          changethis(introduce,e);
+          if(introduce==0){
+            introduce+=1;
+          }else{
+            introduce=0;
+          }
+        break;
+
+      }
+
+    }
+
+    function changethis(e,id){
+      e = parseInt(e);
+      if(e==0){
+        console.log(id);
+        console.log(e);
+        let value = $.trim($(`#${id}`).text());
+        $(`#${id}`).siblings('.change').text('確認');
+        $(`#${id}`).replaceWith(`<input type="text" class="content" id="${id}" value="${value}">`);
+      }else{
+        console.log('here');
+        console.log(id);
+        console.log(e);
+        let value = $.trim($(`#${id}`).val());
+        $(`#${id}`).siblings('.change').text('修改');
+        $(`#${id}`).replaceWith(`<div class="content" id="${id}">${value}</div>`);
+      }
     };
   });
-
-    function infocheck(e){
-      ok = $('.ok').val();
-      $(`${e}`).siblings('.ok').replaceWith(`<div class="content" id="${e}">${ok}</div>`);
-      console.log(e);
-      $('.ok').on('click',function(){
-        infochange(e);
-      });
-      $('.ok').text('修改');
-    }
+  
 
 
   
