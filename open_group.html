@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/head_footer_style.css">
     <link rel="stylesheet" href="./css/open_group_style.css">
-    <link rel="stylesheet" href="./css/other/animation.css">
-    <link rel="stylesheet" href="./css/other/hover-min.css">
+    <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
     <link rel="stylesheet" href="./css/background.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="./js/header_fixed.js"></script>
@@ -106,7 +105,7 @@
             <div id="den_banner_title">
                 <!-- <span>就算發一千條短信，心與心之間的距離也不曾拉近過一厘米，
                 那麼怎樣的速度，才能走完我與你之間的距離</span> -->
-                <span>就算發一千條短信，心與心之間的距離也不曾拉近過一厘米</span>
+                <span>天才總是伴隨著飢餓，但你不是</span>
                 <!-- <span>秒速5厘米，那是櫻花飄落的速度，
                 那麼怎樣的速度，才能走完我與你之間的距離?</span> -->
                 <span>還等什麼，一起加入美食團吧！</span>
@@ -582,9 +581,22 @@
             </div>
             <div class="box_row_right">
                 <h2>島福日本料理</h2>
-                <p>高動是地他室新日，我是術青詩兒國給便發們天真拉，客過精務、說了裡力如一太東；動時不十車也幾同其數以場油話。 這人紅家一備驗而生顧顯因史小那家思香育以許此可大意認國亞超亮，日一報濟法日星人、果速支聲子假一老見雖作轉藝知平聲國加又許雲醫。高動是地他室新日，我是術青詩兒國給便發們天真拉，客過精務、說了裡力如一太東；動時不十車也幾同其數以場油話。 這人紅家一備驗而生顧顯因史小那家思香育以許此可大意認國亞超亮，日一報濟法日星人、果速支聲子假一老見雖作轉藝知平聲國加又許雲醫。高動是地他室新日，我是術青詩兒國給便發們天真拉，客過精務、說了裡力如一太東；動時不十車也幾同其數以場油話。
-                    這人紅家一備驗而生顧顯因史小那家思香育以許此可大意認國亞超亮，日一報濟法日星人、果速支聲子假一老見雖作轉藝知平聲國加又許雲醫。
-                </p>
+                <span>日式</span>
+                <span>燒烤</span>
+                <br>
+                <div class="den_box_msg">
+                    <p>地址:</p>
+                    <p>桃園縣中央路1號</p>
+                    <br>
+                    <p>電話:</p>
+                    <p>0987539687</p>
+                </div>
+                <div class="den_box_content">
+                    <p>店家介紹:</p>
+                    <p>高動是地他室新日，我是術青詩兒國給便發們天真拉，客過精務、說了裡力如一太東；動時不十車也幾同其數以場油話。 這人紅家一備驗而生顧顯因史小那家思香育以許此可大意認國亞超亮，日一報濟法日星人、果速支聲子假一老見雖作轉藝知平聲國加又許雲醫。高動是地他室新日，我是術青詩兒國給便發們天真拉，客過精務、說了裡力如一太東；動時不十車也幾同其數以場油話。 這人紅家一備驗而生顧顯因史小那家思香育以許此可大意認國亞超亮，日一報濟法日星人、果速支聲子假一老見雖作轉藝知平聲國加又許雲醫。高動是地他室新日，我是術青詩兒國給便發們天真拉，客過精務、說了裡力如一太東；動時不十車也幾同其數以場油話。
+                        這人紅家一備驗而生顧顯因史小那家思香育以許此可大意認國亞超亮，日一報濟法日星人、果速支聲子假一老見雖作轉藝知平聲國加又許雲醫。
+                    </p>
+                </div>
             </div>
         </div>
         <div class="den_box_button">
@@ -820,24 +832,25 @@
     <script>
         function doFirst() {
             //點擊input
-            $('.den_res_type div input').on('click', function() {
+            $('.den_res_type div input').on('change', function() {
 
-                let typeClick = $('.den_res_type div input[name=kind]:checked');
-                let typeClickL = typeClick.length;
-                console.log(typeClickL)
-                if (typeClickL = 1) {
-                    this.css('background', '#222222');
-                }
+                $(this).parent().css('background', '#222222');
+
+                // let typeClick = $('.den_res_type div input[name=kind]:checked');
+                // let typeClickL = typeClick.length;
+                // console.log(typeClickL)
+                // if (typeClickL = 1) {
+                // this.css('background', '#222222');
+                // }
+
+
+
+
 
                 // console.log(bbb);
 
 
-            })
-
-
-
-
-
+            });
 
             //頁籤
             $('.title_left h2:nth-child(1)').on('click', function() {
@@ -860,7 +873,7 @@
             });
 
             // 第一個燈箱
-            let owlImage = document.querySelectorAll('.den_content div img'); //list是陣列
+            let owlImage = document.querySelectorAll('.den_content div h6'); //list是陣列
             for (let i = 0; i < owlImage.length; i++) {
                 owlImage[i].addEventListener('click', function() {
                     console.log(owlImage[i])

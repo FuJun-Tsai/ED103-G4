@@ -10,13 +10,14 @@
     <meta name="keywords" content="fullpage,jquery,methods,callbacks,demo" />
     <meta name="Resource-type" content="Document" />
     <link rel="stylesheet" href="./css/head_footer_style.css">
-    <link rel="stylesheet" href="./css/other/hover-min.css">
+    <link rel="stylesheet" href="./sass//vender/other/hover-min.css">
     <link rel="stylesheet" href="./js/header_fixed.js">
-    <link rel="stylesheet" href="./css/other/animation.css">
+    <!-- <link rel="stylesheet" href="./css/other/animation.css"> -->
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" type="text/css" href="./sass/vender/other/jquery.fullPage.css" />
-    <link rel="stylesheet" type="text/css" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/btn_hover.css"> <!--按鈕的css -->
+    <!-- <link rel="stylesheet" type="text/css" href="./css/index.css" /> -->
+    <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
+    <!--按鈕的css -->
     <link rel="stylesheet" href="./css/background.css">
     <title>首頁</title>
 
@@ -26,18 +27,32 @@
 		</script>
 	<![endif]-->
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script> -->
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
 
-    <!-- 換屏套件 -->
-    <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+
+
+
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/kineticjs/4.3.1/kinetic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.9.2/TweenMax.min.js"></script>
+    <script src="https://www.greensock.com/_js/jquery/jquery.ui.touch-punch.js"></script>
+
+
+
+
+    <!-- 換頻套件 -->
+    <!-- <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
     <script type="text/javascript" src="./js/jquery.slimscroll.min.js"></script>
-    <script type="text/javascript" src="./js/examples.js"></script>
+    <script type="text/javascript" src="./js/examples.js"></script> -->
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -276,18 +291,18 @@
         <div class="section" id="section0">
             <section class="first_screen">
 
-                    <!-- 背景泡泡 -->
-            <div id="bubbles" style="position:sticky; z-index: 2 !important;">
-                <div class="bubble x1"></div>
-                <div class="bubble x2"></div>
-                <div class="bubble x3"></div>
-                <div class="bubble x4"></div>
-                <div class="bubble x5"></div>
-                <div class="bubble x6"></div>
-                <div class="bubble x7"></div>
-                <div class="bubble x8"></div>
-                <div class="bubble x9"></div>
-            </div>
+                <!-- 背景泡泡 -->
+                <div id="bubbles" style="position:sticky; z-index: 2 !important;">
+                    <div class="bubble x1"></div>
+                    <div class="bubble x2"></div>
+                    <div class="bubble x3"></div>
+                    <div class="bubble x4"></div>
+                    <div class="bubble x5"></div>
+                    <div class="bubble x6"></div>
+                    <div class="bubble x7"></div>
+                    <div class="bubble x8"></div>
+                    <div class="bubble x9"></div>
+                </div>
 
                 <div class="circle_orange">
                     <p>美食大富翁</p>
@@ -316,18 +331,18 @@
             <section class="second_screen">
 
 
-    <!-- 背景泡泡 -->
-    <div id="bubbles" style="position:sticky; z-index: -1 !important;">
-        <div class="bubble x1"></div>
-        <div class="bubble x2"></div>
-        <div class="bubble x3"></div>
-        <div class="bubble x4"></div>
-        <div class="bubble x5"></div>
-        <div class="bubble x6"></div>
-        <div class="bubble x7"></div>
-        <div class="bubble x8"></div>
-        <div class="bubble x9"></div>
-    </div>
+                <!-- 背景泡泡 -->
+                <div id="bubbles" style="position:sticky; z-index: -1 !important;">
+                    <div class="bubble x1"></div>
+                    <div class="bubble x2"></div>
+                    <div class="bubble x3"></div>
+                    <div class="bubble x4"></div>
+                    <div class="bubble x5"></div>
+                    <div class="bubble x6"></div>
+                    <div class="bubble x7"></div>
+                    <div class="bubble x8"></div>
+                    <div class="bubble x9"></div>
+                </div>
 
 
                 <h2>熱門餐廳</h2>
@@ -394,7 +409,7 @@
                         <button class="btn_5 btn_js">
                             參加 &#9658 
                             <span></span>
-                        </button>                    
+                        </button>
                     </div>
                     <div class="team team_three">
                         <div class="content">
@@ -406,7 +421,7 @@
                         <button class="btn_5 btn_js">
                             參加 &#9658 
                             <span></span>
-                        </button>                    
+                        </button>
                     </div>
                     <div class="team team_four">
                         <div class="content">
@@ -435,18 +450,18 @@
         <div class="section" id="section2">
             <section class="third_screen">
 
-                    <!-- 背景泡泡 -->
-            <div id="bubbles" style="position:sticky; z-index: 2 !important;">
-                <div class="bubble x1"></div>
-                <div class="bubble x2"></div>
-                <div class="bubble x3"></div>
-                <div class="bubble x4"></div>
-                <div class="bubble x5"></div>
-                <div class="bubble x6"></div>
-                <div class="bubble x7"></div>
-                <div class="bubble x8"></div>
-                <div class="bubble x9"></div>
-            </div>
+                <!-- 背景泡泡 -->
+                <div id="bubbles" style="position:sticky; z-index: 2 !important;">
+                    <div class="bubble x1"></div>
+                    <div class="bubble x2"></div>
+                    <div class="bubble x3"></div>
+                    <div class="bubble x4"></div>
+                    <div class="bubble x5"></div>
+                    <div class="bubble x6"></div>
+                    <div class="bubble x7"></div>
+                    <div class="bubble x8"></div>
+                    <div class="bubble x9"></div>
+                </div>
 
                 <div class="circle_orange"></div>
                 <h2>吃吃配對</h2>
@@ -467,18 +482,18 @@
         <div class="section" id="section3">
             <section class="fourth_screen">
 
-                    <!-- 背景泡泡 -->
-            <div id="bubbles" style="position:sticky; z-index: -1 !important;">
-                <div class="bubble x1"></div>
-                <div class="bubble x2"></div>
-                <div class="bubble x3"></div>
-                <div class="bubble x4"></div>
-                <div class="bubble x5"></div>
-                <div class="bubble x6"></div>
-                <div class="bubble x7"></div>
-                <div class="bubble x8"></div>
-                <div class="bubble x9"></div>
-            </div>
+                <!-- 背景泡泡 -->
+                <div id="bubbles" style="position:sticky; z-index: -1 !important;">
+                    <div class="bubble x1"></div>
+                    <div class="bubble x2"></div>
+                    <div class="bubble x3"></div>
+                    <div class="bubble x4"></div>
+                    <div class="bubble x5"></div>
+                    <div class="bubble x6"></div>
+                    <div class="bubble x7"></div>
+                    <div class="bubble x8"></div>
+                    <div class="bubble x9"></div>
+                </div>
 
                 <div class="header_padding"></div>
 
@@ -497,8 +512,8 @@
                                 <img src="./image/index/fourth_screen_hollowHeart.svg" alt="">
                                 <p>35</p>
                             </div>
-                            <p class="chu_left_content"><img src="./image/index/fourth_screen_speaker.svg" alt="">
-                                皇家蝦捲好好吃</p>
+                            <p class="chu_left_content"><img src="./image/index/fourth_screen_speaker.svg" alt=""> 皇家蝦捲好好吃
+                            </p>
                             <span>＜最多收藏貼文＞</span>
                             <div class="chu_left_icon2">
                                 <img src="./image/index/arrow_right.svg" alt="">
@@ -512,8 +527,8 @@
                                 <img src="./image/index/fourth_screen_comment.svg" alt="">
                                 <p>22</p>
                             </div>
-                            <p class="chu_center_content"><img src="./image/index/fourth_screen_speaker.svg" alt="">
-                                乾杯燒肉好好吃</p>
+                            <p class="chu_center_content"><img src="./image/index/fourth_screen_speaker.svg" alt=""> 乾杯燒肉好好吃
+                            </p>
                             <span>＜最多留言貼文＞</span>
                             <div class="chu_center_icon2">
                                 <img src="./image/index/arrow_right.svg" alt="">
@@ -527,8 +542,8 @@
                                 <img src="./image/index/fourth_screen_share.svg" alt="">
                                 <p>13</p>
                             </div>
-                            <p class="chu_right_content"><img src="./image/index/fourth_screen_speaker.svg" alt="">
-                                爭鮮好好吃</p>
+                            <p class="chu_right_content"><img src="./image/index/fourth_screen_speaker.svg" alt=""> 爭鮮好好吃
+                            </p>
                             <span>＜最多分享貼文＞</span>
                             <div class="chu_right_icon2">
                                 <img src="./image/index/arrow_right.svg" alt="">
@@ -547,40 +562,41 @@
         </div>
     </div>
 
-        <!-- ***************************** -->
-        <footer>
-            <div class="footer">
-                <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
-            </div>
-        </footer>
+    <!-- ***************************** -->
+    <footer>
+        <div class="footer">
+            <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
+        </div>
+    </footer>
 
-        <!--hamburger-->
-        <script>
-            function onClickMenu() {
-                document.getElementById("menu").classList.toggle("change");
-                document.getElementById("nav1").classList.toggle("change");
-                document.getElementById("menu-bg").classList.toggle("change-bg");
-            }
+    <!--hamburger-->
+    <script>
+        function onClickMenu() {
+            document.getElementById("menu").classList.toggle("change");
+            document.getElementById("nav1").classList.toggle("change");
+            document.getElementById("menu-bg").classList.toggle("change-bg");
+        }
 
-            function onClickSubMenu() {
-                document.getElementById("sub_menu").classList.toggle("change1");
-                document.querySelector(".nav1>li:nth-child(1)").classList.toggle("none");
-                document.querySelector(".nav1>li:nth-child(3)").classList.toggle("none");
-                document.querySelector(".nav1>li:nth-child(4)").classList.toggle("none");
-                document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
-            }
-        </script>
-        <script src="./js/restaurant_team.js"></script>
+        function onClickSubMenu() {
+            document.getElementById("sub_menu").classList.toggle("change1");
+            document.querySelector(".nav1>li:nth-child(1)").classList.toggle("none");
+            document.querySelector(".nav1>li:nth-child(3)").classList.toggle("none");
+            document.querySelector(".nav1>li:nth-child(4)").classList.toggle("none");
+            document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
+        }
+    </script>
+    <script src="./js/restaurant_team.js"></script>
 
-        <script>
-            // 使用者拖曳，就重新整理畫面。
-            $(window).on("resize", function() {
-                location.reload();
-            });
-        </script>
-        <script src="js/btn_hover.js"></script> <!--按鈕js -->
+    <script>
+        // 使用者拖曳，就重新整理畫面。
+        $(window).on("resize", function() {
+            location.reload();
+        });
+    </script>
+    <script src="js/btn_hover.js"></script>
+    <!--按鈕js -->
 
-        <!-- <script>
+    <!-- <script>
 
             tweenmax測試
 
@@ -609,7 +625,7 @@
                 })
             
         </script> -->
-        
+
 </body>
 
 </html>

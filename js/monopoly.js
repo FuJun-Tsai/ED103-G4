@@ -698,11 +698,9 @@ function p1move() {
         // p1.money += 2000;
     }
     po1++;
+    boxes[po1].append(i1);
     // console.log(i1)
     // console.log(po1)
-
-    boxes[po1].append(i1);
-
 
 
     // console.log(arr[1]);
