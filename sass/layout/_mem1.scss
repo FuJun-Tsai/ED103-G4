@@ -224,7 +224,8 @@
                     width: 100%;
                     height: 500px;
                     padding-top: 30px;
-                    display: flex;
+                    // display: flex;
+                    display: none;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
@@ -245,9 +246,95 @@
                         }
                     }
                 }
-                // .have_group{
+                .have_group{
+                    display: inline-block;
+                    width: 100%;
+                    border: 1px solid red;
+                    .den_box2 {
+                        display: inline-block;
+                        width: 100%;
+                        box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
+                        background-color: white;
+                        .den_box2_row {
+                            width: 100%;
+                            display: inline-block;
+                            // display: flex;
+                            align-items: center;
+                            .box2_row_left {
+                                width: 49%;
+                                display: inline-block;
+                                text-align: center;
+                                font-size: 0;
+                                .main_img {
+                                    // padding: 10px;
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    }
+                                }
+                                img {
+                                    width: 24.7%;
+                                    height: 120px;
+                                    display: inline-block;
+                                    padding: .5%;
+                                    object-fit: cover;
 
-                // }
+                                }
+                                .den_box_button {
+                                    text-align: center;
+                                    width: 40%;
+                                    display: inline-block;
+                                    margin-top: 15px;
+                                    button {
+                                        @include btnBrown_6;
+                                        width: 150px;
+                                    }
+                                }
+                                .box_button_close {
+                                    display: none;
+                                    text-align: center;
+                                    width: 40%;
+                                    // border: 1px solid;
+                                    margin-top: 15px;
+                                    button {
+                                        @include btnBlue_3;
+                                        width: 150px;
+                                    }
+                                }
+                            }
+                            .box2_row_right {
+                                border: 1px solid green;
+                                width: 50%;
+                                display: inline-block;
+                                max-height: 450px;
+                                overflow: auto;
+                                div {
+                                    display: inline-block;
+                                    h3 {
+                                        display: inline-block;
+                                        padding: 5px;
+                                    }
+                                    h4 {
+                                        display: inline-block;
+                                        padding: 5px;
+                                    }
+                                    h6 {
+                                        display: inline-block;
+                                        margin: 12px;
+                                        padding: 5px 10px;
+                                        font-size: 14px;
+                                        background-color: #FFE1A4;
+                                        border: 0.1px solid;
+                                        border-radius: 8px;
+                                        width: 60px;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         .my_jion {

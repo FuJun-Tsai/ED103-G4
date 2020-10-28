@@ -9,12 +9,16 @@
     <link rel="stylesheet" href="./css/head_footer_style.css">
     <link rel="stylesheet" href="./css/background.css">
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
+    <link rel="stylesheet" href="./sass/vender/other/dice.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="./js/dice.js"></script>
+
 
 </head>
 
 <body>
-     <!-- 背景泡泡 -->
-     <div id="bubbles">
+    <!-- 背景泡泡 -->
+    <div id="bubbles">
         <div class="bubble x1"></div>
         <div class="bubble x2"></div>
         <div class="bubble x3"></div>
@@ -175,7 +179,7 @@
             </ul>
         </div>
         <div class="choosechr">
-            <h1>請選擇腳色</h1>
+            <h1>請選擇角色</h1>
             <ul>
                 <li><img class="" src="./image/den_image/allgif/乂小壞乂.gif" alt="">
                     <h1>乂小壞乂</h1>
@@ -227,6 +231,20 @@
 
     <div class="map">
         <div class="game_background"></div>
+        <div class="den_map_title">
+            <h3>按住骰子拖曳滑動擲骰</h3>
+        </div>
+        <!--骰子-->
+        <section class="dice-container">
+            <div id="denDice" class="show-front">
+                <figure class="front"></figure>
+                <figure class="back"></figure>
+                <figure class="right"></figure>
+                <figure class="left"></figure>
+                <figure class="top"></figure>
+                <figure class="bottom"></figure>
+            </div>
+        </section>
         <div class="box" id="b16">
             <h3></h3>
         </div>
@@ -399,6 +417,13 @@
             <li>价格：</li>
         </ul>
     </div>
+
+
+    <!-- Audio has a delay in Safari :( -->
+    <audio preload="auto">
+        <source src="https://alexerlandsson.github.io/assets/codepen/roll-the-dice/sound/dice-sound.mp3"></source>
+      </audio>
+
     <script src="./js/initializing.js"></script>
     <script src="./js/data.js"></script>
     <script src="./js/information.js"></script>
