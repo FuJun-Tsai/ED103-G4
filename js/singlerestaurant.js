@@ -46,12 +46,11 @@ $(document).ready(function(){
     });
 
     function largeH(){
-        let ww = $(window).width();
-        // console.log(ww);
-        if(ww<660){
-            $('.large').css({'height':`${ww - 80}px`});
-        }else{
-            $('.large').css({'height':'600px'});
+        let ww = $(window).width()+17;
+        if(ww<576){
+            $('.large').css({
+                'height':`${ww - 100}px`,
+            });
         }
     }
 

@@ -95,9 +95,16 @@ section {
                             padding-left: 15px;
                             padding-right: 15px;
                             @include box(600px, 0);
+                            height: 600px;
                                 #mainimg {
                                     display: inline-block;
                                     @include box(600px, 24px);
+                                    @media (min-width:991px) and (max-width:1200px){
+                                        margin-top: 60px;
+                                    }
+                                    @media (min-width:575px) and (max-width:768px){
+                                        margin-top: 120px;
+                                    }
                                 }
                         }
                         .small {
