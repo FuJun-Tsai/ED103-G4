@@ -5,11 +5,10 @@ $(document).ready(function(){
         $(this).removeClass('togray');
         let src = $(this).attr('src');
         $('#mainimg').attr('src',src);
-
     });
 
     $('#send').on('submit',function(){
-        let content = $('textarea').val();
+        let content = $('#send textarea').val();
         let array = content.split('');
         let id = $('#leavemessage div:last-child').attr('id').split('L')[1];
         id = parseInt(id);
@@ -96,6 +95,11 @@ $(document).ready(function(){
     $('.fa-underline').on('click',function(){
         $('textarea').toggleClass('underline');
         $(this).toggleClass('used');
+    });
+
+    $('.L i').on('click',function(){
+        $('#report').css({'display':'inline-block'});
+        $('.jun_back').css({'display':'inline-block'});
     });
 
 });
