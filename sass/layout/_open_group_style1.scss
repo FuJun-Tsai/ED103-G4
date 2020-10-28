@@ -226,8 +226,8 @@ header {
                                         }
                                     }
                                     &:hover {
-                                        border: 0.1px solid white;
-                                        box-shadow: 3px 3px 10px rgba(22, 22, 22, .3);
+                                        border: 0.1px solid white!important;
+                                        box-shadow: 3px 3px 10px rgba(22, 22, 22, .3)!important;
                                         label {
                                             transform: scale(1.2);
                                         }
