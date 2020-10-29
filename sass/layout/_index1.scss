@@ -1,4 +1,3 @@
-//10.26-16:09
 header {
     height: 0;
     position: fixed;
@@ -34,21 +33,26 @@ section.first_screen {
             }
             @media all and (min-width: 1440px) and (max-width: 1599px) {
                 right: 40%;
+                bottom: 30%;
             }
             @media all and (min-width: 1200px) and (max-width: 1439px) {
                 right: 30%;
-                bottom: 20%;
+                bottom: 33%;
+            }
+            @media all and (min-width: 992px) and (max-width: 1199px) {
+                bottom: 32%;
+                right: 52%;
             }
             @media all and (min-width: 768px) and (max-width: 991px) {
-                right: 27%;
-                bottom: 27%;
+                right: 38%;
+                bottom: 33%;
             }
             @media all and (min-width: 576px) and (max-width: 767px) {
                 bottom: 33%;
                 right: 13%;
             }
             @media all and (max-width: 575px) {
-                bottom: 27%;
+                bottom: 32%;
                 right: 10%;
             }
         }
@@ -66,7 +70,7 @@ section.first_screen {
         @media all and (min-width: 1200px) and (max-width: 1439px) {
             @include circle(600px, #B71E68);
             left: 58%;
-            top: 13%;
+            top: 24%;
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
             @include circle(500px, #B71E68);
@@ -164,7 +168,7 @@ section.first_screen {
             left: 76%;
         }
         @media all and (min-width: 576px) and (max-width: 767px) {
-            top: 33%;
+            top: 40%;
             left: 58%;
         }
         @media all and (max-width: 575px) {
@@ -265,7 +269,7 @@ section.first_screen {
         }
         @media all and (min-width: 576px) and (max-width: 767px) {
             bottom: 48%;
-            right: 55%;
+            right: 75%;
         }
         @media all and (max-width: 575px) {
             bottom: 3%;
