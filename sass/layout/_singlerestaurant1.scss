@@ -2,25 +2,14 @@
     .togray {
         filter: brightness(55%);
     }
-    .bold {
-        font-weight: bold;
-    }
-    .italic {
-        font-style: italic;
-    }
-    .underline {
-        text-decoration: underline;
-    }
     .used {
         color: wheat;
         background-color: black;
     }
-    .bread {
+    .single_bread {
         margin-top: 50px;
         margin-bottom: 50px;
-    }
-    P {
-        line-height: 20px!important;
+        margin-left: 15px;
     }
     label {
         font-size: 20px;
@@ -38,17 +27,17 @@
         background-color: #bb6573;
     }
 
-    .small::-webkit-scrollbar-track {
+    .single_small::-webkit-scrollbar-track {
         width: 4px;
         background-color: #f2c479;
     }
     //捲軸寬度
-    .small::-webkit-scrollbar {
+    .single_small::-webkit-scrollbar {
         height:  6px;
         background-color: black;
     }
     //捲軸本體顏色
-    .small::-webkit-scrollbar-thumb {
+    .single_small::-webkit-scrollbar-thumb {
         background-color: #bb6573;
     }
 }
@@ -59,13 +48,15 @@ body{
 // body{
 section {
     // font-size: $fontSize!important;
-    .content {
+    .single_content {
         #name {
             margin-bottom: 24px;
             border-left: 8px solid #9B1E23;
             padding-left: 8px;
+            margin-left: 15px;
         }
-        div {
+        .single_attr {
+            display: inline;
             #kind {
                 @include box(60px, 8px);
                 // @include borderT;
@@ -94,19 +85,20 @@ section {
             flex-direction: row;
             @include box(100%, 0);
             .container {
-                .single {
+                .single_restaurant {
                     @include lineGradient(50%,345deg,#F2AB39,transparent);
                     border-radius: 24px;
                     margin-left: 15px;
                     margin-right: 15px;
                     padding-top: 30px;
                     #imgs {
+                        margin-bottom: 20px;
                         margin-left: -15px;
                         margin-right: -15px;
                         @media (min-width:710px) and (max-width:1200px) {
                             margin-right: 15px;
                         }
-                        .large {
+                        .single_large {
                             padding-left: 15px;
                             padding-right: 15px;
                             @include box(600px, 0);
@@ -122,7 +114,7 @@ section {
                                     }
                                 }
                         }
-                        .small {
+                        .single_small {
                             display: flex;
                             flex-direction: row;
                             justify-content: space-evenly;
@@ -155,7 +147,7 @@ section {
                                 margin: 0 auto;
                             }
                             
-                            img {
+                            .single_small_img {
                                 margin-right: 8px;
                                 cursor: pointer;
                                 @include box(140px ,24px);
@@ -177,7 +169,7 @@ section {
                                 line-height: 32px !important;
                             }
                         }
-                        .togroup {
+                        .single_togroup {
                             margin: 40px 0;
                             display: flex;
                             flex-direction: row;
@@ -197,7 +189,7 @@ section {
         h4 {
             margin: 24px;
         }
-        .messagecontrol{
+        .single_messagecontrol{
             margin: 0 15px;
             #leavemessage {
                 @include box(1200px, 0);
@@ -207,7 +199,7 @@ section {
                 background-color: #F2AB39;
                 height: 400px;
                 overflow: auto;
-                .L {
+                .single_L {
                     @include box(90%, 24px);
                     background-color: white;
                     margin: 20px;
@@ -232,7 +224,7 @@ section {
             }
 
         }
-        .messaging {
+        .single_messaging {
             background-color: white;
             // @include borderT;
             border: 6px solid #f2c479;
@@ -258,24 +250,6 @@ section {
                     background-color: transparent;
                     border-bottom: 1px solid black;
                 }
-                .features {
-                    position: absolute;
-                    bottom: 0;
-                    left: 50%;
-                    transform: translate(-50%, 0);
-                    width: 200px;
-                    height: 24px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-evenly;
-                    i {
-                        cursor: pointer;
-                        padding: 4px 16px;
-                        text-align: center;
-                        @include box(48px, 12px);
-                        @include borderT;
-                    }
-                }
                 button {
                     // display: inline-block;
                     position: absolute;
@@ -295,13 +269,13 @@ section {
     }
     #report{
         @include light-box-setting(100%,500px,absolute);
-        // display: none;
+        display: none;
         border-radius: 24px;
         max-width: 500px;
         position: fixed;
         background-color: gray;
         z-index: 100;
-        .reportback{
+        .single_reportback{
             position: absolute;
             background-color: white;
             width: calc(100% - 40px);
@@ -315,7 +289,6 @@ section {
                 text-align: center;
             }
             h4{
-                // display: inline;
             }
             select{
                 border: 1px solid black;
@@ -335,6 +308,13 @@ section {
                 left: 50%;
                 transform: translate(-50%,0);
             }
+            .single_cancel{
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                font-size: 36px;
+                cursor: pointer;
+            }
         }
     }
     
@@ -342,7 +322,7 @@ section {
 .jun_back{
     width: 100%;
     height: 100%;
-    // display: none;
+    display: none;
     background-color: black;
     opacity: .4;
     z-index: 99;

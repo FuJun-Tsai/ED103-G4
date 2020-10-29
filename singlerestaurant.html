@@ -127,15 +127,15 @@
    <section>
        <!-- <div class="back"></div>
        <div class="back"></div> -->
-       <div class="content">
+       <div class="single_content">
            <div class="container">
                <div class="row">
                    <div class="col-lg">
-                       <div class="bread"><a href="./index.html">首頁</a><span>></span><a href="./searchrestaurant.html">餐廳介紹</a><span>></span><a href="">碳佐麻里</a></div>
+                       <div class="single_bread"><a href="./index.html">首頁</a><span>></span><a href="./searchrestaurant.html">餐廳介紹</a><span>></span><a href="">碳佐麻里</a></div>
                        <h2 id="name">
                            碳佐麻里
                        </h2>
-                       <div style="display: inline;">
+                       <div class="single_attr">
                            <span id="kind">日式</span><span id="style">燒烤</span>
                        </div>
                    </div>
@@ -146,16 +146,16 @@
 
            <div id="introduction">
                <div class="container">
-                   <div class="row single">
+                   <div class="row single_restaurant">
                        <div id="imgs" class="col-lg-7">
-                           <div class="large">
+                           <div class="single_large">
                                <img id="mainimg" src="./image/1-600.png" alt="">
                            </div>
-                           <div class="small">
-                               <img src="./image/1-600.png" alt="">
-                               <img class="togray" src="./image/2-600.png" alt="">
-                               <img class="togray" src="./image/3-600.png" alt="">
-                               <img class="togray" src="./image/4-600.png" alt="">
+                           <div class="single_small">
+                               <img class="single_small_img" src="./image/1-600.png" alt="">
+                               <img class="single_small_img" src="./image/2-600.png" alt="">
+                               <img class="single_small_img" src="./image/3-600.png" alt="">
+                               <img class="single_small_img" src="./image/4-600.png" alt="">
                            </div>
                        </div>
                        <aside id="detail" class="col-lg-5">
@@ -177,7 +177,7 @@
                                <p>地址：<span>桃園市桃園區成功路二段101號</span></p>
                                <p>電話：<span>0987-654-321</span></p>
                            </div>
-                           <div class="togroup">
+                           <div class="single_togroup">
                                <button class="btnRed btn_3 btn_js">開團<span></span></button>
                                <button class="btnBlue btn_4 btn_js">餐團<span></span></button>
                            </div>
@@ -190,38 +190,33 @@
                <div class="row">
                    <div class="col-lg">
                        <h4>聽聽網友怎麼說：</h4>
-                       <div class="messagecontrol">
+                       <div class="single_messagecontrol">
                            <div id="leavemessage">
-                               <div id="L1" class="L">
+                               <div id="L1" class="single_L">
                                    <img src="http://fakeimg.pl/60x60" alt="">
                                    <p>1231232313</p>
                                    <i class="fas fa-exclamation-triangle">檢舉</i>
                                </div>
-                               <div id="L2" class="L">
+                               <div id="L2" class="single_L">
                                    <img src="http://fakeimg.pl/60x60" alt="">
                                    <p>1231232313</p>
                                    <i class="fas fa-exclamation-triangle">檢舉</i>
                                </div>
-                               <div id="L3" class="L">
+                               <div id="L3" class="single_L">
                                    <img src="http://fakeimg.pl/60x60" alt="">
                                    <p>1231232313</p>
                                    <i class="fas fa-exclamation-triangle">檢舉</i>
                                </div>
-                               <div id="L4" class="L">
+                               <div id="L4" class="single_L">
                                    <img src="http://fakeimg.pl/60x60" alt="">
                                    <p>1231232313</p>
                                    <i class="fas fa-exclamation-triangle">檢舉</i>
                                </div>
                            </div>
-                           <div class="messaging">
+                           <div class="single_messaging">
                                <img src="http://fakeimg.pl/60x60" alt="">
                                <form id="send" action="">
                                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                                   <div class="features">
-                                       <i class="fas fa-bold"></i>
-                                       <i class="fas fa-italic"></i>
-                                       <i class="fas fa-underline"></i>
-                                   </div>
                                    <button class="btn_6 btn_js">送出
                                        <span></span>
                                    </button>
@@ -234,8 +229,9 @@
        </div>
 
         <div id="report">
-            <div class="reportback">
+            <div class="single_reportback">
                 <h2>檢舉餐廳留言</h2>
+                <i class="fas fa-times single_cancel"></i>
                 <label for="report">
                     選擇檢舉類型:<br>
                     <select name="report">
@@ -248,7 +244,10 @@
                 <textarea name="" id=""></textarea>
                 <button>送出檢舉</button>
             </div>
-        </div>
+            <div class="single_thank">
+                
+            </div>
+        </div> 
 
    </section>
    <!-- ***************************** -->
