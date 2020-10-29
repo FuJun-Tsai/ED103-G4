@@ -234,7 +234,7 @@ $(document).ready(function(){
         $('.page li').css({'color':'cornflowerblue'});
         $(this).css({'color':'black'});
         showresult();
-
+        $('html,body').animate({ scrollTop: 0 }, 0);
     });
 
     imgcube();
