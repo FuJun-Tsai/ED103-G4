@@ -157,9 +157,10 @@ body {
                     }
                     .detail {
                         position: relative;
-                        padding-bottom: 45px;
-                        @media screen and (max-width:992px){
-                            padding-bottom: 80px;
+                        padding-bottom: 80px;
+
+                        #rint{
+                            line-height: 36px !important;
                         }
                         h2 {
                             margin-top: 24px;
@@ -227,7 +228,7 @@ body {
                             }
                         }
                         .insearch {
-                            height: 100px !important;
+                            height: 140px !important;
                             // border: 6px solid #FFE1A4 !important;
                             // border-right: none !important;
                             border: none !important;
@@ -253,20 +254,22 @@ body {
                         }
                         .go {
                             position: absolute;
-                            bottom: 6px;
-                            right: 10px;
+                            bottom: 8px;
+                            right: 24px;
+                            
                             a:first-child button{
-                                position: absolute;
+                                // position: absolute;
                                 width: 100px;
                                 height: 40px;
-                                transform: translate(-100%,-100%);
+                                // bottom: 0;
+                                // transform: translate(-100%,-100%);
                             }
                             a:last-child button{
-                                position: absolute;
+                                // position: absolute;
                                 width: 100px;
                                 height: 40px;
-                                // right: 0px;
-                                transform: translate(-225%,-100%);
+                                // bottom: 0;
+                                // transform: translate(-225%,-100%);
                             }
                         }
                         .btnsingle{
@@ -274,7 +277,6 @@ body {
                             margin-bottom: 24px !important;
                             margin-top: 30px;
                             left: 36px;
-
                         }
                     }
                 }

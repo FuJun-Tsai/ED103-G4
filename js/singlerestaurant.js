@@ -49,9 +49,9 @@ $(document).ready(function(){
 
     function largeH(){
         let ww = $(window).width()+17;
-        if(ww<576){
-            $('.large').css({
-                'height':`${ww - 100}px`,
+        if(ww<600){
+            $('.single_large').css({
+                'height':`${ww}px`,
             });
         }
     }
