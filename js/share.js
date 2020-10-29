@@ -267,31 +267,31 @@ function showCards(moodData){
 
     //愛心icon的click事件
     $(".heartIcon").on("click",function(e){
-        e.target.src = "./img/index/moodLikeIcon.png"
-        let thisMoodNum = $(this).parent().parent().children().first().val();
-        let thisHeartCount = $(this).next().text();
-        $(this).next().text(parseInt(thisHeartCount) + 1);
-        let heartFormData = new FormData();
-        heartFormData.append('moodNum',thisMoodNum);
-        heartFormData.append('heartCount',thisHeartCount);
+        e.target.src = "./image/heart-shape-silhouette.png"
+        // let thisMoodNum = $(this).parent().parent().children().first().val();
+        // let thisHeartCount = $(this).next().text();
 
+        // $(this).next().text(parseInt(thisHeartCount) + 1);
 
-        let xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-            if (xhr.status == 200) {
-                //即時更新網頁上的愛心數
+        // let heartFormData = new FormData();
+        // heartFormData.append('moodNum',thisMoodNum);
+        // heartFormData.append('heartCount',thisHeartCount);
+
+        // let xhr = new XMLHttpRequest();
+        // xhr.onload = function () {
+        //     if (xhr.status == 200) {
+        //         //即時更新網頁上的愛心數
                 
-            } else {
-                alert(xhr.status + "失敗");
-            }
-        }
+        //     } else {
+        //         alert(xhr.status + "失敗");
+        //     }
+        // }
 
-        xhr.open("Post", "./php/addMoodHeart.php", true);
-        xhr.send(heartFormData);
+        // xhr.open("Post", "./php/addMoodHeart.php", true);
+        // xhr.send(heartFormData);
 
-        $(this).off("click");
+        // $(this).off("click");
     })
-   
 }
 
 
@@ -478,8 +478,10 @@ window.addEventListener('load', function () {
                     <!-- ------卡片表尾------- -->
                     <div class="foot">
                     <!-- ------收藏ICON------- -->
-                        <div class="collect_block">
-                            <img src="image/heart-shape-silhouette.png">
+                    <div class="collect_block">
+                        <div class="heartIcon">
+                            <img src="image/heart-shape-outline.png" class="fillicon">
+                        </div>
                     <!-- ------收藏數------- -->
                             <div class="collect_sum">
                                 <h5>999</h5>
