@@ -353,6 +353,69 @@
                     color: #FFF;
                     font-weight: bold;
                 }
+                .ice_foodGroup {
+                    overflow-y: scroll;
+                    margin: 25px 0px;
+                    height: 1024px;
+                    .ice_eatGroup {
+                        background-color: rgba(245, 222, 179, .4);
+                        display: flex;
+                        // border: 1px solid #cccccc;
+                        align-items: center;
+                        padding: 15px;
+                        justify-content: center;
+                        margin: 5px 0px;
+                        outline: 2px solid white;
+                        outline-offset: -10px;
+                        border: 0.1px solid rgba(245, 222, 179, 0);
+                        &:hover {
+                            cursor: pointer;
+                            background-color: rgba(245, 222, 179, .8);
+                            border: 0.1px solid rgba(245, 222, 179, 1);
+                        }
+                        span {
+                            font-size: $fontSize*1.5;
+                            padding: 0 20px;
+                        }
+                        img {
+                            width: 200px;
+                            height: 200px;
+                            border-radius: 100%;
+                        }
+                        .ice_eatGroup_content {
+                            padding-left: 20px;
+                            flex: 1;
+                            position: relative;
+                            div {
+                                // text-align: right;
+                                display: inline-block;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                            }
+                            // border: 1px solid;
+                            h3 {
+                                // background-color: white;
+                                padding: 10px;
+                                background-color: rgba(255, 255, 255, .1);
+                                display: inline-block;
+                            }
+                            h4 {
+                                display: inline-block;
+                                color: $bgColor-style1;
+                            }
+                        }
+                        .ice_eatGroup_button {
+                            align-self: flex-end;
+                            padding-bottom: 15px;
+                            button {
+                                @include btnBrown_5;
+                                // font-size: $fontSize*1.5;
+                                // padding: 5px 20px;
+                            }
+                        }
+                    }
+                }
             }
         }
         .my_collect {
@@ -446,7 +509,7 @@
                                 display: flex;
                                 justify-content: space-evenly;
                                 flex-wrap: wrap;
-                                .box {
+                                .tab_box {
                                     display: inline-block;
                                     width: 150px;
                                     margin: .5rem;
@@ -588,7 +651,7 @@
                                 display: flex;
                                 justify-content: space-evenly;
                                 flex-wrap: wrap;
-                                .box {
+                                .tab_box {
                                     display: inline-block;
                                     width: 150px;
                                     margin: .5rem;
