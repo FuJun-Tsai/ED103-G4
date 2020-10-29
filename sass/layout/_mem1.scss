@@ -249,11 +249,9 @@
                 .have_group{
                     display: inline-block;
                     width: 100%;
-                    border: 1px solid red;
                     .jay_box2 {
                         display: inline-block;
                         width: 100%;
-                        box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
                         background-color: white;
                         .jay_box2_row {
                             font-size: 0;
@@ -342,6 +340,45 @@
                                         width: 100%;
                                         text-align: center;
                                         line-height: 1.2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .add_stranger{
+                        border: 1px solid red;
+                        .add_stranger_title{
+                            margin: 0 auto;
+                            padding: 10px 20px;
+                            background-color: #9B1E23;
+                            text-align: center;
+                            color: #FFF;
+                            font-weight: bold;
+                        }
+                        .add_stranger_block{
+                            ul{
+                                .stranger_name_list{
+                                    width: 100%;
+                                    display: inline-block;
+                                    .stranger_name{
+                                        width: 49%;
+                                        display: inline-block;
+                                        img{
+                                            border: 1px solid forestgreen;
+                                            border-radius: 50%;
+                                            width: 100%;
+                                            max-width: 100px;
+                                            height: 100px;
+                                        }
+                                        h3{
+                                            // padding: 8px;
+                                            display: inline-block;
+                                        }
+                                    }
+                                    .button_box{
+                                        width: 50%;
+                                        display: inline-block;
+                                        text-align: center  ;
                                     }
                                 }
                             }
@@ -768,9 +805,6 @@
                                 display: inline-block;
                                 width: 49%;
                                 vertical-align: middle;
-                                // @include rwd(md_cellphone){
-                                //   width: 20%;
-                                // }
                                 div {
                                     img {
                                         border-radius: 50%;
