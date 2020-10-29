@@ -38,9 +38,24 @@
         background-color: #bb6573;
     }
 
+    .small::-webkit-scrollbar-track {
+        width: 4px;
+        background-color: #f2c479;
+    }
+    //捲軸寬度
+    .small::-webkit-scrollbar {
+        height:  6px;
+        background-color: black;
+    }
+    //捲軸本體顏色
+    .small::-webkit-scrollbar-thumb {
+        background-color: #bb6573;
+    }
 }
 
-
+body{
+    position: relative;
+}
 // body{
 section {
     // font-size: $fontSize!important;
@@ -95,9 +110,16 @@ section {
                             padding-left: 15px;
                             padding-right: 15px;
                             @include box(600px, 0);
+                            height: 600px;
                                 #mainimg {
                                     display: inline-block;
                                     @include box(600px, 24px);
+                                    @media (min-width:991px) and (max-width:1200px){
+                                        margin-top: 60px;
+                                    }
+                                    @media (min-width:575px) and (max-width:768px){
+                                        margin-top: 120px;
+                                    }
                                 }
                         }
                         .small {
@@ -105,7 +127,7 @@ section {
                             flex-direction: row;
                             justify-content: space-evenly;
                             align-items: center;
-                            padding-bottom: 40px;
+                            margin-bottom: 40px;
                             padding-left: 15px;
                             padding-right: 15px;
                             width: 100%;
@@ -176,7 +198,7 @@ section {
             margin: 24px;
         }
         .messagecontrol{
-            margin: 0 30px;
+            margin: 0 15px;
             #leavemessage {
                 @include box(1200px, 0);
                 border-left: 6px solid #f2c479;
@@ -200,6 +222,12 @@ section {
                         // height: 40px;
                         margin: 20px;
                     }   
+                    i{
+                        position: absolute;
+                        right:10px;
+                        bottom:0;
+                        cursor: pointer;
+                    }
                 }
             }
 
@@ -260,8 +288,69 @@ section {
                     line-height: 40px !important;
                 }
             }
+
+
+        }
+    
+    }
+    #report{
+        @include light-box-setting(100%,500px,absolute);
+        // display: none;
+        border-radius: 24px;
+        max-width: 500px;
+        position: fixed;
+        background-color: gray;
+        z-index: 100;
+        .reportback{
+            position: absolute;
+            background-color: white;
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            padding: 16px;
+            border-radius: 24px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            h2{
+                text-align: center;
+            }
+            h4{
+                // display: inline;
+            }
+            select{
+                border: 1px solid black;
+            }
+            textarea{
+                width: 100%;
+                height: 200px;
+                border: 1px solid black;
+            }
+            button{
+                display: inline-block;
+                width: 80px;
+                height:28px;
+                border-radius: 12px;
+                position: absolute;
+                bottom: 8px;
+                left: 50%;
+                transform: translate(-50%,0);
+            }
         }
     }
+    
 }
+.jun_back{
+    width: 100%;
+    height: 100%;
+    // display: none;
+    background-color: black;
+    opacity: .4;
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    left: 0;
+   
+}
+
 
 // }
