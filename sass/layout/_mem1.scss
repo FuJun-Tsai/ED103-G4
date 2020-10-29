@@ -361,11 +361,11 @@
                     color: #FFF;
                     font-weight: bold;
                 }
-                .den_foodGroup {
+                .ice_foodGroup {
                     overflow-y: scroll;
                     margin: 25px 0px;
                     height: 1024px;
-                    .den_eatGroup {
+                    .ice_eatGroup {
                         background-color: rgba(245, 222, 179, .4);
                         display: flex;
                         // border: 1px solid #cccccc;
@@ -390,11 +390,11 @@
                             height: 200px;
                             border-radius: 100%;
                         }
-                        .den_eatGroup_content {
+                        .ice_eatGroup_content {
                             padding-left: 20px;
                             flex: 1;
                             position: relative;
-                            >div {
+                            div {
                                 // text-align: right;
                                 display: inline-block;
                                 position: absolute;
@@ -413,7 +413,7 @@
                                 color: $bgColor-style1;
                             }
                         }
-                        .den_eatGroup_button {
+                        .ice_eatGroup_button {
                             align-self: flex-end;
                             padding-bottom: 15px;
                             button {
