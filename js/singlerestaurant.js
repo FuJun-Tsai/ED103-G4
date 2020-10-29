@@ -1,7 +1,9 @@
 $(document).ready(function(){
 
-    $('.small img').on('click',function(){
-        $('.small img').addClass('togray');
+    $('.single_small img').not('.single_small img:nth-child(1)').addClass('togray');
+
+    $('.single_small img').on('click',function(){
+        $('.single_small img').addClass('togray');
         $(this).removeClass('togray');
         let src = $(this).attr('src');
         $('#mainimg').attr('src',src);
@@ -21,9 +23,10 @@ $(document).ready(function(){
         }
 
         $('#leavemessage').append(`
-        <div id='L${id}' class='L'  >
+        <div id='L${id}' class='single_L'  >
             <img src="http://fakeimg.pl/60x60" alt="">
             <p>${content}</p>
+            <i class="fas fa-exclamation-triangle">檢舉</i>
         </div>` 
         );
         content = '';
@@ -83,23 +86,15 @@ $(document).ready(function(){
     //     var elem = document.getElementsByTagName('textarea')[0];
     //         return elem.value.substring(elem.selectionStart,elem.selectionEnd);
     // }
-    
-    $('.fa-bold').on('click',function(){
-        $('textarea').toggleClass('bold');
-        $(this).toggleClass('used');
-    });
-    $('.fa-italic').on('click',function(){
-        $('textarea').toggleClass('italic');
-        $(this).toggleClass('used');
-    });
-    $('.fa-underline').on('click',function(){
-        $('textarea').toggleClass('underline');
-        $(this).toggleClass('used');
-    });
 
-    $('.L i').on('click',function(){
+    $('.single_L i').on('click',function(){
         $('#report').css({'display':'inline-block'});
         $('.jun_back').css({'display':'inline-block'});
+    });
+
+    $('.single_cancel').on('click',function(){
+        $('#report').css({'display':'none'});
+        $('.jun_back').css({'display':'none'});
     });
 
 });
