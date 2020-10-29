@@ -4,12 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./css/head_footer_style.css"> -->
-    <!-- <link rel="stylesheet" href="./css/open_group_style.css"> -->
-    <!-- <link rel="stylesheet" href="./css/allstyle.css"> -->
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
     <link rel="stylesheet" href="./css/allstyle.css">
-    <!-- <link rel="stylesheet" href="./css/background.css"> -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="./js/header_fixed.js"></script>
     <script src="./js/group_date_D.js"></script>
@@ -215,6 +211,7 @@
                         </div>
                         <section id="den_tab1">
                             <h3>搜尋結果</h3>
+                            <hr>
                             <div class="result_owl">
                                 <div class="den_row">
                                     <div class="den_nav_left">
@@ -296,6 +293,7 @@
                                 <div class="den_Fill_Information">
                                     <div class="den_Information_title">
                                         <h3>開團資訊填寫</h3>
+                                        <hr>
                                     </div>
                                     <form action="">
                                         <div>
@@ -346,6 +344,7 @@
                                 <div class="den_friend_window">
                                     <div class="friend_title">
                                         <h3>找好友</h3>
+                                        <hr>
                                     </div>
                                     <form action="">
                                         <div>
@@ -840,22 +839,16 @@
 
                 $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
                 $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
-
-                // let typeClick = $('.den_res_type div input[name=kind]:checked');
-                // let typeClickL = typeClick.length;
-                // console.log(typeClickL)
-                // if (typeClickL = 1) {
-                // this.css('background', '#222222');
-                // }
-
-
-
-
-
-                // console.log(bbb);
-
-
             });
+            $('.den_cooking_style div input').on('change', function() {
+                // $('.den_cooking_style div').css('background', 'rgba(255, 255, 255, 0)');
+                // $('.den_cooking_style div').css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0)');
+
+                $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
+                $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
+            });
+
+
 
             //頁籤
             $('.title_left h2:nth-child(1)').on('click', function() {
