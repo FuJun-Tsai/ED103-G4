@@ -1,5 +1,5 @@
 //10.26-16:09
-header {
+.chu_header {
     height: 0;
     position: fixed;
     z-index: 30;
@@ -125,15 +125,15 @@ section.first_screen {
         position: absolute;
         // top: 13%;
         left: 20%;
-        animation: moveFood_cake 2.5s linear infinite;        
-        @keyframes moveFood_cake { 
-            0% { 
+        animation: moveFood_cake 2.5s linear infinite;
+        @keyframes moveFood_cake {
+            0% {
                 top: 13%;
             }
-            50%{
+            50% {
                 top: 15%;
             }
-            100% { 
+            100% {
                 top: 13%;
             }
         }
@@ -181,15 +181,15 @@ section.first_screen {
         position: absolute;
         top: 47%;
         left: 6%;
-        animation: moveFood_icecream 2.5s linear infinite;        
-        @keyframes moveFood_icecream { 
-            0% { 
+        animation: moveFood_icecream 2.5s linear infinite;
+        @keyframes moveFood_icecream {
+            0% {
                 top: 47%;
             }
-            50%{
+            50% {
                 top: 50%;
             }
-            100% { 
+            100% {
                 top: 47%;
             }
         }
@@ -205,15 +205,15 @@ section.first_screen {
         position: absolute;
         bottom: 8%;
         left: 40%;
-        animation: moveFood_curry 2.5s linear infinite;        
-        @keyframes moveFood_curry { 
-            0% { 
+        animation: moveFood_curry 2.5s linear infinite;
+        @keyframes moveFood_curry {
+            0% {
                 bottom: 8%;
             }
-            50%{
+            50% {
                 bottom: 10%;
             }
-            100% { 
+            100% {
                 bottom: 8%;
             }
         }
@@ -238,15 +238,15 @@ section.first_screen {
         position: absolute;
         bottom: 16%;
         right: 17%;
-        animation: moveFood_steak 3s linear infinite;        
-        @keyframes moveFood_steak { 
-            0% { 
+        animation: moveFood_steak 3s linear infinite;
+        @keyframes moveFood_steak {
+            0% {
                 bottom: 16%;
             }
-            50%{
+            50% {
                 bottom: 13%;
             }
-            100% { 
+            100% {
                 bottom: 16%;
             }
         }
@@ -560,7 +560,7 @@ section.second_screen {
             left: 14%;
             bottom: 8%;
             z-index: 2;
-            &:hover{
+            &:hover {
                 transform: scale(1.1);
             }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
@@ -591,285 +591,286 @@ section.second_screen {
                 bottom: 26%;
             }
         }
-            .content {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-35%);
-                top: 25%;
-                p {
-                    font-size: $fontSize;
-                    white-space: nowrap;
-                    line-height: 1.5;
-                    @media all and (max-width: 575px) {
-                        font-size: 0.8*$fontSize;
-                    }
-                }
-            }
-            button {
-                // padding: 5px 14px;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: 15%;
-                // border-radius: 8px;
-                // @include btnBrown_5;
+        .content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-35%);
+            top: 25%;
+            p {
+                font-size: $fontSize;
+                white-space: nowrap;
+                line-height: 1.5;
                 @media all and (max-width: 575px) {
-                    bottom: 8%;
+                    font-size: 0.8*$fontSize;
                 }
             }
         }
-        .team_two {
-            @include circle(225px, #601C8A);
+        button {
+            // padding: 5px 14px;
             position: absolute;
-            left: 33.5%;
-            bottom: 12%;
-            z-index: 2;
-            &:hover{
-                transform: scale(1.1);
-            }
-            @media all and (min-width: 1600px) and (max-width: 1920px) {
-                left: 30%;
-                bottom: 2%;
-            }
-            @media all and (min-width: 1440px) and (max-width: 1599px) {
-                left: 29.5%;
-                bottom: 1%;
-            }
-            @media all and (min-width: 1200px) and (max-width: 1439px) {
-                left: 23%;
-                bottom: 2%;
-            }
-            @media all and (min-width: 992px) and (max-width: 1199px) {
-                left: 28.5%;
-                bottom: 1%;
-            }
-            @media all and (min-width: 768px) and (max-width: 991px) {
-                left: 19.5%;
-                bottom: 1%;
-            }
-            @media all and (min-width: 576px) and (max-width: 767px) {
-                left: 5%;
-                bottom: 1%;
-            }
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 15%;
+            // border-radius: 8px;
+            // @include btnBrown_5;
             @media all and (max-width: 575px) {
-                @include circle(180px, #601C8A);
-                left: 1%;
-                bottom: 1%;
-            }
-            .content {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-35%);
-                top: 25%;
-                p {
-                    font-size: $fontSize;
-                    white-space: nowrap;
-                    line-height: 1.5;
-                    @media all and (max-width: 575px) {
-                        font-size: 0.8*$fontSize;
-                    }
-                }
-            }
-            button {
-                // padding: 5px 14px;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: 15%;
-                // border-radius: 8px;
-                @media all and (max-width: 575px) {
-                    bottom: 8%;
-                }
-            }
-        }
-        .team_three {
-            @include circle(225px, #F4EFDF);
-            position: absolute;
-            right: 31%;
-            bottom: 4%;
-            z-index: 2;
-            &:hover{
-                transform: scale(1.1);
-            }
-            @media all and (min-width: 1600px) and (max-width: 1920px) {
-                bottom: 1%;
-            }
-            @media all and (min-width: 1440px) and (max-width: 1599px) {
-                right: 27%;
-                bottom: 1%;
-            }
-            @media all and (min-width: 1200px) and (max-width: 1439px) {
-                right: 22%;
-            }
-            @media all and (min-width: 992px) and (max-width: 1199px) {
-                bottom: 5%;
-                right: 24%;
-            }
-            @media all and (min-width: 768px) and (max-width: 991px) {
-                right: 19.5%;
-                bottom: 1%;
-            }
-            @media all and (min-width: 576px) and (max-width: 767px) {
-                right: 5%;
-                bottom: 26%;
-            }
-            @media all and (max-width: 575px) {
-                @include circle(180px, #F4EFDF);
-                right: 1%;
-                bottom: 26%;
-            }
-            .content {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-35%);
-                top: 25%;
-                p {
-                    font-size: $fontSize;
-                    white-space: nowrap;
-                    line-height: 1.5;
-                    @media all and (max-width: 575px) {
-                        font-size: 0.8*$fontSize;
-                    }
-                }
-            }
-            button {
-                // padding: 5px 14px;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-35%);
-                bottom: 15%;
-                // border-radius: 8px;
-                @media all and (max-width: 575px) {
-                    bottom: 8%;
-                }
-            }
-        }
-        .team_four {
-            @include circle(225px, #B71E68);
-            position: absolute;
-            right: 13%;
-            bottom: 32%;
-            z-index: 2;
-            &:hover{
-                transform: scale(1.1);
-            }
-            @media all and (min-width: 1600px) and (max-width: 1920px) {
-                bottom: 23%;
-            }
-            @media all and (min-width: 1440px) and (max-width: 1599px) {
-                bottom: 19%;
-            }
-            @media all and (min-width: 1200px) and (max-width: 1439px) {
-                bottom: 23%;
-                right: 4%;
-            }
-            @media all and (min-width: 992px) and (max-width: 1199px) {
-                bottom: 3%;
-                right: 1%;
-            }
-            @media all and (min-width: 768px) and (max-width: 991px) {
-                right: 3%;
-                bottom: 22%;
-            }
-            @media all and (min-width: 576px) and (max-width: 767px) {
-                right: 5%;
-                bottom: 1%;
-            }
-            @media all and (max-width: 575px) {
-                @include circle(180px, #B71E68);
-                right: 1%;
-                bottom: 1%;
-            }
-            .content {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-35%);
-                top: 25%;
-                p {
-                    font-size: $fontSize;
-                    white-space: nowrap;
-                    line-height: 1.5;
-                    @media all and (max-width: 575px) {
-                        font-size: 0.8*$fontSize;
-                    }
-                }
-            }
-            button {
-                // padding: 5px 14px;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: 15%;
-                // border-radius: 8px;
-                @media all and (max-width: 575px) {
-                    bottom: 8%;
-                }
+                bottom: 8%;
             }
         }
     }
-    .twoPeople {
-        background-image: url(../image/index/second_screen_twoPeople.svg);
-        width: 500px;
-        height: 500px;
+    .team_two {
+        @include circle(225px, #601C8A);
         position: absolute;
-        bottom: 3%;
-        left: 5%;
-        background-repeat: no-repeat;
-        z-index: -1;
-        @media all and (min-width: 1200px) and (max-width: 1439px) {
-            width: 250px;
-            height: 250px;
-            left: 1%;
-            bottom: 0;
+        left: 33.5%;
+        bottom: 12%;
+        z-index: 2;
+        &:hover {
+            transform: scale(1.1);
         }
-        @media all and (min-width: 992px) and (max-width: 1199px) {
-            left: -3%;
-        }
-        @media all and (min-width: 768px) and (max-width: 991px) {
-            display: none;
-        }
-        @media all and (min-width: 576px) and (max-width: 767px) {
-            display: none;
-        }
-        @media all and (max-width: 575px) {
-            display: none;
-        }
-    }
-    .friends {
-        background-image: url(../image/index/second_screen_friends.svg);
-        width: 420px;
-        height: 237px;
-        position: absolute;
-        bottom: 3%;
-        right: 5%;
-        background-repeat: no-repeat;
         @media all and (min-width: 1600px) and (max-width: 1920px) {
-            width: 320px;
-            bottom: -2%;
+            left: 30%;
+            bottom: 2%;
         }
         @media all and (min-width: 1440px) and (max-width: 1599px) {
-            width: 308px;
-            bottom: -6%;
+            left: 29.5%;
+            bottom: 1%;
         }
         @media all and (min-width: 1200px) and (max-width: 1439px) {
-            width: 250px;
-            right: 2%;
-            bottom: -10%;
+            left: 23%;
+            bottom: 2%;
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
-            bottom: 18%;
+            left: 28.5%;
+            bottom: 1%;
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
-            display: none;
+            left: 19.5%;
+            bottom: 1%;
         }
         @media all and (min-width: 576px) and (max-width: 767px) {
-            display: none;
+            left: 5%;
+            bottom: 1%;
         }
         @media all and (max-width: 575px) {
-            display: none;
+            @include circle(180px, #601C8A);
+            left: 1%;
+            bottom: 1%;
+        }
+        .content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-35%);
+            top: 25%;
+            p {
+                font-size: $fontSize;
+                white-space: nowrap;
+                line-height: 1.5;
+                @media all and (max-width: 575px) {
+                    font-size: 0.8*$fontSize;
+                }
+            }
+        }
+        button {
+            // padding: 5px 14px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 15%;
+            // border-radius: 8px;
+            @media all and (max-width: 575px) {
+                bottom: 8%;
+            }
         }
     }
+    .team_three {
+        @include circle(225px, #F4EFDF);
+        position: absolute;
+        right: 31%;
+        bottom: 4%;
+        z-index: 2;
+        &:hover {
+            transform: scale(1.1);
+        }
+        @media all and (min-width: 1600px) and (max-width: 1920px) {
+            bottom: 1%;
+        }
+        @media all and (min-width: 1440px) and (max-width: 1599px) {
+            right: 27%;
+            bottom: 1%;
+        }
+        @media all and (min-width: 1200px) and (max-width: 1439px) {
+            right: 22%;
+        }
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+            bottom: 5%;
+            right: 24%;
+        }
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            right: 19.5%;
+            bottom: 1%;
+        }
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            right: 5%;
+            bottom: 26%;
+        }
+        @media all and (max-width: 575px) {
+            @include circle(180px, #F4EFDF);
+            right: 1%;
+            bottom: 26%;
+        }
+        .content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-35%);
+            top: 25%;
+            p {
+                font-size: $fontSize;
+                white-space: nowrap;
+                line-height: 1.5;
+                @media all and (max-width: 575px) {
+                    font-size: 0.8*$fontSize;
+                }
+            }
+        }
+        button {
+            // padding: 5px 14px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-35%);
+            bottom: 15%;
+            // border-radius: 8px;
+            @media all and (max-width: 575px) {
+                bottom: 8%;
+            }
+        }
+    }
+    .team_four {
+        @include circle(225px, #B71E68);
+        position: absolute;
+        right: 13%;
+        bottom: 32%;
+        z-index: 2;
+        &:hover {
+            transform: scale(1.1);
+        }
+        @media all and (min-width: 1600px) and (max-width: 1920px) {
+            bottom: 23%;
+        }
+        @media all and (min-width: 1440px) and (max-width: 1599px) {
+            bottom: 19%;
+        }
+        @media all and (min-width: 1200px) and (max-width: 1439px) {
+            bottom: 23%;
+            right: 4%;
+        }
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+            bottom: 3%;
+            right: 1%;
+        }
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            right: 3%;
+            bottom: 22%;
+        }
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            right: 5%;
+            bottom: 1%;
+        }
+        @media all and (max-width: 575px) {
+            @include circle(180px, #B71E68);
+            right: 1%;
+            bottom: 1%;
+        }
+        .content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-35%);
+            top: 25%;
+            p {
+                font-size: $fontSize;
+                white-space: nowrap;
+                line-height: 1.5;
+                @media all and (max-width: 575px) {
+                    font-size: 0.8*$fontSize;
+                }
+            }
+        }
+        button {
+            // padding: 5px 14px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 15%;
+            // border-radius: 8px;
+            @media all and (max-width: 575px) {
+                bottom: 8%;
+            }
+        }
+    }
+}
 
+.twoPeople {
+    background-image: url(../image/index/second_screen_twoPeople.svg);
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    bottom: 3%;
+    left: 5%;
+    background-repeat: no-repeat;
+    z-index: -1;
+    @media all and (min-width: 1200px) and (max-width: 1439px) {
+        width: 250px;
+        height: 250px;
+        left: 1%;
+        bottom: 0;
+    }
+    @media all and (min-width: 992px) and (max-width: 1199px) {
+        left: -3%;
+    }
+    @media all and (min-width: 768px) and (max-width: 991px) {
+        display: none;
+    }
+    @media all and (min-width: 576px) and (max-width: 767px) {
+        display: none;
+    }
+    @media all and (max-width: 575px) {
+        display: none;
+    }
+}
+
+.friends {
+    background-image: url(../image/index/second_screen_friends.svg);
+    width: 420px;
+    height: 237px;
+    position: absolute;
+    bottom: 3%;
+    right: 5%;
+    background-repeat: no-repeat;
+    @media all and (min-width: 1600px) and (max-width: 1920px) {
+        width: 320px;
+        bottom: -2%;
+    }
+    @media all and (min-width: 1440px) and (max-width: 1599px) {
+        width: 308px;
+        bottom: -6%;
+    }
+    @media all and (min-width: 1200px) and (max-width: 1439px) {
+        width: 250px;
+        right: 2%;
+        bottom: -10%;
+    }
+    @media all and (min-width: 992px) and (max-width: 1199px) {
+        bottom: 18%;
+    }
+    @media all and (min-width: 768px) and (max-width: 991px) {
+        display: none;
+    }
+    @media all and (min-width: 576px) and (max-width: 767px) {
+        display: none;
+    }
+    @media all and (max-width: 575px) {
+        display: none;
+    }
+}
 
 section.third_screen {
     border: 1px solid black;
@@ -921,8 +922,8 @@ section.third_screen {
             left: 5%;
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
-        top: 19%;
-        left: 12%;
+            top: 19%;
+            left: 12%;
         }
         @media all and (min-width: 576px) and (max-width: 767px) {
             top: 16%;
@@ -1015,360 +1016,354 @@ section.third_screen {
     }
 }
 
-
-
-
-
-    section.fourth_screen {
-        border: 1px solid black;
-        overflow: hidden;
-        height: 100vh;
-        position: relative;
-        // background-image: url(../image/index/fourth_screen_background.svg);
+section.fourth_screen {
+    border: 1px solid black;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    // background-image: url(../image/index/fourth_screen_background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    .header_padding {
+        height: 120px;
+        // border: 1px solid green;
+    }
+    .fourth_screen_circle_orange {
+        @include circle_bigOrange;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -99;
+    }
+    h2 {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 13%;
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            left: 12%;
+            transform: translateX(0);
+        }
+    }
+    h4 {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 18%;
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            left: 12%;
+            transform: translateX(0);
+        }
+    }
+    .fourth_screen_friends {
+        background-image: url(../../image/index/fourth_screen_friends.svg);
         background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-        .header_padding {
-            height: 120px;
-            // border: 1px solid green;
+        background-size: contain;
+        // top: 50%;
+        // left: 50%;
+        // transform: translateX(-50%);
+        z-index: -98;
+        width: 35%;
+        height: 35%;
+        position: absolute;
+        bottom: 3%;
+        left: 50%;
+        transform: translateX(-50%);
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+            bottom: -4%;
         }
-        .fourth_screen_circle_orange {
-            @include circle_bigOrange;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: -99;
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            bottom: -5%;
         }
-        h2{
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 13%;
-            @media all and (min-width: 576px) and (max-width: 767px) {
-                left: 12%;
-                transform: translateX(0);
-            }
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            display: none;
         }
-        h4{
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 18%;
-            @media all and (min-width: 576px) and (max-width: 767px) {
-                left: 12%;                
-                transform: translateX(0);
-            }
+        @media all and (max-width: 575px) {
+            display: none;
         }
-        .fourth_screen_friends {
-            background-image: url(../../image/index/fourth_screen_friends.svg);
-            background-repeat: no-repeat;
-            background-size: contain;
-            // top: 50%;
-            // left: 50%;
-            // transform: translateX(-50%);
-            z-index: -98;
-            width: 35%;
-            height: 35%;
-            position: absolute;
-            bottom: 3%;
-            left: 50%;
-            transform: translateX(-50%);
-            @media all and (min-width: 992px) and (max-width: 1199px) {
-                bottom: -4%;
-            }
-            @media all and (min-width: 768px) and (max-width: 991px) {
-                bottom: -5%;
+    }
+    .chu_container {
+        max-width: 1680px;
+        width: 100%;
+        margin: 0 auto;
+        // border: 1px solid red;
+        height: 80vh;
+        position: absolute;
+        top: 13%;
+        left: 50%;
+        transform: translateX(-50%);
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            top: 14%;
+        }
+        @media all and (max-width: 575px) {
+            top: 10%;
+        }
+        .chu_row1 {
+            display: flex;
+            // border: 3px solid green;
+            justify-content: space-around;
+            height: 40vh;
+            position: relative;
+            transform: translateY(75px);
+            * {
+                color: white;
             }
             @media all and (min-width: 576px) and (max-width: 767px) {
-                display: none;
+                flex-direction: column;
             }
             @media all and (max-width: 575px) {
-                display: none;
+                flex-direction: column;
             }
-        }
-        .chu_container {
-            max-width: 1680px;
-            width: 100%;
-            margin: 0 auto;
-            // border: 1px solid red;
-            height: 80vh;
-            position: absolute;
-            top: 13%;
-            left: 50%;
-            transform: translateX(-50%);
-            @media all and (min-width: 576px) and (max-width: 767px) {
-                top: 14%;
-            }
-            @media all and (max-width: 575px) {
-                top: 10%;
-            }
-            .chu_row1 {
-                display: flex;
-                // border: 3px solid green;
-                justify-content: space-around;
-                height: 40vh;
+            .chu_left {
                 position: relative;
-                transform: translateY(75px);
-                * {
-                    color: white;
-                }
+                top: 40%;
+                border-radius: 50%;
+                // border: 1px solid blue;
+                background-color: #601C8A;
+                width: 260px;
+                height: 260px;
+                padding: 15px;
                 @media all and (min-width: 576px) and (max-width: 767px) {
-                    flex-direction: column;
-                }
-                @media all and (max-width: 575px) {
-                    flex-direction: column;
-                }
-                .chu_left {
-                    position: relative;
-                    top: 40%;
-                    border-radius: 50%;
-                    // border: 1px solid blue;
-                    background-color: #601C8A;
-                    width: 260px;
-                    height: 260px;
-                    padding: 15px;
-                    @media all and (min-width: 576px) and (max-width: 767px) {
-                        margin: auto;
-                        left: 25%;
-                    }
-                    @media all and (max-width: 575px) {
-                        margin: auto;
-                        width: 200px;
-                        height: 200px;
-                    }
-                    .chu_left_icon1 {
-                        margin-top: 15px;
-                        @media all and (max-width: 575px) {
-                            margin-top: 0;
-                        }
-                        img {
-                            width: 40px;
-                            height: 40px;
-                        }
-                    }
-
-                    .chu_left_content {
-                        padding: 30px 0px;
-                        font-size: $fontSize;
-                        text-align: center;
-                        transform: translateY(-22px);
-                        img {
-                            width: 40px;
-                            height: 40px;
-                            transform: translateY(10px);
-                        }
-                    }
-                    span {
-                        font-size: $fontSize*1.5;
-                        text-align: center;
-                        display: block;
-                        transform: translateY(-18px);
-                        @media all and (max-width: 575px) {
-                            font-size: $fontSize;
-                        }
-                    }
-                    .chu_left_icon2 {
-                        text-align: right;
-                        margin-top: 5px;
-                        @media all and (max-width: 575px) {
-                            margin-top: -20px;
-                        }
-                        img {
-                            width: 40px;
-                            height: 40px;
-                            
-                        }
-                    }
-                    .chu_left_icon3{
-                        display: inline-block;
-                        position: absolute;
-                        top: 30px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        img{
-                            width: 40px;
-                            height: 40px;
-                        }
-                        p{
-                            font-size: 16px;
-                            // color: black;
-                            transform: translateY(-15px);
-                            display: inline-block;
-                        }
-                    }
-                }
-                .chu_center {
-                    position: relative;
-                    top: 8%;
-                    border-radius: 50%;
-                    width: 260px;
-                    height: 260px;
-                    padding: 15px;
-                    background-color: #76AFAF;
-                    @media all and (min-width: 576px) and (max-width: 767px) {
-                        margin: auto;
-                        top: 40%;
-                        right: 25%;
-                    }
-                    @media all and (max-width: 575px) {
-                        margin: auto;
-                        top: 43%;
-                        width: 200px;
-                        height: 200px;
-                    }
-                    // border: 1px solid blue;
-                    // flex: 0 1;
-                    .chu_center_icon1 {
-                        margin-top: 15px;
-                        @media all and (max-width: 575px) {
-                            margin-top: 0;
-                        }
-                        img {
-                            width: 40px;
-                            height: 40px;
-                        }
-                    }
-                    .chu_center_content {
-                        padding: 30px 0px;
-                        font-size: $fontSize;
-                        text-align: center;
-                        transform: translateY(-22px);
-                        img {
-                            width: 40px;
-                            height: 40px;
-                            transform: translateY(10px);
-                        }
-                    }
-                    span {
-                        font-size: $fontSize*1.5;
-                        text-align: center;
-                        display: block;
-                        transform: translateY(-18px);
-                        @media all and (max-width: 575px) {
-                            font-size: $fontSize;
-                        }
-                    }
-                    .chu_center_icon2 {
-                        text-align: right;
-                        margin-top: 5px;
-                        @media all and (max-width: 575px) {
-                            margin-top: -20px;
-                        }
-                        img {
-                            width: 40px;
-                            height: 40px;
-                        }
-                    }
-                    .chu_center_icon3{
-                        display: inline-block;
-                        position: absolute;
-                        top: 30px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        img{
-                            width: 40px;
-                            height: 40px;
-                        }
-                        p{
-                            font-size: 16px;
-                            // color: black;
-                            transform: translateY(-15px);
-                            display: inline-block;
-                        }
-                    }
-                }
-                .chu_right {
-                    position: relative;
-                    top: 40%;
-                    border-radius: 50%;
-                    width: 260px;
-                    height: 260px;
-                    padding: 15px;
-                    background-color:#B71E68;
-                    @media all and (min-width: 576px) and (max-width: 767px) {
-                        margin: auto;
-                        left: 25%;
-                    }
-                    @media all and (max-width: 575px) {
-                        margin: auto;
-                        width: 200px;
-                        height: 200px;
-                        transform: translateY(10%);
-                    }
-                    // border: 1px solid blue;
-                    // flex: 0 1;
-                    .chu_right_icon1 {
-                        margin-top: 15px;
-                        @media all and (max-width: 575px) {
-                            margin-top: 0;
-                        }
-                        img {
-                            width: 40px;
-                            height: 40px;
-                        }
-                    }
-                    .chu_right_content {
-                        padding: 30px 0px;
-                        font-size: $fontSize;
-                        text-align: center;
-                        transform: translateY(-22px);
-                        img {
-                            width: 40px;
-                            height: 40px;
-                            transform: translateY(10px);
-                        }
-                    }
-                    span {
-                        font-size: $fontSize*1.5;
-                        text-align: center;
-                        display: block;
-                        transform: translateY(-18px);
-                        @media all and (max-width: 575px) {
-                            font-size: $fontSize;
-                        }
-                    }
-                    .chu_right_icon2 {
-                        text-align: right;
-                        margin-top: 5px;
-                        @media all and (max-width: 575px) {
-                            margin-top: -20px;
-                        }
-                        img {
-                            width: 40px;
-                            height: 40px;
-                        }
-                    }
-                    .chu_right_icon3{
-                        display: inline-block;
-                        position: absolute;
-                        top: 30px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        img{
-                            width: 40px;
-                            height: 40px;
-                        }
-                        p{
-                            font-size: 16px;
-                            // color: black;
-                            transform: translateY(-15px);
-                            display: inline-block;
-                        }
-                    }
-                }
-            }
-            .chu_button {
-                text-align: center;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                @media all and (min-width: 576px) and (max-width: 767px) {
-                    bottom: 0%;
+                    margin: auto;
                     left: 25%;
                 }
                 @media all and (max-width: 575px) {
-                    bottom: -5%;
+                    margin: auto;
+                    width: 200px;
+                    height: 200px;
+                }
+                .chu_left_icon1 {
+                    margin-top: 15px;
+                    @media all and (max-width: 575px) {
+                        margin-top: 0;
+                    }
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+                .chu_left_content {
+                    padding: 30px 0px;
+                    font-size: $fontSize;
+                    text-align: center;
+                    transform: translateY(-22px);
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        transform: translateY(10px);
+                    }
+                }
+                span {
+                    font-size: $fontSize*1.5;
+                    text-align: center;
+                    display: block;
+                    transform: translateY(-18px);
+                    @media all and (max-width: 575px) {
+                        font-size: $fontSize;
+                    }
+                }
+                .chu_left_icon2 {
+                    text-align: right;
+                    margin-top: 5px;
+                    @media all and (max-width: 575px) {
+                        margin-top: -20px;
+                    }
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+                .chu_left_icon3 {
+                    display: inline-block;
+                    position: absolute;
+                    top: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                    p {
+                        font-size: 16px;
+                        // color: black;
+                        transform: translateY(-15px);
+                        display: inline-block;
+                    }
+                }
+            }
+            .chu_center {
+                position: relative;
+                top: 8%;
+                border-radius: 50%;
+                width: 260px;
+                height: 260px;
+                padding: 15px;
+                background-color: #76AFAF;
+                @media all and (min-width: 576px) and (max-width: 767px) {
+                    margin: auto;
+                    top: 40%;
+                    right: 25%;
+                }
+                @media all and (max-width: 575px) {
+                    margin: auto;
+                    top: 43%;
+                    width: 200px;
+                    height: 200px;
+                }
+                // border: 1px solid blue;
+                // flex: 0 1;
+                .chu_center_icon1 {
+                    margin-top: 15px;
+                    @media all and (max-width: 575px) {
+                        margin-top: 0;
+                    }
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+                .chu_center_content {
+                    padding: 30px 0px;
+                    font-size: $fontSize;
+                    text-align: center;
+                    transform: translateY(-22px);
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        transform: translateY(10px);
+                    }
+                }
+                span {
+                    font-size: $fontSize*1.5;
+                    text-align: center;
+                    display: block;
+                    transform: translateY(-18px);
+                    @media all and (max-width: 575px) {
+                        font-size: $fontSize;
+                    }
+                }
+                .chu_center_icon2 {
+                    text-align: right;
+                    margin-top: 5px;
+                    @media all and (max-width: 575px) {
+                        margin-top: -20px;
+                    }
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+                .chu_center_icon3 {
+                    display: inline-block;
+                    position: absolute;
+                    top: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                    p {
+                        font-size: 16px;
+                        // color: black;
+                        transform: translateY(-15px);
+                        display: inline-block;
+                    }
+                }
+            }
+            .chu_right {
+                position: relative;
+                top: 40%;
+                border-radius: 50%;
+                width: 260px;
+                height: 260px;
+                padding: 15px;
+                background-color: #B71E68;
+                @media all and (min-width: 576px) and (max-width: 767px) {
+                    margin: auto;
+                    left: 25%;
+                }
+                @media all and (max-width: 575px) {
+                    margin: auto;
+                    width: 200px;
+                    height: 200px;
+                    transform: translateY(10%);
+                }
+                // border: 1px solid blue;
+                // flex: 0 1;
+                .chu_right_icon1 {
+                    margin-top: 15px;
+                    @media all and (max-width: 575px) {
+                        margin-top: 0;
+                    }
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+                .chu_right_content {
+                    padding: 30px 0px;
+                    font-size: $fontSize;
+                    text-align: center;
+                    transform: translateY(-22px);
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        transform: translateY(10px);
+                    }
+                }
+                span {
+                    font-size: $fontSize*1.5;
+                    text-align: center;
+                    display: block;
+                    transform: translateY(-18px);
+                    @media all and (max-width: 575px) {
+                        font-size: $fontSize;
+                    }
+                }
+                .chu_right_icon2 {
+                    text-align: right;
+                    margin-top: 5px;
+                    @media all and (max-width: 575px) {
+                        margin-top: -20px;
+                    }
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+                .chu_right_icon3 {
+                    display: inline-block;
+                    position: absolute;
+                    top: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                    p {
+                        font-size: 16px;
+                        // color: black;
+                        transform: translateY(-15px);
+                        display: inline-block;
+                    }
                 }
             }
         }
+        .chu_button {
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            @media all and (min-width: 576px) and (max-width: 767px) {
+                bottom: 0%;
+                left: 25%;
+            }
+            @media all and (max-width: 575px) {
+                bottom: -5%;
+            }
+        }
+    }
 }
