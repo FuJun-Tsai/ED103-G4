@@ -1,32 +1,55 @@
 body{
-    // width: 100%;
-    // background-image: url("../image/14.svg");
-    // background-size: 100%;
-    // background-attachment: fixed;
-    // background-repeat: no-repeat;
-    // background-position: center;
+    .banner_bg{
+    background-image: url("../image/12.jpg");
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5%;
+    background-attachment: fixed;
+        .text{
+            width: 90%;
+            height: 400px;
+            margin-top: 50px;
+            margin-left: 5%;
+            display: inline-block;
+            letter-spacing: 50px;
+            color: rgb(95, 95, 95);
+            text-decoration: none;
+            text-align: center;
+            font-size: 2.3rem;
+            font-weight: 900;
+            background-color: white;
+            opacity: 0.75;
+            padding-top: 160px;
+        }    
+    }
     .btnCust {
         /*自訂按鈕*/
-        width: 105px;
-        height: 105px;
-        border: unset;
-        font-size: 16px;
-        color: #1e1e1e;
-        font-weight: bold;
-        text-align: center;
-        line-height: 130px;
-        z-index: 10;
+        // width: 105px;
+        // height: 105px;
+        // border: unset;
+        // font-size: 16px;
+        // color: #1e1e1e;
+        // font-weight: bold;
+        // text-align: center;
+        // line-height: 130px;
+        z-index: 5;
         position: fixed;
         right: 10%;
         bottom: 40%;
-        display: inline-block;
-        border-radius: 50%;
-        background-image: url("../image/btnCust.png");
-        background-size: contain;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        // display: inline-block;
+        // border-radius: 50%;
+        // background-image: url("../image/19.png");
+        // background-size: contain;
+        // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         transition: filter 0.1s;
         animation: flutter 0.5s cubic-bezier(0.04, 0.49, 0.94, 0.44) alternate infinite;
         cursor: pointer;
+        img{
+            width: 100px;
+        }
     }
     @keyframes flutter {
         from {
@@ -52,9 +75,10 @@ body{
             font-size: 18px;
             margin-top: 80px;
             margin-bottom: 80px;
+            margin-left: 1.3%;
             /* display: inline-block; */
                 button {
-                margin-right: 2%;
+                margin-right: 1%;
                 background-color: #DF7219;
                 color: white;
                 padding: 20px 40px;
@@ -63,9 +87,15 @@ body{
                 cursor: pointer;
                 border: 0.1px solid #DF7219;
                 border-radius: 8px 8px 0px 0px;
-                /* border: ; */
                 }
                 button:hover {
+                    background-color: #ffffff;
+                    color: #DF7219;
+                    border: 0.1px solid #DF7219;
+                }
+                select{
+                    padding: 20px 30px;
+                    border-radius: 8px 8px 0px 0px;
                     background-color: #ffffff;
                     color: #DF7219;
                     border: 0.1px solid #DF7219;
@@ -112,9 +142,45 @@ body{
                             }
                         }
                     }
-                    .btn_modal img {
+                    .btn_modal{
                         max-width: 100%;
                         cursor: pointer;
+                    }
+                    .btn_modal img {
+                        max-width: 100%;
+                    }
+                    .foot {
+                        margin-bottom: 5%;
+                        margin-top: 30px;
+                    }
+                    .collect_block {
+                        padding-left: 10%;
+                        margin-bottom: 5%;
+                        display: inline-block;
+                        img {
+                            width: 25px;
+                        }
+                        .collect_sum {
+                            padding-left: 10px;
+                            display: inline-block;
+                            h5 {
+                                margin-top: 10%;
+                            }
+                        }
+                    }
+                    .msg_block {
+                        /* display: inline-block; */
+                        float: right;
+                        padding-right: 10%;
+                        img {
+                            width: 25px;
+                        }
+                        .msg_sum {
+                            padding-left: 10px;
+                            display: inline-block;
+                        }h5 {
+                            margin-top: 10%;
+                        }
                     }
                     //lightbox
                     .overlay.-on {
@@ -129,21 +195,24 @@ body{
                         width: 100%;
                         height: 100vh;
                         background-color: hsla(0, 0%, 0%, .5);
-                        /* 預設：完全透明；設定 z-index: -1 會在整個頁面的後方，看不到，才不會擋到頁面元素。 */
                         opacity: 0;
                         z-index: -1;
-                        /* transition: opacity 0.5s; */
                         article{
                             background-color: white;
-                            max-width: 70%;
+                            max-width: 100%;
                             border-radius: 10px;
                             box-shadow: 0 0 10px #ddd;
                             padding: 3%;
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            margin-top: 3%;
-                            transform: translate(-50%, -50%);
+                            height: 80vh;
+                            overflow-x:hidden;
+                            overflow-y:auto;
+                            margin: 0 2%;
+                            z-index: 300;
+                            // position: absolute;
+                            // top: 50%;
+                            // left: 50%;
+                            margin-top: 15%;
+                            // transform: translate(-50%, -50%);
                             .msg-title{
                                 h2 {
                                     display: inline-block;
@@ -273,45 +342,6 @@ body{
                             }
                         }
                     }
-                    .foot {
-                        margin-bottom: 5%;
-                        margin-top: 30px;
-                    }
-                    .collect_block {
-                        padding-left: 10%;
-                        margin-bottom: 5%;
-                        display: inline-block;
-                        img {
-                            width: 25px;
-                        }
-                        .collect_sum {
-                            padding-left: 10px;
-                            display: inline-block;
-                            h5 {
-                                margin-top: 10%;
-                            }
-                        }
-                    }
-                    .msg_block {
-                        /* display: inline-block; */
-                        float: right;
-                        padding-right: 10%;
-                        img {
-                            width: 25px;
-                        }
-                        .msg_sum {
-                            padding-left: 10px;
-                            display: inline-block;
-                        }h5 {
-                            margin-top: 10%;
-                        }
-                    }
-                }
-            }
-            nav{
-                ul.pagination {
-                    width: 150px;
-                    margin: 0 auto;
                 }
             }
         }
@@ -331,8 +361,8 @@ body{
         left: 0;
         .newMoodBlock {
             padding: 2%;
-            margin: 2%;
-            width: 55%;
+            margin: 0%;
+            width: 100%;
             position: relative;
             border-radius: 10px;
             background-image: url("../image/15.png");
@@ -366,7 +396,6 @@ body{
                 transform: rotate(180deg);
             }
             h2 {
-                // font-size: 36px;
                 color: #A5361C;
                 font-weight: bolder;
                 text-align: center;
@@ -381,11 +410,11 @@ body{
                     align-items: center; 
                     width: 100%;
                     margin: 0 auto;
-                    label {
-                        font-size: 24px;
+                    h1 {
+                        font-size: 20px;
                         color: #206B95;
                         font-weight: bolder;
-                        margin: 10px auto;
+                        margin: 10px 0;
                     }
                     .picWrap {
                         border: 1px solid #646464;
@@ -403,7 +432,6 @@ body{
                     }
                     input {
                         text-overflow: ellipsis;
-                        
                     }
                     select {
                         width: 100%;
@@ -416,10 +444,9 @@ body{
                         font-size: 18px;
                     }
                 }
-                
             }
             #newMoodPostBtn {
-                margin: 20px 40%; 
+                margin: 20px 43%; 
             }
             .btnPink {
                 padding: 0;
@@ -445,7 +472,21 @@ body{
                 line-height: 50px;
                 /* filter: brightness(1.05); */
             }
-
+        }
+    }
+    .gototop2{
+        width:99%;
+        cursor:pointer;
+        .goto-top{
+            margin-left:-100%;
+            position:fixed;
+            bottom:20px;
+            right:50px;
+            img{
+                width: 80px;
+                height: 80px;
+                opacity: 0.8;
+            }
         }
     }
 }
