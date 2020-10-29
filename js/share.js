@@ -397,8 +397,6 @@ window.addEventListener('load', function () {
         $("#newMoodLightBox").css("display", "none");
     })
 
-
-
     // $("#newMoodBtn").on("click", function () {
     //     if(member.memNum){
     //         $("#newMoodLightBox").css("display", "flex");
@@ -463,18 +461,17 @@ window.addEventListener('load', function () {
                         </div>
                     <!-- ------用戶名稱------- -->
                         <div class="user_name">
-                            <h3>孫小美</h3>
+                            <h5>孫小美</h5>
                         </div>
                     <!-- ------貼文日期------- -->
                         <div class="time">
-                            <h3>${dateword}</h3>
+                            <h5>${dateword}</h5>
                         </div>
                     </div>
                     <!-- ------卡片分享圖片------- -->
-                    <div class="img_block">
-                        <a href="./image/${moodPic.name}" data-toggle="lightbox" data-gallery="gallery" >
-                            
-                            <img src="./image/${moodPic.name}" class="img-fluid">
+                    <div class="btn_modal">
+                        <a href="./image/${moodPic.name}">
+                            <img src="./image/${moodPic.name}">
                         </a>
                     </div>
 
@@ -485,7 +482,7 @@ window.addEventListener('load', function () {
                             <img src="image/heart-shape-silhouette.png">
                     <!-- ------收藏數------- -->
                             <div class="collect_sum">
-                                <h3>999</h3>
+                                <h5>999</h5>
                             </div>
                         </div>
                     <!-- ------回文ICON------- -->
@@ -493,14 +490,16 @@ window.addEventListener('load', function () {
                             <img src="image/comment-alt-solid.svg">
                     <!-- ------回文數------- -->
                             <div class="msg_sum">
-                                <h3>999</h3>
+                                <h5>999</h5>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
             `);
         }
+    $('#newMoodLightBox').css({'display':'none',});
+    $('#viewImg').attr('src','');
+    $('#inputImg').val('');
     })
 })
