@@ -1,4 +1,4 @@
-                                                                /*全局设定*/
+/*全局设定*/
                                                                 
                                                                 section {
                                                                     position: relative;
@@ -896,28 +896,28 @@ img {
 position: absolute;
 }
 } */
-                                                                
-                                                                @-webkit-keyframes bounce-down {
-                                                                    25% {
-                                                                        -webkit-transform: translate(-50%, -60%);
-                                                                    }
-                                                                    50%,
-                                                                    100% {
-                                                                        -webkit-transform: translate(-50%, -50%);
-                                                                    }
-                                                                    75% {
-                                                                        -webkit-transform: translate(-50%, -60%);
-                                                                    }
-                                                                    @keyframes bounce-down {
-                                                                        25% {
-                                                                            transform: translate(-50%, -60%);
-                                                                        }
-                                                                        50%,
-                                                                        100% {
-                                                                            transform: translate(-50%, -50%);
-                                                                        }
-                                                                        75% {
-                                                                            transform: translate(-50%, -60%);
-                                                                        }
-                                                                    }
-                                                                }
+
+@-webkit-keyframes bounce-down {
+    25% {
+        -webkit-transform: translate(-50%, -60%);
+    }
+    50%,
+    100% {
+        -webkit-transform: translate(-50%, -50%);
+    }
+    75% {
+        -webkit-transform: translate(-50%, -60%);
+    }
+    @keyframes bounce-down {
+        25% {
+            transform: translate(-50%, -60%);
+        }
+        50%,
+        100% {
+            transform: translate(-50%, -50%);
+        }
+        75% {
+            transform: translate(-50%, -60%);
+        }
+    }
+}
