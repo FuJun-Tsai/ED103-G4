@@ -823,18 +823,14 @@
                                     outline: none;
                                     @include btnBlue_3;
                                     width: 70px;
-                                    background-color: #c75174;
+                                    background-color: #DF7219;
                                     font-size: 14px;
                                     margin-right: 10px;
                                     font-weight: 400;
-                                    &:hover {
-                                        color: #c75174;
-                                    }
-                                    i {
-                                        color: #FFF;
-                                        font-size: 14px;
-                                        &:hover {
-                                            color: #c75174;
+                                    border: 0.1px solid  #DF7219;
+                                    &:hover i{
+                                        color: #DF7219;
+                                        background-color: #FFF;
                                         }
                                     }
                                     @include rwd(md_cellphone) {
