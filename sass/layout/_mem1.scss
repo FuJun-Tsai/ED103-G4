@@ -277,6 +277,7 @@
                                         width: 100%;
                                         height: 268px;
                                         object-fit: cover;
+                                        padding: 1.2%;
                                     }
                                 }
                                 img {
@@ -316,10 +317,6 @@
                                         min-height: 102px;
                                         height: 100%;
                                     }
-                                    h3 {
-                                        display: inline-block;
-                                        padding: 5px;
-                                    }
                                     h4 {
                                         display: inline-block;
                                         padding: 5px;
@@ -346,7 +343,6 @@
                         }
                     }
                     .add_stranger{
-                        border: 1px solid red;
                         .add_stranger_title{
                             margin: 0 auto;
                             padding: 10px 20px;
@@ -357,29 +353,44 @@
                         }
                         .add_stranger_block{
                             ul{
+                                margin-bottom: 60px;
+                                outline: none;
                                 .stranger_name_list{
                                     width: 100%;
                                     display: inline-block;
+                                    background-color: rgba(245, 222, 179, 0.4);
+                                    outline: none;
+                                    &:hover{
+                                        background-color: rgba(245, 222, 179, 0.8);
+                                    }
                                     .stranger_name{
                                         width: 49%;
                                         display: inline-block;
+                                        font-size: 0;
+                                        padding-left: 5%;
+                                        line-height: 100px;
                                         img{
-                                            border: 1px solid forestgreen;
                                             border-radius: 50%;
                                             width: 100%;
-                                            max-width: 100px;
-                                            height: 100px;
+                                            max-width: 80px;
+                                            height: 80px;
+                                            vertical-align: middle;
                                         }
                                         h3{
-                                            // padding: 8px;
                                             display: inline-block;
+                                            vertical-align: middle;
                                         }
                                     }
                                     .button_box{
                                         width: 50%;
                                         display: inline-block;
                                         text-align: center  ;
+                                        vertical-align: middle;
+                                        line-height: 100px;
                                     }
+                                }
+                                .stranger_name_list:last-child{
+                                    border-radius: 0 0 25px 25px;
                                 }
                             }
                         }
@@ -411,65 +422,94 @@
                     color: #FFF;
                     font-weight: bold;
                 }
-                .ice_foodGroup {
-                    overflow-y: scroll;
-                    margin: 25px 0px;
-                    height: 1024px;
-                    .ice_eatGroup {
-                        background-color: rgba(245, 222, 179, .4);
-                        display: flex;
-                        // border: 1px solid #cccccc;
-                        align-items: center;
-                        padding: 15px;
-                        justify-content: center;
-                        margin: 5px 0px;
-                        outline: 2px solid white;
-                        outline-offset: -10px;
-                        border: 0.1px solid rgba(245, 222, 179, 0);
-                        &:hover {
-                            cursor: pointer;
-                            background-color: rgba(245, 222, 179, .8);
-                            border: 0.1px solid rgba(245, 222, 179, 1);
-                        }
-                        span {
-                            font-size: $fontSize*1.5;
-                            padding: 0 20px;
-                        }
-                        img {
-                            width: 200px;
-                            height: 200px;
-                            border-radius: 100%;
-                        }
-                        .ice_eatGroup_content {
-                            padding-left: 20px;
-                            flex: 1;
-                            position: relative;
-                            div {
-                                // text-align: right;
-                                display: inline-block;
-                                position: absolute;
-                                top: 0;
-                                right: 0;
-                            }
-                            // border: 1px solid;
-                            h3 {
-                                // background-color: white;
-                                padding: 10px;
-                                background-color: rgba(255, 255, 255, .1);
-                                display: inline-block;
-                            }
-                            h4 {
-                                display: inline-block;
-                                color: $bgColor-style1;
+                .small_block {
+                    margin: 0 auto;
+                    width: 100%;
+                    padding-top: 30px;
+                    @include rwd(md_cellphone) {
+                        padding-top: 10px;
+                    }
+                    .tab_list_block {
+                        padding-left: 3%;
+                        .tab_list {
+                            display: flex;
+                            li {
+                                a {
+                                    display: inline-block;
+                                    line-height: 30px;
+                                    margin: 0 10px;
+                                }
+                                .-on {
+                                    border: 2px solid #DF7219;
+                                }
                             }
                         }
-                        .ice_eatGroup_button {
-                            align-self: flex-end;
-                            padding-bottom: 15px;
-                            button {
-                                @include btnBrown_5;
-                                // font-size: $fontSize*1.5;
-                                // padding: 5px 20px;
+                    }
+                    .tab_contents{
+                        display: inline-block;
+                        .tab {
+                            display: none;
+                        }
+                        .-on{
+                            display: block;
+                            text-align: left;
+                            margin-top: 10px;
+                        }
+                    }
+                    .ice_foodGroup {
+                        overflow-y: scroll;
+                        // display: none;
+                        .ice_eatGroup {
+                            background-color: rgba(245, 222, 179, .4);
+                            display: flex;
+                            align-items: center;
+                            padding: 15px;
+                            justify-content: center;
+                            margin: 5px 0px;
+                            outline: 2px solid white;
+                            outline-offset: -10px;
+                            border: 0.1px solid rgba(245, 222, 179, 0);
+                            &:hover {
+                                cursor: pointer;
+                                background-color: rgba(245, 222, 179, .8);
+                                border: 0.1px solid rgba(245, 222, 179, 1);
+                            }
+                            span {
+                                font-size: $fontSize*1.5;
+                                padding: 0 20px;
+                            }
+                            img {
+                                width: 100px;
+                                height: 100px;
+                                border-radius: 100%;
+                                line-height: 100px;
+                            }
+                            .ice_eatGroup_content {
+                                padding-left: 3%;
+                                flex: 1;
+                                position: relative;
+                                div {
+                                    display: inline-block;
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                }
+                                h5 {
+                                    background-color: rgba(255, 255, 255, .1);
+                                    display: inline-block;
+                                    line-height: 1.2;
+                                }
+                                h4 {
+                                    display: inline-block;
+                                    color: $bgColor-style1;
+                                }
+                            }
+                            .ice_eatGroup_button {
+                                align-self: flex-end;
+                                padding-bottom: 15px;
+                                button {
+                                    @include btnBrown_5;
+                                }
                             }
                         }
                     }
@@ -529,7 +569,6 @@
                 }
                 .small_block {
                     margin: 0 auto;
-                    // max-width: 600px;
                     width: 100%;
                     padding-top: 30px;
                     @include rwd(md_cellphone) {
