@@ -8,7 +8,7 @@ header {
 
 .den_banner {
     // background: linear-gradient( rgba(255, 234, 167, .3), rgba(255, 234, 167, .3)), url(../../image/團專開團參團背景圖/den_love_14.png);
-    background-image: url(../../image/den_image/den_friend.png);
+    background-image: url(../../image/den_image/den_ground.jpg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center right 10%;
@@ -507,6 +507,7 @@ header {
                             margin: 5px 0px;
                             outline: 2px solid white;
                             outline-offset: -10px;
+                            border: 0.1px solid rgba(245, 222, 179, 0);
                             &:hover {
                                 cursor: pointer;
                                 background-color: rgba(245, 222, 179, .8);
