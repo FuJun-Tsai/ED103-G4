@@ -627,13 +627,23 @@
                                 justify-content: space-evenly;
                                 flex-wrap: wrap;
                                 .tab_box {
-                                    display: inline-block;
-                                    width: 150px;
-                                    margin: .5rem;
+                                    flex-basis: 24%;
                                     padding: 8px;
                                     border: 3px solid $bgColor-style2;
                                     border-radius: 3px;
                                     margin-bottom: 10px;
+                                    @include rwd(md_medium){
+                                        width: 160px;
+                                        flex-basis: auto;
+                                    }
+                                    @include rwd(md_small){
+                                        width: 160px;
+                                        flex-basis: auto;
+                                    }
+                                    @include rwd(md_cellphone){
+                                        width: 160px;
+                                        flex-basis: auto;
+                                    }
                                     .small-title {
                                         height: 48px;
                                         line-height: 1.2;
