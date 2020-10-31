@@ -467,10 +467,12 @@
                         .tab_list {
                             display: flex;
                             li {
+                                margin: 0 10px;
                                 a {
                                     display: inline-block;
                                     line-height: 30px;
-                                    margin: 0 10px;
+                                    max-width: 120px;
+                                    padding: 0 8px;
                                 }
                                 .-on {
                                     border: 2px solid #DF7219;
@@ -595,10 +597,12 @@
                         .tab_list {
                             display: flex;
                             li {
+                                margin: 0 10px;
                                 a {
                                     display: inline-block;
                                     line-height: 30px;
-                                    margin: 0 10px;
+                                    max-width: 120px;
+                                    padding: 0 8px;
                                 }
                                 .-on {
                                     border: 2px solid #DF7219;
@@ -738,10 +742,12 @@
                         .tab_list {
                             display: flex;
                             li {
+                                margin: 0 10px;
                                 a {
                                     display: inline-block;
                                     line-height: 30px;
-                                    margin: 0 10px;
+                                    max-width: 120px;
+                                    padding: 0 8px;
                                 }
                                 .-on {
                                     border: 2px solid #DF7219;
@@ -766,22 +772,33 @@
                                 justify-content: space-evenly;
                                 flex-wrap: wrap;
                                 .tab_box {
-                                    display: inline-block;
-                                    width: 150px;
-                                    margin: .5rem;
+                                    flex-basis: 24%;
                                     padding: 8px;
                                     border: 3px solid $bgColor-style2;
                                     border-radius: 3px;
                                     margin-bottom: 10px;
+                                    @include rwd(md_medium){
+                                        width: 160px;
+                                        flex-basis: auto;
+                                    }
+                                    @include rwd(md_small){
+                                        width: 160px;
+                                        flex-basis: auto;
+                                    }
+                                    @include rwd(md_cellphone){
+                                        width: 160px;
+                                        flex-basis: auto;
+                                    }
                                     .small-title {
                                         height: 48px;
-                                        padding-top: 5px;
                                         line-height: 1.2;
                                         font-weight: 700;
-                                        img {
-                                            float: right;
-                                            cursor: pointer;
-                                            width: 15px;
+                                        position: relative;
+                                        .fas{
+                                            color: #DF7219;
+                                            position: absolute;
+                                            top: 0;
+                                            right: -10px;
                                         }
                                     }
                                     .pic {
