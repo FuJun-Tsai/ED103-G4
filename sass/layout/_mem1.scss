@@ -93,21 +93,32 @@
             .mypa {
                 .mylist {
                     ul{
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-evenly;
                         text-align: center;
-                        width: 100%;
+                        width: 70%;
+                        margin: 0 auto;
+                        @include rwd(md_small){
+                            width: 100%;
+                        }
+                        @include rwd(md_cellphone) {
+                            width: 100%;
+                        }
                         li {
-                            @include rwd(md_small) {
-                                display: inline-block;
-                                // max-width: 30%;
-                            }
-                            @include rwd(md_cellphone) {
-                                display: inline-block;
-                                // max-width: 30%;
+                            flex-basis: 30%;
+                            @include rwd(md_cellphone){
+                                flex-basis: 28%;
                             }
                             button{
-                                margin: 8px;
+                                margin: 8px 0;
+                                width: 150px;
+                                @include rwd(md_small){
+                                    margin: 10px 0;
+                                }
                                 @include rwd(md_cellphone) {
-                                    max-width: 90%;
+                                    width: 100%;
+                                    margin: 10px 0;
                                 }
                             }
                         }
@@ -133,7 +144,7 @@
                 @include box(700px, 24px);
                 .title {
                     margin: 0 auto;
-                    padding: 10px 20px;
+                    padding: 10px 0;
                     border-radius: 20px 20px 0 0;
                     background-color: #9B1E23;
                     text-align: center;
@@ -145,6 +156,7 @@
                     max-width: 600px;
                     width: 100%;
                     padding-top: 30px;
+                    padding-left: 3%;
                     @include rwd(md_cellphone) {
                         padding-top: 10px;
                     }
@@ -154,7 +166,7 @@
                         padding: 8px 0;
                         @include rwd(md_cellphone) {
                             width: 100%;
-                            padding-left: 6%;
+                            padding: 0 3%;
                         }
                         .small_title {
                             display: inline-block;
@@ -172,15 +184,16 @@
                 }
                 .part:nth-child(2n+2){
                     width: 54%;
+                    @include rwd(md_cellphone) {
+                        width: 100%;
+                        padding: 0 3%;
+                    }
                 }
                 .part:nth-child(7) {
                     width: 100%;
                     height: 300px;
-                    .small_title {
-                        vertical-align: top;
-                    }
-                    .change {
-                        vertical-align: top;
+                    @include rwd (md_cellphone){
+                        height: 200px;
                     }
                     .content {
                         width: 70%;
@@ -211,7 +224,7 @@
                 @include box(700px, 24px);
                 .title {
                     margin: 0 auto;
-                    padding: 10px 20px;
+                    padding: 10px 0;
                     border-radius: 20px 20px 0 0;
                     background-color: #9B1E23;
                     text-align: center;
@@ -224,7 +237,6 @@
                     width: 100%;
                     height: 500px;
                     padding-top: 30px;
-                    // display: flex;
                     display: none;
                     flex-direction: column;
                     justify-content: center;
@@ -247,97 +259,110 @@
                     }
                 }
                 .have_group{
-                    display: inline-block;
-                    width: 100%;
                     .jay_box2 {
                         display: inline-block;
                         width: 100%;
-                        background-color: white;
-                        .jay_box2_row {
-                            font-size: 0;
-                            width: 100%;
+                        background-color: rgba(245, 222, 179, 0.4);
+                        border-radius: 0 0 20px 20px ;
+                        margin-bottom: 10px;
+                        outline: none;
+                        font-size: 0;
+                        align-items: center;
+                        padding-bottom: 10px;
+                        .box2_row_left {
+                            width: 60.5%;
                             display: inline-block;
-                            align-items: center;
-                            .box2_row_left {
-                                width: 60%;
-                                display: inline-block;
-                                text-align: center;
-                                vertical-align: middle;
-                                font-size: 0;
-                                @include rwd(md_small){
-                                    width: 100%;
-                                    padding: 10px;
-                                }
-                                @include rwd(md_cellphone){
-                                    width: 100%;
-                                    padding: 10px;
-                                }
-                                .main_img {
-                                    img {
-                                        width: 100%;
-                                        height: 268px;
-                                        object-fit: cover;
-                                        padding: 1.2%;
-                                    }
-                                }
+                            text-align: center;
+                            vertical-align: middle;
+                            font-size: 0;
+                            @include rwd(md_small){
+                                width: 100%;
+                                padding: 10px;
+                            }
+                            @include rwd(md_cellphone){
+                                width: 100%;
+                                padding: 10px;
+                            }
+                            .main_img {
                                 img {
-                                    width: 24.5%;
-                                    height: 100px;
-                                    display: inline-block;
-                                    padding: .5%;
+                                    width: 100%;
+                                    height: 268px;
                                     object-fit: cover;
+                                    padding: 8px 8px 0 8px;
                                 }
                             }
-                            .box2_row_right {
-                                width: 39%;
+                            .sm_pic{
+                                font-size: 0;
+                                img {
+                                    width: 24%;
+                                    height: 100px;
+                                    display: inline-block;
+                                    object-fit: cover;
+                                    padding:3px;
+                                }
+                                img:first-child{
+                                    padding-left: 0;
+                                }
+                                img:last-child{
+                                    padding-right: 0;
+                                }
+                            }
+                        }
+                        .box2_row_right {
+                            width: 39%;
+                            display: inline-block;
+                            overflow: auto;
+                            @include rwd(md_small){
+                                width: 100%;
+                                text-align: center;
+                            }
+                            @include rwd(md_cellphone){
+                                width: 100%;
+                                text-align: center;
+                            }
+                            div {
+                                font-size: 0;
                                 display: inline-block;
-                                max-height: 450px;
-                                overflow: auto;
+                                background-color: #FFE1A4;
+                                border-radius: 8px;
+                                padding: 8px;
+                                overflow: hidden;
+                                margin: 2%;
+                                width: 96%;
+                                text-align: left;
                                 @include rwd(md_small){
-                                    width: 100%;
-                                    text-align: center;
+                                    width: 30%;
+                                    padding: 3px 0 3px 3px;
+                                    margin: 0 1%;
+                                    min-height: 102px;
+                                    height: 100%;
                                 }
                                 @include rwd(md_cellphone){
-                                    width: 100%;
-                                }
-                                div {
-                                    font-size: 0;
-                                    display: inline-block;
-                                    background-color: #FFE1A4;
-                                    border-radius: 8px;
-                                    padding: 8px;
-                                    overflow: hidden;
-                                    margin: 2%;
-                                    width: 96%;
+                                    margin: 0;
+                                    width: 90%;
                                     text-align: left;
-                                    @include rwd(md_small){
-                                        width: 30%;
-                                        padding: 3px 0 3px 3px;
-                                        margin: 0 1%;
-                                        min-height: 102px;
-                                        height: 100%;
-                                    }
-                                    h4 {
-                                        display: inline-block;
-                                        padding: 5px;
-                                    }
-                                    h5{
-                                        display: inline-block;
-                                        line-height: 1.5;
-                                    }
-                                    h6 {
-                                        display: inline-block;
-                                        padding: 3px;
-                                        font-size: 14px;
-                                        background-color: #FFF;
-                                        margin: 0 1%;
-                                        border: 0.1px solid;
-                                        border-radius: 8px;
-                                        max-width: 50px;
-                                        width: 100%;
-                                        text-align: center;
-                                        line-height: 1.2;
-                                    }
+                                    margin: 2%;
+                                }
+                                h4 {
+                                    display: inline-block;
+                                    padding: 5px;
+                                }
+                                h5{
+                                    display: inline-block;
+                                    line-height: 1.5;
+                                }
+                                h6 {
+                                    display: inline-block;
+                                    padding: 3px;
+                                    font-size: 14px;
+                                    background-color: #FFF;
+                                    margin: 0 1%;
+                                    border: 0.1px solid;
+                                    border-radius: 8px;
+                                    max-width: 50px;
+                                    width: 100%;
+                                    text-align: center;
+                                    line-height: 1.2;
                                 }
                             }
                         }
@@ -345,52 +370,60 @@
                     .add_stranger{
                         .add_stranger_title{
                             margin: 0 auto;
-                            padding: 10px 20px;
+                            padding: 10px 0;
                             background-color: #9B1E23;
                             text-align: center;
                             color: #FFF;
                             font-weight: bold;
+                            border-radius: 20px 20px 0 0;
                         }
                         .add_stranger_block{
-                            ul{
-                                margin-bottom: 60px;
-                                outline: none;
-                                .stranger_name_list{
-                                    width: 100%;
+                            padding-bottom: 10px;
+                            margin-bottom: 40px;
+                            background-color: rgba(245, 222, 179, 0.4);
+                            border-radius: 0 0 20px 20px ;
+                            @include rwd(md_cellphone){
+                                margin-bottom: 0;
+                            }
+                            .stranger_name_list{
+                                padding: 5px;
+                                margin: 5px 0px;
+                                outline: 2px solid white;
+                                cursor: pointer;
+                                outline-offset: -10px;
+                                width: 100%;
+                                display: inline-block;
+                                &:hover{
+                                    background-color: rgba(245, 222, 179, 0.8);
+                                }
+                                .stranger_name{
+                                    width: 49%;
                                     display: inline-block;
-                                    background-color: rgba(245, 222, 179, 0.4);
-                                    outline: none;
-                                    &:hover{
-                                        background-color: rgba(245, 222, 179, 0.8);
-                                    }
-                                    .stranger_name{
-                                        width: 49%;
-                                        display: inline-block;
-                                        font-size: 0;
-                                        padding-left: 5%;
-                                        line-height: 100px;
-                                        img{
-                                            border-radius: 50%;
-                                            width: 100%;
-                                            max-width: 80px;
-                                            height: 80px;
-                                            vertical-align: middle;
-                                        }
-                                        h3{
-                                            display: inline-block;
-                                            vertical-align: middle;
-                                        }
-                                    }
-                                    .button_box{
-                                        width: 50%;
-                                        display: inline-block;
-                                        text-align: center  ;
+                                    font-size: 0;
+                                    padding-left: 5%;
+                                    line-height: 100px;
+                                    img{
+                                        border-radius: 50%;
+                                        width: 100%;
+                                        max-width: 80px;
+                                        height: 80px;
                                         vertical-align: middle;
-                                        line-height: 100px;
+                                        @include rwd(md_cellphone){
+                                            display: none;
+                                        }
+                                    }
+                                    h5{
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        padding-left: 5%;
                                     }
                                 }
-                                .stranger_name_list:last-child{
-                                    border-radius: 0 0 25px 25px;
+                                .button_box{
+                                    width: 49%;
+                                    display: inline-block;
+                                    text-align: center  ;
+                                    vertical-align: middle;
+                                    line-height: 100px;
                                 }
                             }
                         }
@@ -415,7 +448,7 @@
                 @include box(700px, 24px);
                 .title {
                     margin: 0 auto;
-                    padding: 10px 20px;
+                    padding: 10px 0;
                     border-radius: 20px 20px 0 0;
                     background-color: #9B1E23;
                     text-align: center;
@@ -446,7 +479,6 @@
                         }
                     }
                     .tab_contents{
-                        display: inline-block;
                         .tab {
                             display: none;
                         }
@@ -454,64 +486,48 @@
                             display: block;
                             text-align: left;
                             margin-top: 10px;
+                            .ice_eatGroup {
+                                background-color: rgba(245, 222, 179, .4);
+                                display: flex;
+                                align-items: center;
+                                padding: 15px;
+                                justify-content: center;
+                                margin: 5px 0px;
+                                outline: 2px solid white;
+                                cursor: pointer;
+                                outline-offset: -10px;
+                                &:hover {
+                                    background-color: rgba(245, 222, 179, .8);
+                                }
+                                img {
+                                    width: 100px;
+                                    height: 100px;
+                                    border-radius: 50%;
+                                }
+                                .ice_eatGroup_content {
+                                    padding-left: 3%;
+                                    flex: 1;
+                                    h5 {
+                                        background-color: rgba(255, 255, 255, .1);
+                                        display: inline-block;
+                                        line-height: 1.2;
+                                    }
+                                    h4 {
+                                        display: inline-block;
+                                        color: $bgColor-style1;
+                                    }
+                                }
+                                .ice_eatGroup_button {
+                                    align-self: flex-end;
+                                    padding-bottom: 15px;
+                                }
+                            }
                         }
                     }
                     .ice_foodGroup {
                         overflow-y: scroll;
                         // display: none;
-                        .ice_eatGroup {
-                            background-color: rgba(245, 222, 179, .4);
-                            display: flex;
-                            align-items: center;
-                            padding: 15px;
-                            justify-content: center;
-                            margin: 5px 0px;
-                            outline: 2px solid white;
-                            outline-offset: -10px;
-                            border: 0.1px solid rgba(245, 222, 179, 0);
-                            &:hover {
-                                cursor: pointer;
-                                background-color: rgba(245, 222, 179, .8);
-                                border: 0.1px solid rgba(245, 222, 179, 1);
-                            }
-                            span {
-                                font-size: $fontSize*1.5;
-                                padding: 0 20px;
-                            }
-                            img {
-                                width: 100px;
-                                height: 100px;
-                                border-radius: 100%;
-                                line-height: 100px;
-                            }
-                            .ice_eatGroup_content {
-                                padding-left: 3%;
-                                flex: 1;
-                                position: relative;
-                                div {
-                                    display: inline-block;
-                                    position: absolute;
-                                    top: 0;
-                                    right: 0;
-                                }
-                                h5 {
-                                    background-color: rgba(255, 255, 255, .1);
-                                    display: inline-block;
-                                    line-height: 1.2;
-                                }
-                                h4 {
-                                    display: inline-block;
-                                    color: $bgColor-style1;
-                                }
-                            }
-                            .ice_eatGroup_button {
-                                align-self: flex-end;
-                                padding-bottom: 15px;
-                                button {
-                                    @include btnBrown_5;
-                                }
-                            }
-                        }
+
                     }
                 }
             }
@@ -560,7 +576,7 @@
                 @include box(700px, 24px);
                 .title {
                     margin: 0 auto;
-                    padding: 10px 20px;
+                    padding: 10px 0;
                     border-radius: 20px 20px 0 0;
                     background-color: #9B1E23;
                     text-align: center;
@@ -616,13 +632,14 @@
                                     margin-bottom: 10px;
                                     .small-title {
                                         height: 48px;
-                                        padding-top: 5px;
                                         line-height: 1.2;
                                         font-weight: 700;
-                                        img {
-                                            float: right;
-                                            cursor: pointer;
-                                            width: 15px;
+                                        position: relative;
+                                        .fas{
+                                            color: #DF7219;
+                                            position: absolute;
+                                            top: 0;
+                                            right: -10px;
                                         }
                                     }
                                     .pic {
@@ -701,7 +718,7 @@
                 @include box(700px, 24px);
                 .title {
                     margin: 0 auto;
-                    padding: 10px 20px;
+                    padding: 10px 0;
                     border-radius: 20px 20px 0 0;
                     background-color: #9B1E23;
                     text-align: center;
@@ -816,7 +833,7 @@
                 @include box(700px, 24px);
                 .title {
                     margin: 0 auto;
-                    padding: 10px 20px;
+                    padding: 10px 0;
                     border-radius: 20px 20px 0 0;
                     background-color: #9B1E23;
                     text-align: center;
