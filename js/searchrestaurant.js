@@ -1,5 +1,6 @@
 $(document).ready(function(){
-
+    let xdddd = '1498813777-3421484685_n.jpg'
+    console.log(xdddd.length);
     conditionK = []; //kind搜尋條件
     conditionS = []; //style搜尋條件
     RK = []; //kind符合餐廳

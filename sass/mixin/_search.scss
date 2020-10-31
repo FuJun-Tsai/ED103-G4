@@ -17,70 +17,6 @@
     }
 }
 
-#R1 {
-    .rep {
-        div{
-            @include img(500px, './../image/1-600.png');
-        }
-    }
-}
-
-#R2 {
-    .rep {
-        div{
-            @include img(500px, './../image/2-600.png');
-        }
-    }
-}
-
-#R3 {
-    .rep {
-        div{
-            @include img(500px, './../image/3-600.png');
-        }
-    }
-}
-
-#R4 {
-    .rep {
-        div{
-            @include img(500px, './../image/4-600.png');
-        }
-    }
-}
-
-#R5 {
-    .rep {
-        div{
-            @include img(500px, './../image/3-600.png');
-        }
-    }
-}
-
-#R6 {
-    .rep {
-        div{
-            @include img(500px, './../image/2-600.png');
-        }
-    }
-}
-
-#R7 {
-    .rep {
-        div{
-            @include img(500px, './../image/4-600.png');
-        }
-    }
-}
-
-#R8 {
-    .rep {
-        div{
-            @include img(500px, './../image/1-600.png');
-        }
-    }
-}
-
 p::-webkit-scrollbar-track {
     background-color: #FFE1A4;
 }
@@ -143,15 +79,23 @@ body {
                     @include lineGradient(50%,345deg,#F2AB39,transparent);
                     margin: 80px auto;
                     .rep{
+                        // padding-left: 0;
                         margin: 0px;
                         border-radius: 16px;
-                        div{
+                        text-align: center;
+                        img{
+                            display: inline-block;
+                            width: 487.5px;
+                            height: 500px;
+                            // width: 100%;
+                            // height: 100%;
+                            font-size: 0;
                             margin-left: -15px;
                             border-radius: 24px 0px 0px 24px;
-                            @media screen and (max-width:992px){
+                            @media screen and (max-width:1200px){
                                 border-radius: 24px;
-                                margin: 0;
-                                // width: 500px;
+                                margin: 0 auto;
+
                             }   
                         }
                     }
