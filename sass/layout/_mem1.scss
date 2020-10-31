@@ -873,33 +873,43 @@
                     text-align: right;
                 }
                 .fd_list {
-                    overflow-y: auto;
-                    height: 60vh;
+                    overflow-y: scroll;
+                    // height: 60vh;
                     .fd_ul {
-                        li:nth-child(2n+1) {
-                            background-color: bisque;
-                            border-radius: 5px;
-                        }
+                        
                         li {
-                            width: 100%;
-                            margin: 0 auto;
-                            padding: 10px;
+                            background-color: rgba(245, 222, 179, .4);
+                            display: flex;
+                            align-items: center;
+                            padding: 15px;
+                            justify-content: center;
+                            margin: 5px 0px;
+                            outline: 2px solid white;
+                            outline-offset: -10px;
+                            border: 0.1px solid rgba(245, 222, 179, 0);
+                            &:hover {
+                                cursor: pointer;
+                                background-color: rgba(245, 222, 179, .8);
+                                border: 0.1px solid rgba(245, 222, 179, 1);
+                            }
                             .fd_name {
                                 display: inline-block;
                                 width: 49%;
                                 vertical-align: middle;
-                                div {
+                                text-align: center;
                                     img {
-                                        border-radius: 50%;
-                                        max-width: 80px;
-                                        height: 80px;
+                                        width: 100px;
+                                        height: 100px;
+                                        border-radius: 100%;
+                                        line-height: 100px;
                                     }
-                                }
-                                h4 {
-                                    display: inline-block;
-                                }
+                                    div{
+                                        h4 {
+                                            display: inline-block;
+                                        }
+                                    }
                             }
-                            .button_box {
+                            .ice_btn_box {
                                 display: inline-flex;
                                 justify-content: flex-end;
                                 button {
@@ -911,13 +921,19 @@
                                     margin-right: 10px;
                                     font-weight: 400;
                                     border: 0.1px solid  #DF7219;
+                                    &:hover{
+                                        border: 0.1px solid  #DF7219; 
+                                    }
+                                    i{
+                                        color: #FFF;
+                                    }
                                     &:hover i{
                                         color: #DF7219;
                                         background-color: #FFF;
                                     }
-                                    @include rwd(md_cellphone) {
-                                        margin-right: 0;
-                                    }
+                                    // @include rwd(md_cellphone) {
+                                    //     margin-right: 0;
+                                    // }
                                 }
                             }
                         }
