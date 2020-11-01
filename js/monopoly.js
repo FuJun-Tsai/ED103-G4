@@ -1,17 +1,52 @@
-dice.on("click", game);
+// dice.on("click", game);
 
+$(".dice-container").on("dragstop ", game)
 
 function game() {
     //骰子点数显示
     var num = Math.ceil(Math.random() * 6);
     var bgi = Math.ceil(Math.random() * 2);
-    dice.css("background-image", "url(./image/den_image/s" + bgi + ".jpg");
+    // dice.css("background-image", "url(./image/den_image/s" + bgi + ".jpg");
 
-    setTimeout(function() {
-        dice.css("background-image", "url(./image/den_image/" + '0' + num + ".jpg");
-    }, 400);
+    // setTimeout(function() {
+    //     dice.css("background-image", "url(./image/den_image/" + '0' + num + ".jpg");
+    // }, 400);
 
-    dice.css("pointer-events", "none");
+    // dice.css("pointer-events", "none");
+
+    function rollDice(side) {
+        //Removes old class and adds the new
+        var dice = $("#denDice");
+        var currentClass = dice.attr("class");
+        var newClass = "show-" + side;
+
+        dice.removeClass();
+        dice.addClass(newClass);
+
+        // if (currentClass == newClass) {
+        //     dice.addClass("show-same");
+        // }
+    }
+
+    if (num == 6) {
+        rollDice("front");
+        console.log('6');
+    } else if (num == 1) {
+        rollDice("back");
+        console.log('1');
+    } else if (num == 4) {
+        rollDice("right");
+        console.log('4');
+    } else if (num == 3) {
+        rollDice("left");
+        console.log('3');
+    } else if (num == 2) {
+        rollDice("top");
+        console.log('2');
+    } else if (num == 5) {
+        rollDice("bottom");
+        console.log('5');
+    }
 
     if (s == 1) {
         var move = setInterval(p1move, v);

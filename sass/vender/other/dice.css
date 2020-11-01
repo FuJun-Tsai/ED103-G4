@@ -18,12 +18,14 @@
     top: 50%;
     left: 45%;
     /* transform: translate(-50%, -50%); */
-    -webkit-transition: -webkit-transform 0.2s ease 0;
+    /* -webkit-transition: -webkit-transform 0.2s ease 0;
     transition: -webkit-transform 0.2s ease 0;
     transition: transform 0.2s ease 0;
-    transition: transform 0.2s ease 0, -webkit-transform 0.2s ease 0;
+    transition: transform 0.2s ease 0, -webkit-transform 0.2s ease 0;*/
     -webkit-animation: bounce-down 3s linear infinite;
     animation: bounce-down 3s linear infinite;
+    /* -webkit-animation: rotate3d_run 3s linear infinite;
+    animation: rotate3d_run 3s linear infinite; */
 }
 
 .dice-container:hover {
@@ -64,6 +66,8 @@
     transform: rotateY(0deg) translateZ(-40px);
     background-image: url('https://alexerlandsson.github.io/assets/codepen/roll-the-dice/images/dice-1.png');
     background-size: contain;
+    /* -webkit-animation: rotate3d_run 3s linear infinite;
+    animation: rotate3d_run 3s linear infinite; */
 }
 
 #denDice .back {
@@ -225,16 +229,47 @@ button:focus {
     75% {
         -webkit-transform: translate(0%, -10%);
     }
-    @keyframes bounce-down {
-        25% {
-            transform: translate(0%, 10%);
-        }
-        50%,
-        100% {
-            transform: translate(0%, 0%);
-        }
-        75% {
-            transform: translate(0%, -10%);
-        }
+}
+
+@keyframes bounce-down {
+    25% {
+        transform: translate(0%, 10%);
+    }
+    50%,
+    100% {
+        transform: translate(0%, 0%);
+    }
+    75% {
+        transform: translate(0%, -10%);
+    }
+}
+
+@keyframes rotate3d_run {
+    25% {
+        transform: rotate3d(2, -1, -1, -0.2turn);
+    }
+    50% {
+        transform: rotate3d(1, 1, 1, 45deg);
+    }
+    75% {
+        transform: rotate3d(0, 1, 0.5, 3.142rad);
+    }
+    100% {
+        transform: translate(0%, 0%);
+    }
+}
+
+@-webkit-keyframes rotate3d_run {
+    25% {
+        -webkit-transform: rotate3d(2, -1, -1, -0.2turn);
+    }
+    50% {
+        -webkit-transform: rotate3d(1, 1, 1, 45deg);
+    }
+    75% {
+        -webkit-transform: rotate3d(0, 1, 0.5, 3.142rad);
+    }
+    100% {
+        -webkit-transform: translate(0%, 0%);
     }
 }
