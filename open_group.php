@@ -1,17 +1,42 @@
 <?php 
-$aaa = 1;
+// $aaa = 1;
 try {
 	require_once("./connectRes.php");
+    //------------------------where
+    $RES_KIND = isset($_GET["RES_KIND"]) ? $_GET["RES_KIND"] : "";
+    $cond1 = isset($_GET["RES_KIND"]) ? "RES_KIND = '$RES_KIND'" : "";
+    $RES_STYLE = isset($_GET["RES_STYLE"]) ? $_GET["RES_STYLE"] : "";
+    $cond2 = isset($_GET["RES_STYLE"]) ? "RES_STYLE = '$RES_STYLE'" : "" ;
+    
+    //---------------------------    
+    
     $sql = "select * from restaurant_management R
         join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
-        join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
+        join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO) 
         ";
-	$products = $pdo->query($sql);
-  $prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
-  
-  $sql1 = "select * from restaurant_management where RES_NO=1";
+    if($cond1 !=""){ // 
+        $sql .= "where $cond1";
+        if($cond2 != ""){
+            $sql .= " and $cond2";
+        }
+    }else{
+        if($cond2 != ""){
+            $sql .= "where $cond2";
+        }
+    }
+    $products = $pdo->query($sql);
+    $prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
+    
+
+//   var_dump($_GET);
+    // print_r($prodRows[0]['RES_ADDRESS']);
+    // $RES_NO = isset($_GET["RES_NO"]) ? $_GET["RES_NO"] :3;
+// exit($RES_NO);
+    
+
+    $sql1 = "select * from restaurant_management where RES_NO=1";
 	$products1 = $pdo->query($sql1);
-  $prodRows1 = $products1->fetch(PDO::FETCH_ASSOC);
+    $prodRows1 = $products1->fetch(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
 	
@@ -182,10 +207,6 @@ try {
                                         <label for="kind1">日式</label>
                                     </div>
                                     <div>
-                                        <input type="radio" name="kind" value="美式" id="kind2">
-                                        <label for="kind2">美式</label>
-                                    </div>
-                                    <div>
                                         <input type="radio" name="kind" value="西式" id="kind3">
                                         <label for="kind3">西式</label>
                                     </div>
@@ -311,8 +332,8 @@ try {
                                             </div> -->
                                             <?php foreach($prodRows as $i=>$prodRow){ ?>
                                               <div>
-                                              <span id="韓式"><?=$prodRow["STYLE_NAME"]?></span>
-                                              <span id="排餐"><?=$prodRow["KIND_NAME"]?></span>                                 
+                                              <span><?=$prodRow["STYLE_NAME"]?></span>
+                                              <span><?=$prodRow["KIND_NAME"]?></span>                                 
                                               <p><?=$prodRow["RES_NAME"]?></p>
                                               <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE1"]?>" class="prodImg">
                                               <h6>查看餐廳介紹</h6>
@@ -613,12 +634,12 @@ try {
         <div class="den_box_row" id="box1">
             <div class="box_row_left">
                 <div class="main_img">
-                  <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE4"]?>">
+                  <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE4"]?>">
                 </div>
-                <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE1"]?>">
-                <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE2"]?>">
-                <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE3"]?>">
-                <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE4"]?>">
+                <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE1"]?>">
+                <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE2"]?>">
+                <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE3"]?>">
+                <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE4"]?>">
                 <!-- <img src="./image/food2.jpg" alt="">
                 <img src="./image/food3.jpg" alt="">
                 <img src="./image/food6.jpg" alt="">
@@ -626,20 +647,20 @@ try {
             </div>
             
             <div class="box_row_right">
-                <h2><?=$prodRows1["RES_NAME"]?></h2>
-                <span><?=$prodRows1["RES_STYLE"]?></span>
-                <span><?=$prodRows1["RES_KIND"]?></span>
+                <h2><?=$prodRow["RES_NAME"]?></h2>
+                <span><?=$prodRow["RES_STYLE"]?></span>
+                <span><?=$prodRow["RES_KIND"]?></span>
                 <br>
                 <div class="den_box_msg">
                     <p>地址:</p>
-                    <p><?=$prodRows1["RES_ADDRESS"]?></p>
+                    <p><?=$prodRow["RES_ADDRESS"]?></p>
                     <br>
                     <p>電話:</p>
-                    <p><?=$prodRows1["RES_TEL"]?></p>
+                    <p><?=$prodRow["RES_TEL"]?></p>
                 </div>
                 <div class="den_box_content">
                     <p>店家介紹:</p>
-                    <p><?=$prodRows1["RES_INTRODUCTION"]?></p>
+                    <p><?=$prodRow["RES_INTRODUCTION"]?></p>
                 </div>
             </div>
             
@@ -953,6 +974,7 @@ try {
 
     <script>
         function doFirst() {
+            // location.href = `?RES_KIND=2`;
             //點擊input
             $('.den_res_type div input').on('change', function() {
                 $('.den_res_type div').css('background', 'rgba(255, 255, 255, 0)');
@@ -995,10 +1017,15 @@ try {
             let owlImage = document.querySelectorAll('.den_content div h6'); //list是陣列
             for (let i = 0; i < owlImage.length; i++) {
                 owlImage[i].addEventListener('click', function() {
-                    console.log(owlImage[i])
-                    <?php
-                   
-                    ?>
+                    console.log(owlImage[i]);
+                    // location.href=`RES_NO=${owlImage[i]}`;
+                    // let aa=2;
+                    
+                    // location.href=`open_group.php?RES_NO=${aa}`;
+                    //   location.href=`?RES_NO=${aa}`;
+                    
+                    
+
                     $('.den_box').css('display', 'block');
                     $('.box_background').css('display', 'block');
                 });

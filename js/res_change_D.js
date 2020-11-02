@@ -10,63 +10,83 @@ function doFirst() {
             // console.log(resInput[i].value);
             // var g = $('.content div');
             let Number = resInput[i].value;
+            console.log(Number);
+
+            function getData(aaa) {
+                var req = new XMLHttpRequest();
+                req.open('get', 'http://localhost/ED103-G4/open_group.php' + aaa);
+                req.onload = function() {
+                    alert(this.responseText);
+                }
+                req.send();
+            }
             switch (Number) {
                 case '日式':
-                    let a = $('.den_content div #日式').parent();
-                    // if (cookInput)
-                    // console.log(cookInput[].checked);
-                    for (let i = 0; i < g.length; i++) {
-                        g[i].style.display = 'none';
-                    }
-                    for (let i = 0; i < a.length; i++) {
-                        a[i].style.display = 'inline-block';
-                    }
+                    console.log(Number)
+                        // let a = $('.den_content div #日式').parent();
+                        // // if (cookInput)
+                        // // console.log(cookInput[].checked);
+                        // for (let i = 0; i < g.length; i++) {
+                        //     g[i].style.display = 'none';
+                        // }
+                        // for (let i = 0; i < a.length; i++) {
+                        //     a[i].style.display = 'inline-block';
+                        // }
+                        // location.href=`RES_NO=${owlImage[i]}`;
+                    location.href = `?RES_KIND=1`;
+
+                    // `?RES_NO=${aa}`;
+                    // getData(`?RES_NO=1`);
+                    // RES_STYLE = 1;
+                    // console.log(RES_STYLE);
+
+
                     break;
-                case '美式':
-                    let b = $('.den_content div #美式').parent();
-                    for (let i = 0; i < g.length; i++) {
-                        g[i].style.display = 'none';
-                    }
-                    for (let i = 0; i < b.length; i++) {
-                        b[i].style.display = 'inline-block';
-                    }
-                    break;
+
                 case '西式':
-                    let c = $('.den_content div #西式').parent();
-                    for (let i = 0; i < g.length; i++) {
-                        g[i].style.display = 'none';
-                    }
-                    for (let i = 0; i < c.length; i++) {
-                        c[i].style.display = 'inline-block';
-                    }
+                    // let c = $('.den_content div #西式').parent();
+                    // for (let i = 0; i < g.length; i++) {
+                    //     g[i].style.display = 'none';
+                    // }
+                    // for (let i = 0; i < c.length; i++) {
+                    //     c[i].style.display = 'inline-block';
+                    // }
+                    location.href = `?RES_KIND=2`;
+
                     break;
                 case '韓式':
-                    let d = $('.den_content div #韓式').parent();
-                    for (let i = 0; i < g.length; i++) {
-                        g[i].style.display = 'none';
-                    }
-                    for (let i = 0; i < d.length; i++) {
-                        d[i].style.display = 'inline-block';
-                    }
+                    // let d = $('.den_content div #韓式').parent();
+                    // for (let i = 0; i < g.length; i++) {
+                    //     g[i].style.display = 'none';
+                    // }
+                    // for (let i = 0; i < d.length; i++) {
+                    //     d[i].style.display = 'inline-block';
+                    // }
+                    location.href = `?RES_KIND=4`;
+
                     break;
                 case '中台':
-                    let e = $('.den_content div #中台').parent();
-                    for (let i = 0; i < g.length; i++) {
-                        g[i].style.display = 'none';
-                    }
-                    for (let i = 0; i < e.length; i++) {
-                        e[i].style.display = 'inline-block';
-                    }　
+                    // let e = $('.den_content div #中台').parent();
+                    // for (let i = 0; i < g.length; i++) {
+                    //     g[i].style.display = 'none';
+                    // }
+                    // for (let i = 0; i < e.length; i++) {
+                    //     e[i].style.display = 'inline-block';
+                    // }　
+                    location.href = `?RES_KIND=3`;
+
                     break;
                 case '東南亞':
-                    let f = $('.den_content div #東南亞').parent();
-                    for (let i = 0; i < g.length; i++) {
-                        g[i].style.display = 'none';
-                    }
-                    for (let i = 0; i < f.length; i++) {
-                        f[i].style.opacity = '1';
-                        f[i].style.display = 'inline-block';
-                    }　
+                    // let f = $('.den_content div #東南亞').parent();
+                    // for (let i = 0; i < g.length; i++) {
+                    //     g[i].style.display = 'none';
+                    // }
+                    // for (let i = 0; i < f.length; i++) {
+                    //     f[i].style.opacity = '1';
+                    //     f[i].style.display = 'inline-block';
+                    // }　
+                    location.href = `?RES_KIND=5`;
+
                     break;
                 default:
                     　x = "沒有符合的條件";
@@ -100,22 +120,26 @@ function doFirst() {
 
                 switch (Number1) {
                     case '火鍋':
-                        let a = $('.den_content div #火鍋').parent();
-                        for (let i = 0; i < t.length; i++) {
-                            t[i].style.display = 'none';
-                        }
-                        for (let i = 0; i < a.length; i++) {
-                            a[i].style.display = 'inline-block';
-                        }
+                        // let a = $('.den_content div #火鍋').parent();
+                        // for (let i = 0; i < t.length; i++) {
+                        //     t[i].style.display = 'none';
+                        // }
+                        // for (let i = 0; i < a.length; i++) {
+                        //     a[i].style.display = 'inline-block';
+                        // }
+                        // document.write(location.search);
+                        console.log(location.search);
+                        // ajax.open('GET', 'http://localhost/ED103-G4/open_group.php' + '? RES_STYLE = 1', true);
+
                         break;
                     case '燒烤':
-                        let b = $('.den_content div #燒烤').parent();
-                        for (let i = 0; i < t.length; i++) {
-                            t[i].style.display = 'none';
-                        }
-                        for (let i = 0; i < b.length; i++) {
-                            b[i].style.display = 'inline-block';
-                        }
+                        // let b = $('.den_content div #燒烤').parent();
+                        // for (let i = 0; i < t.length; i++) {
+                        //     t[i].style.display = 'none';
+                        // }
+                        // for (let i = 0; i < b.length; i++) {
+                        //     b[i].style.display = 'inline-block';
+                        // }
                         break;
                 }
             } else {
