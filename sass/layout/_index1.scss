@@ -168,7 +168,7 @@ section.first_screen {
             left: 58%;
         }
         @media all and (max-width: 575px) {
-            top: 17%;
+            top: 10%;
             left: 60%;
             width: 80px;
             height: 80px;
@@ -1012,6 +1012,9 @@ section.third_screen {
             bottom: -15%;
             left: 50%;
             transform: translateX(-50%);
+            @media screen and (max-height: 799px){
+                bottom: -20%;
+            }
         }
     }
 }
@@ -1115,6 +1118,11 @@ section.fourth_screen {
             @media all and (max-width: 575px) {
                 flex-direction: column;
             }
+            @media screen and (max-height: 799px) and (max-width: 575px){
+                transform: translateY(36%);
+            }
+
+
             .chu_left {
                 position: relative;
                 top: 40%;
@@ -1363,6 +1371,15 @@ section.fourth_screen {
             }
             @media all and (max-width: 575px) {
                 bottom: -5%;
+            }
+            @media screen and (max-height: 799px) and (min-width: 768px){
+                bottom: 18%;
+            }
+            @media screen and (max-height: 799px) and (min-width: 576px) and (max-width: 767px){
+                bottom: -3%;
+            }
+            @media screen and (max-height: 799px) and (max-width: 575px){
+                bottom: -23%;
             }
         }
     }
