@@ -166,9 +166,12 @@ $(document).ready(function(){
     $(this).closest("ul").find("a.tab").removeClass("-on");
     $(this).addClass("-on");
   
-    $("div.tab").removeClass("-on");
-    $("div.tab." + $(this).attr("data-target")).addClass("-on");
+    $(this).parent().parent().parent().siblings().children("div.tab").removeClass("-on");
+    $("div." + $(this).attr("data-target")).addClass("-on");
+    
   });
+
+  
 
     //刪除收藏東西
   $(".small-title img").on("click", function(){
@@ -189,3 +192,4 @@ $(document).ready(function(){
   });
 
 });
+
