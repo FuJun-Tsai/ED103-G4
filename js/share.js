@@ -453,19 +453,22 @@ window.addEventListener('load', function () {
             $('#cardshare').append(`
             <div class="col-md-4 add" id="C${quacard}">
                 <div class="content">
-                <!-- ------卡片表頭------- -->
+                    <!-- ------卡片表頭------- -->
+                    <div class="ord">
+                        <h4>#揪團分享</h4>
+                    </div>
                     <div class="head">
-                    <!-- ------用戶頭像圖片------- -->
+                        <!-- ------用戶頭像圖片------- -->
                         <div class="user_img_block">
                             <img src="image/user.png">
                         </div>
-                    <!-- ------用戶名稱------- -->
+                        <!-- ------用戶名稱------- -->
                         <div class="user_name">
                             <h5>孫小美</h5>
                         </div>
-                    <!-- ------貼文日期------- -->
+                        <!-- ------貼文日期------- -->
                         <div class="time">
-                            <h5>${dateword}</h5>
+                        <h5>${dateword}</h5>
                         </div>
                     </div>
                     <!-- ------卡片分享圖片------- -->
@@ -474,30 +477,31 @@ window.addEventListener('load', function () {
                             <img src="./image/${moodPic.name}">
                         </a>
                     </div>
-
                     <!-- ------卡片表尾------- -->
                     <div class="foot">
-                    <!-- ------收藏ICON------- -->
-                    <div class="collect_block">
-                        <div class="heartIcon">
-                            <img src="image/heart-shape-outline.png" class="fillicon">
-                        </div>
-                    <!-- ------收藏數------- -->
+                        <!-- ------收藏ICON------- -->
+                        <div class="collect_block">
+                            <div class="heartIcon">
+                                <img src="image/heart-shape-outline.png" class="fillicon">
+                            </div>
+                            <!-- ------收藏數------- -->
                             <div class="collect_sum">
                                 <h5>999</h5>
                             </div>
                         </div>
-                    <!-- ------回文ICON------- -->
+                        <!-- ------回文ICON------- -->
                         <div class="msg_block">
                             <img src="image/comment-alt-solid.svg">
-                    <!-- ------回文數------- -->
+                            <!-- ------回文數------- -->
                             <div class="msg_sum">
                                 <h5>999</h5>
                             </div>
                         </div>
                     </div>
+                    <div class="more">
+                        <a href="#">more</a>
+                    </div>
                 </div>
-            </div>
             `);
         }
     $('#newMoodLightBox').css({'display':'none',});

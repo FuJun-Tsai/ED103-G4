@@ -15,22 +15,23 @@ body{
                 margin-top: 50px;
                 margin-left: 5%;
                 display: inline-block;
-                letter-spacing: 50px;
+                // letter-spacing: 50px;
                 color: rgb(95, 95, 95);
                 text-decoration: none;
                 text-align: center;
-                opacity: 0.75;
+                // opacity: 0.75;
                 padding-top: 160px;
                 // padding: 20px;
                 outline: 5px solid white;
                 outline-offset: -13px;
-                background-color: rgba(250, 149, 184, 0.3);
+                background-color: rgba(223, 114, 25, 0.1);
                 h1{
                     font-weight: 900;
                     background-color: white;
                     display: inline-block;
-                    padding: 10px 0;
                     padding-right: 28px;
+                    padding: 30px 0;
+                    margin-top: 0;
                 }
             }
         }
@@ -117,9 +118,20 @@ body{
                 display: inline-block;
                 margin-bottom: 5%;
                 .content {
-                    border: 1px solid grey;
-                    background-color: white;
-                    // height: 440px;
+                    border: 1px solid rgb(206, 206, 206);
+                    @include lineGradient(50%,345deg,#F2AB39,transparent);
+                    border-radius: 10px;
+                    box-shadow:  0 0 20px #979797;
+                    width: 95%;
+                    .ord{
+                        h4{
+                            margin: 5% 3% 5% 5%;
+                            font-weight: 900;
+                            border-bottom: 1px solid orangered;
+                            display: inline-block;
+                            color: orangered;
+                        }
+                    }
                     .head {
                         margin-top: 5%;
                         .user_img_block {
@@ -159,46 +171,59 @@ body{
                         max-width: 100%;
                         margin-bottom: 10%;
                         cursor: pointer;
-                        // overflow: hidden;
                     }
                     .btn_modal img {
                         max-width: 100%;
+                        object-fit: cover;
                     }
                     .foot {
                         margin-bottom: 5%;
                         margin-top: 30px;
-                    }
-                    .collect_block {
+                        .collect_block {
                         padding-left: 10%;
                         margin-bottom: 5%;
                         display: inline-block;
-                        .heartIcon{
-                            display: inline-block;
-                            img {
-                                width: 25px;
-                                cursor: pointer;
+                            .heartIcon{
+                                display: inline-block;
+                                img {
+                                    width: 25px;
+                                    cursor: pointer;
+                                }
+                            }
+                            .collect_sum {
+                                padding-left: 10px;
+                                display: inline-block;
+                                h5 {
+                                    margin-top: 10%;
+                                }
                             }
                         }
-                        .collect_sum {
-                            padding-left: 10px;
-                            display: inline-block;
-                            h5 {
+                        .msg_block {
+                            /* display: inline-block; */
+                            float: right;
+                            padding-right: 10%;
+                            img {
+                                width: 25px;
+                            }
+                            .msg_sum {
+                                padding-left: 10px;
+                                display: inline-block;
+                            }h5 {
                                 margin-top: 10%;
                             }
                         }
                     }
-                    .msg_block {
-                        /* display: inline-block; */
-                        float: right;
-                        padding-right: 10%;
-                        img {
-                            width: 25px;
+                    .more{
+                        margin: 0 0 10% 38%;
+                        a{
+                            color: orangered;
+                            background-color: white;
+                            padding: 5% 10%;
+                            text-decoration: none;
                         }
-                        .msg_sum {
-                            padding-left: 10px;
-                            display: inline-block;
-                        }h5 {
-                            margin-top: 10%;
+                        a:hover{
+                            color:white;
+                            background-color:  orangered;
                         }
                     }
                 }
@@ -221,14 +246,13 @@ body{
         opacity: 0;
         z-index: -1;
         article{
-            background-color: white;
+            background: linear-gradient(#f6edb2,#f598a8);
             max-width: 90%;
             border-radius: 10px;
             box-shadow: 0 0 10px #ddd;
             padding: 3%;
-            height: 80vh;
-            overflow-x:hidden;
-            overflow-y:auto;
+            height: 77vh;
+            overflow: auto;
             margin: 0 5%;
             z-index: 200;
             // position: absolute;
@@ -236,65 +260,65 @@ body{
             // left: 50%;
             margin-top: 13%;
             // transform: translate(-50%, -50%);
-            .msg-title{
-                h2 {
+            .btn_modal_close {
+                float: right;
+                cursor: pointer;
+                img {
                     display: inline-block;
-                }
-                .btn_modal_close {
-                    float: right;
-                    cursor: pointer;
-                    img {
-                        display: inline-block;
-                        width: 30px;
-                    }
+                    width: 30px;
                 }
             }
             .msg-left {
                 display: inline-block;
                 /* width: 60%; */
-                .img_block {
-                    width: 100%;
-                    margin: 5% 0;
+                h2 {
                     display: inline-block;
+                    background-color: orange;
+                    padding: 2% 2%;
+                }
+                .img_block {
+                    width: 90%;
+                    margin: 5% 5%;
+                    display: block;
                     img {
                         display: inline-block;
                         max-width: 100%;
                     }
-                }.user_img_block {
-                    margin: 2% 0 4% 0;
-                    display: inline-block;
-                    img {
-                        width: 35px;
-                        display: inline-block;
-                        vertical-align: middle;
-                    }
-                }.user_name {
-                    /* border: 1px solid red; */
-                    display: inline-block;
-                    h5 {
-                        padding-left: 15px;
-                        display: inline-block;
-                        padding-top: 6%;
-                        margin-top: 10%;
-                    }
                 }
-                .collect_block {
-                    padding-left: 10%;
-                    margin-top: 2%;
-                    display: inline-block;
-                    .heartIcon{
+                .left_info{
+                    margin: 0 5%;
+                    .user_block{
+                        margin: 0 20% 0 0;
                         display: inline-block;
-                        img {
-                            width: 25px;
-                            cursor: pointer;
+                        .user_img_block {
+                        display: inline-block;
+                            img {
+                                width: 35px;
+                                display: inline-block;
+                            }
+                        }.user_name {
+                            display: inline-block;
+                            h5 {
+                                display: inline-block;
+                            }
                         }
                     }
-                    .collect_sum {
-                        padding-left: 10px;
+                    .collect_block {
                         display: inline-block;
-                        h5 {
-                            margin-top: 10%;
+                        .heartIcon{
+                            display: inline-block;
+                            img {
+                                width: 35px;
+                                cursor: pointer;
+                            }
                         }
+                        .collect_sum {
+                            display: inline-block;
+                        }
+                    }
+                    input{
+                        float: right;
+                        margin: 1% 0 0 0;
                     }
                 }
                 p {
@@ -303,13 +327,25 @@ body{
                     padding: 3%;
                     border: 1px solid grey;
                     line-height: 25px;
-                    margin-bottom: 5%;
+                    margin: 5% 5%;
+                    width: 90%;
+                    height: 130px;
+                    overflow: auto;
                 }
             }
             }
             @media screen and (max-width: 992px){
                 article{
                     margin-top: 20%;
+                    .msg-left{
+                        p{
+                            height: auto;
+                        }
+                    }.msg-right{
+                        .msgin {
+                            height: auto;
+                        }
+                    }
                 }
             }
             @media screen and (max-width: 700px){
@@ -323,36 +359,57 @@ body{
                 }
             }
             .msg-right {
-                display: inline-block;
                 vertical-align: top;
-                margin: 3% 0 0 3%;
+                margin: 5% 0 0 5%;
+                h3 {
+                    display: inline-block;
+                    background-color: orange;
+                    padding: 2% 5%;
+                }
                 .msgin {
-                    margin-right: 5%;
+                    margin: 0 5% 5% 0;
+                    height: 350px;
+                    overflow: auto;
                     .msgpost {
                         border: 1px solid grey;
                         padding: 2%;
                         margin-bottom: 5%;
                         background-color: #FFE1A4;
-                        input{
-                            margin-left: 80%;
-                            margin-top: 5%;
-                        }
-                        .user_img_block {
-                            margin: 2% 0 4% 0;
-                            display: inline-block;
-                            img {
-                                width: 35px;
+                        .right_info{
+                            border-bottom: 1px solid grey;
+                            padding: 0 0 2% 0;
+                            margin: 0 0 2% 0;
+                            .user_block{
                                 display: inline-block;
-                                vertical-align: middle;
+                                .user_img_block {
+                                display: inline-block;
+                                    img {
+                                        width: 35px;
+                                        display: inline-block;
+                                    }
+                                }.user_name {
+                                    display: inline-block;
+                                    h5 {
+                                        display: inline-block;
+                                    }
+                                }
                             }
-                        }
-                        .user_name {
-                            /* border: 1px solid red; */
-                            display: inline-block;
-                            h5 {
-                                padding-left: 15px;
+                            .collect_block {
                                 display: inline-block;
-                                margin-top: 10%;
+                                .heartIcon{
+                                    display: inline-block;
+                                    img {
+                                        width: 35px;
+                                        cursor: pointer;
+                                    }
+                                }
+                                .collect_sum {
+                                    display: inline-block;
+                                }
+                            }
+                            input{
+                                float: right;
+                                margin: 1% 0 0 0;
                             }
                         }
                         p {
@@ -363,9 +420,9 @@ body{
                 }form{ 
                     textarea {
                         outline: none;
-                        width: 250px;
+                        width: 95%;
                         height: 80px;
-                        margin-bottom: 5%;
+                        margin-bottom: 1%;
                     }
                     input {
                         padding: 0;
