@@ -120,6 +120,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="tool_btn">
+                        <button type="button">全部分享</button>
                         <button type="button">揪團分享</button>
                         <button type="button">美食分享</button>
                         <select>
@@ -133,7 +134,7 @@
             </div>
             <div class="row" id="cardshare">
                 <!-- -------------------卡片1--------------------- -->
-                <div class="col-md-4" id="c1">
+                <div class="col-md-4" id="C1">
                     <div class="content">
                         <!-- ------卡片表頭------- -->
                         <div class="ord">
@@ -240,7 +241,7 @@
                     </div>
                 </div>
                 <!-- -------------------卡片3--------------------- -->
-                <div class="col-md-4" id="C2">
+                <div class="col-md-4" id="C3">
                     <div class="content">
                         <!-- ------卡片表頭------- -->
                         <div class="ord">
@@ -293,7 +294,7 @@
                     </div>
                 </div>
                 <!-- -------------------卡片4--------------------- -->
-                <div class="col-md-4" id="C2">
+                <div class="col-md-4" id="C4">
                     <div class="content">
                         <!-- ------卡片表頭------- -->
                         <div class="ord">
@@ -456,9 +457,8 @@
                                         </div>
                                     </div>
 
-                                    <form action="">
+                                    <form action="" id="nuan_LeaveMessage">
                                         <textarea name="" id="" placeholder="留言"></textarea>
-                                        <br>
                                         <input type="submit" value="送 出">
                                     </form>
                                 </div>
@@ -558,16 +558,14 @@
             $("div.overlay").removeClass("-on -opacity-zero");
             }, 1000);
         });
-        
         });
     </script> -->
     <script>
-        $(function() {
+        $(document).ready(function () {
             // 開啟 Modal 彈跳視窗
             $("div.btn_modal").on("click", function() {
                 $(".overlay").addClass("-on");
                 let index = parseInt($('.btn_modal').index(this)) + 1;
-                console.log(index);
                 let userimg = $(`#c${index} .user_img_block img`).attr('src');
                 let username = $(`#c${index} .head .user_name h5:nth-child(1)`).text();
                 let largeimg = $(this).children('img').attr('src');
@@ -586,14 +584,11 @@
                     $("div.overlay").removeClass("-on -opacity-zero");
                 }, 0);
             });
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
-        $(window).scroll(function () {
-            var top =  $(".goto-top");
-                if ( $('body').height() <= ($(window).height() + $(window).scrollTop() + 200 )) {
-        top.animate({"margin-left": "0px"},1500);
+
+            $(window).scroll(function () {
+                let top =  $(".goto-top");
+                if ($('body').height()<=($(window).height()+$(window).scrollTop()+200)) {
+                    top.animate({"margin-left": "0px"},1500);
                 } else {
                     top.animate({"margin-left": "-100%"},1500);
                 }
@@ -602,18 +597,54 @@
             $(".goto-top").on('click', function () {
                 $("html, body").animate({scrollTop: 0}, 400);
             });
+
+            //加入收藏、取消收藏
+            let uncollect = "image/heart-shape-outline.png";
+            let collected = "/image/heart-shape-silhouette.png";
+            $("img.fillicon").click(function(){
+                if($(this).attr('src')==uncollect){
+                    $(this).attr("src",collected);
+                }else{
+                    $(this).attr('src',uncollect);
+                }
+            });
+
+            $('.tool_btn button').on('click',function(){
+                let condition = $(this).text();
+                $('.col-md-4').css({'display':'none'});
+                for(let i=1;i<=$('.content').length;i+=1){
+                    if($(`#C${i} h4`).text().substr(1,5)==condition){
+                        $(`#C${i}`).css({'display':'block'});
+                    };
+                };
+            });
+            
+            $('#nuan_LeaveMessage').on('submit',function(){
+                let message = $('#nuan_LeaveMessage textarea');
+                let lastindex = $('.msgpost').length -1;
+                $('.msgin').append(
+                    `<div class="msgpost">
+                        <div class="right_info">
+                            <div class="user_block">
+                                <div class="user_img_block">
+                                    <img>
+                                </div>
+                                <div class="user_name">
+                                    <h5>董董：</h5>
+                                </div>
+                            </div>
+                            <input type="button" value="檢舉">
+                        </div>
+                        <p>${message.val()}</p>
+                    </div>`
+                );
+                $('#nuan_LeaveMessage textarea').val()="";
+                return false;
+            });
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            $(".heartIcon").click(function(){
-                $("img.fillicon").attr("src","/image/heart-shape-silhouette.png");
-            });
-        });
-    </script>
 
 </body>
 </html>
