@@ -30,7 +30,7 @@
 
 
 function doFirst() {
-    let a = $('#player1').attr('src', './image/den_image/white.jpg');
+    let a = $('#player1').attr('src', './image/den_image/white.png');
 
     let boxss = document.querySelectorAll('.box'); //list是陣列
 

@@ -1,6 +1,6 @@
 // 棋格数据
 var b0 = {
-    name: "起点",
+    name: "起點",
     owner: "none",
     state: 0,
     // src_img: "./img/food_1.jpg",
