@@ -7,9 +7,15 @@ try {
     $cond1 = isset($_GET["RES_KIND"]) ? "RES_KIND = '$RES_KIND'" : "";
     $RES_STYLE = isset($_GET["RES_STYLE"]) ? $_GET["RES_STYLE"] : "";
     $cond2 = isset($_GET["RES_STYLE"]) ? "RES_STYLE = '$RES_STYLE'" : "" ;
-    
+    $TTT=isset($_GET["RES_NO"]);
+   
     //---------------------------    
     
+  
+    // $c= "<script>
+    // document.write(ttt)</script>"; 
+    // echo $c; 
+
     $sql = "select * from restaurant_management R
         join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
         join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO) 
@@ -24,6 +30,7 @@ try {
             $sql .= "where $cond2";
         }
     }
+
     $products = $pdo->query($sql);
     $prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
     
@@ -34,7 +41,10 @@ try {
 // exit($RES_NO);
     
 
-    $sql1 = "select * from restaurant_management where RES_NO=1";
+    $sql1 = "select * from restaurant_management R
+    join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
+    join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
+    ";
 	$products1 = $pdo->query($sql1);
     $prodRows1 = $products1->fetch(PDO::FETCH_ASSOC);
 
@@ -43,10 +53,6 @@ try {
 }
  ?>
 
-<?php
-   
-   
-?>
 
 
 <!DOCTYPE html>
@@ -57,7 +63,16 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
     <link rel="stylesheet" href="./css/allstyle.css">
+<!--地圖-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css"></link> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css"></link> 
+<!--地圖-->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+<!--自己的js-->
     <script src="./js/header_fixed.js"></script>
     <script src="./js/group_date_D.js"></script>
     <script src="./js/res_change_D.js"></script>
@@ -259,7 +274,8 @@ try {
                         <section id="den_tab1">
                             <h3>搜尋結果</h3>
                             <hr>
-                            <div class="den_food_map">
+                            <div class="den_food_map" id="map">
+                            </div>
                             <div class="result_owl">
                                 <div class="den_row">
                                     <div class="den_nav_left">
@@ -333,7 +349,8 @@ try {
                                             <?php foreach($prodRows as $i=>$prodRow){ ?>
                                               <div>
                                               <span><?=$prodRow["STYLE_NAME"]?></span>
-                                              <span><?=$prodRow["KIND_NAME"]?></span>                                 
+                                              <span><?=$prodRow["KIND_NAME"]?></span>
+                                              <span><?=$prodRow["RES_NO"]?></span>                                 
                                               <p><?=$prodRow["RES_NAME"]?></p>
                                               <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE1"]?>" class="prodImg">
                                               <h6>查看餐廳介紹</h6>
@@ -348,7 +365,7 @@ try {
                             </div>
                             
 
-                            </div>
+                            
                            
                             <div class="den_Fill_Information_wrapper">
                                 <div class="den_Fill_Information">
@@ -634,33 +651,30 @@ try {
         <div class="den_box_row" id="box1">
             <div class="box_row_left">
                 <div class="main_img">
-                  <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE4"]?>">
+                  <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE4"]?>">
                 </div>
-                <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE1"]?>">
-                <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE2"]?>">
-                <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE3"]?>">
-                <img src="./image/restaurant_management_img/<?=$prodRow["RES_IMAGE4"]?>">
-                <!-- <img src="./image/food2.jpg" alt="">
-                <img src="./image/food3.jpg" alt="">
-                <img src="./image/food6.jpg" alt="">
-                <img src="./image/food4.jpg" alt=""> -->
+                <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE1"]?>">
+                <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE2"]?>">
+                <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE3"]?>">
+                <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE4"]?>">
+                
             </div>
             
             <div class="box_row_right">
-                <h2><?=$prodRow["RES_NAME"]?></h2>
-                <span><?=$prodRow["RES_STYLE"]?></span>
-                <span><?=$prodRow["RES_KIND"]?></span>
+                <h2><?=$prodRows1["RES_NAME"]?></h2>
+                <span><?=$prodRows1["STYLE_NAME"]?></span>
+                <span><?=$prodRows1["KIND_NAME"]?></span>
                 <br>
                 <div class="den_box_msg">
                     <p>地址:</p>
-                    <p><?=$prodRow["RES_ADDRESS"]?></p>
+                    <p><?=$prodRows1["RES_ADDRESS"]?></p>
                     <br>
                     <p>電話:</p>
-                    <p><?=$prodRow["RES_TEL"]?></p>
+                    <p><?=$prodRows1["RES_TEL"]?></p>
                 </div>
                 <div class="den_box_content">
                     <p>店家介紹:</p>
-                    <p><?=$prodRow["RES_INTRODUCTION"]?></p>
+                    <p><?=$prodRows1["RES_INTRODUCTION"]?></p>
                 </div>
             </div>
             
@@ -974,7 +988,12 @@ try {
 
     <script>
         function doFirst() {
-            // location.href = `?RES_KIND=2`;
+            
+
+          
+                       
+                   
+                      
             //點擊input
             $('.den_res_type div input').on('change', function() {
                 $('.den_res_type div').css('background', 'rgba(255, 255, 255, 0)');
@@ -1014,15 +1033,53 @@ try {
             });
 
             // 第一個燈箱
-            let owlImage = document.querySelectorAll('.den_content div h6'); //list是陣列
+            let owlImage = document.querySelectorAll('.den_content div h6'); 
+            //list是陣列
             for (let i = 0; i < owlImage.length; i++) {
                 owlImage[i].addEventListener('click', function() {
-                    console.log(owlImage[i]);
+                    var ttt=this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
+                    console.log(ttt);
+
+                    location.href=`http://localhost/ED103-G4/open_group.php?RES_NO=${ttt}`;
+                    // let iii=document.querySelector('.den_content div span:nth-child(3)').innerText;
+                    // console.log(iii);
+
+                    // location.href = `?RES_NO=${ttt}`;
+                    //  $sql = "select * from restaurant_management R
+                    //  join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
+                    //  join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
+                    //  where RES_NO= 
+                    //  ";
+                    // $sql1 = "select * from restaurant_management R
+                    // join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
+                    // join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO) 
+                    // where RES_NO=$TTT";
+                  
+
+                 
+                    
+                
+                    // console.log(owlImage[i]);
                     // location.href=`RES_NO=${owlImage[i]}`;
                     // let aa=2;
                     
                     // location.href=`open_group.php?RES_NO=${aa}`;
                     //   location.href=`?RES_NO=${aa}`;
+
+                    // $.ajax({
+                    //     url:'open_group.php',                     
+                    //     data:{
+                    //         name:'1234',
+                    //         },
+                    //     type: 'POST',
+                    //     success:function(data){
+                    //         $('.den_content div span:nth-child(3)').html(data);
+                    //         alert(data);
+                    //         // $('#input').hide();
+                    //         // $('#response').show().html(res);
+                    //         // console.log('yes');
+                    //     },
+                    // });
                     
                     
 
@@ -1078,6 +1135,69 @@ try {
         }
         window.addEventListener('load', doFirst);
     </script>
+    <!--地圖-->
+<script>      
+        var map = L.map('map', {
+            center: [24.9647762,121.1908706], //哈堡堡
+            zoom: 18
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        var redIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+        });
+        var data = [
+        {'name':'竹香快餐','hover':'竹香快餐',lat:24.9643636,lng:121.1893723,'address':'地址：桃園市中壢區中央路216巷86弄','phoneNumber':'電話：(03)123-4567','photo':'./image/map/food1.jpg'},
+        {'name':'大中央厚切牛排','hover':'大中央厚切牛排',lat:24.9647076,lng:121.1885262,'address':'地址：桃園市中壢區中央路216巷86弄','phoneNumber':'電話：(03)123-4567','photo':'./image/map/food2.jpg'},
+        {'name':'重慶酸辣粉','hover':'重慶酸辣粉',lat:24.9647373,lng:121.1892811,'address':'地址：桃園市中壢區中央路216巷86弄','phoneNumber':'電話：(03)123-4567','photo':'./image/map/food3.jpg'},
+        {'name':'雞叔叔醬汁照燒雞排','hover':'雞叔叔醬汁照燒雞排',lat:24.9648977,lng:121.19345,'address':'地址：桃園市中壢區中央路216巷86弄','phoneNumber':'電話：(03)123-4567','photo':'./image/map/food4.jpg'},
+        {'name':'無敵蛋餅','hover':'無敵蛋餅',lat:24.9652668,lng:121.1931109,'address':'地址：桃園市中壢區中央路216巷86弄','phoneNumber':'電話：(03)123-4567','photo':'./image/map/food5.jpg'},
+        {'name':'霸王香雞排','hover':'霸王香雞排',lat:24.9650691,lng:121.1926797,'address':'地址：桃園市中壢區中央路216巷86弄','phoneNumber':'電話：(03)123-4567','photo':'./image/map/food6.jpg'},
+        {'name':'27秀梅','hover':'27秀梅',lat:24.9647026,lng:121.1910093,'address':'地址：桃園市中壢區中央路216巷86弄','phoneNumber':'電話：(03)123-4567','photo':'./image/map/food7.jpg'},
+        {'name':'哈堡堡輕食早午餐','hover':'哈堡堡輕食早午餐',lat:24.9647762,lng:121.1908706,'address':'地址：桃園市中壢區中央路216巷86弄','phoneNumber':'電話：(03)123-4567','photo':'./image/map/food8.jpg'},
+        {'name':'福泉豆花','hover':'福泉豆花',lat:24.965285,lng:121.1908942,'address':'地址：桃園市中壢區中央路216巷86弄','phoneNumber':'電話：(03)123-4567','photo':'./image/map/food9.jpg'},
+        {'name':'燒餅窯','hover':'燒餅窯',lat:24.9645288,lng:121.1930604,'address':'地址：桃園市中壢區中央路216巷86弄','phoneNumber':'電話：(03)123-4567','photo':'./image/map/food10.jpg'}
+        ]
+        var markers = new L.MarkerClusterGroup().addTo(map);;
+        
+        for(let i =0;data.length>i;i++){
+        console.log(data[i].name)
+        markers.addLayer(L.marker([data[i].lat,data[i].lng], 
+            {icon: redIcon , title:data[i].hover})    
+            .bindPopup('<h1>'+ data[i].name +'</h1>'+
+                       '<img src=" ' + data[i].photo + ' " /> <br>'+
+                       '<i class="fas fa-heart"></i>&nbsp;30 &nbsp;&nbsp;'+
+                       '<i class="fas fa-comments"></i>&nbsp;46 &nbsp;&nbsp;'+
+                       '<i class="fas fa-share-square"></i>&nbsp;25 &nbsp;&nbsp;'+
+                       '<p>'+ data[i].address +'</p>'+
+                       '<p>'+ data[i].phoneNumber +'</p>'
+                       ));
+        }
+        map.addLayer(markers);
+
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("get","https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json");
+        // xhr.send();
+        // xhr.onload = function(){
+        // var data = JSON.parse(xhr.responseText).features
+        // for(let i =0;data.length>i;i++){
+        
+        // markers.addLayer(L.marker([data[i].geometry.coordinates[1],data[i].geometry.coordinates[0]], {icon: greenIcon}).bindPopup(data[i].properties.name));
+        // // add more markers here...
+        // // L.marker().addTo(map)
+        // //   )
+        // }
+        // map.addLayer(markers);
+        // }
+
+    </script>
+   
 </body>
 
 </html>

@@ -2,24 +2,22 @@ function doFirst() {
     //餐廳種類篩選
     let resInput = document.querySelectorAll('.den_res_type input'); //list是陣列
     let cookInput = document.querySelectorAll('.den_cooking_style input'); //list是陣列
-    var g = $('.den_content div');
-    // let cookInput = document.querySelectorAll('.cooking_style input'); //list是陣列
+
     for (let i = 0; i < resInput.length; i++) {
         resInput[i].addEventListener('change', function() {
-            // console.log(resInput[i].id);
-            // console.log(resInput[i].value);
-            // var g = $('.content div');
+
             let Number = resInput[i].value;
             console.log(Number);
 
-            function getData(aaa) {
-                var req = new XMLHttpRequest();
-                req.open('get', 'http://localhost/ED103-G4/open_group.php' + aaa);
-                req.onload = function() {
-                    alert(this.responseText);
-                }
-                req.send();
-            }
+            // function getData(aaa) {
+            //     var req = new XMLHttpRequest();
+            //     req.open('get', 'http://localhost/ED103-G4/open_group.php' + aaa);
+            //     req.onload = function() {
+            //         alert(this.responseText);
+            //     }
+            //     req.send();
+            // }
+
             switch (Number) {
                 case '日式':
                     console.log(Number)
@@ -104,7 +102,7 @@ function doFirst() {
         // console.log(cookInput[i].checked);
         // console.log(cookInput[i].checked);
         if (cookInput[i].checked == false) {
-            for (let i = 0; i < g.length; i++) {
+            for (let i = 0; i < i.length; i++) {
                 // g[i].style.display = 'none';
             }
         }
@@ -113,10 +111,10 @@ function doFirst() {
             // console.log(cookInput[i].value);
             // console.log(cookInput[i].checked);
             if (cookInput[i].checked == true) {
-                console.log('1');
+                // console.log('1');
                 // $('.content div')
                 let Number1 = cookInput[i].value;
-                var t = $('.den_content div');
+                // var t = $('.den_content div');
 
                 switch (Number1) {
                     case '火鍋':
@@ -128,9 +126,25 @@ function doFirst() {
                         //     a[i].style.display = 'inline-block';
                         // }
                         // document.write(location.search);
-                        console.log(location.search);
+                        // console.log(location.search);
                         // ajax.open('GET', 'http://localhost/ED103-G4/open_group.php' + '? RES_STYLE = 1', true);
 
+                        //-----------------------------------------------
+
+                        let githubURL = new URL('http://localhost/ED103-G4/open_group.php');
+                        var searchParams = new URLSearchParams('& RES_STYLE = 1 ');
+                        githubURL.search = searchParams;
+                        githubURL.href;
+
+                        //------------------------------------------------------
+
+                        // console.log(searchParams);
+                        // fetch(githubURL.href).then();
+                        // githubURL.search = searchParams;
+                        // let ggg = searchParams.toString();
+                        console.log(Number1)
+                        location.href = `?RES_STYLE=1`;
+                        // console.log(ggg);
                         break;
                     case '燒烤':
                         // let b = $('.den_content div #燒烤').parent();
@@ -140,6 +154,9 @@ function doFirst() {
                         // for (let i = 0; i < b.length; i++) {
                         //     b[i].style.display = 'inline-block';
                         // }
+                        location.href = `?RES_STYLE=2`;
+                        console.log(Number1)
+
                         break;
                 }
             } else {

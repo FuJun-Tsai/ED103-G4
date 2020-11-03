@@ -291,103 +291,105 @@ header {
                     flex: 1 1 80%;
                     .den_food_map {
                         border: 1px solid #ccc;
-                        height: 800px;
+                        height: 700px;
                         position: relative;
-                        .result_owl {
-                            position: absolute;
-                            // border: 1px solid green;
-                            width: 100%;
-                            bottom: 0;
-                            left: 0;
-                            background-color: rgba(255, 255, 255, .4);
-                            .den_row {
-                                padding: 0 10px;
-                                display: flex;
-                                // margin: 50px 0;
-                                text-align: center;
-                                .den_nav_left {
-                                    flex: 0 0 5%;
-                                    align-self: center;
-                                    img {
-                                        width: 40px;
-                                        height: 40px;
-                                        cursor: pointer;
-                                    }
+                    }
+                    .result_owl {
+                        // position: absolute;
+                        // border: 1px solid green;
+                        width: 100%;
+                        // bottom: 0;
+                        // left: 0;
+                        background-color: rgba(255, 255, 255, 1);
+                        // z-index: 99;
+                        .den_row {
+                            padding: 0 10px;
+                            display: flex;
+                            // margin: 50px 0;
+                            text-align: center;
+                            .den_nav_left {
+                                flex: 0 0 5%;
+                                align-self: center;
+                                img {
+                                    width: 40px;
+                                    height: 40px;
+                                    cursor: pointer;
                                 }
-                                .den_content_range {
-                                    overflow: hidden;
-                                    // margin-top: 25px;
-                                    .den_content {
-                                        flex: 1 1 90%;
-                                        display: flex;
-                                        width: 300%;
+                            }
+                            .den_content_range {
+                                overflow: hidden;
+                                // margin-top: 25px;
+                                .den_content {
+                                    flex: 1 1 90%;
+                                    display: flex;
+                                    width: 300%;
+                                    // border: 1px solid red;
+                                    div {
+                                        // visibility: hidden;
+                                        // opacity: 0;
+                                        padding: 5px;
+                                        display: none;
+                                        display: inline-block;
+                                        text-align: center;
+                                        margin: 0 5px;
+                                        max-width: 200px;
+                                        position: relative;
                                         // border: 1px solid red;
-                                        div {
-                                            // visibility: hidden;
-                                            // opacity: 0;
-                                            padding: 5px;
-                                            display: none;
-                                            display: inline-block;
+                                        p {
+                                            border-radius: 5px;
+                                            background-color: rgba(255, 225, 164, 1);
+                                            font-size: 16px;
                                             text-align: center;
-                                            margin: 0 5px;
-                                            max-width: 200px;
-                                            position: relative;
-                                            // border: 1px solid red;
-                                            p {
-                                                background-color: rgba(255, 225, 164, 1);
-                                                font-size: 16px;
-                                                text-align: center;
-                                                padding: 10px;
+                                            padding: 5px;
+                                        }
+                                        img {
+                                            width: 100%;
+                                            height: 100px;
+                                            display: block;
+                                            cursor: pointer;
+                                            object-fit: cover;
+                                        }
+                                        h6 {
+                                            padding: 10px;
+                                            // background-color: rgba(245, 222, 179, .5);
+                                            background-color: rgba(22, 22, 22, .5);
+                                            position: absolute;
+                                            top: 55%;
+                                            // bottom: -13px;
+                                            left: 50%;
+                                            transform: translate(-50%, -50%);
+                                            width: 96%;
+                                            display: none;
+                                            &:hover {
+                                                background-color: rgba(223, 114, 25, 0.8);
                                             }
+                                        }
+                                        &:hover {
                                             img {
-                                                width: 100%;
-                                                height: 100px;
-                                                display: block;
-                                                cursor: pointer;
-                                                object-fit: cover;
+                                                filter: blur(1.5px);
+                                                transform: scale(1.01);
                                             }
                                             h6 {
-                                                padding: 10px;
-                                                // background-color: rgba(245, 222, 179, .5);
-                                                background-color: rgba(22, 22, 22, .5);
-                                                position: absolute;
-                                                top: 55%;
-                                                // bottom: -13px;
-                                                left: 50%;
-                                                transform: translate(-50%, -50%);
-                                                width: 99%;
-                                                display: none;
-                                                &:hover {
-                                                    background-color: rgba(223, 114, 25, 0.8);
-                                                }
+                                                display: block;
+                                                cursor: pointer;
+                                                font-weight: $fontWeight_600;
+                                                color: white;
                                             }
-                                            &:hover {
-                                                img {
-                                                    filter: blur(1.5px);
-                                                    transform: scale(1.01);
-                                                }
-                                                h6 {
-                                                    display: block;
-                                                    cursor: pointer;
-                                                    font-weight: $fontWeight_600;
-                                                    color: white;
-                                                }
-                                                p {
-                                                    background-color: rgba(223, 114, 25, 0.5);
-                                                    // visibility: hidden;
-                                                }
+                                            p {
+                                                background-color: rgba(223, 114, 25, 0.5);
+                                                // visibility: hidden;
                                             }
                                         }
                                     }
                                 }
-                                .den_nav_right {
-                                    flex: 0 0 5%;
-                                    align-self: center;
-                                    img {
-                                        width: 40px;
-                                        height: 40px;
-                                        cursor: pointer;
-                                    }
+                            }
+                            .den_nav_right {
+                                flex: 0 0 5%;
+                                align-self: center;
+                                img {
+                                    width: 40px;
+                                    height: 40px;
+                                    cursor: pointer;
                                 }
                             }
                         }
@@ -576,7 +578,7 @@ header {
     box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
     background-color: rgba(255, 255, 255, .9);
-    z-index: 99;
+    z-index: 10001;
     position: fixed;
     overflow: auto;
     padding: 25px;
@@ -617,7 +619,15 @@ header {
             text-align: center;
             .main_img {
                 padding: 10px;
+                // max-width: 690px;
+                // max-height: 460px;
+                // position: relative;
                 img {
+                    // position: absolute;
+                    // top: 0;
+                    // left: 0;
+                    // max-width: 690px;
+                    // max-height: 460px;
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
@@ -1110,7 +1120,7 @@ header {
     left: 0;
     display: none;
     background-color: rgba(128, 128, 128, .8);
-    z-index: 98;
+    z-index: 1000;
 }
 
 @include rwd(md_desktop) {

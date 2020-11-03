@@ -1,6 +1,6 @@
 <?php
 try {
-  require_once("connectBooks.php");
+  require_once("./connectRes.php");
   $sql = "select * from products where psn=?";
   $products = $pdo->prepare($sql);
   $products->bindValue(1, $_GET["psn"]);
