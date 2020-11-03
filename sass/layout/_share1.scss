@@ -214,17 +214,17 @@ body{
                         }
                     }
                     .more{
-                        margin: 0 0 10% 38%;
-                        a{
-                            color: orangered;
-                            background-color: white;
-                            padding: 5% 10%;
-                            text-decoration: none;
-                        }
-                        a:hover{
-                            color:white;
-                            background-color:  orangered;
-                        }
+                        margin: 0 0 10% 35%;
+                        color: orangered;
+                        background-color: white;
+                        padding: 3% 10%;
+                        font-size: 16px;
+                        display: inline-block;
+                        cursor: pointer;
+                    }
+                    .more:hover{
+                        color:white;
+                        background-color:  orangered;
                     }
                 }
             }
