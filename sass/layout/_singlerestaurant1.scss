@@ -44,6 +44,20 @@
 
 body {
     position: relative;
+    
+}
+body::-webkit-scrollbar-track {
+    width: 4px;
+    background-color: #f2c479;
+}
+//捲軸寬度
+body::-webkit-scrollbar {
+    width:  12px;
+    background-color: black;
+}
+//捲軸本體顏色
+body::-webkit-scrollbar-thumb {
+    background-color: #bb6573;
 }
 
 // body{
@@ -167,9 +181,16 @@ section {
                             overflow: auto;
                         }
                         #week {
+                            padding-left: 15px;
                             li {
                                 line-height: 32px !important;
                             }
+                        }
+                        .single_address{
+                            margin-top: 16px;
+                        }
+                        .single_tel{
+                            margin-top: 16px;
                         }
                         .single_togroup {
                             margin: 40px 0;
