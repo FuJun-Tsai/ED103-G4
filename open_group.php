@@ -8,13 +8,13 @@ try {
     $RES_STYLE = isset($_GET["RES_STYLE"]) ? $_GET["RES_STYLE"] : "";
     $cond2 = isset($_GET["RES_STYLE"]) ? "RES_STYLE = '$RES_STYLE'" : "" ;
     $TTT=isset($_GET["RES_NO"]);
-   
+    $RES_NO =  isset($_GET['RES_NO']) ? $_GET['RES_NO'] : "";
     //---------------------------    
-    
-  
+    // echo $RES_NO;
     // $c= "<script>
     // document.write(ttt)</script>"; 
     // echo $c; 
+
 
     $sql = "select * from restaurant_management R
         join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
@@ -30,7 +30,6 @@ try {
             $sql .= "where $cond2";
         }
     }
-
     $products = $pdo->query($sql);
     $prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
     
@@ -48,6 +47,9 @@ try {
 	$products1 = $pdo->query($sql1);
     $prodRows1 = $products1->fetch(PDO::FETCH_ASSOC);
 
+    if($RES_NO!=""){
+    $sql1 .= "where RES_NO=$RES_NO";
+}
 } catch (PDOException $e) {
 	
 }
@@ -80,6 +82,7 @@ try {
 </head>
 
 <body>
+      
     <!-- 背景泡泡 -->
     <div id="bubbles">
         <div class="bubble x1"></div>
@@ -658,6 +661,7 @@ try {
                 <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE3"]?>">
                 <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE4"]?>">
                 
+               
             </div>
             
             <div class="box_row_right">
@@ -987,6 +991,7 @@ try {
     </script>
 
     <script>
+       
         function doFirst() {
             
 
@@ -1037,19 +1042,21 @@ try {
             //list是陣列
             for (let i = 0; i < owlImage.length; i++) {
                 owlImage[i].addEventListener('click', function() {
+
                     var ttt=this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
+
+                    
                     console.log(ttt);
 
-                    location.href=`http://localhost/ED103-G4/open_group.php?RES_NO=${ttt}`;
+
+                    // location.href=`http://localhost/ED103-G4/open_group.php?RES_NO=${ttt}`;
                     // let iii=document.querySelector('.den_content div span:nth-child(3)').innerText;
                     // console.log(iii);
 
+
+                    
                     // location.href = `?RES_NO=${ttt}`;
-                    //  $sql = "select * from restaurant_management R
-                    //  join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
-                    //  join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
-                    //  where RES_NO= 
-                    //  ";
+                   
                     // $sql1 = "select * from restaurant_management R
                     // join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
                     // join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO) 
@@ -1057,8 +1064,6 @@ try {
                   
 
                  
-                    
-                
                     // console.log(owlImage[i]);
                     // location.href=`RES_NO=${owlImage[i]}`;
                     // let aa=2;
@@ -1066,21 +1071,51 @@ try {
                     // location.href=`open_group.php?RES_NO=${aa}`;
                     //   location.href=`?RES_NO=${aa}`;
 
-                    // $.ajax({
-                    //     url:'open_group.php',                     
-                    //     data:{
-                    //         name:'1234',
-                    //         },
-                    //     type: 'POST',
-                    //     success:function(data){
-                    //         $('.den_content div span:nth-child(3)').html(data);
-                    //         alert(data);
-                    //         // $('#input').hide();
-                    //         // $('#response').show().html(res);
-                    //         // console.log('yes');
-                    //     },
-                    // });
-                    
+
+
+
+                    //--------------------------------------
+                    $.ajax({
+                        url:'open_group.php',                     
+                        data:{
+                            RES_NO:ttt,
+                            },
+                        type: 'GET',
+                        success:function(data){
+                           
+                            
+                                // console.log(data)
+                           
+                            // $('.den_content div span:nth-child(3)').html(data);
+                             
+                            // $('#aaa').html(yyy);
+                            // $('#input').hide();
+                            // $('#response').show().html(res);
+                            // console.log('yes');
+                        },
+                    });
+                    //-------------------------------------
+
+                    // var xhr = new XMLHttpRequest();
+                    //         xhr.onload=function (){
+	                //             if( xhr.status == 200 ){
+  		            //                 // alert( xhr.responseText );	
+  		            //                 // showMember( modify_here ); //=============修改左側程式碼
+	                //             }else{
+	                //                 // alert( xhr.status );
+	                //                     }
+                    //             }
+                    //             console.log(ttt);
+                        
+                    //     var url = "open_group.php?RES_NO=" +ttt ;
+                    //     console.log(url);
+                    //     xhr.open("Get", url, true);
+                    //     xhr.send( null );
+
+
+
+
+
                     
 
                     $('.den_box').css('display', 'block');
