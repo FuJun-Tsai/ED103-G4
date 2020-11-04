@@ -439,7 +439,7 @@ window.addEventListener('load', function () {
             // }
             // xhr.open("Post", true);
             // xhr.send(newMoodForm);
-            let quacard = $('.card').length;
+            let quacard = $('.col-md-4').length;
             // console.log(quacard);
             quacard+=1;
 
@@ -456,6 +456,7 @@ window.addEventListener('load', function () {
                     <!-- ------卡片表頭------- -->
                     <div class="ord">
                         <h4>#揪團分享</h4>
+                        <h3>超推嗜燒肉!</h3>
                     </div>
                     <div class="head">
                         <!-- ------用戶頭像圖片------- -->
@@ -498,11 +499,45 @@ window.addEventListener('load', function () {
                             </div>
                         </div>
                     </div>
-                    <div class="more">
-                        <a href="#">more</a>
-                    </div>
+                    <div class="more">more</div>
                 </div>
             `);
+
+            $(".btn_modal").on("click", function() {
+                $(".overlay").addClass("-on");
+                let id = $(this).closest('.col-md-4').attr('id');
+                let userimg = $(`#${id} .user_img_block img`).attr('src');
+                let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
+                let largeimg = $(`#${id} .btn_modal img`).attr('src');
+                let condition = $(`#${id} .ord h4`).text(); 
+                let title = $(`#${id} .ord h3`).text(); 
+                console.log(condition);
+                console.log(title);
+
+                $('.overlay .img_block img').attr('src', largeimg);
+                $('.overlay .user_img_block img').attr('src', userimg);
+                $('.overlay .user_name h5').text(username);
+                $('.overlay .msg-left h4').text(condition);
+                $('.overlay .msg-left h2').text(title);
+
+            });
+
+            $('.more').on('click',function(){
+                $(".overlay").addClass("-on");
+                let id = $(this).closest('.col-md-4').attr('id');
+                let userimg = $(`#${id} .user_img_block img`).attr('src');
+                let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
+                let largeimg = $(`#${id} .btn_modal img`).attr('src');
+                let condition = $(`#${id} .ord h4`).text(); 
+                let title = $(`#${id} .ord h3`).text(); 
+
+                $('.overlay .img_block img').attr('src', largeimg);
+                $('.overlay .user_img_block img').attr('src', userimg);
+                $('.overlay .user_name h5').text(username);
+                $('.overlay .msg-left h4').text(condition);
+                $('.overlay .msg-left h2').text(title);
+                
+            }); 
         }
     $('#newMoodLightBox').css({'display':'none',});
     $('#viewImg').attr('src','');

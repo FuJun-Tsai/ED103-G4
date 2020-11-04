@@ -120,9 +120,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="tool_btn">
-                        <button type="button">全部分享</button>
-                        <button type="button">揪團分享</button>
-                        <button type="button">美食分享</button>
+                        <button type="button" id="showall">全部分享</button>
+                        <button type="button" id="group">揪團分享</button>
+                        <button type="button" id="foodie">美食分享</button>
                         <select>
                             <option>排序方式</option>
                             <option>最新貼文</option>
@@ -359,8 +359,8 @@
                             <div class="col-md-6 order-1">
                                 <!-- ------內圖------- -->
                                 <div class="msg-left">
-                                    <h4>#美食分享</h4>
-                                    <h2>超推嗜燒肉!</h2>
+                                    <h4></h4>
+                                    <h2></h2>
                                     <div class="img_block">
                                         <img>
                                     </div>
@@ -563,20 +563,44 @@
     <script>
         $(document).ready(function () {
             // 開啟 Modal 彈跳視窗
-            $("div.btn_modal").on("click", function() {
+            $(".btn_modal").on("click", function() {
                 $(".overlay").addClass("-on");
-                let index = parseInt($('.btn_modal').index(this)) + 1;
-                let userimg = $(`#c${index} .user_img_block img`).attr('src');
-                let username = $(`#c${index} .head .user_name h5:nth-child(1)`).text();
-                let largeimg = $(this).children('img').attr('src');
+                let id = $(this).closest('.col-md-4').attr('id');
+                let userimg = $(`#${id} .user_img_block img`).attr('src');
+                let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
+                let largeimg = $(`#${id} .btn_modal img`).attr('src');
+                let condition = $(`#${id} .ord h4`).text(); 
+                let title = $(`#${id} .ord h3`).text(); 
+                console.log(condition);
+                console.log(title);
 
                 $('.overlay .img_block img').attr('src', largeimg);
                 $('.overlay .user_img_block img').attr('src', userimg);
                 $('.overlay .user_name h5').text(username);
+                $('.overlay .msg-left h4').text(condition);
+                $('.overlay .msg-left h2').text(title);
+
             });
 
+            $('.more').on('click',function(){
+                $(".overlay").addClass("-on");
+                let id = $(this).closest('.col-md-4').attr('id');
+                let userimg = $(`#${id} .user_img_block img`).attr('src');
+                let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
+                let largeimg = $(`#${id} .btn_modal img`).attr('src');
+                let condition = $(`#${id} .ord h4`).text(); 
+                let title = $(`#${id} .ord h3`).text(); 
+
+                $('.overlay .img_block img').attr('src', largeimg);
+                $('.overlay .user_img_block img').attr('src', userimg);
+                $('.overlay .user_name h5').text(username);
+                $('.overlay .msg-left h4').text(condition);
+                $('.overlay .msg-left h2').text(title);
+                
+            }); 
+
             // 關閉 Modal
-            $("div.btn_modal_close").on("click", function() {
+            $(".btn_modal_close").on("click", function() {
                 $("div.overlay").addClass("-opacity-zero");
 
                 // 設定隔一秒後，移除相關 class
@@ -609,14 +633,10 @@
                 }
             });
 
+            //條件篩選(揪團/美食)
             $('.tool_btn button').on('click',function(){
-                let condition = $(this).text();
-                $('.col-md-4').css({'display':'none'});
-                for(let i=1;i<=$('.content').length;i+=1){
-                    if($(`#C${i} h4`).text().substr(1,5)==condition){
-                        $(`#C${i}`).css({'display':'block'});
-                    };
-                };
+                let id = $(this).attr('id');
+                filter(id);
             });
             
             $('#nuan_LeaveMessage').on('submit',function(){
@@ -638,9 +658,35 @@
                         <p>${message.val()}</p>
                     </div>`
                 );
-                $('#nuan_LeaveMessage textarea').val()="";
                 return false;
+                message.val('');
             });
+
+            function filter(e){
+                let items = $('.col-md-4').length;
+                $('.col-md-4').css({'display':'none'});
+                switch(e){
+                    case 'showall':
+                        $('.col-md-4').css({'display':'block'});
+                    break;
+                    case 'group':
+                        for(let i=1;i<=items;i+=1){
+                            if($(`#C${i} h4`).text().substr(1,5)==`揪團分享`){
+                                $(`#C${i}`).css({'display':'block'});
+                            };
+                        };
+                    break;
+                    case 'foodie':
+                        for(let i=1;i<=items;i+=1){
+                            if($(`#C${i} h4`).text().substr(1,5)==`美食分享`){
+                                $(`#C${i}`).css({'display':'block'});
+                            };
+                        };
+                    break;
+                }
+            };
+
+            
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
