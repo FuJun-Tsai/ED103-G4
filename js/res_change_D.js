@@ -142,8 +142,8 @@ function doFirst() {
                         // fetch(githubURL.href).then();
                         // githubURL.search = searchParams;
                         // let ggg = searchParams.toString();
-                        console.log(Number1)
-                        location.href = `?RES_STYLE=1`;
+                        // console.log(Number1)
+                        // location.href = `?RES_STYLE=1`;
                         // console.log(ggg);
                         break;
                     case '燒烤':
@@ -154,8 +154,8 @@ function doFirst() {
                         // for (let i = 0; i < b.length; i++) {
                         //     b[i].style.display = 'inline-block';
                         // }
-                        location.href = `?RES_STYLE=2`;
-                        console.log(Number1)
+                        // location.href = `?RES_STYLE=2`;
+                        // console.log(Number1)
 
                         break;
                 }

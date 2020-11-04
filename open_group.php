@@ -8,7 +8,7 @@ try {
     $RES_STYLE = isset($_GET["RES_STYLE"]) ? $_GET["RES_STYLE"] : "";
     $cond2 = isset($_GET["RES_STYLE"]) ? "RES_STYLE = '$RES_STYLE'" : "" ;
     $TTT=isset($_GET["RES_NO"]);
-    $RES_NO =  isset($_GET['RES_NO']) ? $_GET['RES_NO'] : "";
+    $RES_NO =  isset($_GET['RES_NO']) ? $_GET['RES_NO'] : "1234";
     //---------------------------    
     // echo $RES_NO;
     // $c= "<script>
@@ -44,12 +44,14 @@ try {
     join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
     join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
     ";
+
+    // $sql1 .= "where RES_NO=$RES_NO";
+
 	$products1 = $pdo->query($sql1);
     $prodRows1 = $products1->fetch(PDO::FETCH_ASSOC);
 
-    if($RES_NO!=""){
-    $sql1 .= "where RES_NO=$RES_NO";
-}
+    
+
 } catch (PDOException $e) {
 	
 }
@@ -993,12 +995,9 @@ try {
     <script>
        
         function doFirst() {
-            
 
-          
-                       
-                   
-                      
+
+                              
             //點擊input
             $('.den_res_type div input').on('change', function() {
                 $('.den_res_type div').css('background', 'rgba(255, 255, 255, 0)');
@@ -1094,6 +1093,18 @@ try {
                             // console.log('yes');
                         },
                     });
+
+                    
+                        <?php
+                        $sql1 .= "where RES_NO=$RES_NO";
+
+                        $products1 = $pdo->query($sql1);
+                        $prodRows1 = $products1->fetch(PDO::FETCH_ASSOC);
+
+                        ?>
+
+
+
                     //-------------------------------------
 
                     // var xhr = new XMLHttpRequest();
