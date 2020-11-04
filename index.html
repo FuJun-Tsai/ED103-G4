@@ -30,7 +30,6 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script> -->
 
@@ -78,14 +77,14 @@
             }
 
             /* fullPage.js initialization */
-            if ($(window).height() >= 900) {
-                initialization();
-            }
-
-            // 這裡試試看!
-            // if ($(window).height() >= 650) {
+            // if ($(window).height() >= 900) {
             //     initialization();
             // }
+
+            // 這裡試試看!
+            if ($(window).height() >= 650) {
+                initialization();
+            }
 
 
 
@@ -176,43 +175,36 @@
 
     <style>
         /* 螢幕高度小於等於 899，就限定 min-height */
-        @media screen and (max-height: 899px) {
+        /* @media screen and (max-height: 899px) {
             .first_screen,
             .second_screen,
             .third_screen,
             .fourth_screen {
                 min-height: 900px;
             }
-        }
+        } */
 
 
-        /* 這裡!試試看 @media screen and (max-height: 799px) {
+        /* 這裡!試試看 */
+        @media screen and (max-height: 649px) {
             .first_screen,
             .second_screen,
             .third_screen,
             .fourth_screen {
-                min-height: 800px;
+                min-height: 650px;
             }
-        } */
+        } 
 
     </style>
+
+    
 </head>
 
 <body>
 
-
-    <!-- 背景泡泡 -->
-    <!-- <div id="bubbles">
-        <div class="bubble x1"></div>
-        <div class="bubble x2"></div>
-        <div class="bubble x3"></div>
-        <div class="bubble x4"></div>
-        <div class="bubble x5"></div>
-        <div class="bubble x6"></div>
-        <div class="bubble x7"></div>
-        <div class="bubble x8"></div>
-        <div class="bubble x9"></div>
-    </div> -->
+    <!-- facebook外掛點讚分享 -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v8.0" nonce="uOyEqSit"></script>
 
 
     <header class="chu_header">
@@ -470,6 +462,9 @@
                 <div class="useCellPhone"></div>
                 <div class="friends"></div>
                 <div class="video">
+
+                    <div class="fb-like" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
                     <video src="#"></video>
                     <button class="btn_2 btn_js">
                         點我進入遊戲
@@ -550,16 +545,22 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn_2 btn_js chu_button">
+                    <!-- <button class="btn_2 btn_js chu_button">
                         查看更多分享
                         <span></span>
-                    </button>
+                    </button> -->
 
                 </div>
                 <div class="fourth_screen_friends"></div>
 
+                <button class="btn_2 btn_js chu_button">
+                    查看更多分享
+                    <span></span>
+                </button>
+
             </section>
         </div>
+        
     </div>
 
     <!-- ***************************** -->
@@ -625,8 +626,9 @@
                 })
             
         </script> -->
+        
         <script src="js/btn_hover.js"></script>
 
-</body>
+    </body>
 
 </html>
