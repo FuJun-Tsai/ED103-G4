@@ -258,7 +258,7 @@ header {
                                         display: none;
                                     }
                                     &:hover {
-                                        border: 0.1px solid white;
+                                        // border: 0.1px solid rgba(255, 255, 255, 0);
                                         box-shadow: 3px 3px 10px rgba(22, 22, 22, .3);
                                         label {
                                             transform: scale(1.1);
@@ -349,19 +349,28 @@ header {
                                             cursor: pointer;
                                             object-fit: cover;
                                         }
+                                        img:nth-child(7),
+                                        img:nth-child(8),
+                                        img:nth-child(9) {
+                                            display: none;
+                                        }
+                                        h5 {
+                                            display: none;
+                                        }
                                         h6 {
                                             padding: 10px;
-                                            // background-color: rgba(245, 222, 179, .5);
-                                            background-color: rgba(22, 22, 22, .5);
                                             position: absolute;
                                             top: 55%;
-                                            // bottom: -13px;
                                             left: 50%;
                                             transform: translate(-50%, -50%);
                                             width: 96%;
                                             display: none;
+                                            border: 0.1px solid rgba(255, 255, 255, 0.6);
+                                            background-color: rgba(255, 255, 255, 0.6);
+                                            ;
                                             &:hover {
                                                 background-color: rgba(223, 114, 25, 0.8);
+                                                border: 0.1px solid rgba(223, 114, 25, 0.8);
                                             }
                                         }
                                         &:hover {
@@ -373,11 +382,9 @@ header {
                                                 display: block;
                                                 cursor: pointer;
                                                 font-weight: $fontWeight_600;
-                                                color: white;
                                             }
                                             p {
                                                 background-color: rgba(223, 114, 25, 0.5);
-                                                // visibility: hidden;
                                             }
                                         }
                                     }
