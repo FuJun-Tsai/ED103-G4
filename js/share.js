@@ -474,9 +474,7 @@ window.addEventListener('load', function () {
                     </div>
                     <!-- ------卡片分享圖片------- -->
                     <div class="btn_modal">
-                        <a href="./image/${moodPic.name}">
-                            <img src="./image/${moodPic.name}">
-                        </a>
+                        <img src="./image/${moodPic.name}">
                     </div>
                     <!-- ------卡片表尾------- -->
                     <div class="foot">
