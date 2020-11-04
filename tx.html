@@ -5,124 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
     <title>Document</title>
+    <link rel="stylesheet" href="./css/allstyle.css">
     <style>
         body {
-	background: #222;
-}
+            background: #222;
+        }
 
-p {
-  color:#FFF;
-  text-align: center;
-  font-family: 'Space Mono', monospace;
-}
-a {color:#8CA3A4;}
 
-.container {
-	margin: 3em auto;
-	position: relative;
-}
+        p {
+        color:#FFF;
+        text-align: center;
+        font-family: 'Space Mono', monospace;
+        }
+        a {color:#8CA3A4;}
 
-.container svg {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+        .container {
+            margin: 3em auto;
+            position: relative;
+        }
+
+        .fi_div{
+            position: relative;
+
+        }
+
+        .container svg {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
 
 #scene2 {
   clip-path: url(#clipping);
 }
     </style>
+     <style type="text/css">
+        .st0{opacity:0.5;fill:url(#SVGID_1_);}
+        .st1{fill:#F1E6D4;}
+        .st2{fill:#DFCFBA;}
+        .st3{fill:#F2E7D5;}
+        .st4{opacity:0.2;fill:#D7BBA7;}
+        .st5{opacity:0.15;fill:#623E39;}
+        .st6{opacity:0.5;fill:url(#SVGID_2_);}
+        .st7{fill:#EAE9D8;}
+        .st8{fill:#D3D2C3;}
+        .st9{fill:#D3CBC3;}
+        .st10{fill:#E6CC85;}
+        .st11{fill:#BB9278;}
+        .st12{fill:#F2CFAB;}
+        .st13{fill:#CDC1A9;}
+        .st14{fill:#BBAB97;}
+        .st15{fill:#67443C;}
+        .st16{opacity:0.5;fill:#1F0700;}
+        .st17{fill:#925B4B;}
+        .st18{fill:#653D33;}
+        .st19{fill:none;stroke:#000000;stroke-miterlimit:10;}
+        .st20{opacity:0.35;fill:#1E0B01;}
+        .st21{fill:none;stroke:#BF9247;stroke-miterlimit:10;}
+        .st22{fill:none;stroke:#996C46;stroke-miterlimit:10;}
+        .st23{fill:#E0BEA1;}
+        .st24{opacity:0.25;}
+        .st25{fill:#F9B66C;}
+        .st26{fill:#F8B46B;}
+        .st27{fill:#F8B16B;}
+        .st28{fill:none;}
+        .st29{fill:#B8977B;}
+        .st30{fill:#855346;}
+        .st31{opacity:0.15;}
+        .st32{fill:#CCB295;}
+        .st33{fill:#BF9055;}
+        .st34{fill:#D4A265;}
+        .st35{fill:none;stroke:#623E39;stroke-width:8;stroke-linecap:round;stroke-miterlimit:10;}
+        .st36{fill:#B7967A;}
+        .st37{fill:#A79680;}
+        .st38{fill:#E1CAAD;}
+        .st39{fill:#EEE2D7;}
+        .st40{fill:#E8E4DB;}
+        .st41{fill:#624544;}
+        .st42{fill:#925B4D;}
+        .st43{fill:#5B5250;}
+        .st44{fill:#D0B094;}
+        .st45{fill:#B3987B;}
+        .st46{fill:#EBCBA7;}
+        .st47{fill:#3B231A;}
+        .st48{opacity:0.35;fill:url(#SVGID_3_);}
+        .st49{fill:#8CA3A4;}
+        .st50{fill:#EFD3A8;}
+        .st51{fill:#BFC6B6;}
+        .st52{fill:#ABB6AF;}
+        .st53{opacity:0.5;fill:#130001;}
+        .st54{fill:#E7CE9B;}
+        .st55{fill:#AF716E;}
+        .st56{fill:#B2CAD9;}
+        .st57{fill:#B86E69;}
+        .st58{fill:#734B42;}
+        .st59{fill:#85594F;}
+        .st60{fill:#8A5E52;}
+        .st61{opacity:0.35;fill:#130001;}
+        .st62{fill:#5C403B;}
+        .st63{fill:#322626;}
+        .st64{fill:#D5C1A7;}
+        .st65{fill:#F6C679;}
+        .st66{fill:#F6BE78;}
+        .st67{fill:#CDB09B;}
+        .st68{fill:#995F5C;}
+        .st69{fill:#EBD8AF;}
+        .st70{fill:#DBBDA6;}
+        .st71{fill:#9B9B89;}
+        .st72{fill:#E0E5E8;}
+        .st73{fill:#6F4E4A;}
+        .st74{fill:#98B3BA;}
+        .st75{fill:#D5C2B5;}
+        .st76{fill:#EBD9B4;}
+        .st77{fill:#85A3AB;}
+        .st78{fill:#D4AE95;}
+        .st79{fill:#C5B39B;}
+        .st80{opacity:0.3;fill:#C6D5DD;}
+        .st81{fill:#5D4746;}
+        .st82{opacity:0.35;fill:url(#SVGID_4_);}
+    </style>
 </head>
 <body>
-    <div class="container">
+    <!-- 背景泡泡 -->
+    <div id="bubbles">
+        <div class="bubble x1"></div>
+        <div class="bubble x2"></div>
+        <div class="bubble x3"></div>
+        <div class="bubble x4"></div>
+        <div class="bubble x5"></div>
+        <div class="bubble x6"></div>
+        <div class="bubble x7"></div>
+        <div class="bubble x8"></div>
+        <div class="bubble x9"></div>
+        <div class="bubble x10"></div>
+        <div class="bubble x11"></div>
+        <div class="bubble x12"></div>
+    </div>
+    <div class="fi_div container">
         <svg version="1.1"
           viewBox="0 0 1437.3 653.3" preserveAspectRatio="minXMinY meet">
-     <style type="text/css">
-         .st0{opacity:0.5;fill:url(#SVGID_1_);}
-         .st1{fill:#F1E6D4;}
-         .st2{fill:#DFCFBA;}
-         .st3{fill:#F2E7D5;}
-         .st4{opacity:0.2;fill:#D7BBA7;}
-         .st5{opacity:0.15;fill:#623E39;}
-         .st6{opacity:0.5;fill:url(#SVGID_2_);}
-         .st7{fill:#EAE9D8;}
-         .st8{fill:#D3D2C3;}
-         .st9{fill:#D3CBC3;}
-         .st10{fill:#E6CC85;}
-         .st11{fill:#BB9278;}
-         .st12{fill:#F2CFAB;}
-         .st13{fill:#CDC1A9;}
-         .st14{fill:#BBAB97;}
-         .st15{fill:#67443C;}
-         .st16{opacity:0.5;fill:#1F0700;}
-         .st17{fill:#925B4B;}
-         .st18{fill:#653D33;}
-         .st19{fill:none;stroke:#000000;stroke-miterlimit:10;}
-         .st20{opacity:0.35;fill:#1E0B01;}
-         .st21{fill:none;stroke:#BF9247;stroke-miterlimit:10;}
-         .st22{fill:none;stroke:#996C46;stroke-miterlimit:10;}
-         .st23{fill:#E0BEA1;}
-         .st24{opacity:0.25;}
-         .st25{fill:#F9B66C;}
-         .st26{fill:#F8B46B;}
-         .st27{fill:#F8B16B;}
-         .st28{fill:none;}
-         .st29{fill:#B8977B;}
-         .st30{fill:#855346;}
-         .st31{opacity:0.15;}
-         .st32{fill:#CCB295;}
-         .st33{fill:#BF9055;}
-         .st34{fill:#D4A265;}
-         .st35{fill:none;stroke:#623E39;stroke-width:8;stroke-linecap:round;stroke-miterlimit:10;}
-         .st36{fill:#B7967A;}
-         .st37{fill:#A79680;}
-         .st38{fill:#E1CAAD;}
-         .st39{fill:#EEE2D7;}
-         .st40{fill:#E8E4DB;}
-         .st41{fill:#624544;}
-         .st42{fill:#925B4D;}
-         .st43{fill:#5B5250;}
-         .st44{fill:#D0B094;}
-         .st45{fill:#B3987B;}
-         .st46{fill:#EBCBA7;}
-         .st47{fill:#3B231A;}
-         .st48{opacity:0.35;fill:url(#SVGID_3_);}
-         .st49{fill:#8CA3A4;}
-         .st50{fill:#EFD3A8;}
-         .st51{fill:#BFC6B6;}
-         .st52{fill:#ABB6AF;}
-         .st53{opacity:0.5;fill:#130001;}
-         .st54{fill:#E7CE9B;}
-         .st55{fill:#AF716E;}
-         .st56{fill:#B2CAD9;}
-         .st57{fill:#B86E69;}
-         .st58{fill:#734B42;}
-         .st59{fill:#85594F;}
-         .st60{fill:#8A5E52;}
-         .st61{opacity:0.35;fill:#130001;}
-         .st62{fill:#5C403B;}
-         .st63{fill:#322626;}
-         .st64{fill:#D5C1A7;}
-         .st65{fill:#F6C679;}
-         .st66{fill:#F6BE78;}
-         .st67{fill:#CDB09B;}
-         .st68{fill:#995F5C;}
-         .st69{fill:#EBD8AF;}
-         .st70{fill:#DBBDA6;}
-         .st71{fill:#9B9B89;}
-         .st72{fill:#E0E5E8;}
-         .st73{fill:#6F4E4A;}
-         .st74{fill:#98B3BA;}
-         .st75{fill:#D5C2B5;}
-         .st76{fill:#EBD9B4;}
-         .st77{fill:#85A3AB;}
-         .st78{fill:#D4AE95;}
-         .st79{fill:#C5B39B;}
-         .st80{opacity:0.3;fill:#C6D5DD;}
-         .st81{fill:#5D4746;}
-         .st82{opacity:0.35;fill:url(#SVGID_4_);}
-     </style>
+    
      <defs>
        <clipPath id="clipping">
          <polygon id="star" points="388.6,0 0,652.3 1040,654.4 1437.3,4 "/>
@@ -1102,77 +1125,83 @@ a {color:#8CA3A4;}
      
           
     </div>
-       
+       <button>
+           前台
+       </button>
+
+       <button>
+           後台
+       </button>
        
            
            
            
 </body>
 
-<script>
-    var arrowSmall = document.getElementsByClassName("arrowSmall");
-var arrowSmallsh = document.getElementsByClassName("arrowSmallsh");
-var arrowBig = document.getElementsByClassName("arrowBig");
-var arrowBigsh = document.getElementsByClassName("arrowBigsh");
+    <script>
+        var arrowSmall = document.getElementsByClassName("arrowSmall");
+        var arrowSmallsh = document.getElementsByClassName("arrowSmallsh");
+        var arrowBig = document.getElementsByClassName("arrowBig");
+        var arrowBigsh = document.getElementsByClassName("arrowBigsh");
 
-var person1 = document.getElementsByClassName("person1");
-var person2 = document.getElementsByClassName("person2");
-var person3 = document.getElementsByClassName("person3");
-var person4 = document.getElementsByClassName("person4");
-var person5 = document.getElementsByClassName("person5");
-var peopleGroup = document.getElementsByClassName("peopleGroup");
+        var person1 = document.getElementsByClassName("person1");
+        var person2 = document.getElementsByClassName("person2");
+        var person3 = document.getElementsByClassName("person3");
+        var person4 = document.getElementsByClassName("person4");
+        var person5 = document.getElementsByClassName("person5");
+        var peopleGroup = document.getElementsByClassName("peopleGroup");
 
-var maskPoly = document.getElementsByClassName("maskPoly");
+        var maskPoly = document.getElementsByClassName("maskPoly");
 
-var plant = document.getElementsByClassName("plant");
-
-
-//****** Animation
-//Plant
-var tlplant = new TimelineMax();
-tlplant.staggerFromTo(plant, 2, {
-  transformOrigin:"0% 100%",
-  skewX:"1deg"
-}, {
-  skewX:"-2deg",
-  repeat: -1,
-  yoyo: true
-}, 0.1);
-
-//Clock Arrows
-var tlarrowSmall = new TimelineMax({repeat:-1, yoyo:true, repeatDelay: 4.7});
-tlarrowSmall.fromTo([arrowSmall, arrowSmallsh], 1, {
-  transformOrigin:"0% 100%",
-  rotation:"0deg"
-}, {
-  rotation:"160deg",
-  ease:"linear",
-});
-
-var tlarrowBig = new TimelineMax({
-  repeat:-1,
-  repeatDelay:1.5
-  });
-tlarrowBig.set([arrowBigsh, arrowBig], {transformOrigin:"100% 0%"})
-tlarrowBig.to([arrowBig, arrowBigsh], .8, {
-  rotation:"340deg",
-  ease:"linear",
-  repeat: 1,
-});
-tlarrowBig.to([arrowBig, arrowBigsh], .6, {rotation:"350deg", delay:.8})
-tlarrowBig.to([arrowBig, arrowBigsh], .6, {rotation:"360deg", delay:.8})
-tlarrowBig.to([arrowBig, arrowBigsh], .8, {
-  rotation:"-20deg",
-  ease:"linear",
-  repeat: 1,
-  delay:1.2
-});
-tlarrowBig.to([arrowBig, arrowBigsh], .6, {rotation:"-10deg", delay:.8})
-tlarrowBig.to([arrowBig, arrowBigsh], .6, {rotation:"0deg", delay:.8})
+        var plant = document.getElementsByClassName("plant");
 
 
-//Swoosh Animations
-var tl = new TimelineMax({yoyo:true,repeat:-1, repeatDelay:5});
-tl.fromTo('#star', .7,{x:-1200}, { x:0, ease: Sine.easeInOut})
-</script>
+        //****** Animation
+        //Plant
+        var tlplant = new TimelineMax();
+        tlplant.staggerFromTo(plant, 2, {
+        transformOrigin:"0% 100%",
+        skewX:"1deg"
+        }, {
+        skewX:"-2deg",
+        repeat: -1,
+        yoyo: true
+        }, 0.1);
+
+        //Clock Arrows
+        var tlarrowSmall = new TimelineMax({repeat:-1, yoyo:true, repeatDelay: 4.7});
+        tlarrowSmall.fromTo([arrowSmall, arrowSmallsh], 1, {
+        transformOrigin:"0% 100%",
+        rotation:"0deg"
+        }, {
+        rotation:"160deg",
+        ease:"linear",
+        });
+
+        var tlarrowBig = new TimelineMax({
+        repeat:-1,
+        repeatDelay:1.5
+        });
+        tlarrowBig.set([arrowBigsh, arrowBig], {transformOrigin:"100% 0%"})
+        tlarrowBig.to([arrowBig, arrowBigsh], .8, {
+        rotation:"340deg",
+        ease:"linear",
+        repeat: 1,
+        });
+        tlarrowBig.to([arrowBig, arrowBigsh], .6, {rotation:"350deg", delay:.8})
+        tlarrowBig.to([arrowBig, arrowBigsh], .6, {rotation:"360deg", delay:.8})
+        tlarrowBig.to([arrowBig, arrowBigsh], .8, {
+        rotation:"-20deg",
+        ease:"linear",
+        repeat: 1,
+        delay:1.2
+        });
+        tlarrowBig.to([arrowBig, arrowBigsh], .6, {rotation:"-10deg", delay:.8})
+        tlarrowBig.to([arrowBig, arrowBigsh], .6, {rotation:"0deg", delay:.8})
+
+
+        //Swoosh Animations
+        var tl = new TimelineMax({yoyo:true,repeat:-1, repeatDelay:5});
+        tl.fromTo('#star', .7,{x:-1200}, { x:0, ease: Sine.easeInOut})
+    </script>
 </html>
