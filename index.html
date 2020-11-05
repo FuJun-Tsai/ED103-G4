@@ -629,6 +629,25 @@
         
         <script src="js/btn_hover.js"></script>
 
+        <!--ajax-->
+        <script>
+            
+        $(document).ready(function() {
+            $.ajax({
+                url: 'index.php',
+                type: 'GET',
+                dataType: 'json',
+                success(data) {
+                    console.log(data);
+
+
+
+                }
+                });
+            });
+
+        </script>
+
     </body>
 
 </html>
