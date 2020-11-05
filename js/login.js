@@ -1,48 +1,3 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>董董購物網</title>
-<link rel="stylesheet" type="text/css" href="jsLogin.css">
-<link rel="icon" href="大頭照.jpg">
-</head>
-
-<body>
-<!-- 燈箱：登入 -->
-<div id="lightBox" style="display:none">
-<table border="1" align="center" cellspacing="0" id="tableLogin">
-<tr><td>帳號</td><td><input type="text" name="memId" id="memId"></td></tr>
-<tr><td>密碼</td><td><input type="password" name="memPsw" id="memPsw"></td></tr>
-<tr><td colspan="2" align="center">
-        <input type="button" id="btnLogin" value="登入">
-        <input type="button" id="btnLoginCancel" value="取消">
-    </td></tr>
-</table>
-</div>
-
-<!-- wrapper -->
-<div id="wrapper">
-<!-- 登入bar -->
-<img src="大頭照.jpg">
-<div id="bar" style="position: absolute;top:0;right: 20px">
-<span id="memName">&nbsp;</span>   <!-- 使用者姓名 -->
-<span id="spanLogin">登入</span>
-</div>
-<!---------------------------------- 登入bar 區域結束 ---------------------------------->
-<div id="content">
-<center><h1>這是首頁</h1></center>
-</div>
-
-
-<center><h2><a href="discuss.html">討論區</a></h2></center>
-
-
-<div id="footer"></div>
-
-
-</div>
-<script>
 function $id(id){
 	return document.getElementById(id);
 }	
@@ -56,14 +11,14 @@ let member;
       //spanLogin的字改成登入
       //將頁面上的使用者資料清掉
       if($id('spanLogin').innerHTML == "登入"){
-        $id('lightBox').style.display = 'block';
+        $id('login_box').style.display = 'flex';
       }else{//登出
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
           $id('memName').innerHTML = '&nbsp';
           $id('spanLogin').innerHTML = '登入';          
         }
-        xhr.open("get", "logout.php", true);
+        xhr.open("post", "logout.php", true);
         xhr.send(null);
       }
 
@@ -71,34 +26,35 @@ let member;
 
     function sendForm(){
       //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
-      let memId = $id("memId").value;  
-      let memPsw = $id("memPsw").value; 
+      let MEMBER_ID = document.getElementsByName("MEMBER_ID")[0].value;
+      let MEMBER_PSW = document.getElementsByName("MEMBER_PSW")[0].value;
+      // console.log(MEMBER_PSW);
       let xhr = new XMLHttpRequest();
       xhr.onload = function(){
         member = JSON.parse(xhr.responseText);
-        if(member.memId){
-          $id("memName").innerText = member.memName;
+        if(member.MEMBER_ID){
+          $id("headshot_icon").getAttribute("src") = member.MEMBER_NAME;
           $id('spanLogin').innerHTML = '登出';
           //將登入表單上的資料清空，並隱藏起來
-          $id('lightBox').style.display = 'none';
-          $id('memId').value = '';
-          $id('memPsw').value = '';          
+          $id('login_box').style.display = 'none';
+          MEMBER_ID = '';
+          MEMBER_PSW = '';          
         }else{
             window.alert("帳密錯誤~");
         }
       }
 
-      xhr.open("Post", "ajaxLogin.php", true);
+      xhr.open("Post", "login.php", true);
       xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-      let data_info = `memId=${memId}&memPsw=${memPsw}`;
+      let data_info = `MEMBER_ID=${MEMBER_ID}&MEMBER_PSW=${MEMBER_PSW}`;
       xhr.send(data_info); 
     }
 
     function cancelLogin(){
       //將登入表單上的資料清空，並將燈箱隱藏起來
-      $id('lightBox').style.display = 'none';
-      $id('memId').value = '';
-      $id('memPsw').value = '';
+      $id('login_box').style.display = 'none';
+      document.getElementsByName("MEMBER_ID").value = '';
+      document.getElementsByName("MEMBER_PSW").value = '';
     }
 
     function getMemberInfo(){
@@ -106,7 +62,7 @@ let member;
       xhr.onload = function(){
         if(xhr.status == 200){ //success
           member = JSON.parse(xhr.responseText);
-          if(member.memId){
+          if(member.MEMBER_ID){
             $id("memName").innerText = member.memName;
             $id('spanLogin').innerHTML = '登出';            
           }
@@ -115,7 +71,7 @@ let member;
         }
       }
 
-      xhr.open("get", "getMemberInfo.php", true);
+      xhr.open("post", "getMemberInfo.php", true);
       xhr.send(null);
     }
 
@@ -138,7 +94,8 @@ let member;
 
     window.addEventListener("load",init,false);
 
+    function toggleForm() {
+        var container_res = document.querySelector('.container_res');
+        container_res.classList.toggle('act')
+    }
 
-</script>
-</body>
-</html>

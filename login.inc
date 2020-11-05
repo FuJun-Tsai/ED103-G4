@@ -1,17 +1,18 @@
 <!-- 燈箱 登入 -->
-<section class="section_res">
+<section class="section_res" id="login_box" style="display:none">
     <div class="container_res">
         <div class="user singinBx">
             <div class="img_res">
                 <img src="./image/2.png" alt="">
             </div>
             <div class="form_res">
-                <form name="login" action="login.php" method="post">
+                <form name="login">
                     <h2>會員登入</h2>
                     <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
-                    <input type="password" name="MEM_PSW" placeholder="請輸入密碼">
+                    <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
 
-                    <input type="submit" name="" value="登入">
+                    <input type="button" name="" value="登入" id="btnLogin">
+                    <input type="button" name="" value="取消" id="btnLoginCancel">
                     <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
                 </form>
             </div>

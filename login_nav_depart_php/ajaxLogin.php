@@ -5,6 +5,8 @@ try{
   $member = $pdo->prepare($sql);
   $member->bindValue(":memId", $_POST["memId"]);
   $member->bindValue(":memPsw", $_POST["memPsw"]);
+  // $member->bindValue(":memId", "Sara");
+  // $member->bindValue(":memPsw", "111");
   $member->execute();
   if( $member->rowCount()==0){ //查無此人
 	  echo "{}";
