@@ -82,7 +82,7 @@
             // }
 
             // 這裡試試看!
-            if ($(window).height() >= 650) {
+            if ($(window).height() >= 580) {
                 initialization();
             }
 
@@ -186,12 +186,12 @@
 
 
         /* 這裡!試試看 */
-        @media screen and (max-height: 649px) {
+        @media screen and (max-height: 579px) {
             .first_screen,
             .second_screen,
             .third_screen,
             .fourth_screen {
-                min-height: 650px;
+                min-height: 580px;
             }
         } 
 
@@ -631,21 +631,18 @@
 
         <!--ajax-->
         <script>
-            
-        $(document).ready(function() {
-            $.ajax({
-                url: 'index.php',
-                type: 'GET',
-                dataType: 'json',
-                success(data) {
-                    console.log(data);
-
-
-
-                }
+    
+            $(document).ready(function() {
+                $.ajax({
+                    url: 'index.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    success(data) {
+                        console.log(data);
+                    }
                 });
             });
-
+    
         </script>
 
     </body>
