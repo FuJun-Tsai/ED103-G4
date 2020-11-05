@@ -255,6 +255,27 @@
                  <h2>
                      檢舉審查
                  </h2>
+                 <div id="jquery-tabs" style="width:auto">
+
+                    <div id="tabs-nav">
+                      <a href="#tab0" class="tabs-menu tabs-menu-active">貼文檢舉</a>
+                      <a href="#tab1" class="tabs-menu">留言檢舉</a>
+                    </div>
+                   
+                    <div class="tabs-container">
+                      <div id="tab0" class="tabs-panel" style="display:block">
+                        貼文
+                      </div>
+                   
+                      <div id="tab1" class="tabs-panel">
+                        留言
+                      </div>
+                   
+                      
+                   
+                    </div>
+                   </div>
+                   
              </div>
              <div id="ai_adm">
                  <h2>
@@ -295,6 +316,18 @@
             document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
         }
     </script>
+    <script>
+        $(function() {
+          $("#tabs-nav a").click(function() {
+             $("#tabs-nav a").removeClass("tabs-menu-active");
+             $(this).addClass("tabs-menu-active");
+             $(".tabs-panel").removeClass("animated bounceInDown").hide();
+             var tab_id = $(this).attr("href");
+             $(tab_id).addClass("animated bounceInDown").show();
+             return false;
+          });
+        });
+       </script>
 
 </body>
 </html>

@@ -145,7 +145,6 @@ html {
 	height: 690px;
 	background-color:rgba(255, 255, 255, 0.603);
 	position: relative;
-	font-family: helvetica,verdana,sans-serif;
 }
 .main .topbar {
 	border-bottom: 1px solid rgb(235,235,235);
@@ -164,7 +163,7 @@ html {
 	transition:opacity 200ms linear;
 }
 /*切換*/
-.mainContent>div:target {
+.mainContent > div:target {
 	opacity: 1;
 }
 .mainContent h2 {
@@ -172,15 +171,15 @@ html {
 	color: rgb(234,83,63);
 	font-size: 20px;
 }
-.mainContent h2:before {
-	font-family: 'icomoon';
-	content: attr(data-icon);
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	margin-right: 10px;
-}
+// .mainContent h2:before {
+// 	font-family: 'icomoon';
+// 	content: attr(data-icon);
+// 	font-weight: normal;
+// 	font-variant: normal;
+// 	text-transform: none;
+// 	line-height: 1;
+// 	margin-right: 10px;
+// }
  
 #administrator>div {
 	border: 1px solid rgb(235,235,235);
@@ -190,6 +189,96 @@ html {
 	height: 262px;
 	display: inline-block;
 }
+
+
+// 檢舉
+#tabs-nav{
+   margin: 0;
+   padding: 0;
+   position: relative;
+   text-align: left
+}
+a.tabs-menu {
+   display: inline-block;
+   background-color: #1b91ab;
+   font-size: 12px;
+   font-family: Arial,Helvetica,sans-serif;
+   color: #fff;
+   padding: 5px 10px;
+   text-shadow: 1px 1px 0px #1b91ab;
+   font-weight: bold;
+   text-decoration: none;
+   border: solid 1px #1b91ab;
+   border-bottom: 0;
+   border-radius: 3px 3px 0 0;
+}
+a.tabs-menu.tabs-menu-active {
+   background-color: #fff;
+   text-shadow: 1px 1px 0px #ffffff;
+   border: solid 1px #1b91ab;
+   color: #6b6b6b;
+   border-bottom: 0;
+}
+.tabs-container {
+   border: solid 1px #1b91ab;
+   margin-top: -1px;
+   background-color: #fff;
+   overflow: hidden;
+}
+.tabs-panel {
+   display: none;
+   min-height: 150px;
+   overflow: auto;
+   padding: 10px;
+   max-height: 200px;
+}
+/************CSS Animation***********/
+
+.animated { 
+   -webkit-animation-duration: 1s; 
+   animation-duration: 1s; 
+   -webkit-animation-fill-mode: both; 
+   animation-fill-mode: both; 
+} 
+@-webkit-keyframes bounceInDown { 
+   0% { 
+       opacity: 0; 
+        -webkit-transform: translateY(-200px); 
+    } 
+    60% { 
+        opacity: 1; 
+        -webkit-transform: translateY(30px); 
+    } 
+    80% { 
+        -webkit-transform: translateY(-10px); 
+    } 
+    100% { 
+        -webkit-transform: translateY(0); 
+    } 
+} 
+
+@keyframes bounceInDown { 
+    0% { 
+        opacity: 0; 
+        transform: translateY(-200px); 
+    } 
+    60% { 
+        opacity: 1; 
+        transform: translateY(30px); 
+    } 
+    80% { 
+        transform: translateY(-10px); 
+    } 
+    100% { 
+        transform: translateY(0); 
+    } 
+} 
+
+.bounceInDown { 
+    -webkit-animation-name: bounceInDown; 
+    animation-name: bounceInDown; 
+}
+
 
 
 
