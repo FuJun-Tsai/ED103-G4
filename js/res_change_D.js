@@ -7,7 +7,7 @@ function doFirst() {
         resInput[i].addEventListener('change', function() {
 
             let Number = resInput[i].value;
-            console.log(Number);
+            // console.log(Number);
 
             // function getData(aaa) {
             //     var req = new XMLHttpRequest();
@@ -20,17 +20,17 @@ function doFirst() {
 
             switch (Number) {
                 case '日式':
-                    console.log(Number)
-                        // let a = $('.den_content div #日式').parent();
-                        // // if (cookInput)
-                        // // console.log(cookInput[].checked);
-                        // for (let i = 0; i < g.length; i++) {
-                        //     g[i].style.display = 'none';
-                        // }
-                        // for (let i = 0; i < a.length; i++) {
-                        //     a[i].style.display = 'inline-block';
-                        // }
-                        // location.href=`RES_NO=${owlImage[i]}`;
+                    // console.log(Number)
+                    // let a = $('.den_content div #日式').parent();
+                    // // if (cookInput)
+                    // // console.log(cookInput[].checked);
+                    // for (let i = 0; i < g.length; i++) {
+                    //     g[i].style.display = 'none';
+                    // }
+                    // for (let i = 0; i < a.length; i++) {
+                    //     a[i].style.display = 'inline-block';
+                    // }
+                    // location.href=`RES_NO=${owlImage[i]}`;
                     location.href = `?RES_KIND=1`;
 
                     // `?RES_NO=${aa}`;
@@ -131,10 +131,10 @@ function doFirst() {
 
                         //-----------------------------------------------
 
-                        let githubURL = new URL('http://localhost/ED103-G4/open_group.php');
-                        var searchParams = new URLSearchParams('& RES_STYLE = 1 ');
-                        githubURL.search = searchParams;
-                        githubURL.href;
+                        // let githubURL = new URL('http://localhost/ED103-G4/open_group.php');
+                        // var searchParams = new URLSearchParams('& RES_STYLE = 1 ');
+                        // githubURL.search = searchParams;
+                        // githubURL.href;
 
                         //------------------------------------------------------
 

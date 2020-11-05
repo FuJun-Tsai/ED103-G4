@@ -9,7 +9,7 @@ function doFirst() {
         let resMen = $('#resMen').find('option:selected').text();
 
         if (resName != false) {
-            console.log(resName);
+            // console.log(resName);
             $('.box2_row_right div:nth-child(1) h3:nth-child(8)').append(resName); {}
         } else {
             alert('請輸入餐廳');
@@ -48,7 +48,7 @@ function doFirst() {
             $('.den_box2').css('display', 'none');
             $('.box_background').css('display', 'none');
         }
-        console.log(resMen);
+        // console.log(resMen);
 
         //好友checkbox
         var check = $("input[name='Checkbox[]']:checked").length; //判斷有多少個方框被勾選

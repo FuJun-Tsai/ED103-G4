@@ -1,5 +1,5 @@
 <?php 
-// $aaa = 1;
+
 try {
 	require_once("./connectRes.php");
     //------------------------where
@@ -10,12 +10,23 @@ try {
     $TTT=isset($_GET["RES_NO"]);
     $RES_NO =  isset($_GET['RES_NO']) ? $_GET['RES_NO'] : "1234";
     //---------------------------    
-    // echo $RES_NO;
+    echo $RES_NO;
+
+    // $homepage = file_get_contents('http://localhost/ED103-G4/open_group.php');
+    // echo $homepage;
+    // echo __FILE__;
+    // echo $_SERVER['PHP_SELF'];
+        // echo $_SERVER['QUERY_STRING'];
+        // echo $_SERVER['REQUEST_URI'];
+        // echo '<script>console.log(document.URL)</script>';
+
+    // echo $TTT;
+    // echo '1235555';
     // $c= "<script>
     // document.write(ttt)</script>"; 
     // echo $c; 
 
-
+//第一組mysql 
     $sql = "select * from restaurant_management R
         join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
         join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO) 
@@ -34,28 +45,43 @@ try {
     $prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
     
 
+
 //   var_dump($_GET);
     // print_r($prodRows[0]['RES_ADDRESS']);
     // $RES_NO = isset($_GET["RES_NO"]) ? $_GET["RES_NO"] :3;
 // exit($RES_NO);
-    
+   
 
+//第二組mysql 
     $sql1 = "select * from restaurant_management R
     join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
     join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
     ";
 
-    // $sql1 .= "where RES_NO=$RES_NO";
-
+    
+    $sql1 .= "where RES_NO=$RES_NO";
 	$products1 = $pdo->query($sql1);
     $prodRows1 = $products1->fetch(PDO::FETCH_ASSOC);
 
+//第三組mysql  
+    $sql2 = "select * from restaurant_management R
+    join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
+    join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
+    ";
     
+	$products2 = $pdo->query($sql2);
+    $prodRows2 = $products1->fetch(PDO::FETCH_ASSOC);
+
+
+
 
 } catch (PDOException $e) {
 	
 }
  ?>
+
+
+
 
 
 
@@ -120,7 +146,7 @@ try {
                         <a href="./about_us.html">關於我們</a>
                     </li>
                     <li>
-                        <a href="./open_group.html" class="hvr-pulse-grow"><button>揪團去!</button></a>
+                        <a href="./connectRes.php" class="hvr-pulse-grow"><button>揪團去!</button></a>
                     </li>
                 </ul>
             </div>
@@ -160,7 +186,7 @@ try {
                         <a href="./about_us.html">關於我們</a>
                     </li>
                     <li>
-                        <a href="./open_group.html" class="hvr-pulse-grow"><button>揪團去!</button></a>
+                        <a href="./open_group.php" class="hvr-pulse-grow"><button>揪團去!</button></a>
                     </li>
                 </ul>
             </div>
@@ -288,69 +314,8 @@ try {
                                     </div>
                                     <div class="den_content_range">
                                         <div class="den_content">
-                                            <!-- <div id="1">
-                                                <span id="日式"></span>
-                                                <span id="火鍋"></span>
-                                                <p>寶咖咖火烤1吃</p>
-                                                <img src="./image/food1.jpg" alt="">
-                                                <h6>查看餐廳介紹</h6>
-                                            </div>
-                                            <div id="2">
-                                                <span id="日式"></span>
-                                                <span id="燒烤"></span>
-                                                <p>寶咖咖火烤2吃</p>
-                                                <img src="./image/food2.jpg" alt="">
-                                                <h6>查看餐廳介紹</h6>
-                                            </div>
-                                            <div id="3">
-                                                <span id="美式"></span>
-                                                <span id="炸物"></span>
-                                                <p>寶咖咖火烤3吃</p>
-                                                <img src="./image/food3.jpg" alt="">
-                                                <h6>查看餐廳介紹</h6>
-                                            </div>
-                                            <div id="4">
-                                                <span id="韓式"></span>
-                                                <span id="排餐"></span>
-                                                <p>寶咖咖火烤4吃</p>
-                                                <img src="./image/food4.jpg" alt="">
-                                                <h6>查看餐廳介紹</h6>
-                                            </div>
-                                            <div id="5">
-                                                <span id="日式"></span>
-                                                <span id="燒烤"></span>
-                                                <p>寶咖咖火烤5吃</p>
-                                                <img src="./image/food5.jpg" alt="">
-                                                <h6>查看餐廳介紹</h6>
-                                            </div>
-                                            <div id="6">
-                                                <span id="美式"></span>
-                                                <span id="排餐"></span>
-                                                <p>寶咖咖火烤6吃</p>
-                                                <img src="./image/food6.jpg" alt="">
-                                                <h6>查看餐廳介紹</h6>
-                                            </div>
-                                            <div id="7">
-                                                <span id="韓式"></span>
-                                                <span id="燒烤"></span>
-                                                <p>寶咖咖火烤7吃</p>
-                                                <img src="./image/food5.jpg" alt="">
-                                                <h6>查看餐廳介紹</h6>
-                                            </div>
-                                            <div id="8">
-                                                <span id="日式"></span>
-                                                <span id="排餐"></span>
-                                                <p>寶咖咖火烤8吃</p>
-                                                <img src="./image/food4.jpg" alt="">
-                                                <h6>查看餐廳介紹</h6>
-                                            </div>
-                                            <div id="9">
-                                                <span id="韓式"></span>
-                                                <span id="排餐"></span>
-                                                <p>寶咖咖火烤9吃</p>
-                                                <img src="./image/food6.jpg" alt="">
-                                                <h6>查看餐廳介紹</h6>
-                                            </div> -->
+
+                                        <!--php-->
                                             <?php foreach($prodRows as $i=>$prodRow){ ?>
                                               <div>
                                               <span><?=$prodRow["STYLE_NAME"]?></span>
@@ -361,6 +326,7 @@ try {
                                               <h6>查看餐廳介紹</h6>
                                               </div>
                                               <?php } ?>
+
                                         </div>
                                     </div>
                                     <div class="den_nav_right">
@@ -368,20 +334,17 @@ try {
                                     </div>
                                 </div>
                             </div>
-                            
-
-                            
-                           
+                                                     
                             <div class="den_Fill_Information_wrapper">
                                 <div class="den_Fill_Information">
                                     <div class="den_Information_title">
                                         <h3>開團資訊填寫</h3>
                                         <hr>
                                     </div>
-                                    <form action="">
+                                    <form action="" class="den_Information">
                                         <div>
                                             <label>用餐餐廳:</label>
-                                            <input type="text" value="" id="resName">
+                                            <input type="text" value="" id="resName" disabled="true">
                                         </div>
                                         <div>
                                             <label>團名:</label>
@@ -661,11 +624,8 @@ try {
                 <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE1"]?>">
                 <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE2"]?>">
                 <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE3"]?>">
-                <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE4"]?>">
-                
-               
-            </div>
-            
+                <img src="./image/restaurant_management_img/<?=$prodRows1["RES_IMAGE4"]?>">            
+            </div>           
             <div class="box_row_right">
                 <h2><?=$prodRows1["RES_NAME"]?></h2>
                 <span><?=$prodRows1["STYLE_NAME"]?></span>
@@ -689,6 +649,7 @@ try {
             <button>送出</button>
         </div>
     </div>
+
     <!--燈箱2/開團確認-->
     <div class="den_box2">
         <div class="leave_btn">
@@ -735,6 +696,7 @@ try {
                     <h3></h3>
                     <br>
                 </div>
+               
                 <div>
                     <h3>店家資訊</h3>
                     <br>
@@ -750,6 +712,7 @@ try {
                     <h3>營業時間:</h3>
                     <h3>XXXXXX</h3>
                 </div>
+               
             </div>
         </div>
         <div class="denAllButton">
@@ -760,71 +723,9 @@ try {
                 <button>取消</button>
             </div>
         </div>
-
     </div>
-    <!--燈箱3/參團確認-->
-    <!-- <div class="box3">
-        <div class="leave_btn">
-            <div class="line1"></div>
-            <div class="line2"></div>
-        </div>
-        <div class="box3_row">
-            <div class="box3_row_left">
-                <div class="main_img">
-                    <img src="./image/food1.jpg" alt="">
-                </div>
-                <img src="./image/food2.jpg" alt="">
-                <img src="./image/food3.jpg" alt="">
-                <img src="./image/food6.jpg" alt="">
-                <img src="./image/food4.jpg" alt="">
-                <div class="box_button">
-                    <button>開團</button>
-                </div>
-            </div>
-            <div class="box3_row_right">
-                <div>
-                    <h3>團號:</h3>
-                    <h3>4758691</h3>
-                    <br>
-                    <h3>團名:</h3>
-                    <h3></h3>
-                    <br>
-                    <h3>店名:</h3>
-                    <h3></h3>
-                    <br>
-                    <h6>日式</h6>
-                    <h6>火鍋</h6>
-                    <h6>燒烤</h6>
-                </div>
-                <div>
-                    <h3>開團團主:</h3>
-                    <h3>XXXXX</h3>
-                    <br>
-                    <h3>目前人數:</h3>
-                    <h3></h3>
-                    <br>
-                    <h3>用餐時間:</h3>
-                    <h3></h3>
-                    <br>
-                </div>
-                <div>
-                    <h2>店家資訊</h2>
-                    <h3>地址:</h3>
-                    <h3>中壢中央路1號</h3>
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                    <br>
-                    <h3>電話:</h3>
-                    <h3>03-9886578</h3>
-                    <br>
-                    <h3>營業時間:</h3>
-                    <h3>XXXXXX</h3>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
+  <!--燈箱3/美食團-->
     <div class="den_box3">
         <div class="leave_btn">
             <div class="line1"></div>
@@ -895,80 +796,8 @@ try {
                 <button>取消</button>
             </div>
         </div>
-
     </div>
 
-
-    <!-- <div class="den_box3">
-        <div class="leave_btn">
-            <div class="line1"></div>
-            <div class="line2"></div>
-        </div>
-        <div class="den_box3_row">
-            <div class="box3_row_left">
-                <div class="main_img">
-                    <img src="./image/food1.jpg" alt="">
-                </div>
-                <img src="./image/food2.jpg" alt="">
-                <img src="./image/food3.jpg" alt="">
-                <img src="./image/food6.jpg" alt="">
-                <img src="./image/food4.jpg" alt="">
-                <div class="den_box_button">
-                    <button>確認</button>
-                </div>
-                <div class="box_button_close">
-                    <button>取消</button>
-                </div>
-            </div>
-            <div class="box3_row_right">
-                <div>
-                    <h3>團號:</h3>
-                    <h3>4758691</h3>
-                    <br>
-                    <h3>團名:</h3>
-                    <h3></h3>
-                    <br>
-                    <h3>店名:</h3>
-                    <h3></h3>
-                    <br>
-                    <h6>日式</h6>
-                    <h6>火鍋</h6>
-                    <h6>燒烤</h6>
-                </div>
-                <div>
-                    <h3>開團團主:</h3>
-                    <h3>XXXXX</h3>
-                    <br>
-                    <h3>目前人數:</h3>
-                    <h3></h3>
-                    <h4></h4>
-                    <h4></h4>
-                    <h4></h4>
-                    <h4></h4>
-                    <br>
-                    <h3>用餐時間:</h3>
-                    <h3></h3>
-                    <br>
-                </div>
-                <div>
-                    <h3>店家資訊</h3>
-                    <br>
-                    <h3>地址:</h3>
-                    <h3>中壢中央路1號</h3>
-                    <a href="">
-                        <img src="" alt="">
-                    </a>
-                    <br>
-                    <h3>電話:</h3>
-                    <h3>03-9886578</h3>
-                    <br>
-                    <h3>營業時間:</h3>
-                    <h3>XXXXXX</h3>
-                </div>
-            </div>
-        </div>
-
-    </div> -->
 
     <!--燈箱背景-->
     <div class="box_background"></div>
@@ -995,10 +824,8 @@ try {
     <script>
        
         function doFirst() {
-
-
-                              
-            //點擊input
+                            
+            //input 餐廳種類
             $('.den_res_type div input').on('change', function() {
                 $('.den_res_type div').css('background', 'rgba(255, 255, 255, 0)');
                 $('.den_res_type div').css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0)');
@@ -1006,15 +833,17 @@ try {
                 $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
                 $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
             });
-            $('.den_cooking_style div input').on('change', function() {
-                // $('.den_cooking_style div').css('background', 'rgba(255, 255, 255, 0)');
-                // $('.den_cooking_style div').css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0)');
 
-                $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
-                $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
-            });
-
-
+           //input 餐廳風格
+            $(".den_cooking_style div input").click(function(){
+                var checkis = $(this).is(":checked");
+                if(checkis==true){
+                     $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');}
+                else{
+                    $(this).parent().css('background', 'rgba(223, 114, 25, 0)');
+                        }
+                });
+               
 
             //頁籤
             $('.title_left h2:nth-child(1)').on('click', function() {
@@ -1043,9 +872,7 @@ try {
                 owlImage[i].addEventListener('click', function() {
 
                     var ttt=this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
-
-                    
-                    console.log(ttt);
+                    // console.log(ttt);
 
 
                     // location.href=`http://localhost/ED103-G4/open_group.php?RES_NO=${ttt}`;
@@ -1070,9 +897,6 @@ try {
                     // location.href=`open_group.php?RES_NO=${aa}`;
                     //   location.href=`?RES_NO=${aa}`;
 
-
-
-
                     //--------------------------------------
                     $.ajax({
                         url:'open_group.php',                     
@@ -1080,13 +904,12 @@ try {
                             RES_NO:ttt,
                             },
                         type: 'GET',
+                        // dataType:,
                         success:function(data){
-                           
-                            
-                                // console.log(data)
-                           
-                            // $('.den_content div span:nth-child(3)').html(data);
-                             
+                            // alert()
+                            let jjj=data.substr(0,15);
+                                $('body').prepend(jjj);                         
+                            // $('.den_content div span:nth-child(3)').html(data);                           
                             // $('#aaa').html(yyy);
                             // $('#input').hide();
                             // $('#response').show().html(res);
@@ -1094,14 +917,15 @@ try {
                         },
                     });
 
+                
+
+
+                        // $sql1 .= "where RES_NO=$RES_NO";
+
+                        // $products1 = $pdo->query($sql1);
+                        // $prodRows1 = $products1->fetch(PDO::FETCH_ASSOC);
+
                     
-                        <?php
-                        $sql1 .= "where RES_NO=$RES_NO";
-
-                        $products1 = $pdo->query($sql1);
-                        $prodRows1 = $products1->fetch(PDO::FETCH_ASSOC);
-
-                        ?>
 
 
 
@@ -1134,6 +958,22 @@ try {
                 });
             }
 
+            //點擊
+            let resAll =document.querySelectorAll('.den_content div'); 
+            for(let i = 0; i < resAll.length; i++){
+                resAll[i].addEventListener('click', function() {
+                    let name=this.children[3].innerText;  
+                    $('.den_Information div:nth-child(1) input').val(name);
+                    $('.den_content div').css({'background':'#ffffff'});
+                    this.style.background='#FF7a85';
+                   
+
+            });
+        }
+
+
+
+
             // 第2個燈箱
             let yy = $('.den_Fill_Information form :input').val();
             // console.log(yy);
@@ -1146,7 +986,7 @@ try {
             let eatGroup = document.querySelectorAll('.den_eatGroup'); //list是陣列
             for (let i = 0; i < eatGroup.length; i++) {
                 eatGroup[i].addEventListener('click', function() {
-                    console.log(eatGroup[i])
+                    // console.log(eatGroup[i])
                     $('.den_box3').css('display', 'block');
                     $('.box_background').css('display', 'block');
                 });
@@ -1169,14 +1009,14 @@ try {
                 let x = $('.den_content_range').scrollLeft() + 1
                 x = x + 150;
                 let scrollVal1 = $('.den_content_range').scrollLeft(x)
-                console.log(x);
+                // console.log(x);
             });
             // owl左右移動
             $('.den_nav_left').on('click', function() {
                 let x = $('.den_content_range').scrollLeft() + 1
                 x = x - 150;
                 let scrollVal1 = $('.den_content_range').scrollLeft(x)
-                console.log(x);
+                // console.log(x);
             });
         }
         window.addEventListener('load', doFirst);
@@ -1213,7 +1053,7 @@ try {
         var markers = new L.MarkerClusterGroup().addTo(map);;
         
         for(let i =0;data.length>i;i++){
-        console.log(data[i].name)
+        // console.log(data[i].name)
         markers.addLayer(L.marker([data[i].lat,data[i].lng], 
             {icon: redIcon , title:data[i].hover})    
             .bindPopup('<h1>'+ data[i].name +'</h1>'+
