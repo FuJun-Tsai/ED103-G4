@@ -556,7 +556,7 @@ section.second_screen {
         }
     }
     .fourTeam {
-        .team_one {
+        .team_1 {
             @include circle(225px, #76AFAF);
             position: absolute;
             left: 14%;
@@ -620,7 +620,7 @@ section.second_screen {
             }
         }
     }
-    .team_two {
+    .team_2 {
         @include circle(225px, #601C8A);
         position: absolute;
         left: 33.5%;
@@ -684,7 +684,7 @@ section.second_screen {
             }
         }
     }
-    .team_three {
+    .team_3 {
         @include circle(225px, #F4EFDF);
         position: absolute;
         right: 31%;
@@ -746,7 +746,7 @@ section.second_screen {
             }
         }
     }
-    .team_four {
+    .team_4 {
         @include circle(225px, #B71E68);
         position: absolute;
         right: 13%;
