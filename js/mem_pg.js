@@ -219,9 +219,24 @@ function getMemberInfo(){
       alert(xhr.status);
     }
   }
-
+  $id('my_group_btn').addEventListener('click',myGroupNow);
+  function myGroupNow(){
+    let xhr1 = new XMLHttpRequest();
+    xhr1.onload = function(){
+      if(xhr1.status == 200){ //success
+        member = JSON.parse(xhr1.responseText);
+        if(member.MEMBER_ID){
+        }
+      }else{ //error
+        alert(xhr1.status);
+      }
+    }
+    xhr.open("get", "./php/my_group.php", true);
+    xhr.send(null);
+  }
   xhr.open("get", "./php/mem.php", true);
   xhr.send(null);
+  
 }
 
 window.addEventListener("load",getMemberInfo,false);

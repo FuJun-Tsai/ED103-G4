@@ -139,22 +139,22 @@ require_once("login.inc");
                     <div class="mylist">
                         <ul>
                             <li>
-                                <button data-target="my_main" class="tabbtn -on btn_11 btn_js">我的資訊<span></span></button>
+                                <button data-target="my_main" class="tabbtn -on btn_11 btn_js" id="my_main_btn">我的資訊<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_group" class="tabbtn btn_11 btn_js">我的開團<span></span></button>
+                                <button data-target="my_group" class="tabbtn btn_11 btn_js" id="my_group_btn">我的開團<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_join" class="tabbtn btn_11 btn_js">我的參團<span></span></button>
+                                <button data-target="my_join" class="tabbtn btn_11 btn_js" id="my_jion_btn">我的參團<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_collect" class="tabbtn btn_11 btn_js">我的收藏<span></span></button>
+                                <button data-target="my_collect" class="tabbtn btn_11 btn_js" id="my_collect_btn">我的收藏<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_article" class="tabbtn btn_11 btn_js">我的文章<span></span></button>
+                                <button data-target="my_article" class="tabbtn btn_11 btn_js" id="my_article_btn">我的文章<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_friend" class="tabbtn btn_11 btn_js">我的好友<span></span></button>
+                                <button data-target="my_friend" class="tabbtn btn_11 btn_js" id="my_friend_btn">我的好友<span></span></button>
                             </li>
                         </ul>
                     </div>

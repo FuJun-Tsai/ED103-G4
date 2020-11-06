@@ -11,9 +11,7 @@ let member;
       //spanLogin的字改成登入
       //將頁面上的使用者資料清掉
       if($id('spanLogin').innerHTML == "登入"){
-        // $id('login_box').style.display = 'flex';
-        $id('login_box').setAttribute('display','flex');
-
+        $id('login_box').style.display = 'flex';
       }else{//登出
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
@@ -64,7 +62,7 @@ let member;
         if(xhr.status == 200){ //success
           member = JSON.parse(xhr.responseText);
           if(member.MEMBER_ID){
-            // $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+            $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
             $id('spanLogin').innerHTML = '登出';            
           }
         }else{ //error
