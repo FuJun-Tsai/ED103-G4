@@ -52,6 +52,42 @@
             </div>
         </div>
     </div>
+    <!-- 登入lightbox-->
+    <section class="section_res" id="login_box" style="display:none">
+        <div class="container_res">
+            <div class="user singinBx">
+                <div class="img_res">
+                    <img src="./image/2.png" alt="">
+                </div>
+                <div class="form_res">
+                    <form name="login">
+                        <h2>會員登入</h2>
+                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
+                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
+    
+                        <input type="button" name="" value="登入" id="btnLogin">
+                        <input type="button" name="" value="取消" id="btnLoginCancel">
+                        <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
+                    </form>
+                </div>
+            </div>
+            <div class="user singupBx">
+                <div class="form_res">
+                    <form action="signup.php" method="post">
+                        <h2>註冊</h2>
+                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
+                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
+                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
+                        <input type="submit" name="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </form>
+                </div>
+                <div class="img_res">
+                    <img src="./image/4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
     <header>
         <section>
             <div class="logo">
@@ -78,14 +114,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="member">
-                <div class="icon">
-                    <a href="./login.html">
-                        <img src="./image/icon.svg" alt="">
-                    </a>
-                </div>
-                <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
-            </div>
+            <!-- <div class="member" id="login">
+                <div class="icon" >
+                    <img src="./image/icon.svg" id="headshot_icon">
+                </div> -->
+                <!-- <span id="memName">&nbsp;</span> -->
+                <!-- <span id="spanLogin">登入</span>
+            </div> -->
             <div id="menu-bar">
                 <div id="menu" onclick="onClickMenu()">
                     <div id="bar1" class="bar"></div>
@@ -362,7 +397,6 @@
                                         
                                     </div>
                                     <div class="single_messaging">
-
                                     </div>
                                 </div>
                             </div>
@@ -397,7 +431,7 @@
                     <img src="http://fakeimg.pl/60x60" alt="">
                     <form id="send" action="singleRenderRP.php">
                         <textarea name="RES_MESSAGE_WORD" cols="30" rows="10"></textarea>
-                        <button class="btn_6 btn_js" name="test" value="5,1">送出
+                        <button class="btn_6 btn_js" name="test" value="${location.search.split('=')[1]},1">送出
                             <span></span>
                         </button>
                     </form>
@@ -418,7 +452,7 @@
                 }
 
                 $.ajax({
-                    url:`singleRenderRP${location.search}.php`,
+                    url:`singleRenderRP.php`,
                     type:'GET',
                     data:{
                         RES_ON:(location.search.split('=')[1]),
@@ -445,7 +479,7 @@
     </script>
 
     <script src="./js/singlerestaurant.js"></script>
-
+    <script src="js/login.js"></script>
 </body>
 
 
