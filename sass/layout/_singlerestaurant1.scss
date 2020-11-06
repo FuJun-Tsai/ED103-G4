@@ -89,8 +89,8 @@ section {
                 .single_restaurant {
                     @include lineGradient(50%,345deg,#F2AB39,transparent);
                     border-radius: 24px;
-                    margin-left: 15px;
-                    margin-right: 15px;
+                    margin-left: 0px;
+                    margin-right: 0px;
                     padding-top: 30px;
                     #imgs {
                         margin-bottom: 20px;
@@ -107,12 +107,6 @@ section {
                             #mainimg {
                                 display: inline-block;
                                 @include box(600px, 24px);
-                                @media (min-width: 991px) and (max-width: 1200px) {
-                                    margin-top: 60px;
-                                }
-                                @media (min-width:575px) and (max-width:768px) {
-                                    margin-top: 120px;
-                                }
                             }
                         }
                         .single_small {
@@ -159,8 +153,18 @@ section {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-evenly;
+                        .single_item{
+                            margin-top: 16px;
+                        }
+                        #rname{
+                            line-height: 36px !important;
+                            padding-left: 16px;
+                        }
                         #rint {
-                            line-height: 24px !important;
+                            line-height: 36px !important;
+                            padding-left: 16px;
+                            height: 180px;
+                            overflow: auto;
                         }
                         #week {
                             li {
@@ -281,11 +285,12 @@ section {
             transform: translate(-50%, -50%);
             h2 {
                 text-align: center;
-            }
-            h4{
+                margin-bottom: 8px;
             }
             select {
+                display: inline;
                 border: 1px solid black;
+                margin-bottom: 16px;
             }
             textarea {
                 width: 100%;
