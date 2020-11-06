@@ -58,25 +58,7 @@ $(document).ready(function(){
   $("#no_group .btn_3").mouseout(function(){
     $(".btn_3 a").css("color","#FFF");
   });
-  //會員專區修改
-  id = '';
-  // $(document).ready(function(){
-  //   $('.change').click(function(){
-  //     id = $(this).siblings('.content').attr('id');
-  //     let value = $.trim($(`#${id}`).text());
-  //     $(`#${id}`).replaceWith(`<input type="text" value="${value}" class="ok">`);
-  //     $('.ok').css({
-  //       "font-size":"16px",
-  //     });
-  //     $(this).text('確認');
-  //     $(this).on('click',function(){
-  //       let ok = $('.ok').val();
-  //       $(this).siblings('.ok').replaceWith(`<div class="content" id="${id}">${ok}</div>`);
-  //       $(this).text('修改');
-  //     });
-  //   });
-  // });
-  
+  //會員專區修改  
   $(document).ready(function(){
     var name = 0;
     psw = 0;
@@ -122,9 +104,7 @@ $(document).ready(function(){
             introduce=0;
           }
         break;
-
       }
-
     }
 
     function changethis(e,id){
@@ -154,18 +134,49 @@ $(document).ready(function(){
     $("div.tabbtn_1." + $(this).attr("data-target")).addClass("-on");
   });
   
-    //內頁籤切換
+  //內頁籤切換
   $("a.tab").on("click", function(e){
     e.preventDefault();
   
     $(this).closest("ul").find("a.tab").removeClass("-on");
     $(this).addClass("-on");
   
-    $("div.tab").removeClass("-on");
-    $("div.tab." + $(this).attr("data-target")).addClass("-on");
+    $(this).parent().parent().parent().siblings().children("div.tab").removeClass("-on");
+    $("div." + $(this).attr("data-target")).addClass("-on");
   });
 
-    //刪除收藏東西
+  //上下頁切換
+  //下一頁
+  let Next_page1 = document.getElementsByClassName('Next_page')[0];
+  let Next_page2 = document.getElementsByClassName('Next_page')[1];
+  let Previous_page1 = document.getElementsByClassName('Previous_page')[0];
+  let Previous_page2 = document.getElementsByClassName('Previous_page')[1];
+  let asd =1;
+  Next_page1.addEventListener('click',nextPageChange);
+  function nextPageChange(){
+      document.getElementById(`page${asd}`).classList.remove('-on');
+      document.getElementById(`page${asd+1}`).classList.add('-on');
+      asd++;
+  }
+
+
+  Previous_page1.addEventListener('click',PreviousPageChange);
+  function PreviousPageChange(){
+      document.getElementById(`page${asd}`).classList.remove('-on');
+      document.getElementById(`page${asd-1}`).classList.add('-on');
+      asd--;
+  }
+
+  //上一頁
+  $(".Previous_page").click(function(){
+    var num = $(this).parent().siblings().children().children('-on').index() - 1;
+    console.log(num);
+    page.removeClass("-on");
+    $(".tab_gruop_collection .page").eq(num).addClass("-on");
+  });
+
+
+  //刪除收藏東西
   $(".small-title img").on("click", function(){
     let smalltitle = $(this).closest(".small-title");
     $("div.overlay").addClass("-on");
@@ -182,5 +193,30 @@ $(document).ready(function(){
   $(".Next-page").click(function(){
       let id = $(".tab.-on .page").attr("id");
   });
-
 });
+
+//登入連線
+function getMemberInfo(){
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){ //success
+      member = JSON.parse(xhr.responseText);
+      if(member.MEMBER_ID){
+        $id('spanLogin').innerHTML = '登出';
+        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        $id('avatar_change').setAttribute("src",`image/member/${member.MEMBER_IMAGE}`);            
+        $id('user_name').innerHTML = `${member.MEMBER_NAME}`;
+        $id('name').innerHTML = `${member.MEMBER_NAME}`;
+        $id('mem_account').innerHTML = `${member.MEMBER_ID}`;
+        $id('mem_age').innerHTML = `${member.MEMBER_AGE}`;
+      }
+    }else{ //error
+      alert(xhr.status);
+    }
+  }
+
+  xhr.open("get", "./php/mem.php", true);
+  xhr.send(null);
+}
+
+window.addEventListener("load",getMemberInfo,false);

@@ -47,34 +47,43 @@ $(document).ready(function() {
             // clearInterval(aaa, 5000);
             // var move = setInterval(p1move, v);
             // clearInterval(move);
+            
             p1move();
-
-
         } else if (number == 2) {
             rollDice("back");
             console.log('1');
 
             p1move();
+         
+          
+          
 
         } else if (number == 3) {
             rollDice("right");
             console.log('4');
             p1move();
+         
+           
+            
 
         } else if (number == 4) {
             rollDice("left");
             console.log('3');
             p1move();
+           
 
         } else if (number == 5) {
             rollDice("top");
             console.log('2');
             p1move();
+           
 
         } else if (number == 6) {
             rollDice("bottom");
             console.log('5');
             p1move();
+          
+            
         }
 
         soundEffect();

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./css/allstyle.css">
     <link rel="stylesheet" type="text/css" href="./sass/vender/other/jquery.fullPage.css" />
     <!-- <link rel="stylesheet" type="text/css" href="./css/index.css" /> -->
-    <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
+    <link rel="stylesheet" href="./css/btn_hover.css">
     <!--按鈕的css -->
     <!-- <link rel="stylesheet" href="./css/background.css"> -->
     <title>首頁</title>
@@ -27,32 +27,16 @@
 		</script>
 	<![endif]-->
 
-    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script> -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script> -->
 
-
-
-
-
-
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/kineticjs/4.3.1/kinetic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.9.2/TweenMax.min.js"></script>
-    <script src="https://www.greensock.com/_js/jquery/jquery.ui.touch-punch.js"></script>
-
-
-
-
-    <!-- 換頻套件 -->
-    <!-- <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+    <!-- 換屏套件 -->
+    <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
     <script type="text/javascript" src="./js/jquery.slimscroll.min.js"></script>
-    <script type="text/javascript" src="./js/examples.js"></script> -->
+    <script type="text/javascript" src="./js/examples.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -92,8 +76,13 @@
                 });
             }
 
-            //fullPage.js initialization
-            if ($(window).height() >= 900) {
+            /* fullPage.js initialization */
+            // if ($(window).height() >= 900) {
+            //     initialization();
+            // }
+
+            // 這裡試試看!
+            if ($(window).height() >= 580) {
                 initialization();
             }
 
@@ -186,33 +175,36 @@
 
     <style>
         /* 螢幕高度小於等於 899，就限定 min-height */
-        
-        @media screen and (max-height: 899px) {
+        /* @media screen and (max-height: 899px) {
             .first_screen,
             .second_screen,
             .third_screen,
             .fourth_screen {
                 min-height: 900px;
             }
-        }
+        } */
+
+
+        /* 這裡!試試看 */
+        @media screen and (max-height: 579px) {
+            .first_screen,
+            .second_screen,
+            .third_screen,
+            .fourth_screen {
+                min-height: 580px;
+            }
+        } 
+
     </style>
+
+    
 </head>
 
 <body>
 
-
-    <!-- 背景泡泡 -->
-    <!-- <div id="bubbles">
-        <div class="bubble x1"></div>
-        <div class="bubble x2"></div>
-        <div class="bubble x3"></div>
-        <div class="bubble x4"></div>
-        <div class="bubble x5"></div>
-        <div class="bubble x6"></div>
-        <div class="bubble x7"></div>
-        <div class="bubble x8"></div>
-        <div class="bubble x9"></div>
-    </div> -->
+    <!-- facebook外掛點讚分享 -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v8.0" nonce="uOyEqSit"></script>
 
 
     <header class="chu_header">
@@ -470,6 +462,9 @@
                 <div class="useCellPhone"></div>
                 <div class="friends"></div>
                 <div class="video">
+
+                    <div class="fb-like" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
                     <video src="#"></video>
                     <button class="btn_2 btn_js">
                         點我進入遊戲
@@ -550,16 +545,22 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn_2 btn_js chu_button">
+                    <!-- <button class="btn_2 btn_js chu_button">
                         查看更多分享
                         <span></span>
-                    </button>
+                    </button> -->
 
                 </div>
                 <div class="fourth_screen_friends"></div>
 
+                <button class="btn_2 btn_js chu_button">
+                    查看更多分享
+                    <span></span>
+                </button>
+
             </section>
         </div>
+        
     </div>
 
     <!-- ***************************** -->
@@ -593,7 +594,7 @@
             location.reload();
         });
     </script>
-    <script src="js/btn_hover.js"></script>
+
     <!--按鈕js -->
 
     <!-- <script>
@@ -625,7 +626,25 @@
                 })
             
         </script> -->
+        
+        <script src="js/btn_hover.js"></script>
 
-</body>
+        <!--ajax-->
+        <script>
+    
+            $(document).ready(function() {
+                $.ajax({
+                    url: 'index.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    success(data) {
+                        console.log(data);
+                    }
+                });
+            });
+    
+        </script>
+
+    </body>
 
 </html>
