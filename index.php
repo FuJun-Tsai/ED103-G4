@@ -7,11 +7,30 @@ try{
             join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
             join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)           
             ;";
+
+
+  $sql1 = "select * from food_group F
+  join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
+  join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)           
+  ;";
+
+
+
   $data = $pdo->prepare($sql);
   $data-> execute();
 //   $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    // echo JSON_encode($result);
+//     print_r($data);
+
+
+
+$data1 = $pdo->prepare($sql1);
+$data1-> execute();
+//   $result = $data->fetchAll(PDO::FETCH_ASSOC);
 //     echo JSON_encode($result);
 //     print_r($data);
+
+
 
 if($data->rowCount()==0){
   echo '資料有誤';
