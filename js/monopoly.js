@@ -50,12 +50,12 @@ function game() {
                 } else {
                     purchase.style.visibility = "visible";
                 }
-            
+                // 买公用地产
                 if (place[position].state == 0) {
                     // let img11=document.querySelector()
                     var newImg1
                         // purchase.firstElementChild.innerText = "请问你要花费$" + place[position].value + "来购买" + place[position].name + "吗？";
-                    for (let i = 0; i < 5; i++) {
+                    for (let i = 0; i < 4; i++) {
                         let newImg1 = document.createElement("img");
                         newImg1.setAttribute("id", "no" + i);
                         newImg1.src = place[position].src_img;

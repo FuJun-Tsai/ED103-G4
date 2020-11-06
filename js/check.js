@@ -30,9 +30,6 @@
 
 
 function doFirst() {
-
-    
-    
     let a = $('#player1').attr('src', './image/den_image/white.jpg');
 
     let boxss = document.querySelectorAll('.box'); //list是陣列
@@ -49,7 +46,7 @@ function doFirst() {
             console.log(boxId);
 
             var newImg01
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 4; i++) {
                 let newImg01 = document.createElement("img");
                 newImg01.setAttribute("id", "no" + i);
                 newImg01.src = ccc.src;

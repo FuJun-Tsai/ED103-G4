@@ -280,6 +280,16 @@ section {
                         bottom: 0;
                         cursor: pointer;
                     }
+                    .time{
+                        position: absolute;
+                        top: 4px;
+                        right: 12px;
+                    }
+                    .name{
+                        position: absolute;
+                        top: 4px;
+                        right: 12px;
+                    }
                 }
             }
         }
