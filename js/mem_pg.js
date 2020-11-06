@@ -130,15 +130,10 @@ $(document).ready(function(){
     function changethis(e,id){
       e = parseInt(e);
       if(e==0){
-        console.log(id);
-        console.log(e);
         let value = $.trim($(`#${id}`).text());
         $(`#${id}`).siblings('.change').text('確認');
         $(`#${id}`).replaceWith(`<input type="text" class="content" id="${id}" value="${value}">`);
       }else{
-        console.log('here');
-        console.log(id);
-        console.log(e);
         let value = $.trim($(`#${id}`).val());
         $(`#${id}`).siblings('.change').text('修改');
         $(`#${id}`).replaceWith(`<div class="content" id="${id}">${value}</div>`);
@@ -159,66 +154,18 @@ $(document).ready(function(){
     $("div.tabbtn_1." + $(this).attr("data-target")).addClass("-on");
   });
   
-  //內頁籤切換
+    //內頁籤切換
   $("a.tab").on("click", function(e){
     e.preventDefault();
   
     $(this).closest("ul").find("a.tab").removeClass("-on");
     $(this).addClass("-on");
   
-    $(this).parent().parent().parent().siblings().children("div.tab").removeClass("-on");
-    $("div." + $(this).attr("data-target")).addClass("-on");
+    $("div.tab").removeClass("-on");
+    $("div.tab." + $(this).attr("data-target")).addClass("-on");
   });
 
-  //上下頁切換
-  //下一頁
-  let Next_page1 = document.getElementsByClassName('Next_page')[0];
-  let Next_page2 = document.getElementsByClassName('Next_page')[1];
-  let Previous_page1 = document.getElementsByClassName('Previous_page')[0];
-  let Previous_page2 = document.getElementsByClassName('Previous_page')[1];
-  let asd =1;
-  console.log(Next_page1);
-  Next_page1.addEventListener('click',nextPageChange);
-  function nextPageChange(){
-      document.getElementById(`page${asd}`).classList.remove('-on');
-      document.getElementById(`page${asd+1}`).classList.add('-on');
-      asd++;
-  }
-
-
-  Previous_page1.addEventListener('click',PreviousPageChange);
-  function PreviousPageChange(){
-      document.getElementById(`page${asd}`).classList.remove('-on');
-      document.getElementById(`page${asd-1}`).classList.add('-on');
-      asd--;
-  }
-
-  
-
-  // let page = $(".page");
-  
-  // page.hide();
-  // page.eq(0).show();
-  // let contentInext = 1;
-  // $(".Next_page").click(function(){
-  //   contentInext++;
-  //   var num = $(this).parent().siblings('tab_contents');
-  //   console.log(num);
-  //   console.log(page);
-  //   page.removeClass("-on");
-  //   $(".tab_gruop_collection .page").eq(num).addClass("-on");
-  // });
-
-  //上一頁
-  $(".Previous_page").click(function(){
-    var num = $(this).parent().siblings().children().children('-on').index() - 1;
-    console.log(num);
-    page.removeClass("-on");
-    $(".tab_gruop_collection .page").eq(num).addClass("-on");
-  });
-
-
-  //刪除收藏東西
+    //刪除收藏東西
   $(".small-title img").on("click", function(){
     let smalltitle = $(this).closest(".small-title");
     $("div.overlay").addClass("-on");
@@ -237,4 +184,3 @@ $(document).ready(function(){
   });
 
 });
-

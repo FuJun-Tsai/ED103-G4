@@ -267,31 +267,31 @@ function showCards(moodData){
 
     //愛心icon的click事件
     $(".heartIcon").on("click",function(e){
-        e.target.src = "./image/heart-shape-silhouette.png"
-        // let thisMoodNum = $(this).parent().parent().children().first().val();
-        // let thisHeartCount = $(this).next().text();
+        e.target.src = "./img/index/moodLikeIcon.png"
+        let thisMoodNum = $(this).parent().parent().children().first().val();
+        let thisHeartCount = $(this).next().text();
+        $(this).next().text(parseInt(thisHeartCount) + 1);
+        let heartFormData = new FormData();
+        heartFormData.append('moodNum',thisMoodNum);
+        heartFormData.append('heartCount',thisHeartCount);
 
-        // $(this).next().text(parseInt(thisHeartCount) + 1);
 
-        // let heartFormData = new FormData();
-        // heartFormData.append('moodNum',thisMoodNum);
-        // heartFormData.append('heartCount',thisHeartCount);
-
-        // let xhr = new XMLHttpRequest();
-        // xhr.onload = function () {
-        //     if (xhr.status == 200) {
-        //         //即時更新網頁上的愛心數
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                //即時更新網頁上的愛心數
                 
-        //     } else {
-        //         alert(xhr.status + "失敗");
-        //     }
-        // }
+            } else {
+                alert(xhr.status + "失敗");
+            }
+        }
 
-        // xhr.open("Post", "./php/addMoodHeart.php", true);
-        // xhr.send(heartFormData);
+        xhr.open("Post", "./php/addMoodHeart.php", true);
+        xhr.send(heartFormData);
 
-        // $(this).off("click");
+        $(this).off("click");
     })
+   
 }
 
 
@@ -439,7 +439,7 @@ window.addEventListener('load', function () {
             // }
             // xhr.open("Post", true);
             // xhr.send(newMoodForm);
-            let quacard = $('.col-md-4').length;
+            let quacard = $('.card').length;
             // console.log(quacard);
             quacard+=1;
 
@@ -453,89 +453,50 @@ window.addEventListener('load', function () {
             $('#cardshare').append(`
             <div class="col-md-4 add" id="C${quacard}">
                 <div class="content">
-                    <!-- ------卡片表頭------- -->
-                    <div class="ord">
-                        <h4>#揪團分享</h4>
-                        <h3>超推嗜燒肉!</h3>
-                    </div>
+                <!-- ------卡片表頭------- -->
                     <div class="head">
-                        <!-- ------用戶頭像圖片------- -->
+                    <!-- ------用戶頭像圖片------- -->
                         <div class="user_img_block">
                             <img src="image/user.png">
                         </div>
-                        <!-- ------用戶名稱------- -->
+                    <!-- ------用戶名稱------- -->
                         <div class="user_name">
                             <h5>孫小美</h5>
                         </div>
-                        <!-- ------貼文日期------- -->
+                    <!-- ------貼文日期------- -->
                         <div class="time">
-                        <h5>${dateword}</h5>
+                            <h5>${dateword}</h5>
                         </div>
                     </div>
                     <!-- ------卡片分享圖片------- -->
                     <div class="btn_modal">
-                        <img src="./image/${moodPic.name}">
+                        <a href="./image/${moodPic.name}">
+                            <img src="./image/${moodPic.name}">
+                        </a>
                     </div>
+
                     <!-- ------卡片表尾------- -->
                     <div class="foot">
-                        <!-- ------收藏ICON------- -->
+                    <!-- ------收藏ICON------- -->
                         <div class="collect_block">
-                            <div class="heartIcon">
-                                <img src="image/heart-shape-outline.png" class="fillicon">
-                            </div>
-                            <!-- ------收藏數------- -->
+                            <img src="image/heart-shape-silhouette.png">
+                    <!-- ------收藏數------- -->
                             <div class="collect_sum">
                                 <h5>999</h5>
                             </div>
                         </div>
-                        <!-- ------回文ICON------- -->
+                    <!-- ------回文ICON------- -->
                         <div class="msg_block">
                             <img src="image/comment-alt-solid.svg">
-                            <!-- ------回文數------- -->
+                    <!-- ------回文數------- -->
                             <div class="msg_sum">
                                 <h5>999</h5>
                             </div>
                         </div>
                     </div>
-                    <div class="more">more</div>
                 </div>
+            </div>
             `);
-
-            $(".btn_modal").on("click", function() {
-                $(".overlay").addClass("-on");
-                let id = $(this).closest('.col-md-4').attr('id');
-                let userimg = $(`#${id} .user_img_block img`).attr('src');
-                let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
-                let largeimg = $(`#${id} .btn_modal img`).attr('src');
-                let condition = $(`#${id} .ord h4`).text(); 
-                let title = $(`#${id} .ord h3`).text(); 
-                console.log(condition);
-                console.log(title);
-
-                $('.overlay .img_block img').attr('src', largeimg);
-                $('.overlay .user_img_block img').attr('src', userimg);
-                $('.overlay .user_name h5').text(username);
-                $('.overlay .msg-left h4').text(condition);
-                $('.overlay .msg-left h2').text(title);
-
-            });
-
-            $('.more').on('click',function(){
-                $(".overlay").addClass("-on");
-                let id = $(this).closest('.col-md-4').attr('id');
-                let userimg = $(`#${id} .user_img_block img`).attr('src');
-                let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
-                let largeimg = $(`#${id} .btn_modal img`).attr('src');
-                let condition = $(`#${id} .ord h4`).text(); 
-                let title = $(`#${id} .ord h3`).text(); 
-
-                $('.overlay .img_block img').attr('src', largeimg);
-                $('.overlay .user_img_block img').attr('src', userimg);
-                $('.overlay .user_name h5').text(username);
-                $('.overlay .msg-left h4').text(condition);
-                $('.overlay .msg-left h2').text(title);
-                
-            }); 
         }
     $('#newMoodLightBox').css({'display':'none',});
     $('#viewImg').attr('src','');

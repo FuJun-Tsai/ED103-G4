@@ -4,22 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./css/head_footer_style.css"> -->
+    <!-- <link rel="stylesheet" href="./css/background.css"> -->
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script> -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
 
     <script src="./js/header_fixed.js"></script>
     <title>會員專區</title>
+    <link rel="stylesheet" href="./css/allstyle.css">
     <!--他的css -->
     <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
     <!--按鈕的css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!--冰山icon的css -->
-
     <script src="./js/mem_pg.js"></script>
     <!--他的js -->
     <script src="js/btn_hover.js"></script>
     <!--按鈕js -->
-    <link rel="stylesheet" href="./css/allstyle.css">
 </head>
 
 <body>
@@ -107,12 +110,12 @@
 
     <!-- ***************************** -->
 
-    <section class="memberpage container">
+    <section class="memberpage">
         <div class="myallpage" id="app">
             <div class="member_side">
                 <div class="avatar">
                     <div class="pic_change">
-                        <img id="avatar_change" src="image/member/headshot01.jpg">
+                        <img id="avatar_change" src="image/member/haachama_chama.jpg">
                         <div class="upload">
                             <p id="namefile">只收圖片檔喔! (jpg,jpeg,bmp,png)</p>
                         </div>
@@ -132,7 +135,7 @@
                     </h5>
                 </div>
                 <div class="mypa">
-                    <div class="mylist">
+                    <div class="mylist justify-content-center">
                         <ul>
                             <li>
                                 <button data-target="my_main" class="tabbtn -on btn_11 btn_js">我的資訊<span></span></button>
@@ -141,7 +144,7 @@
                                 <button data-target="my_group" class="tabbtn btn_11 btn_js">我的開團<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_join" class="tabbtn btn_11 btn_js">我的參團<span></span></button>
+                                <button data-target="my_jion" class="tabbtn btn_11 btn_js">我的參團<span></span></button>
                             </li>
                             <li>
                                 <button data-target="my_collect" class="tabbtn btn_11 btn_js">我的收藏<span></span></button>
@@ -250,294 +253,83 @@
                         </button>
                     </div>
                     <div class="small_block have_group" id="have_group">
-                        <div class="jay_box2">
-                            <div class="box2_row_left">
-                                <div class="main_img">
-                                    <img src="./image/member/food1.jpg" alt="">
+                        <div class="den_box2">
+                            <div class="leave_btn">
+                                <div class="line1"></div>
+                                <div class="line2"></div>
+                            </div>
+                            <div class="den_box2_row">
+                                <div class="box2_row_left">
+                                    <div class="main_img">
+                                        <img src="./image/food1.jpg" alt="">
+                                    </div>
+                                    <img src="./image/food2.jpg" alt="">
+                                    <img src="./image/food3.jpg" alt="">
+                                    <img src="./image/food6.jpg" alt="">
+                                    <img src="./image/food4.jpg" alt="">
+                                    <!-- <div class="box_button">
+                                        <button>確認</button>
+                                    </div> -->
+                                    <!-- <div class="box_button_close">
+                                        <button>取消</button>
+                                    </div> -->
                                 </div>
-                                <div class="sm_pic">
-                                    <img src="./image/member/food2.jpg">
-                                    <img src="./image/member/food3.jpg">
-                                    <img src="./image/member/food6.jpg">
-                                    <img src="./image/member/food4.jpg">
+                                <div class="box2_row_right">
+                                    <div>
+                                        <h3>團號:</h3>
+                                        <h3>4758691</h3>
+                                        <br>
+                                        <h3>團名:</h3>
+                                        <h3></h3>
+                                        <br>
+                                        <h3>店名:</h3>
+                                        <h3></h3>
+                                        <br>
+                                        <h6>日式</h6>
+                                        <h6>火鍋</h6>
+                                        <h6>燒烤</h6>
+                                    </div>
+                                    <div>
+                                        <h3>開團團主:</h3>
+                                        <h3>XXXXX</h3>
+                                        <br>
+                                        <h3>目前人數:</h3>
+                                        <h3></h3>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <br>
+                                        <h3>用餐時間:</h3>
+                                        <h3></h3>
+                                        <br>
+                                    </div>
+                                    <div>
+                                        <h3>店家資訊</h3>
+                                        <br>
+                                        <h3>地址:</h3>
+                                        <h3>中壢中央路1號</h3>
+                                        <a href="">
+                                            <img src="" alt="">
+                                        </a>
+                                        <br>
+                                        <h3>電話:</h3>
+                                        <h3>03-9886578</h3>
+                                        <br>
+                                        <h3>營業時間:</h3>
+                                        <h3>XXXXXX</h3>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="box2_row_right">
-                                <div>
-                                    <h5>團號:</h5>
-                                    <h5>4758691</h5>
-                                    <br>
-                                    <h5>團名:</h5>
-                                    <h5></h5>
-                                    <br>
-                                    <h5>店名:</h5>
-                                    <h5></h5>
-                                    <br>
-                                    <h6>日式</h6>
-                                    <h6>火鍋</h6>
-                                    <h6>燒烤</h6>
-                                </div>
-                                <div>
-                                    <h5>開團團主:</h5>
-                                    <h5>XXXXX</h5>
-                                    <br>
-                                    <h5>目前人數:</h5>
-                                    <h5></h5>
-                                    <h5></h5>
-                                    <h5></h5>
-                                    <h5></h5>
-                                    <h5></h5>
-                                    <br>
-                                    <h5>用餐時間:</h5>
-                                    <h5></h5>
-                                    <br>
-                                </div>
-                                <div>
-                                    <h5>店家資訊</h5>
-                                    <br>
-                                    <h5>地址:</h5>
-                                    <h5>中壢中央路1號</h5>
-                                    <a href="">
-                                        <img src="" alt="">
-                                    </a>
-                                    <br>
-                                    <h5>電話:</h5>
-                                    <h5>03-9886578</h5>
-                                    <br>
-                                    <h5>營業時間:</h5>
-                                    <h5>XXXXXX</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="add_stranger">
-                            <h3 class="add_stranger_title">審核區</h3>
-                            <ul class="add_stranger_block">
-                                <li class="stranger_name_list">
-                                    <div class="stranger_name">
-                                        <img src="./image/member/stiker01.jpg">
-                                        <h5 id="stranger">
-                                            瑞典小女孩
-                                        </h5>
-                                    </div>
-                                    <div class="button_box">
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-check">確認</i>
-                                            <span></span>
-                                        </button>
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-minus">刪除</i>
-                                            <span></span>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="stranger_name_list">
-                                    <div class="stranger_name">
-                                        <img src="./image/member/stiker01.jpg">
-                                        <h5 id="stranger">
-                                            瑞典小女孩
-                                        </h5>
-                                    </div>
-                                    <div class="button_box">
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-check">確認</i>
-                                            <span></span>
-                                        </button>
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-minus">刪除</i>
-                                            <span></span>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="stranger_name_list">
-                                    <div class="stranger_name">
-                                        <img src="./image/member/stiker01.jpg">
-                                        <h5 id="stranger">
-                                            瑞典小女孩
-                                        </h5>
-                                    </div>
-                                    <div class="button_box">
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-check">確認</i>
-                                            <span></span>
-                                        </button>
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-minus">刪除</i>
-                                            <span></span>
-                                        </button>
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="my_join tabbtn_1 ">
+            <div class="my_jion tabbtn_1">
                 <div class="block">
                     <h3 class="title">
                         我的參團
                     </h3>
-                    <div class="small_block">
-                        <div class="tab_list_block">
-                            <ul class="tab_list">
-                                <li>
-                                    <a href="#" data-target="tab_ok" class="tab -on btn_5 btn_js">
-                                    確認參團<span></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-target="tab_notok" class="tab btn_5 btn_js">
-                                    被邀請待回復的團<span></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tab_contents">
-                            <div class="tab tab_ok -on">
-                                <div class="ice_eatGroup" id="sure1">
-                                    <span>1</span>
-                                    <img src="./image/member/people.jpg" alt="">
-                                    <div class="ice_eatGroup_content">
-                                        <h5>團名:</h5>
-                                        <h5>不吐不歸</h5>
-                                        <br>
-                                        <h5>店名:</h5>
-                                        <h5>寶咖咖</h5>
-                                        <br>
-                                        <h5>用餐日期:</h5>
-                                        <h5>9/28</h5>
-                                        <br>
-                                        <h5>用餐時間:</h5>
-                                        <h5>18:00</h5>
-                                    </div>
-                                    <div class="ice_eatGroup_button">
-                                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
-                                    </div>
-                                </div>
-                                <div class="ice_eatGroup" id="sure2">
-                                    <span>2</span>
-                                    <img src="./image/member/people1.jpg" alt="">
-                                    <div class="ice_eatGroup_content">
-                                        <h5>團名:</h5>
-                                        <h5>不吐不歸</h5>
-                                        <br>
-                                        <h5>店名:</h5>
-                                        <h5>寶咖咖</h5>
-                                        <br>
-                                        <h5>用餐日期:</h5>
-                                        <h5>9/28</h5>
-                                        <br>
-                                        <h5>用餐時間:</h5>
-                                        <h5>18:00</h5>
-                                    </div>
-                                    <div class="ice_eatGroup_button">
-                                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
-                                    </div>
-                                </div>
-                                <div class="ice_eatGroup" id="sure3">
-                                    <span>3</span>
-                                    <img src="./image/member/people.jpg" alt="">
-                                    <div class="ice_eatGroup_content">
-                                        <h5>團名:</h5>
-                                        <h5>不吐不歸</h5>
-                                        <br>
-                                        <h5>店名:</h5>
-                                        <h5>寶咖咖</h5>
-                                        <br>
-                                        <h5>用餐日期:</h5>
-                                        <h5>9/28</h5>
-                                        <br>
-                                        <h5>用餐時間:</h5>
-                                        <h5>18:00</h5>
-                                    </div>
-                                    <div class="ice_eatGroup_button">
-                                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab tab_notok">
-                                <div class="ice_eatGroup" id="not_sure1">
-                                    <span>4</span>
-                                    <img src="./image/member/people1.jpg" alt="">
-                                    <div class="ice_eatGroup_content">
-                                        <h5>團名:</h5>
-                                        <h5>不吐不歸</h5>
-                                        <br>
-                                        <h5>店名:</h5>
-                                        <h5>寶咖咖</h5>
-                                        <br>
-                                        <h5>用餐日期:</h5>
-                                        <h5>9/28</h5>
-                                        <br>
-                                        <h5>用餐時間:</h5>
-                                        <h5>18:00</h5>
-                                    </div>
-                                    <div class="ice_eatGroup_button">
-                                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
-                                    </div>
-                                </div>
-                                <div class="ice_eatGroup" id="not_sure2">
-                                    <span>5</span>
-                                    <img src="./image/member/people1.jpg" alt="">
-                                    <div class="ice_eatGroup_content">
-                                        <h5>團名:</h5>
-                                        <h5>不吐不歸</h5>
-                                        <br>
-                                        <h5>店名:</h5>
-                                        <h5>寶咖咖</h5>
-                                        <br>
-                                        <h5>用餐日期:</h5>
-                                        <h5>9/28</h5>
-                                        <br>
-                                        <h5>用餐時間:</h5>
-                                        <h5>18:00</h5>
-                                    </div>
-                                    <div class="ice_eatGroup_button">
-                                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
-                                    </div>
-                                </div>
-                                <div class="ice_eatGroup" id="not_sure3">
-                                    <span>6</span>
-                                    <img src="./image/member/people.jpg" alt="">
-                                    <div class="ice_eatGroup_content">
-                                        <h5>團名:</h5>
-                                        <h5>不吐不歸</h5>
-                                        <br>
-                                        <h5>店名:</h5>
-                                        <h5>寶咖咖</h5>
-                                        <br>
-                                        <h5>用餐日期:</h5>
-                                        <h5>9/28</h5>
-                                        <br>
-                                        <h5>用餐時間:</h5>
-                                        <h5>18:00</h5>
-                                    </div>
-                                    <div class="ice_eatGroup_button">
-                                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
-                                    </div>
-                                </div>
-                                <div class="ice_eatGroup" id="not_sure4">
-                                    <span>7</span>
-                                    <img src="./image/member/people1.jpg" alt="">
-                                    <div class="ice_eatGroup_content">
-                                        <h5>團名:</h5>
-                                        <h5>不吐不歸</h5>
-                                        <br>
-                                        <h5>店名:</h5>
-                                        <h5>寶咖咖</h5>
-                                        <br>
-                                        <h5>用餐日期:</h5>
-                                        <h5>9/28</h5>
-                                        <br>
-                                        <h5>用餐時間:</h5>
-                                        <h5>18:00</h5>
-                                    </div>
-                                    <div class="ice_eatGroup_button">
-                                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="my_collect tabbtn_1">
@@ -575,172 +367,172 @@
                         <div class="tab_contents">
                             <div class="tab tab_gruop_collection -on">
                                 <div id="page1" class="page -on">
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 樹太郎咖哩吃起來
+                                            <img id="ck" src="./image/Icon awesome-trash-alt@2x.png"> 樹太郎咖哩吃起來
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/樹太郎.jpg">
+                                            <img src="./image/樹太郎.jpg">
                                         </div>
                                         <h6 class="author">團主:亡仁斧</h6>
                                         <h6 class="date">開團日:10/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 今晚我想來點..鍋物
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 今晚我想來點..鍋物
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/福叁鍋物.jpg">
+                                            <img src="./image/福叁鍋物.jpg">
                                         </div>
                                         <h6 class="author">團主:王大明</h6>
                                         <h6 class="date">開團日:10/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 晚餐缺個伴，需要你來伴
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 晚餐缺個伴，需要你來伴
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/大鬍子米干.jpg">
+                                            <img src="./image/大鬍子米干.jpg">
                                         </div>
                                         <h6 class="author">團主:陸小曼</h6>
                                         <h6 class="date">開團日:10/09</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 中壢最好吃日本料理，缺你一個
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 中壢最好吃日本料理，缺你一個
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/豚勝皆川.jpg">
+                                            <img src="./image/豚勝皆川.jpg">
                                         </div>
                                         <h6 class="author">團主:金城武</h6>
                                         <h6 class="date">開團日:10/08</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 祖傳老店，羊肉讚讚
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 祖傳老店，羊肉讚讚
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/梅亭.jpg">
+                                            <img src="./image/梅亭.jpg">
                                         </div>
                                         <h6 class="author">團主:翁茲曼</h6>
                                         <h6 class="date">開團日:10/08</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 來吃早餐吧
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 來吃早餐吧
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/文化早點.jpg">
+                                            <img src="./image/文化早點.jpg">
                                         </div>
                                         <h6 class="author">團主:周杰倫</h6>
                                         <h6 class="date">開團日:10/08</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 有點餓，吃個小吃
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 有點餓，吃個小吃
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/林記麵食館.jpg">
+                                            <img src="./image/林記麵食館.jpg">
                                         </div>
                                         <h6 class="author">團主:言承旭</h6>
                                         <h6 class="date">開團日:10/08</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 剛下班，來吃飯聊天吧
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 剛下班，來吃飯聊天吧
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
+                                            <img src="./image/老巷小館.jpg">
                                         </div>
                                         <h6 class="author">團主:林志玲</h6>
                                         <h6 class="date">開團日:10/07</h6>
                                     </div>
                                 </div>
                                 <div id="page2" class="page">
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/樹太郎.jpg">
+                                            <img src="./image/樹太郎.jpg">
                                         </div>
                                         <h6 class="author">團主:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/樹太郎.jpg">
+                                            <img src="./image/樹太郎.jpg">
                                         </div>
                                         <h6 class="author">團主:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/樹太郎.jpg">
+                                            <img src="./image/樹太郎.jpg">
                                         </div>
                                         <h6 class="author">團主:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/樹太郎.jpg">
+                                            <img src="./image/樹太郎.jpg">
                                         </div>
                                         <h6 class="author">團主:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/樹太郎.jpg">
+                                            <img src="./image/樹太郎.jpg">
                                         </div>
                                         <h6 class="author">團主:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/樹太郎.jpg">
+                                            <img src="./image/樹太郎.jpg">
                                         </div>
                                         <h6 class="author">團主:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/樹太郎.jpg">
+                                            <img src="./image/樹太郎.jpg">
                                         </div>
                                         <h6 class="author">團主:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/樹太郎.jpg">
+                                            <img src="./image/樹太郎.jpg">
                                         </div>
                                         <h6 class="author">團主:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
@@ -799,264 +591,173 @@
                         </div>
                         <div class="tab_contents">
                             <div class="tab tab-date -on">
-                                <div id="page_1" class="page -on">
-                                    <div class="tab_box">
+                                <div id="page1" class="page -on">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            中壢美食大富均，樹太郎的反擊
-                                            <i class="fas fa-trash"></i> 
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 中壢美食大富均，樹太郎的反擊
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/樹太郎.jpg">
+                                            <img src="./image/樹太郎.jpg">
                                         </div>
                                         <h6 class="author">作者:亡仁斧</h6>
                                         <h6 class="date">開團日:10/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 福叁鍋物，那些平價而高檔的食材
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 福叁鍋物，那些平價而高檔的食材
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/福叁鍋物.jpg">
+                                            <img src="./image/福叁鍋物.jpg">
                                         </div>
                                         <h6 class="author">作者:王大明</h6>
                                         <h6 class="date">開團日:10/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 米干，忠貞市場最後希望
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 米干，忠貞市場最後希望
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/大鬍子米干.jpg">
+                                            <img src="./image/大鬍子米干.jpg">
                                         </div>
                                         <h6 class="author">作者:陸小曼</h6>
                                         <h6 class="date">開團日:10/09</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 豚勝皆川，好吃評價CP高
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 豚勝皆川，好吃評價CP高
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/豚勝皆川.jpg">
+                                            <img src="./image/豚勝皆川.jpg">
                                         </div>
                                         <h6 class="author">作者:金城武</h6>
                                         <h6 class="date">開團日:10/08</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 梅亭雞肉飯，簡單平價的好味道
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 梅亭雞肉飯，簡單平價的好味道
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/梅亭.jpg">
+                                            <img src="./image/梅亭.jpg">
                                         </div>
                                         <h6 class="author">作者:翁茲曼</h6>
                                         <h6 class="date">開團日:10/06</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 不吃早餐是件很嘻哈的事情
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 不吃早餐是件很嘻哈的事情
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/文化早點.jpg">
+                                            <img src="./image/文化早點.jpg">
                                         </div>
                                         <h6 class="author">作者:周杰倫</h6>
                                         <h6 class="date">開團日:10/04</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 熱門排隊美食名店，餐點味道佳
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 熱門排隊美食名店，餐點味道佳
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/林記麵食館.jpg">
+                                            <img src="./image/林記麵食館.jpg">
                                         </div>
                                         <h6 class="author">作者:言承旭</h6>
                                         <h6 class="date">開團日:/10/04</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
-                                            <i class="fas fa-trash"></i> 客家小吃老巷小館~瞎仔巷50年老店 ...
+                                            <img src="./image/Icon awesome-trash-alt@2x.png"> 客家小吃老巷小館~瞎仔巷50年老店 ...
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
+                                            <img src="./image/老巷小館.jpg">
                                         </div>
                                         <h6 class="author">作者:林志玲</h6>
                                         <h6 class="date">開團日:/10/03</h6>
                                     </div>
                                 </div>
-                                <div id="page_2" class="page">
-                                    <div class="tab_box">
+                                <div id="page2" class="page">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
+                                            <img src="./image/老巷小館.jpg">
                                         </div>
                                         <h6 class="author">作者:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
+                                            <img src="./image/老巷小館.jpg">
                                         </div>
                                         <h6 class="author">作者:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
+                                            <img src="./image/老巷小館.jpg">
                                         </div>
                                         <h6 class="author">作者:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
+                                            <img src="./image/老巷小館.jpg">
                                         </div>
                                         <h6 class="author">作者:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
+                                            <img src="./image/老巷小館.jpg">
                                         </div>
                                         <h6 class="author">作者:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
+                                            <img src="./image/老巷小館.jpg">
                                         </div>
                                         <h6 class="author">作者:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
+                                            <img src="./image/老巷小館.jpg">
                                         </div>
                                         <h6 class="author">作者:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
                                     </div>
-                                    <div class="tab_box">
+                                    <div class="box">
                                         <h5 class="small-title">
                                             舊文章標題
-                                            <i class="fas fa-trash"></i>
+                                            <img src="./image/Icon awesome-trash-alt@2x.png">
                                         </h5>
                                         <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
-                                        </div>
-                                        <h6 class="author">作者:王小明</h6>
-                                        <h6 class="date">開團日:/09/10</h6>
-                                    </div>
-                                </div>
-                                <div id="page_3" class="page">
-                                    <div class="tab_box">
-                                        <h5 class="small-title">
-                                            舊文章標題
-                                            <i class="fas fa-trash"></i>
-                                        </h5>
-                                        <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
-                                        </div>
-                                        <h6 class="author">作者:王小明</h6>
-                                        <h6 class="date">開團日:/09/10</h6>
-                                    </div>
-                                    <div class="tab_box">
-                                        <h5 class="small-title">
-                                            舊文章標題
-                                            <i class="fas fa-trash"></i>
-                                        </h5>
-                                        <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
-                                        </div>
-                                        <h6 class="author">作者:王小明</h6>
-                                        <h6 class="date">開團日:/09/10</h6>
-                                    </div>
-                                    <div class="tab_box">
-                                        <h5 class="small-title">
-                                            舊文章標題
-                                            <i class="fas fa-trash"></i>
-                                        </h5>
-                                        <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
-                                        </div>
-                                        <h6 class="author">作者:王小明</h6>
-                                        <h6 class="date">開團日:/09/10</h6>
-                                    </div>
-                                    <div class="tab_box">
-                                        <h5 class="small-title">
-                                            舊文章標題
-                                            <i class="fas fa-trash"></i>
-                                        </h5>
-                                        <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
-                                        </div>
-                                        <h6 class="author">作者:王小明</h6>
-                                        <h6 class="date">開團日:/09/10</h6>
-                                    </div>
-                                    <div class="tab_box">
-                                        <h5 class="small-title">
-                                            舊文章標題
-                                            <i class="fas fa-trash"></i>
-                                        </h5>
-                                        <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
-                                        </div>
-                                        <h6 class="author">作者:王小明</h6>
-                                        <h6 class="date">開團日:/09/10</h6>
-                                    </div>
-                                    <div class="tab_box">
-                                        <h5 class="small-title">
-                                            舊文章標題
-                                            <i class="fas fa-trash"></i>
-                                        </h5>
-                                        <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
-                                        </div>
-                                        <h6 class="author">作者:王小明</h6>
-                                        <h6 class="date">開團日:/09/10</h6>
-                                    </div>
-                                    <div class="tab_box">
-                                        <h5 class="small-title">
-                                            舊文章標題
-                                            <i class="fas fa-trash"></i>
-                                        </h5>
-                                        <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
-                                        </div>
-                                        <h6 class="author">作者:王小明</h6>
-                                        <h6 class="date">開團日:/09/10</h6>
-                                    </div>
-                                    <div class="tab_box">
-                                        <h5 class="small-title">
-                                            舊文章標題
-                                            <i class="fas fa-trash"></i>
-                                        </h5>
-                                        <div class="pic">
-                                            <img src="./image/member/老巷小館.jpg">
+                                            <img src="./image/老巷小館.jpg">
                                         </div>
                                         <h6 class="author">作者:王小明</h6>
                                         <h6 class="date">開團日:/09/10</h6>
@@ -1087,8 +788,7 @@
                         我的好友
                     </h3>
                     <div class="fd_search">
-                        <input type="text" placeholder="請輸入好友名稱">
-                        <input type="submit" value="搜尋">
+                        <input type="text"><input type="submit" value="搜尋">
                     </div>
 
                     <div class="fd_list">
@@ -1096,76 +796,76 @@
                             <li>
                                 <div class="fd_name">
                                     <div>
-                                        <img src="./image/member/people.jpg" alt="">
+                                        <img src="./image/大鬍子米干.jpg">
                                     </div>
                                     <h4>
                                         中壢大富均
                                     </h4>
                                 </div>
-                                <div class="ice_btn_box col-md-6">
-                                    <button class="go_h btn_5 btn_js"><i class="fas fa-home" aria-hidden="true">小屋</i><span></span></button>
-                                    <button class="invite btn_5 btn_js"><i class="fa fa-user-plus" aria-hidden="true">邀團</i><span></span></button>
-                                    <button class="de_fd btn_5 btn_js"><i class="fas fa-minus-circle" aria-hidden="true">刪除</i><span></span></button>
+                                <div class="button_box">
+                                    <button class="go_h"><i class="fa fa-home" aria-hidden="true">小屋</i></button>
+                                    <button class="invite"><i class="fa fa-user-plus" aria-hidden="true"></i>邀團</button>
+                                    <button class="de_fd"><i class="fa fa-minus-circle" aria-hidden="true"></i>刪除</button>
                                 </div>
                             </li>
                             <li>
                                 <div class="fd_name">
                                     <div>
-                                        <img src="./image/member/stiker01.jpg">
+                                        <img src="./image/大鬍子米干.jpg">
                                     </div>
                                     <h4>
                                         中壢大富均
                                     </h4>
                                 </div>
-                                <div class="ice_btn_box">
-                                    <button class="go_h btn_5 btn_js"><i class="fas fa-home" aria-hidden="true">小屋</i><span></span></button>
-                                    <button class="invite btn_5 btn_js"><i class="fa fa-user-plus" aria-hidden="true">邀團</i><span></span></button>
-                                    <button class="de_fd btn_5 btn_js"><i class="fas fa-minus-circle" aria-hidden="true">刪除</i><span></span></button>
+                                <div class="button_box">
+                                    <button class="go_h"><i class="fa fa-home" aria-hidden="true">小屋</i></button>
+                                    <button class="invite"><i class="fa fa-user-plus" aria-hidden="true"></i>邀團</button>
+                                    <button class="de_fd"><i class="fa fa-minus-circle" aria-hidden="true"></i>刪除</button>
                                 </div>
                             </li>
                             <li>
                                 <div class="fd_name">
                                     <div>
-                                        <img src="./image/member/people.jpg" alt="">
+                                        <img src="./image/大鬍子米干.jpg">
                                     </div>
                                     <h4>
                                         中壢大富均
                                     </h4>
                                 </div>
-                                <div class="ice_btn_box">
-                                    <button class="go_h btn_5 btn_js"><i class="fas fa-home" aria-hidden="true">小屋</i><span></span></button>
-                                    <button class="invite btn_5 btn_js"><i class="fa fa-user-plus" aria-hidden="true">邀團</i><span></span></button>
-                                    <button class="de_fd btn_5 btn_js"><i class="fas fa-minus-circle" aria-hidden="true">刪除</i><span></span></button>
+                                <div class="button_box">
+                                    <button class="go_h"><i class="fa fa-home" aria-hidden="true">小屋</i></button>
+                                    <button class="invite"><i class="fa fa-user-plus" aria-hidden="true"></i>邀團</button>
+                                    <button class="de_fd"><i class="fa fa-minus-circle" aria-hidden="true"></i>刪除</button>
                                 </div>
                             </li>
                             <li>
                                 <div class="fd_name">
                                     <div>
-                                        <img src="./image/11.jpg">
+                                        <img src="./image/大鬍子米干.jpg">
                                     </div>
                                     <h4>
                                         中壢大富均
                                     </h4>
                                 </div>
-                                <div class="ice_btn_box">
-                                    <button class="go_h btn_5 btn_js"><i class="fas fa-home" aria-hidden="true">小屋</i><span></span></button>
-                                    <button class="invite btn_5 btn_js"><i class="fa fa-user-plus" aria-hidden="true">邀團</i><span></span></button>
-                                    <button class="de_fd btn_5 btn_js"><i class="fas fa-minus-circle" aria-hidden="true">刪除</i><span></span></button>
+                                <div class="button_box">
+                                    <button class="go_h"><i class="fa fa-home" aria-hidden="true">小屋</i></button>
+                                    <button class="invite"><i class="fa fa-user-plus" aria-hidden="true"></i>邀團</button>
+                                    <button class="de_fd"><i class="fa fa-minus-circle" aria-hidden="true"></i>刪除</button>
                                 </div>
                             </li>
                             <li>
                                 <div class="fd_name">
                                     <div>
-                                        <img src="./image/18.jpg">
+                                        <img src="./image/大鬍子米干.jpg">
                                     </div>
                                     <h4>
                                         中壢大富均
                                     </h4>
                                 </div>
-                                <div class="ice_btn_box">
-                                    <button class="go_h btn_5 btn_js"><i class="fas fa-home" aria-hidden="true">小屋</i><span></span></button>
-                                    <button class="invite btn_5 btn_js"><i class="fa fa-user-plus" aria-hidden="true">邀團</i><span></span></button>
-                                    <button class="de_fd btn_5 btn_js"><i class="fas fa-minus-circle" aria-hidden="true">刪除</i><span></span></button>
+                                <div class="button_box">
+                                    <button class="go_h"><i class="fa fa-home" aria-hidden="true">小屋</i></button>
+                                    <button class="invite"><i class="fa fa-user-plus" aria-hidden="true"></i>邀團</button>
+                                    <button class="de_fd"><i class="fa fa-minus-circle" aria-hidden="true"></i>刪除</button>
                                 </div>
                             </li>
                         </ul>
