@@ -31,7 +31,7 @@ function doFirst() {
                     //     a[i].style.display = 'inline-block';
                     // }
                     // location.href=`RES_NO=${owlImage[i]}`;
-                    location.href = `?RES_KIND=1`;
+                    // location.href = `?RES_KIND=1`;
 
                     // `?RES_NO=${aa}`;
                     // getData(`?RES_NO=1`);
@@ -49,7 +49,7 @@ function doFirst() {
                     // for (let i = 0; i < c.length; i++) {
                     //     c[i].style.display = 'inline-block';
                     // }
-                    location.href = `?RES_KIND=2`;
+                    // location.href = `?RES_KIND=2`;
 
                     break;
                 case '韓式':
@@ -60,7 +60,7 @@ function doFirst() {
                     // for (let i = 0; i < d.length; i++) {
                     //     d[i].style.display = 'inline-block';
                     // }
-                    location.href = `?RES_KIND=4`;
+                    // location.href = `?RES_KIND=4`;
 
                     break;
                 case '中台':
@@ -71,7 +71,7 @@ function doFirst() {
                     // for (let i = 0; i < e.length; i++) {
                     //     e[i].style.display = 'inline-block';
                     // }　
-                    location.href = `?RES_KIND=3`;
+                    // location.href = `?RES_KIND=3`;
 
                     break;
                 case '東南亞':
@@ -83,7 +83,7 @@ function doFirst() {
                     //     f[i].style.opacity = '1';
                     //     f[i].style.display = 'inline-block';
                     // }　
-                    location.href = `?RES_KIND=5`;
+                    // location.href = `?RES_KIND=5`;
 
                     break;
                 default:
