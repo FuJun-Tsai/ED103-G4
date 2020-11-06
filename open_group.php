@@ -14,7 +14,7 @@ try{
   $sql = "select * from restaurant_management R
             join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
             join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
-            ";
+            order by RES_NO";
 
     if($cond1!=""){ // 
       $sql.="where $cond1";

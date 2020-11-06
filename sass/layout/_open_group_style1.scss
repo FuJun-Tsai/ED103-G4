@@ -275,6 +275,8 @@ header {
                 }
                 #den_tab1 {
                     padding: 0px 30px;
+                    display: block;
+                    flex: 1 1 80%;
                     h3 {
                         padding: 5px 15px;
                         // margin: 15px 0px;
@@ -287,8 +289,6 @@ header {
                     hr {
                         border-top: 1px dashed #ccc;
                     }
-                    display: block;
-                    flex: 1 1 80%;
                     .den_food_map {
                         border: 1px solid #ccc;
                         height: 700px;
@@ -318,15 +318,11 @@ header {
                             }
                             .den_content_range {
                                 overflow: hidden;
-                                // margin-top: 25px;
                                 .den_content {
                                     flex: 1 1 90%;
                                     display: flex;
                                     width: 600%;
-                                    // border: 1px solid red;
                                     div {
-                                        // visibility: hidden;
-                                        // opacity: 0;
                                         padding: 5px;
                                         display: none;
                                         display: inline-block;
