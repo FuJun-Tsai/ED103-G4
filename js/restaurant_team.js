@@ -46,11 +46,11 @@
 // });
 
 var storeContainer = document.getElementById("storeContainer");
-var first = document.getElementById("first");
-var second = document.getElementById("second");
-var third = document.getElementById("third");
-var fourth = document.getElementById("fourth");
-var fifth = document.getElementById("fifth");
+var first = document.getElementById("store1");
+var second = document.getElementById("store2");
+var third = document.getElementById("store3");
+var fourth = document.getElementById("store4");
+var fifth = document.getElementById("store5");
 
 var Rarrow = document.getElementById("Rarrow");
 var Larrow = document.getElementById("Larrow");
@@ -60,6 +60,7 @@ var imgArr = [first,second,third,fourth,fifth];
 var index = 0;
 
 Larrow.addEventListener("click",function(){
+    // alert('left');
     storeContainer.appendChild(imgArr[index]);
     index++
     if(index > 4){
@@ -68,6 +69,8 @@ Larrow.addEventListener("click",function(){
 },false);
 
 Rarrow.addEventListener("click",function(){
+    let Res_NO = storeContainer.querySelectorAll('div input');
+    console.log(Res_NO[1].value);
 
     var s2nd = storeContainer.getElementsByTagName("div")[0];
     var last = storeContainer.getElementsByTagName("div")[4];

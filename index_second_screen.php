@@ -4,31 +4,31 @@ $Errmsg='';
 
 try{
   require_once('connectRes.php');
-//   // SQL0
-//   $sql0 = "select * from restaurant_management R
-//             join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
-//             join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
-//             ";
+  // SQL0
+  $sql0 = "select * from restaurant_management R
+            join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
+            join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
+            ";
 
-//   $data0 = $pdo->prepare($sql0);
-//   $data0-> execute();
+  $data0 = $pdo->prepare($sql0);
+  $data0-> execute();
 
-//   //放入陣列result[0]
-//   $data0Rows = $data0->fetchAll(PDO::FETCH_ASSOC);
-//   $result[0] = $data0Rows; 
+  //放入陣列result[0]
+  $data0Rows = $data0->fetchAll(PDO::FETCH_ASSOC);
+  $result[0] = $data0Rows; 
 
 
 
-//   // SQL1
-//   $sql1 = "select * from food_group F
-// 	          join member_management MM on (F.MEMBER = MM.MEMBER_NO)
-//             ";
-//   $data1 = $pdo->prepare($sql1);
-//   $data1-> execute();
+  // SQL1
+  $sql1 = "select * from food_group F
+	          join member_management MM on (F.MEMBER = MM.MEMBER_NO)
+            ";
+  $data1 = $pdo->prepare($sql1);
+  $data1-> execute();
 
-// //放入陣列result[1]
-//   $data1Rows = $data1->fetchAll(PDO::FETCH_ASSOC);
-//   $result[1] = $data1Rows; 
+//放入陣列result[1]
+  $data1Rows = $data1->fetchAll(PDO::FETCH_ASSOC);
+  $result[1] = $data1Rows; 
 
 
 
