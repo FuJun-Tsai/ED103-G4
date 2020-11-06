@@ -14,7 +14,7 @@ try{
   $sql = "select * from restaurant_management R
             join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
             join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
-            ";
+            order by RES_NO";
 
     if($cond1!=""){ // 
       $sql.=" where $cond1";
@@ -68,7 +68,10 @@ try{
   rm.RES_IMAGE4 RES_IMAGE4, 
   mm.MEMBER_IMAGE MEMBER_IMAGE, 
   rm.RES_START RES_START, 
-  rm.RES_CLOSE RES_CLOSE   
+  rm.RES_CLOSE RES_CLOSE,
+  mm.MEMBER_NAME MEMBER_NAME,
+  fgp.MEMBER_NO MEMBER_NO
+
   from food_group fg
   join food_group_people fgp on(fg.GROUP_NO=fgp.GROUP_NO)
   join restaurant_management rm on(fg.RES_NO=rm.RES_NO)
@@ -82,6 +85,23 @@ try{
 //放入陣列result[2]
   $data2Rows = $data2->fetchAll(PDO::FETCH_ASSOC);
   $result[2] = $data2Rows; 
+  
+
+$sql3="
+      SELECT fg.MEMBER, fgp.MEMBER_NO, mm.MEMBER_NAME, fg.GROUP_NO FROM ed103g4.food_group fg
+      join food_group_people fgp on(fg.GROUP_NO=fgp.GROUP_NO)
+      join member_management mm on(fg.MEMBER=mm.MEMBER_NO)
+      order by GROUP_NO";
+
+      $data3 = $pdo->prepare($sql3);
+      $data3-> execute();
+    
+    //放入陣列result[2]
+      $data3Rows = $data3->fetchAll(PDO::FETCH_ASSOC);
+      $result[3] = $data3Rows; 
+
+
+
 
 
 
