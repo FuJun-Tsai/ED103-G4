@@ -58,25 +58,7 @@ $(document).ready(function(){
   $("#no_group .btn_3").mouseout(function(){
     $(".btn_3 a").css("color","#FFF");
   });
-  //會員專區修改
-  id = '';
-  // $(document).ready(function(){
-  //   $('.change').click(function(){
-  //     id = $(this).siblings('.content').attr('id');
-  //     let value = $.trim($(`#${id}`).text());
-  //     $(`#${id}`).replaceWith(`<input type="text" value="${value}" class="ok">`);
-  //     $('.ok').css({
-  //       "font-size":"16px",
-  //     });
-  //     $(this).text('確認');
-  //     $(this).on('click',function(){
-  //       let ok = $('.ok').val();
-  //       $(this).siblings('.ok').replaceWith(`<div class="content" id="${id}">${ok}</div>`);
-  //       $(this).text('修改');
-  //     });
-  //   });
-  // });
-  
+  //會員專區修改  
   $(document).ready(function(){
     var name = 0;
     psw = 0;
@@ -122,9 +104,7 @@ $(document).ready(function(){
             introduce=0;
           }
         break;
-
       }
-
     }
 
     function changethis(e,id){
@@ -177,7 +157,6 @@ $(document).ready(function(){
   let Previous_page1 = document.getElementsByClassName('Previous_page')[0];
   let Previous_page2 = document.getElementsByClassName('Previous_page')[1];
   let asd =1;
-  console.log(Next_page1);
   Next_page1.addEventListener('click',nextPageChange);
   function nextPageChange(){
       document.getElementById(`page${asd}`).classList.remove('-on');
@@ -192,22 +171,6 @@ $(document).ready(function(){
       document.getElementById(`page${asd-1}`).classList.add('-on');
       asd--;
   }
-
-  
-
-  // let page = $(".page");
-  
-  // page.hide();
-  // page.eq(0).show();
-  // let contentInext = 1;
-  // $(".Next_page").click(function(){
-  //   contentInext++;
-  //   var num = $(this).parent().siblings('tab_contents');
-  //   console.log(num);
-  //   console.log(page);
-  //   page.removeClass("-on");
-  //   $(".tab_gruop_collection .page").eq(num).addClass("-on");
-  // });
 
   //上一頁
   $(".Previous_page").click(function(){
@@ -235,6 +198,30 @@ $(document).ready(function(){
   $(".Next-page").click(function(){
       let id = $(".tab.-on .page").attr("id");
   });
-
 });
 
+//登入連線
+function getMemberInfo(){
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){ //success
+      member = JSON.parse(xhr.responseText);
+      if(member.MEMBER_ID){
+        $id('spanLogin').innerHTML = '登出';
+        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        $id('avatar_change').setAttribute("src",`image/member/${member.MEMBER_IMAGE}`);            
+        $id('user_name').innerHTML = `${member.MEMBER_NAME}`;
+        $id('name').innerHTML = `${member.MEMBER_NAME}`;
+        $id('mem_account').innerHTML = `${member.MEMBER_ID}`;
+        $id('mem_age').innerHTML = `${member.MEMBER_AGE}`;
+      }
+    }else{ //error
+      alert(xhr.status);
+    }
+  }
+
+  xhr.open("get", "./php/mem.php", true);
+  xhr.send(null);
+}
+
+window.addEventListener("load",getMemberInfo,false);

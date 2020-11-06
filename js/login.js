@@ -15,10 +15,10 @@ let member;
       }else{//登出
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
-          $id('memName').innerHTML = '&nbsp';
+          $id("headshot_icon").setAttribute("src","./image/icon.svg");
           $id('spanLogin').innerHTML = '登入';          
         }
-        xhr.open("post", "logout.php", true);
+        xhr.open("post", "php/logout.php", true);
         xhr.send(null);
       }
 
@@ -28,12 +28,11 @@ let member;
       //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
       let MEMBER_ID = document.getElementsByName("MEMBER_ID")[0].value;
       let MEMBER_PSW = document.getElementsByName("MEMBER_PSW")[0].value;
-      // console.log(MEMBER_PSW);
       let xhr = new XMLHttpRequest();
       xhr.onload = function(){
         member = JSON.parse(xhr.responseText);
         if(member.MEMBER_ID){
-          $id("headshot_icon").getAttribute("src") = member.MEMBER_NAME;
+          $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
           $id('spanLogin').innerHTML = '登出';
           //將登入表單上的資料清空，並隱藏起來
           $id('login_box').style.display = 'none';
@@ -44,7 +43,7 @@ let member;
         }
       }
 
-      xhr.open("Post", "login.php", true);
+      xhr.open("Post", "php/login.php", true);
       xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
       let data_info = `MEMBER_ID=${MEMBER_ID}&MEMBER_PSW=${MEMBER_PSW}`;
       xhr.send(data_info); 
@@ -63,7 +62,7 @@ let member;
         if(xhr.status == 200){ //success
           member = JSON.parse(xhr.responseText);
           if(member.MEMBER_ID){
-            $id("memName").innerText = member.memName;
+            // $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
             $id('spanLogin').innerHTML = '登出';            
           }
         }else{ //error
@@ -71,7 +70,7 @@ let member;
         }
       }
 
-      xhr.open("post", "getMemberInfo.php", true);
+      xhr.open("get", "php/getMemberInfo.php", true);
       xhr.send(null);
     }
 

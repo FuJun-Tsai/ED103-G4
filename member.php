@@ -116,7 +116,7 @@ require_once("login.inc");
             <div class="member_side">
                 <div class="avatar">
                     <div class="pic_change">
-                        <img id="avatar_change" src="image/member/headshot01.jpg">
+                        <img id="avatar_change">
                         <div class="upload">
                             <p id="namefile">只收圖片檔喔! (jpg,jpeg,bmp,png)</p>
                         </div>
@@ -132,7 +132,7 @@ require_once("login.inc");
                     <button type="button" class="btn btn-default " disabled="disabled" id="fakebtn">拒絕!</button>
                 </div>
                 <div class="name">
-                    <h5 id="user_name">哈洽馬洽馬
+                    <h5 id="user_name">
                     </h5>
                 </div>
                 <div class="mypa">
@@ -171,7 +171,6 @@ require_once("login.inc");
                                 姓名:
                             </h4>
                             <h5 class="content" id="name">
-                                哈洽馬洽馬
                             </h5>
                             <button class="change btn_10 btn_js">
                                 修改<span></span>
@@ -181,15 +180,14 @@ require_once("login.inc");
                             <h4 class="small_title">
                                 帳號:
                             </h4>
-                            <h5 class="content">
-                                meimei2
+                            <h5 class="content" id="mem_account">
                             </h5>
                         </div>
                         <div class="part">
                             <h4 class="small_title">
                                 年齡:
                             </h4>
-                            <h5 class="content">
+                            <h5 class="content" id="mem_age">
                                 20-25
                             </h5>
                         </div>
@@ -1202,9 +1200,6 @@ require_once("login.inc");
             document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
         }
     </script>
-    <script src="js/login.js"></script>
-
-
 </body>
 
 </html>
