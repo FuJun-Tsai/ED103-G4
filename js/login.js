@@ -11,7 +11,9 @@ let member;
       //spanLogin的字改成登入
       //將頁面上的使用者資料清掉
       if($id('spanLogin').innerHTML == "登入"){
-        $id('login_box').style.display = 'flex';
+        // $id('login_box').style.display = 'flex';
+        $id('login_box').setAttribute('display','flex');
+
       }else{//登出
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
