@@ -120,34 +120,34 @@
     <div class="slidebar">
       <ul>
         <li>
-            <a href="#administrator" id="targeted">
+            <a href="#administrator" data-toggle="tab">
                 <span class="icon"><i class="fas fa-user-cog"></i></span>
                 <span class="title">管理員管理</span>               
             </a>
         </li>
         <li>
-            <a href="#member_adm">
+            <a href="#member_adm" data-toggle="tab">
                 <span class="icon"><i class="fas fa-address-book"></i></span>
                 <span class="title">會員管理</span>
                 
             </a>
         </li>
         <li>
-            <a href="#restaurant_adm">
+            <a href="#restaurant_adm" data-toggle="tab">
                 <span class="icon"><i class="fas fa-utensils"></i></span>
                 <span class="title">餐廳管理</span>
                 
             </a>
         </li>
         <li>
-            <a href="#report_adm">
+            <a href="#report_adm" data-toggle="tab">
                 <span class="icon"><i class="fas fa-ban"></i></span>
                 <span class="title">檢舉審查</span>
                 
             </a>
         </li>
         <li>
-            <a href="#ai_adm">
+            <a href="#ai_adm" data-toggle="tab">
                 <span class="icon"><i class="fas fa-robot"></i></span>
                 <span class="title">聊天機器人管理</span>
                 
@@ -159,9 +159,9 @@
 
 <!-- 側邊欄結束 -->
 
-    <div class="admin-panel">
-          <div class="mainContent">
-            <div id="administrator">
+    <div class="admin-panel tab-content clearfix">
+          
+            <div class="tab-pane" id="administrator">
                 <h2>
                     管理員管理
                 </h2>
@@ -189,7 +189,7 @@
                     </tr> 
                 </table>
              </div>
-             <div id="member_adm">
+             <div class="tab-pane" id="member_adm">
                  <h2>
                      會員管理
                  </h2>
@@ -217,7 +217,7 @@
                     </tr> 
                 </table>
              </div>
-             <div id="restaurant_adm">
+             <div class="tab-pane" id="restaurant_adm">
                  <h2>
                      餐廳管理
                  </h2>
@@ -250,7 +250,7 @@
                     </tr> 
                 </table>
              </div>
-             <div id="report_adm">
+             <div class="tab-pane" id="report_adm">
                  <h2>
                      檢舉審查
                  </h2>
@@ -308,12 +308,11 @@
                     </div>
                    
              </div>
-             <div id="ai_adm">
+             <div class="tab-pane" id="ai_adm">
                  <h2>
                      聊天機器人管理
                  </h2>
              </div>
-           </div>
     </div>
 
 
