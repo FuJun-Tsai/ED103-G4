@@ -11,8 +11,8 @@ body {
   position: fixed;
   top: 170px;
   width: 70px;
-  height: 100%;
-  /* background: hsla(0deg, 3%, 5%, .8); */
+  height: 100vh;
+  background: rgba(252, 241, 220, 0.8);
   transition: 0.5s;
   overflow:hidden;
   z-index: 99;
@@ -25,13 +25,13 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .slidebar ul li {
   position: relative;
   width: 100%;
   list-style: none;
-  margin: 20px;
+  margin: 10px;
 }
 .slidebar ul li:hover{
   background: #DF7219;
@@ -113,7 +113,7 @@ body {
  }
 }
 
-
+// 管理者
 .admin-panel {
   width: 80vw;
   height: 90vh;
@@ -121,32 +121,33 @@ body {
   background-color: rgba(255, 255, 255, 0.404);
 }
 
-.mainContent{
-  width: 100%;
-	height: 75vh;
-	background-color:rgba(255, 255, 255, 0.603);
-}
-
-.mainContent > div {
-	position: absolute;
-	opacity: 0;
-	transition:opacity 200ms linear;
-}
  h2 {
 	margin:1em 30px;
 	color: rgb(234,83,63);
 	font-size: 20px;
 }
  
-#administrator>div {
-	border: 1px solid rgb(235,235,235);
-	margin-left: 30px;
-	border-radius: 5px;
-	min-width: 345px;
-	height: 262px;
-	display: inline-block;
+#administrator{
+  border: 1px solid rgb(235,235,235);
+}
+.tbl_administrator{
+  margin: 0 auto;
+  line-height: 20px;
+}
+.table-hidden tbody{
+  overflow-y: auto;
 }
 
+// 會員
+
+.results tr[visible='false'],
+.no-result{
+  display:none;
+}
+
+.results tr[visible='true']{
+  display:table-row;
+}
 
 // 檢舉
 #tabs-nav{

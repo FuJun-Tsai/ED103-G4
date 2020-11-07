@@ -168,48 +168,123 @@
                     <button>
                         刪除
                     </button>
-                <table>
-                    <tr> 
-                        <th>編號</th> 
-                        <th>管理員帳號</th>
-                        <th>管理員名稱</th>
-                        <th>管理員啟用日</th>
-                        <th>管理員職稱</th>
-                    </tr> 
-                    <tr> 
-                        <td>資料1</th> 
-                        <td>資料2</td> 
-                    </tr> 
-                    <tr> 
-                        <td>資料3</th> 
-                        <td>資料4</td> 
-                    </tr> 
+                <table class="tbl_administrator table-striped table-bordered table-hidden">
+                    <thead>
+                        <tr> 
+                            <th class="col-md-1 col-xs-1">編號</th> 
+                            <th class="col-md-3 col-xs-3">管理員帳號</th>
+                            <th class="col-md-3 col-xs-3">管理員名稱</th>
+                            <th class="col-md-3 col-xs-3">管理員啟用日</th>
+                            <th class="col-md-2 col-xs-2">管理員職稱</th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr> 
+                            <td>資料1</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            
+                        </tr> 
+                        <tr> 
+                            <td>資料3</td> 
+                            <td>資料4</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                        </tr> 
+                        <tr> 
+                            <td>資料3</td> 
+                            <td>資料4</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                        </tr> 
+                        <tr> 
+                            <td>資料3</td> 
+                            <td>資料4</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                        </tr> 
+                        <tr> 
+                            <td>資料3</td> 
+                            <td>資料4</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                        </tr> 
+                        <tr> 
+                            <td>資料3</td> 
+                            <td>資料4</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                        </tr> 
+                        <tr> 
+                            <td>資料3</td> 
+                            <td>資料4</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                        </tr> 
+                        <tr> 
+                            <td>資料3</td> 
+                            <td>資料4</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                        </tr> 
+                        <tr> 
+                            <td>資料3</td> 
+                            <td>資料4</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                            <td>資料2</td> 
+                        </tr> 
+                    </tbody>
                 </table>
              </div>
              <div class="tab-pane" id="member_adm">
                  <h2>
                      會員管理
                  </h2>
-                 <div class="mem_search">
-                    <input type="text" placeholder="">
-                    <input type="submit" value="搜尋">
+                 <div class="mem_search form-group pull-right">
+                    <input type="text" class="search form-control" placeholder="請輸入關鍵字">
                 </div>
-                 <table>
+                <!-- <span class="counter pull-right"></span> -->
+                 <table class="table table-hover table-bordered results">
+                     <thead>
+                         <tr> 
+                             <th class="col-md-1 col-xs-1">會員編號</th> 
+                             <th class="col-md-2 col-xs-2">會員帳號</th>
+                             <th class="col-md-2 col-xs-2">會員名稱</th>
+                             <th class="col-md-2 col-xs-2">會員密碼</th>
+                             <th class="col-md-2 col-xs-2">會員信箱</th>
+                             <th class="col-md-2 col-xs-2">會員狀態</th>
+                             <th class="col-md-2 col-xs-2">停權</th>
+                         </tr> 
+                         <tr class="warning no-result">
+                            <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+                          </tr>
+                     </thead>
                     <tr> 
-                        <th>會員編號</th> 
-                        <th>會員帳號</th>
-                        <th>會員名稱</th>
-                        <th>會員密碼</th>
-                        <th>會員信箱</th>
-                        <th>會員狀態</th>
-                        <th>停權按鈕</th>
-                    </tr> 
-                    <tr> 
-                        <td>資料1</th> 
+                        <td scope="row">資料1</td> 
+                        <td>資料2</td>
+                        <td>資料2</td>
+                        <td>資料2</td>
+                        <td>資料2</td>
                         <td>資料2</td> 
+                        <td>資料2</td>
                     </tr> 
                     <tr> 
-                        <td>資料3</th> 
+                        <td scope="row">資料3</td> 
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
                         <td>資料4</td> 
                     </tr> 
                 </table>
@@ -218,31 +293,56 @@
                  <h2>
                      餐廳管理
                  </h2>
-                 <div class="res_search">
-                    <input type="text" placeholder="">
-                    <input type="submit" value="搜尋">
+                 <div class="mem_search form-group pull-right">
+                    <input type="text" class="search form-control" placeholder="請輸入關鍵字">
                 </div>
-                 <table>
-                    <tr> 
-                        <th>餐廳編號</th> 
-                        <th>餐廳風格</th>
-                        <th>餐廳種類</th>
-                        <th>餐廳地址</th>
-                        <th>餐廳電話</th>
-                        <th>每周營業日</th>
-                        <th>餐廳介紹</th>
-                        <th>圖片</th>
-                        <th>餐廳簡介</th>
-                        <th>餐廳營業時間</th>
-                        <th>餐廳狀態</th>
-                        <th>修改按鈕</th>
-                    </tr> 
-                    <tr> 
-                        <td>資料1</th> 
+                <!-- <span class="counter pull-right"></span> -->
+                 <table class="table table-hover table-bordered results">
+                     <thead>
+                         <tr> 
+                             <th>餐廳編號</th> 
+                             <th>餐廳風格</th>
+                             <th>餐廳種類</th>
+                             <th>餐廳地址</th>
+                             <th>餐廳電話</th>
+                             <th>每周營業日</th>
+                             <th>餐廳介紹</th>
+                             <th>圖片</th>
+                             <th>餐廳簡介</th>
+                             <th>餐廳營業時間</th>
+                             <th>餐廳狀態</th>
+                             <th>修改按鈕</th>
+                         </tr> 
+                         <tr class="warning no-result">
+                            <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+                          </tr>
+                     </thead>
+                     <tr> 
+                        <td scope="row">資料1</td> 
+                        <td>資料2</td> 
+                        <td>資料2</td> 
+                        <td>資料2</td> 
+                        <td>資料2</td> 
+                        <td>資料2</td> 
+                        <td>資料2</td> 
+                        <td>資料2</td> 
+                        <td>資料2</td> 
+                        <td>資料2</td> 
+                        <td>資料2</td> 
                         <td>資料2</td> 
                     </tr> 
                     <tr> 
-                        <td>資料3</th> 
+                        <td scope="row">資料3</td> 
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
+                        <td>資料4</td>
                         <td>資料4</td> 
                     </tr> 
                 </table>
@@ -269,11 +369,11 @@
                                 <th>檢舉狀態</th>
                             </tr> 
                             <tr> 
-                                <td>資料1</th> 
+                                <td>資料1</td> 
                                 <td>資料2</td> 
                             </tr> 
                             <tr> 
-                                <td>資料3</th> 
+                                <td>資料3</td> 
                                 <td>資料4</td> 
                             </tr> 
                         </table>
@@ -289,11 +389,11 @@
                                 <th>檢舉狀態</th>
                             </tr> 
                             <tr> 
-                                <td>資料1</th> 
+                                <td>資料1</td> 
                                 <td>資料2</td> 
                             </tr> 
                             <tr> 
-                                <td>資料3</th> 
+                                <td>資料3</td> 
                                 <td>資料4</td> 
                             </tr> 
                         </table>
@@ -342,7 +442,36 @@
             document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
         }
     </script>
-    <!-- 切換 -->
+    <!-- 關鍵字搜尋 -->
+    <script>
+        $(document).ready(function() {
+        $(".search").keyup(function () {
+            var searchTerm = $(".search").val();
+            var listItem = $('.results tbody').children('tr');
+            var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+            
+        $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+                return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+            }
+        });
+            
+        $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+            $(this).attr('visible','false');
+        });
+
+        $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+            $(this).attr('visible','true');
+        });
+
+        var jobCount = $('.results tbody tr[visible="true"]').length;
+            $('.counter').text(jobCount + ' item');
+
+        if(jobCount == '0') {$('.no-result').show();}
+            else {$('.no-result').hide();}
+                });
+        });
+    </script>
+    <!-- 檢舉切換 -->
     <script>
         $(function() {
           $("#tabs-nav a").click(function() {
@@ -355,6 +484,7 @@
           });
         });
        </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>
