@@ -130,10 +130,15 @@ $(document).ready(function(){
     function changethis(e,id){
       e = parseInt(e);
       if(e==0){
+        console.log(id);
+        console.log(e);
         let value = $.trim($(`#${id}`).text());
         $(`#${id}`).siblings('.change').text('確認');
         $(`#${id}`).replaceWith(`<input type="text" class="content" id="${id}" value="${value}">`);
       }else{
+        console.log('here');
+        console.log(id);
+        console.log(e);
         let value = $.trim($(`#${id}`).val());
         $(`#${id}`).siblings('.change').text('修改');
         $(`#${id}`).replaceWith(`<div class="content" id="${id}">${value}</div>`);
