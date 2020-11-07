@@ -7,14 +7,14 @@ $Errmsg='';
     $cond2 = isset($_GET["RES_STYLE"]) ? "RES_STYLE = $RES_STYLE" : "" ;
 
 
-// echo $cond1;
+// echo $RES_KIND;
 
 try{
   require_once('connectRes.php');
   $sql = "select * from restaurant_management R
             join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
             join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
-            order by RES_NO";
+            ";
 
     if($cond1!=""){ // 
       $sql.=" where $cond1";
@@ -26,7 +26,7 @@ try{
           $sql.=" where $cond2";
       }
   }
-  // echo $sql;
+  $sql.=" order by RES_NO ASC";
   
 
   $data0 = $pdo->prepare($sql);
@@ -39,13 +39,16 @@ try{
   $sql1 = "select T.friends_NO , Mf.member_name from track_list T
 	          join member_management Mm on (T.member_NO = Mm.member_NO)
             join member_management Mf on (T.friends_NO = Mf.member_NO)
-            ";                    
+            "; 
+                               
   $data1 = $pdo->prepare($sql1);
   $data1-> execute();
 
 //放入陣列result[1]
   $data1Rows = $data1->fetchAll(PDO::FETCH_ASSOC);
-  $result[1] = $data1Rows; 
+  $result[1] = $data1Rows;
+  
+  // print_r($result[1]);
 
   
   $sql2 = "
@@ -99,11 +102,6 @@ $sql3="
     //放入陣列result[2]
       $data3Rows = $data3->fetchAll(PDO::FETCH_ASSOC);
       $result[3] = $data3Rows; 
-
-
-
-
-
 
 
   //全部回傳

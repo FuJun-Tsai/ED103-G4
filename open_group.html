@@ -634,11 +634,34 @@
             console.log(yyy1);
 
             $.ajax({
-                url: './open_group.php' + '?' + 'RES_KIND=' + yyy1,
+                url: './open_group.php',
                 type: 'GET',
+                data: {
+                    RES_KIND: yyy1
+                },
                 dataType: 'json',
                 success(data) {
                     console.log('132');
+                },
+                complete(data) {
+
+                    console.log(JSON.parse(data.responseText));
+                    let resData1 = JSON.parse(data.responseText);
+                    console.log(resData1[0]);
+                    $('.den_content').empty();
+
+                    for (let i = 0; i < resData1[0].length - 1; i++) {
+                        $('.den_content').append(`
+                    <div>
+                        <span>${resData1[0][i].KIND_NAME}</span>
+                        <span>${resData1[0][i].STYLE_NAME}</span>
+                        <span>${resData1[0][i].RES_NO}</span>
+                        <p>${resData1[0][i].RES_NAME}</p>
+                        <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE1}" class="prodImg">
+                        <h6>查看餐廳介紹</h6>
+                    </div>
+                    `);
+                    }
                 }
             });
         });
