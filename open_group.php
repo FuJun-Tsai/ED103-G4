@@ -40,7 +40,7 @@ try{
 	          join member_management Mm on (T.member_NO = Mm.member_NO)
             join member_management Mf on (T.friends_NO = Mf.member_NO)
             "; 
-                               
+
   $data1 = $pdo->prepare($sql1);
   $data1-> execute();
 
@@ -99,7 +99,7 @@ $sql3="
       $data3 = $pdo->prepare($sql3);
       $data3-> execute();
     
-    //放入陣列result[2]
+    //放入陣列result[3]
       $data3Rows = $data3->fetchAll(PDO::FETCH_ASSOC);
       $result[3] = $data3Rows; 
 
