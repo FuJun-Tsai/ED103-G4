@@ -170,7 +170,7 @@ require_once("login.inc");
                             <h4 class="small_title">
                                 姓名:
                             </h4>
-                            <h5 class="content" id="name">
+                            <h5 class="content" id="mem_name">
                             </h5>
                             <button class="change btn_10 btn_js">
                                 修改<span></span>
@@ -188,15 +188,13 @@ require_once("login.inc");
                                 年齡:
                             </h4>
                             <h5 class="content" id="mem_age">
-                                20-25
                             </h5>
                         </div>
                         <div class="part">
                             <h4 class="small_title">
                                 密碼:
                             </h4>
-                            <h5 class="content" id="psw">
-                                mei000
+                            <h5 class="content" id="mem_psw">
                             </h5>
                             <button class="change btn_10 btn_js">
                                 修改<span></span>
@@ -206,16 +204,14 @@ require_once("login.inc");
                             <h4 class="small_title">
                                 性別:
                             </h4>
-                            <h5 class="content">
-                                女性
+                            <h5 class="content" id="mem_sex">
                             </h5>
                         </div>
                         <div class="part">
                             <h4 class="small_title">
                                 信箱:
                             </h4>
-                            <h5 class="content" id="email">
-                                meimei@mail.com
+                            <h5 class="content" id="mem_email">
                             </h5>
                             <button class="change btn_10 btn_js">
                                 修改<span></span>
@@ -228,7 +224,7 @@ require_once("login.inc");
                             <button class="change btn_10 btn_js">
                                 修改<span></span>
                             </button>
-                            <h5 class="content" id="introduce">
+                            <h5 class="content" id="mem_introduction">
                                 自我介紹似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。要想清楚，自我介紹，到底是一種怎麼樣的存在。我們要學會站在別人的角度思考。做好自我介紹這件事，可以說已經成為了全民運動。若能夠洞悉自我介紹各種層面的含義，勢必能讓思維再提高一個層級
                             </h5>
                         </div>
@@ -255,59 +251,58 @@ require_once("login.inc");
                         <div class="jay_box2">
                             <div class="box2_row_left">
                                 <div class="main_img">
-                                    <img src="./image/member/food1.jpg" alt="">
+                                    <img id="MAIN_IMG">
                                 </div>
                                 <div class="sm_pic">
-                                    <img src="./image/member/food2.jpg">
-                                    <img src="./image/member/food3.jpg">
-                                    <img src="./image/member/food6.jpg">
-                                    <img src="./image/member/food4.jpg">
+                                    <img id="RES_IMAGE1">
+                                    <img id="RES_IMAGE2">
+                                    <img id="RES_IMAGE3">
+                                    <img id="RES_IMAGE4">
                                 </div>
                             </div>
                             <div class="box2_row_right">
                                 <div>
                                     <h5>團號:</h5>
-                                    <h5>4758691</h5>
+                                    <h5 id="GROUP_NO"></h5>
                                     <br>
                                     <h5>團名:</h5>
-                                    <h5></h5>
+                                    <h5 id="GROUP_NAME"></h5>
                                     <br>
                                     <h5>店名:</h5>
-                                    <h5></h5>
+                                    <h5 id="RES_NAME"></h5>
                                     <br>
-                                    <h6>日式</h6>
-                                    <h6>火鍋</h6>
-                                    <h6>燒烤</h6>
+                                    <h6 id="STYLE_NAME"></h6>
+                                    <h6 id="KIND_NAME"></h6>
                                 </div>
                                 <div>
                                     <h5>開團團主:</h5>
-                                    <h5>XXXXX</h5>
+                                    <h5 id="MEMBER_NAME"></h5>
                                     <br>
                                     <h5>目前人數:</h5>
-                                    <h5></h5>
+                                    <h5 id="JOIN_NUMBER"></h5>
                                     <h5></h5>
                                     <h5></h5>
                                     <h5></h5>
                                     <h5></h5>
                                     <br>
                                     <h5>用餐時間:</h5>
-                                    <h5></h5>
+                                    <h5 id="MEAL_TIME"></h5>
                                     <br>
                                 </div>
                                 <div>
                                     <h5>店家資訊</h5>
                                     <br>
                                     <h5>地址:</h5>
-                                    <h5>中壢中央路1號</h5>
-                                    <a href="">
+                                    <h5 id="RES_ADDRESS"></h5>
+                                    <a href="" id="RES_ADDRESS">
                                         <img src="" alt="">
                                     </a>
                                     <br>
                                     <h5>電話:</h5>
-                                    <h5>03-9886578</h5>
+                                    <h5 id="RES_TEL"></h5>
                                     <br>
                                     <h5>營業時間:</h5>
-                                    <h5>XXXXXX</h5>
+                                    <h5 id="RES_BUS_HOURS"></h5>
                                 </div>
                             </div>
                         </div>

@@ -208,31 +208,55 @@ function getMemberInfo(){
       member = JSON.parse(xhr.responseText);
       if(member.MEMBER_ID){
         $id('spanLogin').innerHTML = '登出';
-        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
-        $id('avatar_change').setAttribute("src",`image/member/${member.MEMBER_IMAGE}`);            
+        $id('headshot_icon').setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        $id('avatar_change').setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);            
         $id('user_name').innerHTML = `${member.MEMBER_NAME}`;
-        $id('name').innerHTML = `${member.MEMBER_NAME}`;
+        $id('mem_name').innerHTML = `${member.MEMBER_NAME}`;
         $id('mem_account').innerHTML = `${member.MEMBER_ID}`;
         $id('mem_age').innerHTML = `${member.MEMBER_AGE}`;
+        $id('mem_psw').innerHTML = `${member.MEMBER_PSW}`;
+        $id('mem_sex').innerHTML = `${member.MEMBER_SEX}`;
+        $id('mem_em9ail').innerHTML = `${member.MEMBER_EMAIL}`;
+        $id('mem_introduction').innerHTML = `${member.MEMBER_INTRODUCTION}`;
       }
     }else{ //error
       alert(xhr.status);
     }
   }
+  
   $id('my_group_btn').addEventListener('click',myGroupNow);
   function myGroupNow(){
     let xhr1 = new XMLHttpRequest();
     xhr1.onload = function(){
       if(xhr1.status == 200){ //success
-        member = JSON.parse(xhr1.responseText);
-        if(member.MEMBER_ID){
+        group = JSON.parse(xhr1.responseText);
+        console.log(group);    
+        if(group.MEMBER_NAME){
+          $id('GROUP_NO').innerHTML = `${group.GROUP_NO}`;
+          $id('GROUP_NAME').innerHTML = `${group.GROUP_NAME}`; 
+          $id('RES_NAME').innerHTML = `${group.RES_NAME}`;
+          $id('RES_NAME').innerHTML = `${group.RES_NAME}`;
+          $id('STYLE_NAME').innerHTML = `${group.STYLE_NAME}`;
+          $id('KIND_NAME').innerHTML = `${group.KIND_NAME}`;
+          $id('MEMBER_NAME').innerHTML = `${group.MEMBER_NAME}`;
+          $id('JOIN_NUMBER').innerHTML = `${group.JOIN_NUMBER}`;
+          $id('MEAL_TIME').innerHTML = `${group.MEAL_TIME}`;
+          $id('RES_ADDRESS').innerHTML = `${group.RES_ADDRESS}`;
+          $id('RES_TEL').innerHTML = `${group.RES_TEL}`;
+          $id('RES_BUS_HOURS').innerHTML = `${group.RES_BUS_HOURS}`;
+          $id('RES_BUS_HOURS').innerHTML = `${group.RES_BUS_HOURS}`;
+          $id('MAIN_IMG').setAttribute("src",`./image/restaurant_management_img/${group.RES_IMAGE1}`);
+          $id('RES_IMAGE1').setAttribute("src",`./image/restaurant_management_img/${group.RES_IMAGE1}`);
+          $id('RES_IMAGE2').setAttribute("src",`./image/restaurant_management_img/${group.RES_IMAGE2}`);
+          $id('RES_IMAGE3').setAttribute("src",`./image/restaurant_management_img/${group.RES_IMAGE3}`);
+          $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${group.RES_IMAGE4}`);
         }
       }else{ //error
         alert(xhr1.status);
       }
     }
-    xhr.open("get", "./php/my_group.php", true);
-    xhr.send(null);
+    xhr1.open("get", "./php/my_group.php", true);
+    xhr1.send(null);
   }
   xhr.open("get", "./php/mem.php", true);
   xhr.send(null);

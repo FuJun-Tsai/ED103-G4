@@ -1,8 +1,13 @@
 <?php
 try{
   require_once("../connectRes.php");
-  $sql = "  SELECT *
-            FROM `food_group`"; 
+  $sql = " SELECT f.GROUP_NO, f.GROUP_NAME, r.RES_NAME, rs.STYLE_NAME, rk.KIND_NAME, m.MEMBER_NAME, f.JOIN_NUMBER, f.MEAL_TIME, r.RES_ADDRESS, r.RES_TEL, r.RES_BUS_HOURS, r.RES_IMAGE1, r.RES_IMAGE2, r.RES_IMAGE3, r.RES_IMAGE4
+  FROM `food_group` f JOIN `member_management` m ON (m.MEMBER_NO = f.MEMBER)
+                      JOIN `restaurant_management` r ON (r.RES_NO = f.RES_NO)
+                      JOIN `restaurant_style` rs ON (rs.STYLE_NO = r.RES_STYLE)
+                      JOIN `restaurant_kind` rk ON (rk.KIND_NO = r.RES_KIND)
+  WHERE f.END_TIME >= DATE(NOW())
+      AND m.MEMBER_NO = 1;"; 
   $group = $pdo->prepare($sql);
   $group->execute();
   if( $group->rowCount()==0){ //查無此人

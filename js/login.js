@@ -1,6 +1,7 @@
 function $id(id){
 	return document.getElementById(id);
 }	
+
 let member;
 
     function showLoginForm(){
