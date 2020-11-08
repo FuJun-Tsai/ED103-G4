@@ -113,30 +113,74 @@ body {
  }
 }
 
+h2 {
+	margin:1em 30px;
+	color: rgb(234,83,63);
+	font-size: 20px;
+}
+
 // 管理者
 .admin-panel {
   width: 80vw;
   height: 90vh;
   margin: 50px auto;
-  background-color: rgba(255, 255, 255, 0.404);
+  background-color: rgba(255, 255, 255, 0.897);
+  overflow: auto;
+  #administrator{
+    
+    button{
+      background: #DF7219;
+      border: 0.1px solid rgba(255, 255, 255, 0);
+      i{
+        color: #FFF;
+      }
+    }
+    .tbl_administrator{
+      margin: 0 auto;
+      line-height: 20px;
+      align-items: center;
+      thead{
+        tr{
+          th{
+            text-align:center;
+          }
+        }
+      }
+      tbody{
+        
+        tr{
+          background-color: rgba(245, 222, 179, .4);
+          border: 0.1px solid rgba(245, 222, 179, 1);
+          &:hover {
+            cursor: pointer;
+            background-color: rgba(245, 222, 179, .8);
+            border: 0.1px solid rgba(245, 222, 179, 1);
+        }
+          td{
+            border:0.1px solid #FFF;
+            line-height: 50px;
+            align-items: center;
+            button{
+              background: #DF7219;
+              border: 0.1px solid rgba(255, 255, 255, 0);
+              width: 40px;
+              height: 40px;
+              
+
+              i{
+                line-height: 0;
+                color: #FFF;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
- h2 {
-	margin:1em 30px;
-	color: rgb(234,83,63);
-	font-size: 20px;
-}
- 
-#administrator{
-  border: 1px solid rgb(235,235,235);
-}
-.tbl_administrator{
-  margin: 0 auto;
-  line-height: 20px;
-}
-.table-hidden tbody{
-  overflow-y: auto;
-}
+
+
 
 // 會員
 
