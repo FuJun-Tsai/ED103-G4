@@ -124,14 +124,24 @@ h2 {
   width: 80vw;
   height: 90vh;
   margin: 50px auto;
-  background-color: rgba(255, 255, 255, 0.897);
-  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  overflow: scroll;
   #administrator{
-    
-    button{
+    position: relative;
+    .adm_add{
       background: #DF7219;
       border: 0.1px solid rgba(255, 255, 255, 0);
-      i{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin: 10px;
+      position: absolute;
+      top: 0px;
+      right: 10px;
+      &:hover i{
+        color: #DF7219;
+      }
+      i{  
         color: #FFF;
       }
     }
@@ -139,10 +149,13 @@ h2 {
       margin: 0 auto;
       line-height: 20px;
       align-items: center;
+      border-radius: 20px 20px 0 0;
       thead{
+        background-color: #9B1E23;
         tr{
           th{
             text-align:center;
+            color: #FFF;
           }
         }
       }
@@ -158,17 +171,19 @@ h2 {
         }
           td{
             border:0.1px solid #FFF;
-            line-height: 50px;
+            // line-height: 50px;
             align-items: center;
             button{
               background: #DF7219;
               border: 0.1px solid rgba(255, 255, 255, 0);
-              width: 40px;
-              height: 40px;
-              
-
-              i{
-                line-height: 0;
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              margin: 10px;
+              &:hover i{
+                color: #DF7219;
+              }
+              i{  
                 color: #FFF;
               }
             }
@@ -177,7 +192,305 @@ h2 {
       }
     }
   }
-}
+  // 會員
+  #member_adm{
+      .tbl_member_adm{
+        margin: 0 auto;
+        line-height: 20px;
+        align-items: center;
+        border-radius: 20px 20px 0 0;
+        .member_adm_ti{
+          background-color: #9B1E23;
+          tr{
+            th{
+              text-align:center;
+              color: #FFF;
+            }
+          }
+        }
+        tbody{       
+          tr{
+            background-color: rgba(245, 222, 179, .4);
+            border: 0.1px solid rgba(245, 222, 179, 1);
+            &:hover {
+              cursor: pointer;
+              background-color: rgba(245, 222, 179, .8);
+              border: 0.1px solid rgba(245, 222, 179, 1);
+          }
+            td{
+              border:0.1px solid #FFF;
+              // line-height: 50px;
+              align-items: center;
+              button{
+                background: #DF7219;
+                border: 0.1px solid rgba(255, 255, 255, 0);
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin: 10px;
+                &:hover i{
+                  color: #DF7219;
+                }
+                i{  
+                  color: #FFF;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // 餐廳
+    #restaurant_adm{
+      position: relative;
+      .res_adm_add{
+        background: #DF7219;
+        border: 0.1px solid rgba(255, 255, 255, 0);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 10px;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        &:hover i{
+          color: #DF7219;
+        }
+        i{  
+          color: #FFF;
+        }
+      }
+      .tbl_res_adm{
+        margin: 0 auto;
+        line-height: 20px;
+        align-items: center;
+        border-radius: 20px 20px 0 0;
+        
+        
+        .res_adm_ti{
+          background-color: #9B1E23;
+          tr{
+            th{
+              text-align:center;
+              color: #FFF;
+            }
+          }
+        }
+        tbody{       
+          tr{
+            background-color: rgba(245, 222, 179, .4);
+            border: 0.1px solid rgba(245, 222, 179, 1);
+            &:hover {
+              cursor: pointer;
+              background-color: rgba(245, 222, 179, .8);
+              border: 0.1px solid rgba(245, 222, 179, 1);
+          }
+            td{
+              border:0.1px solid #FFF;
+              // line-height: 50px;
+              align-items: center;
+              button{
+                background: #DF7219;
+                border: 0.1px solid rgba(255, 255, 255, 0);
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin: 10px;
+                &:hover i{
+                  color: #DF7219;
+                }
+                i{  
+                  color: #FFF;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // 檢舉
+    #report_adm{
+      #jquery-tabs{
+        width:auto;
+        #tabs-nav{
+          margin: 0;
+          padding: 0;
+          position: relative;
+          text-align: left;
+       }
+        .tabs-container{
+          height: 100vh;
+          #tab0{
+            .report_table{
+
+              margin: 0 auto;
+              line-height: 20px;
+              align-items: center;
+              border-radius: 20px 20px 0 0;
+              
+              .word_adm_ti{
+                background-color: #9B1E23;
+                tr{
+                  th{
+                    text-align:center;
+                    color: #FFF;
+                  }
+                }
+              }
+              tbody{       
+                tr{
+                  background-color: rgba(245, 222, 179, .4);
+                  border: 0.1px solid rgba(245, 222, 179, 1);
+                  &:hover {
+                    cursor: pointer;
+                    background-color: rgba(245, 222, 179, .8);
+                    border: 0.1px solid rgba(245, 222, 179, 1);
+                }
+                  td{
+                    border:0.1px solid #FFF;
+                    // line-height: 50px;
+                    align-items: center;
+                    button{
+                      background: #DF7219;
+                      border: 0.1px solid rgba(255, 255, 255, 0);
+                      width: 30px;
+                      height: 30px;
+                      border-radius: 50%;
+                      margin: 10px;
+                      &:hover i{
+                        color: #DF7219;
+                      }
+                      i{  
+                        color: #FFF;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          #tab1{
+            .report_table{
+
+              margin: 0 auto;
+              line-height: 20px;
+              align-items: center;
+              border-radius: 20px 20px 0 0;
+              
+              .word_adm_ti{
+                background-color: #9B1E23;
+                tr{
+                  th{
+                    text-align:center;
+                    color: #FFF;
+                  }
+                }
+              }
+              tbody{       
+                tr{
+                  background-color: rgba(245, 222, 179, .4);
+                  border: 0.1px solid rgba(245, 222, 179, 1);
+                  &:hover {
+                    cursor: pointer;
+                    background-color: rgba(245, 222, 179, .8);
+                    border: 0.1px solid rgba(245, 222, 179, 1);
+                }
+                  td{
+                    border:0.1px solid #FFF;
+                    // line-height: 50px;
+                    align-items: center;
+                    button{
+                      background: #DF7219;
+                      border: 0.1px solid rgba(255, 255, 255, 0);
+                      width: 30px;
+                      height: 30px;
+                      border-radius: 50%;
+                      margin: 10px;
+                      &:hover i{
+                        color: #DF7219;
+                      }
+                      i{  
+                        color: #FFF;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
+    // 聊天機器人
+    #ai_adm{
+      position: relative;
+      .ai_add{
+        background: #DF7219;
+        border: 0.1px solid rgba(255, 255, 255, 0);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 10px;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        &:hover i{
+          color: #DF7219;
+        }
+        i{  
+          color: #FFF;
+        }
+      }
+      #ai_adm_table{
+        margin: 0 auto;
+        line-height: 20px;
+        align-items: center;
+        border-radius: 20px 20px 0 0;
+        thead{
+          background-color: #9B1E23;
+          tr{
+            th{
+              text-align:center;
+              color: #FFF;
+            }
+          }
+        }
+        tbody{
+          
+          tr{
+            background-color: rgba(245, 222, 179, .4);
+            border: 0.1px solid rgba(245, 222, 179, 1);
+            &:hover {
+              cursor: pointer;
+              background-color: rgba(245, 222, 179, .8);
+              border: 0.1px solid rgba(245, 222, 179, 1);
+          }
+            td{
+              border:0.1px solid #FFF;
+              // line-height: 50px;
+              align-items: center;
+              button{
+                background: #DF7219;
+                border: 0.1px solid rgba(255, 255, 255, 0);
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin: 10px;
+                &:hover i{
+                  color: #DF7219;
+                }
+                i{  
+                  color: #FFF;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 
 
 
@@ -194,43 +507,36 @@ h2 {
 }
 
 // 檢舉
-#tabs-nav{
-   margin: 0;
-   padding: 0;
-   position: relative;
-   text-align: left
-}
+
 a.tabs-menu {
    display: inline-block;
-   background-color: #1b91ab;
-   font-size: 12px;
-   font-family: Arial,Helvetica,sans-serif;
+   background-color:#DF7219;
+   font-size: 18px;
    color: #fff;
    padding: 5px 10px;
-   text-shadow: 1px 1px 0px #1b91ab;
-   font-weight: bold;
+   text-shadow: 1px 1px 0px #DF7219;
    text-decoration: none;
-   border: solid 1px #1b91ab;
+  //  border: solid 1px #FFF;
    border-bottom: 0;
    border-radius: 3px 3px 0 0;
 }
 a.tabs-menu.tabs-menu-active {
    background-color: #fff;
    text-shadow: 1px 1px 0px #ffffff;
-   border: solid 1px #1b91ab;
-   color: #6b6b6b;
+   border: solid 1px #DF7219;
+   color: #DF7219;
    border-bottom: 0;
 }
 .tabs-container {
-   border: solid 1px #1b91ab;
+   border: solid 1px #DF7219;
    margin-top: -1px;
-   background-color: #fff;
+  //  background-color: #fff;
    overflow: hidden;
 }
 .tabs-panel {
    display: none;
    min-height: 150px;
-   overflow: auto;
+  //  overflow: auto;
    padding: 10px;
    max-height: 200px;
 }
