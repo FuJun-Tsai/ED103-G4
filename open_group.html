@@ -162,55 +162,51 @@
                                 <div class="den_res_type">
                                     <h3>餐廳種類</h3>
                                     <div>
-                                        <input type="radio" name="kind" value="日式" id="kind1">
+                                        <input type="radio" name="kind" value="1" id="kind1">
                                         <label for="kind1">日式</label>
                                     </div>
                                     <div>
-                                        <input type="radio" name="kind" value="西式" id="kind3">
+                                        <input type="radio" name="kind" value="2" id="kind3">
                                         <label for="kind3">西式</label>
                                     </div>
                                     <div>
-                                        <input type="radio" name="kind" value="韓式" id="kind4">
+                                        <input type="radio" name="kind" value="3" id="kind4">
                                         <label for="kind4">中台</label>
                                     </div>
                                     <div>
-                                        <input type="radio" name="kind" value="中台" id="kind5">
+                                        <input type="radio" name="kind" value="4" id="kind5">
                                         <label for="kind5">韓式</label>
                                     </div>
                                     <div>
-                                        <input type="radio" name="kind" value="東南亞" id="kind6">
+                                        <input type="radio" name="kind" value="5" id="kind6">
                                         <label for="kind6">東南亞</label>
                                     </div>
                                 </div>
                                 <div class="den_cooking_style">
                                     <h3>料理風格</h3>
                                     <div>
-                                        <input type="checkbox" name="style" value="火鍋" id="style1">
-                                        <label for="style1">火鍋</label>
+                                        <input type="checkbox" name="style" value="1" id="style1">
+                                        <label for="style1">排餐</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="燒烤" id="style2">
-                                        <label for="style2">燒烤</label>
+                                        <input type="checkbox" name="style" value="2" id="style2">
+                                        <label for="style2">炸物</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="炸物" id="style3">
-                                        <label for="style3">炸物</label>
+                                        <input type="checkbox" name="style" value="3" id="style3">
+                                        <label for="style3">燒烤</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="快炒" id="style4">
-                                        <label for="style4">快炒</label>
+                                        <input type="checkbox" name="style" value="4" id="style4">
+                                        <label for="style4">火鍋</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="簡餐" id="style5">
-                                        <label for="style5">簡餐</label>
+                                        <input type="checkbox" name="style" value="5" id="style5">
+                                        <label for="style5">飯食</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="排餐" id="style6">
-                                        <label for="style6">排餐</label>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" name="style" value="冷盤" id="style7">
-                                        <label for="style7">冷盤</label>
+                                        <input type="checkbox" name="style" value="6" id="style6">
+                                        <label for="style6">麵食</label>
                                     </div>
                                 </div>
                             </div>
@@ -455,15 +451,6 @@
                 $('.box_background').css('display', 'block');
             });
 
-            // 第三個燈箱
-            // let eatGroup = document.querySelectorAll('.den_eatGroup'); //list是陣列
-            // for (let i = 0; i < eatGroup.length; i++) {
-            //     eatGroup[i].addEventListener('click', function() {
-            //         // console.log(eatGroup[i])
-            //         $('.den_box3').css('display', 'block');
-            //         $('.box_background').css('display', 'block');
-            //     });
-            // }
 
             // 燈箱離開
             $('.leave_btn').on('click', function() {
@@ -482,14 +469,14 @@
                 let x = $('.den_content_range').scrollLeft() + 1
                 x = x + 150;
                 let scrollVal1 = $('.den_content_range').scrollLeft(x)
-                    // console.log(x);
+                console.log(x);
             });
             // owl左右移動
             $('.den_nav_left').on('click', function() {
                 let x = $('.den_content_range').scrollLeft() + 1
                 x = x - 150;
                 let scrollVal1 = $('.den_content_range').scrollLeft(x)
-                    // console.log(x);
+                console.log(x);
             });
         }
         window.addEventListener('load', doFirst);
@@ -629,8 +616,9 @@
     <!-- AJAX -->
 
     <script>
+        //餐廳種類
         $('.den_res_type div').on('change', function() {
-            var yyy1 = $('.den_res_type div').index(this) + 1;
+            let yyy1 = $('.den_res_type div').index(this) + 1;
             console.log(yyy1);
 
             $.ajax({
@@ -641,16 +629,16 @@
                 },
                 dataType: 'json',
                 success(data) {
-                    console.log('132');
+                    console.log('成功');
                 },
                 complete(data) {
-
                     console.log(JSON.parse(data.responseText));
                     let resData1 = JSON.parse(data.responseText);
                     console.log(resData1[0]);
-                    $('.den_content').empty();
 
-                    for (let i = 0; i < resData1[0].length - 1; i++) {
+                    //清掉並重新渲染
+                    $('.den_content').empty();
+                    for (let i = 0; i < resData1[0].length; i++) {
                         $('.den_content').append(`
                     <div>
                         <span>${resData1[0][i].KIND_NAME}</span>
@@ -666,19 +654,90 @@
             });
         });
 
-        $('.den_cooking_style div').on('change', function() {
-            var yyy2 = $('.den_cooking_style div').index(this) + 1;
+        //料理風格
+        // $('.den_cooking_style div').on('change', function() {
+        //     var yyy2 = $('.den_cooking_style div').index(this) + 1;
+        //     console.log(yyy2);
+
+        //     $.ajax({
+        //         url: './open_group.php' + '?' + 'RES_KIND=' + yyy2,
+        //         type: 'GET',
+        //         dataType: 'json',
+        //         success(data) {
+        //             // console.log('132');
+        //         }
+        //     });
+        // });
+
+        // $('#condition input:checkbox').on('click',function(){
+        //     if($(this).attr('name')=='kind'){
+        //         K = $("input[name='kind']:checked").map(function(){
+        //             return $(this).val();
+        //         }).get();
+
+        //     }else{
+        //         S = $("input[name='style[]']:checked").map(function(){
+        //             return $(this).val(); 
+        //         }).get();
+        //     }
+
+        //     ConditionSearch(K,S.join(','));
+        // });
+
+
+
+
+        //料理風格
+        $(".den_cooking_style div input").click(function() {
+            let yyy1 = $('.den_res_type div input[name=kind]:checked').val();
+            console.log(yyy1);
+
+            let yyy2 = $('.den_cooking_style div input').index(this) + 1;
+            // let yyy2 = $('.den_cooking_style div input[name=style]:checked').map();
             console.log(yyy2);
 
-            $.ajax({
-                url: './open_group.php' + '?' + 'RES_KIND=' + yyy2,
-                type: 'GET',
-                dataType: 'json',
-                success(data) {
-                    console.log('132');
-                }
-            });
+            var checkis = $(this).is(":checked");
+            if (checkis == true) {
+                console.log('yes');
+
+                $.ajax({
+                    url: './open_group.php',
+                    type: 'GET',
+                    data: {
+                        RES_KIND: yyy1,
+                        RES_STYLE: yyy2
+                    },
+                    dataType: 'json',
+                    complete(data) {
+                        console.log('有傳送回來');
+                        console.log(data);
+                        let resData2 = data.responseJSON[0];
+                        console.log(resData2);
+
+                        //清掉並重新渲染
+                        $('.den_content').empty();
+                        for (let i = 0; i < resData2.length; i++) {
+                            $('.den_content').append(`
+                            <div>
+                                <span>${resData2[i].KIND_NAME}</span>
+                                <span>${resData2[i].STYLE_NAME}</span>
+                                <span>${resData2[i].RES_NO}</span>
+                                <p>${resData2[i].RES_NAME}</p>
+                                <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE1}" class="prodImg">
+                                <h6>查看餐廳介紹</h6>
+                            </div>
+                            `);
+                        }
+
+                    }
+                });
+            } else {
+                console.log('no');
+
+            }
         });
+
+
 
         $(document).ready(function() {
 
@@ -689,8 +748,8 @@
                 success(data) {
                     // console.log(data);
                     var resData = data[0];
-                    console.log(resData);
-                    console.log(resData.length);
+                    // console.log(resData);
+                    // console.log(resData.length);
                     //抓全部餐廳
                     for (let i = 0; i < resData.length - 1; i++) {
                         $('.den_content').append(`
@@ -703,11 +762,6 @@
                         <h6>查看餐廳介紹</h6>
                     </div>
                     `);
-
-                        doFirst();
-
-
-
                     }
 
                     // 第1個燈箱
@@ -716,7 +770,7 @@
                     for (let i = 0; i < owlImage.length; i++) {
                         owlImage[i].addEventListener('click', function() {
                             var ttt = this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
-                            console.log(ttt);
+                            // console.log(ttt);
                             $('.den_box_row').empty();
                             $('.den_box_row').append(`
                             <div class="box_row_left">
@@ -753,7 +807,7 @@
                     //第2個燈箱
                     $('.den_button').on('click', function() {
                         let resNameVal = $('.den_Information div:nth-child(1) input').val();
-                        console.log(resNameVal);
+                        // console.log(resNameVal);
                         for (let i = 0; i < resData.length; i++) {
                             if (resNameVal == resData[i].RES_NAME) {
                                 var nameOf = i;
@@ -822,8 +876,8 @@
                     //好友欄位
                     $(document).ready(function() {
                         var friendData = data[1];
-                        console.log(friendData);
-                        console.log(friendData.length);
+                        // console.log(friendData);
+                        // console.log(friendData.length);
 
                         for (let i = 0; i < friendData.length; i++) {
                             $('.den_friend_window form').append(
@@ -839,9 +893,9 @@
                     //美食團渲染
                     $(document).ready(function() {
                         var foodGroup1 = data[2];
-                        console.log(foodGroup1);
+                        // console.log(foodGroup1);
                         var foodGroup3 = data[3];
-                        console.log(foodGroup3);
+                        // console.log(foodGroup3);
 
                         for (let i = 0; i < foodGroup1.length; i++) {
                             $('.den_foodGroup').append(`
@@ -876,26 +930,22 @@
 
                     //第3個燈箱
                     $(document).ready(function() {
-                        var foodGroupBox = data[2];
-                        var iii = data[2];
-                        var ooo = [];
-                        // console.log(iii);
-                        for (let i = 0; i < iii.length; i++) {
-                            ooo.push(iii[i].MEMBER_NO);
-                        }
-
-
-                        // console.log(ooo);
-
-
-
-
-
-
+                        // var iii = data[2];
+                        // var ooo = [];
+                        // // console.log(iii);
+                        // for (let i = 0; i < iii.length; i++) {
+                        //     ooo.push(iii[i].MEMBER_NO);
+                        //     // console.log(ooo);
+                        // }
 
                         $('.den_eatGroup').on('click', function() {
+                            var foodGroupBox = data[2];
+                            var yyy9 = this.children[0].innerText;
                             let denEatGroupNum = $('.den_eatGroup').index(this);
+
+                            console.log(yyy9);
                             console.log(denEatGroupNum);
+
                             $('.den_box3_row').empty();
                             $('.den_box3_row').append(`
                             <div class="box3_row_left">
@@ -926,12 +976,7 @@
                                     <h3>開團團主:</h3>
                                     <h3>${foodGroupBox[denEatGroupNum].MEMBER_NAME}</h3>
                                     <br>
-                                    <h3>目前人數:</h3>
-                                    <h3></h3>
-                                    <h4></h4>
-                                    <h4></h4>
-                                    <h4></h4>
-                                    <h4></h4>
+                                    <h3 class="den_groupPeople">目前人數:</h3>                               
                                     <br>
                                     <h3>用餐時間:</h3>
                                     <h3>${foodGroupBox[denEatGroupNum].MEAL_TIME}</h3>
@@ -957,6 +1002,28 @@
 
                             $('.den_box3').css('display', 'block');
                             $('.box_background').css('display', 'block');
+
+                            $.ajax({
+                                url: './open_group.php',
+                                data: {
+                                    GROUP_NO: yyy9,
+                                },
+                                type: 'GET',
+                                dataType: 'json',
+                                complete(data) {
+                                    let memberName = data.responseJSON[3];
+                                    // console.log(memberName);
+                                    $('.box2_row_right div:nth-child(2) .den_groupPeople').append(
+                                        `
+                                       <p>123</p>
+                                       `)
+
+
+
+
+
+                                }
+                            });
 
                         });
                     });

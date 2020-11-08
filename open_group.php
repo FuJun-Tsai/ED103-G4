@@ -5,9 +5,18 @@ $Errmsg='';
     $cond1 = isset($_GET["RES_KIND"]) ? "RES_KIND = $RES_KIND" : "";
     $RES_STYLE = isset($_GET["RES_STYLE"]) ? $_GET["RES_STYLE"] : "";
     $cond2 = isset($_GET["RES_STYLE"]) ? "RES_STYLE = $RES_STYLE" : "" ;
+    $GROUP_NO = isset($_GET["GROUP_NO"]) ? $_GET["GROUP_NO"] : "";
+    $cond3 = isset($_GET["GROUP_NO"]) ? " and fg.GROUP_NO = $GROUP_NO order by GROUP_NO ":"";
 
+// echo $cond3;
 
 // echo $RES_KIND;
+// echo  $RES_STYLE;
+
+// echo $cond1;
+// echo  $cond2;
+
+
 
 try{
   require_once('connectRes.php');
@@ -16,10 +25,10 @@ try{
             join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
             ";
 
-    if($cond1!=""){ // 
+    if($cond1!=""){ 
       $sql.=" where $cond1";
       if($cond2!= ""){
-          $sql.="and $cond2";
+          $sql.=" and $cond2";
       }
   }else{
       if($cond2!=""){
@@ -28,7 +37,7 @@ try{
   }
   $sql.=" order by RES_NO ASC";
   
-
+// echo $sql ,'<br>','<br>','<br>';
   $data0 = $pdo->prepare($sql);
   $data0-> execute();
 
@@ -72,8 +81,8 @@ try{
   mm.MEMBER_IMAGE MEMBER_IMAGE, 
   rm.RES_START RES_START, 
   rm.RES_CLOSE RES_CLOSE,
-  mm.MEMBER_NAME MEMBER_NAME,
-  fgp.MEMBER_NO MEMBER_NO
+  mm.MEMBER_NAME MEMBER_NAME
+  
 
   from food_group fg
   join food_group_people fgp on(fg.GROUP_NO=fgp.GROUP_NO)
@@ -91,10 +100,14 @@ try{
   
 
 $sql3="
-      SELECT fg.MEMBER, fgp.MEMBER_NO, mm.MEMBER_NAME, fg.GROUP_NO FROM ed103g4.food_group fg
+      SELECT fg.MEMBER, fgp.MEMBER_NO, mm.MEMBER_NAME, fg.GROUP_NO, fgp.MEMBER_STATUS FROM ed103g4.food_group fg
       join food_group_people fgp on(fg.GROUP_NO=fgp.GROUP_NO)
-      join member_management mm on(fg.MEMBER=mm.MEMBER_NO)
-      order by GROUP_NO";
+      join member_management mm on(fgp.MEMBER_NO=mm.MEMBER_NO)
+      where fgp.MEMBER_STATUS=3";
+      $sql3.= $cond3;
+
+     
+
 
       $data3 = $pdo->prepare($sql3);
       $data3-> execute();
@@ -111,6 +124,7 @@ $sql3="
 }catch(PDOException $e){
   $Errmsg.= '錯誤內容：' . $e->getMessage() . '<br>';
   $Errmsg.= '錯誤行數：' . $e->getLine() . '<br>';
+  // echo $Errmsg;
 }
 
 // if($data->rowCount()==0){
