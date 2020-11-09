@@ -552,7 +552,7 @@ header {
                                 }
                                 h4 {
                                     display: inline-block;
-                                    color: $bgColor-style1;
+                                    // color: $bgColor-style1;
                                 }
                             }
                             .den_eatGroup_button {
@@ -777,21 +777,21 @@ header {
                 margin: 10px 0px;
                 background-color: rgba(204, 204, 204, .5);
                 border-radius: 10px;
-                // h2 {
-                //     // color: $btn_color_n_r;
-                //     display: block;
-                //     // border: 1px solid red;
-                //     padding: 10px 5px;
-                // }
                 h3 {
                     display: inline-block;
-                    // border: 1px solid;
-                    // border: 1px solid blue;
                     padding: 5px;
                 }
                 h4 {
-                    display: inline-block;
                     padding: 5px;
+                    display: inline-block;
+                    // margin: 12px;
+                    // padding: 5px 10px;
+                    // font-size: 14px;
+                    background-color: #88f59a;
+                    border: 0.1px solid;
+                    border-radius: 8px;
+                    width: 70px;
+                    text-align: center;
                 }
                 h6 {
                     display: inline-block;
@@ -815,7 +815,7 @@ header {
         transform: translateX(-50%);
         text-align: right;
         // padding: 15px;
-        .den_box_button {
+        .den_box2_button {
             text-align: center;
             width: 40%;
             // border: 1px solid;
@@ -917,12 +917,6 @@ header {
                 margin: 10px 0px;
                 background-color: rgba(204, 204, 204, .5);
                 border-radius: 10px;
-                // h2 {
-                //     // color: $btn_color_n_r;
-                //     display: block;
-                //     // border: 1px solid red;
-                //     padding: 10px 5px;
-                // }
                 h3 {
                     display: inline-block;
                     // border: 1px solid;
@@ -943,6 +937,25 @@ header {
                     border-radius: 8px;
                     width: 70px;
                     text-align: center;
+                }
+                .den_groupPeople {
+                    background-color: rgba(255, 255, 255, .0);
+                    margin: 5px 0px;
+                    padding: 0;
+                    h3 {
+                        vertical-align: bottom;
+                    }
+                    p {
+                        display: inline-block;
+                        // margin: 5px;
+                        padding: 5px 4px;
+                        font-size: 14px;
+                        background-color: #FFE1A4;
+                        border: 0.1px solid;
+                        border-radius: 8px;
+                        width: 70px;
+                        text-align: center;
+                    }
                 }
             }
         }

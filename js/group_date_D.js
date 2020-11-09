@@ -51,7 +51,7 @@ function doFirst() {
         // console.log(resMen);
 
         //好友checkbox
-        var check = $("input[name='Checkbox[]']:checked").length; //判斷有多少個方框被勾選
+        var check = $("input[name='friendCheckbox[]']:checked").length; //判斷有多少個方框被勾選
         if (check == 0) {
             alert("您尚未邀請好友喔");
             return false; //不要提交表單
@@ -59,6 +59,7 @@ function doFirst() {
             alert("你勾選了" + check + "個項目");
             return true; //提交表單
         }
+
     });
 
 }

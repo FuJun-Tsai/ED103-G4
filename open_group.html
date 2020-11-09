@@ -288,7 +288,7 @@
                                         <h3>找好友</h3>
                                         <hr>
                                     </div>
-                                    <form action="">
+                                    <form action="" class="den_friend_box">
                                     </form>
                                 </div>
                             </div>
@@ -321,9 +321,9 @@
         </div>
         <div class="den_box_row" id="box1">
         </div>
-        <div class="den_box_button">
+        <!-- <div class="den_box_button">
             <button>送出</button>
-        </div>
+        </div> -->
     </div>
 
     <!--燈箱2/開團確認-->
@@ -332,17 +332,16 @@
             <div class="line1"></div>
             <div class="line2"></div>
         </div>
+        <!-- <form class="open_group_form" action="open_group1"> -->
         <div class="den_box2_row">
 
         </div>
         <div class="denAllButton">
-            <div class="den_box_button">
-                <button>確認開團</button>
-            </div>
-            <div class="box_button_close">
-                <button>取消</button>
+            <div class="den_box2_button">
+                <button type="submit">確認開團</button>
             </div>
         </div>
+        <!-- </form> -->
     </div>
 
     <!--燈箱3/美食團-->
@@ -620,12 +619,15 @@
         $('.den_res_type div').on('change', function() {
             let yyy1 = $('.den_res_type div').index(this) + 1;
             console.log(yyy1);
+            let yyy2 = $('.den_cooking_style div input[name=style]:checked').val();
+            console.log(yyy2);
 
             $.ajax({
                 url: './open_group.php',
                 type: 'GET',
                 data: {
-                    RES_KIND: yyy1
+                    RES_KIND: yyy1,
+                    RES_STYLE: yyy2
                 },
                 dataType: 'json',
                 success(data) {
@@ -807,7 +809,9 @@
                     //第2個燈箱
                     $('.den_button').on('click', function() {
                         let resNameVal = $('.den_Information div:nth-child(1) input').val();
+                        // console.log(parseInt(data[5][0].max) + 1);
                         // console.log(resNameVal);
+
                         for (let i = 0; i < resData.length; i++) {
                             if (resNameVal == resData[i].RES_NAME) {
                                 var nameOf = i;
@@ -816,7 +820,7 @@
                         console.log(nameOf);
                         $('.den_box2_row').empty();
                         $('.den_box2_row').append(`
-
+                    
                         <div class="box2_row_left">
                             <div class="main_img">
                                 <img src="./image/restaurant_management_img/${resData[nameOf].RES_IMAGE1}">
@@ -829,30 +833,29 @@
                     <div class="box2_row_right">
                         <div>
                             <h3>團號:</h3>
-                            <h3>4758691</h3>
+                            <h3>${parseInt(data[5][0].max) + 1}</h3>
                             <br>
                             <h3>團名:</h3>
-                            <h3></h3>
+                            <h3 class="groupName"></h3>
                             <br>
                             <h3>店名:</h3>
                             <h3></h3>
+                            <h3 class="resNo" style="display: none;">${resData[nameOf].RES_NO}</h3>
                             <br>
                             <h6>${resData[nameOf].KIND_NAME}</h6>
                             <h6>${resData[nameOf].STYLE_NAME}</h6>                           
                         </div>
                         <div>
                             <h3>開團團主:</h3>
-                            <h3>XXXXX</h3>
+                            <h3 class="groupMaster">大大人</h3>
                             <br>
                             <h3>目前人數:</h3>
-                            <h3></h3>
-                            <h4></h4>
-                            <h4></h4>
-                            <h4></h4>
-                            <h4></h4>
+                            <h3 class="nowNum"></h3>
+                            <br>
+                            <h3 class="friendLoad">邀請的好友:</h3>
                             <br>
                             <h3>用餐時間:</h3>
-                            <h3></h3>
+                            <h3 class="mealDate"></h3>
                             <br>
                         </div>
                         <div>
@@ -872,11 +875,25 @@
                         </div>
                     </div>
                         `)
+
+                        //好友input傳送
+                        var friendCheckbox = $("input[name='friendCheckbox[]']:checked").map(function() {
+                            return $(this).next().text();
+                        }).get();
+                        // console.log(friendCheckbox.length);
+                        // console.log(friendCheckbox);
+                        for (let i = 0; i < friendCheckbox.length; i++) {
+                            $('.friendLoad').after(
+                                `
+                                <h4>${friendCheckbox[i]}</h4>
+                                        `
+                            )
+                        }
                     });
                     //好友欄位
                     $(document).ready(function() {
                         var friendData = data[1];
-                        // console.log(friendData);
+                        console.log(friendData);
                         // console.log(friendData.length);
 
                         for (let i = 0; i < friendData.length; i++) {
@@ -884,17 +901,68 @@
                                 `
                         <div>
                             <img src="./image/icon.svg" alt="">
-                            <input type="checkbox" id=friend${[i+1]} name="Checkbox[]">
+                            <input type="checkbox" id=friend${[i+1]} name="friendCheckbox[]" value="${friendData[i].friends_NO}">
                             <label for="friend${[i+1]}">${friendData[i].member_name}</label>
                         </div>
                             `)
                         }
                     });
+
+                    //燈箱2寫入資料庫
+                    $('.den_box2_button button').on('click', function(nameOf) {
+                        let groupNo = parseInt(data[5][0].max) + 1; //團編號
+                        let groupName = $('.groupName').text(); //團名
+                        let resNo = $('.resNo').text(); //餐廳編號
+                        let meal = $('.mealDate').text();
+                        let meal1 = meal.substring(0, 10);
+                        let meal12 = meal.substring(13, 18);
+                        let mealDate = meal1 + ' ' + meal12; //用餐時間
+                        let nowNum = $('.nowNum').text();
+                        let nowNumJoin = nowNum.substring(0, 1); //參加人數
+                        let nowNumMax = nowNum.substring(3, 2); //最大人數
+                        var friendCheckboxVal = $("input[name='friendCheckbox[]']:checked").map(function() {
+                            return $(this).val();
+                        }).get();
+
+
+                        // console.log(groupNo);
+                        // console.log(groupName);
+                        // console.log(resNo);
+                        // console.log(mealDate);
+                        // console.log(meal.substring(13, 18));
+                        console.log(meal.substring(0, 10));
+                        console.log(mealDate);
+                        console.log(nowNum);
+                        console.log(nowNumJoin);
+                        console.log(nowNumMax);
+                        console.log(friendCheckboxVal);
+                        //傳送資料
+
+                        $.ajax({
+                            url: './open_group1.php',
+                            data: {
+                                groupNo: groupNo,
+                                groupName: groupName,
+                                resNo: resNo,
+                                mealDate: mealDate,
+                                nowNumJoin: nowNumJoin,
+                                nowNumMax: nowNumMax,
+                                friendCheckboxVal: friendCheckboxVal
+
+                            },
+                            type: 'GET',
+                            dataType: 'json',
+                        });
+                    });
+
+
                     //美食團渲染
                     $(document).ready(function() {
                         var foodGroup1 = data[2];
-                        // console.log(foodGroup1);
                         var foodGroup3 = data[3];
+                        var foodGroup4 = data[4]
+                            // console.log(data[4]);
+                        console.log(foodGroup1);
                         // console.log(foodGroup3);
 
                         for (let i = 0; i < foodGroup1.length; i++) {
@@ -906,7 +974,7 @@
                                     <div class="den_eatGroup_content">
                                         <div>
                                             <h4>目前人數:</h4>
-                                            <h4>${foodGroup1[i].JOIN_NUMBER}/${foodGroup1[i].MAX_NUMBER}</h4>
+                                            <h4>${foodGroup4[i].NUM}/${foodGroup1[i].MAX_NUMBER}</h4>
                                         </div>
                                         <h3>團名:</h3>
                                         <h3>${foodGroup1[i].GROUP_NAME}</h3>
@@ -926,6 +994,14 @@
                                 </div>                           
                             `)
                         }
+                        let num = $('.den_eatGroup_content div h4:nth-child(2)')
+                        for (let i = 0; i < num.length; i++) {
+                            if (num[i].innerText == '4/4') {
+                                num[i].innerText = 'MAX';
+                                $(num[i]).css('color', 'red');
+                                // num[i].previousSibling.previousSibling.css('color', 'red');
+                            }
+                        }
                     });
 
                     //第3個燈箱
@@ -942,10 +1018,8 @@
                             var foodGroupBox = data[2];
                             var yyy9 = this.children[0].innerText;
                             let denEatGroupNum = $('.den_eatGroup').index(this);
-
-                            console.log(yyy9);
-                            console.log(denEatGroupNum);
-
+                            // console.log(yyy9);
+                            console.log(foodGroupBox);
                             $('.den_box3_row').empty();
                             $('.den_box3_row').append(`
                             <div class="box3_row_left">
@@ -976,8 +1050,9 @@
                                     <h3>開團團主:</h3>
                                     <h3>${foodGroupBox[denEatGroupNum].MEMBER_NAME}</h3>
                                     <br>
-                                    <h3 class="den_groupPeople">目前人數:</h3>                               
-                                    <br>
+                                    <div class="den_groupPeople">
+                                        <h3>目前人數:</h3>
+                                    </div>                               
                                     <h3>用餐時間:</h3>
                                     <h3>${foodGroupBox[denEatGroupNum].MEAL_TIME}</h3>
                                     <br>
@@ -1012,12 +1087,13 @@
                                 dataType: 'json',
                                 complete(data) {
                                     let memberName = data.responseJSON[3];
-                                    // console.log(memberName);
-                                    $('.box2_row_right div:nth-child(2) .den_groupPeople').append(
-                                        `
-                                       <p>123</p>
+                                    console.log(memberName);
+                                    for (let i = 0; i < memberName.length; i++) {
+                                        $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
+                                            `
+                                        <p>${memberName[i].MEMBER_NAME}</p>
                                        `)
-
+                                    }
 
 
 
