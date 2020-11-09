@@ -98,11 +98,10 @@ let member;
         }else{ //error
           alert(xhr.status);
         }
-
       }
 
-      xhr.open("get", "php/getMemberInfo_copy.php", true);
-      console.log(xhr.responseText);
+      xhr.open("get", "php/getMemberInfo.php", true);
+      // console.log(member);
       xhr.send(null);
     }
 

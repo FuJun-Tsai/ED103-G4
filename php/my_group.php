@@ -7,8 +7,8 @@ try{
   FROM `member_management` AS m JOIN `food_group_people` fgp ON (fgp.MEMBER_NO = m.MEMBER_NO)JOIN `food_group` AS f ON (fgp.GROUP_NO = f.GROUP_NO)
   WHERE f.MEMBER IN (SELECT f1.MEMBER
               FROM `member_management` AS m1 JOIN `food_group` AS f1 ON (m1.MEMBER_NO = f1.MEMBER)
-              WHERE m1.MEMBER_ID = ':MEMBER_ID'
-              AND m1.MEMBER_PSW = ':MEMBER_PSW')
+              WHERE m1.MEMBER_ID = 'aaa123'
+              AND m1.MEMBER_PSW = 'qwe456123789')
   AND f.END_TIME >= DATE(NOW())";
   $group = $pdo->prepare($sql);
   $group->bindValue(":MEMBER_ID", $_POST["MEMBER_ID"]);

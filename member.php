@@ -1208,7 +1208,7 @@ require_once("login.inc");
             document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
         }
     </script>
-    <script src="js/login.js"></script>
+    <!-- <script src="js/login.js"></script> -->
     <script src="./js/mem_pg.js"></script>
 </body>
 

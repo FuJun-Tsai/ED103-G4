@@ -204,24 +204,69 @@ $(document).ready(function(){
 function $id(id){
 	return document.getElementById(id);
 }	
-$id('my_group_btn').addEventListener('click',myGroupNow);
-function myGroupNow(){
-  // mem_account = $id("mem_account").innerHTML;
-  let xhr1 = new XMLHttpRequest();
-  xhr1.onload = function(){
-    if(xhr1.status == 200){ //success
-      group = JSON.parse(xhr1.responseText);
-      if(group.MEMBER_ID){
 
+
+
+
+function getMemberInfo(){
+  let xhr = new XMLHttpRequest();
+
+  xhr.onload = function(){
+    if(xhr.status == 200){ //success
+      member = JSON.parse(xhr.responseText);
+      if(member.MEMBER_ID){
+        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        $id('spanLogin').innerHTML = '登出';
+        $id('avatar_change').setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);            
+        $id('user_name').innerHTML = `${member.MEMBER_NAME}`;
+        $id('mem_name').innerHTML = `${member.MEMBER_NAME}`;
+        $id('mem_account').innerHTML = `${member.MEMBER_ID}`;
+        $id('mem_age').innerHTML = `${member.MEMBER_AGE}`;
+        $id('mem_psw').innerHTML = `${member.MEMBER_PSW}`;
+        $id('mem_sex').innerHTML = `${member.MEMBER_SEX}`;
+        $id('mem_email').innerHTML = `${member.MEMBER_EMAIL}`;
+        $id('mem_introduction').innerHTML = `${member.MEMBER_INTRODUCTION}`;
+        $id('GROUP_NO').innerHTML = `${member.GROUP_NO}`;
+        $id('GROUP_NAME').innerHTML = `${member.GROUP_NAME}`; 
+        $id('RES_NAME').innerHTML = `${member.RES_NAME}`;
+        $id('STYLE_NAME').innerHTML = `${member.STYLE_NAME}`;
+        $id('KIND_NAME').innerHTML = `${member.KIND_NAME}`;
+        $id('MEMBER_NAME').innerHTML = `${member.MEMBER_NAME}`;
+        $id('JOIN_NUMBER').innerHTML = `${member.JOIN_NUMBER}`;
+        $id('MEAL_TIME').innerHTML = `${member.MEAL_TIME}`;
+        $id('RES_ADDRESS').innerHTML = `${member.RES_ADDRESS}`;
+        $id('RES_TEL').innerHTML = `${member.RES_TEL}`;
+        $id('RES_BUS_HOURS').innerHTML = `${member.RES_BUS_HOURS}`;
+        $id('MAIN_IMG').setAttribute("src",`./image/restaurant_management_img/${member.RES_IMAGE1}`);
+        $id('RES_IMAGE1').setAttribute("src",`./image/restaurant_management_img/${member.RES_IMAGE1}`);
+        $id('RES_IMAGE2').setAttribute("src",`./image/restaurant_management_img/${member.RES_IMAGE2}`);
+        $id('RES_IMAGE3').setAttribute("src",`./image/restaurant_management_img/${member.RES_IMAGE3}`);
+        $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${member.RES_IMAGE4}`);            
       }
     }else{ //error
-      alert(xhr1.status);
+      alert(xhr.status);
+    }
+    $id('my_group_btn').addEventListener('click',myGroupNow);
+    function myGroupNow(){
+      let xhr1 = new XMLHttpRequest();
+      xhr1.onload = function(){
+        if(xhr1.status == 200){ //success
+          group = JSON.parse(xhr1.responseText);
+          if(group.MEMBER_ID){
+
+          }
+        }else{ //error
+          alert(xhr1.status);
+        }
+      }
+      xhr1.open("Post", "./php/my_group.php", true);
+      xhr1.setRequestHeader("content-type","application/x-www-form-urlencoded");
+      let data_info = `MEMBER_ID='aaa123'&MEMBER_PSW='qwe456123789'`;
+      xhr1.send(data_info);
     }
   }
-  xhr1.open("Post", "./php/my_group.php", true);
-  xhr1.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  let data_info = `MEMBER_ID='aaa123'&MEMBER_PSW='qwe456123789'`;
-  xhr1.send(data_info);
+  xhr.open("get", "php/getMemberInfo.php", true);
+  xhr.send(null);
 }
 
-window.addEventListener("load",myGroupNow,false);
+window.addEventListener("load",getMemberInfo,false);
