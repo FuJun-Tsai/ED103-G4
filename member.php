@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
 
-    <script src="./js/header_fixed.js"></script>
+    <!-- <script src="./js/header_fixed.js"></script> -->
     <title>會員專區</title>
     <!--他的css -->
     <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!--冰山icon的css -->
 
-    <script src="./js/mem_pg.js"></script>
+    
     <!--他的js -->
     <script src="js/btn_hover.js"></script>
     <!--按鈕js -->
@@ -306,6 +306,19 @@ require_once("login.inc");
                                 </div>
                             </div>
                         </div>
+                        <?
+                        // try {
+                        //     require_once("../connectRes.php");
+                        //     $sql ="SELECT * FROM `food_group_people`"
+                        //     $fgp = $pdo->prepare($sql);
+                        //     $fgp->bindValue(":memId", $get["memId"]);
+                        //     $fgp->bindValue(":memIPsw", $get["memPsw"]);
+                        //     $fgp->execute();
+                        // } catch (PDOException $e) {  
+                        //     $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
+                        //     $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
+                        // }
+                        ?>
                         <div class="add_stranger">
                             <h3 class="add_stranger_title">審核區</h3>
                             <ul class="add_stranger_block">
@@ -327,7 +340,7 @@ require_once("login.inc");
                                         </button>
                                     </div>
                                 </li>
-                                <li class="stranger_name_list">
+                                <!-- <li class="stranger_name_list">
                                     <div class="stranger_name">
                                         <img src="./image/member/stiker01.jpg">
                                         <h5 id="stranger">
@@ -362,7 +375,7 @@ require_once("login.inc");
                                             <span></span>
                                         </button>
                                     </div>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -1196,6 +1209,7 @@ require_once("login.inc");
         }
     </script>
     <script src="js/login.js"></script>
+    <script src="./js/mem_pg.js"></script>
 </body>
 
 </html>

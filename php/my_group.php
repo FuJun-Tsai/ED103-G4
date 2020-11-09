@@ -1,22 +1,28 @@
 <?php
 try{
   require_once("../connectRes.php");
-  $sql = " SELECT f.GROUP_NO, f.GROUP_NAME, r.RES_NAME, rs.STYLE_NAME, rk.KIND_NAME, m.MEMBER_NAME, f.JOIN_NUMBER, f.MEAL_TIME, r.RES_ADDRESS, r.RES_TEL, r.RES_BUS_HOURS, r.RES_IMAGE1, r.RES_IMAGE2, r.RES_IMAGE3, r.RES_IMAGE4
-  FROM `food_group` f JOIN `member_management` m ON (m.MEMBER_NO = f.MEMBER)
-                      JOIN `restaurant_management` r ON (r.RES_NO = f.RES_NO)
-                      JOIN `restaurant_style` rs ON (rs.STYLE_NO = r.RES_STYLE)
-                      JOIN `restaurant_kind` rk ON (rk.KIND_NO = r.RES_KIND)
-  WHERE f.END_TIME >= DATE(NOW())
-      AND m.MEMBER_NO = 1;"; 
+  $sql = "SELECT m.MEMBER_NAME'CHECK_NAME',
+                m.MEMBER_IMAGE'CHECK_IMAGES',
+                f.MEMBER
+  FROM `member_management` AS m JOIN `food_group_people` fgp ON (fgp.MEMBER_NO = m.MEMBER_NO)JOIN `food_group` AS f ON (fgp.GROUP_NO = f.GROUP_NO)
+  WHERE f.MEMBER IN (SELECT f1.MEMBER
+              FROM `member_management` AS m1 JOIN `food_group` AS f1 ON (m1.MEMBER_NO = f1.MEMBER)
+              WHERE m1.MEMBER_ID = ':MEMBER_ID'
+              AND m1.MEMBER_PSW = ':MEMBER_PSW')
+  AND f.END_TIME >= DATE(NOW())";
   $group = $pdo->prepare($sql);
+  $group->bindValue(":MEMBER_ID", $_POST["MEMBER_ID"]);
+  $group->bindValue(":MEMBER_PSW", $_POST["MEMBER_PSW"]);
   $group->execute();
+  // echo $sql;
   if( $group->rowCount()==0){ //查無此人
-	  echo "{}";
+	  echo "{沒東西}";
   }else{ //登入成功
-    //自資料庫中取回資料
+    //送出登入者的相關資料
   	$groupRow = $group->fetch(PDO::FETCH_ASSOC);
-    // //--------------將登入者的資料寫入session
     session_start();
+    //自資料庫中取回資料
+    // //--------------將登入者的資料寫入session
     // $_SESSION["GROUP_NO"] = $groupRow["GROUP_NO"];
     // $_SESSION["RES_NO"] = $groupRow["RES_NO"];
     // $_SESSION["MEMBER"] = $groupRow["MEMBER"];
@@ -26,10 +32,9 @@ try{
     // $_SESSION["MAX_NUMBER"] = $groupRow["MAX_NUMBER"];
     // $_SESSION["JOIN_NUMBER"] = $groupRow["JOIN_NUMBER"];
     // $_SESSION["MEAL_TIME"] = $groupRow["MEAL_TIME"];
+    echo json_encode($groupRow) ;
     
 
-    //送出登入者的相關資料
-    echo json_encode($groupRow) ;
   }
 }catch(PDOException $e){
 	$error = array("errorMsg"=>$e->getMessage());
