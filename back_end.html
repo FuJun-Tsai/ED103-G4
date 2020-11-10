@@ -334,7 +334,7 @@
                  <table class="tbl_member_adm table table-hover table-bordered results">
                      <thead class="member_adm_ti">
                          <tr> 
-                             <th class="col-md-1 col-xs-1">會員編號</th> 
+                             <th class="col-md-1 col-xs-1">編號</th> 
                              <th class="col-md-2 col-xs-2">會員帳號</th>
                              <th class="col-md-2 col-xs-2">會員名稱</th>
                              <th class="col-md-2 col-xs-2">會員密碼</th>
@@ -377,6 +377,14 @@
                          </tr> 
                      </tbody>
                 </table>
+                <div style="height:px;margin:px ;">
+                    <span id="spanFirst">第一頁</span>
+                    <span id="spanPre">上一頁</span>
+                    <span id="spanNext">下一頁</span>
+                    <span id="spanLast">最後一頁</span>
+                    第<span id="spanPageNum"></span>頁/共
+                    <span id="spanTotalPage"></span>頁
+                </div>
              </div>
              <div class="tab-pane" id="restaurant_adm">
                  <h2>
@@ -394,15 +402,15 @@
                      
                     <thead class="res_adm_ti">
                          <tr> 
-                             <th>餐廳編號</th> 
-                             <th>餐廳風格</th>
-                             <th>餐廳種類</th>
+                             <th>編號</th> 
+                             <th>風格</th>
+                             <th>種類</th>
                              <th>餐廳地址</th>
                              <th>餐廳電話</th>
                              <th>每周營業日</th>
-                             <th>餐廳介紹</th>
+                             <th>餐廳介紹*</th>
                              <th>圖片</th>
-                             <th>餐廳簡介</th>
+                             <th>餐廳簡介*</th>
                              <th>餐廳營業時間</th>
                              <th>餐廳狀態</th>
                              <th>按鈕</th>
@@ -450,6 +458,14 @@
                         </td> 
                     </tr> 
                 </table>
+                <div style="height:px;margin:px ;">
+                    <span id="spanFirst">第一頁</span>
+                    <span id="spanPre">上一頁</span>
+                    <span id="spanNext">下一頁</span>
+                    <span id="spanLast">最後一頁</span>
+                    第<span id="spanPageNum"></span>頁/共
+                    <span id="spanTotalPage"></span>頁
+                </div>
              </div>
              <div class="tab-pane" id="report_adm">
                  <h2>
@@ -490,7 +506,18 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="6">下拉範圍</td>
+                                    <td colspan="2">
+                                        貼文圖片
+                                        <div>
+                                            <img src="" alt="">
+                                        </div>
+                                    </td>
+                                    <td colspan="4">
+                                        貼文內容
+                                        <div>
+
+                                        </div>
+                                    </td>
                                 </tr> 
                                 <tr class="row_h"> 
                                     <td>資料1</td> 
@@ -510,6 +537,14 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div style="height:px;margin:px ;">
+                            <span id="spanFirst">第一頁</span>
+                            <span id="spanPre">上一頁</span>
+                            <span id="spanNext">下一頁</span>
+                            <span id="spanLast">最後一頁</span>
+                            第<span id="spanPageNum"></span>頁/共
+                            <span id="spanTotalPage"></span>頁
+                        </div>
                       </div>
                    
                       <div id="tab1" class="tabs-panel">
@@ -559,6 +594,14 @@
                                 </tr> 
                             </tbody>
                         </table>
+                        <div style="height:px;margin:px ;">
+                            <span id="spanFirst">第一頁</span>
+                            <span id="spanPre">上一頁</span>
+                            <span id="spanNext">下一頁</span>
+                            <span id="spanLast">最後一頁</span>
+                            第<span id="spanPageNum"></span>頁/共
+                            <span id="spanTotalPage"></span>頁
+                        </div>
                       </div>
                    
                       
@@ -618,6 +661,14 @@
                         </tr>
                      </tbody>
                     </table>
+                    <div style="height:px;margin:px ;">
+                        <span id="spanFirst">第一頁</span>
+                        <span id="spanPre">上一頁</span>
+                        <span id="spanNext">下一頁</span>
+                        <span id="spanLast">最後一頁</span>
+                        第<span id="spanPageNum"></span>頁/共
+                        <span id="spanTotalPage"></span>頁
+                    </div>
              </div>
     </div>
 
@@ -702,7 +753,7 @@
             $(this).attr('visible','true');
         });
 
-        var jobCount = $('.results tbody tr[visible="true"]').length;
+        let jobCount = $('.results tbody tr[visible="true"]').length;
             $('.counter').text(jobCount + ' item');
 
         if(jobCount == '0') {$('.no-result').show();}
@@ -717,7 +768,7 @@
              $("#tabs-nav a").removeClass("tabs-menu-active");
              $(this).addClass("tabs-menu-active");
              $(".tabs-panel").removeClass("animated bounceInDown").hide();
-             var tab_id = $(this).attr("href");
+             let tab_id = $(this).attr("href");
              $(tab_id).addClass("animated bounceInDown").show();
              return false;
           });
@@ -727,7 +778,7 @@
       <script>
           $(document).ready(function() {
             //Fixing jQuery Click Events for the iPad
-            var ua = navigator.userAgent,
+            let ua = navigator.userAgent,
                 event = (ua.match(/iPad/i)) ? "touchstart" : "click";
             if ($('.report_table').length > 0) {
                 $('.report_table tbody .row_h').on(event, function() {
@@ -738,6 +789,116 @@
             }
             })
       </script>
+      <!-- 分頁 -->
+      <script type="text/javascript">
+        let theTable = document.getElementById("table");
+        let totalPage = document.getElementById("spanTotalPage");
+        let pageNum = document.getElementById("spanPageNum");
+        let spanPre = document.getElementById("spanPre");
+        let spanNext = document.getElementById("spanNext");
+        let spanFirst = document.getElementById("spanFirst");
+        let spanLast = document.getElementById("spanLast");
+        let numberRowsInTable = theTable.rows.length;
+        let pageSize ="";
+        let page ="";
+        //下一頁
+        function next() {
+        hideTable();
+        currentRow = pageSize * page;
+        maxRow = currentRow   pageSize;
+        if ( maxRow > numberRowsInTable )
+        maxRow = numberRowsInTable;
+        for ( var i = currentRow; i< maxRow; i   ) {
+        theTable.rows[i].style.display = '';
+        }
+        page  ;
+        if ( maxRow == numberRowsInTable ){
+        nextText();
+        lastText();
+        }
+        showPage();
+        preLink();
+        firstLink();
+        }
+        //上一頁
+        function pre() {
+        hideTable();
+        page--;
+        currentRow = pageSize * page;
+        maxRow = currentRow - pageSize;
+        if ( currentRow > numberRowsInTable )
+        currentRow = numberRowsInTable;
+        for ( var i = maxRow; i< currentRow; i   ) {
+        theTable.rows[i].style.display = '';
+        }
+        if ( maxRow == ) {
+        preText();
+        firstText();
+        }
+        showPage();
+        nextLink();
+        lastLink();
+        }
+        //第一頁
+        function first() {
+        hideTable();
+        page ="";
+        for ( let i =""; i<pageSize; i   ) {
+        theTable.rows[i].style.display = '';
+        }
+        showPage();
+        preText();
+        nextLink();
+        lastLink();
+        }
+        //最後一頁
+        function last() {
+        hideTable();
+        page = pageCount();
+        currentRow = pageSize * (page - );
+        for ( var i = currentRow; i<numberRowsInTable; i   ) {
+        theTable.rows[i].style.display = '';
+        }
+        showPage();
+        preLink();
+        nextText();
+        firstLink();
+        }
+        function hideTable() {
+        for ( var i =""; i<numberRowsInTable; i   ) {
+        theTable.rows[i].style.display = 'none';
+        }
+        }
+        function showPage() {
+        pageNum.innerHTML = page;
+        }
+        //總共頁數
+        function pageCount() {
+        let count ='';
+        if ( numberRowsInTable%pageSize !='') count =''; 
+        return parseInt(numberRowsInTable/pageSize)   count;
+        }
+        //顯示連結
+        function preLink() { spanPre.innerHTML = "<a href='javascript:pre();'>上一頁</a>"; }
+        function preText() { spanPre.innerHTML = "上一頁"; }
+        function nextLink() { spanNext.innerHTML = "<a href='javascript:next();'>下一頁</a>"; }
+        function nextText() { spanNext.innerHTML = "下一頁"; }
+        function firstLink() { spanFirst.innerHTML = "<a href='javascript:first();'>第一頁</a>"; }
+        function firstText() { spanFirst.innerHTML = "第一頁"; }
+        function lastLink() { spanLast.innerHTML = "<a href='javascript:last();'>最後一頁</a>"; }
+        function lastText() { spanLast.innerHTML = "最後一頁"; }
+        //隱藏表格
+        function hide() {
+        for ( var i = pageSize; i<numberRowsInTable; i   ) {
+        theTable.rows[i].style.display = 'none';
+        }
+        totalPage.innerHTML = pageCount();
+        pageNum.innerHTML = '';
+        nextLink();
+        lastLink();
+        }
+        hide();
+        </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
