@@ -9,6 +9,6 @@ if(isset($_SESSION["MEMBER_ID"]) === true){
 	);
 	echo json_encode($result);
 }else{
-	echo "{}";
+	echo "{沒東西}";
 }
 ?>

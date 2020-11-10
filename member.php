@@ -53,6 +53,7 @@
                 <div class="icon" >
                     <img src="./image/icon.svg" id="headshot_icon">
                 </div>
+                <div id="nametest"></div>
                 <!-- <span id="memName">&nbsp;</span> -->
                 <span id="spanLogin">登入</span>
             </div>
@@ -225,7 +226,6 @@ require_once("login.inc");
                                 修改<span></span>
                             </button>
                             <h5 class="content" id="mem_introduction">
-                                自我介紹似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。要想清楚，自我介紹，到底是一種怎麼樣的存在。我們要學會站在別人的角度思考。做好自我介紹這件事，可以說已經成為了全民運動。若能夠洞悉自我介紹各種層面的含義，勢必能讓思維再提高一個層級
                             </h5>
                         </div>
                     </div>
@@ -306,28 +306,11 @@ require_once("login.inc");
                                 </div>
                             </div>
                         </div>
-                        <?
-                        // try {
-                        //     require_once("../connectRes.php");
-                        //     $sql ="SELECT * FROM `food_group_people`"
-                        //     $fgp = $pdo->prepare($sql);
-                        //     $fgp->bindValue(":memId", $get["memId"]);
-                        //     $fgp->bindValue(":memIPsw", $get["memPsw"]);
-                        //     $fgp->execute();
-                        // } catch (PDOException $e) {  
-                        //     $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
-                        //     $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
-                        // }
-                        ?>
                         <div class="add_stranger">
                             <h3 class="add_stranger_title">審核區</h3>
                             <ul class="add_stranger_block">
                                 <li class="stranger_name_list">
                                     <div class="stranger_name">
-                                        <img src="./image/member/stiker01.jpg">
-                                        <h5 id="stranger">
-                                            瑞典小女孩
-                                        </h5>
                                     </div>
                                     <div class="button_box">
                                         <button class="btn_5 btn_js">
@@ -340,42 +323,6 @@ require_once("login.inc");
                                         </button>
                                     </div>
                                 </li>
-                                <!-- <li class="stranger_name_list">
-                                    <div class="stranger_name">
-                                        <img src="./image/member/stiker01.jpg">
-                                        <h5 id="stranger">
-                                            瑞典小女孩
-                                        </h5>
-                                    </div>
-                                    <div class="button_box">
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-check">確認</i>
-                                            <span></span>
-                                        </button>
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-minus">刪除</i>
-                                            <span></span>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="stranger_name_list">
-                                    <div class="stranger_name">
-                                        <img src="./image/member/stiker01.jpg">
-                                        <h5 id="stranger">
-                                            瑞典小女孩
-                                        </h5>
-                                    </div>
-                                    <div class="button_box">
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-check">確認</i>
-                                            <span></span>
-                                        </button>
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-minus">刪除</i>
-                                            <span></span>
-                                        </button>
-                                    </div>
-                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -1208,7 +1155,7 @@ require_once("login.inc");
             document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
         }
     </script>
-    <!-- <script src="js/login.js"></script> -->
+    <script src="js/login.js"></script>
     <script src="./js/mem_pg.js"></script>
 </body>
 
