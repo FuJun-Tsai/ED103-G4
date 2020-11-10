@@ -269,31 +269,39 @@ function getMemberInfo(){
 
 
 
-      window.addEventListener("load",myGroupNow(),false); 
+      
       function myGroupNow(){
         let xhr1 = new XMLHttpRequest();
         xhr1.onload = function(){
           if(xhr1.status == 200){ //success
             group = JSON.parse(xhr1.responseText);
-            for (let i = 0; i < group.length; i++) {
-              $`(         
-                <div class="stranger_name">
+            if(member.MEMBER_ID){
+            //選取元素
+            var el = document.querySelector('.add_stranger_block');
+            //建立空字串
+            var str = '';
+              for (let i = 0; i < group.length; i++) {
+                $(el).append(`
+                  <li class="stranger_name_list">
+                  <div class="stranger_name">
                     <img id="CHECK_IMAGES" src="./image/member/${group[i].CHECK_IMAGES}" >
                     <h5 id="CHECK_NAME">
                     ${group[i].CHECK_NAME}
                     </h5>
-                </div>
-              )`
-
-
-            }
-            console.log(group);
-            console.log(group[0].CHECK_NAME);
-            console.log(group[0].CHECK_IMAGES);
-            console.log(group[0].MEMBER_STATUS);
-            if(member.MEMBER_ID){
-              $id('CHECK_IMAGES').setAttribute("src",`./image/member/${group.CHECK_IMAGES}`); 
-              $id('CHECK_NAME').innerHTML = `${group.CHECK_NAME}`;
+                  </div>
+                  <div class="button_box">
+                      <button class="btn_5 btn_js">
+                          <i class="fas fa-check">確認</i>
+                          <span></span>
+                      </button>
+                      <button class="btn_5 btn_js">
+                          <i class="fas fa-minus">刪除</i>
+                          <span></span>
+                      </button>
+                  </div>
+              </li>
+                `);
+              }
             }
           }else{ //error
             alert(xhr1.status);
@@ -303,8 +311,55 @@ function getMemberInfo(){
         xhr1.setRequestHeader("content-type","application/x-www-form-urlencoded");
         let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
         xhr1.send(data_info);
-        console.log(data_info);
       }
+      window.addEventListener("load",myGroupNow(),false);
+      
+      function tab_ok(){
+        let xhr2 = new XMLHttpRequest();
+        xhr2.onload = function(){
+          if(xhr2.status == 200){ //success
+            join = JSON.parse(xhr2.responseText);
+            if(member.MEMBER_ID){
+              console.log(join);
+            //選取元素
+            var el = document.getElementById('tab_ok');
+            //建立空字串
+            var str = '';
+              for (let i = 0; i < join.length; i++) {
+                $(el).append(`
+                <div class="ice_eatGroup">
+                    <span>${i+1}</span>
+                    <img src="./image/restaurant_management_img/${join[i].RES_IMAGE1}">
+                    <div class="ice_eatGroup_content">
+                        <h5>團名:</h5>
+                        <h5>${join[i].GROUP_NAME}</h5>
+                        <br>
+                        <h5>店名:</h5>
+                        <h5>${join[i].RES_NAME}</h5>
+                        <br>
+                        <h5>用餐日期:</h5>
+                        <h5>${join[i].DATE}</h5>
+                        <br>
+                        <h5>用餐時間:</h5>
+                        <h5>${join[i].TIME}</h5>
+                    </div>
+                    <div class="ice_eatGroup_button">
+                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
+                    </div>
+                </div>
+                `);
+              }
+            }
+          }else{ //error
+            alert(xhr2.status);
+          }
+        }
+        xhr2.open("Post", "./php/tab_ok.php", true);
+        xhr2.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
+        xhr2.send(data_info);
+      }
+      window.addEventListener("load",tab_ok(),false);
     }else{ //error
       alert(xhr.status);
     }

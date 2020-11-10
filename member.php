@@ -309,20 +309,6 @@ require_once("login.inc");
                         <div class="add_stranger">
                             <h3 class="add_stranger_title">審核區</h3>
                             <ul class="add_stranger_block">
-                                <li class="stranger_name_list">
-                                    <div class="stranger_name">
-                                    </div>
-                                    <div class="button_box">
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-check">確認</i>
-                                            <span></span>
-                                        </button>
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-minus">刪除</i>
-                                            <span></span>
-                                        </button>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -349,69 +335,9 @@ require_once("login.inc");
                             </ul>
                         </div>
                         <div class="tab_contents">
-                            <div class="tab tab_ok -on">
-                                <div class="ice_eatGroup" id="sure1">
-                                    <span>1</span>
-                                    <img src="./image/member/people.jpg" alt="">
-                                    <div class="ice_eatGroup_content">
-                                        <h5>團名:</h5>
-                                        <h5>不吐不歸</h5>
-                                        <br>
-                                        <h5>店名:</h5>
-                                        <h5>寶咖咖</h5>
-                                        <br>
-                                        <h5>用餐日期:</h5>
-                                        <h5>9/28</h5>
-                                        <br>
-                                        <h5>用餐時間:</h5>
-                                        <h5>18:00</h5>
-                                    </div>
-                                    <div class="ice_eatGroup_button">
-                                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
-                                    </div>
-                                </div>
-                                <div class="ice_eatGroup" id="sure2">
-                                    <span>2</span>
-                                    <img src="./image/member/people1.jpg" alt="">
-                                    <div class="ice_eatGroup_content">
-                                        <h5>團名:</h5>
-                                        <h5>不吐不歸</h5>
-                                        <br>
-                                        <h5>店名:</h5>
-                                        <h5>寶咖咖</h5>
-                                        <br>
-                                        <h5>用餐日期:</h5>
-                                        <h5>9/28</h5>
-                                        <br>
-                                        <h5>用餐時間:</h5>
-                                        <h5>18:00</h5>
-                                    </div>
-                                    <div class="ice_eatGroup_button">
-                                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
-                                    </div>
-                                </div>
-                                <div class="ice_eatGroup" id="sure3">
-                                    <span>3</span>
-                                    <img src="./image/member/people.jpg" alt="">
-                                    <div class="ice_eatGroup_content">
-                                        <h5>團名:</h5>
-                                        <h5>不吐不歸</h5>
-                                        <br>
-                                        <h5>店名:</h5>
-                                        <h5>寶咖咖</h5>
-                                        <br>
-                                        <h5>用餐日期:</h5>
-                                        <h5>9/28</h5>
-                                        <br>
-                                        <h5>用餐時間:</h5>
-                                        <h5>18:00</h5>
-                                    </div>
-                                    <div class="ice_eatGroup_button">
-                                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
-                                    </div>
-                                </div>
+                            <div class="tab tab_ok -on" id="tab_ok">
                             </div>
-                            <div class="tab tab_notok">
+                            <div class="tab tab_notok" id="tab_notok">
                                 <div class="ice_eatGroup" id="not_sure1">
                                     <span>4</span>
                                     <img src="./image/member/people1.jpg" alt="">
