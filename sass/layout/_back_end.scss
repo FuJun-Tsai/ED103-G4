@@ -146,6 +146,8 @@ h2 {
       }
     }
     .tbl_administrator{
+      table-layout: fixed;
+      width: 100%;
       margin: 0 auto;
       line-height: 20px;
       align-items: center;
@@ -154,6 +156,8 @@ h2 {
         background-color: #9B1E23;
         tr{
           th{
+            position:sticky;
+            top:0;
             text-align:center;
             color: #FFF;
           }
@@ -203,6 +207,8 @@ h2 {
           background-color: #9B1E23;
           tr{
             th{
+              position:sticky;
+              top:0;
               text-align:center;
               color: #FFF;
             }
