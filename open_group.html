@@ -1008,18 +1008,14 @@
                             type: 'GET',
                             dataType: 'json',
                             complete(data) {
-
                                 $('.den_foodGroup').empty();
                                 let foodGroup1new = data.responseJSON[2];
                                 let foodGroup4new = data.responseJSON[4];
                                 console.log(data.responseJSON);
                                 console.log(data.responseJSON[2]);
                                 console.log(data.responseJSON[4]);
-
                                 // console.log(foodGroup1new);
-
                                 for (let i = 0; i < foodGroup1new.length; i++) {
-
                                     $('.den_foodGroup').append(`
                                         <div class="den_eatGroup" id="eatGroup${i+1}">
                                                 <span>${foodGroup1new[i].GROUP_NO}</span>
@@ -1059,9 +1055,7 @@
                         });
                         $('.den_box2').css('display', 'none');
                         $('.box_background').css('display', 'none');
-
                     });
-
                     //美食團渲染
                     $(document).ready(function() {
                         var foodGroup1 = data[2];
@@ -1070,7 +1064,6 @@
                             // console.log(data[4]);
                         console.log(foodGroup1);
                         console.log(foodGroup1.length);
-
                         // console.log(foodGroup3);
 
                         for (let i = 0; i < foodGroup1.length; i++) {
@@ -1182,7 +1175,6 @@
                                 </div>
                             </div>
                             `)
-
                             $('.den_box3').css('display', 'block');
                             $('.box_background').css('display', 'block');
 
@@ -1202,31 +1194,10 @@
                                         <p>${memberName[i].MEMBER_NAME}</p>
                                        `)
                                     }
-
-
-
-
                                 }
                             });
-
                         });
                     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 }
             });
         });
