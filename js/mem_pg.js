@@ -328,7 +328,6 @@ function getMemberInfo(){
               for (let i = 0; i < join.length; i++) {
                 $(el).append(`
                 <div class="ice_eatGroup">
-                    <span>${i+1}</span>
                     <img src="./image/restaurant_management_img/${join[i].RES_IMAGE1}">
                     <div class="ice_eatGroup_content">
                         <h5>團名:</h5>
@@ -344,7 +343,7 @@ function getMemberInfo(){
                         <h5>${join[i].TIME}</h5>
                     </div>
                     <div class="ice_eatGroup_button">
-                        <button class="btn_5 btn_js">參加 &#9658<span></span></button>
+                        <button class="btn_5 btn_js">查看 &#9658<span></span></button>
                     </div>
                 </div>
                 `);
@@ -360,6 +359,53 @@ function getMemberInfo(){
         xhr2.send(data_info);
       }
       window.addEventListener("load",tab_ok(),false);
+
+      function tab_notok(){
+        let xhr2 = new XMLHttpRequest();
+        xhr2.onload = function(){
+          if(xhr2.status == 200){ //success
+            join = JSON.parse(xhr2.responseText);
+            if(member.MEMBER_ID){
+              console.log(join);
+            //選取元素
+            var el = document.getElementById('tab_notok');
+            //建立空字串
+            var str = '';
+              for (let i = 0; i < join.length; i++) {
+                $(el).append(`
+                <div class="ice_eatGroup">
+                    <img src="./image/restaurant_management_img/${join[i].RES_IMAGE1}">
+                    <div class="ice_eatGroup_content">
+                        <h5>團名:</h5>
+                        <h5>${join[i].GROUP_NAME}</h5>
+                        <br>
+                        <h5>店名:</h5>
+                        <h5>${join[i].RES_NAME}</h5>
+                        <br>
+                        <h5>用餐日期:</h5>
+                        <h5>${join[i].DATE}</h5>
+                        <br>
+                        <h5>用餐時間:</h5>
+                        <h5>${join[i].TIME}</h5>
+                    </div>
+                    <div class="ice_eatGroup_button">
+                        <button class="btn_5 btn_js">確認 &#9658<span></span></button>
+                        <button class="btn_5 btn_js">刪除 &#9658<span></span></button>
+                    </div>
+                </div>
+                `);
+              }
+            }
+          }else{ //error
+            alert(xhr2.status);
+          }
+        }
+        xhr2.open("Post", "./php/tab_notok.php", true);
+        xhr2.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
+        xhr2.send(data_info);
+      }
+      window.addEventListener("load",tab_notok(),false);
     }else{ //error
       alert(xhr.status);
     }

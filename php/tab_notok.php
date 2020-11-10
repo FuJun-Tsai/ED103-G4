@@ -7,7 +7,7 @@ try{
           JOIN `restaurant_management` r ON (r.RES_NO = f.RES_NO)
                   JOIN `member_management` m ON (m.MEMBER_NO = fdp.MEMBER_NO)
   WHERE  m.MEMBER_ID =:MEMBER_ID AND m.MEMBER_PSW =:MEMBER_PSW
-  AND fdp.MEMBER_STATUS = 3 ";
+  AND fdp.MEMBER_STATUS = 2 ";
   $join = $pdo->prepare($sql);
   $join->bindValue(":MEMBER_ID", $_POST["MEMBER_ID"]);
   $join->bindValue(":MEMBER_PSW", $_POST["MEMBER_PSW"]);
