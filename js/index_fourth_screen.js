@@ -70,6 +70,3 @@ $(document).ready(function() {
 //     <img src="./image/index/arrow_right.svg" alt="">
 // </div>
 // </div> 
-
-
-$().("click")

@@ -87,7 +87,7 @@
                 h5 {
                     font-weight: bold;
                     display: inline-block;
-                    padding: 6px 8px;
+                    padding: 6px 0px;
                 }
             }
             .mypa {
@@ -197,12 +197,6 @@
                     
                     @include rwd (md_cellphone){
                         height: 200px;
-                    }
-                    .small_title{
-                        vertical-align: top;
-                    }
-                    button{
-                        vertical-align: top;
                     }
                     .content {
                         width: 70%;

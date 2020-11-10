@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     conditionK = []; //kind搜尋條件
     conditionS = []; //style搜尋條件
     RK = []; //kind符合餐廳
@@ -8,7 +7,7 @@ $(document).ready(function(){
     pages = Math.ceil($('.rest').length/4); //分頁
     index = 0; // 頁次
 
-
+    
     $('.jap').text('日式');
     $('.usa').text('美式');
     $('.west').text('西式');

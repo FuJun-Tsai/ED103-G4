@@ -199,10 +199,7 @@ function binding() {
         for (var i = 0; i < arr.length; i++) {
             players[i].name = arr[i];
             players[i].state = "active";
-            img[i].src = "image/den_image/allgif/" + arr[i] + ".gif";
-
-            $('.den_game_background').css('display','none');
-            
+            img[i].src = "image/den_image/allgif/" + arr[i] + ".gif"
             console.log(arr[i]);
         }
         title.style.visibility = "visible";

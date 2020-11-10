@@ -53,21 +53,21 @@ try{
 
 
   // SQL3 加入收藏
-  $sql3 = "insert into `article_collection` 
-            (MEMBER_NO,
-            ARTICLE_NO)
+//   $sql3 = "insert into `article_collection` 
+//             (MEMBER_NO,
+//             ARTICLE_NO)
 
-            VALUES
-            (:MEMBER_NO,
-            :ARTICLE_NO); 
-          ";                  
+//             VALUES
+//             (:MEMBER_NO,
+//             :ARTICLE_NO); 
+//           ";                  
 
-  $data3 = $pdo->prepare($sql3);
-  $data3-> execute();
+//   $data3 = $pdo->prepare($sql3);
+//   $data3-> execute();
 
-//放入陣列result[3]
-  $data3Rows = $data3->fetchAll(PDO::FETCH_ASSOC);
-  $result[3] = $data3Rows; 
+// //放入陣列result[3]
+//   $data3Rows = $data3->fetchAll(PDO::FETCH_ASSOC);
+//   $result[3] = $data3Rows; 
 
 
 

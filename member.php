@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
 
-    <script src="./js/header_fixed.js"></script>
+    <!-- <script src="./js/header_fixed.js"></script> -->
     <title>會員專區</title>
     <!--他的css -->
     <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
@@ -15,17 +15,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!--冰山icon的css -->
 
-    <script src="./js/mem_pg.js"></script>
+    
     <!--他的js -->
     <script src="js/btn_hover.js"></script>
     <!--按鈕js -->
     <link rel="stylesheet" href="./css/allstyle.css">
-    <!-- <link rel="stylesheet" href="./css/bootstrap.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script> -->
 </head>
 
 <body>
@@ -55,13 +49,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="member">
-                <div class="icon">
-                    <a href="./login.html">
-                        <img src="./image/icon.svg" alt="">
-                    </a>
+            <div class="member" id="login">
+                <div class="icon" >
+                    <img src="./image/icon.svg" id="headshot_icon">
                 </div>
-                <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+                <div id="nametest"></div>
+                <!-- <span id="memName">&nbsp;</span> -->
+                <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
                 <div id="menu" onclick="onClickMenu()">
@@ -111,6 +105,11 @@
         <div class="bubble x9"></div>
     </div>
 
+    <!---------------------------------- 登入bar 區域開始 ---------------------------------->	
+<?php 
+require_once("login.inc");
+?>
+<!---------------------------------- 登入bar 區域結束 ---------------------------------->
     <!-- ***************************** -->
 
     <section class="memberpage container">
@@ -118,7 +117,7 @@
             <div class="member_side">
                 <div class="avatar">
                     <div class="pic_change">
-                        <img id="avatar_change" src="image/member/haachama_chama.jpg">
+                        <img id="avatar_change">
                         <div class="upload">
                             <p id="namefile">只收圖片檔喔! (jpg,jpeg,bmp,png)</p>
                         </div>
@@ -134,29 +133,29 @@
                     <button type="button" class="btn btn-default " disabled="disabled" id="fakebtn">拒絕!</button>
                 </div>
                 <div class="name">
-                    <h5 id="user_name">哈洽馬洽馬
+                    <h5 id="user_name">
                     </h5>
                 </div>
                 <div class="mypa">
                     <div class="mylist">
                         <ul>
                             <li>
-                                <button data-target="my_main" class="tabbtn -on btn_11 btn_js">我的資訊<span></span></button>
+                                <button data-target="my_main" class="tabbtn -on btn_11 btn_js" id="my_main_btn">我的資訊<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_group" class="tabbtn btn_11 btn_js">我的開團<span></span></button>
+                                <button data-target="my_group" class="tabbtn btn_11 btn_js" id="my_group_btn">我的開團<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_join" class="tabbtn btn_11 btn_js">我的參團<span></span></button>
+                                <button data-target="my_join" class="tabbtn btn_11 btn_js" id="my_jion_btn">我的參團<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_collect" class="tabbtn btn_11 btn_js">我的收藏<span></span></button>
+                                <button data-target="my_collect" class="tabbtn btn_11 btn_js" id="my_collect_btn">我的收藏<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_article" class="tabbtn btn_11 btn_js">我的文章<span></span></button>
+                                <button data-target="my_article" class="tabbtn btn_11 btn_js" id="my_article_btn">我的文章<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_friend" class="tabbtn btn_11 btn_js">我的好友<span></span></button>
+                                <button data-target="my_friend" class="tabbtn btn_11 btn_js" id="my_friend_btn">我的好友<span></span></button>
                             </li>
                         </ul>
                     </div>
@@ -172,8 +171,7 @@
                             <h4 class="small_title">
                                 姓名:
                             </h4>
-                            <h5 class="content" id="name">
-                                哈洽馬洽馬
+                            <h5 class="content" id="mem_name">
                             </h5>
                             <button class="change btn_10 btn_js">
                                 修改<span></span>
@@ -183,24 +181,21 @@
                             <h4 class="small_title">
                                 帳號:
                             </h4>
-                            <h5 class="content">
-                                meimei2
+                            <h5 class="content" id="mem_account">
                             </h5>
                         </div>
                         <div class="part">
                             <h4 class="small_title">
                                 年齡:
                             </h4>
-                            <h5 class="content">
-                                20-25
+                            <h5 class="content" id="mem_age">
                             </h5>
                         </div>
                         <div class="part">
                             <h4 class="small_title">
                                 密碼:
                             </h4>
-                            <h5 class="content" id="psw">
-                                mei000
+                            <h5 class="content" id="mem_psw">
                             </h5>
                             <button class="change btn_10 btn_js">
                                 修改<span></span>
@@ -210,16 +205,14 @@
                             <h4 class="small_title">
                                 性別:
                             </h4>
-                            <h5 class="content">
-                                女性
+                            <h5 class="content" id="mem_sex">
                             </h5>
                         </div>
                         <div class="part">
                             <h4 class="small_title">
                                 信箱:
                             </h4>
-                            <h5 class="content" id="email">
-                                meimei@mail.com
+                            <h5 class="content" id="mem_email">
                             </h5>
                             <button class="change btn_10 btn_js">
                                 修改<span></span>
@@ -232,8 +225,7 @@
                             <button class="change btn_10 btn_js">
                                 修改<span></span>
                             </button>
-                            <h5 class="content" id="introduce">
-                                自我介紹似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。要想清楚，自我介紹，到底是一種怎麼樣的存在。我們要學會站在別人的角度思考。做好自我介紹這件事，可以說已經成為了全民運動。若能夠洞悉自我介紹各種層面的含義，勢必能讓思維再提高一個層級
+                            <h5 class="content" id="mem_introduction">
                             </h5>
                         </div>
                     </div>
@@ -259,59 +251,58 @@
                         <div class="jay_box2">
                             <div class="box2_row_left">
                                 <div class="main_img">
-                                    <img src="./image/member/food1.jpg" alt="">
+                                    <img id="MAIN_IMG">
                                 </div>
                                 <div class="sm_pic">
-                                    <img src="./image/member/food2.jpg">
-                                    <img src="./image/member/food3.jpg">
-                                    <img src="./image/member/food6.jpg">
-                                    <img src="./image/member/food4.jpg">
+                                    <img id="RES_IMAGE1">
+                                    <img id="RES_IMAGE2">
+                                    <img id="RES_IMAGE3">
+                                    <img id="RES_IMAGE4">
                                 </div>
                             </div>
                             <div class="box2_row_right">
                                 <div>
                                     <h5>團號:</h5>
-                                    <h5>4758691</h5>
+                                    <h5 id="GROUP_NO"></h5>
                                     <br>
                                     <h5>團名:</h5>
-                                    <h5></h5>
+                                    <h5 id="GROUP_NAME"></h5>
                                     <br>
                                     <h5>店名:</h5>
-                                    <h5></h5>
+                                    <h5 id="RES_NAME"></h5>
                                     <br>
-                                    <h6>日式</h6>
-                                    <h6>火鍋</h6>
-                                    <h6>燒烤</h6>
+                                    <h6 id="STYLE_NAME"></h6>
+                                    <h6 id="KIND_NAME"></h6>
                                 </div>
                                 <div>
                                     <h5>開團團主:</h5>
-                                    <h5>XXXXX</h5>
+                                    <h5 id="MEMBER_NAME"></h5>
                                     <br>
                                     <h5>目前人數:</h5>
-                                    <h5></h5>
+                                    <h5 id="JOIN_NUMBER"></h5>
                                     <h5></h5>
                                     <h5></h5>
                                     <h5></h5>
                                     <h5></h5>
                                     <br>
                                     <h5>用餐時間:</h5>
-                                    <h5></h5>
+                                    <h5 id="MEAL_TIME"></h5>
                                     <br>
                                 </div>
                                 <div>
                                     <h5>店家資訊</h5>
                                     <br>
                                     <h5>地址:</h5>
-                                    <h5>中壢中央路1號</h5>
-                                    <a href="">
+                                    <h5 id="RES_ADDRESS"></h5>
+                                    <a href="" id="RES_ADDRESS">
                                         <img src="" alt="">
                                     </a>
                                     <br>
                                     <h5>電話:</h5>
-                                    <h5>03-9886578</h5>
+                                    <h5 id="RES_TEL"></h5>
                                     <br>
                                     <h5>營業時間:</h5>
-                                    <h5>XXXXXX</h5>
+                                    <h5 id="RES_BUS_HOURS"></h5>
                                 </div>
                             </div>
                         </div>
@@ -320,46 +311,6 @@
                             <ul class="add_stranger_block">
                                 <li class="stranger_name_list">
                                     <div class="stranger_name">
-                                        <img src="./image/member/stiker01.jpg">
-                                        <h5 id="stranger">
-                                            瑞典小女孩
-                                        </h5>
-                                    </div>
-                                    <div class="button_box">
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-check">確認</i>
-                                            <span></span>
-                                        </button>
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-minus">刪除</i>
-                                            <span></span>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="stranger_name_list">
-                                    <div class="stranger_name">
-                                        <img src="./image/member/stiker01.jpg">
-                                        <h5 id="stranger">
-                                            瑞典小女孩
-                                        </h5>
-                                    </div>
-                                    <div class="button_box">
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-check">確認</i>
-                                            <span></span>
-                                        </button>
-                                        <button class="btn_5 btn_js">
-                                            <i class="fas fa-minus">刪除</i>
-                                            <span></span>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="stranger_name_list">
-                                    <div class="stranger_name">
-                                        <img src="./image/member/stiker01.jpg">
-                                        <h5 id="stranger">
-                                            瑞典小女孩
-                                        </h5>
                                     </div>
                                     <div class="button_box">
                                         <button class="btn_5 btn_js">
@@ -1204,9 +1155,8 @@
             document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
         }
     </script>
-
-
-
+    <script src="js/login.js"></script>
+    <script src="./js/mem_pg.js"></script>
 </body>
 
 </html>
