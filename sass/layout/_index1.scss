@@ -1,3 +1,9 @@
+body{
+    .slimScrollBar{
+        background-color: rgba(255, 255, 255,0)!important;
+    }
+}
+
 .chu_header {
     height: 0;
     position: fixed;
@@ -25,8 +31,8 @@ section.first_screen {
             font-size: 48px;
             color: white;
             position: absolute;
-            bottom: 25%;
-            right: 50%;
+            bottom: 12%;
+            right: 60%;
             font-weight: 800;
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 right: 45%;
@@ -39,16 +45,16 @@ section.first_screen {
                 bottom: 20%;
             }
             @media all and (min-width: 768px) and (max-width: 991px) {
-                right: 27%;
-                bottom: 27%;
+                right: 45%;
+                bottom: 15%;
             }
             @media all and (min-width: 576px) and (max-width: 767px) {
-                bottom: 33%;
-                right: 13%;
+                bottom: 22%;
+                right: 35%;
             }
             @media all and (max-width: 575px) {
-                bottom: 32%;
-                right: 10%;
+                bottom: 23%;
+                right: 15%;
             }
         }
     }
@@ -564,6 +570,8 @@ section.second_screen {
             z-index: 2;
             &:hover {
                 transform: scale(1.1);
+                background-color:#c2e0e0;
+                transition: 1s;
             }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 left: 8%;

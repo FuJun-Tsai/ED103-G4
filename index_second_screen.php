@@ -1,10 +1,15 @@
 <?php
 $Errmsg='';
 
+$RES_NO = isset($_GET["RES_NO"]) ? $_GET["RES_NO"] : "";
+$cond3 = isset($_GET["RES_NO"]) ? " where RES_NO = $RES_NO":"";
 
+// echo $RES_NO;
+// echo $cond3;
 try{
+
   require_once('connectRes.php');
-  // SQL0
+  // SQL0 五間餐廳
   $sql0 = "select * from restaurant_management R
             join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
             join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
@@ -19,36 +24,22 @@ try{
 
 
 
-  // SQL1
-  $sql1 = "select * from food_group F
-	          join member_management MM on (F.MEMBER = MM.MEMBER_NO)
-            ";
+  // SQL0 四個美食團
+  $sql1 = "select F.RES_NO, MEMBER_NAME , GROUP_NAME , date(meal_time) dMT , date_format(time(meal_time),'%H : %i') hmMT  from food_group F
+  join member_management MM on (F.MEMBER = MM.MEMBER_NO)" ;
+  $sql1.=$cond3;
+
   $data1 = $pdo->prepare($sql1);
   $data1-> execute();
 
-//放入陣列result[1]
+  //放入陣列result[1]
   $data1Rows = $data1->fetchAll(PDO::FETCH_ASSOC);
   $result[1] = $data1Rows; 
 
 
-
-  // SQL2
-  $sql2 = "select * from article_collection AC
-            join member_management MM on (AC.MEMBER_NO = MM.MEMBER_NO)
-              ";                    
-
-  $data2 = $pdo->prepare($sql2);
-  $data2-> execute();
-
-//放入陣列result[2]
-  $data2Rows = $data2->fetchAll(PDO::FETCH_ASSOC);
-  $result[2] = $data2Rows; 
-
-
-
-
   //全部回傳
   echo json_encode($result);
+
 
 
 }catch(PDOException $e){
