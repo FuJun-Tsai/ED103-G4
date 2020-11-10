@@ -198,6 +198,9 @@ function showMoodDatail(moodDatailData){
     })
 }
 
+//
+function loadjs(){
+//
 
 //動態新增心情卡片 函式
 function showCards(moodData){
@@ -542,3 +545,7 @@ window.addEventListener('load', function () {
     $('#inputImg').val('');
     })
 })
+
+//
+};
+//
