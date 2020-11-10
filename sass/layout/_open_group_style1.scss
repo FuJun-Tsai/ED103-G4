@@ -1136,6 +1136,29 @@ header {
     z-index: 1000;
 }
 
+.den_true_box {
+    width: 250px;
+    height: 150px;
+    border-radius: 25px;
+    background-color: #c0c0c0;
+    border: 1px solid red;
+    padding: 10px;
+    line-height: 2rem;
+    div {
+        border: 1px solid blue;
+        span {
+            color: black;
+            font-size: 25px;
+        }
+        div {
+            text-align: center;
+            button {
+                color: black;
+            }
+        }
+    }
+}
+
 @include rwd(md_desktop) {
     // section {
     //     .wrapper {

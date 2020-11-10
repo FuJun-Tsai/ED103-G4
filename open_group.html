@@ -364,9 +364,7 @@
     <!--燈箱背景-->
     <div class="box_background"></div>
 
-    <!--login燈箱-->
-
-    <!-- 燈箱 登入 -->
+    <!--login燈箱 登入-->
     <section class="section_res" id="login_box" style="display:none">
         <div class="container_res">
             <div class="user singinBx">
@@ -402,6 +400,16 @@
         </div>
     </section>
 
+    <!--確認畫面-->
+    <div class="den_true_box">
+        <div>
+            <span>已成功開團，請前往會員畫面確認喔!</span>
+            <div>
+                <button>前往會員</button>
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -410,11 +418,6 @@
 
     <!--javaScript--->
     <script src="./js/login.js"></script>
-
-
-
-
-
     <!--hambuger-->
     <script>
         function onClickMenu() {
@@ -735,9 +738,6 @@
         //     ConditionSearch(K,S.join(','));
         // });
 
-
-
-
         //料理風格
         $(".den_cooking_style div input").click(function() {
             let yyy1 = $('.den_res_type div input[name=kind]:checked').val();
@@ -973,8 +973,6 @@
                             return $(this).val();
                             // console.log($(this).val());
                         }).get();
-
-
                         // console.log(groupNo);
                         // console.log(groupName);
                         // console.log(resNo);
@@ -987,7 +985,6 @@
                         // console.log(nowNumMax);
                         // console.log(friendCheckboxVal);
                         //傳送資料
-
                         $.ajax({
                             url: './open_group1.php',
                             data: {
