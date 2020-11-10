@@ -6,13 +6,18 @@ $resNo = isset($_GET["resNo"]) ? $_GET["resNo"] : "";
 $mealDate = isset($_GET["mealDate"]) ? $_GET["mealDate"] : "";
 $nowNumJoin = isset($_GET["nowNumJoin"]) ? $_GET["nowNumJoin"] : "";
 $nowNumMax = isset($_GET["nowNumMax"]) ? $_GET["nowNumMax"] : "";
-
+$friendCheckboxVal=isset($_GET["friendCheckboxVal"]) ? $_GET["friendCheckboxVal"] : "";
+// echo $friendCheckboxVal[0];
+// echo gettype($friendCheckboxVal[0]);
+echo $nowNumJoin;
 
 try{
   require_once('connectRes.php');
 
   $sql="select * from food_group;
   insert into food_group(
+  MEMBER,
+  GROUP_NO, 
   RES_NO, 
   GROUP_NAME, 
   START_TIME, 
@@ -20,10 +25,28 @@ try{
   MAX_NUMBER, 
   JOIN_NUMBER,
   MEAL_TIME)
-  VALUES (,$resNo,'$groupName',CURRENT_DATE(),'$mealDate'+interval-1 day,$nowNumMax,$nowNumJoin,'$mealDate');";
+  VALUES (1,$groupNo,$resNo,'$groupName',CURRENT_DATE(),'$mealDate'+interval-1 day,$nowNumMax,$nowNumJoin,'$mealDate');";
 $products = $pdo->prepare($sql);
 $products->execute();
-// $resNo,$groupName,CURRENT_DATE(),$mealDate+interval-1 day,$nowNumMax ,$nowNumJoin,$mealDate
+
+
+for($i=0;$i<count($friendCheckboxVal);$i++){
+
+  // echo $friendCheckboxVal[$i],'<br>';
+  // echo $groupNo;
+  $sql1=" 
+  select * from food_group_people;
+  insert into food_group_people( 
+  GROUP_NO, 
+  MEMBER_NO, 
+  MEMBER_STATUS)
+  VALUES ($groupNo,$friendCheckboxVal[$i],0);";
+
+  $products = $pdo->prepare($sql1);
+  $products->execute();
+}
+
+// echo count($friendCheckboxVal);
 
 // echo $sql;
   // $sql="select CURDATE()";
@@ -41,7 +64,7 @@ $products->execute();
 }catch(PDOException $e){
   $Errmsg.= '錯誤內容：' . $e->getMessage() . '<br>';
   $Errmsg.= '錯誤行數：' . $e->getLine() . '<br>';
-  // echo $Errmsg;
+  echo $Errmsg;
 }
 
 // if($data->rowCount()==0){

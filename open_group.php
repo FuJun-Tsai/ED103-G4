@@ -8,6 +8,15 @@ $Errmsg='';
     $GROUP_NO = isset($_GET["GROUP_NO"]) ? $_GET["GROUP_NO"] : "";
     $cond3 = isset($_GET["GROUP_NO"]) ? " and fg.GROUP_NO = $GROUP_NO order by GROUP_NO ":"";
 
+
+    $groupNo = isset($_GET["groupNo"]) ? $_GET["groupNo"] : "";
+$groupName = isset($_GET["groupName"]) ? $_GET["groupName"] : "";
+$resNo = isset($_GET["resNo"]) ? $_GET["resNo"] : "";
+$mealDate = isset($_GET["mealDate"]) ? $_GET["mealDate"] : "";
+$nowNumJoin = isset($_GET["nowNumJoin"]) ? $_GET["nowNumJoin"] : "";
+$nowNumMax = isset($_GET["nowNumMax"]) ? $_GET["nowNumMax"] : "";
+$friendCheckboxVal=isset($_GET["friendCheckboxVal"]) ? $_GET["friendCheckboxVal"] : "";
+
 // echo $cond3;
 
 // echo $RES_KIND;
@@ -92,7 +101,7 @@ try{
   join restaurant_management rm on(fg.RES_NO=rm.RES_NO)
   join restaurant_kind rk on(rm.RES_kind=rk.kind_NO)
   join restaurant_style rs on(rm.res_style=rs.style_NO)
-  join member_management mm on(fg.MEMBER=mm.MEMBER_NO)";                    
+  join member_management mm on(fg.MEMBER=mm.MEMBER_NO) order by GROUP_NO";                    
 
   $data2 = $pdo->prepare($sql2);
   $data2-> execute();
@@ -117,8 +126,8 @@ $sql3="
       $result[3] = $data3Rows; 
 
 //美食團目前參加人數
-    $sql4="SELECT GROUP_NO, MEMBER_NO, MEMBER_STATUS, COUNT(*) NUM FROM food_group_people WHERE MEMBER_STATUS=3 GROUP BY GROUP_NO";
-
+    $sql4="SELECT GROUP_NO, MEMBER_NO, MEMBER_STATUS, COUNT(*) NUM FROM food_group_people GROUP BY GROUP_NO";
+    // WHERE MEMBER_STATUS=3 
       $data4 = $pdo->prepare($sql4);
       $data4-> execute();
     
@@ -135,6 +144,10 @@ $data5-> execute();
 //放入陣列result[5]
 $data5Rows = $data5->fetchAll(PDO::FETCH_ASSOC);
 $result[5] = $data5Rows; 
+
+
+
+
 
 
 

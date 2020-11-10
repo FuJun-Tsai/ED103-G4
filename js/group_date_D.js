@@ -56,7 +56,7 @@ function doFirst() {
             alert("您尚未邀請好友喔");
             return false; //不要提交表單
         } else {
-            alert("你勾選了" + check + "個項目");
+            // alert("你勾選了" + check + "個項目");
             return true; //提交表單
         }
 

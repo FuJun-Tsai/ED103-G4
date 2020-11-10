@@ -202,6 +202,7 @@ header {
                             }
                             .den_res_type {
                                 padding: 20px 15%;
+                                text-align: center;
                                 h3 {
                                     background-color: $bgColor-style2;
                                     display: inline-block;
@@ -238,6 +239,7 @@ header {
                             }
                             .den_cooking_style {
                                 padding: 20px 15%;
+                                text-align: center;
                                 h3 {
                                     background-color: $bgColor-style2;
                                     display: inline-block;
@@ -295,8 +297,9 @@ header {
                         position: relative;
                     }
                     .result_owl {
-                        width: 1100px;
+                        max-width: 1250px;
                         background-color: rgba(255, 255, 255, 1);
+                        margin: 0 auto;
                         .den_row {
                             padding: 0 10px;
                             display: flex;
@@ -313,6 +316,7 @@ header {
                             }
                             .den_content_range {
                                 overflow: scroll;
+                                margin-top: 10px;
                                 .den_content {
                                     flex: 1 1 90%;
                                     display: flex;
@@ -326,7 +330,10 @@ header {
                                         margin: 0 5px;
                                         max-width: 200px;
                                         position: relative;
-                                        // border: 1px solid red;
+                                        cursor: pointer;
+                                        span {
+                                            display: none;
+                                        }
                                         p {
                                             border-radius: 5px;
                                             background-color: rgba(255, 225, 164, 1);
@@ -367,7 +374,7 @@ header {
                                         }
                                         &:hover {
                                             img {
-                                                filter: blur(1.5px);
+                                                // filter: blur(1.5px);
                                                 transform: scale(1.01);
                                             }
                                             h6 {
@@ -816,8 +823,9 @@ header {
         text-align: right;
         // padding: 15px;
         .den_box2_button {
+            transform: translateY(10px);
             text-align: center;
-            width: 40%;
+            width: 50%;
             // border: 1px solid;
             display: inline-block;
             margin-top: 15px;

@@ -63,13 +63,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="member">
+            <div class="member" id="login">
                 <div class="icon">
-                    <a href="./login.html">
-                        <img src="./image/icon.svg" alt="">
-                    </a>
+                    <img src="./image/icon.svg" id="headshot_icon">
                 </div>
-                <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+                <div id="nametest"></div>
+                <!-- <span id="memName">&nbsp;</span> -->
+                <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
                 <div id="menu" onclick="onClickMenu()">
@@ -99,7 +99,7 @@
                         <a href="./about_us.html">關於我們</a>
                     </li>
                     <li>
-                        <a href="./open_group.php" class="hvr-pulse-grow"><button>揪團去!</button></a>
+                        <a href="./open_group.html" class="hvr-pulse-grow"><button>揪團去!</button></a>
                     </li>
                 </ul>
             </div>
@@ -364,7 +364,56 @@
     <!--燈箱背景-->
     <div class="box_background"></div>
 
+    <!--login燈箱-->
+
+    <!-- 燈箱 登入 -->
+    <section class="section_res" id="login_box" style="display:none">
+        <div class="container_res">
+            <div class="user singinBx">
+                <div class="img_res">
+                    <img src="./image/2.png" alt="">
+                </div>
+                <div class="form_res">
+                    <form name="login">
+                        <h2>會員登入</h2>
+                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
+                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
+                        <input type="button" name="" value="登入" id="btnLogin">
+                        <input type="button" name="" value="取消" id="btnLoginCancel">
+                        <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
+                    </form>
+                </div>
+            </div>
+            <div class="user singupBx">
+                <div class="form_res">
+                    <form action="signup.php" method="post">
+                        <h2>註冊</h2>
+                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
+                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
+                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
+                        <input type="submit" name="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </form>
+                </div>
+                <div class="img_res">
+                    <img src="./image/4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
     <!--javaScript--->
+    <script src="./js/login.js"></script>
+
+
+
+
 
     <!--hambuger-->
     <script>
@@ -922,6 +971,7 @@
                         let nowNumMax = nowNum.substring(3, 2); //最大人數
                         var friendCheckboxVal = $("input[name='friendCheckbox[]']:checked").map(function() {
                             return $(this).val();
+                            // console.log($(this).val());
                         }).get();
 
 
@@ -930,12 +980,12 @@
                         // console.log(resNo);
                         // console.log(mealDate);
                         // console.log(meal.substring(13, 18));
-                        console.log(meal.substring(0, 10));
-                        console.log(mealDate);
-                        console.log(nowNum);
+                        // console.log(meal.substring(0, 10));
+                        // console.log(mealDate);
+                        // console.log(nowNum);
                         console.log(nowNumJoin);
-                        console.log(nowNumMax);
-                        console.log(friendCheckboxVal);
+                        // console.log(nowNumMax);
+                        // console.log(friendCheckboxVal);
                         //傳送資料
 
                         $.ajax({
@@ -948,13 +998,69 @@
                                 nowNumJoin: nowNumJoin,
                                 nowNumMax: nowNumMax,
                                 friendCheckboxVal: friendCheckboxVal
-
                             },
                             type: 'GET',
                             dataType: 'json',
                         });
-                    });
 
+                        $.ajax({
+                            url: './open_group.php',
+                            type: 'GET',
+                            dataType: 'json',
+                            complete(data) {
+
+                                $('.den_foodGroup').empty();
+                                let foodGroup1new = data.responseJSON[2];
+                                let foodGroup4new = data.responseJSON[4];
+                                console.log(data.responseJSON);
+                                console.log(data.responseJSON[2]);
+                                console.log(data.responseJSON[4]);
+
+                                // console.log(foodGroup1new);
+
+                                for (let i = 0; i < foodGroup1new.length; i++) {
+
+                                    $('.den_foodGroup').append(`
+                                        <div class="den_eatGroup" id="eatGroup${i+1}">
+                                                <span>${foodGroup1new[i].GROUP_NO}</span>
+                                                <img src="./image/member/${foodGroup1new[i].MEMBER_IMAGE}">
+                                                <div class="den_eatGroup_content">
+                                                    <div>
+                                                        <h4>目前人數:</h4>
+                                                        <h4>${foodGroup1new[i].JOIN_NUMBER}/${foodGroup1new[i].MAX_NUMBER}</h4>
+                                                    </div>
+                                                    <h3>團名:</h3>
+                                                    <h3>${foodGroup1new[i].GROUP_NAME}</h3>
+                                                    <br>
+                                                    <h3>店名:</h3>
+                                                    <h3>${foodGroup1new[i].RES_NAME}</h3>
+                                                    <br>
+                                                    <h3>用餐日期:</h3>
+                                                    <h3>${foodGroup1new[i].MEAL_TIME}</h3>
+                                                    <br>
+                                                    <h3>截止時間</h3>
+                                                    <h3>${foodGroup1new[i].END_TIME}</h3>
+                                                </div>
+                                                <div class="den_eatGroup_button">
+                                                    <button>參加 &#9658</button>
+                                                </div>
+                                            </div>                           
+                                        `)
+                                }
+                                let num = $('.den_eatGroup_content div h4:nth-child(2)')
+                                for (let i = 0; i < num.length; i++) {
+                                    if (num[i].innerText == '4/4') {
+                                        num[i].innerText = 'MAX';
+                                        $(num[i]).css('color', 'red');
+                                        // num[i].previousSibling.previousSibling.css('color', 'red');
+                                    }
+                                }
+                            }
+                        });
+                        $('.den_box2').css('display', 'none');
+                        $('.box_background').css('display', 'none');
+
+                    });
 
                     //美食團渲染
                     $(document).ready(function() {
@@ -963,6 +1069,8 @@
                         var foodGroup4 = data[4]
                             // console.log(data[4]);
                         console.log(foodGroup1);
+                        console.log(foodGroup1.length);
+
                         // console.log(foodGroup3);
 
                         for (let i = 0; i < foodGroup1.length; i++) {
@@ -974,7 +1082,7 @@
                                     <div class="den_eatGroup_content">
                                         <div>
                                             <h4>目前人數:</h4>
-                                            <h4>${foodGroup4[i].NUM}/${foodGroup1[i].MAX_NUMBER}</h4>
+                                            <h4>${foodGroup1[i].JOIN_NUMBER}/${foodGroup1[i].MAX_NUMBER}</h4>
                                         </div>
                                         <h3>團名:</h3>
                                         <h3>${foodGroup1[i].GROUP_NAME}</h3>
