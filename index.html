@@ -221,9 +221,47 @@
 <body>
 
     <!-- facebook外掛點讚分享 -->
-
     <div id="fb-root"></div> 
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v8.0" nonce="uOyEqSit"></script>
+
+
+
+    <!-- 登入的lightbox -->
+    <section class="section_res" id="login_box" style="display:none">
+        <div class="container_res">
+            <div class="user singinBx">
+                <div class="img_res">
+                    <img src="./image/2.png" alt="">
+                </div>
+                <div class="form_res">
+                    <form name="login">
+                        <h2>會員登入</h2>
+                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
+                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
+    
+                        <input type="button" name="" value="登入" id="btnLogin">
+                        <input type="button" name="" value="取消" id="btnLoginCancel">
+                        <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
+                    </form>
+                </div>
+            </div>
+            <div class="user singupBx">
+                <div class="form_res">
+                    <form action="signup.php" method="post">
+                        <h2>註冊</h2>
+                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
+                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
+                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
+                        <input type="submit" name="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </form>
+                </div>
+                <div class="img_res">
+                    <img src="./image/4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <header class="chu_header">
@@ -252,13 +290,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="member">
-                <div class="icon">
-                    <a href="./login.html">
-                        <img src="./image/icon.svg" alt="">
-                    </a>
+            <div class="member" id="login">
+                <div class="icon" >
+                    <img src="./image/icon.svg" id="headshot_icon">
                 </div>
-                <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+                <div id="nametest"></div>
+                <!-- <span id="memName">&nbsp;</span> -->
+                <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
                 <div id="menu" onclick="onClickMenu()">
@@ -631,8 +669,8 @@
 
     <!--按鈕js -->
     <script src="js/btn_hover.js"></script>
-
-
-    </body>
+    
+    <script src="js/login.js"></script>
+</body>
 
 </html>

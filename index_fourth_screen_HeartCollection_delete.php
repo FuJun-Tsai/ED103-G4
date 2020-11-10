@@ -2,7 +2,13 @@
 $Errmsg='';
 try{
   require_once('connectRes.php');
-  $sql = "select * from article_collection";
+  $sql = "delete from `article_collection` 
+           (MEMBER_NO,
+           ARTICLE_NO)
+  
+           VALUES
+           (:MEMBER_NO,
+           :ARTICLE_NO) ";
 
 
   $data = $pdo->prepare($sql);

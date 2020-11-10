@@ -1,7 +1,6 @@
 function $id(id){
 	return document.getElementById(id);
 }	
-
 let member;
 
     function showLoginForm(){
@@ -82,8 +81,7 @@ let member;
     function init(){
 
       //-----------------------檢查是否已登入
-      getMemberInfo();
-
+      getMemberInfo(); 
       //===設定spanLogin.onclick 事件處理程序是 showLoginForm
 
       $id('spanLogin').onclick = showLoginForm;
@@ -100,6 +98,6 @@ let member;
 
     function toggleForm() {
         var container_res = document.querySelector('.container_res');
-        container_res.classList.toggle('act')
+        container_res.classList.toggle('act');
     }
 
