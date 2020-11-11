@@ -1089,6 +1089,7 @@
                             return $(this).val();
                             // console.log($(this).val());
                         }).get();
+
                         // console.log(groupNo);
                         // console.log(groupName);
                         // console.log(resNo);
@@ -1320,6 +1321,10 @@
                             type: 'GET',
                             dataType: 'JSON',
                         });
+
+                        $('.den_box3').css('display', 'none');
+                        $('.box_background').css('display', 'none');
+
                     });
 
 
