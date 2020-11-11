@@ -457,6 +457,15 @@
                     $(this).parent().css('background', 'rgba(223, 114, 25, 0)');
                 }
             });
+            //好友選擇
+            $(".den_friend_box div input").click(function() {
+                var checkis = $(this).is(":checked");
+                if (checkis == true) {
+                    $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
+                } else {
+                    $(this).parent().css('background', 'rgba(223, 114, 25, 0)');
+                }
+            });
 
 
             //頁籤
@@ -481,6 +490,7 @@
 
             //點擊餐廳選進input.val
             let resAll = document.querySelectorAll('.den_content div');
+            console.log(resAll.length);
             for (let i = 0; i < resAll.length; i++) {
                 resAll[i].addEventListener('click', function() {
                     let name = this.children[3].innerText;
@@ -705,6 +715,58 @@
                     </div>
                     `);
                     }
+
+                    let owlImage = document.querySelectorAll('.den_content div h6');
+                    for (let i = 0; i < owlImage.length; i++) {
+                        owlImage[i].addEventListener('click', function() {
+                            var ttt = this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
+                            // console.log(ttt);
+                            $('.den_box_row').empty();
+                            $('.den_box_row').append(`
+                            <div class="box_row_left">
+                                <div class="main_img">
+                                    <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE1}">
+                                </div>
+                                    <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE1}">
+                                    <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE2}">
+                                    <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE3}">
+                                    <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE4}">
+                            </div>
+                            <div class="box_row_right">
+                                    <h2>${resData1[0][i].RES_NAME}</h2>
+                                    <span>${resData1[0][i].KIND_NAME}</span>
+                                    <span>${resData1[0][i].STYLE_NAME}</span>
+                                        <br>
+                                <div class="den_box_msg">
+                                    <p>地址:</p>
+                                    <p>${resData1[0][i].RES_ADDRESS}</p>
+                                    <br>
+                                    <p>電話:</p>
+                                    <p>${resData1[0][i].RES_TEL}</p>
+                                </div>
+                                <div class="den_box_content">
+                                    <p>店家介紹:</p>
+                                    <p>${resData1[0][i].RES_INTRODUCTION}</p>
+                                </div>
+                            </div>
+                                    `)
+                            $('.den_box').css('display', 'block');
+                            $('.box_background').css('display', 'block');
+                        });
+                    }
+                    let resAll = document.querySelectorAll('.den_content div');
+                    console.log(resAll.length);
+                    for (let i = 0; i < resAll.length; i++) {
+                        resAll[i].addEventListener('click', function() {
+                            let name = this.children[3].innerText;
+                            // console.log(name);
+                            $('.den_Information div:nth-child(1) input').val(name);
+                            $('.den_content div').css({
+                                'background': '#ffffff'
+                            });
+                            this.style.background = '#FF7a85';
+                        });
+                    }
                 }
             });
         });
@@ -779,6 +841,60 @@
                                 <h6>查看餐廳介紹</h6>
                             </div>
                             `);
+                        }
+
+                        let owlImage = document.querySelectorAll('.den_content div h6');
+                        for (let i = 0; i < owlImage.length; i++) {
+                            owlImage[i].addEventListener('click', function() {
+                                var ttt = this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
+                                // console.log(ttt);
+                                $('.den_box_row').empty();
+                                $('.den_box_row').append(`
+                            <div class="box_row_left">
+                                <div class="main_img">
+                                    <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE1}">
+                                </div>
+                                    <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE1}">
+                                    <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE2}">
+                                    <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE3}">
+                                    <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE4}">
+                            </div>
+                            <div class="box_row_right">
+                                    <h2>${resData2[i].RES_NAME}</h2>
+                                    <span>${resData2[i].KIND_NAME}</span>
+                                    <span>${resData2[i].STYLE_NAME}</span>
+                                        <br>
+                                <div class="den_box_msg">
+                                    <p>地址:</p>
+                                    <p>${resData2[i].RES_ADDRESS}</p>
+                                    <br>
+                                    <p>電話:</p>
+                                    <p>${resData2[i].RES_TEL}</p>
+                                </div>
+                                <div class="den_box_content">
+                                    <p>店家介紹:</p>
+                                    <p>${resData2[i].RES_INTRODUCTION}</p>
+                                </div>
+                            </div>
+                                    `)
+                                $('.den_box').css('display', 'block');
+                                $('.box_background').css('display', 'block');
+                            });
+                        }
+                        let resAll = document.querySelectorAll('.den_content div');
+                        console.log(resAll.length);
+                        for (let i = 0; i < resAll.length; i++) {
+                            resAll[i].addEventListener('click', function() {
+                                let name = this.children[3].innerText;
+                                // console.log(name);
+                                $('.den_Information div:nth-child(1) input').val(name);
+                                $('.den_content div').css({
+                                    'background': '#ffffff'
+                                });
+                                this.style.background = '#FF7a85';
+
+
+                            });
                         }
 
                     }
