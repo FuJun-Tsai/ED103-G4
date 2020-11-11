@@ -70,12 +70,11 @@ $(document).ready(function() {
                     console.log(articleNo);
                 $.ajax({
                     url:'index_fourth_screen_HeartCollection_insert.php',
-                    data:{
-                        
-
-
-                    },
                     type:'GET',
+                    data:{
+                        articleNo:articleNo,
+                        
+                    },
                     dataType:'JSON'
                 });
 

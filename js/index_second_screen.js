@@ -15,51 +15,51 @@ $(document).ready(function(){
             console.log(data);
             // let groupData1=JSON.parse(data.responseText)[1];
 
-                var resData = data[0];
-                var groupData1 = data[1];
+            var resData = data[0];
+            var groupData1 = data[1];
 
-                // console.log(data[0]);
-                // console.log(resData);
-                for(let i=0; i<5; i++){
-                    $('.container').append(
-                    `
-                    <div class="store" id="store${i+1}">
-                    <a href="#"><img src="./image/${resData[i].RES_IMAGE1}" alt="#"></a>
-                    <h4>${resData[i].RES_NAME}</h4>
-                    <input type="hidden" value="${resData[i].RES_NO}">
+            // console.log(data[0]);
+            // console.log(resData);
+            for(let i=0; i<5; i++){
+                $('.container').append(
+                `
+                <div class="store" id="store${i+1}">
+                <a href="#"><img src="./image/${resData[i].RES_IMAGE1}" alt="#"></a>
+                <h4>${resData[i].RES_NAME}</h4>
+                <input type="hidden" value="${resData[i].RES_NO}">
+                </div>
+                `
+                )
+            }
+            // let Res_NO = storeContainer.querySelectorAll('div input');
+            // var aaa=Res_NO[2].value;
+            // console.log(aaa);
+
+            // // var groupData = data[0];
+            // // var firstFoodGroup = groupData[2];
+            console.log(groupData1);
+            
+
+            for(let j=0; j<4; j++){
+                $('.fourTeam').append(
+                `
+                <div class="team team_${j+1}">
+                    <div class="content">
+                        <p>團主：${groupData1[j].MEMBER_NAME}</p>
+                        <p>團名：${groupData1[j].GROUP_NAME}</p>
+                        <p>用餐日期：${groupData1[j].dMT}</p>
+                        <p>用餐時間：${groupData1[j].hmMT}</p>
                     </div>
-                    `
-                    )
-                }
-                // let Res_NO = storeContainer.querySelectorAll('div input');
-                // var aaa=Res_NO[2].value;
-                // console.log(aaa);
+                    <button class="btn_5 btn_js">
+                        參加 &#9658 
+                        <span></span>
+                    </button>
+                </div>
+                `
+                )
+            }
 
-                // // var groupData = data[0];
-                // // var firstFoodGroup = groupData[2];
-                console.log(groupData1);
-                
-
-                for(let j=0; j<4; j++){
-                    $('.fourTeam').append(
-                    `
-                    <div class="team team_${j+1}">
-                        <div class="content">
-                            <p>團主：${groupData1[j].MEMBER_NAME}</p>
-                            <p>團名：${groupData1[j].GROUP_NAME}</p>
-                            <p>用餐日期：${groupData1[j].dMT}</p>
-                            <p>用餐時間：${groupData1[j].hmMT}</p>
-                        </div>
-                        <button class="btn_5 btn_js">
-                            參加 &#9658 
-                            <span></span>
-                        </button>
-                    </div>
-                    `
-                    )
-                }
-
-                left();
+            left();
         },
 
     });

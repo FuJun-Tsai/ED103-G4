@@ -11,6 +11,13 @@ try{
            :ARTICLE_NO) ";
 
 
+           
+          //  delete from article_collection
+          //  where MEMBER_NO=3 and
+          //  ARTICLE_NO=5; 
+
+
+
   $data = $pdo->prepare($sql);
   $data-> execute();
 //   $result = $data->fetchAll(PDO::FETCH_ASSOC);

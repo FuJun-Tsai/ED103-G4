@@ -11,6 +11,19 @@ try{
            :ARTICLE_NO) ";
 
 
+
+
+          //  insert into article_collection
+          //  (MEMBER_NO,
+          //  ARTICLE_NO)
+  
+          //  VALUES
+          //  (數字,
+          //  數字) ;
+
+
+
+
   $data = $pdo->prepare($sql);
   $data-> execute();
 //   $result = $data->fetchAll(PDO::FETCH_ASSOC);
