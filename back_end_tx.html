@@ -924,7 +924,23 @@
     </script>
     <!-- 表格 -->
     <script>
-        $('#tbl_administrator').DataTable();
+        $('#tbl_administrator').DataTable({
+            "searching": true, //搜尋
+            "sPaginationType": "full_numbers", //分頁功能樣式
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]], //顯示筆數
+            "processing": true, //顯示資料處理狀態
+            "serverSide": false, //Server端資料處理模式（分頁、排序、過濾）
+            "stateSave": true, //表格狀態保存，當頁面刷新時，是否要保存當前表格狀態，不保存狀態便會在刷新時回復到原始狀態
+            "destroy": true, //每一次修改時銷毀資料
+            "info": true,
+            "autoWidth": false, //是否要自動調整表格寬度
+            "ordering": false, //是否要開啟排序
+            "scrollX": "500px", //設置x軸高度
+            "scrollY": "200px", //設置y軸高度
+            "scrollCollapse": true, //設置是否控制y軸長度自適應
+            "paging": false, //設置是否要開啟y軸內部分頁
+            "dom": '<"top">rt<"bottom"><"clear">'
+        });
         $('#tbl_member_adm').DataTable();
         $('#tbl_res_adm').DataTable();
         $('#tbl_article').DataTable();
