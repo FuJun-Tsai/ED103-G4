@@ -484,7 +484,7 @@
             for (let i = 0; i < resAll.length; i++) {
                 resAll[i].addEventListener('click', function() {
                     let name = this.children[3].innerText;
-                    console.log(name);
+                    // console.log(name);
                     $('.den_Information div:nth-child(1) input').val(name);
                     $('.den_content div').css({
                         'background': '#ffffff'
@@ -671,9 +671,9 @@
         //餐廳種類
         $('.den_res_type div').on('change', function() {
             let yyy1 = $('.den_res_type div').index(this) + 1;
-            console.log(yyy1);
+            // console.log(yyy1);
             let yyy2 = $('.den_cooking_style div input[name=style]:checked').val();
-            console.log(yyy2);
+            // console.log(yyy2);
 
             $.ajax({
                 url: './open_group.php',
@@ -687,9 +687,9 @@
                     console.log('成功');
                 },
                 complete(data) {
-                    console.log(JSON.parse(data.responseText));
+                    // console.log(JSON.parse(data.responseText));
                     let resData1 = JSON.parse(data.responseText);
-                    console.log(resData1[0]);
+                    // console.log(resData1[0]);
 
                     //清掉並重新渲染
                     $('.den_content').empty();
@@ -742,11 +742,11 @@
         //料理風格
         $(".den_cooking_style div input").click(function() {
             let yyy1 = $('.den_res_type div input[name=kind]:checked').val();
-            console.log(yyy1);
+            // console.log(yyy1);
 
             let yyy2 = $('.den_cooking_style div input').index(this) + 1;
             // let yyy2 = $('.den_cooking_style div input[name=style]:checked').map();
-            console.log(yyy2);
+            // console.log(yyy2);
 
             var checkis = $(this).is(":checked");
             if (checkis == true) {
@@ -762,9 +762,9 @@
                     dataType: 'json',
                     complete(data) {
                         console.log('有傳送回來');
-                        console.log(data);
+                        // console.log(data);
                         let resData2 = data.responseJSON[0];
-                        console.log(resData2);
+                        // console.log(resData2);
 
                         //清掉並重新渲染
                         $('.den_content').empty();
@@ -866,7 +866,7 @@
                                 var nameOf = i;
                             }
                         }
-                        console.log(nameOf);
+                        // console.log(nameOf);
                         $('.den_box2_row').empty();
                         $('.den_box2_row').append(`
                     
@@ -949,7 +949,7 @@
                             $('.den_friend_window form').append(
                                 `
                         <div>
-                            <img src="./image/icon.svg" alt="">
+                            <img src="./image/member/${friendData[i].MEMBER_IMAGE}">
                             <input type="checkbox" id=friend${[i+1]} name="friendCheckbox[]" value="${friendData[i].friends_NO}">
                             <label for="friend${[i+1]}">${friendData[i].member_name}</label>
                         </div>
@@ -981,7 +981,7 @@
                         // console.log(meal.substring(0, 10));
                         // console.log(mealDate);
                         // console.log(nowNum);
-                        console.log(nowNumJoin);
+                        // console.log(nowNumJoin);
                         // console.log(nowNumMax);
                         // console.log(friendCheckboxVal);
                         //傳送資料
@@ -1008,9 +1008,9 @@
                                 $('.den_foodGroup').empty();
                                 let foodGroup1new = data.responseJSON[2];
                                 let foodGroup4new = data.responseJSON[4];
-                                console.log(data.responseJSON);
-                                console.log(data.responseJSON[2]);
-                                console.log(data.responseJSON[4]);
+                                // console.log(data.responseJSON);
+                                // console.log(data.responseJSON[2]);
+                                // console.log(data.responseJSON[4]);
                                 // console.log(foodGroup1new);
                                 for (let i = 0; i < foodGroup1new.length; i++) {
                                     $('.den_foodGroup').append(`
@@ -1059,9 +1059,9 @@
                         var foodGroup3 = data[3];
                         var foodGroup4 = data[4]
                             // console.log(data[4]);
-                        console.log(foodGroup1);
-                        console.log(foodGroup1.length);
-                        // console.log(foodGroup3);
+                            // console.log(foodGroup1);
+                            // console.log(foodGroup1.length);
+                            // console.log(foodGroup3);
 
                         for (let i = 0; i < foodGroup1.length; i++) {
                             $('.den_foodGroup').append(`
@@ -1109,7 +1109,7 @@
                             var yyy9 = this.children[0].innerText;
                             let denEatGroupNum = $('.den_eatGroup').index(this);
                             // console.log(yyy9);
-                            console.log(foodGroupBox);
+                            // console.log(foodGroupBox);
                             $('.den_box3_row').empty();
                             $('.den_box3_row').append(`
                             <div class="box3_row_left">
@@ -1176,7 +1176,7 @@
                                 dataType: 'json',
                                 complete(data) {
                                     let memberName = data.responseJSON[3];
-                                    console.log(memberName);
+                                    // console.log(memberName);
                                     for (let i = 0; i < memberName.length; i++) {
                                         $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
                                             `
@@ -1192,8 +1192,8 @@
                     $('.den_box3_button button').on('click', function() {
                         let memNo = $('.memberNoNum').text();
                         let groupNo = $('.groupNo').text();
-                        console.log(groupNo);
-                        console.log(memNo);
+                        // console.log(groupNo);
+                        // console.log(memNo);
 
                         $.ajax({
                             url: './open_group1.php',

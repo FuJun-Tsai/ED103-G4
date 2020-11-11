@@ -31,14 +31,12 @@ try{
   JOIN_NUMBER,
   MEAL_TIME)
   VALUES (1,$groupNo,$resNo,'$groupName',CURRENT_DATE(),'$mealDate'+interval-1 day,$nowNumMax,$nowNumJoin,'$mealDate');";
-$products = $pdo->prepare($sql);
-$products->execute();
+  $products = $pdo->prepare($sql);
+  $products->execute();
 
 
 for($i=0;$i<count($friendCheckboxVal);$i++){
 
-  // echo $friendCheckboxVal[$i],'<br>';
-  // echo $groupNo;
   $sql1=" 
   select * from food_group_people;
   insert into food_group_people( 

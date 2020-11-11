@@ -54,9 +54,10 @@ try{
   $result[0] = $data0Rows; 
 
 //好友資訊
-  $sql1 = "select T.friends_NO , Mf.member_name from track_list T
-	          join member_management Mm on (T.member_NO = Mm.member_NO)
-            join member_management Mf on (T.friends_NO = Mf.member_NO)
+  $sql1 = "select T.friends_NO , Mf.member_name, mm2.MEMBER_IMAGE MEMBER_IMAGE from track_list T
+              join member_management Mm on (T.member_NO = Mm.member_NO)
+              join member_management Mf on (T.friends_NO = Mf.member_NO)
+              join member_management mm2 on (T.FRIENDS_NO=mm2.MEMBER_NO);
             "; 
 
   $data1 = $pdo->prepare($sql1);
