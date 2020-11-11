@@ -72,7 +72,13 @@ function getMemberInfo() {
                 $('.memberNoNum').append(`${member.MEMBER_NO}`);
 
             }
-            console.log(xhr.responseText);
+
+            let data1 = JSON.parse(xhr.responseText);
+
+            for (let key in data1) {
+                console.log(key); //找key
+                console.log(data1[key]); //找value
+            }
         } else { //error
             alert(xhr.status);
         }
@@ -80,6 +86,10 @@ function getMemberInfo() {
 
     xhr.open("get", "php/getMemberInfo.php", true);
     xhr.send(null);
+    // console.log(xhr.responseText);
+    // for (let key in xhr.responseText) {
+    //     console.log(xhr.responseText[key]);
+    // }
 }
 
 function init() {
