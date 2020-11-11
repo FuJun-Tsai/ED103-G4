@@ -28,33 +28,17 @@
 		</script>
 	<![endif]-->
 
-    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script> -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
-
-
-
-
-
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/kineticjs/4.3.1/kinetic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.9.2/TweenMax.min.js"></script>
-    <script src="https://www.greensock.com/_js/jquery/jquery.ui.touch-punch.js"></script>
-
-
-
-
-    <!-- 換頻套件 -->
-    <!-- <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+    <!-- 換屏套件 -->
+    <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
     <script type="text/javascript" src="./js/jquery.slimscroll.min.js"></script>
-    <script type="text/javascript" src="./js/examples.js"></script> -->
+    <script type="text/javascript" src="./js/examples.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -94,8 +78,13 @@
                 });
             }
 
-            //fullPage.js initialization
-            if ($(window).height() >= 900) {
+            /* fullPage.js initialization */
+            // if ($(window).height() >= 900) {
+            //     initialization();
+            // }
+
+            // 這裡試試看!
+            if ($(window).height() >= 580) {
                 initialization();
             }
 
@@ -192,8 +181,28 @@
 
     <style>
         /* 螢幕高度小於等於 899，就限定 min-height */
-        
-        @media screen and (max-height: 899px) {
+        /* @media screen and (max-height: 899px) {
+            .first_screen,
+            .second_screen,
+            .third_screen,
+            .fourth_screen {
+                min-height: 900px;
+            }
+        } */
+
+
+        /* 這裡!試試看 */
+        /* @media screen and (max-height: 579px) {
+            .first_screen,
+            .second_screen,
+            .third_screen,
+            .fourth_screen {
+                min-height: 580px;
+            }
+        }  */
+
+
+        @media screen and (max-width: 768px){
             .first_screen,
             .second_screen,
             .third_screen,
@@ -201,7 +210,12 @@
                 min-height: 900px;
             }
         }
+
+
+
     </style>
+
+    
 </head>
 
 <body>
@@ -282,6 +296,7 @@
                 </div>
                 <div id="nametest"></div>
                 <!-- <span id="memName">&nbsp;</span> -->
+                <span class="memberNoNum" style="display: none;"></span>
                 <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
@@ -505,6 +520,9 @@
                 <div class="useCellPhone"></div>
                 <div class="friends"></div>
                 <div class="video">
+
+                    <div class="fb-like" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
                     <video src="#"></video>
                     <button class="btn_2 btn_js">
                         點我進入遊戲
@@ -589,13 +607,19 @@
                 
                 <div class="fourth_screen_friends"></div>
 
+                <button class="btn_2 btn_js chu_button">
+                    查看更多分享
+                    <span></span>
+                </button>
+
             </section>
         </div>
+        
     </div>
 
     <!-- ***************************** -->
     <footer>
-        <div class="chu_footer">
+        <div class="footer">
             <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
         </div>
     </footer>
@@ -629,101 +653,13 @@
     </script>
 
 
-
     <!-- <script>
         AOS.init();
     </script> -->
 
-    <script src="js/btn_hover.js"></script>
-    <!--按鈕js -->
 
-    <!-- <script>
-
-            tweenmax測試
-
-            TweenLite.to(
-                '#fifth',2,{
-                    x:300,
-                    y:-300,
-                    width:100,
-                    height:100,
-                    borderRadius:0,
-                    rotation:180, 
-                    scaleX:0.8,
-                }
-
-            TweenMax.to(document.getElementById("#fifth"), 2, {bezier:{curviness: 2, values:[{x: 0, y: 10}, {x: 75, y: 0}, {x: 90, y: -118}], autoRotate:true}, opacity:"1", ease:Power1.easeInOut, repeat: -1, yoyo: true})
-        
-            TweenLite.to(
-                'circle_food_cake',2,{
-                    x:300,
-                    y:-300,
-                    width:100,
-                    height:100,
-                    borderRadius:0,
-                    rotation:180, 
-                    scaleX:0.8,
-                })
-            
-        </script> -->
-
-        
-        <script src="js/btn_hover.js"></script>
-
-        <!--ajax-->
-        <script>
-    
-            $(document).ready(function() {
-                $.ajax({
-                    url: 'index.php',
-                    type: 'GET',
-                    dataType: 'json',
-                    success(data) {
-                        console.log(data);
-                        for(let i=0; i<5; i++){
-                            $('.container').append(
-                            `
-                            <div class="store" id="store${i+1}">
-                            <a href="#"><img src="./image/${data[i].RES_IMAGE1}" alt="#"></a>
-                            <h4>${data[i].RES_NAME}</h4>
-                            </div>
-                            `
-                            )
-                        }
-
-
-
-                        for(let j=0; j<4; j++){
-                            $('.fourTeam').append(
-                            `
-                            <div class="team_${j+1}">
-                                <div class="content">
-                                    <p>團主：${data[j].MEMBER}</p>
-                                    <p>團名：${data[j].GROUP_NAME}</p>
-                                    <p>用餐日期：${data[j].MEAL_TIME}</p>
-                                    <p>用餐時間：${data[j].MEAL_TIME}</p>
-                                </div>
-                                <button class="btn_5 btn_js">
-                                    參加 &#9658 
-                                    <span></span>
-                                </button>
-                            </div>
-                            `
-                            )
-                        }
-
-
-
-
-
-
-
-
-
-
-
-
-      
+    <script>
+        //--------------
         // window.addEventListener("load", function (){
         //     document.getElementById("fbBtn").addEventListener("click", function(){
         //         window.alert("Ah~~~");
@@ -734,14 +670,8 @@
 
     <!--按鈕js -->
     <script src="js/btn_hover.js"></script>
-    
-
     <script src="js/login.js"></script>
-
-      
-
-
-
+    
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $.ajax({
         url: 'index_fourth_screen.php',
         type: 'GET',
@@ -12,16 +12,42 @@ $(document).ready(function() {
             // console.log(collectionData[0]);
             // console.log(messageData[0]);
             // console.log(sharingData[0]);
+            let loveyesorno = 0;
+            let bbb = $('#spanLogin').text();
+            if (bbb='登出') {
+                $.ajax({
+                    url: 'index_fourth_screen_select.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    success(data) {
+                        if('他有收藏'){
+                            loveyesorno=1;
+                        }
+                    }    
+                })
+            }
 
 
-            $('.chu_row1').append(
-            `
-            <div class="chu_left">
+            let html='';
+            html +=
+                `
+                <div class="chu_left">
                 <div class="chu_left_icon1">
                     <img src="./image/member/${collectionData[0].MEMBER_IMAGE}" alt="">
                 </div>
                 <div class="chu_left_icon3">
-                    <img class="heart" src="./image/index/fourth_screen_redHollowHeart.png" alt="">
+                `
+                if (loveyesorno == 1) {
+                    html +=
+                        `<img class="heart" src="./image/index/fourth_screen_redHeart.png" alt="">
+                    `
+                } else {
+                    html +=
+                        `<img class="heart" src="./image/index/fourth_screen_redHollowHeart.png" alt="">
+                    `
+                }
+
+            html += `
                     <p>${collectionData[0].ARTICLE_LIKE}</p>
                     <p class="articleNo" style="display:none">${collectionData[0].ARTICLE_NO}</p>
                     <p></p>
@@ -50,53 +76,67 @@ $(document).ready(function() {
             </div>
             `
 
-            )
+            $('.chu_row1').append(html);
 
-            var toggle1=true;
-            $('.chu_left_icon3').click(function(){
-                let aaa=$('#spanLogin').text();
+            var toggle1 = true;
+            $('.chu_left_icon3').click(function () {
+                let aaa = $('#spanLogin').text();
                 // console.log(aaa);
-            if(aaa=='登出'){
-                if(toggle1){
-                $('.chu_left_icon3 img').attr('src','./image/index/fourth_screen_redHeart.png');
-                toggle1=false;
+                if (aaa == '登出') {
+                    if (toggle1) {
+                        // 這裡是黑色愛心變成紅色愛心的地方
+                        $('.chu_left_icon3 img').attr('src', './image/index/fourth_screen_redHeart.png');
+                        toggle1 = false;
 
-                let ggg=parseInt($('.chu_left_icon3 p:nth-child(2)').text());
-                console.log(ggg)
-                $('.chu_left_icon3 p:nth-child(2)').text(ggg+1);
-               
-                // console.log(ggg);
-                var articleNo=$('.articleNo').text()
-                    console.log(articleNo);
-                $.ajax({
-                    url:'index_fourth_screen_HeartCollection_insert.php',
-                    type:'GET',
-                    data:{
-                        articleNo:articleNo,
-                        
-                    },
-                    dataType:'JSON'
-                });
+                        let ggg = parseInt($('.chu_left_icon3 p:nth-child(2)').text());
+                        console.log(ggg)
+                        $('.chu_left_icon3 p:nth-child(2)').text(ggg + 1);
 
-                }else{
-                $('.chu_left_icon3 img').attr('src','./image/index/fourth_screen_redHollowHeart.png');
-                toggle1=true;
-                let ggg=parseInt($('.chu_left_icon3 p:nth-child(2)').text());
-                console.log(ggg)
-                $('.chu_left_icon3 p:nth-child(2)').text(ggg-1);
-                
-                // $.ajax({
+                        // console.log(ggg);
+                        var articleNo = $('.articleNo').text();
 
-                // });
+                        var memberNoNum = $('.memberNoNum').text();
 
+                        $.ajax({
+                            url: 'index_fourth_screen_HeartCollection_insert.php',
+                            type: 'GET',
+                            data: {
+                                articleNo: articleNo,
+                                memberNoNum: memberNoNum
+                            },
+                            dataType: 'JSON'
+                        });
+
+                    } else {
+                        var articleNo = parseInt($('.articleNo').text());
+                        console.log(articleNo);
+                        var memberNoNum = parseInt($('.memberNoNum').text());
+                        console.log(memberNoNum);
+                        // 這裡是紅色愛心變成黑色愛心的地方
+                        $('.chu_left_icon3 img').attr('src', './image/index/fourth_screen_redHollowHeart.png');
+                        toggle1 = true;
+                        let ggg = parseInt($('.chu_left_icon3 p:nth-child(2)').text());
+                        console.log(ggg)
+                        $('.chu_left_icon3 p:nth-child(2)').text(ggg - 1);
+
+                        $.ajax({
+                            url: 'index_fourth_screen_HeartCollection_delete.php',
+                            type: 'GET',
+                            data: {
+                                articleNo: articleNo,
+                                memberNoNum: memberNoNum
+                            },
+                            dataType: 'JSON'
+                        });
+
+                    }
                 }
-            }
-            if(aaa=='登入'){
-                $('.section_res').css('display','flex');
-            }
+                if (aaa == '登入') {
+                    $('.section_res').css('display', 'flex');
+                }
             });
-            
-            
+
+
         }
     });
 });
@@ -122,7 +162,7 @@ $(document).ready(function() {
 
 
 // $(".heart").click(function(){
-                
+
 //     if($('.heart').attr('src')=='./image/index/fourth_screen_redHollowHeart.png'){
 //         $('.heart').attr('src','./image/index/fourth_screen_redHeart.png');
 //     }
@@ -130,10 +170,16 @@ $(document).ready(function() {
 // });
 
 // $(".heart").click(function(){
-    
+
 //     if($('.heart').attr('src')=='./image/index/fourth_screen_redHeart.png'){
 //         $('.heart').attr('src','./image/index/fourth_screen_redHollowHeart.png');
 //     }
 
 // });
 
+
+
+//1.抓圓圈
+//2.判斷有沒有登入
+//3.如果有登入 用他的會員編號去抓他圓圈的文章是否有收藏
+//4.選染出圓圈的html架構 其中在呈現愛心的時候我們要用if else判斷他在步驟三時撈出來的資料有沒有符合

@@ -1,36 +1,28 @@
 <?php
 $Errmsg='';
+// $_GET["articleNo"] ='2';
+// $_GET["memberNoNum"] = '1';
+$articleNo = isset($_GET["articleNo"]) ? $_GET["articleNo"] : "";
+$memberNoNum = isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 try{
   require_once('connectRes.php');
-  $sql = "delete from `article_collection` 
-           (MEMBER_NO,
-           ARTICLE_NO)
-  
-           VALUES
-           (:MEMBER_NO,
-           :ARTICLE_NO) ";
-
-
-           
-          //  delete from article_collection
-          //  where MEMBER_NO=3 and
-          //  ARTICLE_NO=5; 
-
-
+  $sql = "delete from article_collection where MEMBER_NO=:articleNo and ARTICLE_NO=:memberNoNum; ";
 
   $data = $pdo->prepare($sql);
+  $data -> bindValue(':articleNo',$articleNo);
+  $data -> bindValue(':memberNoNum',$memberNoNum);
   $data-> execute();
-//   $result = $data->fetchAll(PDO::FETCH_ASSOC);
+  // $result = $data->fetchAll(PDO::FETCH_ASSOC);
 //   echo JSON_encode($result);
 //   print_r($data);
 
 
-if($data->rowCount()==0){
-  echo '資料有誤';
-}else{
-  $result = $data->fetchAll(PDO::FETCH_ASSOC);
-  echo JSON_encode($result);
-}
+  // if($data->rowCount()==0){
+  //   echo '資料有誤';
+  // }else{
+  //   // $result = $data->fetchAll(PDO::FETCH_ASSOC);；
+    echo json_encode(['msg'=>$articleNo,'aa'=>$memberNoNum]);
+  // }
 
 
 }catch(PDOException $e){
