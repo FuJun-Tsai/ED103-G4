@@ -17,70 +17,6 @@
     }
 }
 
-#R1 {
-    .rep {
-        div{
-            @include img(500px, './../image/1-600.png');
-        }
-    }
-}
-
-#R2 {
-    .rep {
-        div{
-            @include img(500px, './../image/2-600.png');
-        }
-    }
-}
-
-#R3 {
-    .rep {
-        div{
-            @include img(500px, './../image/3-600.png');
-        }
-    }
-}
-
-#R4 {
-    .rep {
-        div{
-            @include img(500px, './../image/4-600.png');
-        }
-    }
-}
-
-#R5 {
-    .rep {
-        div{
-            @include img(500px, './../image/3-600.png');
-        }
-    }
-}
-
-#R6 {
-    .rep {
-        div{
-            @include img(500px, './../image/2-600.png');
-        }
-    }
-}
-
-#R7 {
-    .rep {
-        div{
-            @include img(500px, './../image/4-600.png');
-        }
-    }
-}
-
-#R8 {
-    .rep {
-        div{
-            @include img(500px, './../image/1-600.png');
-        }
-    }
-}
-
 p::-webkit-scrollbar-track {
     background-color: #FFE1A4;
 }
@@ -108,6 +44,43 @@ p::-webkit-scrollbar-thumb {
 
 body {
     // font-size: $fontSize!important;
+    .banner_rest{
+        .banner_bg{
+        background-image: url("../image/21.jpg");
+        background-repeat: no-repeat;
+        height: 500px;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 5%;
+        background-attachment: fixed;
+            .txt{
+                width: 90%;
+                height: 400px;
+                margin-top: 50px;
+                margin-left: 5%;
+                display: inline-block;
+                // letter-spacing: 50px;
+                color: rgb(95, 95, 95);
+                text-decoration: none;
+                text-align: center;
+                // opacity: 0.75;
+                padding-top: 160px;
+                // padding: 20px;
+                outline: 5px solid white;
+                outline-offset: -13px;
+                background-color: rgba(223, 114, 25, 0.1);
+                h1{
+                    font-weight: 900;
+                    background-color: white;
+                    display: inline-block;
+                    padding-right: 28px;
+                    padding: 30px 0;
+                    margin-top: 0;
+                }
+            }
+        }
+    }
     section {
         .content {
             @include box(1200px, 0);
@@ -135,7 +108,7 @@ body {
                     font-size: $fontSize;
                 }
             }
-            label {}
+            // label {}
             .result {
                 margin-top: 20px;
                 .rest {
@@ -143,23 +116,32 @@ body {
                     @include lineGradient(50%,345deg,#F2AB39,transparent);
                     margin: 80px auto;
                     .rep{
+                        // padding-left: 0;
                         margin: 0px;
                         border-radius: 16px;
-                        div{
+                        text-align: center;
+                        img{
+                            display: inline-block;
+                            width: 487.5px;
+                            height: 500px;
+                            // width: 100%;
+                            // height: 100%;
+                            font-size: 0;
                             margin-left: -15px;
                             border-radius: 24px 0px 0px 24px;
-                            @media screen and (max-width:992px){
+                            @media screen and (max-width:1200px){
                                 border-radius: 24px;
-                                margin: 0;
-                                // width: 500px;
+                                margin: 0 auto;
+
                             }   
                         }
                     }
                     .detail {
                         position: relative;
-                        padding-bottom: 45px;
-                        @media screen and (max-width:992px){
-                            padding-bottom: 80px;
+                        padding-bottom: 80px;
+
+                        #rint{
+                            line-height: 36px !important;
                         }
                         h2 {
                             margin-top: 24px;
@@ -227,7 +209,7 @@ body {
                             }
                         }
                         .insearch {
-                            height: 100px !important;
+                            height: 140px !important;
                             // border: 6px solid #FFE1A4 !important;
                             // border-right: none !important;
                             border: none !important;
@@ -253,20 +235,22 @@ body {
                         }
                         .go {
                             position: absolute;
-                            bottom: 6px;
-                            right: 10px;
+                            bottom: 8px;
+                            right: 24px;
+                            
                             a:first-child button{
-                                position: absolute;
+                                // position: absolute;
                                 width: 100px;
                                 height: 40px;
-                                transform: translate(-100%,-100%);
+                                // bottom: 0;
+                                // transform: translate(-100%,-100%);
                             }
                             a:last-child button{
-                                position: absolute;
+                                // position: absolute;
                                 width: 100px;
                                 height: 40px;
-                                // right: 0px;
-                                transform: translate(-225%,-100%);
+                                // bottom: 0;
+                                // transform: translate(-225%,-100%);
                             }
                         }
                         .btnsingle{
@@ -274,7 +258,6 @@ body {
                             margin-bottom: 24px !important;
                             margin-top: 30px;
                             left: 36px;
-
                         }
                     }
                 }

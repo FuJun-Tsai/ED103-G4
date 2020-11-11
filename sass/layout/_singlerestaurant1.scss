@@ -2,25 +2,14 @@
     .togray {
         filter: brightness(55%);
     }
-    .bold {
-        font-weight: bold;
-    }
-    .italic {
-        font-style: italic;
-    }
-    .underline {
-        text-decoration: underline;
-    }
     .used {
         color: wheat;
         background-color: black;
     }
-    .bread {
+    .single_bread {
         margin-top: 50px;
         margin-bottom: 50px;
-    }
-    P {
-        // line-height: 20px!important;
+        margin-left: 15px;
     }
     label {
         font-size: 20px;
@@ -37,17 +26,17 @@
     #leavemessage::-webkit-scrollbar-thumb {
         background-color: #bb6573;
     }
-    .small::-webkit-scrollbar-track {
+    .single_small::-webkit-scrollbar-track {
         width: 4px;
         background-color: #f2c479;
     }
     //捲軸寬度
-    .small::-webkit-scrollbar {
+    .single_small::-webkit-scrollbar {
         height: 6px;
         background-color: black;
     }
     //捲軸本體顏色
-    .small::-webkit-scrollbar-thumb {
+    .single_small::-webkit-scrollbar-thumb {
         background-color: #bb6573;
     }
 }
@@ -56,18 +45,74 @@ body {
     position: relative;
 }
 
+body::-webkit-scrollbar-track {
+    width: 4px;
+    background-color: #f2c479;
+}
+
+//捲軸寬度
+body::-webkit-scrollbar {
+    width: 12px;
+    background-color: black;
+}
+
+//捲軸本體顏色
+body::-webkit-scrollbar-thumb {
+    background-color: #bb6573;
+}
+
 // body{
 section {
     // font-size: $fontSize!important;
-    .content {
+    .banner_rest_sear {
+        .banner_bg {
+            background-image: url("../image/20.jpg");
+            background-repeat: no-repeat;
+            height: 500px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 5%;
+            background-attachment: fixed;
+            .txt {
+                width: 90%;
+                height: 400px;
+                margin-top: 50px;
+                margin-left: 5%;
+                display: inline-block;
+                // letter-spacing: 50px;
+                color: rgb(95, 95, 95);
+                text-decoration: none;
+                text-align: center;
+                // opacity: 0.75;
+                padding-top: 160px;
+                // padding: 20px;
+                outline: 5px solid white;
+                outline-offset: -13px;
+                background-color: rgba(223, 114, 25, 0.1);
+                h1 {
+                    font-weight: 900;
+                    background-color: white;
+                    display: inline-block;
+                    padding-right: 28px;
+                    padding: 30px 0;
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+    .single_content {
         #name {
             margin-bottom: 24px;
             border-left: 8px solid #9B1E23;
             padding-left: 8px;
+            margin-left: 15px;
         }
-        div {
+        .single_attr {
+            display: inline;
             #kind {
-                @include box(60px, 8px);
+                @include box(60px,
+                8px);
                 // @include borderT;
                 text-align: center;
                 display: inline-block;
@@ -78,7 +123,8 @@ section {
                 border: 0.1px solid;
             }
             #style {
-                @include box(60px, 8px);
+                @include box(60px,
+                8px);
                 // @include borderT;
                 text-align: center;
                 display: inline-block;
@@ -92,37 +138,38 @@ section {
         #introduction {
             display: flex;
             flex-direction: row;
-            @include box(100%, 0);
+            @include box(100%,
+            0);
             .container {
-                .single {
-                    @include lineGradient(50%, 345deg, #F2AB39, transparent);
+                .single_restaurant {
+                    @include lineGradient(50%,
+                    345deg,
+                    #F2AB39,
+                    transparent);
                     border-radius: 24px;
-                    margin-left: 15px;
-                    margin-right: 15px;
+                    margin-left: 0px;
+                    margin-right: 0px;
                     padding-top: 30px;
                     #imgs {
+                        margin-bottom: 20px;
                         margin-left: -15px;
                         margin-right: -15px;
                         @media (min-width: 710px) and (max-width: 1200px) {
                             margin-right: 15px;
                         }
-                        .large {
+                        .single_large {
                             padding-left: 15px;
                             padding-right: 15px;
-                            @include box(600px, 0);
+                            @include box(600px,
+                            0);
                             height: 600px;
                             #mainimg {
                                 display: inline-block;
-                                @include box(600px, 24px);
-                                @media (min-width: 991px) and (max-width: 1200px) {
-                                    margin-top: 60px;
-                                }
-                                @media (min-width:575px) and (max-width:768px) {
-                                    margin-top: 120px;
-                                }
+                                @include box(600px,
+                                24px);
                             }
                         }
-                        .small {
+                        .single_small {
                             display: flex;
                             flex-direction: row;
                             justify-content: space-evenly;
@@ -132,7 +179,8 @@ section {
                             padding-right: 15px;
                             width: 100%;
                             overflow: auto;
-                            @include box(600px, 0);
+                            @include box(600px,
+                            0);
                             @media screen and(max-width: 652px) {
                                 padding-left: 0;
                             }
@@ -141,7 +189,8 @@ section {
                                 padding-right: 15px;
                             }
                             @media (min-width:711px) and (max-width:992px) {
-                                @include box(100%, 24px);
+                                @include box(100%,
+                                24px);
                             }
                             @media screen and (max-width:992px) {
                                 margin: 0 auto !important;
@@ -151,10 +200,11 @@ section {
                                 justify-content: start;
                                 margin: 0 auto;
                             }
-                            img {
+                            .single_small_img {
                                 margin-right: 8px;
                                 cursor: pointer;
-                                @include box(140px, 24px);
+                                @include box(140px,
+                                24px);
                                 @media (min-width: 710px) and (max-width: 1200px) {
                                     @include box(100%, 24px);
                                 }
@@ -165,15 +215,32 @@ section {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-evenly;
+                        .single_item {
+                            margin-top: 16px;
+                        }
+                        #rname {
+                            line-height: 36px !important;
+                            padding-left: 16px;
+                        }
                         #rint {
-                            line-height: 24px !important;
+                            line-height: 36px !important;
+                            padding-left: 16px;
+                            height: 180px;
+                            overflow: auto;
                         }
                         #week {
+                            padding-left: 15px;
                             li {
                                 line-height: 32px !important;
                             }
                         }
-                        .togroup {
+                        .single_address {
+                            margin-top: 16px;
+                        }
+                        .single_tel {
+                            margin-top: 16px;
+                        }
+                        .single_togroup {
                             margin: 40px 0;
                             display: flex;
                             flex-direction: row;
@@ -193,18 +260,20 @@ section {
         h4 {
             margin: 24px;
         }
-        .messagecontrol {
+        .single_messagecontrol {
             margin: 0 15px;
             #leavemessage {
-                @include box(1200px, 0);
+                @include box(1200px,
+                0);
                 border-left: 6px solid #f2c479;
                 border-top: 6px solid #f2c479;
                 border-radius: 24px 0 0 0;
                 background-color: #F2AB39;
                 height: 400px;
                 overflow: auto;
-                .L {
-                    @include box(90%, 24px);
+                .single_L {
+                    @include box(90%,
+                    24px);
                     background-color: white;
                     margin: 20px;
                     display: flex;
@@ -224,10 +293,20 @@ section {
                         bottom: 0;
                         cursor: pointer;
                     }
+                    .time {
+                        position: absolute;
+                        top: 4px;
+                        right: 12px;
+                    }
+                    .name {
+                        position: absolute;
+                        top: 4px;
+                        right: 12px;
+                    }
                 }
             }
         }
-        .messaging {
+        .single_messaging {
             background-color: white;
             // @include borderT;
             border: 6px solid #f2c479;
@@ -253,24 +332,6 @@ section {
                     background-color: transparent;
                     border-bottom: 1px solid black;
                 }
-                .features {
-                    position: absolute;
-                    bottom: 0;
-                    left: 50%;
-                    transform: translate(-50%, 0);
-                    width: 200px;
-                    height: 24px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-evenly;
-                    i {
-                        cursor: pointer;
-                        padding: 4px 16px;
-                        text-align: center;
-                        @include box(48px, 12px);
-                        @include borderT;
-                    }
-                }
                 button {
                     // display: inline-block;
                     position: absolute;
@@ -286,14 +347,16 @@ section {
         }
     }
     #report {
-        @include light-box-setting(100%, 500px, absolute);
-        // display: none;
+        @include light-box-setting(100%,
+        500px,
+        absolute);
+        display: none;
         border-radius: 24px;
         max-width: 500px;
         position: fixed;
         background-color: gray;
         z-index: 100;
-        .reportback {
+        .single_reportback {
             position: absolute;
             background-color: white;
             width: calc(100% - 40px);
@@ -305,12 +368,12 @@ section {
             transform: translate(-50%, -50%);
             h2 {
                 text-align: center;
-            }
-            h4 {
-                // display: inline;
+                margin-bottom: 8px;
             }
             select {
+                display: inline;
                 border: 1px solid black;
+                margin-bottom: 16px;
             }
             textarea {
                 width: 100%;
@@ -327,6 +390,13 @@ section {
                 left: 50%;
                 transform: translate(-50%, 0);
             }
+            .single_cancel {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                font-size: 36px;
+                cursor: pointer;
+            }
         }
     }
 }
@@ -334,7 +404,7 @@ section {
 .jun_back {
     width: 100%;
     height: 100%;
-    // display: none;
+    display: none;
     background-color: black;
     opacity: .4;
     z-index: 99;
