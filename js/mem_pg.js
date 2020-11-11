@@ -58,7 +58,25 @@ $(document).ready(function(){
   $("#no_group .btn_3").mouseout(function(){
     $(".btn_3 a").css("color","#FFF");
   });
-  //會員專區修改  
+  //會員專區修改
+  id = '';
+  // $(document).ready(function(){
+  //   $('.change').click(function(){
+  //     id = $(this).siblings('.content').attr('id');
+  //     let value = $.trim($(`#${id}`).text());
+  //     $(`#${id}`).replaceWith(`<input type="text" value="${value}" class="ok">`);
+  //     $('.ok').css({
+  //       "font-size":"16px",
+  //     });
+  //     $(this).text('確認');
+  //     $(this).on('click',function(){
+  //       let ok = $('.ok').val();
+  //       $(this).siblings('.ok').replaceWith(`<div class="content" id="${id}">${ok}</div>`);
+  //       $(this).text('修改');
+  //     });
+  //   });
+  // });
+  
   $(document).ready(function(){
     var name = 0;
     psw = 0;
@@ -104,21 +122,18 @@ $(document).ready(function(){
             introduce=0;
           }
         break;
+
       }
+
     }
 
     function changethis(e,id){
       e = parseInt(e);
       if(e==0){
-        console.log(id);
-        console.log(e);
         let value = $.trim($(`#${id}`).text());
         $(`#${id}`).siblings('.change').text('確認');
         $(`#${id}`).replaceWith(`<input type="text" class="content" id="${id}" value="${value}">`);
       }else{
-        console.log('here');
-        console.log(id);
-        console.log(e);
         let value = $.trim($(`#${id}`).val());
         $(`#${id}`).siblings('.change').text('修改');
         $(`#${id}`).replaceWith(`<div class="content" id="${id}">${value}</div>`);
@@ -139,49 +154,18 @@ $(document).ready(function(){
     $("div.tabbtn_1." + $(this).attr("data-target")).addClass("-on");
   });
   
-  //內頁籤切換
+    //內頁籤切換
   $("a.tab").on("click", function(e){
     e.preventDefault();
   
     $(this).closest("ul").find("a.tab").removeClass("-on");
     $(this).addClass("-on");
   
-    $(this).parent().parent().parent().siblings().children("div.tab").removeClass("-on");
-    $("div." + $(this).attr("data-target")).addClass("-on");
+    $("div.tab").removeClass("-on");
+    $("div.tab." + $(this).attr("data-target")).addClass("-on");
   });
 
-  //上下頁切換
-  //下一頁
-  let Next_page1 = document.getElementsByClassName('Next_page')[0];
-  let Next_page2 = document.getElementsByClassName('Next_page')[1];
-  let Previous_page1 = document.getElementsByClassName('Previous_page')[0];
-  let Previous_page2 = document.getElementsByClassName('Previous_page')[1];
-  let asd =1;
-  Next_page1.addEventListener('click',nextPageChange);
-  function nextPageChange(){
-      document.getElementById(`page${asd}`).classList.remove('-on');
-      document.getElementById(`page${asd+1}`).classList.add('-on');
-      asd++;
-  }
-
-
-  Previous_page1.addEventListener('click',PreviousPageChange);
-  function PreviousPageChange(){
-      document.getElementById(`page${asd}`).classList.remove('-on');
-      document.getElementById(`page${asd-1}`).classList.add('-on');
-      asd--;
-  }
-
-  //上一頁
-  $(".Previous_page").click(function(){
-    var num = $(this).parent().siblings().children().children('-on').index() - 1;
-    console.log(num);
-    page.removeClass("-on");
-    $(".tab_gruop_collection .page").eq(num).addClass("-on");
-  });
-
-
-  //刪除收藏東西
+    //刪除收藏東西
   $(".small-title img").on("click", function(){
     let smalltitle = $(this).closest(".small-title");
     $("div.overlay").addClass("-on");
@@ -198,118 +182,5 @@ $(document).ready(function(){
   $(".Next-page").click(function(){
       let id = $(".tab.-on .page").attr("id");
   });
+
 });
-
-//登入連線
-function $id(id){
-	return document.getElementById(id);
-}	
-
-
-
-
-function getMemberInfo(){
-  let xhr = new XMLHttpRequest();
-
-  xhr.onload = function(){
-    if(xhr.status == 200){ //success
-      member = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){ 
-        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
-        $id('spanLogin').innerHTML = '登出';
-        $id('nametest').innerHTML = `${member.MEMBER_ID}`;
-      }
-      window.addEventListener("load",getMemberInfo,false); 
-
-
-      //我的資訊頁+開團
-      function my_main(){
-        let xhr0 = new XMLHttpRequest();
-        xhr0.onload = function(){
-          if(xhr0.status == 200){ //success
-            main = JSON.parse(xhr0.responseText);
-            if(member.MEMBER_ID){
-              $id('avatar_change').setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);            
-              $id('user_name').innerHTML = `${main.MEMBER_NAME}`;
-              $id('mem_name').innerHTML = `${main.MEMBER_NAME}`;
-              $id('mem_account').innerHTML = `${main.MEMBER_ID}`;
-              $id('mem_age').innerHTML = `${main.MEMBER_AGE}`;
-              $id('mem_psw').innerHTML = `${main.MEMBER_PSW}`;
-              $id('mem_sex').innerHTML = `${main.MEMBER_SEX}`;
-              $id('mem_email').innerHTML = `${main.MEMBER_EMAIL}`;
-              $id('mem_introduction').innerHTML = `${main.MEMBER_INTRODUCTION}`;
-              $id('GROUP_NO').innerHTML = `${main.GROUP_NO}`;
-              $id('GROUP_NAME').innerHTML = `${main.GROUP_NAME}`; 
-              $id('RES_NAME').innerHTML = `${main.RES_NAME}`;
-              $id('STYLE_NAME').innerHTML = `${main.STYLE_NAME}`;
-              $id('KIND_NAME').innerHTML = `${main.KIND_NAME}`;
-              $id('MEMBER_NAME').innerHTML = `${main.MEMBER_NAME}`;
-              $id('JOIN_NUMBER').innerHTML = `${main.JOIN_NUMBER}`;
-              $id('MEAL_TIME').innerHTML = `${main.MEAL_TIME}`;
-              $id('RES_ADDRESS').innerHTML = `${main.RES_ADDRESS}`;
-              $id('RES_TEL').innerHTML = `${main.RES_TEL}`;
-              $id('RES_BUS_HOURS').innerHTML = `${main.RES_BUS_HOURS}`;
-              $id('MAIN_IMG').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE1}`);
-              $id('RES_IMAGE1').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE1}`);
-              $id('RES_IMAGE2').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE2}`);
-              $id('RES_IMAGE3').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE3}`);
-              $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE4}`);            
-            }
-          }else{ //error
-            alert(xhr0.status);
-          }
-        }
-        // xhr0.open("GET", "./php/my_main.php", true);
-        xhr0.open("POST", "./php/my_main.php", true);
-        xhr0.setRequestHeader("content-type","application/x-www-form-urlencoded");
-        let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW} `;
-        xhr0.send(data_info);
-      }
-      window.addEventListener("load",my_main(),false); 
-
-
-
-      window.addEventListener("load",myGroupNow(),false); 
-      function myGroupNow(){
-        let xhr1 = new XMLHttpRequest();
-        xhr1.onload = function(){
-          if(xhr1.status == 200){ //success
-            group = JSON.parse(xhr1.responseText);
-            for (let i = 0; i < group.length; i++) {
-              $`(         
-                <div class="stranger_name">
-                    <img id="CHECK_IMAGES" src="./image/member/${group[i].CHECK_IMAGES}" >
-                    <h5 id="CHECK_NAME">
-                    ${group[i].CHECK_NAME}
-                    </h5>
-                </div>
-              )`
-
-
-            }
-            console.log(group);
-            console.log(group[0].CHECK_NAME);
-            console.log(group[0].CHECK_IMAGES);
-            console.log(group[0].MEMBER_STATUS);
-            if(member.MEMBER_ID){
-              $id('CHECK_IMAGES').setAttribute("src",`./image/member/${group.CHECK_IMAGES}`); 
-              $id('CHECK_NAME').innerHTML = `${group.CHECK_NAME}`;
-            }
-          }else{ //error
-            alert(xhr1.status);
-          }
-        }
-        xhr1.open("Post", "./php/my_group.php", true);
-        xhr1.setRequestHeader("content-type","application/x-www-form-urlencoded");
-        let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
-        xhr1.send(data_info);
-        console.log(data_info);
-      }
-    }else{ //error
-      alert(xhr.status);
-    }
-  }
-  xhr.open("get", "php/getMemberInfo.php", true);
-  // console.log(member);
-  xhr.send(null);
-}

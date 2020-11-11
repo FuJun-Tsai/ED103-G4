@@ -1,5 +1,5 @@
 body {
-    .banner_bg{
+    .banner_bg {
         background-image: url("../image/13.jpg");
         background-repeat: no-repeat;
         height: 500px;
@@ -8,23 +8,23 @@ body {
         background-position: center;
         margin-bottom: 10%;
         background-attachment: fixed;
-            .text{
-                width: 90%;
-                height: 400px;
-                margin-top: 50px;
-                margin-left: 5%;
-                display: inline-block;
-                letter-spacing: 50px;
-                color: rgb(95, 95, 95);
-                text-decoration: none;
-                text-align: center;
-                font-size: 2.3rem;
-                font-weight: 900;
-                background-color: white;
-                opacity: 0.75;
-                padding-top: 160px;
-            }    
+        .text {
+            width: 90%;
+            height: 400px;
+            margin-top: 50px;
+            margin-left: 5%;
+            display: inline-block;
+            letter-spacing: 50px;
+            color: rgb(95, 95, 95);
+            text-decoration: none;
+            text-align: center;
+            font-size: 2.3rem;
+            font-weight: 900;
+            background-color: white;
+            opacity: 0.75;
+            padding-top: 160px;
         }
+    }
     .container {
         // margin-top: 5%;
         hr {

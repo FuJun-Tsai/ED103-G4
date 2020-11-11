@@ -64,7 +64,6 @@
                         <h2>會員登入</h2>
                         <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
                         <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
-    
                         <input type="button" name="" value="登入" id="btnLogin">
                         <input type="button" name="" value="取消" id="btnLoginCancel">
                         <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
@@ -118,8 +117,8 @@
                 <div class="icon" >
                     <img src="./image/icon.svg" id="headshot_icon">
                 </div> -->
-                <!-- <span id="memName">&nbsp;</span> -->
-                <!-- <span id="spanLogin">登入</span>
+            <!-- <span id="memName">&nbsp;</span> -->
+            <!-- <span id="spanLogin">登入</span>
             </div> -->
             <div id="menu-bar">
                 <div id="menu" onclick="onClickMenu()">
@@ -165,7 +164,7 @@
                 <div class="txt">
                     <h1>　　餐　廳　介　紹　　</h1>
                 </div>
-            </div>    
+            </div>
         </div>
         <!-- <div class="back"></div>
         <div class="back"></div> -->
@@ -223,6 +222,82 @@
                         </aside>
                     </div>
                 </div>
+
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg">
+                        <h4>聽聽網友怎麼說：</h4>
+                        <div class="messagecontrol">
+                            <div id="leavemessage">
+                                <div id="L1" class="L">
+                                    <img src="http://fakeimg.pl/60x60" alt="">
+                                    <p>1231232313</p>
+                                </div>
+                                <div id="L2" class="L">
+                                    <img src="http://fakeimg.pl/60x60" alt="">
+                                    <p>1231232313</p>
+                                </div>
+                                <div id="L3" class="L">
+                                    <img src="http://fakeimg.pl/60x60" alt="">
+                                    <p>1231232313</p>
+                                </div>
+                                <div id="L4" class="L">
+                                    <img src="http://fakeimg.pl/60x60" alt="">
+                                    <p>1231232313</p>
+                                </div>
+                            </div>
+                            <div class="messaging">
+                                <img src="http://fakeimg.pl/60x60" alt="">
+                                <form id="send" action="">
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <div class="features">
+                                        <i class="fas fa-bold"></i>
+                                        <i class="fas fa-italic"></i>
+                                        <i class="fas fa-underline"></i>
+                                    </div>
+                                    <button class="btn_6 btn_js">送出
+
+           <div class="container">
+               <div class="row">
+                   <div class="col-lg">
+                       <h4>聽聽網友怎麼說：</h4>
+                       <div class="messagecontrol">
+                           <div id="leavemessage">
+                               <div id="L1" class="L">
+                                   <img src="http://fakeimg.pl/60x60" alt="">
+                                   <p>1231232313</p>
+                                   <i class="fas fa-exclamation-triangle">檢舉</i>
+                               </div>
+                               <div id="L2" class="L">
+                                   <img src="http://fakeimg.pl/60x60" alt="">
+                                   <p>1231232313</p>
+                                   <i class="fas fa-exclamation-triangle">檢舉</i>
+                               </div>
+                               <div id="L3" class="L">
+                                   <img src="http://fakeimg.pl/60x60" alt="">
+                                   <p>1231232313</p>
+                                   <i class="fas fa-exclamation-triangle">檢舉</i>
+                               </div>
+                               <div id="L4" class="L">
+                                   <img src="http://fakeimg.pl/60x60" alt="">
+                                   <p>1231232313</p>
+                                   <i class="fas fa-exclamation-triangle">檢舉</i>
+                               </div>
+                           </div>
+                           <div class="messaging">
+                               <img src="http://fakeimg.pl/60x60" alt="">
+                               <form id="send" action="">
+                                   <textarea name="" id="" cols="30" rows="10"></textarea>
+                                   <div class="features">
+                                       <i class="fas fa-bold"></i>
+                                       <i class="fas fa-italic"></i>
+                                       <i class="fas fa-underline"></i>
+                                   </div>
+                                   <button class="btn_6 btn_js">送出
+
             </div> -->
 
             <!-- <div class="container">
@@ -257,6 +332,7 @@
                                 <form id="send" action="">
                                     <textarea name="" id="" cols="30" rows="10"></textarea>
                                     <button class="btn_6 btn_js">送出
+
                                        <span></span>
                                    </button>
                                 </form>
@@ -264,7 +340,15 @@
                         </div>
                     </div>
                 </div>
+
             </div> -->
+
+
+            </div>
+
+            </div>
+
+
         </div>
 
         <div id="report">
@@ -287,7 +371,7 @@
             <div class="single_thank">
                 <p>感謝你的檢舉</p>
             </div>
-        </div> 
+        </div>
 
     </section>
     <!-- ***************************** -->
@@ -318,6 +402,7 @@
     </script>
 
     <script>
+
         $(document).ready(function(){
 
             $.ajax({
@@ -330,6 +415,20 @@
                         if(trade[i]==1){
                             trade[i] = `${data.start} - ${data.close}`;
                         }else{
+
+        $(document).ready(function() {
+
+            $.ajax({
+                url: `singleRenderRES.php${location.search}`,
+                type: 'GET',
+                dataType: 'json',
+                success(data) {
+                    let trade = data.trade.split('');
+                    for (let i = 0; i < 7; i += 1) {
+                        if (trade[i] == 1) {
+                            trade[i] = `${data.start} - ${data.close}`;
+                        } else {
+
                             trade[i] = '公休';
                         }
                     }
@@ -392,6 +491,125 @@
                                 <h4>聽聽網友怎麼說：</h4>
                                 <div class="single_messagecontrol">
                                     <div id="leavemessage">
+
+
+
+                                        
+                                    </div>
+                                    <div class="single_messaging">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `);
+
+
+                }
+
+            });
+            //./image/member/${data[i].img}<-大頭貼
+            $.ajax({
+                url: `singleRenderLM.php${location.search}`,
+                type: 'GET',
+                dataType: 'json',
+                success(data) {
+                    let items = data.length;
+                    console.log(data);
+                    for (let i = 0; i <= items - 1; i += 1) {
+                        $('#leavemessage').append(`
+                        <div id="${data[i].id}" class="single_L">
+                            <img src="http://fakeimg.pl/60x60" alt="">
+                            <p>${data[i].word}</p>
+                            <p class="time">${data[i].time}</p>
+                            <i class="fas fa-exclamation-triangle">檢舉</i>
+                        </div>              
+                        `);
+
+                    }
+                    $('.single_messaging').append(`
+                    <img src="http://fakeimg.pl/60x60" alt="">
+                    <form id="send" action="singleRenderRP.php">
+                        <textarea name="RES_MESSAGE_WORD" cols="30" rows="10"></textarea>
+                        <button class="btn_6 btn_js" name="test" value="${location.search.split('=')[1]},1">送出
+                            <span></span>
+                        </button>
+                    </form>
+                    `);
+                    itemfunction();
+
+                }
+            });
+
+            $('#send button').on('click', function() {
+                let content = $('#send textarea').val();
+                let array = content.split('');
+                for (let i = 0; i <= array.length - 1; i += 1) {
+                    if (array[i].charCodeAt() == 10) {
+                        array[i] = '<br>';
+                    }
+                    content = array.join('');
+                }
+
+                $.ajax({
+                    url: `singleRenderRP.php`,
+                    type: 'GET',
+                    data: {
+                        RES_ON: (location.search.split('=')[1]),
+                        MEMBER_NO: 1
+
+                    },
+                    success(data) {
+                        console.log(data);
+                    },
+                    error(data) {
+                        console.log(data);
+                    }
+
+                });
+
+                content = '';
+                $('textarea').val('');
+            });
+
+
+
+        });
+    </script>
+
+    </section>
+    <!-- ***************************** -->
+    <footer>
+        <div class="footer">
+            <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
+        </div>
+    </footer>
+
+    <!--hambuger-->
+    <script>
+        function onClickSubMenu() {
+            document.getElementById("sub_menu").classList.toggle("change1");
+            document.querySelector(".nav1>li:nth-child(1)").classList.toggle("none");
+            document.querySelector(".nav1>li:nth-child(3)").classList.toggle("none");
+            document.querySelector(".nav1>li:nth-child(4)").classList.toggle("none");
+            document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
+        }
+    </script>
+
+    <div class="jun_back"></div>
+
+
+    <!--hambuger-->
+    <script>
+        function onClickMenu() {
+            document.getElementById("menu").classList.toggle("change");
+            document.getElementById("nav1").classList.toggle("change");
+            document.getElementById("menu-bg").classList.toggle("change-bg");
+        }
+    </script>
+
+    <script src="./js/singlerestaurant.js"></script>
+    <script src="js/login.js"></script>
 
 
                                         

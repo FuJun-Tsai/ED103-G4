@@ -2,7 +2,7 @@
 try{
   session_start();
   require_once("../connectRes.php");
-  $sql = " SELECT MEMBER_ID ,MEMBER_PSW ,MEMBER_IMAGE
+  $sql = " SELECT MEMBER_ID ,MEMBER_PSW ,MEMBER_IMAGE, MEMBER_NO
   FROM `member_management` 
   WHERE MEMBER_ID=:MEMBER_ID
   AND MEMBER_PSW=:MEMBER_PSW";
@@ -19,6 +19,8 @@ try{
     $_SESSION["MEMBER_ID"] = $memRow["MEMBER_ID"];
     $_SESSION["MEMBER_PSW"] = $memRow["MEMBER_PSW"];
     $_SESSION["MEMBER_IMAGE"] = $memRow["MEMBER_IMAGE"];
+    $_SESSION["MEMBER_NO"] = $memRow["MEMBER_NO"];
+
     //送出登入者的相關資料
     echo json_encode($memRow) ;
   }
