@@ -7,9 +7,14 @@ $mealDate = isset($_GET["mealDate"]) ? $_GET["mealDate"] : "";
 $nowNumJoin = isset($_GET["nowNumJoin"]) ? $_GET["nowNumJoin"] : "";
 $nowNumMax = isset($_GET["nowNumMax"]) ? $_GET["nowNumMax"] : "";
 $friendCheckboxVal=isset($_GET["friendCheckboxVal"]) ? $_GET["friendCheckboxVal"] : "";
+$memNo = isset($_GET["memNo"]) ? $_GET["memNo"] : "";
+$groupNo3 = isset($_GET["groupNo3"]) ? $_GET["groupNo3"] : "";
+
+// echo $memNo;
+// echo $groupNo3;
 // echo $friendCheckboxVal[0];
 // echo gettype($friendCheckboxVal[0]);
-echo $nowNumJoin;
+// echo $nowNumJoin;
 
 try{
   require_once('connectRes.php');

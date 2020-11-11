@@ -976,7 +976,7 @@ header {
         transform: translateX(-50%);
         text-align: right;
         // padding: 15px;
-        .den_box_button {
+        .den_box3_button {
             text-align: center;
             width: 40%;
             // border: 1px solid;
@@ -1144,6 +1144,7 @@ header {
     border: 1px solid red;
     padding: 10px;
     line-height: 2rem;
+    display: none;
     div {
         border: 1px solid blue;
         span {

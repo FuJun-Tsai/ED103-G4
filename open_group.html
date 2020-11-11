@@ -68,6 +68,7 @@
                     <img src="./image/icon.svg" id="headshot_icon">
                 </div>
                 <div id="nametest"></div>
+                <span style="display: none;" class="memberNoNum"></span>
                 <!-- <span id="memName">&nbsp;</span> -->
                 <span id="spanLogin">登入</span>
             </div>
@@ -354,7 +355,7 @@
 
         </div>
         <div class="denAllButton3">
-            <div class="den_box_button">
+            <div class="den_box3_button">
                 <button>確認參團</button>
             </div>
         </div>
@@ -817,7 +818,6 @@
 
                     // 第1個燈箱
                     let owlImage = document.querySelectorAll('.den_content div h6');
-                    //list是陣列
                     for (let i = 0; i < owlImage.length; i++) {
                         owlImage[i].addEventListener('click', function() {
                             var ttt = this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
@@ -957,7 +957,7 @@
                         }
                     });
 
-                    //燈箱2寫入資料庫
+                    //燈箱2裡的button寫入資料庫
                     $('.den_box2_button button').on('click', function(nameOf) {
                         let groupNo = parseInt(data[5][0].max) + 1; //團編號
                         let groupName = $('.groupName').text(); //團名
@@ -1104,14 +1104,6 @@
 
                     //第3個燈箱
                     $(document).ready(function() {
-                        // var iii = data[2];
-                        // var ooo = [];
-                        // // console.log(iii);
-                        // for (let i = 0; i < iii.length; i++) {
-                        //     ooo.push(iii[i].MEMBER_NO);
-                        //     // console.log(ooo);
-                        // }
-
                         $('.den_eatGroup').on('click', function() {
                             var foodGroupBox = data[2];
                             var yyy9 = this.children[0].innerText;
@@ -1132,7 +1124,7 @@
                             <div class="box3_row_right">
                                 <div>
                                     <h3>團號:</h3>
-                                    <h3>${foodGroupBox[denEatGroupNum].GROUP_NO}</h3>
+                                    <h3 class="groupNo">${foodGroupBox[denEatGroupNum].GROUP_NO}</h3>
                                     <br>
                                     <h3>團名:</h3>
                                     <h3>${foodGroupBox[denEatGroupNum].GROUP_NAME}</h3>
@@ -1195,6 +1187,27 @@
                             });
                         });
                     });
+
+                    //第三個燈箱參團button
+                    $('.den_box3_button button').on('click', function() {
+                        let memNo = $('.memberNoNum').text();
+                        let groupNo = $('.groupNo').text();
+                        console.log(groupNo);
+                        console.log(memNo);
+
+                        $.ajax({
+                            url: './open_group1.php',
+                            data: {
+                                memNo: memNo,
+                                groupNo3: groupNo,
+                            },
+                            type: 'GET',
+                            dataType: 'JSON',
+                        });
+                    });
+
+
+
                 }
             });
         });
