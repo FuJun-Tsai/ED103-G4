@@ -12,20 +12,12 @@ $(document).ready(function () {
             // console.log(collectionData[0]);
             // console.log(messageData[0]);
             // console.log(sharingData[0]);
+
             let loveyesorno = 0;
             let bbb = $('#spanLogin').text();
-            if (bbb='登出') {
-                $.ajax({
-                    url: 'index_fourth_screen_select.php',
-                    type: 'GET',
-                    dataType: 'json',
-                    success(data) {
-                        if('他有收藏'){
-                            loveyesorno=1;
-                        }
-                    }    
-                })
-            }
+            console.log(bbb);
+
+
 
 
             let html='';
@@ -137,7 +129,30 @@ $(document).ready(function () {
             });
 
 
-        }
+        
+        
+            
+
+            // if (bbb == '登入') {
+                $.ajax({
+                    url: 'index_fourth_screen_HeartCollection_select.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    success(data) {
+                        console.log(data);
+                        console.log(data.responseText);
+                        
+                        if(data.responseText=='他有收藏'){
+                            loveyesorno=1;
+                        }
+                    },
+                })
+            // }
+        
+        
+        },
+
+
     });
 });
 

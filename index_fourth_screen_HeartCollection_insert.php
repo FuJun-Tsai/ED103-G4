@@ -21,7 +21,7 @@ try{
 //   echo '資料有誤';
 // }else{
 //   $result = $data->fetchAll(PDO::FETCH_ASSOC);
-  echo JSON_encode(['articleNo'=>$articleNo,'memberNoNum'=>$memberNoNum]);
+  echo json_encode(['articleNo'=>$articleNo,'memberNoNum'=>$memberNoNum]);
 // }
 // echo "新增成功";
 
