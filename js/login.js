@@ -48,6 +48,7 @@ let member;
       xhr.open("Post", "php/login.php", true);
       xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
       let data_info = `MEMBER_ID=${MEMBER_ID}&MEMBER_PSW=${MEMBER_PSW}`;
+      console.log(data_info);
       xhr.send(data_info); 
     }
 
@@ -69,7 +70,6 @@ let member;
             $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
             $id('spanLogin').innerHTML = '登出';
           }
-          console.log(xhr.responseText);
         }else{ //error
           alert(xhr.status);
         }

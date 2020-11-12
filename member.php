@@ -172,7 +172,7 @@ require_once("login.inc");
                                 <h4 class="small_title">
                                     姓名:
                                 </h4>
-                                <h5 class="content" id="mem_name">
+                                <h5 class="content" id="mem_name" name="mem_name">
                                 </h5>
                                 <button class="change btn_10 btn_js">
                                     修改<span></span>
@@ -189,14 +189,14 @@ require_once("login.inc");
                                 <h4 class="small_title">
                                     年齡:
                                 </h4>
-                                <h5 class="content" id="mem_age">
+                                <h5 class="content" id="mem_age" >
                                 </h5>
                             </div>
                             <div class="part">
                                 <h4 class="small_title">
                                     密碼:
                                 </h4>
-                                <h5 class="content" id="mem_psw">
+                                <h5 class="content" id="mem_psw" name="mem_psw">
                                 </h5>
                                 <button class="change btn_10 btn_js">
                                     修改<span></span>
@@ -213,7 +213,7 @@ require_once("login.inc");
                                 <h4 class="small_title">
                                     信箱:
                                 </h4>
-                                <h5 class="content" id="mem_email">
+                                <h5 class="content" id="mem_email" name="mem_email">
                                 </h5>
                                 <button class="change btn_10 btn_js">
                                     修改<span></span>
@@ -226,17 +226,18 @@ require_once("login.inc");
                                 <button class="change btn_10 btn_js">
                                     修改<span></span>
                                 </button>
-                                <h5 class="content" id="mem_introduction">
+                                <h5 class="content" id="mem_introduction" name="mem_introduction">
                                 </h5>
                             </div>
+                            <button class="btn_10 btn_js" id="change_main">修改
+                                <span></span>
+                            </button>
+                            <button type="button" class="btn_10 btn_js btn2">送出
+                                <span></span>
+                                <input type="submit" value="送出" class="sub_main" id="sub_main">
+                            </button>
                         </form>
-                        <button class="btn_10 btn_js" id="change_main">修改
-                            <span></span>
-                        </button>
-                        <button type="button" class="btn_10 btn_js btn2">送出
-                            <span></span>
-                            <input type="submit" value="送出" class="sub_main" id="sub_main">
-                        </button>
+                        <p id="#results"></p>
                     </div>
                 </div>
             </div>
@@ -387,7 +388,6 @@ require_once("login.inc");
                         <div class="tab_contents">
                             <div class="tab tab_gruop_collection -on">
                                 <div id="gc_page1" class="page -on">
-
                                 </div>
                                 <div id="page2" class="page">
                                     <div class="tab_box">
