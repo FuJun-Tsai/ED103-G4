@@ -16,7 +16,7 @@ var dice = $(".dice");
 var spdice = $(".spdice");
 var choosechr = document.querySelector(".choosechr");
 var arrow = document.querySelector(".arrow");
-var title = document.querySelector(".control").firstElementChild;
+// var title = document.querySelector(".control").firstElementChild;
 var purchase = document.querySelector(".purchasebox");
 var upgrade = document.querySelector(".upgradebox");
 var info = document.querySelector(".infobox");
@@ -60,12 +60,13 @@ function checkplayers() {
 var x = 0;
 
 for (var j = 0; j < 7; j++) {
-    choosechr.lastElementChild.children[j].firstElementChild.onclick = binding;
+    // choosechr.lastElementChild.children[j].firstElementChild.onclick = binding;
 }
+console.log(choosechr.lastElementChild)
 
 function binding() {
 
-    this.parentElement.parentElement.parentElement.style.visibility = "hidden";
+    console.log(this.parentElement.parentElement.parentElement.style.visibility = "hidden");
     arr.push(this.nextElementSibling.innerHTML);
     $('.game_background').css('display', 'none');
     x++;
