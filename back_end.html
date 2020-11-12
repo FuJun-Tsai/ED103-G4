@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- other -->
-    <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
+    <!-- <link rel="stylesheet" href="./sass/vender/other/hover-min.css"> -->
     <!-- <link rel="stylesheet" href="./css/other/animation.css"> -->
     <!-- H&F -->
     <!-- <link rel="stylesheet" href="./css/head_footer_style.css"> -->
@@ -17,15 +17,15 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
-    <script src="./js/btn_hover.js"></script>
+    <!-- <script src="./js/btn_hover.js"></script> -->
     <!-- <script src="./js/header_fixed.js"></script> -->
     <!-- local -->
     <!-- <link rel="stylesheet" href="./css/bootstrap/bootstrap_nopm.css"> -->
     <!-- btn -->
     <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
     <script src="./js/bootstrap.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"> -->
+    <!-- <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script> -->
     <link rel="stylesheet" href="./css/allstyle.css">
 </head>
 <body>
@@ -1009,44 +1009,7 @@
       </script>
       <!-- 分頁 -->
       <script>
-          $(document).ready(function() {
-            $('#tbl_administrator').DataTable({
-                "oLanguage": {
-                    "sStripClasses": "",
-                    "sSearch": "",
-                    "sSearchPlaceholder": "Enter Keywords Here",
-                    "sInfo": "_START_ -_END_ of _TOTAL_",
-                    "sLengthMenu": '<span>Rows per page:</span><select class="browser-default">' +
-                    '<option value="10">10</option>' +
-                    '<option value="20">20</option>' +
-                    '<option value="30">30</option>' +
-                    '<option value="40">40</option>' +
-                    '<option value="50">50</option>' +
-                    '<option value="-1">All</option>' +
-                    '</select></div>'
-                },
-                "searching": true, //搜尋
-                "sPaginationType": "full_numbers", //分頁功能樣式
-                "lengthMenu":  [10, 20], //顯示筆數
-                "processing": true, //顯示資料處理狀態
-                "serverSide": false, //Server端資料處理模式（分頁、排序、過濾）
-                "stateSave": true, //表格狀態保存，當頁面刷新時，是否要保存當前表格狀態，不保存狀態便會在刷新時回復到原始狀態
-                "destroy": true, //每一次修改時銷毀資料
-                "info": true,
-                "autoWidth": true, //是否要自動調整表格寬度
-                "ordering": true, //是否要開啟排序
-                "scrollX": "500px", //設置x軸高度
-                "scrollY": "200px", //設置y軸高度
-                "scrollCollapse": true, //設置是否控制y軸長度自適應
-                "paging": true, //設置是否要開啟y軸內部分頁
-                "dom": '<"top"i>rt<"bottom"p><"clear">'
-            });
-            bAutoWidth: false
-            // $('#tbl_member_adm').DataTable();
-            // $('#tbl_res_adm').DataTable();
-            // $('#tbl_article').DataTable();
-            // $('#tbl_message').DataTable();
-        });
+          
       </script>
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

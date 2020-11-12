@@ -11,28 +11,38 @@
     <!-- <link rel="stylesheet" href="./css/head_footer_style.css"> -->
     <!-- kits -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
-    <!-- <link rel="stylesheet" href="./css/bootstrap.css"> -->
+    <link rel="stylesheet" href="./css/bootstrap.css">
     <!-- <link rel="stylesheet" href="./css/bootstrap-grid.css"> -->
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
-    <!-- <script src="./js/btn_hover.js"></script>
-    <script src="./js/header_fixed.js"></script> -->
+    <!-- <script src="./js/btn_hover.js"></script> -->
+    <!-- <script src="./js/header_fixed.js"></script> -->
     <!-- local -->
     <!-- <link rel="stylesheet" href="./css/bootstrap/bootstrap_nopm.css"> -->
     <!-- btn -->
     <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
-    <!-- <script src="js/btn_hover.js"></script> -->
-    <!-- <script src="./js/bootstrap.js"></script> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"> -->
+    <!-- <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
     <link rel="stylesheet" href="./css/allstyle.css">
 </head>
-<body style="height: 100vh;">
+<body>
     <header>
         <section>
             <div class="logo">
@@ -170,7 +180,7 @@
                         <span></span>
                     </button>
                 <table class="tbl_administrator table-striped table-bordered table-hidden">
-                    <thead>
+                    <!-- <thead>
                         <tr> 
                             <th class="col-md-1 col-xs-1" style="vertical-align: middle;">編號</th> 
                             <th class="col-md-3 col-xs-3" style="vertical-align: middle;">管理員帳號</th>
@@ -402,7 +412,7 @@
                                 </button>
                             </td>
                         </tr> 
-                    </tbody>
+                    </tbody> -->
                 </table>
              </div>
              <div class="tab-pane" id="member_adm">
@@ -702,7 +712,7 @@
                    
                     <div class="tabs-container">
                       <div id="tab0" class="tabs-panel" style="display:block">
-                        <!-- <table id="tbl_article" class="report_table table-bordered">
+                        <table class="report_table table-bordered">
                             <thead class="word_adm_ti">
                                 <tr> 
                                     <th class="col-md-1 col-xs-1">貼文編號</th> 
@@ -758,7 +768,7 @@
                                     <td colspan="6">下拉範圍</td>
                                 </tr>
                             </tbody>
-                        </table> -->
+                        </table>
                         <div style="height:px;margin:px ;">
                             <span id="spanFirst">第一頁</span>
                             <span id="spanPre">上一頁</span>
@@ -770,7 +780,7 @@
                       </div>
                    
                       <div id="tab1" class="tabs-panel">
-                        <table id="tbl_message" class="report_table table-bordered">
+                        <table class="report_table table-bordered">
                             <thead class="word_adm_ti">
                                 <tr> 
                                     <th class="col-md-1 col-xs-1">留言編號</th> 
@@ -924,46 +934,6 @@
             document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
         }
     </script>
-    <!-- 表格 -->
-    <script>
-        $(document).ready(function() {
-            $('#tbl_administrator').DataTable({
-                "oLanguage": {
-                    "sStripClasses": "",
-                    "sSearch": "",
-                    "sSearchPlaceholder": "Enter Keywords Here",
-                    "sInfo": "_START_ -_END_ of _TOTAL_",
-                    "sLengthMenu": '<span>Rows per page:</span><select class="browser-default">' +
-                    '<option value="10">10</option>' +
-                    '<option value="20">20</option>' +
-                    '<option value="30">30</option>' +
-                    '<option value="40">40</option>' +
-                    '<option value="50">50</option>' +
-                    '<option value="-1">All</option>' +
-                    '</select></div>'
-                },
-                "searching": true, //搜尋
-                "sPaginationType": "full_numbers", //分頁功能樣式
-                "lengthMenu":  [10, 20], //顯示筆數
-                "processing": true, //顯示資料處理狀態
-                "serverSide": false, //Server端資料處理模式（分頁、排序、過濾）
-                "stateSave": true, //表格狀態保存，當頁面刷新時，是否要保存當前表格狀態，不保存狀態便會在刷新時回復到原始狀態
-                "destroy": true, //每一次修改時銷毀資料
-                "info": true,
-                "autoWidth": true, //是否要自動調整表格寬度
-                "ordering": true, //是否要開啟排序
-                "scrollX": "500px", //設置x軸高度
-                "scrollY": "200px", //設置y軸高度
-                "scrollCollapse": true, //設置是否控制y軸長度自適應
-                "paging": true, //設置是否要開啟y軸內部分頁
-                "dom": '<"top"i>rt<"bottom"p><"clear">'
-            });
-            // $('#tbl_member_adm').DataTable();
-            // $('#tbl_res_adm').DataTable();
-            // $('#tbl_article').DataTable();
-            // $('#tbl_message').DataTable();
-        });
-    </script>
     <!-- 關鍵字搜尋 -->
     <!-- 會員 -->
     <script>
@@ -986,7 +956,7 @@
             $(this).attr('visible','true');
         });
 
-        var jobCount = $('.results tbody tr[visible="true"]').length;
+        let jobCount = $('.results tbody tr[visible="true"]').length;
             $('.counter').text(jobCount + ' item');
 
         if(jobCount == '0') {$('.no-result').show();}
@@ -1052,6 +1022,60 @@
             })
       </script>
       <!-- 分頁 -->
+      <script>
+          $('#tbl_administrator').bootstrapTable({
+            columns:[ //欄位設定
+                {field:'checkbox', title:'選取', align:'center', width:80, visible:true, checkbox:true},
+                {field:'id', title:'代號', align:'center', width:120, visible:true, sortable:true},
+                {field:'name', title:'名稱', align:'left', visible:true},
+                {field:'mailAddress', title:'Email', align:'left', width:200, visible:true},
+                {field:'description', title:'說明', align:'left', width:200, visible:true}
+            ],
+            classes:'table',
+            data : getRandomData(),//所有資料
+            uniqueId:'id', //哪一個欄位是key
+            sortName:'name', //依照那個欄位排序			
+            height : 450,
+            pagination : true, //使否要分頁
+
+            //可於ToolBar上顯示的按鈕
+            showColumns : true, //顯示/隱藏哪些欄位
+            showToggle : true, //名片式/table式切換
+            showPaginationSwitch : true, //分頁/不分頁切換
+            showRefresh : true, //重新整理
+            search : true, //查詢
+
+            onPageChange:function(currentPage, pageSize) {
+                console.log("目前頁數:"+currentPage+",一頁顯示:"+pageSize+"筆");
+            },
+            pageSize : 10, //一頁顯示幾筆
+            pageList : [ 10, 20, 50, 100], //一頁顯示幾筆的選項
+
+            formatRecordsPerPage:function(pageSize) {
+                return '&nbsp;&nbsp;每頁顯示' + pageSize + '筆';
+            },
+            formatShowingRows:function(fromIndex, toIndex, totalSize) {
+                //目前第幾頁
+                let currentPage = Math.ceil(fromIndex / this.pageSize);
+                //總共幾頁
+                let totalPageCount = Math.ceil(totalSize / this.pageSize);
+                return '第'+currentPage+'頁&nbsp;&nbsp;共'+totalPageCount+'頁';
+            }	
+        });
+
+        function getRandomData() {
+        let data = [];
+        for (let i = 0; i < 50; i++) {
+            data.push({
+            id: "ID_"+i,
+            name: 'Name_' + i,
+            mailAddress : "ID_"+i+"@ooooo.com",
+            description : "" 
+            });
+        }
+        return data;
+        }
+      </script>
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
