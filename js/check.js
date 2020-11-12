@@ -33,50 +33,51 @@ function doFirst() {
             rsContent.innerText = place[boxId].text;
             rsName.innerText = place[boxId].name;
             purchase.style.visibility = "visible";
+            $('.game_background').css('display', 'block');
         });
 
 
-        purchase.children[2].onclick = function() {
-            let boxss1 = boxss[i].id;
-            let boxId = boxss1.substr(1, 1)
+        // purchase.children[2].onclick = function() {
+        //     let boxss1 = boxss[i].id;
+        //     let boxId = boxss1.substr(1, 1)
 
-            purchase.style.visibility = "hidden";
-            person.money -= place[boxId].value;
-            msgtype = "purchase";
-            for (let i = 0; i < 4; i++) {
-                let imgAll = document.querySelector('.purchasebox_content_left img')
-                imgAll.remove();
-            }
-            let rsContent = document.querySelector('.purchasebox_content_right p')
-            rsContent.remove();
-            let rsName = document.querySelector('.purchasebox_content_right h3')
-            rsName.remove();
-            let rsTitle = document.querySelector('.purchasebox_content_right h2')
-            rsTitle.remove();
-
-
-            // showMsgbox();
-            gameSequence();
-        }
-        purchase.children[3].onclick = function() {
-            for (let i = 0; i < 4; i++) {
-                let imgAll = document.querySelector('.purchasebox_content_left img')
-                imgAll.remove();
-            }
-            let rsContent = document.querySelector('.purchasebox_content_right p')
-                // console.log(rsContent)
-            rsContent.remove();
-            let rsName = document.querySelector('.purchasebox_content_right h3')
-            rsName.remove();
-            let rsTitle = document.querySelector('.purchasebox_content_right h2')
-            rsTitle.remove();
+        //     purchase.style.visibility = "hidden";
+        //     person.money -= place[boxId].value;
+        //     msgtype = "purchase";
+        //     for (let i = 0; i < 4; i++) {
+        //         let imgAll = document.querySelector('.purchasebox_content_left img')
+        //         imgAll.remove();
+        //     }
+        //     let rsContent = document.querySelector('.purchasebox_content_right p')
+        //     rsContent.remove();
+        //     let rsName = document.querySelector('.purchasebox_content_right h3')
+        //     rsName.remove();
+        //     let rsTitle = document.querySelector('.purchasebox_content_right h2')
+        //     rsTitle.remove();
 
 
-            purchase.style.visibility = "hidden";
+        //     // showMsgbox();
+        //     gameSequence();
+        // }
+        // purchase.children[3].onclick = function() {
+        //     for (let i = 0; i < 4; i++) {
+        //         let imgAll = document.querySelector('.purchasebox_content_left img')
+        //         imgAll.remove();
+        //     }
+        //     let rsContent = document.querySelector('.purchasebox_content_right p')
+        //         // console.log(rsContent)
+        //     rsContent.remove();
+        //     let rsName = document.querySelector('.purchasebox_content_right h3')
+        //     rsName.remove();
+        //     let rsTitle = document.querySelector('.purchasebox_content_right h2')
+        //     rsTitle.remove();
 
-            // showMsgbox();
-            gameSequence();
-        }
+
+        //     purchase.style.visibility = "hidden";
+
+        //     // showMsgbox();
+        //     gameSequence();
+        // }
 
     }
 

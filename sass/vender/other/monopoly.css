@@ -1,5 +1,14 @@
 /*全局设定*/
-                                                                
+
+.game_background {
+    background-color: rgba(240, 248, 255, .5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 section {
     position: relative;
     width: 100%;
@@ -31,7 +40,11 @@ body {
     background-size: cover;
     background-position: center;
 }
+
+
 /*设置选项*/
+
+
 /* 
 .setting {
 position: absolute;
@@ -42,6 +55,8 @@ top: 0;
 background: rgba(0, 0, 0, .8);
 z-index: 9999;
 } */
+
+
 /*人数*/
 
 .choosebox {
@@ -95,6 +110,8 @@ z-index: 9999;
 .choosebox li:nth-of-type(4) {
     border-bottom-right-radius: 13px
 }
+
+
 /*选角*/
 
 .choosechr {
@@ -138,6 +155,10 @@ z-index: 9999;
     position: relative;
 }
 
+.choosechr li:hover {
+    background-color: rgba(253, 245, 171, .8);
+}
+
 .choosechr li h1 {
     padding: 10px 5px;
 }
@@ -166,6 +187,8 @@ z-index: 9999;
     /* visibility: hidden; */
     z-index: 99;
 }
+
+
 /*地图*/
 
 .game_background {
@@ -238,6 +261,7 @@ z-index: 9999;
     color: #222222;
     line-height: 50px;
 }
+
 .box.b0 h3 {
     font-weight: 700;
     position: absolute;
@@ -273,6 +297,8 @@ z-index: 9999;
     z-index: 99;
     /* position: center; */
 }
+
+
 /*掷骰子区*/
 
 .control {
@@ -348,6 +374,8 @@ z-index: 9999;
     border-radius: 25%;
     transform: translate(-50%, -50%);
 }
+
+
 /*定义角色位置*/
 
 .character {
@@ -376,6 +404,8 @@ z-index: 9999;
     width: 140px!important;
     height: 140px!important;
 }
+
+
 /*弹窗*/
 
 .purchasebox,
@@ -393,6 +423,7 @@ height: 80vh; */
     /* border: 3px solid #454545; */
     box-shadow: 8px 8px 10px #222222;
     visibility: hidden;
+    z-index: 999;
 }
 
 .purchasebox #no0 {
@@ -457,7 +488,7 @@ height: 80vh; */
 }
 
 .btn2 {
-    background:#76AFAF;
+    background: #76AFAF;
     width: 50%;
     height: 10%;
     position: absolute;
@@ -509,8 +540,6 @@ border-top-right-radius: 8px; */
     display: inline-block;
     width: 30px;
 }
-
-
 
 .purchasebox h1,
 .upgradebox h1 {
@@ -592,6 +621,8 @@ border-top-right-radius: 8px; */
     background: #f1f1f1;
     white-space: nowrap;
 }
+
+
 /*显示信息*/
 
 .p1info {
@@ -729,6 +760,8 @@ border-top-right-radius: 8px; */
     transform: none;
     bottom: calc(3% + 2em + 60px);
 }
+
+
 /*施工*/
 
 .construct img {
@@ -772,6 +805,8 @@ border-top-right-radius: 8px; */
     left: -30%;
     animation: c5 2s;
 }
+
+
 /*房子*/
 
 .box img.house {
@@ -781,11 +816,15 @@ border-top-right-radius: 8px; */
     transform: translateX(-50%);
     width: 90%;
 }
+
+
 /*隐藏*/
 
 .hide {
     display: none;
 }
+
+
 /*动画都在这里*/
 
 @keyframes arrow {
@@ -891,6 +930,8 @@ border-top-right-radius: 8px; */
         opacity: 0;
     }
 }
+
+
 /* 
 .controller {
 position: absolute;
@@ -917,8 +958,8 @@ position: absolute;
     75% {
         -webkit-transform: translate(-50%, -60%);
     }
-
 }
+
 @keyframes bounce-down {
     25% {
         transform: translate(-50%, -60%);

@@ -58,12 +58,11 @@ function game() {
                     purchase.style.visibility = "visible";
                 } else {
                     purchase.style.visibility = "visible";
+                    $('.game_background').css('display', 'block');
                 }
                 // 买公用地产
                 if (place[position].state == 0) {
-                    // let img11=document.querySelector()
                     var newImg1
-                        // purchase.firstElementChild.innerText = "请问你要花费$" + place[position].value + "来购买" + place[position].name + "吗？";
                     for (let i = 0; i < 4; i++) {
                         let newImg1 = document.createElement("img");
                         newImg1.setAttribute("id", "no" + i);
@@ -84,59 +83,49 @@ function game() {
                     rsContent.innerText = place[position].text;
                     rsName.innerText = place[position].name;
 
-                    purchase.children[2].onclick = function() {
-                        place[position].owner = person.name;
-                        purchase.style.visibility = "hidden";
-                        person.money -= place[position].value;
-                        msgtype = "purchase";
-                        for (let i = 0; i < 4; i++) {
-                            let imgAll = document.querySelector('.purchasebox_content_left img')
-                            imgAll.remove();
-                        }
-                        let rsContent = document.querySelector('.purchasebox_content_right p')
-                        rsContent.remove();
-                        let rsName = document.querySelector('.purchasebox_content_right h3')
-                        rsName.remove();
-                        let rsTitle = document.querySelector('.purchasebox_content_right h2')
-                        rsTitle.remove();
+                    // purchase.children[2].onclick = function() {
+                    //     place[position].owner = person.name;
+                    //     purchase.style.visibility = "hidden";
+                    //     person.money -= place[position].value;
+                    //     msgtype = "purchase";
+                    //     for (let i = 0; i < 4; i++) {
+                    //         let imgAll = document.querySelector('.purchasebox_content_left img')
+                    //         imgAll.remove();
+                    //     }
+                    //     let rsContent = document.querySelector('.purchasebox_content_right p')
+                    //     rsContent.remove();
+                    //     let rsName = document.querySelector('.purchasebox_content_right h3')
+                    //     rsName.remove();
+                    //     let rsTitle = document.querySelector('.purchasebox_content_right h2')
+                    //     rsTitle.remove();
 
-                        gameSequence();
-                    }
-                    purchase.children[3].onclick = function() {
-                        for (let i = 0; i < 4; i++) {
-                            let imgAll = document.querySelector('.purchasebox_content_left img')
-                            imgAll.remove();
-                        }
-                        let rsContent = document.querySelector('.purchasebox_content_right p')
-                            // console.log(rsContent)
-                        rsContent.remove();
-                        let rsName = document.querySelector('.purchasebox_content_right h3')
-                        rsName.remove();
-                        let rsTitle = document.querySelector('.purchasebox_content_right h2')
-                        rsTitle.remove();
+                    //     gameSequence();
+                    // }
+                    // purchase.children[3].onclick = function() {
+                    //     for (let i = 0; i < 4; i++) {
+                    //         let imgAll = document.querySelector('.purchasebox_content_left img')
+                    //         imgAll.remove();
+                    //     }
+                    //     let rsContent = document.querySelector('.purchasebox_content_right p')
+                    //         // console.log(rsContent)
+                    //     rsContent.remove();
+                    //     let rsName = document.querySelector('.purchasebox_content_right h3')
+                    //     rsName.remove();
+                    //     let rsTitle = document.querySelector('.purchasebox_content_right h2')
+                    //     rsTitle.remove();
 
-                        purchase.style.visibility = "hidden";
+                    //     purchase.style.visibility = "hidden";
 
-                        gameSequence();
+                    //     gameSequence();
 
-                    }
-                    if (person.control == 0) {
-                        gameSequence();
-                    }
+                    // }
+                    // if (person.control == 0) {
+                    //     gameSequence();
+                    // }
                 }
             }
-            // 住房
-            if (place[position].owner !== person.name && place[position].owner !== "none" && (place[position].state == 0 || place[position].state == 1 || place[position].state == 2 || place[position].state == 3)) {
-
-                gameSequence();
-            }
-            // 升级房子
-            if (place[position].owner == person.name) {
-                gameSequence();
-            }
-
             //查看变化
-            console.log(person.name + "现在有$" + person.money);
+            // console.log(person.name + "现在有$" + person.money);
 
         }, v * num + v * 0.9);
 
@@ -208,18 +197,18 @@ function p1checkState() {
 }
 
 // 关闭对话框按钮
-purchase.children[3].onclick = function() {
-    purchase.style.visibility = "hidden";
-    gameSequence();
-    purchase.children[2].style.pointerEvents = "auto";
-    purchase.children[2].style.background = "#e1e1e1";
-}
-upgrade.children[3].onclick = function() {
-    upgrade.style.visibility = "hidden";
-    gameSequence();
-    upgrade.children[2].style.pointerEvents = "auto";
-    upgrade.children[2].style.background = "#e1e1e1";
-}
+// purchase.children[3].onclick = function() {
+//     purchase.style.visibility = "hidden";
+//     gameSequence();
+//     purchase.children[2].style.pointerEvents = "auto";
+//     purchase.children[2].style.background = "#e1e1e1";
+// }
+// upgrade.children[3].onclick = function() {
+//     upgrade.style.visibility = "hidden";
+//     gameSequence();
+//     upgrade.children[2].style.pointerEvents = "auto";
+//     upgrade.children[2].style.background = "#e1e1e1";
+// }
 
 // 角色移动
 function p1move() {
@@ -446,42 +435,10 @@ function p1move() {
     }
 
 
-    // if (po1 == 12) {
-    //     console.log('bbb');
-
-    // }
-    // let aaa = $('.box').index();
-    // console.log(aaa);
-
-    //腳色移動 寫入圖片
 }
-
-// function p2move() {
-//     if (po2 == 19) {
-//         po2 = -1;
-//         boxes[0].append(i2);
-//         p2.money += 2000;
-//     }
-//     po2++;
-//     boxes[po2].append(i2);
-// }
-
-// function p3move() {
-//     if (po3 == 19) {
-//         po3 = -1;
-//         boxes[0].append(i3);
-//         p3.money += 2000;
-//     }
-//     po3++;
-//     boxes[po3].append(i3);
-// }
-
-// function p4move() {
-//     if (po4 == 19) {
-//         po4 = -1;
-//         boxes[0].append(i4);
-//         p4.money += 2000;
-//     }
-//     po4++;
-//     boxes[po4].append(i4);
-// }
+$('.close').on('click', function() {
+    $('.purchasebox').css('visibility', 'hidden');
+    $('.purchasebox_content_left').empty();
+    $('.purchasebox_content_right').empty();
+    $('.game_background').css('display', 'none');
+});
