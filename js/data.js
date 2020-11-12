@@ -139,6 +139,15 @@ var b0 = {
 // };
 
 $(document).ready(function() {
+
+
+    // console.log(choosechr.lastElementChild.children[j].firstElementChild);
+
+    // let aaa = choosechr.children("");
+    // console.log(aaa);
+    // let aaa = $('.choosechr').children()[1].children[1].firstElementChild;
+    // console.log(aaa);
+
     $.ajax({
         url: './gamedata.php',
         type: 'GET',
