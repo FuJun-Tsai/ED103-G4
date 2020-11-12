@@ -165,7 +165,7 @@
                         <i class="fas fa-plus"></i>
                         <span></span>
                     </button>
-                <table class="tbl_administrator table-striped table-bordered table-hidden">
+                <table class="tbl_administrator">
                     <thead>
                         <tr> 
                             <th class="col-md-1 col-xs-1" style="vertical-align: middle;">編號</th> 
@@ -717,6 +717,7 @@
                                     <td>資料2</td> 
                                     <td>資料2</td> 
                                     <td>
+                                        
                                         <button class="btn_5 btn_js">
                                             <i class="fas fa-angle-down"></i>
                                             <span></span>
@@ -929,7 +930,7 @@
             let listItem = $('.results tbody').children('tr');
             let searchSplit = searchTerm.replace(/ /g, "'):containsi('")
             
-        $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+                $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
                 return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
             }
         });
@@ -942,7 +943,7 @@
             $(this).attr('visible','true');
         });
 
-        var jobCount = $('.results tbody tr[visible="true"]').length;
+        let jobCount = $('.results tbody tr[visible="true"]').length;
             $('.counter').text(jobCount + ' item');
 
         if(jobCount == '0') {$('.no-result').show();}
@@ -994,7 +995,7 @@
        </script>
       <!-- 檢舉延伸  -->
       <script>
-          $(document).ready(function() {
+          $(document).ready(function down() {
             //Fixing jQuery Click Events for the iPad
             let ua = navigator.userAgent,
                 event = (ua.match(/iPad/i)) ? "touchstart" : "click";
