@@ -5,12 +5,8 @@ var position = 0;
 var person = 0;
 var text = 0;
 var po1 = 0;
-// var po2 = 0;
-// var po3 = 0;
-// var po4 = 0;
 //初始化人数
 var player = 0;
-// var npc = 0;
 //用来装玩家名字的数组
 var arr = [];
 // 初始速度
@@ -27,17 +23,11 @@ var purchase = document.querySelector(".purchasebox");
 var upgrade = document.querySelector(".upgradebox");
 var info = document.querySelector(".infobox");
 var i1 = document.querySelector("#player1");
-// var i2 = document.querySelector("#player2");
-// var i3 = document.querySelector("#player3");
-// var i4 = document.querySelector("#player4");
-// var img = [i1, i2, i3, i4];
 var img = [i1];
 
 var construct = document.querySelector(".construct");
 // 创建待添加对象
 var l1 = "<img src='img/l1.png' class='house' alt=''>";
-// var l2 = "<img src='img/l2.png' class='house' alt=''>";
-// var l3 = "<img src='img/l3.png' class='house' alt=''>";
 
 
 var colorscheme = {
@@ -60,92 +50,23 @@ var randomMoney = 0;
 var fateText = 0;
 
 
-
-
-// 开始页面
-
-
-
-
-
-
-
-
-
-
 // 选择玩家数量
-playernum.lastElementChild.children[0].onclick = function() {
-    // playernum.style.visibility = "hidden";
-    // npcnum.lastElementChild.children[0].style.pointerEvents = "none";
-    // npcnum.lastElementChild.children[0].style.background = "grey";
-    // player = 1;
-}
+playernum.lastElementChild.children[0].onclick = function() {}
 player = 1;
-// playernum.lastElementChild.children[1].onclick = function(){
-// 	playernum.style.visibility = "hidden";
-// 	npcnum.lastElementChild.children[3].style.pointerEvents = "none";
-// 	npcnum.lastElementChild.children[3].style.background = "grey";
-// 	player = 2;
-// }
-// playernum.lastElementChild.children[2].onclick = function(){
-// 	playernum.style.visibility = "hidden";
-// 	npcnum.lastElementChild.children[2].style.pointerEvents = "none";
-// 	npcnum.lastElementChild.children[2].style.background = "grey";
-// 	npcnum.lastElementChild.children[3].style.pointerEvents = "none";
-// 	npcnum.lastElementChild.children[3].style.background = "grey";
-// 	player = 3;
-// }
-// playernum.lastElementChild.children[3].onclick = function(){
-// 	playernum.style.visibility = "hidden";
-// 	npcnum.style.visibility = "hidden";
-// 	player = 4;
-// 	npc = 0;
-// 	choosechr[3].style.visibility = "visible";
-// 	choosechr[2].style.visibility = "visible";
-// 	choosechr[1].style.visibility = "visible";
-// 	choosechr[0].style.visibility = "visible";
-// }
-// 选择电脑数量
-// npcnum.lastElementChild.children[0].onclick = function() {
-//         npcnum.style.visibility = "hidden";
-//         npc = 0;
-//         checkplayers();
-//     }
 npc = 0;
 checkplayers();
 npcnum.lastElementChild.children[1].onclick = function() {
-        npcnum.style.visibility = "hidden";
-        player += 1;
-        if (player == 2) {
-            p2.control = 0;
-        } else if (player == 3) {
-            p3.control = 0;
-        } else if (player == 4) {
-            p4.control = 0;
-        }
-        checkplayers();
+    npcnum.style.visibility = "hidden";
+    player += 1;
+    if (player == 2) {
+        p2.control = 0;
+    } else if (player == 3) {
+        p3.control = 0;
+    } else if (player == 4) {
+        p4.control = 0;
     }
-    // npcnum.lastElementChild.children[2].onclick = function(){
-    // 	npcnum.style.visibility = "hidden";
-    // 	player += 2;
-    // 	if(player == 3){
-    // 		p2.control = 0;
-    // 		p3.control = 0;
-    // 	}
-    // 	else if(player == 4){
-    // 		p3.control = 0;
-    // 		p4.control = 0;
-    // 	}
-    // 	checkplayers();
-    // }
-    // npcnum.lastElementChild.children[3].onclick = function(){
-    // 	npcnum.style.visibility = "hidden";
-    // 	player += 3;
-    // 	p2.control = 0;
-    // 	p3.control = 0;
-    // 	p4.control = 0;
-    // 	checkplayers();
-    // }
+    checkplayers();
+}
 
 // 根据选择人数来分配角色选择界面
 function checkplayers() {
@@ -162,10 +83,6 @@ function checkplayers() {
         }
     }
 }
-
-
-
-
 
 
 // 选择角色

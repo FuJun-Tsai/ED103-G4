@@ -1,34 +1,3 @@
-// 判定地皮归属
-// setInterval(function() {
-//     for (var i = 0; i < place.length; i++) {
-//         if (place[i].owner == "Robin") {
-//             boxes[i].style.boxShadow = "3px 3px 3px inset #FA2A14,3px -3px 3px inset #FA2A14,-3px 3px 3px inset #FA2A14, -3px -3px 3px inset #FA2A14";
-//         }
-//         if (place[i].owner == "Batman") {
-//             boxes[i].style.boxShadow = "3px 3px 3px inset #121212,3px -3px 3px inset #121212,-3px 3px 3px inset #121212, -3px -3px 3px inset #121212";
-//         }
-//         if (place[i].owner == "Superman") {
-//             boxes[i].style.boxShadow = "3px 3px 3px inset #274D7A,3px -3px 3px inset #274D7A,-3px 3px 3px inset #274D7A, -3px -3px 3px inset #274D7A";
-//         }
-//         if (place[i].owner == "Catwoman") {
-//             boxes[i].style.boxShadow = "3px 3px 3px inset #B04E58,3px -3px 3px inset #B04E58,-3px 3px 3px inset #B04E58, -3px -3px 3px inset #B04E58";
-//         }
-//         if (place[i].owner == "Green Lantern") {
-//             boxes[i].style.boxShadow = "3px 3px 3px inset #5FAE2E,3px -3px 3px inset #5FAE2E,-3px 3px 3px inset #5FAE2E, -3px -3px 3px inset #5FAE2E";
-//         }
-//         if (place[i].owner == "Joker") {
-//             boxes[i].style.boxShadow = "3px 3px 3px inset #5E45AB,3px -3px 3px inset #5E45AB,-3px 3px 3px inset #5E45AB, -3px -3px 3px inset #5E45AB";
-//         }
-//         if (place[i].owner == "Harley Quinn") {
-//             boxes[i].style.boxShadow = "3px 3px 3px inset pink,3px -3px 3px inset pink,-3px 3px 3px inset pink, -3px -3px 3px inset pink";
-//         }
-//         // if (place[i].owner == "none") {
-//         //     boxes[i].style.boxShadow = "1px 1px 1px inset #454545,1px -1px 1px inset #454545,-1px 1px 1px inset #454545, -1px -1px 1px inset #454545";
-//         // }
-//     }
-// });
-
-
 function doFirst() {
     let a = $('#player1').attr('src', './image/den_image/white.png');
 
@@ -68,7 +37,6 @@ function doFirst() {
 
 
         purchase.children[2].onclick = function() {
-            // place[boxId].owner = person.name;
             let boxss1 = boxss[i].id;
             let boxId = boxss1.substr(1, 1)
 
@@ -108,42 +76,10 @@ function doFirst() {
 
             // showMsgbox();
             gameSequence();
-
         }
-
-
-
-
-
 
     }
 
-
-
-
-
-
-    // let b = $('.box').id();
-    // // console.log(b);
-    // if (b == 11) {
-    //     $('#player1').css('transform', 'scaleX(-1)');
-    // }
-    // if (b == 12) {
-    //     $('#player1').css('transform', 'scaleX(-1)');
-    // }
-    // if (b == 13) {
-    //     $('#player1').css('transform', 'scaleX(-1)');
-    // }
-    // if (b == 14) {
-    //     $('#player1').css('transform', 'scaleX(-1)');
-    // }
-    // if (b == 15) {
-    //     $('#player1').css('transform', 'scaleX(-1)');
-    // }
-
-    // if (b == 11 && b == 12 && b == 13 && b == 14 && b == 15) {
-    //     $('#player1').css('transform', 'scaleX(-1)');
-    // }
     $('#b0 img:nth-child(3)').remove();
 }
 
