@@ -133,8 +133,8 @@
                 </div>
             </div>
             <div class="row" id="cardshare">
-                <!-- -------------------卡片1---------------------
-                <div class="col-md-4" id="C1">
+                <!-- -------------------卡片1--------------------- -->
+                <!-- <div class="col-md-4" id="C1">
                     <div class="content">
                         ------卡片表頭-------
                         <div class="ord">
@@ -195,6 +195,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <article>
+                        <button name="" value="id" style="display: none;"></button>
                         <div class="btn_modal_close">
                             <img src="./image/XX.svg" alt="">
                         </div>
@@ -227,24 +228,16 @@
                                         </div>
                                         <input type="button" value="檢舉">
                                     </div>
-                                    <p>嗜燒肉非常非常的好吃<br>
-                                        連續假期務必提早兩個禮拜以上訂位<br>
-                                        中秋假期可能要提早兩個月訂位<br>
-                                        員工介紹肉品部位的差異非常的詳盡<br>
-                                        桌邊服務讓你品嚐最完美的熟度<br>
-                                        價格平易近人～絕對值得光臨一次<br>
-                                        有機會來中壢的朋友千萬別錯過<br>
-                                        但一定要記得先訂位<br>
-                                        沒吃到真的會捶心肝<br>
+                                    <p>
                                     </p>
                                 </div>
                             </div>
 
                             <div class="col-md-6 order-2">
                                 <div class="msg-right">
-                                    <h3>留言區</h3>
+                                    <!-- <h3>留言區</h3> -->
                                     <div class="msgin">
-                                        <div class="msgpost">
+                                        <!-- <div class="msgpost">
                                             <div class="right_info">
                                                 <div class="user_block">
                                                     <div class="user_img_block">
@@ -259,48 +252,13 @@
                                             <p>真的很讚<br>
                                                 第一次在台灣吃到那麼好吃的和牛燒烤店<br>
                                                 好像回到日本的時候～～～～和牛超級棒</p>
-                                        </div>
-
-                                        <div class="msgpost">
-                                            <div class="right_info">
-                                                <div class="user_block">
-                                                    <div class="user_img_block">
-                                                        <img>
-                                                    </div>
-                                                    <div class="user_name">
-                                                        <h5>董董：</h5>
-                                                    </div>
-                                                </div>
-                                                <input type="button" value="檢舉">
-                                            </div>
-                                            <p>特地從台北跑來中壢品嚐
-                                                一點都不讓人失望</p>
-                                        </div>
-                                        <div class="msgpost">
-                                            <div class="right_info">
-                                                <div class="user_block">
-                                                    <div class="user_img_block">
-                                                        <img>
-                                                    </div>
-                                                    <div class="user_name">
-                                                        <h5>董董：</h5>
-                                                    </div>
-                                                </div>
-                                                <input type="button" value="檢舉">
-                                            </div>
-                                            <p>超推薦！！<br>
-                                                有帥氣店員幫忙烤肉兼聊天<br>
-                                                每種肉都能好好介紹<br>
-                                                每個店員都很親切<br>
-                                                老闆也都很親切<br>
-                                            </p>
-                                        </div>
+                                        </div> -->
                                     </div>
 
-                                    <form action="" id="nuan_LeaveMessage">
+                                    <!-- <form action="" id="nuan_LeaveMessage">
                                         <textarea name="" id="" placeholder="留言"></textarea>
                                         <input type="submit" value="送 出">
-                                    </form>
+                                    </form> -->
                                 </div>
                             </div>
                         </div>
@@ -320,13 +278,13 @@
                             <span class="line2"></span>
                         </div>
                         <h2>分享你的吃吃心得</h2>
-                        <form id="newMoodForm">
+                        <form id="newMoodForm" action="shareInsertPost.php" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="moodBox">
                                         <h1>上傳圖片</h1>
                                         <div class="picWrap">
-                                            <img src="./image/newMoodPic.png" id="viewImg">
+                                            <img src="" id="viewImg">
                                         </div>
                                         <input type="file" name="moodPic" id="inputImg">
                                     </div>
@@ -335,9 +293,9 @@
                                     <div class="moodBox">
                                         <h1>選擇貼文分類</h1>
                                         <select name="moodClass" id="moodClass">
-                                                <option value="揪團分享">揪團分享</option>
-                                                <option value="美食分享">美食分享</option>
-                                            </select>
+                                            <option value="0">揪團分享</option>
+                                            <option value="1">美食分享</option>
+                                        </select>
                                         <h1>寫下吃吃標題</h1>
                                         <textarea name="moodTitle" id="moodTitle" class="moodTitle"></textarea>
 
@@ -346,8 +304,8 @@
                                     </div>
                                 </div>
                             </div>
+                            <button class="btnPink" id="newMoodPostBtn">送出</button>
                         </form>
-                        <button class="btnPink" id="newMoodPostBtn">送出</button>
                     </div>
                 </div>
             </div>
@@ -407,155 +365,426 @@
     <script>
         $(document).ready(function(){
             $.ajax({
-                url:'./php/share.php',
+                url:'./shareRender.php',
                 dataType:'json',
                 type:'GET',
-                data:{
-                    
+                success(data){
+                    for(let i=0;i<data.length;i+=1){
+                        if(data[i].kind==0){
+                            data[i].kind='#美食分享';
+                        }else{
+                            data[i].kind='#揪團分享';
+                        };
 
-                },
-                success(e){
-                    console.log(`succ-${e}`);
-                },
-                erroe(){
+                        $('#cardshare').append(`
+                            <div class="col-md-4" id="C${data[i].no}">
+                                <div class="content">
 
+                                    <div class="ord">
+                                        <h4>${data[i].kind}</h4>
+                                        <h3>${data[i].title}</h3>
+                                    </div>
+                                    <div class="head">
+
+                                        <div class="user_img_block">
+                                            <img src="image/${data[i].headimg}>
+                                        </div>
+
+                                        <div class="user_name">
+                                            <h5>${data[i].name}</h5>
+                                        </div>
+
+                                        <div class="time">
+                                            <h5>${data[i].date}</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="btn_modal">
+                                            <img src="image/article_sharing/${data[i].img}">
+                                        </div>
+                                    </div>
+
+                                    <div class="foot">
+
+                                        <div class="collect_block">
+                                            <div class="heartIcon">
+                                                <img src="image/heart-shape-outline.png" class="fillicon">
+                                            </div>
+
+                                            <div class="collect_sum">
+                                                <h5>999</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="msg_block">
+                                            <img src="image/comment-alt-solid.svg">
+
+                                            <div class="msg_sum">
+                                                <h5>999</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="more ${data[i].id}" style="outline:none; border:none;"  value="${data[i].no}">more</button>
+                                </div>
+                            </div>
+                        `);
+                        
+                        $(`.${data[i].id}`).on('click',function(){
+
+                            let id = $(this).val();
+                            $(".msg-left h4").text(`${data[i].kind}`);
+                            $(".msg-left h2").text(`${data[i].title}`);
+                            $(".img_block img").attr('src',`image/article_sharing/${data[i].img}`);
+                            $(".msg-left p").text(`${data[i].word}`);
+                            lightdetail(id);
+                        });
+                        
+                        // if(i==data.length-1){
+                        
+
+
+                            // htmljs();
+
+                        // };
+
+                    };
+
+                    htmljs();
+                
                 },
-                complete(e){
-                    console.log(`comp-${e}`);
-                },
+            
             });
+
+
+            $('#newMoodPostBtn').on('click',function(){
+                $.ajax({
+                    url:'shareInsertPost.php',
+                    type:'GET',
+                    data:{
+                        moodTitle:$('#moodTitle').val(),
+                        moodContent :$('#moodContent').val(),
+                        moodClass :$('#moodClass').val(),
+                        img  :new FormData($('#inputImg')),
+                        // img  :$('#inputImg'),
+
+                    },
+                    // data:{
+                    //     title:1,
+                    //     word :2,
+                    //     kind :0,
+                    //     // img  :new FormData($('#inputImg')),
+
+                    // },
+                    // data:`title=1&word=1&kind=0`,
+                    dataType:'json',
+                    complete(data){
+                        let nowtime = new Date();
+                        let todate = String(nowtime.getDate());
+                        let timetext = `${nowtime.getFullYear()}-${nowtime.getMonth()+1}-${todate} ${nowtime.getHours()}:${nowtime.getMinutes()}:${nowtime.getSeconds()}`;
+                        let title = $('#moodClass').val();
+
+                        if(title==0){
+                            title = '美食分享';
+                        }else{
+                            title = '揪團分享';
+                        };
+                        
+                        console.log(data);
+                        
+                        $('#cardshare').append(`
+                            <div class="col-md-4">
+                                <div class="content">
+
+                                    <div class="ord">
+                                        <h4>${title}</h4>
+                                        <h3>${$('#moodTitle').val()}</h3>
+                                    </div>
+                                    <div class="head">
+
+                                        <div class="user_img_block">
+                                            <img src="image/{{headimg}}>
+                                        </div>
+
+                                        <div class="user_name">
+                                            <h5>{{哈洽馬}}</h5>
+                                        </div>
+
+                                        <div class="time">
+                                            <h5>${timetext}</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="btn_modal">
+                                            <img src="image/article_sharing/{{XX.img}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="foot">
+
+                                        <div class="collect_block">
+                                            <div class="heartIcon">
+                                                <img src="image/heart-shape-outline.png" class="fillicon">
+                                            </div>
+
+                                            <div class="collect_sum">
+                                                <h5>999</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="msg_block">
+                                            <img src="image/comment-alt-solid.svg">
+
+                                            <div class="msg_sum">
+                                                <h5>999</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="more newpost" style="outline:none; border:none;"  value="">more</button>
+                                </div>
+                            </div>
+                        `);
+
+                        $('.newpost').on('click',function(){
+                            // let id = $(this).val();
+                            // $(".msg-left h4").text(`${data[i].kind}`);
+                            // $(".msg-left h2").text(`${data[i].title}`);
+                            // $(".img_block img").attr('src',`image/article_sharing/${data[i].img}`);
+                            // $(".msg-left p").text(`${data[i].word}`);
+                            // lightdetail(id);
+                            console.log('here');
+
+                        });
+
+                    }
+
+                });
+
+
+            });
+
+        
+            // $('.btn_modal').on('click',function(){
+            //     let id = $(this).closest('.col-md-4').attr('id');
+            //     console.log(id);
+            //     lightdetail(id);
+            // });
+
+            function lightdetail(e){
+                $.ajax({
+                    url:'sharelightRender.php',
+                    dataType:'json',
+                    type:'GET',
+                    data:{
+                        no:e,
+                    },
+                    success(data){
+                        console.log(data); 
+                        $(".overlay").addClass("-on");
+                        $(".msg-right").empty();
+
+                        $(".msg-right").append(`
+                        <h3>留言區</h3>
+                        `);
+
+                        for(let i=0;i<data.length;i+=1){
+                            $(".msg-right").append(`
+                            <div class="msgin">
+                                <div class="msgpost">
+                                    <div class="right_info">
+                                        <div class="user_block">
+                                            <div class="user_img_block">
+                                                <img src="${data[i].headimg}">
+                                            </div>
+                                            <div class="user_name">
+                                                <h5>${data[i].name}：</h5>
+                                            </div>
+                                        </div>
+                                        <input type="button" value="檢舉">
+                                    </div>
+                                    <p>${data[i].word}</p>
+                                    <p>${data[i].time}</p>
+                                </div>
+                            </div>
+
+                            `);
+
+                        }
+
+                        $('.msg-right').append(`
+                        <form id="nuan_LeaveMessage" action="shareInsertMessage.php" method="GET">
+                            <textarea name="word" id="" placeholder="留言"></textarea>
+                            <button type="submit" name="no" value="${data[0].no}">送出</button>
+                        </form>
+                        `);
+
+                        LM();
+
+                    },
+
+                    complete(){
+
+                    }
+
+                });
+
+            };
+
+            function LM(){
+
+                $('#nuan_LeaveMessage button').on('click',function(){
+                    $.ajax({
+                        url:'shareInsertMessage.php',
+                        type:'GET',
+                        dataType:'json',
+                        data:{
+                            no:$(this).val(),
+                            word:$('#nuan_LeaveMessage textarea').val(),
+                        },
+                        complete(data){
+
+                        },
+
+                    });
+                    let lastindex = $('.msgpost').length -1;
+                    let message = $('#nuan_LeaveMessage textarea');
+                    let nowtime = new Date();
+                    let todate = String(nowtime.getDate());
+                    let timetext = `${nowtime.getFullYear()}-${nowtime.getMonth()+1}-${todate} ${nowtime.getHours()}:${nowtime.getMinutes()}:${nowtime.getSeconds()}`;
+
+                        $('.msgin').append(
+                            `<div class="msgpost">
+                                <div class="right_info">
+                                    <div class="user_block">
+                                        <div class="user_img_block">
+                                            <img src="{{會員大頭照}}">
+                                        </div>
+                                        <div class="user_name">
+                                            <h5>{{會員名稱}}：</h5>
+                                        </div>
+                                    </div>
+                                    <input type="button" value="檢舉">
+                                </div>
+                                <p>${message.val()}</p>
+                                <p>${timetext}</p>
+                            </div>`
+                        );
+                        return false;
+                        message.val('');
+                });
+
+            }
+
 
         });
     </script>
 
     <script>
-        $(document).ready(function () {
-            // 開啟 Modal 彈跳視窗
-            $(".btn_modal").on("click", function() {
-                $(".overlay").addClass("-on");
-                let id = $(this).closest('.col-md-4').attr('id');
-                let userimg = $(`#${id} .user_img_block img`).attr('src');
-                let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
-                let largeimg = $(`#${id} .btn_modal img`).attr('src');
-                let condition = $(`#${id} .ord h4`).text(); 
-                let title = $(`#${id} .ord h3`).text(); 
-                console.log(condition);
-                console.log(title);
+        function htmljs(){
+            $(document).ready(function () {
+                // 開啟 Modal 彈跳視窗
+                // $(".btn_modal").on("click", function() {
+                //     $(".overlay").addClass("-on");
+                //     let id = $(this).closest('.col-md-4').attr('id');
+                //     let userimg = $(`#${id} .user_img_block img`).attr('src');
+                //     let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
+                //     let largeimg = $(`#${id} .btn_modal img`).attr('src');
+                //     let condition = $(`#${id} .ord h4`).text(); 
+                //     let title = $(`#${id} .ord h3`).text(); 
+                //     console.log(condition);
+                //     console.log(title);
 
-                $('.overlay .img_block img').attr('src', largeimg);
-                $('.overlay .user_img_block img').attr('src', userimg);
-                $('.overlay .user_name h5').text(username);
-                $('.overlay .msg-left h4').text(condition);
-                $('.overlay .msg-left h2').text(title);
+                //     $('.overlay .img_block img').attr('src', largeimg);
+                //     $('.overlay .user_img_block img').attr('src', userimg);
+                //     $('.overlay .user_name h5').text(username);
+                //     $('.overlay .msg-left h4').text(condition);
+                //     $('.overlay .msg-left h2').text(title);
 
-            });
+                // });
 
-            $('.more').on('click',function(){
-                $(".overlay").addClass("-on");
-                let id = $(this).closest('.col-md-4').attr('id');
-                let userimg = $(`#${id} .user_img_block img`).attr('src');
-                let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
-                let largeimg = $(`#${id} .btn_modal img`).attr('src');
-                let condition = $(`#${id} .ord h4`).text(); 
-                let title = $(`#${id} .ord h3`).text(); 
+                // $('.more').on('click',function(){
+                //     $(".overlay").addClass("-on");
+                //     let id = $(this).closest('.col-md-4').attr('id');
+                //     let userimg = $(`#${id} .user_img_block img`).attr('src');
+                //     let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
+                //     let largeimg = $(`#${id} .btn_modal img`).attr('src');
+                //     let condition = $(`#${id} .ord h4`).text(); 
+                //     let title = $(`#${id} .ord h3`).text(); 
 
-                $('.overlay .img_block img').attr('src', largeimg);
-                $('.overlay .user_img_block img').attr('src', userimg);
-                $('.overlay .user_name h5').text(username);
-                $('.overlay .msg-left h4').text(condition);
-                $('.overlay .msg-left h2').text(title);
+                //     $('.overlay .img_block img').attr('src', largeimg);
+                //     $('.overlay .user_img_block img').attr('src', userimg);
+                //     $('.overlay .user_name h5').text(username);
+                //     $('.overlay .msg-left h4').text(condition);
+                //     $('.overlay .msg-left h2').text(title);
+                    
+                // }); 
+
+                // 關閉 Modal
+                $(".btn_modal_close").on("click", function() {
+                    $("div.overlay").addClass("-opacity-zero");
+
+                    // 設定隔一秒後，移除相關 class
+                    setTimeout(function() {
+                        $("div.overlay").removeClass("-on -opacity-zero");
+                    }, 0);
+                });
+
+                $(window).scroll(function () {
+                    let top =  $(".goto-top");
+                    if ($('body').height()<=($(window).height()+$(window).scrollTop()+200)) {
+                        top.animate({"margin-left": "0px"},1500);
+                    } else {
+                        top.animate({"margin-left": "-100%"},1500);
+                    }
+                });
+
+                $(".goto-top").on('click', function () {
+                    $("html, body").animate({scrollTop: 0}, 400);
+                });
+
+                //加入收藏、取消收藏
+                let uncollect = "image/heart-shape-outline.png";
+                let collected = "/image/heart-shape-silhouette.png";
+                $("img.fillicon").click(function(){
+                    if($(this).attr('src')==uncollect){
+                        $(this).attr("src",collected);
+                    }else{
+                        $(this).attr('src',uncollect);
+                    }
+                });
+
+                //條件篩選(揪團/美食)
+                $('.tool_btn button').on('click',function(){
+                    let id = $(this).attr('id');
+                    filter(id);
+                });
                 
-            }); 
+                // $('#nuan_LeaveMessage').on('submit',function(){
+                //     let message = $('#nuan_LeaveMessage textarea');
+                //     let lastindex = $('.msgpost').length -1;
+                //     $('.msgin').append(
+                //         `<div class="msgpost">
+                //             <div class="right_info">
+                //                 <div class="user_block">
+                //                     <div class="user_img_block">
+                //                         <img>
+                //                     </div>
+                //                     <div class="user_name">
+                //                         <h5>董董：</h5>
+                //                     </div>
+                //                 </div>
+                //                 <input type="button" value="檢舉">
+                //             </div>
+                //             <p>${message.val()}</p>
+                //         </div>`
+                //     );
+                //     return false;
+                //     message.val('');
+                // });
 
-            // 關閉 Modal
-            $(".btn_modal_close").on("click", function() {
-                $("div.overlay").addClass("-opacity-zero");
-
-                // 設定隔一秒後，移除相關 class
-                setTimeout(function() {
-                    $("div.overlay").removeClass("-on -opacity-zero");
-                }, 0);
             });
-
-            $(window).scroll(function () {
-                let top =  $(".goto-top");
-                if ($('body').height()<=($(window).height()+$(window).scrollTop()+200)) {
-                    top.animate({"margin-left": "0px"},1500);
-                } else {
-                    top.animate({"margin-left": "-100%"},1500);
-                }
-            });
-
-            $(".goto-top").on('click', function () {
-                $("html, body").animate({scrollTop: 0}, 400);
-            });
-
-            //加入收藏、取消收藏
-            let uncollect = "image/heart-shape-outline.png";
-            let collected = "/image/heart-shape-silhouette.png";
-            $("img.fillicon").click(function(){
-                if($(this).attr('src')==uncollect){
-                    $(this).attr("src",collected);
-                }else{
-                    $(this).attr('src',uncollect);
-                }
-            });
-
-            //條件篩選(揪團/美食)
-            $('.tool_btn button').on('click',function(){
-                let id = $(this).attr('id');
-                filter(id);
-            });
-            
-            $('#nuan_LeaveMessage').on('submit',function(){
-                let message = $('#nuan_LeaveMessage textarea');
-                let lastindex = $('.msgpost').length -1;
-                $('.msgin').append(
-                    `<div class="msgpost">
-                        <div class="right_info">
-                            <div class="user_block">
-                                <div class="user_img_block">
-                                    <img>
-                                </div>
-                                <div class="user_name">
-                                    <h5>董董：</h5>
-                                </div>
-                            </div>
-                            <input type="button" value="檢舉">
-                        </div>
-                        <p>${message.val()}</p>
-                    </div>`
-                );
-                return false;
-                message.val('');
-            });
-
-            function filter(e){
-                let items = $('.col-md-4').length;
-                $('.col-md-4').css({'display':'none'});
-                switch(e){
-                    case 'showall':
-                        $('.col-md-4').css({'display':'block'});
-                    break;
-                    case 'group':
-                        for(let i=1;i<=items;i+=1){
-                            if($(`#C${i} h4`).text().substr(1,5)==`揪團分享`){
-                                $(`#C${i}`).css({'display':'block'});
-                            };
-                        };
-                    break;
-                    case 'foodie':
-                        for(let i=1;i<=items;i+=1){
-                            if($(`#C${i} h4`).text().substr(1,5)==`美食分享`){
-                                $(`#C${i}`).css({'display':'block'});
-                            };
-                        };
-                    break;
-                }
-            };
-
-            
-        });
+        };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
