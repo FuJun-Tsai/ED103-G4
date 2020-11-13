@@ -52,8 +52,6 @@ $(document).ready(function() {
             text = "p1";
             playing(places);
             console.log(places);
-            // $('.purchasebox').css('visibility', 'visible');
-
         }
         // 游戏核心
         function playing(e) {
@@ -67,8 +65,7 @@ $(document).ready(function() {
                     person = p1;
                     $('.purchasebox').css('visibility', 'visible');
                     $('.game_background').css('display', 'block');
-                    // console.log(e[0].owner);
-                    // console.log(position);
+
                 }
                 if (e[0].owner == "none") {
 
@@ -81,16 +78,6 @@ $(document).ready(function() {
 
                     // 买公用地产
                     if (e[0].state == 0) {
-                        console.log('123');
-                        // console.log(e[2]);
-
-                        // var newImg1
-                        // for (let i = 0; i < 4; i++) {
-                        //     // let newImg1 = document.createElement("img");
-                        //     // newImg1.setAttribute("id", "no" + i);
-                        //     // newImg1.src = e[position].src_img;
-                        //     // document.querySelector('.purchasebox_content_left').appendChild(newImg1)
-                        // }
 
                         $('.purchasebox_content_left').append(
                             `
@@ -102,24 +89,32 @@ $(document).ready(function() {
                                     <img src="./image/restaurant_management_img/${e[position].RES_IMAGE2}">            
                                     <img src="./image/restaurant_management_img/${e[position].RES_IMAGE3}">            
                                     <img src="./image/restaurant_management_img/${e[position].RES_IMAGE4}">                              
-                                </div>                    
+                                </div>                  
                             `
-                        )
+                        );
+                        $('.purchasebox_content_right').append(
+                            `
+                                <h2>今晚！我想來點～</h2>
+                                <h3>店名:</h3>
+                                <h4>${e[position].RES_NAME}</h4>
+                                <br>
+                                <h3>簡介:</h3>
+                                <p>${e[position].RES_SUMMARY}</p>
+                            `
+                        );
 
-                        let rsTitle = document.createElement("h2");
-                        let rsName = document.createElement("h3");
-                        let rsContent = document.createElement("p");
+                        // let rsTitle = document.createElement("h2");
+                        // let rsName = document.createElement("h3");
+                        // let rsContent = document.createElement("p");
 
-                        let ccc = document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
-                        let ddd = document.querySelector('.purchasebox_content_right').appendChild(rsName)
-                        let ggg = document.querySelector('.purchasebox_content_right').appendChild(rsContent)
-                        rsTitle.innerText = "今晚!我想來點~";
-                        // console.log(ccc);
-                        // console.log(ddd);
-                        // console.log(ggg);
+                        // document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
+                        // document.querySelector('.purchasebox_content_right').appendChild(rsName)
+                        // document.querySelector('.purchasebox_content_right').appendChild(rsContent)
+                        // rsTitle.innerText = "今晚!我想來點~";
 
-                        rsContent.innerText = e[position].RES_SUMMARY;
-                        rsName.innerText = e[position].RES_NAME;
+
+                        // rsName.innerText = e[position].RES_NAME;
+                        // rsContent.innerText = e[position].RES_SUMMARY;
                         // console.log()
                     }
                 }

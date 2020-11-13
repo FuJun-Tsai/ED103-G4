@@ -42,6 +42,38 @@ body {
 }
 
 
+/*燈箱*/
+
+.purchasebox_content_left .main_img {
+    position: relative;
+    width: 80%;
+    height: 300px;
+    text-align: center;
+    margin: auto;
+}
+
+.purchasebox_content_left .main_img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.purchasebox_content_left .vice_img {
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+
+.purchasebox_content_left .vice_img img {
+    position: relative;
+    width: 20%;
+    height: 100px;
+    margin-top: 5px;
+}
+
+
 /*设置选项*/
 
 
@@ -252,14 +284,14 @@ z-index: 9999;
     position: absolute;
     bottom: 0;
     left: 0;
-    font-size: 16px;
+    font-size: 16px!important;
     width: 100%;
-    height: 50px;
+    height: 40px;
     z-index: 2;
     /* border-top-right-radius: 13px;*/
     background: rgba(253, 245, 171, .8);
     color: #222222;
-    line-height: 50px;
+    line-height: 40px;
 }
 
 .box.b0 h3 {
@@ -287,16 +319,14 @@ z-index: 9999;
     /* position: center; */
 }
 
+
+/* 
 .box img:nth-child(3) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 80%;
-    object-fit: cover;
-    z-index: 99;
+  
     /* position: center; */
-}
+
+
+/* } */
 
 
 /*掷骰子区*/
@@ -403,6 +433,13 @@ z-index: 9999;
     /* transform: translate(-80px, -30px); */
     width: 140px!important;
     height: 140px!important;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 50%;
+    height: 80%;
+    object-fit: cover;
+    z-index: 99;
 }
 
 
@@ -414,7 +451,7 @@ z-index: 9999;
 height: 80vh; */
     /* border-radius: 13px; */
     width: 60%;
-    height: 50%;
+    height: 60%;
     position: absolute;
     background: #fff;
     left: 50%;
@@ -558,7 +595,7 @@ border-top-right-radius: 8px; */
     /* border: 3px solid green; */
     /* width: 100%; */
     /* height: 70%; */
-    margin: 2% 0;
+    /* margin: 2% 0; */
     display: flex;
     align-items: center;
 }
@@ -570,32 +607,44 @@ border-top-right-radius: 8px; */
     /* flex-wrap: wrap; */
     /* justify-content: center; */
     text-align: center;
+    padding-top: 30px;
 }
 
 .purchasebox_content_left img {
-    margin: 5px;
+    /* margin: 5px; */
 }
 
 .purchasebox_content_right {
     flex: 1 1 50%;
-    padding: 10px;
+    padding: 10px 30px 10px 10px;
     overflow: auto;
     max-height: 500px;
     /* border: 1px solid blue; */
 }
 
 .purchasebox_content_right h2 {
-    margin: 5px 0px;
+    margin-bottom: 30px;
     letter-spacing: 10px;
 }
 
 .purchasebox_content_right h3 {
-    margin: 5px 0px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.purchasebox_content_right h4 {
+    margin-bottom: 30px;
+    display: inline-block;
+    padding-left: 25px;
+    font-weight: 700;
 }
 
 .purchasebox_content_right p {
     margin: 5px 0px;
     line-height: 35px;
+    padding: 15px;
+    background-color: bisque;
+    border-radius: 15px;
 }
 
 .msgbox {

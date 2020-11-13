@@ -27,18 +27,34 @@ function doFirst(e) {
                         <img src="./image/restaurant_management_img/${e[boxId].RES_IMAGE4}">                              
                     </div>                    
                     `
-            )
-            let rsTitle = document.createElement("h2");
-            let rsName = document.createElement("h3");
-            let rsContent = document.createElement("p");
+            );
+            $('.purchasebox_content_right').append(
+                `
+                    <h2>今晚！我想來點～</h2>
+                    <h3>店名:</h3>
+                    <h4>  ${e[boxId].RES_NAME}</h4>
+                    <br>
+                    <h3>簡介:</h3>
+                    <p>${e[boxId].RES_SUMMARY}</p>
+                `
+            );
 
-            document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
-            document.querySelector('.purchasebox_content_right').appendChild(rsName);
-            let qq = document.querySelector('.purchasebox_content_right').appendChild(rsContent)
-            rsTitle.innerText = "今晚!我想來點~"
-            console.log(e);
-            rsContent.innerText = e[boxId].RES_SUMMARY;
-            rsName.innerText = e[boxId].RES_NAME;
+
+
+
+
+
+            // let rsTitle = document.createElement("h2");
+            // let rsName = document.createElement("h3");
+            // let rsContent = document.createElement("p");
+
+            // document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
+            // document.querySelector('.purchasebox_content_right').appendChild(rsName);
+            // let qq = document.querySelector('.purchasebox_content_right').appendChild(rsContent)
+            // rsTitle.innerText = "今晚!我想來點~"
+            // console.log(e);
+            // rsContent.innerText = e[boxId].RES_SUMMARY;
+            // rsName.innerText = e[boxId].RES_NAME;
             $('.purchasebox').css('visibility', ' visible');
             $('.game_background').css('display', 'block');
         });
