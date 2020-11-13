@@ -37,9 +37,8 @@ try{
 
 
 for($i=0;$i<count($friendCheckboxVal);$i++){
-//加入邀請好友
+//開團加入邀請好友
   $sql1=" 
-  select * from food_group_people;
   insert into food_group_people( 
   GROUP_NO, 
   MEMBER_NO, 
@@ -49,7 +48,7 @@ for($i=0;$i<count($friendCheckboxVal);$i++){
   $products = $pdo->prepare($sql1);
   $products->execute();
 }
-
+//陌生人加入
 $sql2="insert into food_group_people (GROUP_NO, MEMBER_NO, MEMBER_STATUS) VALUES ($groupNo3,$memNo,2);";
 
 $products = $pdo->prepare($sql2);

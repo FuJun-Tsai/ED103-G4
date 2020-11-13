@@ -76,8 +76,8 @@ function getMemberInfo() {
             let data1 = JSON.parse(xhr.responseText);
 
             for (let key in data1) {
-                console.log(key); //找key
-                console.log(data1[key]); //找value
+                // console.log(key); //找key
+                // console.log(data1[key]); //找value
             }
         } else { //error
             alert(xhr.status);

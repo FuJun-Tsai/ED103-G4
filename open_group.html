@@ -974,8 +974,8 @@
                     //第2個燈箱
                     $('.den_button').on('click', function() {
                         let resNameVal = $('.den_Information div:nth-child(1) input').val();
-                        // console.log(parseInt(data[5][0].max) + 1);
-                        // console.log(resNameVal);
+
+                        console.log(data[1]);
 
                         for (let i = 0; i < resData.length; i++) {
                             if (resNameVal == resData[i].RES_NAME) {
@@ -983,7 +983,7 @@
                             }
                         }
                         // console.log(nameOf);
-                        $('.den_box2_row').empty();
+                        // $('.den_box2_row').empty();
                         $('.den_box2_row').append(`
                     
                         <div class="box2_row_left">
@@ -1011,8 +1011,8 @@
                             <h6>${resData[nameOf].STYLE_NAME}</h6>                           
                         </div>
                         <div>
-                            <h3>開團團主:</h3>
-                            <h3 class="groupMaster">大大人</h3>
+                            <h3 class="food_master">開團團主:</h3>
+                            <h3 class="groupMaster"></h3>
                             <br>
                             <h3>目前人數:</h3>
                             <h3 class="nowNum"></h3>
@@ -1057,19 +1057,50 @@
                     });
                     //好友欄位
                     $(document).ready(function() {
-                        var friendData = data[1];
-                        console.log(friendData);
-                        // console.log(friendData.length);
 
-                        for (let i = 0; i < friendData.length; i++) {
-                            $('.den_friend_window form').append(
-                                `
-                        <div>
-                            <img src="./image/member/${friendData[i].MEMBER_IMAGE}">
-                            <input type="checkbox" id=friend${[i+1]} name="friendCheckbox[]" value="${friendData[i].friends_NO}">
-                            <label for="friend${[i+1]}">${friendData[i].member_name}</label>
-                        </div>
-                            `)
+                        if ($('#spanLogin').text = '登出') {
+                            $.ajax({
+                                url: './php/getuser.php',
+                                type: 'GET',
+                                dataType: 'JSON',
+                                success(data) {
+                                    // console.log(data);
+                                    let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
+                                    // console.log(FRIENDS_MASTER_NO);
+                                    $.ajax({
+                                        url: './open_group.php',
+                                        type: 'GET',
+                                        data: {
+                                            FRIENDS_MASTER_NO: FRIENDS_MASTER_NO,
+                                        },
+                                        dataType: 'JSON',
+                                        success(data) {
+                                            friendData = data[1];
+                                            console.log(friendData);
+                                            for (let i = 0; i < friendData.length; i++) {
+                                                $('.den_friend_window form').append(
+                                                    `
+                                                        <div>
+                                                            <img src="./image/member/${friendData[i].FRIENDS_IMAGE}">
+                                                            <input type="checkbox" id=friend${[i+1]} name="friendCheckbox[]" value="${friendData[i].FRIENDS_NO}">
+                                                            <label for="friend${[i+1]}">${friendData[i].FRIENDS_NAME}</label>
+                                                        </div>
+                                                    `)
+                                            }
+                                            console.log(friendData[1].MEMBER_NAME);
+                                            $('.groupMaster').text(friendData[1].MEMBER_NAME);
+
+
+                                            // $('.food_master').text = friendData[0].MEMBER_NAME;
+
+
+                                        }
+                                    });
+                                }
+                            });
+
+                        } else {
+
                         }
                     });
 
@@ -1089,6 +1120,7 @@
                             return $(this).val();
                             // console.log($(this).val());
                         }).get();
+                        let memberNoNum = $('.memberNoNum').text();
 
                         // console.log(groupNo);
                         // console.log(groupName);
@@ -1111,7 +1143,8 @@
                                 mealDate: mealDate,
                                 nowNumJoin: nowNumJoin,
                                 nowNumMax: nowNumMax,
-                                friendCheckboxVal: friendCheckboxVal
+                                friendCheckboxVal: friendCheckboxVal,
+                                memberNoNum: memberNoNum,
                             },
                             type: 'GET',
                             dataType: 'json',
@@ -1308,8 +1341,9 @@
                     //第三個燈箱參團button
                     $('.den_box3_button button').on('click', function() {
                         let memNo = $('.memberNoNum').text();
+                        console.log(memNo);
                         let groupNo = $('.groupNo').text();
-                        // console.log(groupNo);
+                        console.log(groupNo);
                         // console.log(memNo);
 
                         $.ajax({

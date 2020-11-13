@@ -1,6 +1,7 @@
 <?php
 $Errmsg='';
 
+//餐廳
     $RES_KIND = isset($_GET["RES_KIND"]) ? $_GET["RES_KIND"] : "";
     $cond1 = isset($_GET["RES_KIND"]) ? "RES_KIND = $RES_KIND" : "";
     $RES_STYLE = isset($_GET["RES_STYLE"]) ? $_GET["RES_STYLE"] : "";
@@ -8,31 +9,30 @@ $Errmsg='';
     $GROUP_NO = isset($_GET["GROUP_NO"]) ? $_GET["GROUP_NO"] : "";
     $cond3 = isset($_GET["GROUP_NO"]) ? " and fg.GROUP_NO = $GROUP_NO order by GROUP_NO ":"";
 
-
-    $groupNo = isset($_GET["groupNo"]) ? $_GET["groupNo"] : "";
+//美食團
+$groupNo = isset($_GET["groupNo"]) ? $_GET["groupNo"] : "";
 $groupName = isset($_GET["groupName"]) ? $_GET["groupName"] : "";
 $resNo = isset($_GET["resNo"]) ? $_GET["resNo"] : "";
 $mealDate = isset($_GET["mealDate"]) ? $_GET["mealDate"] : "";
 $nowNumJoin = isset($_GET["nowNumJoin"]) ? $_GET["nowNumJoin"] : "";
 $nowNumMax = isset($_GET["nowNumMax"]) ? $_GET["nowNumMax"] : "";
 $friendCheckboxVal=isset($_GET["friendCheckboxVal"]) ? $_GET["friendCheckboxVal"] : "";
+$memberNoNum=isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 
-// echo $cond3;
-
-// echo $RES_KIND;
-// echo  $RES_STYLE;
-
-// echo $cond1;
-// echo  $cond2;
+//好友
+$FRIENDS_MASTER_NO = isset($_GET["FRIENDS_MASTER_NO"]) ? $_GET["FRIENDS_MASTER_NO"] : "0";
+// echo $FRIENDS_MASTER_NO;
 
 try{
   require_once('connectRes.php');
+
   //抓取全部餐廳
   $sql = "select * from restaurant_management R
             join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
             join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
             ";
 
+//判斷篩選餐廳
     if($cond1!=""){ 
       $sql.=" where $cond1";
       if($cond2!= ""){
@@ -54,11 +54,10 @@ try{
   $result[0] = $data0Rows; 
 
 //好友資訊
-  $sql1 = "select T.friends_NO , Mf.member_name, mm2.MEMBER_IMAGE MEMBER_IMAGE from track_list T
-              join member_management Mm on (T.member_NO = Mm.member_NO)
-              join member_management Mf on (T.friends_NO = Mf.member_NO)
-              join member_management mm2 on (T.FRIENDS_NO=mm2.MEMBER_NO);
-            "; 
+  $sql1 = "
+select T.MEMBER_NO MEMBER_NO ,T.FRIENDS_NO FRIENDS_NO, MM.MEMBER_NAME FRIENDS_NAME ,mm1.MEMBER_NAME MEMBER_NAME, MM.MEMBER_IMAGE FRIENDS_IMAGE , mm1.MEMBER_IMAGE MEMBER_IMAGE  from track_list T
+join member_management MM on(T.FRIENDS_NO=MM.MEMBER_NO)
+ join member_management mm1 on(T.MEMBER_NO=mm1.MEMBER_NO) where T.MEMBER_NO=$FRIENDS_MASTER_NO"; 
 
   $data1 = $pdo->prepare($sql1);
   $data1-> execute();
