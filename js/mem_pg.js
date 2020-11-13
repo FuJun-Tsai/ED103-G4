@@ -173,11 +173,12 @@ $( "form" ).on( "submit", function( event ) {
   // console.log( $( this ).serialize() );
   $.ajax({
     url:'php/tab_ok.php',
-    method:'post',
+    type :'POST',
     dataType:'json',
     data:$('form').serialize(),
     success:function(res){
-      console.log('a')
+      var str = $( "form" ).serialize();
+      $( "#results" ).text( str );
       alert('OK');
     },
   });
