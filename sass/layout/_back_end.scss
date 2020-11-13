@@ -527,23 +527,25 @@ h2 {
           text-align: left;
        }
         .tabs-container{
+          width: 99%;
+          margin: 0 auto;
+          line-height: 20px;
+          align-items: center;
+          // border-radius: 20px 20px 0 0;
           height: 100%;
+          @media all and(max-width:992px) {
+            width: 992px;
+          }
           #tab0{
             .report_table{
-
-              width: 99%;
-              margin: 0 auto;
-              line-height: 20px;
-              align-items: center;
-              border-radius: 20px 20px 0 0;
-              @media all and(max-width:992px) {
-                width: 992px;
-              }
+              
               .word_adm_ti{
                 background-color: #9B1E23;
                 tr{
+                  
                   height: 40px;
                   th{
+                    vertical-align: middle;
                     border: 1px solid #ddd;
                     text-align:center;
                     color: #FFF;
@@ -602,6 +604,7 @@ h2 {
                   tr{
                     height: 40px;
                     th{
+                      vertical-align: middle;
                       border: 1px solid #ddd;
                       text-align:center;
                       color: #FFF;
@@ -764,12 +767,7 @@ a.tabs-menu.tabs-menu-active {
    color: #DF7219;
    border-bottom: 0;
 }
-.tabs-container {
-   border: solid 1px #DF7219;
-   margin-top: -1px;
-  //  background-color: #fff;
-   overflow: hidden;
-}
+
 .tabs-panel {
    display: none;
   //  min-height: 150px;
