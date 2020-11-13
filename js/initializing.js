@@ -1,6 +1,13 @@
 //sequence 初始化顺序
 $(document).ready(function() {
 
+    $('.close').on('click', function() {
+        $('.purchasebox').css('visibility', 'hidden');
+        $('.purchasebox_content_left').empty();
+        $('.purchasebox_content_right').empty();
+        $('.game_background').css('display', 'none');
+    });
+
 
     var s = 1;
     //初始化人物位置
@@ -9,7 +16,7 @@ $(document).ready(function() {
     var text = 0;
     var po1 = 0;
     //初始化人数
-    var player = 0;
+    var player = 1;
     //用来装玩家名字的数组
     var arr = [];
     // 初始速度
@@ -60,9 +67,6 @@ $(document).ready(function() {
     }
 
 
-
-
-
     // 选择角色
     var x = 0;
     $(document).ready(function() {
@@ -91,10 +95,10 @@ $(document).ready(function() {
                 img[i].src = "image/den_image/allgif/" + arr[i] + ".gif"
                 console.log(arr[i]);
             }
-            title.style.visibility = "visible";
-            title.innerHTML = p1.name;
-            checkColor();
-            writeinfo();
+            // title.style.visibility = "visible";
+            // title.innerHTML = p1.name;
+            // checkColor();
+            // writeinfo();
 
         }
     }
