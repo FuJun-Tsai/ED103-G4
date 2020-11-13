@@ -45,7 +45,7 @@ $(document).ready(function() {
             }
             doFirst(places);
             // p1move(boxes);
-            // playing(places);
+            playing(places);
         },
         complete() {},
     });

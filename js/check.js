@@ -28,8 +28,6 @@ function doFirst(e) {
                     </div>                    
                     `
             )
-
-
             let rsTitle = document.createElement("h2");
             let rsName = document.createElement("h3");
             let rsContent = document.createElement("p");

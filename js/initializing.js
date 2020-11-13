@@ -93,6 +93,7 @@ $(document).ready(function() {
                 players[i].state = "active";
                 img[i].src = "image/den_image/allgif/" + arr[i] + ".gif"
                 console.log(arr[i]);
+                $('.player_name').text(arr[i]);
             }
             // title.style.visibility = "visible";
             // title.innerHTML = p1.name;

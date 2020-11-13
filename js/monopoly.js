@@ -50,13 +50,14 @@ $(document).ready(function() {
         if (s == 1) {
             var move = setInterval(p1move, v);
             text = "p1";
-            console.log(places);
-            playing();
+            // console.log(places);
+            playing(places);
+            // $('.purchasebox').css('visibility', 'visible');
 
         }
         // 游戏核心
-        function playing() {
-            console.log();
+        function playing(e) {
+            console.log(e);
             setTimeout(function() {
                 clearInterval(move);
                 //绑定对应角色
@@ -64,21 +65,27 @@ $(document).ready(function() {
                     position = po1;
                     console.log(po1)
                     person = p1;
+                    $('.purchasebox').css('visibility', 'visible');
+                    $('.game_background').css('display', 'block');
+
                 }
-                if (places[position].owner == "none") {
+                if (e[position].owner == "none") {
                     if (person.control == 0) {
-                        purchase.style.visibility = "visible";
+                        $('.purchasebox').css('visibility', 'visible');
                     } else {
-                        purchase.style.visibility = "visible";
+                        $('.purchasebox').css('visibility', 'visible');
                         $('.game_background').css('display', 'block');
                     }
                     // 买公用地产
-                    if (places[position].state == 0) {
+                    if (e[position].state == 0) {
+
+                        console.log(e[position]);
+
                         var newImg1
                         for (let i = 0; i < 4; i++) {
                             let newImg1 = document.createElement("img");
                             newImg1.setAttribute("id", "no" + i);
-                            newImg1.src = places[position].src_img;
+                            newImg1.src = e[position].src_img;
                             document.querySelector('.purchasebox_content_left').appendChild(newImg1)
                         }
 
@@ -86,15 +93,17 @@ $(document).ready(function() {
                         let rsName = document.createElement("h3");
                         let rsContent = document.createElement("p");
 
-                        document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
-                        document.querySelector('.purchasebox_content_right').appendChild(rsName)
-                        document.querySelector('.purchasebox_content_right').appendChild(rsContent)
+                        let ccc = document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
+                        let ddd = document.querySelector('.purchasebox_content_right').appendChild(rsName)
+                        let ggg = document.querySelector('.purchasebox_content_right').appendChild(rsContent)
                         rsTitle.innerText = "今晚!我想來點~"
-                        console.log(rsTitle)
-                        rsContent.innerText = places[position].text;
-                        rsName.innerText = places[position].name;
+                        console.log(ccc);
+                        console.log(ddd);
+                        console.log(ggg);
 
-
+                        rsContent.innerText = e[position].RES_SUMMARY;
+                        rsName.innerText = e[position].RES_NAME;
+                        // console.log()
                     }
                 }
                 //查看变化
@@ -144,21 +153,8 @@ $(document).ready(function() {
             checkColor();
         }
         //     // game();  //game function 是自動跑
-    }
 
-    // 关闭对话框按钮
-    // purchase.children[3].onclick = function() {
-    //     purchase.style.visibility = "hidden";
-    //     gameSequence();
-    //     purchase.children[2].style.pointerEvents = "auto";
-    //     purchase.children[2].style.background = "#e1e1e1";
-    // }
-    // upgrade.children[3].onclick = function() {
-    //     upgrade.style.visibility = "hidden";
-    //     gameSequence();
-    //     upgrade.children[2].style.pointerEvents = "auto";
-    //     upgrade.children[2].style.background = "#e1e1e1";
-    // }
+    }
 
     // 角色移动
     function p1move() {
@@ -166,45 +162,38 @@ $(document).ready(function() {
         for (var i = 0; i < 20; i++) {
             boxes.push(document.querySelector("#b" + i + ""))
         }
-        // $('#denDice').cla
         var i1 = document.querySelector("#player1");
-
         if (po1 == 19) {
             po1 = -1;
             boxes[0].append(i1);
-            // p1.money += 2000;
-            // console.log(boxes[0]);
         }
         po1++;
-        console.log(boxes[po1]);
-        // let aaa = document.createElement('img');
-        // aaa.src = "./image/den_image/allgif/乂小壞乂.gif";
         boxes[po1].append(i1);
-        // boxes[po1].appendChild(aaa);
 
 
         if (po1 == 0 || po1 == 1 || po1 == 2 || po1 == 3 || po1 == 4 || po1 == 5) {
 
-            let aaa = $('.control h1').text();
+            console.log(po1);
+            let aaa = $('.player_name').text();
             let bbb = aaa.substr(0, 1)
             console.log(bbb);
 
             switch (bbb) {
                 case '乂':
                     $('#player1').attr('src', './image/den_image/allgif/乂小壞乂.gif');
-                    // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                    $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
                     // $('#player1').css('transform', 'scaleX(-1)');
                     // $('#player1').width(190).height(190);
                     break;
                 case '大':
                     $('#player1').attr('src', './image/den_image/allgif/大番薯.gif');
-                    // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                    $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
                     // $('#player1').css('transform', 'scaleX(-1)');
                     // $('#player1').width(190).height(190);
                     break;
                 case '方':
                     $('#player1').attr('src', './image/den_image/allgif/方塊號.gif');
-                    // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                    $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
                     // $('#player1').css('transform', 'scaleX(-1)');
                     // $('#player1').width(190).height(190);
                     break;
@@ -238,7 +227,7 @@ $(document).ready(function() {
 
         if (po1 == 11 || po1 == 12 || po1 == 13 || po1 == 14 || po1 == 15) {
 
-            let aaa = $('.control h1').text();
+            let aaa = $('.player_name').text();
             let bbb = aaa.substr(0, 1)
             console.log(bbb);
 
@@ -291,7 +280,7 @@ $(document).ready(function() {
 
         if (po1 == 6 || po1 == 7 || po1 == 8 || po1 == 9 || po1 == 10) {
 
-            let aaa = $('.control h1').text();
+            let aaa = $('.player_name').text();
             let bbb = aaa.substr(0, 1)
             console.log(bbb);
 
@@ -344,7 +333,7 @@ $(document).ready(function() {
 
         if (po1 == 16 || po1 == 17 || po1 == 18 || po1 == 19) {
 
-            let aaa = $('.control h1').text();
+            let aaa = $('.player_name').text();
             let bbb = aaa.substr(0, 1)
             console.log(bbb);
 
@@ -393,6 +382,8 @@ $(document).ready(function() {
                     break;
             }
         }
+
+
 
 
     }
