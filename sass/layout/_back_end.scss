@@ -159,6 +159,7 @@ h2 {
         tr{
           height: 40px;
           th{
+            border: 1px solid #ddd;
             text-align:center;
             color: #FFF;
           }
@@ -212,7 +213,9 @@ h2 {
         .member_adm_ti{
           background-color: #9B1E23;
           tr{
+            height: 40px;
             th{
+              border: 1px solid #ddd;
               text-align:center;
               color: #FFF;
             }
@@ -283,13 +286,16 @@ h2 {
         .res_adm_ti{
           background-color: #9B1E23;
           tr{
+            height: 40px;
             th{
+              border: 1px solid #ddd;
+              vertical-align:middle;
               text-align:center;
               color: #FFF;
             }
           }
         }
-        tbody{       
+        .res_adm_bd{       
           tr{
             background-color: rgba(245, 222, 179, .4);
             border: 0.1px solid rgba(245, 222, 179, 1);
@@ -297,10 +303,7 @@ h2 {
               cursor: pointer;
               background-color: rgba(245, 222, 179, .8);
               border: 0.1px solid rgba(245, 222, 179, 1);
-              
-              :not(.row_h) {
-                display: none;
-          }
+            }
             td{
               border:0.1px solid #FFF;
               // line-height: 50px;
@@ -319,11 +322,12 @@ h2 {
                   color: #FFF;
                 }
               }
-            }
+            
           }
         }
       }
     }
+  }
     // 檢舉
     #report_adm{
       #jquery-tabs{
@@ -335,19 +339,24 @@ h2 {
           text-align: left;
        }
         .tabs-container{
-          height: 100vh;
+          height: 100%;
           #tab0{
             .report_table{
 
+              width: 99%;
               margin: 0 auto;
               line-height: 20px;
               align-items: center;
               border-radius: 20px 20px 0 0;
-              
+              @media all and(max-width:992px) {
+                width: 992px;
+              }
               .word_adm_ti{
                 background-color: #9B1E23;
                 tr{
+                  height: 40px;
                   th{
+                    border: 1px solid #ddd;
                     text-align:center;
                     color: #FFF;
                   }
@@ -388,18 +397,23 @@ h2 {
           #tab1{
             .report_table{
 
+              width: 99%;
               margin: 0 auto;
               line-height: 20px;
               align-items: center;
               border-radius: 20px 20px 0 0;
-              
+              @media all and(max-width:992px) {
+                width: 992px;
+              }
               .word_adm_ti{
                 background-color: #9B1E23;
-                tr{
-                  th{
-                    text-align:center;
-                    color: #FFF;
-                  }
+                  tr{
+                    height: 40px;
+                    th{
+                      border: 1px solid #ddd;
+                      text-align:center;
+                      color: #FFF;
+                    }
                 }
               }
               tbody{       
@@ -440,75 +454,75 @@ h2 {
     }
     
     // 聊天機器人
-    #ai_adm{
-      position: relative;
-      .ai_add{
-        background: #DF7219;
-        border: 0.1px solid rgba(255, 255, 255, 0);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin: 10px;
-        position: absolute;
-        top: 0px;
-        right: 10px;
-        &:hover i{
-          color: #DF7219;
-        }
-        i{  
-          color: #FFF;
-        }
-      }
-      #ai_adm_table{
-        margin: 0 auto;
-        line-height: 20px;
-        align-items: center;
-        border-radius: 20px 20px 0 0;
-        thead{
-          background-color: #9B1E23;
-          tr{
-            th{
-              text-align:center;
-              color: #FFF;
-            }
-          }
-        }
-        tbody{
+    // #ai_adm{
+    //   position: relative;
+    //   .ai_add{
+    //     background: #DF7219;
+    //     border: 0.1px solid rgba(255, 255, 255, 0);
+    //     width: 40px;
+    //     height: 40px;
+    //     border-radius: 50%;
+    //     margin: 10px;
+    //     position: absolute;
+    //     top: 0px;
+    //     right: 10px;
+    //     &:hover i{
+    //       color: #DF7219;
+    //     }
+    //     i{  
+    //       color: #FFF;
+    //     }
+    //   }
+    //   #ai_adm_table{
+    //     margin: 0 auto;
+    //     line-height: 20px;
+    //     align-items: center;
+    //     border-radius: 20px 20px 0 0;
+    //     thead{
+    //       background-color: #9B1E23;
+    //       tr{
+    //         th{
+    //           text-align:center;
+    //           color: #FFF;
+    //         }
+    //       }
+    //     }
+    //     tbody{
           
-          tr{
-            background-color: rgba(245, 222, 179, .4);
-            border: 0.1px solid rgba(245, 222, 179, 1);
-            &:hover {
-              cursor: pointer;
-              background-color: rgba(245, 222, 179, .8);
-              border: 0.1px solid rgba(245, 222, 179, 1);
-          }
-            td{
-              border:0.1px solid #FFF;
-              // line-height: 50px;
-              align-items: center;
-              button{
-                background: #DF7219;
-                border: 0.1px solid rgba(255, 255, 255, 0);
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                margin: 10px;
-                &:hover i{
-                  color: #DF7219;
-                }
-                i{  
-                  color: #FFF;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-
+    //       tr{
+    //         background-color: rgba(245, 222, 179, .4);
+    //         border: 0.1px solid rgba(245, 222, 179, 1);
+    //         &:hover {
+    //           cursor: pointer;
+    //           background-color: rgba(245, 222, 179, .8);
+    //           border: 0.1px solid rgba(245, 222, 179, 1);
+    //       }
+    //         td{
+    //           border:0.1px solid #FFF;
+    //           // line-height: 50px;
+    //           align-items: center;
+    //           button{
+    //             background: #DF7219;
+    //             border: 0.1px solid rgba(255, 255, 255, 0);
+    //             width: 30px;
+    //             height: 30px;
+    //             border-radius: 50%;
+    //             margin: 10px;
+    //             &:hover i{
+    //               color: #DF7219;
+    //             }
+    //             i{  
+    //               color: #FFF;
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  
+    
+}
 
 
 
@@ -522,6 +536,16 @@ h2 {
 .results tr[visible='true']{
   display:table-row;
 }
+
+// 餐廳
+// .tbl_res_adm-hover > .res_adm_bd > tr.active:hover > td{
+//   background-color: rgba(245, 222, 179, .4);
+// }
+// .tbl_res_adm tbody tr:not(.row_h) {
+//   display: none;
+// }
+
+
 
 // 檢舉
 
