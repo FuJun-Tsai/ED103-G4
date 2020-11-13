@@ -157,6 +157,7 @@ h2 {
       thead{
         background-color: #9B1E23;
         tr{
+          height: 40px;
           th{
             text-align:center;
             color: #FFF;
@@ -184,6 +185,7 @@ h2 {
               height: 30px;
               border-radius: 50%;
               margin: 10px;
+              display: inline;
               &:hover i{
                 color: #DF7219;
               }
@@ -199,16 +201,18 @@ h2 {
   // 會員
   #member_adm{
       .tbl_member_adm{
+        width: 99%;
         margin: 0 auto;
         line-height: 20px;
         align-items: center;
         border-radius: 20px 20px 0 0;
+        @media all and(max-width:992px) {
+          width: 992px;
+        }
         .member_adm_ti{
           background-color: #9B1E23;
           tr{
             th{
-              position:sticky;
-              top:0;
               text-align:center;
               color: #FFF;
             }
@@ -267,11 +271,14 @@ h2 {
         }
       }
       .tbl_res_adm{
+        width: 99%;
         margin: 0 auto;
         line-height: 20px;
         align-items: center;
         border-radius: 20px 20px 0 0;
-        
+        @media all and(max-width:992px) {
+          width: 992px;
+        }
         
         .res_adm_ti{
           background-color: #9B1E23;
@@ -290,6 +297,9 @@ h2 {
               cursor: pointer;
               background-color: rgba(245, 222, 179, .8);
               border: 0.1px solid rgba(245, 222, 179, 1);
+              
+              :not(.row_h) {
+                display: none;
           }
             td{
               border:0.1px solid #FFF;
