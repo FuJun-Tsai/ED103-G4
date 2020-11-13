@@ -181,6 +181,12 @@ $(document).ready(function() {
         }
         po1++;
         boxes[po1].append(i1);
+        boxes[po1].children[1].style.opacity = '1';
+        boxes[po1 - 1].children[1].style.opacity = '.4';
+
+
+
+
 
 
         if (po1 == 0 || po1 == 1 || po1 == 2 || po1 == 3 || po1 == 4 || po1 == 5) {
