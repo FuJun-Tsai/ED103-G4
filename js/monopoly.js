@@ -1,10 +1,18 @@
+$(document).ready(function(){
+
+var s=1;
+var v = 800;
+var po1 = 0;
+var boxes = [];
+var i1 = document.querySelector("#player1");
+
 $(".dice-container").on("dragstop ", game)
 
 function game() {
     //骰子点数显示
     var num = Math.ceil(Math.random() * 6);
     var bgi = Math.ceil(Math.random() * 2);
-
+    console.log(num);
 
     function rollDice(side) {
         var dice = $("#denDice");
@@ -43,7 +51,8 @@ function game() {
 
     }
     // 游戏核心
-    function playing() {
+    function playing(e) {
+        console.log(e);
         setTimeout(function() {
             clearInterval(move);
             //绑定对应角色
@@ -52,8 +61,7 @@ function game() {
                 console.log(po1)
                 person = p1;
             }
-
-            if (place[position].owner == "none") {
+            if (places[position].owner == "none") {
                 if (person.control == 0) {
                     purchase.style.visibility = "visible";
                 } else {
@@ -61,12 +69,12 @@ function game() {
                     $('.game_background').css('display', 'block');
                 }
                 // 买公用地产
-                if (place[position].state == 0) {
+                if (places[position].state == 0) {
                     var newImg1
                     for (let i = 0; i < 4; i++) {
                         let newImg1 = document.createElement("img");
                         newImg1.setAttribute("id", "no" + i);
-                        newImg1.src = place[position].src_img;
+                        newImg1.src = places[position].src_img;
                         document.querySelector('.purchasebox_content_left').appendChild(newImg1)
                     }
 
@@ -80,8 +88,8 @@ function game() {
                     document.querySelector('.purchasebox_content_right').appendChild(rsContent)
                     rsTitle.innerText = "今晚!我想來點~"
                     console.log(rsTitle)
-                    rsContent.innerText = place[position].text;
-                    rsName.innerText = place[position].name;
+                    rsContent.innerText = places[position].text;
+                    rsName.innerText = places[position].name;
 
                     // purchase.children[2].onclick = function() {
                     //     place[position].owner = person.name;
@@ -135,25 +143,25 @@ function game() {
 
 
 
-spdice.on("click", gamble);
+// spdice.on("click", gamble);
 
-function gamble() {
-    var gain = Math.ceil(Math.random() * 6);
-    var bgm = Math.ceil(Math.random() * 2);
-    spdice.css("background-image", "url(./img/s" + '0' + bgm + ".jpg");
-    setTimeout(function() {
-        spdice.css("background-image", "url(./img/" + '0' + gain + ".jpg");
-    }, 300);
-    setTimeout(function() {
-        msgtype = "casino";
-        casinoMoney = gain * 500;
-        person.money += casinoMoney;
-        showMsgbox();
-        document.querySelector(".bet").style.visibility = "hidden";
+// function gamble() {
+//     var gain = Math.ceil(Math.random() * 6);
+//     var bgm = Math.ceil(Math.random() * 2);
+//     spdice.css("background-image", "url(./img/s" + '0' + bgm + ".jpg");
+//     setTimeout(function() {
+//         spdice.css("background-image", "url(./img/" + '0' + gain + ".jpg");
+//     }, 300);
+//     setTimeout(function() {
+//         msgtype = "casino";
+//         casinoMoney = gain * 500;
+//         person.money += casinoMoney;
+//         showMsgbox();
+//         document.querySelector(".bet").style.visibility = "hidden";
 
-    }, v * 2);
-    spdice.css("pointer-events", "none");
-}
+//     }, v * 2);
+//     spdice.css("pointer-events", "none");
+// }
 
 
 
@@ -214,11 +222,13 @@ function p1checkState() {
 function p1move() {
 
     // $('#denDice').cla
+var i1 = document.querySelector("#player1");
 
     if (po1 == 19) {
         po1 = -1;
         boxes[0].append(i1);
         // p1.money += 2000;
+        console.log(boxes[0]);
     }
     po1++;
     boxes[po1].append(i1);
@@ -436,9 +446,4 @@ function p1move() {
 
 
 }
-$('.close').on('click', function() {
-    $('.purchasebox').css('visibility', 'hidden');
-    $('.purchasebox_content_left').empty();
-    $('.purchasebox_content_right').empty();
-    $('.game_background').css('display', 'none');
 });

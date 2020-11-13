@@ -72,7 +72,6 @@ $(document).ready(function() {
     $(document).ready(function() {
 
         for (var j = 0; j < 7; j++) {
-            // choosechr.lastElementChild.children[j].firstElementChild.onclick = binding;
             $('.choosechr').children()[1].children[j].firstElementChild.onclick = binding;
         }
 
