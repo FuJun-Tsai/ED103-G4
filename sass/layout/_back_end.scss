@@ -116,16 +116,16 @@ body {
 h2 {
 	margin:1em 30px;
 	color: rgb(234,83,63);
-	font-size: 20px;
+
 }
 
 // 管理者
 .admin-panel {
   width: 80vw;
   height: 70vh;
-  margin: 50px auto;
+  margin: 20px auto;
   background-color: rgba(255, 255, 255, 0.8);
-  overflow-x: scroll;
+  overflow: scroll;
   #administrator{
     position: relative;
     .adm_add{
@@ -138,12 +138,57 @@ h2 {
       position: absolute;
       top: 0px;
       right: 10px;
+      &:hover{
+        background: #FFF;
+        border: 0.1px solid #DF7219;
+      }
       &:hover i{
         color: #DF7219;
       }
       i{  
         color: #FFF;
       }
+    }
+    .modal{
+      .modal-dialog{
+        .modal-content{
+          .modal-header{
+            .modal-title{
+              margin:1em 30px;
+              color: rgb(234,83,63);
+            }
+          }
+          .modal-body{
+            span{
+              margin: 20px 5px;
+            }
+            input{
+              margin: 20px 5px;
+            }
+          }
+          .modal-footer{
+            button{
+              background: #DF7219;
+              border: 0.1px solid rgba(255, 255, 255, 0);
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              margin: 10px;
+              &:hover{
+                background: #FFF;
+                border: 0.1px solid #DF7219;
+              }
+              &:hover i{
+                color: #DF7219;
+              }
+              i{  
+                color: #FFF;
+              }
+            }
+          }
+        }
+      }
+
     }
     .tbl_administrator{
       width: 99%;
@@ -182,17 +227,61 @@ h2 {
             button{
               background: #DF7219;
               border: 0.1px solid rgba(255, 255, 255, 0);
-              width: 30px;
-              height: 30px;
+              width: 40px;
+              height: 40px;
               border-radius: 50%;
               margin: 10px;
-              display: inline;
+              &:hover{
+                background: #FFF;
+                border: 0.1px solid #DF7219;
+              }
               &:hover i{
                 color: #DF7219;
               }
               i{  
                 color: #FFF;
               }
+            }
+            .modal{
+              .modal-dialog{
+                .modal-content{
+                  .modal-header{
+                    .modal-title{
+                      margin:1em 30px;
+                      color: rgb(234,83,63);
+                    }
+                  }
+                  .modal-body{
+                    span{
+                      margin: 20px 5px;
+                    }
+                    input{
+                      margin: 20px 5px;
+                    }
+                  }
+                  .modal-footer{
+                    button{
+                      background: #DF7219;
+                      border: 0.1px solid rgba(255, 255, 255, 0);
+                      width: 40px;
+                      height: 40px;
+                      border-radius: 50%;
+                      margin: 10px;
+                      &:hover{
+                        background: #FFF;
+                        border: 0.1px solid #DF7219;
+                      }
+                      &:hover i{
+                        color: #DF7219;
+                      }
+                      i{  
+                        color: #FFF;
+                      }
+                    }
+                  }
+                }
+              }
+        
             }
           }
         }
@@ -237,10 +326,14 @@ h2 {
               button{
                 background: #DF7219;
                 border: 0.1px solid rgba(255, 255, 255, 0);
-                width: 30px;
-                height: 30px;
+                width: 40px;
+                height: 40px;
                 border-radius: 50%;
                 margin: 10px;
+                &:hover{
+                  background: #FFF;
+                  border: 0.1px solid #DF7219;
+                }
                 &:hover i{
                   color: #DF7219;
                 }
@@ -266,12 +359,57 @@ h2 {
         position: absolute;
         top: 0px;
         right: 10px;
+        &:hover{
+          background: #FFF;
+          border: 0.1px solid #DF7219;
+        }
         &:hover i{
           color: #DF7219;
         }
         i{  
           color: #FFF;
         }
+      }
+      .modal{
+        .modal-dialog{
+          .modal-content{
+            .modal-header{
+              .modal-title{
+                margin:1em 30px;
+                color: rgb(234,83,63);
+              }
+            }
+            .modal-body{
+              span{
+                margin: 20px 5px;
+              }
+              input{
+                margin: 20px 5px;
+              }
+            }
+            .modal-footer{
+              button{
+                background: #DF7219;
+                border: 0.1px solid rgba(255, 255, 255, 0);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin: 10px;
+                &:hover{
+                  background: #FFF;
+                  border: 0.1px solid #DF7219;
+                }
+                &:hover i{
+                  color: #DF7219;
+                }
+                i{  
+                  color: #FFF;
+                }
+              }
+            }
+          }
+        }
+  
       }
       .tbl_res_adm{
         width: 99%;
@@ -308,19 +446,69 @@ h2 {
               border:0.1px solid #FFF;
               // line-height: 50px;
               align-items: center;
+              vertical-align: middle;
+              padding: 5px 0;
+              span{
+                padding: 10px;
+              }
               button{
                 background: #DF7219;
                 border: 0.1px solid rgba(255, 255, 255, 0);
-                width: 30px;
-                height: 30px;
+                width: 40px;
+                height: 40px;
                 border-radius: 50%;
                 margin: 10px;
+                &:hover{
+                  background: #FFF;
+                  border: 0.1px solid #DF7219;
+                }
                 &:hover i{
                   color: #DF7219;
                 }
                 i{  
                   color: #FFF;
                 }
+              }
+              .modal{
+                .modal-dialog{
+                  .modal-content{
+                    .modal-header{
+                      .modal-title{
+                        margin:1em 30px;
+                        color: rgb(234,83,63);
+                      }
+                    }
+                    .modal-body{
+                      span{
+                        margin: 20px 5px;
+                      }
+                      input{
+                        margin: 20px 5px;
+                      }
+                    }
+                    .modal-footer{
+                      button{
+                        background: #DF7219;
+                        border: 0.1px solid rgba(255, 255, 255, 0);
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        margin: 10px;
+                        &:hover{
+                          background: #FFF;
+                          border: 0.1px solid #DF7219;
+                        }
+                        &:hover i{
+                          color: #DF7219;
+                        }
+                        i{  
+                          color: #FFF;
+                        }
+                      }
+                    }
+                  }
+                }
+          
               }
             
           }
@@ -378,10 +566,14 @@ h2 {
                     button{
                       background: #DF7219;
                       border: 0.1px solid rgba(255, 255, 255, 0);
-                      width: 30px;
-                      height: 30px;
+                      width: 40px;
+                      height: 40px;
                       border-radius: 50%;
                       margin: 10px;
+                      &:hover{
+                        background: #FFF;
+                        border: 0.1px solid #DF7219;
+                      }
                       &:hover i{
                         color: #DF7219;
                       }
@@ -432,10 +624,14 @@ h2 {
                     button{
                       background: #DF7219;
                       border: 0.1px solid rgba(255, 255, 255, 0);
-                      width: 30px;
-                      height: 30px;
+                      width: 40px;
+                      height: 40px;
                       border-radius: 50%;
                       margin: 10px;
+                      &:hover{
+                        background: #FFF;
+                        border: 0.1px solid #DF7219;
+                      }
                       &:hover i{
                         color: #DF7219;
                       }

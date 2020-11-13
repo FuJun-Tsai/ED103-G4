@@ -161,38 +161,35 @@
                 <h2>
                     管理員管理
                 </h2>
-                    <button type="button" class="adm_add btn_5 btn_js" data-toggle="modal" data-target="#adm_addModal">
+                    <button type="button" class="adm_add btn_5" data-toggle="modal" data-target="#adm_addModal">
                         <i class="fas fa-plus"></i>
-                        <span></span>
+                            
                     </button>
                     <!-- 新增的燈箱 -->
-                    <div class="modal fade" id="adm_addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="adm_add_lightbox modal fade" id="adm_addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="adm_addModalLongTitle">新增管理員</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="adm_addModalLongTitle">新增管理員</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <span>管理員帳號</span>
+                                    <input type="text">
+                                    <br>
+                                    <span>管理員名稱</span>
+                                    <input type="text">
+                                    <br>
+                                    <span>管理員密碼</span>
+                                    <input type="text" >
+                                    <br>
+                                    <span>管理員職稱</span>
+                                    <input type="text">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                                    <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <span>管理員帳號</span>
-                                <input type="text">
-                                <br>
-                                <span>管理員名稱</span>
-                                <input type="text">
-                                <br>
-                                <span>管理員密碼</span>
-                                <input type="text" >
-                                <br>
-                                <span>管理員職稱</span>
-                                <input type="text">
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn_5 btn_js ">Save</button>
-                            </div>
-                        </div>
                         </div>
                     </div>
                 <table class="tbl_administrator">
@@ -214,19 +211,15 @@
                             <td>資料2</td> 
                             <td>資料2</td> 
                             <td>
-                                <button class="btn_5 btn_js" data-toggle="modal" data-target="#modify_amdbtn">
-                                    <i class="fas fa-pencil-alt"></i>
-                                    <span></span>
+                                <button class="btn_5" data-toggle="modal" data-target="#modify_amdbtn">
+                                    <i class="fas fa-pencil-alt"></i> 
                                 </button>
                                 <!-- 修改燈箱 -->
                                     <div class="modal fade" id="modify_amdbtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modify_amdbtnModalLongTitle">修改資料</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
+                                             <h3 class="modal-title" id="modify_amdbtnModalLongTitle">修改資料</h3>
                                             </div>
                                             <div class="modal-body">
                                                 <span>管理員帳號</span>
@@ -242,15 +235,17 @@
                                                 <input type="text">
                                             </div>
                                             <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn_5 btn_js ">Save</button>
+                                                
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                                                    <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
+                                                
                                             </div>
                                         </div>
                                         </div>
                                     </div>
-                                <button class="btn_5 btn_js">
+                                <button class="btn_5">
                                     <i class="fas fa-trash"></i>
-                                    <span></span>
+                                    
                                 </button>
                             </td>
                         </tr> 
@@ -291,9 +286,9 @@
                              <td>資料2</td>
                              <td>資料2</td> 
                              <td>
-                                <button class="btn_5 btn_js">
+                                <button class="btn_5">
                                     <i class="fas fa-ban"></i>
-                                    <span></span>
+                                    
                                 </button>
                             </td>
                         </tr> 
@@ -314,10 +309,59 @@
                  <h2>
                      餐廳管理
                  </h2>
-                 <button class="res_adm_add btn_5 btn_js">
+                 <button class="res_adm_add btn_5"data-toggle="modal" data-target="#res_adm_addbox">
                     <i class="fas fa-plus"></i>
-                    <span></span>
+                    
                 </button>
+                <!-- 餐廳新增燈箱 -->
+                <div class="modal fade" id="res_adm_addbox" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="modify_amdbtnModalLongTitle">新增餐廳</h3>
+                        </div>
+                        <div class="modal-body">
+                            <span>餐廳名稱</span>
+                            <input type="text">
+                            <br>
+                            <span>餐廳風格</span>
+                            <input type="text">
+                            <br>
+                            <span>餐廳種類</span>
+                            <input type="text" >
+                            <br>
+                            <span>餐廳電話</span>
+                            <input type="text">
+                            <br>
+                            <span>餐廳狀態</span>
+                            <input type="text">
+                            <br>
+                            <span>餐廳地址</span>
+                            <input type="text">
+                            <br>
+                            <span>餐廳營業日</span>
+                            <input type="text">
+                            <br>
+                            <span>餐廳營業時間</span>
+                            <input type="text">
+                            <br>
+                            <span>餐廳圖片</span>
+                            <input type="image">
+                            <br>
+                            <span>餐廳簡介</span>
+                            <input type="text">
+                            <br>
+                            <span>餐廳詳細介紹</span>
+                            <input type="text">
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                            <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
                  <div class="mem_search form-group pull-right">
                     <input type="text" class="res_adm_search form-control" placeholder="請輸入關鍵字">
                 </div>
@@ -329,13 +373,7 @@
                              <th class="col-md-1 col-xs-1">編號</th>
                              <th class="col-md-2 col-xs-2">風格&種類</th>
                              <th class="col-md-3 col-xs-3">餐廳名稱</th> 
-                             <!-- <th>餐廳地址</th> -->
                              <th class="col-md-3 col-xs-3">餐廳電話</th>
-                             <!-- <th>每周營業日</th> -->
-                             <!-- <th>餐廳介紹*</th> -->
-                             <!-- <th>圖片</th> -->
-                             <!-- <th>餐廳簡介*</th> -->
-                             <!-- <th>餐廳營業時間</th> -->
                              <th class="col-md-2 col-xs-2">餐廳狀態</th>
                              <th class="col-md-1 col-xs-1">按鈕</th>
                          </tr> 
@@ -351,46 +389,90 @@
                             <td>資料2</td> 
                             <td>資料2</td> 
                             <td>
-                                <button class="btn_5 btn_js">
+                                <button class="btn_5">
                                     <i class="fas fa-angle-down"></i>
-                                    <span></span>
+                                    
                                 </button>
                             </td> 
                         </tr>
                         <tr style="display:none">
                             <tr>
-                                <td colspan="2">
-                                    餐廳地址
-                                    <div>
-                                        <img src="" alt="">
-                                    </div>
-                                </td>
-                                <td colspan="3">
-                                    地址內容
-                                    <div>
-        
-                                    </div>
+                                <td colspan="5">
+                                    <span>
+                                        餐廳地址:
+                                    </span>
                                 </td>
                                 <td rowspan="4">
-                                    <button class="btn_5 btn_js">
+                                    <button class="btn_5" data-toggle="modal" data-target="#res_adm_modify">
                                         <i class="fas fa-pencil-alt"></i>
-                                        <span></span>
                                     </button>
-                                    <button class="btn_5 btn_js">
+                                    <!-- 餐廳修改燈箱 -->
+                                    <div class="modal fade" id="res_adm_modify" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title" id="modify_amdbtnModalLongTitle">修改餐廳</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <span>餐廳名稱</span>
+                                                <input type="text">
+                                                <br>
+                                                <span>餐廳風格</span>
+                                                <input type="text">
+                                                <br>
+                                                <span>餐廳種類</span>
+                                                <input type="text" >
+                                                <br>
+                                                <span>餐廳電話</span>
+                                                <input type="text">
+                                                <br>
+                                                <span>餐廳狀態</span>
+                                                <input type="text">
+                                                <br>
+                                                <span>餐廳地址</span>
+                                                <input type="text">
+                                                <br>
+                                                <span>餐廳營業日</span>
+                                                <input type="text">
+                                                <br>
+                                                <span>餐廳營業時間</span>
+                                                <input type="text">
+                                                <br>
+                                                <span>餐廳圖片</span>
+                                                <input type="image">
+                                                <br>
+                                                <span>餐廳簡介</span>
+                                                <input type="text">
+                                                <br>
+                                                <span>餐廳詳細介紹</span>
+                                                <input type="text">
+                                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                                                <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn_5">
                                         <i class="fas fa-trash"></i>
-                                        <span></span>
                                     </button>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
-                                    營業時間
+                                <td colspan="3">
+                                    <span>
+                                        每周營業日:
+                                    </span>
                                     <div>
-                                        <img src="" alt="">
+                                        
                                     </div>
                                 </td>
-                                <td colspan="3">
-                                    每周營業日&營業時間
+                                <td colspan="2">
+                                    <span>
+                                        營業時間:
+                                    </span>
                                     <div>
         
                                     </div>
@@ -398,29 +480,29 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    餐廳簡介
+                                    <span>
+                                        餐廳簡介
+                                    </span>
                                     <div>
                                         
                                     </div>
                                 </td>
                                 <td colspan="3">
-                                    餐廳圖片
+                                    <span>
+                                        餐廳圖片:
+                                    </span>
                                     <div>
                                         <img src="" alt="">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
-                                    餐廳詳細介紹
+                                <td colspan="5">
+                                    <span>
+                                        餐廳詳細介紹:
+                                    </span>
                                     <div>
-                                        
-                                    </div>
-                                </td>
-                                <td colspan="3">
-                                    介紹內容
-                                    <div>
-                                        
+                                        (內容)
                                     </div>
                                 </td>
                             </tr>
@@ -429,14 +511,7 @@
                      </tbody>
                     
                 </table>
-                <!-- <div style="height:px;margin:px ;">
-                    <span id="spanFirst">第一頁</span>
-                    <span id="spanPre">上一頁</span>
-                    <span id="spanNext">下一頁</span>
-                    <span id="spanLast">最後一頁</span>
-                    第<span id="spanPageNum"></span>頁/共
-                    <span id="spanTotalPage"></span>頁
-                </div> -->
+
              </div>
              <div class="tab-pane" id="report_adm">
                  <h2>
@@ -470,9 +545,8 @@
                                     <td>資料2</td> 
                                     <td>資料2</td> 
                                     <td>
-                                        <button class="btn_5 btn_js">
+                                        <button class="btn_5">
                                             <i class="fas fa-angle-down"></i>
-                                            <span></span>
                                         </button>
                                     </td>
                                 </tr>
@@ -522,9 +596,9 @@
                                     <td>資料2</td> 
                                     <td>資料2</td> 
                                     <td>
-                                        <button class="btn_5 btn_js">
+                                        <button class="btn_5">
                                             <i class="fas fa-angle-down"></i>
-                                            <span></span>
+                                            
                                         </button>
                                     </td>
                                 </tr>
@@ -538,9 +612,9 @@
                                     <td>資料2</td> 
                                     <td>資料2</td> 
                                     <td>
-                                        <button class="btn_5 btn_js">
+                                        <button class="btn_5">
                                             <i class="fas fa-angle-down"></i>
-                                            <span></span>
+                                            
                                         </button>
                                     </td>
                                 </tr>
@@ -549,14 +623,6 @@
                                 </tr> 
                             </tbody>
                         </table>
-                        <!-- <div style="height:px;margin:px ;">
-                            <span id="spanFirst">第一頁</span>
-                            <span id="spanPre">上一頁</span>
-                            <span id="spanNext">下一頁</span>
-                            <span id="spanLast">最後一頁</span>
-                            第<span id="spanPageNum"></span>頁/共
-                            <span id="spanTotalPage"></span>頁
-                        </div> -->
                       </div>
                    
                       
