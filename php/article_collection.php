@@ -7,10 +7,9 @@ try{
                             JOIN `member_management` m ON (a.MEMBER_NO = m.MEMBER_NO) 
   WHERE ac.MEMBER_NO IN (SELECT ac1.MEMBER_NO
                     FROM `article_collection` ac1 JOIN `member_management` m1 ON (ac1.MEMBER_NO = m1.MEMBER_NO)
-                    WHERE m1.MEMBER_ID =:MEMBER_ID AND m1.MEMBER_PSW =:MEMBER_PSW) ";
+                    WHERE m1.MEMBER_ID =:MEMBER_ID) ";
   $gc = $pdo->prepare($sql);
-  $gc->bindValue(":MEMBER_ID", $_POST["MEMBER_ID"]);
-  $gc->bindValue(":MEMBER_PSW", $_POST["MEMBER_PSW"]);
+  $gc->bindValue(":MEMBER_ID", $_SESSION["MEMBER_ID"]);
   $gc->execute();
   if( $gc->rowCount()==0){ 
 	  echo "{}";

@@ -7,10 +7,9 @@ try{
                             JOIN `food_group_collection` fgc ON (f.GROUP_NO = fgc.GROUP_NO) 
           WHERE fgc.MEMBER_NO IN (SELECT fgc1.MEMBER_NO 
                             FROM `food_group_collection` fgc1 JOIN `member_management` m1 ON (fgc1.MEMBER_NO = m1.MEMBER_NO) 
-                            WHERE m1.MEMBER_ID =:MEMBER_ID AND m1.MEMBER_PSW =:MEMBER_PSW  )";
+                            WHERE m1.MEMBER_ID =:MEMBER_ID)";
   $gc = $pdo->prepare($sql);
-  $gc->bindValue(":MEMBER_ID", $_POST["MEMBER_ID"]);
-  $gc->bindValue(":MEMBER_PSW", $_POST["MEMBER_PSW"]);
+  $gc->bindValue(":MEMBER_ID", $_SESSION["MEMBER_ID"]);
   $gc->execute();
   if( $gc->rowCount()==0){ 
 	  echo "{}";

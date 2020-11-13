@@ -8,11 +8,10 @@ try{
                   JOIN `member_management` m ON (m.MEMBER_NO = f.MEMBER)
   WHERE  fdp.MEMBER_NO IN (SELECT fdp1.MEMBER_NO
                         FROM `food_group_people`fdp1 JOIN `member_management` m1 ON(fdp1.MEMBER_NO = m1.MEMBER_NO)
-  WHERE  m1.MEMBER_ID =:MEMBER_ID AND m1.MEMBER_PSW =:MEMBER_PSW)
+                        WHERE  m1.MEMBER_ID =:MEMBER_ID)
   AND fdp.MEMBER_STATUS = 0 ";
   $join = $pdo->prepare($sql);
-  $join->bindValue(":MEMBER_ID", $_POST["MEMBER_ID"]);
-  $join->bindValue(":MEMBER_PSW", $_POST["MEMBER_PSW"]);
+  $join->bindValue(":MEMBER_ID", $_SESSION["MEMBER_ID"]);
   $join->execute();
   if( $join->rowCount()==0){ 
 	  echo "{}";

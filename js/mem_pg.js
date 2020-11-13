@@ -29,6 +29,7 @@ function fileChange() {
     readFile.addEventListener('load',function(e){
       let image = document.getElementById('avatar_change');
       image.src = readFile.result;
+      console.log(image.src);
     });
 
     $('#namefile').css({"color":"green","font-weight":700});
@@ -59,10 +60,12 @@ function dotrash(){
 }
 
 //顯示修改
-$("#change_main").on('click',function(){
+$("#change_main").on('click',function(e){
+  e.preventDefault();
   $('.change').toggle();
   // $(this).text("取消");
 });
+
 //修改會員資料
 myname = 0;
 psw = 0;
@@ -159,447 +162,398 @@ $("a.tab").on("click", function(){
   $(this).parent().parent().parent().siblings().children("div.tab").removeClass("-on");
   $("div." + $(this).attr("data-target")).addClass("-on");
 });
-
-//顯示送出
-// function showValues() {
-//   var str = $( "form" ).serialize();
-//   $( "#results" ).text( str );
-//   console.log(444);
-//   // $( "content" ).text().on( "change", showValues );
-//   showValues();
-// }
-$( "form" ).on( "submit", function( event ) {
+//會員資料修改送出
+$( "#sub_main" ).on( "click", function( event ) {
   event.preventDefault();
-  // console.log( $( this ).serialize() );
+  MEMBER_NAME = $("#mem_name").text();
+  MEMBER_PSW = $("#mem_psw").text();
+  MEMBER_EMAIL = $("#mem_email").text();
+  MEMBER_INTRODUCTION = $("#mem_introduction").text();
+  // console.log( $(this).serialize() );
   $.ajax({
-    url:'php/tab_ok.php',
-    type :'POST',
+    url:'php/update_mymain.php',
+    method:'Post',
     dataType:'json',
-    data:$('form').serialize(),
+    cache:'true',
+    data: {
+      MEMBER_NAME: MEMBER_NAME,
+      MEMBER_PSW: MEMBER_PSW,
+      MEMBER_EMAIL: MEMBER_EMAIL,
+      MEMBER_INTRODUCTION: MEMBER_INTRODUCTION
+    },
     success:function(res){
-      var str = $( "form" ).serialize();
-      $( "#results" ).text( str );
-      alert('OK');
+
+          console.log(res);
     },
   });
   return false;
 });
 
+//會員照片修改送出
+// $( "#sub_pic" ).on( "click", function( event ) {
+//   event.preventDefault();
+  
 
+//   $.ajax({
+//     url:'php/update_mymain.php',
+//     method:'Post',
+//     dataType:'json',
+//     cache:'true',
+//     data: {
+//       MEMBER_NAME: MEMBER_NAME,
+//       // MEMBER_IMAGE: new FormData('avatar_change');
+//     },
+//     success:function(res){
+//           console.log(res);
+//     },
+//   });
+//   return false;
+// });
 
 //定義ID
 function $id(id){
 	return document.getElementById(id);
 }	
 
-function my_main(member){
+function my_main(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
       main = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){
-        $id('avatar_change').setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);            
-        $id('user_name').innerHTML = `${main.MEMBER_NAME}`;
-        $id('mem_name').innerHTML = `${main.MEMBER_NAME}`;
-        $id('mem_account').innerHTML = `${main.MEMBER_ID}`;
-        $id('mem_age').innerHTML = `${main.MEMBER_AGE}`;
-        $id('mem_psw').innerHTML = `${main.MEMBER_PSW}`;
-        $id('mem_sex').innerHTML = `${main.MEMBER_SEX}`;
-        $id('mem_email').innerHTML = `${main.MEMBER_EMAIL}`;
-        $id('mem_introduction').innerHTML = `${main.MEMBER_INTRODUCTION}`;
-        $id('GROUP_NO').innerHTML = `${main.GROUP_NO}`;
-        $id('GROUP_NAME').innerHTML = `${main.GROUP_NAME}`; 
-        $id('RES_NAME').innerHTML = `${main.RES_NAME}`;
-        $id('STYLE_NAME').innerHTML = `${main.STYLE_NAME}`;
-        $id('KIND_NAME').innerHTML = `${main.KIND_NAME}`;
-        $id('MEMBER_NAME').innerHTML = `${main.MEMBER_NAME}`;
-        $id('JOIN_NUMBER').innerHTML = `${main.JOIN_NUMBER}`;
-        $id('MEAL_TIME').innerHTML = `${main.MEAL_TIME}`;
-        $id('RES_ADDRESS').innerHTML = `${main.RES_ADDRESS}`;
-        $id('RES_TEL').innerHTML = `${main.RES_TEL}`;
-        $id('RES_BUS_HOURS').innerHTML = `${main.RES_BUS_HOURS}`;
-        $id('MAIN_IMG').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE1}`);
-        $id('RES_IMAGE1').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE1}`);
-        $id('RES_IMAGE2').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE2}`);
-        $id('RES_IMAGE3').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE3}`);
-        $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE4}`);            
-      }
+      console.log(main);
+      $id('avatar_change').setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);            
+      $id('user_name').innerHTML = `${main.MEMBER_NAME}`;
+      $id('mem_name').innerHTML = `${main.MEMBER_NAME}`;
+      $id('mem_account').innerHTML = `${main.MEMBER_ID}`;
+      $id('mem_age').innerHTML = `${main.MEMBER_AGE}`;
+      $id('mem_psw').innerHTML = `${main.MEMBER_PSW}`;
+      $id('mem_sex').innerHTML = `${main.MEMBER_SEX}`;
+      $id('mem_email').innerHTML = `${main.MEMBER_EMAIL}`;
+      $id('mem_introduction').innerHTML = `${main.MEMBER_INTRODUCTION}`;
+      $id('GROUP_NO').innerHTML = `${main.GROUP_NO}`;
+      $id('GROUP_NAME').innerHTML = `${main.GROUP_NAME}`; 
+      $id('RES_NAME').innerHTML = `${main.RES_NAME}`;
+      $id('STYLE_NAME').innerHTML = `${main.STYLE_NAME}`;
+      $id('KIND_NAME').innerHTML = `${main.KIND_NAME}`;
+      $id('MEMBER_NAME').innerHTML = `${main.MEMBER_NAME}`;
+      $id('JOIN_NUMBER').innerHTML = `${main.JOIN_NUMBER}`;
+      $id('MEAL_TIME').innerHTML = `${main.MEAL_TIME}`;
+      $id('RES_ADDRESS').innerHTML = `${main.RES_ADDRESS}`;
+      $id('RES_TEL').innerHTML = `${main.RES_TEL}`;
+      $id('RES_BUS_HOURS').innerHTML = `${main.RES_BUS_HOURS}`;
+      $id('MAIN_IMG').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE1}`);
+      $id('RES_IMAGE1').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE1}`);
+      $id('RES_IMAGE2').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE2}`);
+      $id('RES_IMAGE3').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE3}`);
+      $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE4}`);            
     }else{ //error
-      alert(xhr.status);
+      console.log(xhr.status);
     }
   }
   // xhr0.open("GET", "./php/my_main.php", true);
-  xhr.open("POST", "./php/my_main.php", true);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW} `;
-  xhr.send(data_info);
+  xhr.open("Get", "./php/my_main.php", true);
+  // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+  // let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW} `;
+  xhr.send(null);
 }
 
-function myGroupNow(member){
-  console.log(1)
+function myGroupNow(){
+  console.log(1);
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
       group = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){
       //選取元素
       var el = document.querySelector('.add_stranger_block');
-      //建立空字串
-      var str = '';
-        for (let i = 0; i < group.length; i++) {
-          $(el).append(`
-            <li class="stranger_name_list">
-            <div class="stranger_name">
-              <img id="CHECK_IMAGES" src="./image/member/${group[i].CHECK_IMAGES}" >
-              <h5 id="CHECK_NAME">
-              ${group[i].CHECK_NAME}
-              </h5>
-            </div>
-            <div class="button_box">
-                <button class="btn_5 btn_js">
-                    <i class="fas fa-check">確認</i>
-                    <span></span>
-                </button>
-                <button class="btn_5 btn_js">
-                    <i class="fas fa-minus">刪除</i>
-                    <span></span>
-                </button>
-            </div>
-        </li>
-          `);
-        }
-      }
-    }else{ //error
-      alert(xhr.status);
-    }
-  }
-  xhr.open("Post", "./php/my_group.php", true);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
-  xhr.send(data_info);
-}
-
-function tab_ok(member){
-  let xhr = new XMLHttpRequest();
-  xhr.onload = function(){
-    if(xhr.status == 200){ //success
-      join = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){
-      //選取元素
-      var el = document.getElementById('tab_ok');
-      //建立空字串
-      var str = '';
-        for (let i = 0; i < join.length; i++) {
-          $(el).append(`
-          <div class="ice_eatGroup">
-              <img src="./image/member/${join[i].MEMBER_IMAGE}">
-              <div class="ice_eatGroup_content">
-                  <h5>團名:</h5>
-                  <h5>${join[i].GROUP_NAME}</h5>
-                  <br>
-                  <h5>店名:</h5>
-                  <h5>${join[i].RES_NAME}</h5>
-                  <br>
-                  <h5>用餐日期:</h5>
-                  <h5>${join[i].DATE}</h5>
-                  <br>
-                  <h5>用餐時間:</h5>
-                  <h5>${join[i].TIME}</h5>
-              </div>
-              <div class="ice_eatGroup_button">
-                  <button class="btn_5 btn_js">查看 &#9658<span></span></button>
-              </div>
+      for (let i = 0; i < group.length; i++) {
+        $(el).append(`
+          <li class="stranger_name_list">
+          <div class="stranger_name">
+            <img id="CHECK_IMAGES" src="./image/member/${group[i].CHECK_IMAGES}" >
+            <h5 id="CHECK_NAME">
+            ${group[i].CHECK_NAME}
+            </h5>
           </div>
-          `);
-        }
+          <div class="button_box">
+              <button class="btn_5 btn_js">
+                  <i class="fas fa-check">確認</i>
+                  <span></span>
+              </button>
+              <button class="btn_5 btn_js">
+                  <i class="fas fa-minus">刪除</i>
+                  <span></span>
+              </button>
+          </div>
+      </li>
+        `);
       }
     }else{ //error
-      alert(xhr.status);
+      console.log(xhr.status);
     }
   }
-  xhr.open("Post", "./php/tab_ok.php", true);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
-  xhr.send(data_info);
+  xhr.open("Get", "./php/my_group.php", true);
+  xhr.send(null);
 }
 
-function tab_notok(member){
+function tab_ok(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
       join = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){
+      var el = document.getElementById('tab_ok');
+      for (let i = 0; i < join.length; i++) {
+        $(el).append(`
+        <div class="ice_eatGroup">
+            <img src="./image/member/${join[i].MEMBER_IMAGE}">
+            <div class="ice_eatGroup_content">
+                <h5>團名:</h5>
+                <h5>${join[i].GROUP_NAME}</h5>
+                <br>
+                <h5>店名:</h5>
+                <h5>${join[i].RES_NAME}</h5>
+                <br>
+                <h5>用餐日期:</h5>
+                <h5>${join[i].DATE}</h5>
+                <br>
+                <h5>用餐時間:</h5>
+                <h5>${join[i].TIME}</h5>
+            </div>
+            <div class="ice_eatGroup_button">
+                <button class="btn_5 btn_js">查看 &#9658<span></span></button>
+            </div>
+        </div>
+        `);
+      }
+    }else{ //error
+      console.log(xhr.status);
+    }
+  }
+  xhr.open("Get", "./php/tab_ok.php", true);
+  xhr.send(null);
+}
+
+function tab_notok(){
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){ //success
+      join = JSON.parse(xhr.responseText);
       //選取元素
       var el = document.getElementById('tab_notok');
-      //建立空字串
-      var str = '';
-        for (let i = 0; i < join.length; i++) {
-          $(el).append(`
-          <div class="ice_eatGroup">
-              <img src="./image/member/${join[i].MEMBER_IMAGE}">
-              <div class="ice_eatGroup_content">
-                  <h5>團名:</h5>
-                  <h5>${join[i].GROUP_NAME}</h5>
-                  <br>
-                  <h5>店名:</h5>
-                  <h5>${join[i].RES_NAME}</h5>
-                  <br>
-                  <h5>用餐日期:</h5>
-                  <h5>${join[i].DATE}</h5>
-                  <br>
-                  <h5>用餐時間:</h5>
-                  <h5>${join[i].TIME}</h5>
-              </div>
-              <div class="ice_eatGroup_button">
-                  <button class="btn_5 btn_js">確認 &#9658<span></span></button>
-                  <button class="btn_5 btn_js">刪除 &#9658<span></span></button>
-              </div>
-          </div>
-          `);
-        }
+      for (let i = 0; i < join.length; i++) {
+        $(el).append(`
+        <div class="ice_eatGroup">
+            <img src="./image/member/${join[i].MEMBER_IMAGE}">
+            <div class="ice_eatGroup_content">
+                <h5>團名:</h5>
+                <h5>${join[i].GROUP_NAME}</h5>
+                <br>
+                <h5>店名:</h5>
+                <h5>${join[i].RES_NAME}</h5>
+                <br>
+                <h5>用餐日期:</h5>
+                <h5>${join[i].DATE}</h5>
+                <br>
+                <h5>用餐時間:</h5>
+                <h5>${join[i].TIME}</h5>
+            </div>
+            <div class="ice_eatGroup_button">
+                <button class="btn_5 btn_js">確認 &#9658<span></span></button>
+                <button class="btn_5 btn_js">刪除 &#9658<span></span></button>
+            </div>
+        </div>
+        `);
       }
-    }else{ //error
-      alert(xhr.status);
+    }else{
+      console.log(xhr.status);
     }
   }
-  xhr.open("Post", "./php/tab_notok.php", true);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
-  xhr.send(data_info);
+  xhr.open("Get", "./php/tab_notok.php", true);
+  xhr.send(null);
 }
 
-function gruop_collection(member){
+function gruop_collection(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
-      gc = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){
-      //選取元素
-      var el = document.getElementById('gc_page1');
-      //建立空字串
-      var str = '';
-        for (let i = 0; i < gc.length; i++) {
-          $(el).append(`
-            <div class="tab_box">
-                <h5 class="small-title">
-                    <i class="fas fa-trash"></i> ${gc[i].GROUP_NAME}
-                </h5>
-                <div class="pic">
-                    <img src="./image/member/${gc[i].MEMBER_IMAGE}">
-                </div>
-                <h6 class="author">團主:${gc[i].MEMBER_NAME}</h6>
-                <h6 class="date">開團日:${gc[i].START_DATE}</h6>
-            </div>
-          `);
-        }
-        console.log(3);
-        function trash(){
-          console.log(4);
-          $(".tab_box").onchange = dotrash;
-        }
-        trash();
-        dotrash();
+    gc = JSON.parse(xhr.responseText);
+    //選取元素
+    var el = document.getElementById('gc_page1');
+      for (let i = 0; i < gc.length; i++) {
+        $(el).append(`
+          <div class="tab_box">
+              <h5 class="small-title">
+                  <i class="fas fa-trash"></i> ${gc[i].GROUP_NAME}
+              </h5>
+              <div class="pic">
+                  <img src="./image/member/${gc[i].MEMBER_IMAGE}">
+              </div>
+              <h6 class="author">團主:${gc[i].MEMBER_NAME}</h6>
+              <h6 class="date">開團日:${gc[i].START_DATE}</h6>
+          </div>
+        `);
       }
+      console.log(3);
+      function trash(){
+        console.log(4);
+        $(".tab_box").onchange = dotrash;
+      }
+      trash();
+      dotrash();
     }else{ //error
-      alert(xhr.status);
+      console.log(xhr.status);
     }
   }
-  xhr.open("Post", "./php/gruop_collection.php", true);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
-  xhr.send(data_info);
+  xhr.open("Get", "./php/gruop_collection.php", true);
+  xhr.send(null);
 }
 
-function restaurant_collection(member){
+function restaurant_collection(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
       rc = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){
-      //選取元素
       var el = document.getElementById('rc_page1');
-      //建立空字串
       var str = '';
-        for (let i = 0; i < rc.length; i++) {
-          $(el).append(`
-            <div class="tab_box">
-                <h5 class="small-title">
-                    <i class="fas fa-trash"></i> ${rc[i].RES_NAME}
-                </h5>
-                <div class="pic">
-                <img src="./image/restaurant_management_img/${rc[i].RES_IMAGE1}">
-                </div>
-                <h6 class="address">地址:${rc[i].RES_ADDRESS}</h6>
-                <h6 class="tel">電話:${rc[i].RES_TEL}</h6>
-                <h6 class="hours">營業時間:${rc[i].RES_HOURS}</h6>
-            </div>
-          `);
-        }
+      for (let i = 0; i < rc.length; i++) {
+        $(el).append(`
+          <div class="tab_box">
+              <h5 class="small-title">
+                  <i class="fas fa-trash"></i> ${rc[i].RES_NAME}
+              </h5>
+              <div class="pic">
+              <img src="./image/restaurant_management_img/${rc[i].RES_IMAGE1}">
+              </div>
+              <h6 class="address">地址:${rc[i].RES_ADDRESS}</h6>
+              <h6 class="tel">電話:${rc[i].RES_TEL}</h6>
+              <h6 class="hours">營業時間:${rc[i].RES_HOURS}</h6>
+          </div>
+        `);
       }
     }else{ //error
-      alert(xhr.status);
+      console.log(xhr.status);
     }
   }
-  xhr.open("Post", "./php/restaurant_collection.php", true);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
-  xhr.send(data_info);
+  xhr.open("Get", "./php/restaurant_collection.php", true);
+  xhr.send(null);
 }
 
-function article_collection(member){
+function article_collection(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
       ac = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){
       //選取元素
       var el = document.getElementById('ac_page1');
       //建立空字串
-      var str = '';
-        for (let i = 0; i < ac.length; i++) {
-          $(el).append(`
-            <div class="tab_box">
-                <h5 class="small-title">
-                    <i class="fas fa-trash"></i> ${ac[i].ARTICLE_TITLE}
-                </h5>
-                <div class="pic">
-                <img src="./image/article_share/${ac[i].ARTICLE_IMAGE1}">
-                </div>
-                <h6 class="address">作者:${ac[i].MEMBER_NAME}</h6>
-                <h6 class="tel">時間:${ac[i].DATE}</h6>
-                <h6 class="hours">按讚數:${ac[i].ARTICAL_LIKE}</h6>
-            </div>
-          `);
-        }
+      for (let i = 0; i < ac.length; i++) {
+        $(el).append(`
+          <div class="tab_box">
+              <h5 class="small-title">
+                  <i class="fas fa-trash"></i> ${ac[i].ARTICLE_TITLE}
+              </h5>
+              <div class="pic">
+              <img src="./image/article_share/${ac[i].ARTICLE_IMAGE1}">
+              </div>
+              <h6 class="address">作者:${ac[i].MEMBER_NAME}</h6>
+              <h6 class="tel">時間:${ac[i].DATE}</h6>
+              <h6 class="hours">按讚數:${ac[i].ARTICAL_LIKE}</h6>
+          </div>
+        `);
       }
     }else{ //error
-      alert(xhr.status);
+      console.log(xhr.status);
     }
   }
-  xhr.open("Post", "./php/article_collection.php", true);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
-  xhr.send(data_info);
+  xhr.open("Get", "./php/article_collection.php", true);
+  xhr.send(null);
 }
 
-function my_article(member){
+function my_article(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
       ma = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){
       //選取元素
       var el = document.getElementById('ma_page1');
-      //建立空字串
-      var str = '';
-        for (let i = 0; i < ma.length; i++) {
-          $(el).append(`
-            <div class="tab_box">
-                <h5 class="small-title">
-                    <i class="fas fa-trash"></i> ${ma[i].ARTICLE_TITLE}
-                </h5>
-                <div class="pic">
-                <img src="./image/article_share/${ma[i].ARTICLE_IMAGE1}">
-                </div>
-                <h6 class="address">作者:${ma[i].MEMBER_NAME}</h6>
-                <h6 class="tel">時間:${ma[i].DATE}</h6>
-                <h6 class="hours">按讚數:${ma[i].ARTICLE_LIKE}</h6>
-            </div>
-          `);
-        }
+      for (let i = 0; i < ma.length; i++) {
+        $(el).append(`
+          <div class="tab_box">
+              <h5 class="small-title">
+                  <i class="fas fa-trash"></i> ${ma[i].ARTICLE_TITLE}
+              </h5>
+              <div class="pic">
+              <img src="./image/article_share/${ma[i].ARTICLE_IMAGE1}">
+              </div>
+              <h6 class="address">作者:${ma[i].MEMBER_NAME}</h6>
+              <h6 class="tel">時間:${ma[i].DATE}</h6>
+              <h6 class="hours">按讚數:${ma[i].ARTICLE_LIKE}</h6>
+          </div>
+        `);
       }
     }else{ //error
-      alert(xhr.status);
+      console.log(xhr.status);
     }
   }
-  xhr.open("Post", "./php/my_article.php", true);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
-  xhr.send(data_info);
+  xhr.open("Get", "./php/my_article.php", true);
+  xhr.send(null);
 }
 
-function my_friend(member){
+function my_friend(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
       mf = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){
       //選取元素
       var el = document.getElementById('fd_ul');
-      //建立空字串
-      var str = '';
-        for (let i = 0; i < mf.length; i++) {
-          $(el).append(`
-          <li>
-              <div class="fd_name">
-                  <div>
-                      <img src="./image/member/${mf[i].MEMBER_IMAGE}">
-                  </div>
-                  <h4>
-                      ${mf[i].MEMBER_NAME}
-                  </h4>
-              </div>
-              <div class="ice_btn_box col-md-6">
-                  <button class="go_h btn_5 btn_js"><i class="fas fa-home" aria-hidden="true">小屋</i><span></span></button>
-                  <button class="invite btn_5 btn_js"><i class="fa fa-user-plus" aria-hidden="true">邀團</i><span></span></button>
-                  <button class="de_fd btn_5 btn_js"><i class="fas fa-minus-circle" aria-hidden="true">刪除</i><span></span></button>
-              </div>
-          </li>
-          `);
-        }
+      for (let i = 0; i < mf.length; i++) {
+        $(el).append(`
+        <li>
+            <div class="fd_name">
+                <div>
+                    <img src="./image/member/${mf[i].MEMBER_IMAGE}">
+                </div>
+                <h4>
+                    ${mf[i].MEMBER_NAME}
+                </h4>
+            </div>
+            <div class="ice_btn_box col-md-6">
+                <button class="go_h btn_5 btn_js"><i class="fas fa-home" aria-hidden="true">小屋</i><span></span></button>
+                <button class="invite btn_5 btn_js"><i class="fa fa-user-plus" aria-hidden="true">邀團</i><span></span></button>
+                <button class="de_fd btn_5 btn_js"><i class="fas fa-minus-circle" aria-hidden="true">刪除</i><span></span></button>
+            </div>
+        </li>
+        `);
       }
     }else{ //error
-      alert(xhr.status);
+      console.log(xhr.status);
     }
   }
-  xhr.open("Post", "./php/my_friend.php", true);
-  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW}`;
-  xhr.send(data_info);
-}
-
-function getMemberInfoaa(){
-  let xhr = new XMLHttpRequest();
-
-  xhr.onload = function(){
-    if(xhr.status == 200)
-    { //success
-      member = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){ 
-        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
-        $id('spanLogin').innerHTML = '登出';
-      }
-      //我的資訊頁+開團
-      my_main(member);
-       //審核陌生團員
-      myGroupNow(member);
-      //確認餐團
-      tab_ok(member);  
-      //被邀請待回
-      tab_notok(member)
-      //美食團收藏
-      gruop_collection(member)
-      //餐廳收藏
-      restaurant_collection(member)
-      //文章收藏
-      article_collection(member)
-      //我的文章
-      my_article(member)
-      //我的朋友
-      my_friend(member);
-      //刪除收藏
-      // trash();
-      doFirst();
-
-      // showValues();
-    }else{ //error
-      alert(xhr.status);
-    }
-  }
-  xhr.open("get", "php/getMemberInfo.php", true);
+  xhr.open("Get", "./php/my_friend.php", true);
   xhr.send(null);
 }
-window.addEventListener("load",getMemberInfoaa,false); 
+
+function start(){
+      my_main();
+       //審核陌生團員
+      myGroupNow();
+      //確認餐團
+      tab_ok();  
+      //被邀請待回
+      tab_notok()
+      //美食團收藏
+      gruop_collection()
+      //餐廳收藏
+      restaurant_collection()
+      //文章收藏
+      article_collection()
+      //我的文章
+      my_article()
+      //我的朋友
+      my_friend();
+      //刪除收藏
+      doFirst();
+}
+window.addEventListener("load",start,false); 
 
 
 

@@ -7,11 +7,10 @@ try{
                       JOIN `restaurant_management` r ON (r.RES_NO = f.RES_NO)
                       JOIN `restaurant_style` rs ON (rs.STYLE_NO = r.RES_STYLE)
                       JOIN `restaurant_kind` rk ON (rk.KIND_NO = r.RES_KIND)
-  WHERE m.MEMBER_ID =:MEMBER_ID AND m.MEMBER_PSW =:MEMBER_PSW
+  WHERE m.MEMBER_ID =:MEMBER_ID
             AND  f.END_TIME >= DATE(NOW())";
   $member = $pdo->prepare($sql);
-  $member->bindValue(":MEMBER_ID", $_POST["MEMBER_ID"]);
-  $member->bindValue(":MEMBER_PSW", $_POST["MEMBER_PSW"]);
+  $member->bindValue(":MEMBER_ID", $_SESSION["MEMBER_ID"]);
   $member->execute();
   if( $member->rowCount()==0){ //查無此人
 	  echo "{}";

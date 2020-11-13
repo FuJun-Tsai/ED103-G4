@@ -115,7 +115,7 @@ require_once("login.inc");
     <section class="memberpage container">
         <div class="myallpage" id="app">
             <div class="member_side">
-                <div class="avatar">
+                <form class="avatar">
                     <div class="pic_change">
                         <img id="avatar_change">
                         <div class="upload">
@@ -128,10 +128,10 @@ require_once("login.inc");
                     </button>
                     <button type="button" class="btn_10 btn_js btn2">送出
                         <span></span>
-                        <input type="submit" value="送出" class="btn-primary " id="submitbtn">
+                        <input type="submit" value="送出" class="btn-primary " id="sub_pic">
                     </button>
                     <button type="button" class="btn btn-default " disabled="disabled" id="fakebtn">拒絕!</button>
-                </div>
+                </form>
                 <div class="name">
                     <h5 id="user_name">
                     </h5>
@@ -172,7 +172,7 @@ require_once("login.inc");
                                 <h4 class="small_title">
                                     姓名:
                                 </h4>
-                                <h5 class="content" id="mem_name" name="mem_name">
+                                <h5 class="content" id="mem_name" name="MEMBER_NAME">
                                 </h5>
                                 <button class="change btn_10 btn_js">
                                     修改<span></span>
@@ -196,7 +196,7 @@ require_once("login.inc");
                                 <h4 class="small_title">
                                     密碼:
                                 </h4>
-                                <h5 class="content" id="mem_psw" name="mem_psw">
+                                <h5 class="content" id="mem_psw" name="MEMBER_PSW">
                                 </h5>
                                 <button class="change btn_10 btn_js">
                                     修改<span></span>
@@ -213,7 +213,7 @@ require_once("login.inc");
                                 <h4 class="small_title">
                                     信箱:
                                 </h4>
-                                <h5 class="content" id="mem_email" name="mem_email">
+                                <h5 class="content" id="mem_email" name="MEMBER_EMAIL">
                                 </h5>
                                 <button class="change btn_10 btn_js">
                                     修改<span></span>
@@ -226,7 +226,7 @@ require_once("login.inc");
                                 <button class="change btn_10 btn_js">
                                     修改<span></span>
                                 </button>
-                                <h5 class="content" id="mem_introduction" name="mem_introduction">
+                                <h5 class="content" id="mem_introduction" name="MEMBER_INTRODUCTION">
                                 </h5>
                             </div>
                             <button class="btn_10 btn_js" id="change_main">修改

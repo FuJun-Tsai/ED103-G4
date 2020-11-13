@@ -27,12 +27,12 @@ let member;
 
     function sendForm(){
       //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
-      let MEMBER_ID = document.getElementsByName("MEMBER_ID")[0].value;
-      let MEMBER_PSW = document.getElementsByName("MEMBER_PSW")[0].value;
+      let MEMBER_ID = document.getElementById("loginID").value;
+      let MEMBER_PSW = document.getElementById("loginPsd").value;
       let xhr = new XMLHttpRequest();
       xhr.onload = function(){
         member = JSON.parse(xhr.responseText);
-        if(member.MEMBER_ID = true){
+        if(Object.keys(member).length!= 0){
           $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
           $id('spanLogin').innerHTML = '登出';
           //將登入表單上的資料清空，並隱藏起來
@@ -44,11 +44,9 @@ let member;
             window.alert("帳密錯誤~");
         }
       }
-
       xhr.open("Post", "php/login.php", true);
       xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
       let data_info = `MEMBER_ID=${MEMBER_ID}&MEMBER_PSW=${MEMBER_PSW}`;
-      console.log(data_info);
       xhr.send(data_info); 
     }
 
