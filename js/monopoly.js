@@ -50,14 +50,14 @@ $(document).ready(function() {
         if (s == 1) {
             var move = setInterval(p1move, v);
             text = "p1";
-            // console.log(places);
             playing(places);
+            console.log(places);
             // $('.purchasebox').css('visibility', 'visible');
 
         }
         // 游戏核心
         function playing(e) {
-            console.log(e);
+            // console.log(e);
             setTimeout(function() {
                 clearInterval(move);
                 //绑定对应角色
@@ -67,27 +67,44 @@ $(document).ready(function() {
                     person = p1;
                     $('.purchasebox').css('visibility', 'visible');
                     $('.game_background').css('display', 'block');
-
+                    // console.log(e[0].owner);
+                    // console.log(position);
                 }
-                if (e[position].owner == "none") {
+                if (e[0].owner == "none") {
+
                     if (person.control == 0) {
                         $('.purchasebox').css('visibility', 'visible');
                     } else {
                         $('.purchasebox').css('visibility', 'visible');
                         $('.game_background').css('display', 'block');
                     }
+
                     // 买公用地产
-                    if (e[position].state == 0) {
+                    if (e[0].state == 0) {
+                        console.log('123');
+                        // console.log(e[2]);
 
-                        console.log(e[position]);
+                        // var newImg1
+                        // for (let i = 0; i < 4; i++) {
+                        //     // let newImg1 = document.createElement("img");
+                        //     // newImg1.setAttribute("id", "no" + i);
+                        //     // newImg1.src = e[position].src_img;
+                        //     // document.querySelector('.purchasebox_content_left').appendChild(newImg1)
+                        // }
 
-                        var newImg1
-                        for (let i = 0; i < 4; i++) {
-                            let newImg1 = document.createElement("img");
-                            newImg1.setAttribute("id", "no" + i);
-                            newImg1.src = e[position].src_img;
-                            document.querySelector('.purchasebox_content_left').appendChild(newImg1)
-                        }
+                        $('.purchasebox_content_left').append(
+                            `
+                                <div class="main_img">
+                                    <img src="./image/restaurant_management_img/${e[position].RES_IMAGE1}">            
+                                </div>
+                                <div class="vice_img">
+                                    <img src="./image/restaurant_management_img/${e[position].RES_IMAGE1}">            
+                                    <img src="./image/restaurant_management_img/${e[position].RES_IMAGE2}">            
+                                    <img src="./image/restaurant_management_img/${e[position].RES_IMAGE3}">            
+                                    <img src="./image/restaurant_management_img/${e[position].RES_IMAGE4}">                              
+                                </div>                    
+                            `
+                        )
 
                         let rsTitle = document.createElement("h2");
                         let rsName = document.createElement("h3");
@@ -96,10 +113,10 @@ $(document).ready(function() {
                         let ccc = document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
                         let ddd = document.querySelector('.purchasebox_content_right').appendChild(rsName)
                         let ggg = document.querySelector('.purchasebox_content_right').appendChild(rsContent)
-                        rsTitle.innerText = "今晚!我想來點~"
-                        console.log(ccc);
-                        console.log(ddd);
-                        console.log(ggg);
+                        rsTitle.innerText = "今晚!我想來點~";
+                        // console.log(ccc);
+                        // console.log(ddd);
+                        // console.log(ggg);
 
                         rsContent.innerText = e[position].RES_SUMMARY;
                         rsName.innerText = e[position].RES_NAME;
@@ -181,19 +198,19 @@ $(document).ready(function() {
             switch (bbb) {
                 case '乂':
                     $('#player1').attr('src', './image/den_image/allgif/乂小壞乂.gif');
-                    $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                    // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
                     // $('#player1').css('transform', 'scaleX(-1)');
                     // $('#player1').width(190).height(190);
                     break;
                 case '大':
                     $('#player1').attr('src', './image/den_image/allgif/大番薯.gif');
-                    $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                    // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
                     // $('#player1').css('transform', 'scaleX(-1)');
                     // $('#player1').width(190).height(190);
                     break;
                 case '方':
                     $('#player1').attr('src', './image/den_image/allgif/方塊號.gif');
-                    $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
+                    // $('#player1').css('transform', 'translate(-80px,-20px) scaleX(-1)');
                     // $('#player1').css('transform', 'scaleX(-1)');
                     // $('#player1').width(190).height(190);
                     break;
