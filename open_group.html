@@ -1115,7 +1115,17 @@
                             type: 'GET',
                             dataType: 'json',
                         });
+                        $.ajax({
+                            url: './open_group_open.php',
+                            data: {
+                                groupNo: groupNo,
+                                friendCheckboxVal: friendCheckboxVal,
+                            },
+                            type: 'GET',
+                            dataType: 'json',
+                        });
 
+                        //接收資料
                         $.ajax({
                             url: './open_group.php',
                             type: 'GET',
