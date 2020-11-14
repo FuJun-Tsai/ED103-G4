@@ -451,6 +451,11 @@ h2 {
               span{
                 padding: 10px;
               }
+              .res_fourimg{
+                img{
+                  height: 70px;
+                }
+              }
               button{
                 background: #DF7219;
                 border: 0.1px solid rgba(255, 255, 255, 0);
@@ -539,17 +544,24 @@ h2 {
           #tab0{
             .report_table{
               
+              width: 99%;
+              margin: 0 auto;
+              line-height: 20px;
+              align-items: center;
+              border-radius: 20px 20px 0 0;
+              @media all and(max-width:992px) {
+                width: 992px;
+              }
               .word_adm_ti{
                 background-color: #9B1E23;
-                tr{
-                  
-                  height: 40px;
-                  th{
-                    vertical-align: middle;
-                    border: 1px solid #ddd;
-                    text-align:center;
-                    color: #FFF;
-                  }
+                  tr{
+                    height: 40px;
+                    th{
+                      vertical-align: middle;
+                      border: 1px solid #ddd;
+                      text-align:center;
+                      color: #FFF;
+                    }
                 }
               }
               tbody{       
