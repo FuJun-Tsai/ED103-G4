@@ -20,7 +20,7 @@ $memberNoNum = isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 try{
   require_once('connectRes.php');
 //開團
-  $sql="select * from food_group;
+  $sql="
   insert into food_group(
   MEMBER,
   GROUP_NO, 

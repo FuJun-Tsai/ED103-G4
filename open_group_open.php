@@ -1,8 +1,8 @@
 <?php
 
-$groupNo = isset($_GET["groupNo"]) ? $_GET["groupNo"] : "";
-$friendCheckboxVal=isset($_GET["friendCheckboxVal"]) ? $_GET["friendCheckboxVal"] : "";
-
+$groupNo = $_GET["groupNo"];
+$friendCheckboxVal=isset($_GET["friendCheckboxVal"]) ? $_GET["friendCheckboxVal"]:"";
+$Errmsg ='';
 
 try{
   require_once('connectRes.php');
@@ -20,10 +20,9 @@ try{
     
       $products = $pdo->prepare($sql1);
       $products->execute();
+
+      // echo '<br><br>' , $groupNo , '<br><br>' , $friendCheckboxVal[$i];
     }
-
-
-
 
 }catch(PDOException $e){
   $Errmsg.= '錯誤內容：' . $e->getMessage() . '<br>';
