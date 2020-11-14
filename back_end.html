@@ -594,7 +594,7 @@
                       </div>
                    
                       <div id="tab1" class="tabs-panel">
-                        <table class="report_table table-bordered">
+                        <table class="res_ban_table report_table table-bordered">
                             <thead class="word_adm_ti">
                                 <tr> 
                                     <th class="col-md-1 col-xs-1">編號</th> 
@@ -606,7 +606,7 @@
                                 </tr> 
                             </thead>
                             <tbody>
-                                <tr class="row_h"> 
+                                <!-- <tr class="row_h"> 
                                     <td>資料1</td> 
                                     <td>資料2</td> 
                                     <td>資料2</td> 
@@ -638,7 +638,7 @@
                                             
                                         </button>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 
                             </tbody>
                         </table>
@@ -745,6 +745,9 @@
     <!-- 關鍵字搜尋 -->
     <!-- 會員 -->
     <script>
+        ajaxthendo();
+        function ajaxthendo(){
+
         $(document).ready(function() {
         $(".search").keyup(function () {
             let searchTerm = $(".search").val();
@@ -753,56 +756,56 @@
             
                 $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
                 return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
-            }
-        });
-            
-        $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
-            $(this).attr('visible','false');
-        });
-
-        $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
-            $(this).attr('visible','true');
-        });
-
-        let jobCount = $('.results tbody tr[visible="true"]').length;
-            $('.counter').text(jobCount + ' item');
-
-        if(jobCount == '0') {$('.no-result').show();}
-            else {$('.no-result').hide();}
+                    }
                 });
+                    
+                $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible','false');
+                });
+
+                $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible','true');
+                });
+
+                let jobCount = $('.results tbody tr[visible="true"]').length;
+                    $('.counter').text(jobCount + ' item');
+
+                if(jobCount == '0') {$('.no-result').show();}
+                    else {$('.no-result').hide();}
+                        });
         });
-    </script>
-    <!-- 餐廳 -->
-    <script>
+
+    // 餐廳
+
         $(document).ready(function() {
         $(".res_adm_search").keyup(function () {
             let searchTerm = $(".res_adm_search").val();
             let listItem = $('.results tbody').children('tr');
             let searchSplit = searchTerm.replace(/ /g, "'):containsi('")
             
-        $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+            $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
                 return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
-            }
-        });
+                }
+            });
             
-        $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
-            $(this).attr('visible','false');
-        });
-
-        $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
-            $(this).attr('visible','true');
-        });
-
-        let jobCount = $('.results tbody tr[visible="true"]').length;
-            $('.counter').text(jobCount + ' item');
-
-        if(jobCount == '0') {$('.no-result').show();}
-            else {$('.no-result').hide();}
+                $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible','false');
                 });
+
+                $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible','true');
+                });
+
+                let jobCount = $('.results tbody tr[visible="true"]').length;
+                    $('.counter').text(jobCount + ' item');
+
+                if(jobCount == '0') {$('.no-result').show();}
+                    else {$('.no-result').hide();}
+            });
         });
-    </script>
-    <!-- 餐廳延伸 -->
-    <script>
+
+    // 餐廳延伸
+    
         $(document).ready(function() {
           let ua = navigator.userAgent,
               event = (ua.match(/iPad/i)) ? "touchstart" : "click";
@@ -814,9 +817,9 @@
               });
           }
           })
-    </script>
-    <!-- 檢舉切換 -->
-    <script>
+
+    // 檢舉切換
+
         $(function() {
           $("#tabs-nav a").click(function() {
              $("#tabs-nav a").removeClass("tabs-menu-active");
@@ -827,9 +830,9 @@
              return false;
           });
         });
-       </script>
-      <!-- 檢舉延伸  -->
-      <script>
+
+    //   檢舉延伸 
+
           $(document).ready(function down() {
             //Fixing jQuery Click Events for the iPad
             let ua = navigator.userAgent,
@@ -842,8 +845,11 @@
                 });
             }
             })
+        }
+
       </script>
-      <!-- 分頁 -->
+
+      <!-- 會員接資料庫 -->
       <script>
           $(document).ready(function(){
 
@@ -878,6 +884,7 @@
             });
           });
       </script>
+      <!-- 餐廳接資料庫 -->
       <script>
         $(document).ready(function(){
 
@@ -1038,7 +1045,63 @@
           });
         });
     </script>
-      
+      <!-- 餐廳留言接資料庫 -->
+      <script>
+          $(document).ready(function(){
+
+            $.ajax({
+                url:'back_res_rep.php',
+                type:'GET',
+                dataType:'json',
+                success(data){
+                    console.log(data);
+                    console.log(data.length);
+                    console.log(data[0].MESSAGE_NO);
+                    for(let i=0 ; i<=data.length ; i+=1){
+                        $('.res_ban_table tbody').append(`
+                        <tr class="row_h"> 
+                                    <td>${data[i].RES_MES_RE_NO}</td> 
+                                    <td>${data[i].MESSAGE_NO}</td> 
+                                    <td>${data[i].RES_MES_REPORT_PEASON}</td> 
+                                    <td>${data[i].RES_MES_REPORT_TIME}</td> 
+                                    <td>${data[i].RES_MES_REPORT_STATUS}</td> 
+                                    <td>
+                                        <button class="btn_5">
+                                            <i class="fas fa-angle-down"></i>
+                                            
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        留言標題
+                                        <div>
+                                            
+                                        </div>
+                                    </td>
+                                    <td colspan="3">
+                                        留言內容
+                                        <div>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button class="btn_5">
+                                            <i class="fas fa-ban"></i>
+                                            
+                                        </button>
+                                    </td>
+                                </tr> 
+                        `);
+                    };
+                    // ajaxthendo();
+
+
+                }
+
+            });
+        });
+      </script>
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
