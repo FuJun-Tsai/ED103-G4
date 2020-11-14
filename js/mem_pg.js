@@ -203,33 +203,32 @@ $( "#sub_pic" ).on( "click", function( event ) {
     processData: false,
     contentType: false,  
     mimeType: 'multipart/form-data',
-    success: function(e){
-      getMemberInfo(e);
-      console.log(123);
+    success: function(){
+      // getMemberInfo(e);
+      // console.log(123);
     },
   });
-
   return false;
 });
 
-function getMemberInfo(){
-  let xhr = new XMLHttpRequest();
+// function getMemberInfo(){
+//   let xhr = new XMLHttpRequest();
 
-  xhr.onload = function(){
-    if(xhr.status == 200){ //success
-      member = JSON.parse(xhr.responseText);
-      if(member.MEMBER_ID){
-        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
-        $id('spanLogin').innerHTML = '登出';
-      }
-    }else{ //error
-      alert(xhr.status);
-    }
-  }
+//   xhr.onload = function(){
+//     if(xhr.status == 200){ //success
+//       member = JSON.parse(xhr.responseText);
+//       if(member.MEMBER_ID){
+//         $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+//         $id('spanLogin').innerHTML = '登出';
+//       }
+//     }else{ //error
+//       alert(xhr.status);
+//     }
+//   }
 
-  xhr.open("get", "php/getMemberInfo_copy.php", true);
-  xhr.send(null);
-}
+//   xhr.open("get", "php/getMemberInfo_copy.php", true);
+//   xhr.send(null);
+// }
 
 
 //定義ID
@@ -242,7 +241,6 @@ function my_main(){
   xhr.onload = function(){
     if(xhr.status == 200){ //success
       main = JSON.parse(xhr.responseText);
-      console.log(main);
       $id('avatar_change').setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);            
       $id('user_name').innerHTML = `${main.MEMBER_NAME}`;
       $id('mem_name').innerHTML = `${main.MEMBER_NAME}`;
@@ -272,10 +270,7 @@ function my_main(){
       console.log(xhr.status);
     }
   }
-  // xhr0.open("GET", "./php/my_main.php", true);
   xhr.open("Get", "./php/my_main.php", true);
-  // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  // let data_info = `MEMBER_ID=${member.MEMBER_ID}&MEMBER_PSW=${member.MEMBER_PSW} `;
   xhr.send(null);
 }
 

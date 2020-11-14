@@ -13,7 +13,7 @@ try{
   $group->execute();
   // echo $sql;
   if( $group->rowCount()==0){ //查無此人
-	  echo "{沒東西}";
+	  echo "{}";
   }else{ //登入成功
     //送出登入者的相關資料
   	$groupRow = $group->fetchAll(PDO::FETCH_ASSOC);

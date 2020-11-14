@@ -9,7 +9,8 @@ try{
   WHERE  fdp.MEMBER_NO IN (SELECT fdp1.MEMBER_NO
                         FROM `food_group_people`fdp1 JOIN `member_management` m1 ON(fdp1.MEMBER_NO = m1.MEMBER_NO)
                         WHERE  m1.MEMBER_ID =:MEMBER_ID)
-  AND fdp.MEMBER_STATUS = 0 ";
+  AND (fdp.MEMBER_STATUS = 0  
+  OR fdp.MEMBER_STATUS = 2) ";
   $join = $pdo->prepare($sql);
   $join->bindValue(":MEMBER_ID", $_SESSION["MEMBER_ID"]);
   $join->execute();
