@@ -158,7 +158,7 @@ $result[5] = $data5Rows;
 }catch(PDOException $e){
   $Errmsg.= '錯誤內容：' . $e->getMessage() . '<br>';
   $Errmsg.= '錯誤行數：' . $e->getLine() . '<br>';
-  // echo $Errmsg;
+  echo $Errmsg;
 }
 
 // if($data->rowCount()==0){

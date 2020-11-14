@@ -520,10 +520,9 @@
                 $('.den_box2').css('display', 'none');
                 $('.den_box3').css('display', 'none');
                 $('.box_background').css('display', 'none');
-                $('.box2_row_right div:nth-child(1) h3:nth-child(5)').empty();
-                $('.box2_row_right div:nth-child(1) h3:nth-child(8)').empty();
-                $('.box2_row_right div:nth-child(2) h3:nth-child(12)').empty();
-                $('.box2_row_right div:nth-child(2) h3:nth-child(5)').empty();
+                $('.box2_row_left').remove();
+                $('.box2_row_right').remove();
+
             });
 
             // owl左右移動
@@ -772,36 +771,6 @@
         });
 
         //料理風格
-        // $('.den_cooking_style div').on('change', function() {
-        //     var yyy2 = $('.den_cooking_style div').index(this) + 1;
-        //     console.log(yyy2);
-
-        //     $.ajax({
-        //         url: './open_group.php' + '?' + 'RES_KIND=' + yyy2,
-        //         type: 'GET',
-        //         dataType: 'json',
-        //         success(data) {
-        //             // console.log('132');
-        //         }
-        //     });
-        // });
-
-        // $('#condition input:checkbox').on('click',function(){
-        //     if($(this).attr('name')=='kind'){
-        //         K = $("input[name='kind']:checked").map(function(){
-        //             return $(this).val();
-        //         }).get();
-
-        //     }else{
-        //         S = $("input[name='style[]']:checked").map(function(){
-        //             return $(this).val(); 
-        //         }).get();
-        //     }
-
-        //     ConditionSearch(K,S.join(','));
-        // });
-
-        //料理風格
         $(".den_cooking_style div input").click(function() {
             let yyy1 = $('.den_res_type div input[name=kind]:checked').val();
             // console.log(yyy1);
@@ -914,7 +883,7 @@
                 type: 'GET',
                 dataType: 'json',
                 success(data) {
-                    // console.log(data);
+                    console.log(data);
                     var resData = data[0];
                     // console.log(resData);
                     // console.log(resData.length);
@@ -975,7 +944,9 @@
                     $('.den_button').on('click', function() {
                         let resNameVal = $('.den_Information div:nth-child(1) input').val();
 
-                        console.log(data[1]);
+                        console.log(data);
+                        console.log(MasterNO);
+
 
                         for (let i = 0; i < resData.length; i++) {
                             if (resNameVal == resData[i].RES_NAME) {
@@ -996,7 +967,7 @@
                             <img src="./image/restaurant_management_img/${resData[nameOf].RES_IMAGE4}">
                         </div>
                     <div class="box2_row_right">
-                        <div>
+                        <div class="box2_row_right_1">
                             <h3>團號:</h3>
                             <h3>${parseInt(data[5][0].max) + 1}</h3>
                             <br>
@@ -1010,9 +981,9 @@
                             <h6>${resData[nameOf].KIND_NAME}</h6>
                             <h6>${resData[nameOf].STYLE_NAME}</h6>                           
                         </div>
-                        <div>
+                        <div class="box2_row_right_2">
                             <h3 class="food_master">開團團主:</h3>
-                            <h3 class="groupMaster"></h3>
+                            <h3 class="groupMaster">${MasterNO}</h3>
                             <br>
                             <h3>目前人數:</h3>
                             <h3 class="nowNum"></h3>
@@ -1023,7 +994,7 @@
                             <h3 class="mealDate"></h3>
                             <br>
                         </div>
-                        <div>
+                        <div class="box2_row_right_3">
                             <h3>店家資訊</h3>
                                 <br>
                             <h3>地址:</h3>
@@ -1087,13 +1058,7 @@
                                                         </div>
                                                     `)
                                             }
-                                            console.log(friendData[1].MEMBER_NAME);
-                                            $('.groupMaster').text(friendData[1].MEMBER_NAME);
-
-
-                                            // $('.food_master').text = friendData[0].MEMBER_NAME;
-
-
+                                            MasterNO = friendData[1].MEMBER_NAME;
                                         }
                                     });
                                 }
@@ -1122,7 +1087,8 @@
                         }).get();
                         let memberNoNum = $('.memberNoNum').text();
 
-                        // console.log(groupNo);
+                        console.log(memberNoNum);
+                        console.log(groupNo);
                         // console.log(groupName);
                         // console.log(resNo);
                         // console.log(mealDate);
@@ -1132,7 +1098,7 @@
                         // console.log(nowNum);
                         // console.log(nowNumJoin);
                         // console.log(nowNumMax);
-                        // console.log(friendCheckboxVal);
+                        console.log(friendCheckboxVal);
                         //傳送資料
                         $.ajax({
                             url: './open_group1.php',
@@ -1202,6 +1168,8 @@
                         });
                         $('.den_box2').css('display', 'none');
                         $('.box_background').css('display', 'none');
+                        $('.box2_row_left').remove();
+                        $('.box2_row_right').remove();
                     });
                     //美食團渲染
                     $(document).ready(function() {
@@ -1342,15 +1310,15 @@
                     $('.den_box3_button button').on('click', function() {
                         let memNo = $('.memberNoNum').text();
                         console.log(memNo);
-                        let groupNo = $('.groupNo').text();
-                        console.log(groupNo);
+                        let groupNo3 = $('.groupNo').text();
+                        console.log(groupNo3);
                         // console.log(memNo);
 
                         $.ajax({
-                            url: './open_group1.php',
+                            url: './open_group2.php',
                             data: {
                                 memNo: memNo,
-                                groupNo3: groupNo,
+                                groupNo3: groupNo3
                             },
                             type: 'GET',
                             dataType: 'JSON',

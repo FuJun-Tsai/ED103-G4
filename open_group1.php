@@ -9,6 +9,7 @@ $nowNumMax = isset($_GET["nowNumMax"]) ? $_GET["nowNumMax"] : "";
 $friendCheckboxVal=isset($_GET["friendCheckboxVal"]) ? $_GET["friendCheckboxVal"] : "";
 $memNo = isset($_GET["memNo"]) ? $_GET["memNo"] : "";
 $groupNo3 = isset($_GET["groupNo3"]) ? $_GET["groupNo3"] : "";
+$memberNoNum = isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 
 // echo $memNo;
 // echo $groupNo3;
@@ -30,11 +31,12 @@ try{
   MAX_NUMBER, 
   JOIN_NUMBER,
   MEAL_TIME)
-  VALUES (1,$groupNo,$resNo,'$groupName',CURRENT_DATE(),'$mealDate'+interval-1 day,$nowNumMax,$nowNumJoin,'$mealDate');";
+  VALUES ($memberNoNum,$groupNo,$resNo,'$groupName',CURRENT_DATE(),'$mealDate'+interval-1 day,$nowNumMax,$nowNumJoin,'$mealDate');";
 
   $products = $pdo->prepare($sql);
   $products->execute();
 
+// echo count($friendCheckboxVal);
 
 for($i=0;$i<count($friendCheckboxVal);$i++){
 //開團加入邀請好友
