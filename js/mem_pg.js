@@ -29,7 +29,6 @@ function fileChange() {
     readFile.addEventListener('load',function(e){
       let image = document.getElementById('avatar_change');
       image.src = readFile.result;
-      console.log(image.src);
     });
 
     $('#namefile').css({"color":"green","font-weight":700});
@@ -164,7 +163,7 @@ $("a.tab").on("click", function(){
 });
 //會員資料修改送出
 $( "#sub_main" ).on( "click", function( event ) {
-  event.preventDefault();
+  // event.preventDefault();
   MEMBER_NAME = $("#mem_name").text();
   MEMBER_PSW = $("#mem_psw").text();
   MEMBER_EMAIL = $("#mem_email").text();
@@ -190,25 +189,48 @@ $( "#sub_main" ).on( "click", function( event ) {
 });
 
 //會員照片修改送出
-// $( "#sub_pic" ).on( "click", function( event ) {
-//   event.preventDefault();
-  
+$( "#sub_pic" ).on( "click", function( event ) {
+  // event.preventDefault();
+  let avatar = document.getElementById('avatar');
+  let form = new FormData(avatar);
+  MEMBER_NAME = $("#mem_name").text();
+  $.ajax({
+    url:'php/update_pic.php',
+    method:'POST',
+    dataType:'json',
+    cache:'true',
+    data: form,
+    processData: false,
+    contentType: false,  
+    mimeType: 'multipart/form-data',
+    success: function(e){
+      getMemberInfo(e);
+      console.log(123);
+    },
+  });
 
-//   $.ajax({
-//     url:'php/update_mymain.php',
-//     method:'Post',
-//     dataType:'json',
-//     cache:'true',
-//     data: {
-//       MEMBER_NAME: MEMBER_NAME,
-//       // MEMBER_IMAGE: new FormData('avatar_change');
-//     },
-//     success:function(res){
-//           console.log(res);
-//     },
-//   });
-//   return false;
-// });
+  return false;
+});
+
+function getMemberInfo(){
+  let xhr = new XMLHttpRequest();
+
+  xhr.onload = function(){
+    if(xhr.status == 200){ //success
+      member = JSON.parse(xhr.responseText);
+      if(member.MEMBER_ID){
+        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        $id('spanLogin').innerHTML = '登出';
+      }
+    }else{ //error
+      alert(xhr.status);
+    }
+  }
+
+  xhr.open("get", "php/getMemberInfo_copy.php", true);
+  xhr.send(null);
+}
+
 
 //定義ID
 function $id(id){

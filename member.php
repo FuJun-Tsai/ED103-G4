@@ -115,7 +115,7 @@ require_once("login.inc");
     <section class="memberpage container">
         <div class="myallpage" id="app">
             <div class="member_side">
-                <form class="avatar">
+                <form class="avatar" id="avatar">
                     <div class="pic_change">
                         <img id="avatar_change">
                         <div class="upload">

@@ -73,7 +73,7 @@ let member;
         }
       }
 
-      xhr.open("get", "php/getMemberInfo.php", true);
+      xhr.open("get", "php/getMemberInfo_copy.php", true);
       xhr.send(null);
     }
 

@@ -1,7 +1,7 @@
 <?php 
 session_start();
 // session_destroy();
-// unset($_SESSION["MEMBER_NO"]);
+unset($_SESSION["MEMBER_NO"]);
 // unset($_SESSION["MEMBER_NAME"]);
 // unset($_SESSION["MEMBER_AGE"]);
 // unset($_SESSION["MEMBER_SEX"]);
