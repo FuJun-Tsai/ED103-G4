@@ -57,17 +57,17 @@
                     continuousVertical: false,
                     // paddingTop: '20px',
                     css3: true,
-                    onLeave: function(home, nexthome, direction) {
-                        console.log("onLeave--" + "home: " + home + " nexthome: " + nexthome + " direction: " + direction);
+                    onLeave: function(index, nextIndex, direction) {
+                        console.log("onLeave--" + "index: " + index + " nextIndex: " + nextIndex + " direction: " + direction);
                     },
-                    afterLoad: function(anchorLink, home) {
-                        console.log("afterLoad--" + "anchorLink: " + anchorLink + " home: " + home);
+                    afterLoad: function(anchorLink, index) {
+                        console.log("afterLoad--" + "anchorLink: " + anchorLink + " index: " + index);
                     },
-                    afterSlideLoad: function(anchorLink, home, slideAnchor, slidehome) {
-                        console.log("afterSlideLoad--" + "anchorLink: " + anchorLink + " home: " + home + " slideAnchor: " + slideAnchor + " slidehome: " + slidehome);
+                    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
+                        console.log("afterSlideLoad--" + "anchorLink: " + anchorLink + " index: " + index + " slideAnchor: " + slideAnchor + " slideIndex: " + slideIndex);
                     },
-                    onSlideLeave: function(anchorLink, home, slidehome, direction) {
-                        console.log("onSlideLeave--" + "anchorLink: " + anchorLink + " home: " + home + " slidehome: " + slidehome + " direction: " + direction);
+                    onSlideLeave: function(anchorLink, index, slideIndex, direction) {
+                        console.log("onSlideLeave--" + "anchorLink: " + anchorLink + " index: " + index + " slideIndex: " + slideIndex + " direction: " + direction);
                     },
                     afterRender: function() {
                         console.log("afterRender");
@@ -552,11 +552,11 @@
                 <div class="fourth_screen_circle_orange"></div>
 
                 <h2>吃貨分享</h2>
-                <h4>快來聽聽網友怎麼說</h4>
+                <h4>快來聽聽網友怎麼說！</h4>
 
                 <div class="chu_container">
                     <div class="chu_row1">
-                        <span class="articleNo" style="display: none;"></span>
+                        <span class="articleNo" style="display:none" ></span>
 
                         <!-- <div class="chu_left">
                             <div class="chu_left_icon1">
@@ -605,13 +605,10 @@
                         </div> -->
                     </div>
                 </div>
-                
+
                 <div class="fourth_screen_friends"></div>
 
-                <button class="btn_2 btn_js chu_button">
-                    查看更多分享
-                    <span></span>
-                </button>
+                <button class="btn_2 btn_js chu_button">查看更多分享<span></span></button>
 
             </section>
         </div>
@@ -620,7 +617,7 @@
 
     <!-- ***************************** -->
     <footer style="display: none;">
-        <div class="footer">
+        <div class="footer" style="display: none;">
             <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
         </div>
     </footer>
@@ -642,8 +639,7 @@
         }
     </script>
     <!-- <script src="./js/restaurant_team.js"></script> -->
-    <script src="./js/home_second_screen.js"></script>
-    <script src="./js/home_fourth_screen.js"></script>
+    
 
 
     <script>
@@ -672,6 +668,8 @@
     <!--按鈕js -->
     <script src="js/btn_hover.js"></script>
     <script src="js/login.js"></script>
+    <script src="./js/home_second_screen.js"></script>
+    <script src="./js/home_fourth_screen.js"></script>
     
 </body>
 
