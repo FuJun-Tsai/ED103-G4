@@ -372,8 +372,8 @@
                              <th class="col-md-2 col-xs-2">風格&種類</th>
                              <th class="col-md-3 col-xs-3">餐廳名稱</th> 
                              <th class="col-md-3 col-xs-3">餐廳電話</th>
-                             <th class="col-md-1 col-xs-1">餐廳狀態</th>
-                             <th class="col-md-3 col-xs-3">按鈕</th>
+                             <th class="col-md-2 col-xs-2">餐廳狀態</th>
+                             <th class="col-md-1 col-xs-1">按鈕</th>
                          </tr> 
                          <tr class="warning no-result">
                             <td colspan="4"><i class="fa fa-warning"></i> No result</td>
@@ -392,7 +392,20 @@
                                     <i class="fas fa-angle-down"></i>
                                     
                                 </button>
-                                <button class="btn_5" data-toggle="modal" data-target="#res_adm_modify">
+                            </td> 
+                        </tr>
+                        <tr style="display:none">
+                            <tr>
+                                <td colspan="2">
+                                    <span>
+                                        餐廳地址:
+                                    </span>
+                                </td>
+                                <td colspan="3">
+
+                                </td>
+                                <td rowspan="4">
+                                    <button class="btn_5" data-toggle="modal" data-target="#res_adm_modify">
                                         <i class="fas fa-pencil-alt"></i>
                                     </button> -->
                                     <!-- 餐廳修改燈箱 -->
@@ -450,20 +463,6 @@
                                     <button class="btn_5">
                                         <i class="fas fa-trash"></i>
                                     </button>
-                            </td> 
-                        </tr>
-                        <tr style="display:none">
-                            <tr>
-                                <td colspan="2">
-                                    <span>
-                                        餐廳地址:
-                                    </span>
-                                </td>
-                                <td colspan="3">
-
-                                </td>
-                                <td rowspan="4">
-                                    
                                 </td>
                             </tr>
                             <tr>
@@ -531,14 +530,14 @@
                                      <tr> 
                                          <th class="col-md-1 col-xs-1">編號</th> 
                                          <th class="col-md-2 col-xs-2">留言檢舉編號</th>
-                                         <th class="col-md-3 col-xs-3">檢舉原因</th>
+                                         <th class="col-md-4 col-xs-4">檢舉原因</th>
                                          <th class="col-md-2 col-xs-2">檢舉時間</th>
                                          <th class="col-md-2 col-xs-2">檢舉狀態</th>
-                                         <th class="col-md-2 col-xs-2">按鈕</th>
+                                         <th class="col-md-1 col-xs-1">按鈕</th>
                                      </tr> 
                                  </thead>
                                  <tbody>
-                                     <!-- <tr class="row_h"> 
+                                     <tr class="row_h"> 
                                          <td>資料1</td> 
                                          <td>資料2</td> 
                                          <td>資料2</td> 
@@ -566,7 +565,7 @@
                                                  
                                              </button>
                                          </td>
-                                     </tr> -->
+                                     </tr>
                                      
                                  </tbody>
                              </table>
@@ -969,10 +968,27 @@
                             <td>${data[i].RES_TEL}</td> 
                             <td>${data[i].RES_STATUS}</td> 
                             <td>
-                               
-                                <button class="btn_5" data-toggle="modal" data-target="#res_adm_modify">
-                                     <i class="fas fa-pencil-alt"></i>
+                                <button class="btn_5">
+                                    <i class="fas fa-angle-down"></i>
+                                    
                                 </button>
+                            </td> 
+                        </tr>
+                        <tr style="display:none">
+                            <tr>
+                                <td colspan="2">
+                                    <span>
+                                        餐廳地址:
+                                    </span>
+                                </td>
+                                <td colspan="3">
+                                    ${data[i].RES_ADDRESS}
+                                </td>
+                                
+                                <td rowspan="4">
+                                    <button class="btn_5" data-toggle="modal" data-target="#res_adm_modify">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </button>
                                     <!-- 餐廳修改燈箱 -->
                                     <div class="modal fade" id="res_adm_modify" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1028,28 +1044,10 @@
                                     <button class="btn_5">
                                         <i class="fas fa-trash"></i>
                                     </button>
-                                    <button class="btn_5">
-                                        <i class="fas fa-angle-down"></i>                                   
-                                    </button>
-                            </td> 
-                        </tr>
-                        <tr>
-                            <tr>
-                                <td colspan="3">
-                                    <span>
-                                        餐廳地址:
-                                    </span>
-                                </td>
-                                <td colspan="3">
-                                    ${data[i].RES_ADDRESS}
-                                </td>
-                                
-                                <td rowspan="4">
-                                    
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="3">
+                                <td colspan="2">
                                     <span>
                                         每周營業日:
                                     </span>
@@ -1070,7 +1068,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="3">
+                                <td colspan="2">
                                     <span>
                                         餐廳簡介
                                     </span>
@@ -1091,7 +1089,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="6">
+                                <td colspan="5">
                                     <span>
                                         餐廳詳細介紹:
                                     </span>
@@ -1146,22 +1144,24 @@
                                     <td>${data[i].RES_MES_REPORT_STATUS}</td> 
                                     <td>
                                         <button class="btn_5">
-                                            <i class="fas fa-ban"></i>                                          
-                                        </button>
-                                        <button class="btn_5">
                                             <i class="fas fa-angle-down"></i>
                                             
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="6">
-                                        <span>
-                                            留言內容:
-                                        </span>
+                                    <td colspan="5">
+                                        留言內容
                                         <div>
                                             ${data[i].RES_MESSAGE_WORD}
                                         </div>
+                                    </td>
+                                    <td>
+                                        <button class="btn_5">
+                                            <i class="fas fa-ban"></i>
+                                            
+                                        </button>
+                                        
                                     </td>
                                 </tr> 
                         `);
