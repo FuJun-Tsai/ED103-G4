@@ -16,7 +16,7 @@
     <!-- <link rel="stylesheet" href="./css/other/animation.css"> -->
     <link rel="stylesheet" href="./css/allstyle.css">
     <link rel="stylesheet" type="text/css" href="./sass/vender/other/jquery.fullPage.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="./css/index.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="./css/home.css" /> -->
     <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
     <!--按鈕的css -->
     <!-- <link rel="stylesheet" href="./css/background.css"> -->
@@ -57,17 +57,17 @@
                     continuousVertical: false,
                     // paddingTop: '20px',
                     css3: true,
-                    onLeave: function(index, nextIndex, direction) {
-                        console.log("onLeave--" + "index: " + index + " nextIndex: " + nextIndex + " direction: " + direction);
+                    onLeave: function(home, nexthome, direction) {
+                        console.log("onLeave--" + "home: " + home + " nexthome: " + nexthome + " direction: " + direction);
                     },
-                    afterLoad: function(anchorLink, index) {
-                        console.log("afterLoad--" + "anchorLink: " + anchorLink + " index: " + index);
+                    afterLoad: function(anchorLink, home) {
+                        console.log("afterLoad--" + "anchorLink: " + anchorLink + " home: " + home);
                     },
-                    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
-                        console.log("afterSlideLoad--" + "anchorLink: " + anchorLink + " index: " + index + " slideAnchor: " + slideAnchor + " slideIndex: " + slideIndex);
+                    afterSlideLoad: function(anchorLink, home, slideAnchor, slidehome) {
+                        console.log("afterSlideLoad--" + "anchorLink: " + anchorLink + " home: " + home + " slideAnchor: " + slideAnchor + " slidehome: " + slidehome);
                     },
-                    onSlideLeave: function(anchorLink, index, slideIndex, direction) {
-                        console.log("onSlideLeave--" + "anchorLink: " + anchorLink + " index: " + index + " slideIndex: " + slideIndex + " direction: " + direction);
+                    onSlideLeave: function(anchorLink, home, slidehome, direction) {
+                        console.log("onSlideLeave--" + "anchorLink: " + anchorLink + " home: " + home + " slidehome: " + slidehome + " direction: " + direction);
                     },
                     afterRender: function() {
                         console.log("afterRender");
@@ -267,7 +267,7 @@
     <header class="chu_header">
         <section>
             <div class="logo">
-                <a href="./index.html">
+                <a href="./home.html">
                     <img src="./image/logoHeader.svg" alt="">
                 </a>
             </div>
@@ -354,9 +354,8 @@
                     <div class="bubble x9"></div>
                 </div>
 
-                <div class="circle_orange" data-aos="fade-down-left" data-aos-duration="1500">
-                    <p>美食大富翁</p>
-                </div>
+                <div class="circle_orange" data-aos="fade-down-left" data-aos-duration="1500"></div>
+                <p class="titlewords">美食大富翁</p>
                 <div class="circle_fuchsia">
                     <p>不知道今天吃什麼嗎？<br>
                         <br> 快來找餐廳、找吃友！
@@ -403,33 +402,33 @@
                     <div class="container" id="storeContainer">
 
                         <!-- <div class="store" id="first">
-                            <a href="#"><img src="./image/index/second_screen_restaurant1.jpg" alt="#"></a>
+                            <a href="#"><img src="./image/home/second_screen_restaurant1.jpg" alt="#"></a>
                             <h4>無敵蛋餅1</h4>
                         </div>
                         <div class="store" id="second" >
-                            <a href="#"><img src="./image/index/second_screen_restaurant2.jpg" alt="#"></a>
+                            <a href="#"><img src="./image/home/second_screen_restaurant2.jpg" alt="#"></a>
                             <h4>薯杯杯2</h4>
                         </div>
                         <div class="store" id="third">
-                            <a href="#"><img src="./image/index/second_screen_restaurant3.jpg" alt="#"></a>
+                            <a href="#"><img src="./image/home/second_screen_restaurant3.jpg" alt="#"></a>
                             <h4>小籠湯包3</h4>
                         </div>
                         <div class="store" id="fourth">
-                            <a href="#"><img src="./image/index/second_screen_restaurant4.jpg" alt="#"></a>
+                            <a href="#"><img src="./image/home/second_screen_restaurant4.jpg" alt="#"></a>
                             <h4>大中央牛排4</h4>
                         </div>
                         <div class="store" id="fifth">
-                            <a href="#"><img src="./image/index/second_screen_restaurant5.jpg" alt="#"></a>
+                            <a href="#"><img src="./image/home/second_screen_restaurant5.jpg" alt="#"></a>
                             <h4>竹香快餐5</h4>
                         </div> -->
 
                     </div>
 
                     <button id="Rarrow">
-                        <img src="./image/index/arrow_right.svg" alt="">
+                        <img src="./image/home/arrow_right.svg" alt="">
                     </button>
                     <button id="Larrow">
-                        <img src="./image/index/arrow_left.svg" alt="">
+                        <img src="./image/home/arrow_left.svg" alt="">
                     </button>
                 </div>
 
@@ -557,21 +556,21 @@
 
                 <div class="chu_container">
                     <div class="chu_row1">
-                        <span class="loveyesorno" style="display: none;"></span>
+                        <span class="articleNo" style="display: none;"></span>
 
                         <!-- <div class="chu_left">
                             <div class="chu_left_icon1">
                                 <img src="./image/user.png" alt="">
                             </div>
                             <div class="chu_left_icon3">
-                                <img src="./image/index/fourth_screen_hollowHeart.svg" alt="">
+                                <img src="./image/home/fourth_screen_hollowHeart.svg" alt="">
                                 <p>35</p>
                             </div>
-                            <p class="chu_left_content"><img src="./image/index/fourth_screen_speaker.svg" alt=""> 皇家蝦捲好好吃
+                            <p class="chu_left_content"><img src="./image/home/fourth_screen_speaker.svg" alt=""> 皇家蝦捲好好吃
                             </p>
                             <span>＜最多收藏貼文＞</span>
                             <div class="chu_left_icon2">
-                                <img src="./image/index/arrow_right.svg" alt="">
+                                <img src="./image/home/arrow_right.svg" alt="">
                             </div>
                         </div>
                         <div class="chu_center">
@@ -579,14 +578,14 @@
                                 <img src="./image/user.png" alt="">
                             </div>
                             <div class="chu_center_icon3">
-                                <img src="./image/index/fourth_screen_comment.svg" alt="">
+                                <img src="./image/home/fourth_screen_comment.svg" alt="">
                                 <p>22</p>
                             </div>
-                            <p class="chu_center_content"><img src="./image/index/fourth_screen_speaker.svg" alt=""> 乾杯燒肉好好吃
+                            <p class="chu_center_content"><img src="./image/home/fourth_screen_speaker.svg" alt=""> 乾杯燒肉好好吃
                             </p>
                             <span>＜最多留言貼文＞</span>
                             <div class="chu_center_icon2">
-                                <img src="./image/index/arrow_right.svg" alt="">
+                                <img src="./image/home/arrow_right.svg" alt="">
                             </div>
                         </div>
                         <div class="chu_right">
@@ -594,14 +593,14 @@
                                 <img src="./image/user.png" alt="">
                             </div>
                             <div class="chu_right_icon3">
-                                <img src="./image/index/fourth_screen_share.svg" alt="">
+                                <img src="./image/home/fourth_screen_share.svg" alt="">
                                 <p>13</p>
                             </div>
-                            <p class="chu_right_content"><img src="./image/index/fourth_screen_speaker.svg" alt=""> 爭鮮好好吃
+                            <p class="chu_right_content"><img src="./image/home/fourth_screen_speaker.svg" alt=""> 爭鮮好好吃
                             </p>
                             <span>＜最多分享貼文＞</span>
                             <div class="chu_right_icon2">
-                                <img src="./image/index/arrow_right.svg" alt="">
+                                <img src="./image/home/arrow_right.svg" alt="">
                             </div>
                         </div> -->
                     </div>
@@ -620,7 +619,7 @@
     </div>
 
     <!-- ***************************** -->
-    <footer>
+    <footer style="display: none;">
         <div class="footer">
             <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
         </div>
@@ -643,8 +642,8 @@
         }
     </script>
     <!-- <script src="./js/restaurant_team.js"></script> -->
-    <script src="./js/index_second_screen.js"></script>
-    <script src="./js/index_fourth_screen.js"></script>
+    <script src="./js/home_second_screen.js"></script>
+    <script src="./js/home_fourth_screen.js"></script>
 
 
     <script>

@@ -19,7 +19,7 @@ section.first_screen {
     overflow: hidden;
     height: 100vh;
     position: relative;
-    // background-image: url(../image/index/first_screen_background.svg);
+    // background-image: url(../image/home/first_screen_background.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -27,35 +27,34 @@ section.first_screen {
         @include circle_bigOrange;
         bottom: 23%;
         right: -15%;
-        p {
-            font-size: 48px;
-            color: white;
-            position: absolute;
-            bottom: 12%;
-            right: 60%;
-            font-weight: 800;
-            @media all and (min-width: 1600px) and (max-width: 1920px) {
-                right: 45%;
-            }
-            @media all and (min-width: 1440px) and (max-width: 1599px) {
-                right: 40%;
-            }
-            @media all and (min-width: 1200px) and (max-width: 1439px) {
-                right: 30%;
-                bottom: 20%;
-            }
-            @media all and (min-width: 768px) and (max-width: 991px) {
-                right: 45%;
-                bottom: 15%;
-            }
-            @media all and (min-width: 576px) and (max-width: 767px) {
-                bottom: 22%;
-                right: 35%;
-            }
-            @media all and (max-width: 575px) {
-                bottom: 23%;
-                right: 15%;
-            }
+    }
+    p.titlewords {
+        font-size: 48px;
+        color: white;
+        position: absolute;
+        top: 25%;
+        right: 20%;
+        font-weight: 800;
+        // @media all and (min-width: 1600px) and (max-width: 1920px) {
+        //     right: 20%;
+        // }
+        // @media all and (min-width: 1440px) and (max-width: 1599px) {
+        //     right: 20%;
+        // }
+        // @media all and (min-width: 1200px) and (max-width: 1439px) {
+        //     right: 20%;
+        // }
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+        }
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            right: 25%;
+        }
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            right: 20%;
+        }
+        @media all and (max-width: 575px) {
+            bottom: 23%;
+            right: 15%;
         }
     }
     .circle_fuchsia {
@@ -75,23 +74,29 @@ section.first_screen {
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
             @include circle(500px, #B71E68);
-            left: 95%;
+            left: 60%;
             top: 33%;
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
             @include circle(400px, #B71E68);
+            left: 64%;
             top: 41%;
-            left: 97%;
         }
         @media all and (min-width: 576px) and (max-width: 767px) {
             @include circle(400px, #B71E68);
+            left: 70%;
             top: 43%;
-            left: 71%;
         }
-        @media all and (max-width: 575px) {
-            @include circle(370px, #B71E68);
+        @media all and (min-width: 430px) and (max-width: 575px) {
+            @include circle(350px, #B71E68);
+            left: 90%;
             top: 43%;
-            left: 100%;
+        }
+        @media all and (max-width: 429px) {
+            @include circle(350px, #B71E68);
+            left: 50%;
+            transform: translateX(-50%);
+            top: 43%;
         }
         p {
             font-size: 1.5*$fontSize;
@@ -116,15 +121,17 @@ section.first_screen {
             top: 60%;
         }
         @media all and (min-width: 576px) and (max-width: 767px) {
-            @include circle(250px, #5A1D81);
-            width: 600px;
-            height: 600px;
-            top: 30%;
-            right: -25%;
+            @include circle(300px, #5A1D81);
+            top: 50%;
+            right: 25%;
+        }
+        @media all and (max-width: 575px) {
+            top: 60%;
+            right: 0;
         }
     }
     .circle_food_cake {
-        background-image: url(../image/index/first_screen_friends_food1.svg);
+        background-image: url(../image/home/first_screen_friends_food1.svg);
         width: 78px;
         height: 78px;
         position: absolute;
@@ -155,14 +162,15 @@ section.first_screen {
         }
     }
     .circle_food_noodles {
-        background-image: url(../image/index/first_screen_friends_food2.svg);
+        background-image: url(../image/home/first_screen_friends_food2.svg);
         width: 100px;
         height: 100px;
         position: absolute;
         top: 23%;
         left: 10%;
         @media all and (min-width: 992px) and (max-width: 1199px) {
-            left: 60%;
+            left: 23%;
+            top: 29%;
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
             top: 36%;
@@ -173,14 +181,14 @@ section.first_screen {
             left: 58%;
         }
         @media all and (max-width: 575px) {
-            top: 17%;
+            top: 13%;
             left: 60%;
             width: 80px;
             height: 80px;
         }
     }
     .circle_food_icecream {
-        background-image: url(../image/index/first_screen_friends_food3.svg);
+        background-image: url(../image/home/first_screen_friends_food3.svg);
         width: 80px;
         height: 80px;
         position: absolute;
@@ -202,9 +210,12 @@ section.first_screen {
             top: 86%;
             left: 8%;
         }
+        @media all and (max-width: 575px) {
+            top: 20%;
+        }
     }
     .circle_food_curry {
-        background-image: url(../image/index/first_screen_friends_food4.svg);
+        background-image: url(../image/home/first_screen_friends_food4.svg);
         width: 124px;
         height: 124px;
         position: absolute;
@@ -237,7 +248,7 @@ section.first_screen {
         }
     }
     .circle_food_steak {
-        background-image: url(../image/index/first_screen_friends_food5.svg);
+        background-image: url(../image/home/first_screen_friends_food5.svg);
         width: 124px;
         height: 124px;
         position: absolute;
@@ -278,7 +289,7 @@ section.first_screen {
         }
     }
     .circle_food_breakfast {
-        background-image: url(../image/index/first_screen_friends_food6.svg);
+        background-image: url(../image/home/first_screen_friends_food6.svg);
         width: 80px;
         height: 80px;
         position: absolute;
@@ -286,7 +297,7 @@ section.first_screen {
         right: 5%;
     }
     .friends {
-        background-image: url(../image/index/first_screen_friends.svg);
+        background-image: url(../image/home/first_screen_friends.svg);
         width: 432px;
         height: 432px;
         position: absolute;
@@ -326,7 +337,7 @@ section.second_screen {
     overflow: hidden;
     height: 100vh;
     position: relative;
-    // background-image: url(../image/index/second_screen_background.svg);
+    // background-image: url(../image/home/second_screen_background.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -816,7 +827,7 @@ section.second_screen {
 }
 
 .twoPeople {
-    background-image: url(../image/index/second_screen_twoPeople.svg);
+    background-image: url(../image/home/second_screen_twoPeople.svg);
     width: 500px;
     height: 500px;
     position: absolute;
@@ -845,13 +856,14 @@ section.second_screen {
 }
 
 .friends {
-    background-image: url(../image/index/second_screen_friends.svg);
+    background-image: url(../image/home/second_screen_friends.svg);
     width: 420px;
     height: 237px;
     position: absolute;
     bottom: 3%;
     right: 5%;
     background-repeat: no-repeat;
+    z-index: -100;
     @media all and (min-width: 1600px) and (max-width: 1920px) {
         width: 320px;
         bottom: -2%;
@@ -884,7 +896,7 @@ section.third_screen {
     overflow: hidden;
     height: 100vh;
     position: relative;
-    // background-image: url(../image/index/third_screen_background.svg);
+    // background-image: url(../image/home/third_screen_background.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -946,7 +958,7 @@ section.third_screen {
         }
     }
     .useCellPhone {
-        background-image: url(../image/index/third_screen_useCellPhone.svg);
+        background-image: url(../image/home/third_screen_useCellPhone.svg);
         width: 431px;
         height: 495px;
         position: absolute;
@@ -974,13 +986,16 @@ section.third_screen {
         }
     }
     .friends {
-        background-image: url(../image/index/third_screen_friends.svg);
+        background-image: url(../image/home/third_screen_friends.svg);
         width: 461px;
         height: 273px;
         position: absolute;
         top: 14%;
         right: 5%;
         background-repeat: no-repeat;
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+            width: 300px;
+        }
         @media all and (min-width: 768px) and (max-width: 991px) {
             width: 300px;
         }
@@ -1014,6 +1029,9 @@ section.third_screen {
         @media all and (max-width: 575px) {
             width: 80%;
         }
+        .fb_iframe_widget iframe {
+            top: -90%;
+        }
         button {
             position: absolute;
             bottom: -15%;
@@ -1028,7 +1046,7 @@ section.fourth_screen {
     overflow: hidden;
     height: 100vh;
     position: relative;
-    // background-image: url(../image/index/fourth_screen_background.svg);
+    // background-image: url(../image/home/fourth_screen_background.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -1064,7 +1082,7 @@ section.fourth_screen {
         }
     }
     .fourth_screen_friends {
-        background-image: url(../../image/index/fourth_screen_friends.svg);
+        background-image: url(../image/home/fourth_screen_friends.svg);
         background-repeat: no-repeat;
         background-size: contain;
         // top: 50%;

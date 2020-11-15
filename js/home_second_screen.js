@@ -5,7 +5,7 @@ $(document).ready(function(){
     // console.log(aaa);
 
     $.ajax({
-        url: './index_second_screen.php',
+        url: './home_second_screen.php',
         type: 'GET',
         // data:{
         //     RES_NO:aaa
@@ -76,7 +76,7 @@ $(document).ready(function(){
     
 
     // $.ajax({    
-    //     url: './index_second_screen.php',
+    //     url: './home_second_screen.php',
     //     type: 'GET',
     //     data:{
     //         RES_NO:aaa
@@ -130,7 +130,7 @@ Rarrow.addEventListener("click",function(){
 
     
     $.ajax({
-        url: 'index_second_screen.php',
+        url: 'home_second_screen.php',
         type: 'GET',
         data:{
             RES_NO:aaa
@@ -196,7 +196,7 @@ function left(){
         console.log(bbb);
 
         $.ajax({
-            url: 'index_second_screen.php',
+            url: 'home_second_screen.php',
             type: 'GET',
             data:{
                 RES_NO:bbb

@@ -1,6 +1,48 @@
-$(document).ready(function () {
+let articleNo;
+let memberNoNum;
+
+
+function ppp(articleNo,memberNoNum) {
+    // var articleNo = $('.articleNo').text();
+    // var memberNoNum = $('.memberNoNum').text();
+    // console.log(memberNoNum)
+
+    // if (bbb == '登入') {
     $.ajax({
-        url: 'index_fourth_screen.php',
+        url: 'home_fourth_screen_HeartCollection_select.php',
+        type: 'GET',
+        dataType: 'json',
+        data: {
+            articleNo: articleNo,
+            memberNoNum: memberNoNum
+        },
+        success(data) {
+            let loveyesorno = 0;
+            let bbb = $('#spanLogin').text();
+            console.log(bbb);
+            console.log(data);
+            console.log(data.responseText);
+
+            if (data.responseText == '他有收藏') {
+                loveyesorno = 1;
+                $('.chu_left_icon3 img').attr('src', './image/home/fourth_screen_redHollowHeart.png');
+            } else {
+                $('.chu_left_icon3 img').attr('src', './image/home/fourth_screen_redHeart.png');
+            }
+
+        },
+
+    })
+
+}
+
+
+
+$(document).ready(function () {
+
+    
+    $.ajax({
+        url: 'home_fourth_screen.php',
         type: 'GET',
         dataType: 'json',
         success(data) {
@@ -20,7 +62,7 @@ $(document).ready(function () {
 
 
 
-            let html='';
+            let html = '';
             html +=
                 `
                 <div class="chu_left">
@@ -29,25 +71,25 @@ $(document).ready(function () {
                 </div>
                 <div class="chu_left_icon3">
                 `
-                if (loveyesorno == 1) {
-                    html +=
-                        `<img class="heart" src="./image/index/fourth_screen_redHeart.png" alt="">
+            if (loveyesorno == 1) {
+                html +=
+                    `<img class="heart" src="./image/home/fourth_screen_redHeart.png" alt="">
                     `
-                } else {
-                    html +=
-                        `<img class="heart" src="./image/index/fourth_screen_redHollowHeart.png" alt="">
+            } else {
+                html +=
+                    `<img class="heart" src="./image/home/fourth_screen_redHollowHeart.png" alt="">
                     `
-                }
+            }
 
             html += `
                     <p>${collectionData[0].ARTICLE_LIKE}</p>
                     <p class="articleNo" style="display:none">${collectionData[0].ARTICLE_NO}</p>
                     <p></p>
                 </div>
-                <p class="chu_left_content"><img src="./image/index/fourth_screen_speaker.svg" alt="">${collectionData[0].ARTICLE_TITLE}</p>
+                <p class="chu_left_content"><img src="./image/home/fourth_screen_speaker.svg" alt="">${collectionData[0].ARTICLE_TITLE}</p>
                 <span>＜最多收藏貼文＞</span>
                 <div class="chu_left_icon2">
-                    <img src="./image/index/arrow_right.svg" alt="">
+                    <img src="./image/home/arrow_right.svg" alt="">
                 </div>
             </div>
 
@@ -57,13 +99,13 @@ $(document).ready(function () {
                     <img src="./image/member/${messageData[0].MEMBER_IMAGE}" alt="">
                 </div>
                 <div class="chu_center_icon3">
-                    <img src="./image/index/fourth_screen_comment.svg" alt="">
+                    <img src="./image/home/fourth_screen_comment.svg" alt="">
                     <p>${messageData[0].ARTICLE_LIKE}</p>
                 </div>
-                <p class="chu_center_content"><img src="./image/index/fourth_screen_speaker.svg" alt="">${messageData[0].ARTICLE_TITLE}</p>
+                <p class="chu_center_content"><img src="./image/home/fourth_screen_speaker.svg" alt="">${messageData[0].ARTICLE_TITLE}</p>
                 <span>＜最多留言貼文＞</span>
                 <div class="chu_center_icon2">
-                    <img src="./image/index/arrow_right.svg" alt="">
+                    <img src="./image/home/arrow_right.svg" alt="">
                 </div>
             </div>
             `
@@ -77,7 +119,7 @@ $(document).ready(function () {
                 if (aaa == '登出') {
                     if (toggle1) {
                         // 這裡是黑色愛心變成紅色愛心的地方
-                        $('.chu_left_icon3 img').attr('src', './image/index/fourth_screen_redHeart.png');
+                        $('.chu_left_icon3 img').attr('src', './image/home/fourth_screen_redHeart.png');
                         toggle1 = false;
 
                         let ggg = parseInt($('.chu_left_icon3 p:nth-child(2)').text());
@@ -85,12 +127,13 @@ $(document).ready(function () {
                         $('.chu_left_icon3 p:nth-child(2)').text(ggg + 1);
 
                         // console.log(ggg);
-                        var articleNo = $('.articleNo').text();
+                        articleNo = $('.articleNo').text();
+                        memberNoNum = $('.memberNoNum').text();
 
-                        var memberNoNum = $('.memberNoNum').text();
+                        ppp(articleNo,memberNoNum);
 
                         $.ajax({
-                            url: 'index_fourth_screen_HeartCollection_insert.php',
+                            url: 'home_fourth_screen_HeartCollection_insert.php',
                             type: 'GET',
                             data: {
                                 articleNo: articleNo,
@@ -105,14 +148,14 @@ $(document).ready(function () {
                         var memberNoNum = parseInt($('.memberNoNum').text());
                         console.log(memberNoNum);
                         // 這裡是紅色愛心變成黑色愛心的地方
-                        $('.chu_left_icon3 img').attr('src', './image/index/fourth_screen_redHollowHeart.png');
+                        $('.chu_left_icon3 img').attr('src', './image/home/fourth_screen_redHollowHeart.png');
                         toggle1 = true;
                         let ggg = parseInt($('.chu_left_icon3 p:nth-child(2)').text());
                         console.log(ggg)
                         $('.chu_left_icon3 p:nth-child(2)').text(ggg - 1);
 
                         $.ajax({
-                            url: 'index_fourth_screen_HeartCollection_delete.php',
+                            url: 'home_fourth_screen_HeartCollection_delete.php',
                             type: 'GET',
                             data: {
                                 articleNo: articleNo,
@@ -129,27 +172,12 @@ $(document).ready(function () {
             });
 
 
-        
-        
-            
 
-            // if (bbb == '登入') {
-                $.ajax({
-                    url: 'index_fourth_screen_HeartCollection_select.php',
-                    type: 'GET',
-                    dataType: 'json',
-                    success(data) {
-                        console.log(data);
-                        console.log(data.responseText);
-                        
-                        if(data.responseText=='他有收藏'){
-                            loveyesorno=1;
-                        }
-                    },
-                })
+
+
             // }
-        
-        
+
+
         },
 
 
@@ -157,19 +185,23 @@ $(document).ready(function () {
 });
 
 
+
+
+
+
 //  <div class="chu_right">
 // <div class="chu_right_icon1">
 //     <img src="./image/member/${sharingData.MEMBER_IMAGE}" alt="">
 // </div>
 // <div class="chu_right_icon3">
-//     <img src="./image/index/fourth_screen_share.svg" alt="">
+//     <img src="./image/home/fourth_screen_share.svg" alt="">
 //     <p>13</p>
 // </div>
-// <p class="chu_right_content"><img src="./image/index/fourth_screen_speaker.svg" alt=""> 爭鮮好好吃
+// <p class="chu_right_content"><img src="./image/home/fourth_screen_speaker.svg" alt=""> 爭鮮好好吃
 // </p>
 // <span>＜最多分享貼文＞</span>
 // <div class="chu_right_icon2">
-//     <img src="./image/index/arrow_right.svg" alt="">
+//     <img src="./image/home/arrow_right.svg" alt="">
 // </div>
 // </div> 
 
@@ -178,16 +210,16 @@ $(document).ready(function () {
 
 // $(".heart").click(function(){
 
-//     if($('.heart').attr('src')=='./image/index/fourth_screen_redHollowHeart.png'){
-//         $('.heart').attr('src','./image/index/fourth_screen_redHeart.png');
+//     if($('.heart').attr('src')=='./image/home/fourth_screen_redHollowHeart.png'){
+//         $('.heart').attr('src','./image/home/fourth_screen_redHeart.png');
 //     }
 
 // });
 
 // $(".heart").click(function(){
 
-//     if($('.heart').attr('src')=='./image/index/fourth_screen_redHeart.png'){
-//         $('.heart').attr('src','./image/index/fourth_screen_redHollowHeart.png');
+//     if($('.heart').attr('src')=='./image/home/fourth_screen_redHeart.png'){
+//         $('.heart').attr('src','./image/home/fourth_screen_redHollowHeart.png');
 //     }
 
 // });

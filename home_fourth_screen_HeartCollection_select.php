@@ -5,7 +5,6 @@ $Errmsg='';
 $articleNo = isset($_GET["articleNo"]) ? $_GET["articleNo"] : "";
 $memberNoNum = isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 
-
 try{
   require_once('connectRes.php');
   $sql = "select * from `article_collection` where MEMBER_NO = :articleNo and ARTICLE_NO = :memberNoNum;";
@@ -16,7 +15,7 @@ try{
   $data-> execute();
   $result = $data->fetchAll(PDO::FETCH_ASSOC);
 
-  // print_r($result);
+  print_r($result);
 
   if(count($result) == 0){
     echo "他沒有收藏";
