@@ -40,47 +40,45 @@ function fileChange() {
 }
 
 //刪除收藏欄
+
 function dotrash(){
-  console.log(5);
-  $(".fa-trash").on("click", function(){
+  // console.log(5);
+  $(".fa-trash").on("click", function(e){
+    e.preventDefault();
     let X =$(this).closest(".tab_box");
     let Y =$(this).closest(".tab_box").children('.num').text();
     let Z =$(this).closest(".tab").attr('id');
     $("div.overlay").addClass("-on");
-    then(X,Y,Z);
-
-  });
-  function then(X,Y,Z){
-    $(".btn_modal_send").on("click", function(){
+    $(".btn_modal_send").on("click", function(e){
+      e.preventDefault();
       $(X).remove();
+      $("div.overlay").removeClass("-on");
       console.log(Y);
       console.log(Z);
-
-      $("div.overlay").removeClass("-on");
       doajax(Y,Z);
-      function doajax(Y,Z){
-        $.ajax({
-          url:'php/deletecol.php',
-          method:'POST',
-          dataType:'json',
-          cache:'true',
-          data: {
-            collect: Z,
-            num: Y,
-          },
-          success: function(){
-            console.log("刪除成功");
-          },
-        });
-        return false;
-      }
     });
     $(".btn_modal_close").on("click", function(){
       $("div.overlay").removeClass("-on");
     });
-  }
+  });
 }
-
+//刪除收藏用的ajax
+function doajax(Y,Z){
+  $.ajax({
+    url:'php/deletecol.php',
+    method:'POST',
+    dataType:'json',
+    cache:'true',
+    data: {
+      collect: Z,
+      num: Y,
+    },
+    success: function(){
+      console.log("刪除成功");
+    },
+  });
+  return false;
+}
 //顯示修改
 $("#change_main").on('click',function(e){
   e.preventDefault();
@@ -183,6 +181,36 @@ $("a.tab").on("click", function(){
 
   $(this).parent().parent().parent().siblings().children("div.tab").removeClass("-on");
   $("div." + $(this).attr("data-target")).addClass("-on");
+  let tab01 = $("div." + $(this).attr("data-target")).attr('id');
+  let page = $("div." + $(this).attr("data-target")).children('.page');
+  console.log(page);
+  $.ajax({
+    url:'php/article_select.php',
+    method:'Post',
+    dataType:'json',
+    cache:'true',
+    data: {
+      tab: tab01,
+    },
+    success:function(res){
+      for (let i = 0; i < ma.length; i++) {
+        $(page).append(`
+          <div class="tab_box">
+              <h5 class="small-title">
+                  <i class="fas fa-trash"></i> ${ma[i].ARTICLE_TITLE}
+              </h5>
+              <div class="pic">
+              <img src="./image/article_share/${ma[i].ARTICLE_IMAGE1}">
+              </div>
+              <h6 class="address">作者:${ma[i].MEMBER_NAME}</h6>
+              <h6 class="tel">時間:${ma[i].DATE}</h6>
+              <h6 class="hours">按讚數:${ma[i].ARTICLE_LIKE}</h6>
+          </div>
+        `);
+      }
+    },
+  });
+  return false;
 });
 //會員資料修改送出
 $( "#sub_main" ).on( "click", function( event ) {
@@ -204,7 +232,6 @@ $( "#sub_main" ).on( "click", function( event ) {
       MEMBER_INTRODUCTION: MEMBER_INTRODUCTION
     },
     success:function(res){
-
           console.log(res);
     },
   });
@@ -227,8 +254,7 @@ $( "#sub_pic" ).on( "click", function( event ) {
     contentType: false,  
     mimeType: 'multipart/form-data',
     success: function(){
-      // getMemberInfo(e);
-      // console.log(123);
+
     },
   });
   return false;
@@ -432,12 +458,7 @@ function gruop_collection(){
               <div class="num">${gc[i].GROUP_NO}</div>
           </div>
         `);
-        // console.log(gc[i].GROUP_NO);
       }
-      function trash(){
-        $(".fa-trash").onchange = dotrash;
-      }
-      trash();
       dotrash();
     }else{ //error
       console.log(xhr.status);
@@ -453,7 +474,6 @@ function restaurant_collection(){
     if(xhr.status == 200){ //success
       rc = JSON.parse(xhr.responseText);
       var el = document.getElementById('rc_page1');
-      var str = '';
       for (let i = 0; i < rc.length; i++) {
         $(el).append(`
           <div class="tab_box">
@@ -466,9 +486,11 @@ function restaurant_collection(){
               <h6 class="address">地址:${rc[i].RES_ADDRESS}</h6>
               <h6 class="tel">電話:${rc[i].RES_TEL}</h6>
               <h6 class="hours">營業時間:${rc[i].RES_HOURS}</h6>
+              <div class="num">${rc[i].RES_NO}</div>
           </div>
         `);
       }
+      dotrash();
     }else{ //error
       console.log(xhr.status);
     }
@@ -497,9 +519,11 @@ function article_collection(){
               <h6 class="address">作者:${ac[i].MEMBER_NAME}</h6>
               <h6 class="tel">時間:${ac[i].DATE}</h6>
               <h6 class="hours">按讚數:${ac[i].ARTICAL_LIKE}</h6>
+              <div class="num">${ac[i].ARTICLE_NO}</div>
           </div>
         `);
       }
+      dotrash();
     }else{ //error
       console.log(xhr.status);
     }
@@ -589,9 +613,9 @@ function start(){
       //我的文章
       my_article()
       //我的朋友
-      my_friend();
+      my_friend()
       //刪除收藏
-      doFirst();
+      doFirst()
 }
 window.addEventListener("load",start,false); 
 

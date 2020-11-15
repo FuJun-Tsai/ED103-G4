@@ -535,15 +535,17 @@ require_once("login.inc");
                             </ul>
                         </div>
                         <div class="tab_contents">
-                            <div class="tab tab-date -on">
+                            <div class="tab tab-date -on"  id="tab-date">
                                 <div id="ma_page1" class="page -on">
                                 </div>
                             </div>
-                            <div class="tab tab_leave_a_comment">
-                                留言排序的內容
+                            <div class="tab tab_leave_a_comment"  id="tab_leave_a_comment">
+                                <div  class="page -on">
+                                    </div>
                             </div>
-                            <div class="tab tab_like">
-                                愛心排序的內容
+                            <div class="tab tab_like"  id="tab_like">
+                                <div  class="page -on">
+                                </div>
                             </div>
                         </div>
                         <div class="change_page">
