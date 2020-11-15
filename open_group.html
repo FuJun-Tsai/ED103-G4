@@ -35,6 +35,7 @@
         <div class="bubble x7"></div>
         <div class="bubble x8"></div>
         <div class="bubble x9"></div>
+
     </div>
     <!--header-->
     <header>
@@ -402,9 +403,23 @@
     </section>
 
     <!--確認畫面-->
-    <div class="den_true_box">
+    <div class="den_true_box_open">
         <div>
+            <div id="test-vue-id">
+                <tick></tick>
+            </div>
             <span>已成功開團，請前往會員畫面確認喔!</span>
+            <div>
+                <button>前往會員</button>
+            </div>
+        </div>
+    </div>
+    <div class="den_true_box_join">
+        <div>
+            <div id="test-vue-id">
+                <tick></tick>
+            </div>
+            <span>已成功參團，請前往會員畫面確認喔!</span>
             <div>
                 <button>前往會員</button>
             </div>
@@ -543,7 +558,7 @@
         window.addEventListener('load', doFirst);
     </script>
     <!--地圖-->
-    <script>
+    <!-- <script>
         var map = L.map('map', {
             center: [24.9647762, 121.1908706], //哈堡堡
             zoom: 18
@@ -673,6 +688,55 @@
         // }
         // map.addLayer(markers);
         // }
+    </script> -->
+    <script>
+        var map = L.map('map', {
+            center: [24.9647762, 121.1908706], //哈堡堡
+            zoom: 14
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        var redIcon = new L.Icon({
+            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+        var markers = new L.MarkerClusterGroup().addTo(map);;
+        $(document).ready(function() {
+            $.getJSON('./temp.json', function(e) {
+                let store = e.data;
+                for (let i = 0; i < 421; i++) {
+                    if (store[i].type == 3) {
+                        if (store[i].zipcode == 320) {
+                            // console.log(store[i].name);
+                            markers.addLayer(L.marker([store[i].latlng[0], store[i].latlng[1]], {
+                                    icon: redIcon
+                                })
+
+                                .bindPopup(
+
+                                    '<h1>' + store[i].name + '</h1>' +
+                                    '<img src=" ' + store[i].img + ' " / style="width:280px;height:280px"> <br>' +
+                                    '<i class="fas fa-heart"></i>&nbsp;30 &nbsp;&nbsp;' +
+                                    '<i class="fas fa-comments"></i>&nbsp;46 &nbsp;&nbsp;' +
+                                    '<i class="fas fa-share-square"></i>&nbsp;25 &nbsp;&nbsp;' +
+                                    '<p>' + '地址：' + store[i].address + '</p>' +
+                                    '<p>' + '電話：' + store[i].tel + '</p>' +
+                                    '<a href="#" style="text-align:end; display:block;" >' + 'more...' + '</a>'
+                                ));
+                        }
+
+                    }
+                }
+            })
+        })
+
+        map.addLayer(markers);
     </script>
     <!-- AJAX -->
 
@@ -861,8 +925,6 @@
                                     'background': '#ffffff'
                                 });
                                 this.style.background = '#FF7a85';
-
-
                             });
                         }
 
@@ -870,14 +932,12 @@
                 });
             } else {
                 console.log('no');
-
             }
         });
 
 
 
         $(document).ready(function() {
-
             $.ajax({
                 url: './open_group.php',
                 type: 'GET',
@@ -885,8 +945,6 @@
                 success(data) {
                     console.log(data);
                     var resData = data[0];
-                    // console.log(resData);
-                    // console.log(resData.length);
                     //抓全部餐廳
                     for (let i = 0; i < resData.length - 1; i++) {
                         $('.den_content').append(`
@@ -900,7 +958,6 @@
                     </div>
                     `);
                     }
-
                     // 第1個燈箱
                     let owlImage = document.querySelectorAll('.den_content div h6');
                     for (let i = 0; i < owlImage.length; i++) {
@@ -943,11 +1000,8 @@
                     //第2個燈箱
                     $('.den_button').on('click', function() {
                         let resNameVal = $('.den_Information div:nth-child(1) input').val();
-
                         console.log(data);
                         console.log(MasterNO);
-
-
                         for (let i = 0; i < resData.length; i++) {
                             if (resNameVal == resData[i].RES_NAME) {
                                 var nameOf = i;
@@ -1026,9 +1080,9 @@
                             )
                         }
                     });
+
                     //好友欄位
                     $(document).ready(function() {
-
                         if ($('#spanLogin').text = '登出') {
                             $.ajax({
                                 url: './php/getuser.php',
@@ -1063,10 +1117,7 @@
                                     });
                                 }
                             });
-
-                        } else {
-
-                        }
+                        } else {}
                     });
 
                     //燈箱2裡的button寫入資料庫
@@ -1083,7 +1134,6 @@
                         let nowNumMax = nowNum.substring(3, 2); //最大人數
                         var friendCheckboxVal = $("input[name='friendCheckbox[]']:checked").map(function() {
                             return $(this).val();
-                            // console.log($(this).val());
                         }).get();
                         let memberNoNum = $('.memberNoNum').text();
 
@@ -1334,13 +1384,9 @@
                             type: 'GET',
                             dataType: 'JSON',
                         });
-
                         $('.den_box3').css('display', 'none');
                         $('.box_background').css('display', 'none');
-
                     });
-
-
 
                 }
             });

@@ -276,7 +276,7 @@ header {
                     }
                 }
                 #den_tab1 {
-                    padding: 0px 30px;
+                    padding: 0px 10px;
                     display: block;
                     flex: 1 1 80%;
                     h3 {
@@ -297,7 +297,8 @@ header {
                         position: relative;
                     }
                     .result_owl {
-                        max-width: 1250px;
+                        // max-width: 1250px;
+                        width: 80vw;
                         background-color: rgba(255, 255, 255, 1);
                         margin: 0 auto;
                         .den_row {
@@ -494,6 +495,7 @@ header {
                     // border: 1px solid red;
                     flex: 1 1 80%;
                     display: none;
+                    padding-left: 15px;
                     h3 {
                         padding: 15px;
                         background-color: rgba(223, 114, 25, 0.5);
@@ -569,7 +571,7 @@ header {
 }
 
 .den_box {
-    @include light-box-setting(105%, 100vh, absolute);
+    @include light-box-setting(105%, 125%, absolute);
     box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
     background-color: rgba(255, 255, 255, .9);
@@ -582,9 +584,8 @@ header {
     box-shadow: 0px 0px 0px 10px #FFE1A4;
     border-radius: 10px;
     .leave_btn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
+        position: relative;
+        right: -90%;
         width: 50px;
         height: 50px;
         z-index: 99;
@@ -606,9 +607,9 @@ header {
     }
     .den_box_row {
         display: flex;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        position: relative;
+        // top: 50%;
+        // transform: translateY(-50%);
         align-items: center;
         .box_row_left {
             flex: 1 1 50%;
@@ -644,7 +645,7 @@ header {
         .box_row_right {
             flex: 1 1 50%;
             padding: 15px;
-            transform: translateX(-30px);
+            // transform: translateX(-30px);
             span {
                 @include box(70px, 8px);
                 // @include borderT;
@@ -840,20 +841,20 @@ header {
 }
 
 .den_box3 {
-    @include light-box-setting(105%, 105vh, absolute);
+    @include light-box-setting(105%, 120%, absolute);
     // box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
     background-color: rgba(255, 255, 255, 1);
     z-index: 10001;
     position: fixed;
     overflow: auto;
-    padding: 25px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 0px 10px $bgColor-style2;
     .leave_btn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
+        position: relative;
+        // top: 20px;
+        right: -90%;
         width: 50px;
         height: 50px;
         z-index: 99;
@@ -876,11 +877,11 @@ header {
     .den_box3_row {
         display: flex;
         align-items: center;
-        position: absolute;
-        top: 50%;
+        position: relative;
+        // top: 50%;
         // transform: translateY(-50%);
-        width: 90%;
-        transform: translate(3%, -50%);
+        // width: 90%;
+        // transform: translate(3%, -50%);
         .box3_row_left {
             flex: 1 1 50%;
             text-align: center;
@@ -958,12 +959,13 @@ header {
         }
     }
     .denAllButton3 {
-        position: absolute;
-        left: 50%;
-        width: 80%;
-        bottom: 60px;
-        transform: translateX(-50%);
-        text-align: right;
+        position: relative;
+        text-align: center;
+        // left: 50%;
+        // width: 80%;
+        // bottom: 60px;
+        // transform: translateX(-50%);
+        // text-align: right;
         // padding: 15px;
         .den_box3_button {
             text-align: center;
@@ -1116,7 +1118,7 @@ header {
 // }
 .box_background {
     width: 100%;
-    height: 100%;
+    height: 1000%;
     position: absolute;
     top: 0;
     left: 0;
@@ -1125,7 +1127,8 @@ header {
     z-index: 1000;
 }
 
-.den_true_box {
+.den_true_box_open, 
+.den_true_box_join {
     width: 250px;
     height: 150px;
     border-radius: 25px;
@@ -1133,7 +1136,7 @@ header {
     border: 1px solid red;
     padding: 10px;
     line-height: 2rem;
-    display: none;
+    display: block;
     div {
         border: 1px solid blue;
         span {
@@ -1353,6 +1356,7 @@ header {
                         }
                     }
                     #tab2 {
+                        
                         .foodGroup {
                             .eatGroup {
                                 // flex-wrap: wrap;
