@@ -3,7 +3,15 @@ $Errmsg = '';
 
 try{
     require_once('connectBooks.php'); //換成自己的 php $pdo來源
-    $sql = 'SELECT * FROM `report_restaurant_message`';
+    $sql = 'SELECT 
+                R.RES_MES_RE_NO ,
+                R.MESSAGE_NO,
+                R.RES_MES_REPORT_REASON,
+                R.RES_MES_REPORT_TIME,
+                R.RES_MES_REPORT_STATUS,
+                rm.RES_MESSAGE_WORD
+            FROM report_restaurant_message R
+	            JOIN restaurant_message rm on( R.MESSAGE_NO = rm.RES_MESSAGE_NO);';
 
     $data = $pdo->prepare($sql);
     $data-> execute();
