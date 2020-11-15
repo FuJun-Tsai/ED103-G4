@@ -197,24 +197,24 @@
                         <tr> 
                             <th class="col-md-1 col-xs-1" style="vertical-align: middle;">編號</th> 
                             <th class="col-md-3 col-xs-3" style="vertical-align: middle;">管理員帳號</th>
-                            <th class="col-md-2 col-xs-2" style="vertical-align: middle;">管理員名稱</th>
+                            <th class="col-md-3 col-xs-3" style="vertical-align: middle;">管理員名稱</th>
                             <th class="col-md-3 col-xs-3" style="vertical-align: middle;">管理員密碼</th>
-                            <th class="col-md-2 col-xs-2" style="vertical-align: middle;">管理員職稱</th>
+                            <!-- <th class="col-md-2 col-xs-2" style="vertical-align: middle;">管理員職稱</th> -->
                             <th class="col-md-2 col-xs-2" style="vertical-align: middle;">按鈕</th>
                         </tr> 
                     </thead>
                     <tbody>
-                        <tr> 
+                        <!-- <tr> 
                             <td>資料1</td> 
                             <td>資料2</td> 
                             <td>資料2</td> 
                             <td>資料2</td> 
-                            <td>資料2</td> 
+                             
                             <td>
                                 <button class="btn_5" data-toggle="modal" data-target="#modify_amdbtn">
                                     <i class="fas fa-pencil-alt"></i> 
                                 </button>
-                                <!-- 修改燈箱 -->
+                                修改燈箱
                                     <div class="modal fade" id="modify_amdbtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -243,12 +243,9 @@
                                         </div>
                                         </div>
                                     </div>
-                                <button class="btn_5">
-                                    <i class="fas fa-trash"></i>
-                                    
-                                </button>
+                              
                             </td>
-                        </tr> 
+                        </tr>  -->
                        
                     </tbody>
                 </table>
@@ -745,8 +742,8 @@
     <!-- 關鍵字搜尋 -->
     <!-- 會員 -->
     <script>
-        ajaxthendo();
-        function ajaxthendo(){
+        // ajaxthendo();
+        // function ajaxthendo(){
 
         $(document).ready(function() {
         $(".search").keyup(function () {
@@ -805,18 +802,21 @@
         });
 
     // 餐廳延伸
-    
-        $(document).ready(function() {
-          let ua = navigator.userAgent,
-              event = (ua.match(/iPad/i)) ? "touchstart" : "click";
-          if ($('.tbl_res_adm').length > 0) {
-              $('.tbl_res_adm tbody .row_h').on(event, function() {
-              $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
-                  return this.style.display === 'table-row' ? 'none' : 'table-row';
-              });
-              });
-          }
-          })
+        
+        // function restend(){
+        //               console.log(1);
+        //   let ua = navigator.userAgent,
+        //       event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+        //   if ($('.tbl_res_adm').length > 0) {
+        //       $('.tbl_res_adm tbody .row_h').on(event, function() {
+        //       $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
+        //           return this.style.display === 'table-row' ? 'none' : 'table-row';
+        //       });
+        //       });
+        //   }  
+        // }
+
+          
 
     // 檢舉切換
 
@@ -833,21 +833,89 @@
 
     //   檢舉延伸 
 
-          $(document).ready(function down() {
-            //Fixing jQuery Click Events for the iPad
-            let ua = navigator.userAgent,
-                event = (ua.match(/iPad/i)) ? "touchstart" : "click";
-                if ($('.report_table').length > 0) {
-                $('.report_table tbody .row_h').on(event, function() {
-                $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
-                    return this.style.display === 'table-row' ? 'none' : 'table-row';
-                });
-                });
-            }
-            })
-        }
+        //   $(document).ready(function down() {
+        //     //Fixing jQuery Click Events for the iPad
+        //     let ua = navigator.userAgent,
+        //         event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+        //         if ($('.report_table').length > 0) {
+        //         $('.report_table tbody .row_h').on(event, function() {
+        //         $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
+        //             return this.style.display === 'table-row' ? 'none' : 'table-row';
+        //         });
+        //         });
+        //     }
+        //     })
+        // }
 
       </script>
+       <!-- 管理接資料庫 -->
+       <script>
+        $(document).ready(function(){
+
+          $.ajax({
+              url:'back_amd.php',
+              type:'GET',
+              dataType:'json',
+              success(data){
+                //   console.log(data);
+                //   console.log(data.length);
+                //   console.log(data[0].MEMBER_NAME);
+                //   console.log(2);
+                  for(let i=0 ; i<=data.length-1 ; i+=1){
+                      $('.tbl_administrator tbody').append(`
+                      <tr> 
+                            <td>${data[i].AMD_NO}</td> 
+                            <td>${data[i].AMD_ID}</td> 
+                            <td>${data[i].AMD_NAME}</td> 
+                            <td>${data[i].AMD_PSD}</td> 
+                             
+                            <td>
+                                <button class="btn_5" data-toggle="modal" data-target="#modify_amdbtn">
+                                    <i class="fas fa-pencil-alt"></i> 
+                                </button>
+                                <!-- 修改燈箱 -->
+                                    <div class="modal fade" id="modify_amdbtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                             <h3 class="modal-title" id="modify_amdbtnModalLongTitle">修改資料</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                                <span>管理員帳號</span>
+                                                <input type="text">
+                                                <br>
+                                                <span>管理員名稱</span>
+                                                <input type="text">
+                                                <br>
+                                                <span>管理員密碼</span>
+                                                <input type="text" >
+                                                <br>
+                                                <span>管理員職稱</span>
+                                                <input type="text">
+                                            </div>
+                                            <div class="modal-footer">
+                                                
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                                                    <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
+                                                
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                <button class="btn_5">
+                                    <i class="fas fa-trash"></i>
+                                    
+                                </button>
+                            </td>
+                        </tr> 
+                      `);
+                  };
+
+              }
+
+          });
+        });
+    </script>
 
       <!-- 會員接資料庫 -->
       <script>
@@ -861,7 +929,8 @@
                     console.log(data);
                     console.log(data.length);
                     console.log(data[0].MEMBER_NAME);
-                    for(let i=0 ; i<=data.length ; i+=1){
+                    console.log(2);
+                    for(let i=0 ; i<=data.length-1 ; i+=1){
                         $('.tbl_member_adm tbody').append(`
                             <tr> 
                                 <td scope="row">${data[i].MEMBER_NO}</td> 
@@ -896,7 +965,7 @@
                   console.log(data);
                   console.log(data.length);
                   console.log(data[0].RES_NAME);
-                  for(let i=0 ; i<=data.length ; i+=1){
+                  for(let i=0 ; i<=data.length -1 ; i+=1){
                       $('.tbl_res_adm tbody').append(`
                       <tr class="row_h"> 
                             <td scope="row">${data[i].RES_NO}</td> 
@@ -1039,7 +1108,21 @@
                         </tr> 
                       `);
                   };
-
+                  function restend(){
+                      console.log(1);
+                    let ua = navigator.userAgent,
+                    event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+                    if ($('.tbl_res_adm').length > 0) {
+                        $('.tbl_res_adm tbody .row_h').on(event, function() {
+                        $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
+                            return this.style.display === 'table-row' ? 'none' : 'table-row';
+                        });
+                        });
+                    }  
+                    
+                }
+               
+                restend();
               }
 
           });
@@ -1054,10 +1137,10 @@
                 type:'GET',
                 dataType:'json',
                 success(data){
-                    console.log(data);
-                    console.log(data.length);
-                    console.log(data[0].MESSAGE_NO);
-                    for(let i=0 ; i<=data.length ; i+=1){
+                    // console.log(data);
+                    // console.log(data.length);
+                    // console.log(data[0].MESSAGE_NO);
+                    for(let i=0 ; i<=data.length-1 ; i+=1){
                         $('.res_ban_table tbody').append(`
                         <tr class="row_h"> 
                                     <td>${data[i].RES_MES_RE_NO}</td> 
@@ -1094,8 +1177,19 @@
                                 </tr> 
                         `);
                     };
-                    // ajaxthendo();
-
+                    function down() {
+            
+                        let ua = navigator.userAgent,
+                            event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+                            if ($('.report_table').length > 0) {
+                            $('.report_table tbody .row_h').on(event, function() {
+                            $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
+                                return this.style.display === 'table-row' ? 'none' : 'table-row';
+                            });
+                            });
+                        }
+                        }
+                        down();
 
                 }
 

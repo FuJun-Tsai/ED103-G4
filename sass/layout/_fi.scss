@@ -2,7 +2,14 @@ body {
     margin:0;
 
   }
-  
+  .logo{
+      position: fixed;
+      right: 50%;
+      z-index: 19;
+  }
+  .logo img{
+      width: 5vw;
+  }
   /* 泡泡 */
   
   #bubbles { 
@@ -305,7 +312,7 @@ body {
 
   .make_two .make_card .content h2{
       position: absolute;
-      right: -70px;
+      right: -80px;
       font-size: 3em;
       font-weight: 800;
       color:#9B1E23;
@@ -316,11 +323,11 @@ body {
   }
   .make_two .make_card:hover .content h2{
       opacity: 1;
-      transform: translateY(-70px);
+      transform: translateY(-50px);
   }
   .make_two .make_card .content h3{
       position: absolute;
-      top: 60px;
+      top: 80px;
       font-size: 1.5em;
       color: #9B1E23;
       z-index: 2;
@@ -331,14 +338,17 @@ body {
 
 
 
-  @media all and (max-width: 576px){
+  @media all and (max-width: 768px){
+    .logo img{
+        width: 10vw;
+    }
     .make_two .make_card{
       width: 150px;
       height: 150px;
     }
     .make_two .make_card .content h2{
-      top: 40px;
-      right: -10px;
+      top: 70px;
+      right: -20px;
       font-size: 1em;
     }
     .make_two .make_card:hover .content h2{
