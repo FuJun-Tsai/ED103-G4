@@ -172,22 +172,20 @@
                                 <div class="modal-header">
                                     <h3 class="modal-title" id="adm_addModalLongTitle">新增管理員</h3>
                                 </div>
-                                <div class="modal-body">
+                                <!-- <div class="modal-body" id="adm_add_box">
                                     <span>管理員帳號</span>
-                                    <input type="text">
+                                    <input type="text" id="amd_id_add">
                                     <br>
                                     <span>管理員名稱</span>
-                                    <input type="text">
+                                    <input type="text" id="amd_name_add">
                                     <br>
                                     <span>管理員密碼</span>
-                                    <input type="text" >
-                                    <br>
-                                    <span>管理員職稱</span>
-                                    <input type="text">
-                                </div>
+                                    <input type="text" id="amd_psd_add">
+                                    
+                                </div> -->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                                    <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
+                                    <button type="button" class="btn_5" id='submit'><i class="fas fa-save"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -847,6 +845,32 @@
       </script>
        <!-- 管理接資料庫 -->
        <script>
+           $(document).on('click', '#submit', function(){
+
+                $.ajax({
+                    url:'amd_add.php',
+                    type:'GET',
+                    dataType:'json',
+                    success(data){
+                        $('.adm_add_lightbox .modal-dialog .modal-content').append(
+                            `<div class="modal-body" id="adm_add_box">
+                                    <span>管理員帳號</span>
+                                    <input type="text" id="amd_id_add">
+                                    <br>
+                                    <span>管理員名稱</span>
+                                    <input type="text" id="amd_name_add">
+                                    <br>
+                                    <span>管理員密碼</span>
+                                    <input type="text" id="amd_psd_add">
+                                    
+                                </div>`
+                        )
+                    }
+
+                });
+            });
+       </script>
+       <script>
         $(document).ready(function(){
 
           $.ajax({
@@ -879,19 +903,19 @@
                                             </div>
                                             <div class="modal-body">
                                                 <span>管理員帳號</span>
-                                                <input type="text">
+                                                <input type="text" id="amd_id_add">
                                                 <br>
                                                 <span>管理員名稱</span>
-                                                <input type="text">
+                                                <input type="text" id="amd_name_add">
                                                 <br>
                                                 <span>管理員密碼</span>
-                                                <input type="text" >
+                                                <input type="text" id="amd_psd_add">
                                                 
                                             </div>
                                             <div class="modal-footer">
                                                 
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                                                    <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
+                                                    <button type="button" class="btn_5" id='submit'><i class="fas fa-save"></i></button>
                                                 
                                             </div>
                                         </div>
