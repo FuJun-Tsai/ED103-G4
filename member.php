@@ -386,7 +386,7 @@ require_once("login.inc");
                             </ul>
                         </div>
                         <div class="tab_contents">
-                            <div class="tab tab_gruop_collection -on">
+                            <div class="tab tab_gruop_collection -on" id="food_group_collection">
                                 <div id="gc_page1" class="page -on">
                                 </div>
                                 <div id="page2" class="page">
@@ -480,12 +480,12 @@ require_once("login.inc");
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab tab_restaurant_collection">
+                            <div class="tab tab_restaurant_collection" id="restaurant_collection">
                                 <div id="rc_page1" class="page -on">
                                     
                                 </div>
                             </div>
-                            <div class="tab tab_article_collection">
+                            <div class="tab tab_article_collection" id="article_collection">
                                 <div id="ac_page1" class="page -on">
 
                                 </div>

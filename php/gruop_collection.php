@@ -2,7 +2,7 @@
 session_start();
 try{
   require_once("../connectRes.php");
-  $sql = " SELECT f.GROUP_NAME, m.MEMBER_IMAGE, m.MEMBER_NAME, Date_format(f.START_TIME,'%m/%d')'START_DATE', fgc.MEMBER_NO 
+  $sql = " SELECT f.GROUP_NAME, m.MEMBER_IMAGE, m.MEMBER_NAME, Date_format(f.START_TIME,'%m/%d')'START_DATE', fgc.MEMBER_NO , fgc.GROUP_NO
           FROM food_group f JOIN `member_management` m ON (f.MEMBER = m.MEMBER_NO) 
                             JOIN `food_group_collection` fgc ON (f.GROUP_NO = fgc.GROUP_NO) 
           WHERE fgc.MEMBER_NO IN (SELECT fgc1.MEMBER_NO 
@@ -14,7 +14,8 @@ try{
   if( $gc->rowCount()==0){ 
 	  echo "{}";
   }else{ 
-  	$gcRow = $gc->fetchALL(PDO::FETCH_ASSOC);
+    $gcRow = $gc->fetchALL(PDO::FETCH_ASSOC);
+    
     echo json_encode($gcRow) ;
   }
 }catch(PDOException $e){

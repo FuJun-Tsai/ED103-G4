@@ -43,44 +43,40 @@ function fileChange() {
 function dotrash(){
   console.log(5);
   $(".fa-trash").on("click", function(){
-    let X =$(this).closest(".tab_box");
-    let Y =$(this).closest(".tab_box").children('.num').text();
-    let Z =$(this).closest(".tab").attr('id');
     $("div.overlay").addClass("-on");
-    then(X,Y,Z);
-
+    then($(this).closest(".tab_box"));
   });
-  function then(X,Y,Z){
+  function then(e){
     $(".btn_modal_send").on("click", function(){
-      $(X).remove();
-      console.log(Y);
-      console.log(Z);
-
+      // let here = $(e .GROUP_NO).text();
+      console.log(e.find('.GROUP_NO').text());
+      $(e).remove();
       $("div.overlay").removeClass("-on");
-      doajax(Y,Z);
-      function doajax(Y,Z){
-        $.ajax({
-          url:'php/deletecol.php',
-          method:'POST',
-          dataType:'json',
-          cache:'true',
-          data: {
-            collect: Z,
-            num: Y,
-          },
-          success: function(){
-            console.log("刪除成功");
-          },
-        });
-        return false;
-      }
+      dotrashajax(here);
     });
     $(".btn_modal_close").on("click", function(){
       $("div.overlay").removeClass("-on");
     });
   }
 }
-
+function dotrashajax(e){
+  console.log(e)
+  // $.ajax({
+  //   url:'php/delete.php',
+  //   method:'POST',
+  //   dataType:'json',
+  //   cache:'true',
+  //   data: form,
+  //   processData: false,
+  //   contentType: false,  
+  //   mimeType: 'multipart/form-data',
+  //   success: function(){
+  //     // getMemberInfo(e);
+  //     // console.log(123);
+  //   },
+  // });
+  return false;
+}
 //顯示修改
 $("#change_main").on('click',function(e){
   e.preventDefault();
@@ -429,13 +425,15 @@ function gruop_collection(){
               </div>
               <h6 class="author">團主:${gc[i].MEMBER_NAME}</h6>
               <h6 class="date">開團日:${gc[i].START_DATE}</h6>
-              <div class="num">${gc[i].GROUP_NO}</div>
+              <div class="GROUP_NO">${gc[i].GROUP_NO}</div>
           </div>
         `);
         // console.log(gc[i].GROUP_NO);
       }
+      console.log(3);
       function trash(){
-        $(".fa-trash").onchange = dotrash;
+        console.log(4);
+        $(".tab_box").onchange = dotrash;
       }
       trash();
       dotrash();
