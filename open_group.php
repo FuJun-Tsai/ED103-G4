@@ -1,14 +1,24 @@
 <?php
 $Errmsg='';
-
+$word='';
+$word1='';
 //餐廳
     $RES_KIND = isset($_GET["RES_KIND"]) ? $_GET["RES_KIND"] : "";
     $cond1 = isset($_GET["RES_KIND"]) ? "RES_KIND = $RES_KIND" : "";
-    $RES_STYLE = isset($_GET["RES_STYLE"]) ? $_GET["RES_STYLE"] : "";
-    $cond2 = isset($_GET["RES_STYLE"]) ? "RES_STYLE = $RES_STYLE" : "" ;
+    $RES_STYLE = isset($_GET["RES_STYLE"]) ? $_GET["RES_STYLE"] : "";  
+    // echo gettype($RES_STYLE);
+    // print_r($RES_STYLE);
+    if(isset($_GET["RES_STYLE"])){
+      for($i=0;$i<count($RES_STYLE);$i++){
+        $word.="'$RES_STYLE[$i]',";
+      }
+    }
+    $word1=substr($word,0,-1);
+
+    // print_r($word1);
+    $cond2 = isset($_GET["RES_STYLE"]) ? "RES_STYLE in ($word1)" : "" ;
     $GROUP_NO = isset($_GET["GROUP_NO"]) ? $_GET["GROUP_NO"] : "";
     $cond3 = isset($_GET["GROUP_NO"]) ? " and fg.GROUP_NO = $GROUP_NO order by GROUP_NO ":"";
-
 //美食團
 $groupNo = isset($_GET["groupNo"]) ? $_GET["groupNo"] : "";
 $groupName = isset($_GET["groupName"]) ? $_GET["groupName"] : "";
@@ -26,16 +36,17 @@ $FRIENDS_MASTER_NO = isset($_GET["FRIENDS_MASTER_NO"]) ? $_GET["FRIENDS_MASTER_N
 try{
   require_once('connectRes.php');
 
+
   //抓取全部餐廳
   $sql = "select * from restaurant_management R
             join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)
-            join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO)
+            join restaurant_style rs on (R.RES_STYLE = rs.STYLE_NO) 
             ";
 
-//判斷篩選餐廳
+// 判斷篩選餐廳
     if($cond1!=""){ 
       $sql.=" where $cond1";
-      if($cond2!= ""){
+      if($RES_STYLE!= ""){
           $sql.=" and $cond2";
       }
   }else{
@@ -53,6 +64,9 @@ try{
   $data0Rows = $data0->fetchAll(PDO::FETCH_ASSOC);
   $result[0] = $data0Rows; 
 
+
+
+  
 //好友資訊
   $sql1 = "
 select T.MEMBER_NO MEMBER_NO ,T.FRIENDS_NO FRIENDS_NO, MM.MEMBER_NAME FRIENDS_NAME ,mm1.MEMBER_NAME MEMBER_NAME, MM.MEMBER_IMAGE FRIENDS_IMAGE , mm1.MEMBER_IMAGE MEMBER_IMAGE  from track_list T

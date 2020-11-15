@@ -180,27 +180,27 @@
                                 <div class="den_cooking_style">
                                     <h3>料理風格</h3>
                                     <div>
-                                        <input type="checkbox" name="style" value="1" id="style1">
+                                        <input type="checkbox" name="style[]" value="1" id="style1">
                                         <label for="style1">排餐</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="2" id="style2">
+                                        <input type="checkbox" name="style[]" value="2" id="style2">
                                         <label for="style2">炸物</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="3" id="style3">
+                                        <input type="checkbox" name="style[]" value="3" id="style3">
                                         <label for="style3">燒烤</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="4" id="style4">
+                                        <input type="checkbox" name="style[]" value="4" id="style4">
                                         <label for="style4">火鍋</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="5" id="style5">
+                                        <input type="checkbox" name="style[]" value="5" id="style5">
                                         <label for="style5">飯食</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="6" id="style6">
+                                        <input type="checkbox" name="style[]" value="6" id="style6">
                                         <label for="style6">麵食</label>
                                     </div>
                                 </div>
@@ -601,8 +601,12 @@
         //餐廳種類
         $('.den_res_type div').on('change', function() {
             let yyy1 = $('.den_res_type div').index(this) + 1;
+            let yyy2 = $("input[name='style[]']:checked").map(function() {
+                return $(this).val();
+            }).get();
+            console.log(yyy2);
+
             // console.log(yyy1);
-            let yyy2 = $('.den_cooking_style div input[name=style]:checked').val();
             // console.log(yyy2);
 
             $.ajax({
@@ -694,11 +698,8 @@
         //料理風格
         $(".den_cooking_style div input").click(function() {
             let yyy1 = $('.den_res_type div input[name=kind]:checked').val();
-            // console.log(yyy1);
-
-            let yyy2 = $('.den_cooking_style div input').index(this) + 1;
-            // let yyy2 = $('.den_cooking_style div input[name=style]:checked').map();
-            // console.log(yyy2);
+            let yyy2 = $("input[name='style[]']:checked").get().map(x => x.value);
+            console.log(yyy2);
 
             var checkis = $(this).is(":checked");
             if (checkis == true) {
