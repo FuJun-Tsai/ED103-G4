@@ -113,11 +113,7 @@
         <!-- <div class="den_banner_background"></div> -->
         <div class="container">
             <div id="den_banner_title">
-                <!-- <span>就算發一千條短信，心與心之間的距離也不曾拉近過一厘米，
-                那麼怎樣的速度，才能走完我與你之間的距離</span> -->
                 <span>天才總是伴隨著飢餓，但你不是</span>
-                <!-- <span>秒速5厘米，那是櫻花飄落的速度，
-                那麼怎樣的速度，才能走完我與你之間的距離?</span> -->
                 <span>還等什麼，一起加入美食團吧！</span>
             </div>
             <div class="den_search">
@@ -141,9 +137,6 @@
     <!-- main -->
     <section class="den_section">
         <div class="den_wrapper">
-            <!-- <div class="den_gif">
-                <img src="./image/giphy.gif" alt="">
-            </div> -->
             <div class="den_background_round"></div>
             <div class="den_container">
                 <div class="den_row">
@@ -323,9 +316,6 @@
         </div>
         <div class="den_box_row" id="box1">
         </div>
-        <!-- <div class="den_box_button">
-            <button>送出</button>
-        </div> -->
     </div>
 
     <!--燈箱2/開團確認-->
@@ -334,7 +324,6 @@
             <div class="line1"></div>
             <div class="line2"></div>
         </div>
-        <!-- <form class="open_group_form" action="open_group1"> -->
         <div class="den_box2_row">
 
         </div>
@@ -403,6 +392,7 @@
     </section>
 
     <!--確認畫面-->
+    <!-- 開團完成 -->
     <div class="den_true_box_open">
         <div>
             <div id="test-vue-id">
@@ -414,6 +404,7 @@
             </div>
         </div>
     </div>
+    <!-- 參團完成 -->
     <div class="den_true_box_join">
         <div>
             <div id="test-vue-id">
@@ -425,11 +416,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
 
 
     <!--javaScript--->
@@ -524,8 +510,12 @@
             let yy = $('.den_Fill_Information form :input').val();
             // console.log(yy);
             $('.den_button button').on('click', function() {
-                $('.den_box2').css('display', 'block');
-                $('.box_background').css('display', 'block');
+                if ($('#spanLogin').text() == '登出') {
+                    $('.den_box2').css('display', 'block');
+                } else {
+                    alert('請先登入~~');
+                    $('.section_res').css('display', 'block');
+                }
             });
 
 
@@ -558,137 +548,7 @@
         window.addEventListener('load', doFirst);
     </script>
     <!--地圖-->
-    <!-- <script>
-        var map = L.map('map', {
-            center: [24.9647762, 121.1908706], //哈堡堡
-            zoom: 18
-        });
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        var redIcon = new L.Icon({
-            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            shadowSize: [41, 41]
-        });
-        var data = [{
-            'name': '竹香快餐',
-            'hover': '竹香快餐',
-            lat: 24.9643636,
-            lng: 121.1893723,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food1.jpg'
-        }, {
-            'name': '大中央厚切牛排',
-            'hover': '大中央厚切牛排',
-            lat: 24.9647076,
-            lng: 121.1885262,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food2.jpg'
-        }, {
-            'name': '重慶酸辣粉',
-            'hover': '重慶酸辣粉',
-            lat: 24.9647373,
-            lng: 121.1892811,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food3.jpg'
-        }, {
-            'name': '雞叔叔醬汁照燒雞排',
-            'hover': '雞叔叔醬汁照燒雞排',
-            lat: 24.9648977,
-            lng: 121.19345,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food4.jpg'
-        }, {
-            'name': '無敵蛋餅',
-            'hover': '無敵蛋餅',
-            lat: 24.9652668,
-            lng: 121.1931109,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food5.jpg'
-        }, {
-            'name': '霸王香雞排',
-            'hover': '霸王香雞排',
-            lat: 24.9650691,
-            lng: 121.1926797,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food6.jpg'
-        }, {
-            'name': '27秀梅',
-            'hover': '27秀梅',
-            lat: 24.9647026,
-            lng: 121.1910093,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food7.jpg'
-        }, {
-            'name': '哈堡堡輕食早午餐',
-            'hover': '哈堡堡輕食早午餐',
-            lat: 24.9647762,
-            lng: 121.1908706,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food8.jpg'
-        }, {
-            'name': '福泉豆花',
-            'hover': '福泉豆花',
-            lat: 24.965285,
-            lng: 121.1908942,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food9.jpg'
-        }, {
-            'name': '燒餅窯',
-            'hover': '燒餅窯',
-            lat: 24.9645288,
-            lng: 121.1930604,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food10.jpg'
-        }]
-        var markers = new L.MarkerClusterGroup().addTo(map);;
 
-        for (let i = 0; data.length > i; i++) {
-            // console.log(data[i].name)
-            markers.addLayer(L.marker([data[i].lat, data[i].lng], {
-                    icon: redIcon,
-                    title: data[i].hover
-                })
-                .bindPopup('<h1>' + data[i].name + '</h1>' +
-                    '<img src=" ' + data[i].photo + ' " /> <br>' +
-                    '<i class="fas fa-heart"></i>&nbsp;30 &nbsp;&nbsp;' +
-                    '<i class="fas fa-comments"></i>&nbsp;46 &nbsp;&nbsp;' +
-                    '<i class="fas fa-share-square"></i>&nbsp;25 &nbsp;&nbsp;' +
-                    '<p>' + data[i].address + '</p>' +
-                    '<p>' + data[i].phoneNumber + '</p>'
-                ));
-        }
-        map.addLayer(markers);
-
-        // var xhr = new XMLHttpRequest();
-        // xhr.open("get","https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json");
-        // xhr.send();
-        // xhr.onload = function(){
-        // var data = JSON.parse(xhr.responseText).features
-        // for(let i =0;data.length>i;i++){
-
-        // markers.addLayer(L.marker([data[i].geometry.coordinates[1],data[i].geometry.coordinates[0]], {icon: greenIcon}).bindPopup(data[i].properties.name));
-        // // add more markers here...
-        // // L.marker().addTo(map)
-        // //   )
-        // }
-        // map.addLayer(markers);
-        // }
-    </script> -->
     <script>
         var map = L.map('map', {
             center: [24.9647762, 121.1908706], //哈堡堡
@@ -717,9 +577,7 @@
                             markers.addLayer(L.marker([store[i].latlng[0], store[i].latlng[1]], {
                                     icon: redIcon
                                 })
-
                                 .bindPopup(
-
                                     '<h1>' + store[i].name + '</h1>' +
                                     '<img src=" ' + store[i].img + ' " / style="width:280px;height:280px"> <br>' +
                                     '<i class="fas fa-heart"></i>&nbsp;30 &nbsp;&nbsp;' +
@@ -739,7 +597,6 @@
         map.addLayer(markers);
     </script>
     <!-- AJAX -->
-
     <script>
         //餐廳種類
         $('.den_res_type div').on('change', function() {
@@ -927,16 +784,12 @@
                                 this.style.background = '#FF7a85';
                             });
                         }
-
                     }
                 });
             } else {
                 console.log('no');
             }
         });
-
-
-
         $(document).ready(function() {
             $.ajax({
                 url: './open_group.php',
@@ -1080,7 +933,6 @@
                             )
                         }
                     });
-
                     //好友欄位
                     $(document).ready(function() {
                         if ($('#spanLogin').text = '登出') {
@@ -1174,7 +1026,6 @@
                             type: 'GET',
                             dataType: 'json',
                         });
-
                         //接收資料
                         $.ajax({
                             url: './open_group.php',
@@ -1230,7 +1081,9 @@
                         $('.box_background').css('display', 'none');
                         $('.box2_row_left').remove();
                         $('.box2_row_right').remove();
-                        location = location;
+                        $('.den_true_box_open').css('display', 'block');
+                        // location = location;
+
                     });
                     //美食團渲染
                     $(document).ready(function() {
@@ -1280,7 +1133,6 @@
                             }
                         }
                     });
-
                     //第3個燈箱
                     $(document).ready(function() {
                         $('.den_eatGroup').on('click', function() {
@@ -1345,7 +1197,6 @@
                             `)
                             $('.den_box3').css('display', 'block');
                             $('.box_background').css('display', 'block');
-
                             $.ajax({
                                 url: './open_group.php',
                                 data: {
@@ -1369,25 +1220,30 @@
 
                     //第三個燈箱參團button
                     $('.den_box3_button button').on('click', function() {
-                        let memNo = $('.memberNoNum').text();
-                        console.log(memNo);
-                        let groupNo3 = $('.groupNo').text();
-                        console.log(groupNo3);
-                        // console.log(memNo);
-
-                        $.ajax({
-                            url: './open_group_join.php',
-                            data: {
-                                memNo: memNo,
-                                groupNo3: groupNo3
-                            },
-                            type: 'GET',
-                            dataType: 'JSON',
-                        });
-                        $('.den_box3').css('display', 'none');
-                        $('.box_background').css('display', 'none');
+                        if ($('#spanLogin').text() == '登出') {
+                            let memNo = $('.memberNoNum').text();
+                            console.log(memNo);
+                            let groupNo3 = $('.groupNo').text();
+                            console.log(groupNo3);
+                            // console.log(memNo);
+                            $.ajax({
+                                url: './open_group_join.php',
+                                data: {
+                                    memNo: memNo,
+                                    groupNo3: groupNo3
+                                },
+                                type: 'GET',
+                                dataType: 'JSON',
+                            });
+                            $('.den_box3').css('display', 'none');
+                            $('.box_background').css('display', 'none');
+                        } else {
+                            alert('請先登入~~');
+                            $('.section_res').css('display', 'block');
+                            $('.den_box3').css('display', 'none');
+                            $('.box_background').css('display', 'none');
+                        }
                     });
-
                 }
             });
         });
