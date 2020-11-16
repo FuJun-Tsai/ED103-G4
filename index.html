@@ -97,10 +97,6 @@
                 initialization();
             }
 
-            // if ($(window).height() >= 900) {
-            //     initialization();
-            // }
-
 
 
             $('#moveSectionUp').click(function(e) {
@@ -198,35 +194,7 @@
             .fourth_screen {
                 min-height: 900px;
             }
-<<<<<<< HEAD
         }
-=======
-        } */
-
-
-        /* 這裡!試試看 */
-        /* @media screen and (max-height: 579px) {
-            .first_screen,
-            .second_screen,
-            .third_screen,
-            .fourth_screen {
-                min-height: 580px;
-            }
-        }  */
-
-
-        @media screen and (max-width: 768px){
-            .first_screen,
-            .second_screen,
-            .third_screen,
-            .fourth_screen {
-                min-height: 900px;
-            }
-        }
-
-
-
->>>>>>> dev
     </style>
 </head>
 
@@ -384,7 +352,7 @@
                     <!-- 轉盤旋轉？ -->
                     <div class="container" id="storeContainer">
 
-                        <!-- <div class="store" id="first">
+                        <div class="store" id="first">
                             <a href="#"><img src="./image/index/second_screen_restaurant1.jpg" alt="#"></a>
                             <h4>無敵蛋餅1</h4>
                         </div>
@@ -403,7 +371,7 @@
                         <div class="store" id="fifth">
                             <a href="#"><img src="./image/index/second_screen_restaurant5.jpg" alt="#"></a>
                             <h4>竹香快餐5</h4>
-                        </div> -->
+                        </div>
 
                     </div>
 
@@ -419,7 +387,7 @@
 
                 <!-- 四個團要綁著轉盤中間的餐廳 -->
                 <div class="fourTeam">
-                    <!-- <div class="team team_1">
+                    <div class="team team_one">
                         <div class="content">
                             <p>團主：蕭黃騎</p>
                             <p>團名：吃貨團</p>
@@ -431,7 +399,7 @@
                             <span></span>
                         </button>
                     </div>
-                    <div class="team team_2">
+                    <div class="team team_two">
                         <div class="content">
                             <p>團主：羅痣祥</p>
                             <p>團名：下午茶開起來</p>
@@ -443,7 +411,7 @@
                             <span></span>
                         </button>
                     </div>
-                    <div class="team team_3">
+                    <div class="team team_three">
                         <div class="content">
                             <p>團主：揚塵林</p>
                             <p>團名：吃不胖</p>
@@ -455,7 +423,7 @@
                             <span></span>
                         </button>
                     </div>
-                    <div class="team team_4">
+                    <div class="team team_four">
                         <div class="content">
                             <p>團主：蔡伊林</p>
                             <p>團名：94愛吃</p>
@@ -466,7 +434,7 @@
                             參加 &#9658 
                             <span></span>
                         </button>
-                    </div> -->
+                    </div>
                 </div>
 
 
@@ -657,70 +625,6 @@
                 })
             
         </script> -->
-<<<<<<< HEAD
-=======
-        
-        <script src="js/btn_hover.js"></script>
-
-        <!--ajax-->
-        <script>
-    
-            $(document).ready(function() {
-                $.ajax({
-                    url: 'index.php',
-                    type: 'GET',
-                    dataType: 'json',
-                    success(data) {
-                        console.log(data);
-                        for(let i=0; i<5; i++){
-                            $('.container').append(
-                            `
-                            <div class="store" id="store${i+1}">
-                            <a href="#"><img src="./image/${data[i].RES_IMAGE1}" alt="#"></a>
-                            <h4>${data[i].RES_NAME}</h4>
-                            </div>
-                            `
-                            )
-                        }
-
-
-
-                        for(let j=0; j<4; j++){
-                            $('.fourTeam').append(
-                            `
-                            <div class="team_${j+1}">
-                                <div class="content">
-                                    <p>團主：${data[j].MEMBER}</p>
-                                    <p>團名：${data[j].GROUP_NAME}</p>
-                                    <p>用餐日期：${data[j].MEAL_TIME}</p>
-                                    <p>用餐時間：${data[j].MEAL_TIME}</p>
-                                </div>
-                                <button class="btn_5 btn_js">
-                                    參加 &#9658 
-                                    <span></span>
-                                </button>
-                            </div>
-                            `
-                            )
-                        }
-
-
-
-
-
-
-
-
-
-
-
-
-                    }
-                });
-            });
-    
-        </script>
->>>>>>> dev
 
 </body>
 
