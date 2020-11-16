@@ -89,9 +89,7 @@ $(document).ready(function () {
                     </div>
                     <p class="chu_left_content"><img src="./image/home/fourth_screen_speaker.svg" alt="">${collectionData[0].ARTICLE_TITLE}</p>
                     <span>＜最多收藏貼文＞</span>
-                    <div class="chu_left_icon2">
-                        <img src="./image/home/arrow_right.svg" alt="">
-                    </div>
+
                 </div>
 
                 <div class="chu_center">
@@ -104,9 +102,7 @@ $(document).ready(function () {
                     </div>
                     <p class="chu_center_content"><img src="./image/home/fourth_screen_speaker.svg" alt="">${messageData[0].ARTICLE_TITLE}</p>
                     <span>＜最多留言貼文＞</span>
-                    <div class="chu_center_icon2">
-                        <img src="./image/home/arrow_right.svg" alt="">
-                    </div>
+
                 </div>
             `
 

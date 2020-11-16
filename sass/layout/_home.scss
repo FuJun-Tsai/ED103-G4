@@ -81,6 +81,11 @@ section.first_screen {
             @include circle(550px, #B71E68);
             left: 58%;
             top: 30%;
+            @media all and (max-height: 600px) {
+                @include circle(430px, #B71E68);
+                top: 22%;
+                left: 45%;
+            }
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
             @include circle(500px, #B71E68);
@@ -126,6 +131,10 @@ section.first_screen {
         top: 55%;
         right: 30%;
         z-index: -1;
+        @media all and (min-width: 1200px) and (max-width: 1439px) {
+            top: 30%;
+            right: 40%;
+        }
         @media all and (min-width: 992px) and (max-width: 1199px) {
             @include circle(340px, #5A1D81);
             top: 60%;
@@ -226,8 +235,9 @@ section.first_screen {
     }
     .circle_food_curry {
         background-image: url(../image/home/first_screen_friends_food4.svg);
-        width: 124px;
-        height: 124px;
+        background-repeat: no-repeat;
+        width: 100px;
+        height: 100px;
         position: absolute;
         bottom: 8%;
         left: 60%;
@@ -370,6 +380,9 @@ section.second_screen {
         @media all and (max-width: 575px) {
             top: 13%;
         }
+        @media all and (max-height: 800px) {
+            top: 15%;
+        }
     }
     h4.restaurant {
         color: white;
@@ -390,6 +403,9 @@ section.second_screen {
         }
         @media all and (max-width: 575px) {
             top: 18%;
+        }
+        @media all and (max-height: 800px) {
+            top: 20%;
         }
     }
     .circle_orange {
@@ -589,6 +605,7 @@ section.second_screen {
                 transform: scale(1.1);
                 background-color:#ade8e8;
                 transition: 0.5s;
+                border: 0.5px solid black;
             }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 left: 8%;
@@ -655,6 +672,7 @@ section.second_screen {
             transform: scale(1.1);
             background-color:#dcaafb;
             transition: 0.5s;
+            border: 0.5px solid black;
         }
         @media all and (min-width: 1600px) and (max-width: 1920px) {
             left: 30%;
@@ -721,6 +739,7 @@ section.second_screen {
             transform: scale(1.1);
             background-color:#f5e8bd;
             transition: 0.5s;
+            border: 0.5px solid black;
         }
         @media all and (min-width: 1600px) and (max-width: 1920px) {
             bottom: 1%;
@@ -785,6 +804,7 @@ section.second_screen {
             transform: scale(1.1);
             background-color:#ffcce5;
             transition: 0.5s;
+            border: 0.5px solid black;
         }
         @media all and (min-width: 1600px) and (max-width: 1920px) {
             bottom: 23%;
@@ -1063,6 +1083,9 @@ section.third_screen {
             bottom: -15%;
             left: 50%;
             transform: translateX(-50%);
+            @media all and (max-height: 600px) {
+                bottom: -20%;
+            }
         }
     }
 }
@@ -1183,8 +1206,15 @@ section.fourth_screen {
                     transform: scale(1.1);
                     background-color:#dcaafb;
                     transition: 0.5s;
+                    border: 0.5px solid black;
                 }
                 &:hover .chu_left_content{
+                    color: black;
+                }
+                &:hover span{
+                    color: black;
+                }
+                &:hover p{
                     color: black;
                 }
                 @media all and (min-width: 576px) and (max-width: 767px) {
@@ -1270,6 +1300,16 @@ section.fourth_screen {
                     transform: scale(1.1);
                     background-color:#ade8e8;
                     transition: 0.5s;
+                    border: 0.5px solid black;
+                }
+                &:hover .chu_left_content{
+                    color: black;
+                }
+                &:hover span{
+                    color: black;
+                }
+                &:hover p{
+                    color: black;
                 }
                 @media all and (min-width: 576px) and (max-width: 767px) {
                     margin: auto;
