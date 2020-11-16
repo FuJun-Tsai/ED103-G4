@@ -172,7 +172,7 @@
                                 <div class="modal-header">
                                     <h3 class="modal-title" id="adm_addModalLongTitle">新增管理員</h3>
                                 </div>
-                                <!-- <div class="modal-body" id="adm_add_box">
+                                <div class="modal-body" id="adm_add_box">
                                     <span>管理員帳號</span>
                                     <input type="text" id="amd_id_add">
                                     <br>
@@ -182,10 +182,10 @@
                                     <span>管理員密碼</span>
                                     <input type="text" id="amd_psd_add">
                                     
-                                </div> -->
+                                </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                                    <button type="button" class="btn_5" id='submit'><i class="fas fa-save"></i></button>
+                                    <button type="button" class="btn_5" id='amd_add_submit'><i class="fas fa-save"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -358,9 +358,9 @@
                     </div>
                     </div>
                 </div>
-                 <div class="mem_search form-group pull-right">
+                 <!-- <div class="mem_search form-group pull-right">
                     <input type="text" class="res_adm_search form-control" placeholder="請輸入關鍵字">
-                </div>
+                </div> -->
                 
                  <table class="tbl_res_adm">
                      
@@ -769,32 +769,32 @@
 
     // 餐廳
 
-        $(document).ready(function() {
-        $(".res_adm_search").keyup(function () {
-            let searchTerm = $(".res_adm_search").val();
-            let listItem = $('.results tbody').children('tr');
-            let searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+        // $(document).ready(function() {
+        // $(".res_adm_search").keyup(function () {
+        //     let searchTerm = $(".res_adm_search").val();
+        //     let listItem = $('.results tbody').children('tr');
+        //     let searchSplit = searchTerm.replace(/ /g, "'):containsi('")
             
-            $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
-                return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
-                }
-            });
+        //     $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+        //         return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+        //         }
+        //     });
             
-                $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
-                    $(this).attr('visible','false');
-                });
+        //         $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+        //             $(this).attr('visible','false');
+        //         });
 
-                $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
-                    $(this).attr('visible','true');
-                });
+        //         $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+        //             $(this).attr('visible','true');
+        //         });
 
-                let jobCount = $('.results tbody tr[visible="true"]').length;
-                    $('.counter').text(jobCount + ' item');
+        //         let jobCount = $('.results tbody tr[visible="true"]').length;
+        //             $('.counter').text(jobCount + ' item');
 
-                if(jobCount == '0') {$('.no-result').show();}
-                    else {$('.no-result').hide();}
-            });
-        });
+        //         if(jobCount == '0') {$('.no-result').show();}
+        //             else {$('.no-result').hide();}
+        //     });
+        // });
 
     // 餐廳延伸
         
@@ -844,32 +844,30 @@
 
       </script>
        <!-- 管理接資料庫 -->
+       <!-- 新增管理者 -->
        <script>
-           $(document).on('click', '#submit', function(){
+           $(document).on('click', '#amd_add_submit', function(){
 
                 $.ajax({
                     url:'amd_add.php',
                     type:'GET',
                     dataType:'json',
-                    success(data){
-                        $('.adm_add_lightbox .modal-dialog .modal-content').append(
-                            `<div class="modal-body" id="adm_add_box">
-                                    <span>管理員帳號</span>
-                                    <input type="text" id="amd_id_add">
-                                    <br>
-                                    <span>管理員名稱</span>
-                                    <input type="text" id="amd_name_add">
-                                    <br>
-                                    <span>管理員密碼</span>
-                                    <input type="text" id="amd_psd_add">
-                                    
-                                </div>`
-                        )
-                    }
-
+                    data:{
+                        amd_id_add:$('#amd_id_add').val(),
+                        amd_name_add:$('#amd_name_add').val(),
+                        amd_psd_add:$('#amd_psd_add').val(),
+                    },
+                    success:function(res){
+                        
+                        alert('OK');
+                    },
+                    // complete: function(){}
+                    
                 });
+                parent.location.reload();
             });
        </script>
+
        <script>
         $(document).ready(function(){
 
@@ -885,17 +883,17 @@
                   for(let i=0 ; i<=data.length-1 ; i+=1){
                       $('.tbl_administrator tbody').append(`
                       <tr> 
-                            <td>${data[i].AMD_NO}</td> 
-                            <td>${data[i].AMD_ID}</td> 
-                            <td>${data[i].AMD_NAME}</td> 
-                            <td>${data[i].AMD_PSD}</td> 
+                            <td class="td_AMD_NO">${data[i].AMD_NO}</td> 
+                            <td class="td_AMD_ID">${data[i].AMD_ID}</td> 
+                            <td class="td_AMD_NAME">${data[i].AMD_NAME}</td> 
+                            <td class="td_AMD_PSD">${data[i].AMD_PSD}</td> 
                              
                             <td>
-                                <button class="btn_5" data-toggle="modal" data-target="#modify_amdbtn">
+                                <button class="btn_5 amdchange" data-toggle="modal" data-target="#modify_amdbtn${data[i].AMD_NO}">
                                     <i class="fas fa-pencil-alt"></i> 
                                 </button>
                                 <!-- 修改燈箱 -->
-                                    <div class="modal fade" id="modify_amdbtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal fade" id="modify_amdbtn${data[i].AMD_NO}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -903,32 +901,34 @@
                                             </div>
                                             <div class="modal-body">
                                                 <span>管理員帳號</span>
-                                                <input type="text" id="amd_id_add">
+                                                <input type="text" value="${data[i].AMD_ID}" class="ID">
                                                 <br>
                                                 <span>管理員名稱</span>
-                                                <input type="text" id="amd_name_add">
+                                                <input type="text" value="${data[i].AMD_NAME}" class="NAME">
                                                 <br>
                                                 <span>管理員密碼</span>
-                                                <input type="text" id="amd_psd_add">
+                                                <input type="text" value="${data[i].AMD_PSD}" class="PSD">
                                                 
                                             </div>
                                             <div class="modal-footer">
                                                 
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                                                    <button type="button" class="btn_5" id='submit'><i class="fas fa-save"></i></button>
+                                                    <button type="button" class="btn_5 submit" value="${data[i].AMD_NO}"><i class="fas fa-save"></i></button>
                                                 
                                             </div>
                                         </div>
                                         </div>
                                     </div>
-                                <button class="btn_5">
+                                <button class="btn_5 amdtrash" id="AMD${data[i].AMD_NO}">
                                     <i class="fas fa-trash"></i>
-                                    
                                 </button>
                             </td>
                         </tr> 
                       `);
                   };
+
+                  deleteAMD();
+                  changeAMD();
 
               }
 
@@ -936,6 +936,55 @@
         });
     </script>
 
+       <!-- 刪除管理者 -->
+       <script>
+           function deleteAMD(){
+            $('.amdtrash').on('click', function(){
+                let amdno = $(this).parent().siblings('.td_AMD_NO').text();
+                $.ajax({
+                    url:'amd_del.php',
+                    type:'GET',
+                    dataType:'json',
+                    data:{
+                        amd_no_del:amdno,
+                    },
+                    success:function(res){
+                        
+                    console.log('OK');
+                    },
+                    complete: function(){}
+                    
+                });
+                $(this).parent().parent().remove();
+                // parent.location.reload();
+                });
+            }
+
+            // 修改管理者
+            function changeAMD(){
+            $('.submit').on('click',function(){
+                $.ajax({
+                    url:'amd_chg.php',
+                    type:'POST',
+                    dataType:'json',
+                    data:{
+                        amd_id_chg:$('.ID').val(),
+                        amd_name_chg:$('.NAME').val(),
+                        amd_psd_chg:$('.PSD').val(),
+                        amd_no_chg:$('.submit').val()
+                    },
+                    success(e){
+                        console.log();
+                    },
+                    complete(e){
+                        console.log();
+                    },
+                    
+                });
+                parent.location.reload();
+            });
+            }
+        </script>
       <!-- 會員接資料庫 -->
       <script>
           $(document).ready(function(){
@@ -1059,13 +1108,13 @@
                         </tr>
                         <tr>
                             <tr>
-                                <td colspan="3">
+                                <td colspan="6">
                                     <span>
                                         餐廳地址:
                                     </span>
-                                </td>
-                                <td colspan="3">
-                                    ${data[i].RES_ADDRESS}
+                                    <div>
+                                        ${data[i].RES_ADDRESS}
+                                    </div>
                                 </td>
                                 
                                 <td rowspan="4">
@@ -1096,7 +1145,7 @@
                             <tr>
                                 <td colspan="3">
                                     <span>
-                                        餐廳簡介
+                                        餐廳簡介:
                                     </span>
                                     <div>
                                         ${data[i].RES_SUMMARY}
@@ -1143,12 +1192,89 @@
                 }
                
                 restend();
+                deleteAMD();
+                changeAMD();
               }
 
           });
         });
     </script>
-      <!-- 餐廳留言接資料庫 -->
+    <!-- 餐廳新增 -->
+    <script>
+        $(document).on('click', '#amd_add_submit', function(){
+
+             $.ajax({
+                 url:'res_add.php',
+                 type:'GET',
+                 dataType:'json',
+                 data:{
+                     amd_id_add:$('#amd_id_add').val(),
+                     amd_name_add:$('#amd_name_add').val(),
+                     amd_psd_add:$('#amd_psd_add').val(),
+                 },
+                 success:function(res){
+                     
+                     alert('OK');
+                 },
+                 // complete: function(){}
+                 
+             });
+             parent.location.reload();
+         });
+    </script>
+
+   
+
+    <!-- 刪除餐廳 -->
+    <script>
+        function deleteAMD(){
+         $('.amdtrash').on('click', function(){
+             let amdno = $(this).parent().siblings('.td_AMD_NO').text();
+             $.ajax({
+                 url:'amd_del.php',
+                 type:'GET',
+                 dataType:'json',
+                 data:{
+                     amd_no_del:amdno,
+                 },
+                 success:function(res){
+                     
+                 console.log('OK');
+                 },
+                 complete: function(){}
+                 
+             });
+             $(this).parent().parent().remove();
+             // parent.location.reload();
+             });
+         }
+
+         // 修改餐廳
+         function changeAMD(){
+         $('.submit').on('click',function(){
+             $.ajax({
+                 url:'amd_chg.php',
+                 type:'POST',
+                 dataType:'json',
+                 data:{
+                     amd_id_chg:$('.ID').val(),
+                     amd_name_chg:$('.NAME').val(),
+                     amd_psd_chg:$('.PSD').val(),
+                     amd_no_chg:$('.submit').val()
+                 },
+                 success(e){
+                     console.log();
+                 },
+                 complete(e){
+                     console.log();
+                 },
+                 
+             });
+             parent.location.reload();
+         });
+         }
+     </script>
+      <!-- 留言接資料庫 -->
       <script>
           $(document).ready(function(){
 

@@ -14,6 +14,15 @@ try{
     $data = $pdo->prepare($sql);
     $data-> execute();
 
+    $sql = "SELECT * FROM `restaurant_management`
+            WHERE 
+                AMD_ID = '$amd_id_add' AND
+                AMD_NAME = '$amd_name_add' AND
+                AMD_PSD = '$amd_psd_add';";
+
+    $data = $pdo->prepare($sql);
+    $data-> execute();
+
     if($data->rowCount()==0){
         echo '無法新增';
     }else{

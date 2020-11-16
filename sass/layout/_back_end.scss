@@ -453,6 +453,7 @@ h2 {
               border: 0.1px solid rgba(245, 222, 179, 1);
             }
             td{
+              // line-height: ;
               border:0.1px solid #FFF;
               // line-height: 50px;
               align-items: center;
@@ -723,6 +724,10 @@ a.tabs-menu.tabs-menu-active {
 
 .tbl_res_adm tbody tr:not(.row_h) {
   display: none;
+  line-height: 50px;
+}
+.tbl_res_adm tbody tr:not(.row_h) td div{
+  margin: 20px;
 }
 
 // .report_table tbody .row_h:after {
