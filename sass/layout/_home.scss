@@ -61,7 +61,9 @@ section.first_screen {
         }
         @media all and (max-width: 575px) {
             bottom: 23%;
-            right: 15%;
+            right: 50%;
+            transform: translateX(50%);
+            white-space: nowrap;
         }
     }
     .circle_fuchsia {
@@ -132,8 +134,10 @@ section.first_screen {
         right: 30%;
         z-index: -1;
         @media all and (min-width: 1200px) and (max-width: 1439px) {
-            top: 30%;
-            right: 40%;
+            top: 50%;
+            right: 30%;
+            // top: 30%;
+            // right: 40%;
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
             @include circle(340px, #5A1D81);
@@ -434,6 +438,7 @@ section.second_screen {
             .store:nth-child(2n+1) {
                 transform: translateY(1050px);
                 width: 15%;
+                filter: brightness(30%);
                 @media all and (min-width: 1200px) and (max-width: 1439px) {
                     transform: translateY(1160px);
                 }
@@ -465,6 +470,7 @@ section.second_screen {
             .store:nth-child(2n) {
                 transform: translateY(1150px);
                 width: 25%;
+                filter: brightness(30%);
                 @media all and (min-width: 1200px) and (max-width: 1439px) {
                     transform: translateY(1230px);
                 }
@@ -502,6 +508,9 @@ section.second_screen {
             .store:nth-child(3) {
                 transform: translateY(1250px);
                 width: 35%;
+                filter: brightness(100%);
+                // border: 5px solid #9B1E23;
+                border-radius: 50%;
                 @media all and (min-width: 1200px) and (max-width: 1439px) {
                     transform: translateY(1315px);
                 }
@@ -1178,9 +1187,9 @@ section.fourth_screen {
             display: flex;
             // border: 3px solid green;
             justify-content: space-around;
-            height: 40vh;
+            // height: 40vh;
             position: relative;
-            transform: translateY(75px);
+            transform: translateY(100px);
             * {
                 color: white;
             }
@@ -1189,7 +1198,7 @@ section.fourth_screen {
                 flex-direction: column;
             }
             @media all and (max-width: 575px) {
-                top: 10%;
+                top: 8%;
                 flex-direction: column;
             }
             .chu_left {
@@ -1227,6 +1236,7 @@ section.fourth_screen {
                     width: 230px;
                     height: 230px;
                     top: 25%;
+                    transform: translateY(-18%);
                 }
                 .chu_left_icon1 {
                     margin-top: 15px;
