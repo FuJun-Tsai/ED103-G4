@@ -982,6 +982,8 @@
                         let meal1 = meal.substring(0, 10);
                         let meal12 = meal.substring(13, 18);
                         let mealDate = meal1 + ' ' + meal12; //用餐時間
+
+                        // mealDate = document.getElementsByClassName("mealDate")[0].previousElementSibling.innerText.replace(" / ", " ").replace("用餐時間:", "");
                         let nowNum = $('.nowNum').text();
                         let nowNumJoin = nowNum.substring(0, 1); //參加人數
                         let nowNumMax = nowNum.substring(3, 2); //最大人數
@@ -1002,7 +1004,7 @@
                         // console.log(nowNumJoin);
                         // console.log(nowNumMax);
                         console.log(friendCheckboxVal);
-                        //傳送資料
+                        //傳送-----資料
                         $.ajax({
                             url: './open_group1.php',
                             data: {
@@ -1018,15 +1020,15 @@
                             type: 'GET',
                             dataType: 'json',
                         });
-                        $.ajax({
-                            url: './open_group_open.php',
-                            data: {
-                                groupNo: groupNo,
-                                friendCheckboxVal: friendCheckboxVal,
-                            },
-                            type: 'GET',
-                            dataType: 'json',
-                        });
+                        // $.ajax({
+                        //     url: './open_group_open.php',
+                        //     data: {
+                        //         groupNo: groupNo,
+                        //         friendCheckboxVal: friendCheckboxVal,
+                        //     },
+                        //     type: 'GET',
+                        //     dataType: 'json',
+                        // });
                         //接收資料
                         $.ajax({
                             url: './open_group.php',
@@ -1059,7 +1061,7 @@
                                                     <h3>用餐日期:</h3>
                                                     <h3>${foodGroup1new[i].MEAL_TIME}</h3>
                                                     <br>
-                                                    <h3>截止時間</h3>
+                                                    <h3>截止時間:</h3>
                                                     <h3>${foodGroup1new[i].END_TIME}</h3>
                                                 </div>
                                                 <div class="den_eatGroup_button">
@@ -1116,7 +1118,7 @@
                                         <h3>用餐日期:</h3>
                                         <h3>${foodGroup1[i].MEAL_TIME}</h3>
                                         <br>
-                                        <h3>截止時間</h3>
+                                        <h3>截止時間:</h3>
                                         <h3>${foodGroup1[i].END_TIME}</h3>
                                     </div>
                                     <div class="den_eatGroup_button">
