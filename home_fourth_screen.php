@@ -22,12 +22,11 @@ try{
 
 
   // SQL1 最多留言
-  $sql1 = "select * from article_collection AC
+  $sql1 = "SELECT * FROM article_sharing aas
+            join article_collection ac on (aas.ARTICLE_NO = ac.ARTICLE_NO)
             join member_management MM on (AC.MEMBER_NO = MM.MEMBER_NO)
-            join article_sharing A_S on (AC.MEMBER_NO = A_S.MEMBER_NO)
             order by message_total desc
-            limit 1;   
-          ";
+            limit 1;";
   $data1 = $pdo->prepare($sql1);
   $data1-> execute();
 

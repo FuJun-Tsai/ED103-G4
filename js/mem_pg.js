@@ -165,7 +165,6 @@ function member_modify(){
       break;
     }
   }
-
   function changethis(e,id){
     e = parseInt(e);
     if(e==0){
@@ -659,7 +658,7 @@ function my_article3(){
   xhr.open("GET", "./php/article_select_3.php", true);
   xhr.send(null);
 }
-//我的好友W
+//我的好友
 function my_friend(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
