@@ -4,6 +4,13 @@ body{
     }
 }
 
+.slimScrollDiv{
+    height: auto!important;
+    .fp-scrollable{
+        height: auto!important;
+    }
+}
+
 .chu_header {
     height: 0;
     position: fixed;
@@ -223,7 +230,7 @@ section.first_screen {
         height: 124px;
         position: absolute;
         bottom: 8%;
-        left: 40%;
+        left: 60%;
         animation: moveFood_curry 2.5s linear infinite;
         @keyframes moveFood_curry {
             0% {
@@ -237,11 +244,11 @@ section.first_screen {
             }
         }
         @media all and (min-width: 1200px) and (max-width: 1439px) {
-            left: 44%;
+            left: 60%;
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
             bottom: 35%;
-            left: 28%;
+            left: 60%;
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
             bottom: 2%;
@@ -280,7 +287,7 @@ section.first_screen {
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
             bottom: 19%;
-            right: 75%;
+            right: 80%;
         }
         @media all and (min-width: 576px) and (max-width: 767px) {
             display: none;
@@ -968,9 +975,9 @@ section.third_screen {
     .useCellPhone {
         background-image: url(../image/home/third_screen_useCellPhone.svg);
         width: 431px;
-        height: 495px;
+        height: 50%;
         position: absolute;
-        bottom: 7%;
+        bottom: 2%;
         left: 6%;
         background-repeat: no-repeat;
         @media all and (min-width: 1440px) and (max-width: 1599px) {
@@ -1017,7 +1024,7 @@ section.third_screen {
     .video {
         width: 55%;
         height: 60vh;
-        background-color: darkblue;
+        background-color: rgba(255, 255, 255,0);
         position: absolute;
         top: 25%;
         right: 10%;
@@ -1155,9 +1162,11 @@ section.fourth_screen {
                 color: white;
             }
             @media all and (min-width: 576px) and (max-width: 767px) {
+                top: 8%;
                 flex-direction: column;
             }
             @media all and (max-width: 575px) {
+                top: 10%;
                 flex-direction: column;
             }
             .chu_left {
@@ -1396,7 +1405,7 @@ section.fourth_screen {
             //         }
             //     }
             //     .chu_right_icon3 {
-            //         display: inline-block;
+            //         display: inline-block;video
             //         position: absolute;
             //         top: 30px;
             //         left: 50%;

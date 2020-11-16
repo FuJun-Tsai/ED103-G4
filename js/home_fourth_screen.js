@@ -66,7 +66,6 @@ $(document).ready(function () {
             let html = '';
             html +=
                 `
-                <a href="./share.html">
                     <div class="chu_left">
                     <div class="chu_left_icon1">
                         <img src="./image/member/${collectionData[0].MEMBER_IMAGE}" alt="">
@@ -94,9 +93,7 @@ $(document).ready(function () {
                         <img src="./image/home/arrow_right.svg" alt="">
                     </div>
                 </div>
-            </a>
 
-            <a href="./share.html">
                 <div class="chu_center">
                     <div class="chu_center_icon1">
                         <img src="./image/member/${messageData[0].MEMBER_IMAGE}" alt="">
@@ -111,7 +108,6 @@ $(document).ready(function () {
                         <img src="./image/home/arrow_right.svg" alt="">
                     </div>
                 </div>
-            </a>
             `
 
             $('.chu_row1').append(html);
