@@ -385,6 +385,7 @@ function myGroupNow(){
         </li>
         `);
       }
+      btnhover();
       review();
     }else{ //error
       console.log(xhr.status);
@@ -464,6 +465,7 @@ function tab_notok(){
         </div>
         `);
       }
+      btnhover();
       review();
     }else{
       console.log(xhr.status);
@@ -685,6 +687,7 @@ function my_friend(){
         </li>
         `);
       }
+      btnhover();
       del_friend();
     }else{ //error
       console.log(xhr.status);
