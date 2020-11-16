@@ -1,43 +1,212 @@
-//換側邊圖片
-function doFirst(){
-  //先跟HTML畫面產生關聯, 再建事件聆聽功能
-  document.getElementById('theFile').onchange = fileChange;
+//側邊按鈕切換內容
+function sidetab_change_content(){
+  $("button.tabbtn").on("click", function(){
+    $(this).closest("ul").find("button.tabbtn").removeClass("-on");
+    $(this).addClass("-on");
+
+    $("div.tabbtn_1").removeClass("-on");
+    $("div.tabbtn_1." + $(this).attr("data-target")).addClass("-on");
+  });
 }
-function fileChange() {
-  let res= $('#theFile').val();
-  let arr= res.split("\\");
-  let filename=arr.slice(-1)[0];
-  filextension=filename.split(".");
-  filext="."+filextension.slice(-1)[0];
-  valid=[".jpg",".png",".jpeg",".bmp"];
-  // console.log(res);
-  // console.log(arr);
-  // console.log(filename);
-  // console.log(filextension);
-  // console.log(filext);
-  //如果檔案不是圖檔，我們秀出error icon, 紅色X,然後取消掉 submit按鈕
-  if (valid.indexOf(filext.toLowerCase())==-1){
-    $("#namefile").css({"color":"red","font-weight":700});
-    $("#namefile").html(filename+"不是圖檔喔!");
-    $(".btn2").hide()
-    // $( "#submitbtn" ).hide();
-    $( "#fakebtn" ).show();
-  }else{
-    let file = document.getElementById('theFile').files[0];
-    let readFile = new FileReader();
-    readFile.readAsDataURL(file);
-    readFile.addEventListener('load',function(e){
-      let image = document.getElementById('avatar_change');
-      image.src = readFile.result;
+//內頁籤切換
+function intab_change_content(){
+  $("a.tab").on("click", function(){
+    $(this).closest("ul").find("a.tab").removeClass("-on");
+    $(this).addClass("-on");
+  
+    $(this).parent().parent().parent().siblings().children("div.tab").removeClass("-on");
+    $("div." + $(this).attr("data-target")).addClass("-on");
+    let tab01 = $("div." + $(this).attr("data-target")).attr('id');
+    let page = $("div." + $(this).attr("data-target")).children('.page');
+    return false;
+  });
+}
+//btnhover效果
+function btnhover(){
+  $('.btn_js')
+  .on('mouseenter', function(e) {
+    var parentOffset = $(this).offset(),
+        relX = e.pageX - parentOffset.left,
+        relY = e.pageY - parentOffset.top;
+    $(this).find('span').css({top:relY, left:relX})
+  })
+  .on('mouseout', function(e) {
+    var parentOffset = $(this).offset(),
+        relX = e.pageX - parentOffset.left,
+        relY = e.pageY - parentOffset.top;
+    $(this).find('span').css({top:relY, left:relX})
+  });
+}
+//上傳大頭貼是否為圖檔的hover
+function pic_up_hover(){
+  $("#theFile").hover(
+    function(){
+      $(".upload").css("transform" , "translate(-50%,0%)");
+    }, function(){
+      $(".upload").css("transform" , "translate(-50%,100%)");
+    }
+  );
+}
+//第一頁功能
+//換側邊圖片
+function picChange() {
+  $('#theFile').on("click",function(){
+    let res= $('#theFile').val();
+    let arr= res.split("\\");
+    let filename=arr.slice(-1)[0];
+    filextension=filename.split(".");
+    filext="."+filextension.slice(-1)[0];
+    valid=[".jpg",".png",".jpeg",".bmp"];
+    // console.log(res);
+    // console.log(arr);
+    // console.log(filename);
+    // console.log(filextension);
+    // console.log(filext);
+    //如果檔案不是圖檔，我們秀出error icon, 紅色X,然後取消掉 submit按鈕
+    if (valid.indexOf(filext.toLowerCase())==-1){
+      $("#namefile").css({"color":"red","font-weight":700});
+      $("#namefile").html(filename+"不是圖檔喔!");
+      $(".btn2").hide()
+      // $( "#submitbtn" ).hide();
+      $( "#fakebtn" ).show();
+    }else{
+      let file = document.getElementById('theFile').files[0];
+      let readFile = new FileReader();
+      readFile.readAsDataURL(file);
+      readFile.addEventListener('load',function(e){
+        let image = document.getElementById('avatar_change');
+        image.src = readFile.result;
+      });
+
+      $('#namefile').css({"color":"green","font-weight":700});
+      $('#namefile').html(filename);
+
+      $( ".btn2" ).show();
+      $( "#fakebtn" ).hide();
+    }
+  });
+}
+//側邊圖片修改送出
+function pic_modifyajax(){
+  $( "#sub_pic" ).on( "click", function( event ) {
+    event.preventDefault();
+    let avatar = document.getElementById('avatar');
+    let form = new FormData(avatar);
+    MEMBER_NAME = $("#mem_name").text();
+    $.ajax({
+      url:'php/update_pic.php',
+      method:'POST',
+      dataType:'json',
+      cache:'true',
+      data: form,
+      processData: false,
+      contentType: false,  
+      mimeType: 'multipart/form-data',
+      success: function(){
+  
+      },
     });
+    return false;
+  });
+}
+//會員更改顯示修改鈕
+function show_mem_modify(){
+  $("#change_main").on('click',function(e){
+    e.preventDefault();
+    $('.change').toggle();
+    // $(this).text("取消");
+  });
+}
+//修改會員資料
+function member_modify(){
+  myname = 0;
+  psw = 0;
+  email = 0;
+  introduce = 0;
+  $('.change').on('click',function(e){
+    e.preventDefault();
+    let here = $(this).siblings('.content').attr('id');
+    tochange(here);
+  });
 
-    $('#namefile').css({"color":"green","font-weight":700});
-    $('#namefile').html(filename);
+  function tochange(e){
+    switch (e){
+      case 'mem_name':
+        changethis(myname,e);
+        if(myname==0){
+          myname+=1;
+        }else{
+          myname=0;
+        }
+      break;
+      case 'mem_psw':
+        changethis(psw,e);
+        if(psw==0){
+          psw+=1;
+        }else{
+          psw=0;
+        }
+      break;
+      case 'mem_email':
+        changethis(email,e);
+        if(email==0){
+          email+=1;
+        }else{
+          email=0;
+        }
+      break;
+      case 'mem_introduction':
+        changethis(introduce,e);
+        if(introduce==0){
+          introduce+=1;
+        }else{
+          introduce=0;
+        }
+      break;
+    }
+  }
 
-    $( ".btn2" ).show();
-    $( "#fakebtn" ).hide();
+  function changethis(e,id){
+    e = parseInt(e);
+    if(e==0){
+      let value = $.trim($(`#${id}`).text());
+      $(`#${id}`).siblings('.change').text('確認');
+      $(`#${id}`).replaceWith(`<input type="text" class="content" id="${id}" value="${value}">`);
+    }else{
+      let value = $.trim($(`#${id}`).val());
+      $(`#${id}`).siblings('.change').text('修改');
+      $(`#${id}`).replaceWith(`<h5 class="content" id="${id}" name="${id}" >${value} </h5>`);
+    }
   }
 }
+//會員資料修改送出
+function member_modifyajax(){
+  $( "#sub_main" ).on( "click", function( event ) {
+    event.preventDefault();
+    MEMBER_NAME = $("#mem_name").text();
+    MEMBER_PSW = $("#mem_psw").text();
+    MEMBER_EMAIL = $("#mem_email").text();
+    MEMBER_INTRODUCTION = $("#mem_introduction").text();
+    // console.log( $(this).serialize() );
+    $.ajax({
+      url:'php/update_mymain.php',
+      method:'POST',
+      dataType:'json',
+      cache:'true',
+      data: {
+        MEMBER_NAME: MEMBER_NAME,
+        MEMBER_PSW: MEMBER_PSW,
+        MEMBER_EMAIL: MEMBER_EMAIL,
+        MEMBER_INTRODUCTION: MEMBER_INTRODUCTION
+      },
+      success:function(res){
+            console.log(res);
+      },
+    });
+    return false;
+  });
+}
+//第2、3頁功能
 //確認/取消審核
 function review(){
   $(".ok").on("click", function(e){
@@ -60,19 +229,6 @@ function review(){
     delajax(Y,Y2,Z);
   });
 }
-function del_friend(){
-  $(".defriend").on("click", function(e){
-    let X =$(this).closest(".mid_content");
-    let Y =$(this).parents().siblings().children('.friend').text();
-    let Z =$(this).closest(".doingcontent").attr('id');
-    console.log(X);
-    console.log(Y);
-    console.log(Z);
-    e.preventDefault();
-    $(X).remove();
-    delajax(Y,Z);
-  });
-}
 //確認審核ajax
 function okajax(Y,Y2,Z){
   $.ajax({
@@ -91,6 +247,7 @@ function okajax(Y,Y2,Z){
   });
   return false;
 }
+//第4、5頁功能
 //刪除收藏欄
 function dotrash(){
   $(".fa-trash").on("click", function(e){
@@ -110,7 +267,7 @@ function dotrash(){
     });
   });
 }
-//刪除收藏用的ajax
+//刪除用所有ajax
 function delajax(Y,Z,Y2){
   $.ajax({
     url:'php/deletecol.php',
@@ -128,185 +285,36 @@ function delajax(Y,Z,Y2){
   });
   return false;
 }
-//顯示修改
-$("#change_main").on('click',function(e){
-  e.preventDefault();
-  $('.change').toggle();
-  // $(this).text("取消");
-});
-
-//修改會員資料
-myname = 0;
-psw = 0;
-email = 0;
-introduce = 0;
-$('.change').on('click',function(e){
-  e.preventDefault();
-  let here = $(this).siblings('.content').attr('id');
-  tochange(here);
-});
-
-function tochange(e){
-  switch (e){
-    case 'mem_name':
-      changethis(myname,e);
-      if(myname==0){
-        myname+=1;
-      }else{
-        myname=0;
-      }
-    break;
-    case 'mem_psw':
-      changethis(psw,e);
-      if(psw==0){
-        psw+=1;
-      }else{
-        psw=0;
-      }
-    break;
-    case 'mem_email':
-      changethis(email,e);
-      if(email==0){
-        email+=1;
-      }else{
-        email=0;
-      }
-    break;
-    case 'mem_introduction':
-      changethis(introduce,e);
-      if(introduce==0){
-        introduce+=1;
-      }else{
-        introduce=0;
-      }
-    break;
-  }
+//第六頁功能
+//刪除好友
+function del_friend(){
+  $(".defriend").on("click", function(e){
+    let X =$(this).closest(".mid_content");
+    let Y =$(this).parents().siblings().children('.friend').text();
+    let Z =$(this).closest(".doingcontent").attr('id');
+    console.log(X);
+    console.log(Y);
+    console.log(Z);
+    e.preventDefault();
+    $(X).remove();
+    delajax(Y,Z);
+  });
 }
-
-function changethis(e,id){
-  e = parseInt(e);
-  if(e==0){
-    let value = $.trim($(`#${id}`).text());
-    $(`#${id}`).siblings('.change').text('確認');
-    $(`#${id}`).replaceWith(`<input type="text" class="content" id="${id}" value="${value}">`);
-  }else{
-    let value = $.trim($(`#${id}`).val());
-    $(`#${id}`).siblings('.change').text('修改');
-    $(`#${id}`).replaceWith(`<h5 class="content" id="${id}" name="${id}" >${value} </h5>`);
-  }
-}
-
-//更換大頭貼的hover
-$("#theFile").hover(
-  function(){
-    $(".upload").css("transform" , "translate(-50%,0%)");
-  }, function(){
-    $(".upload").css("transform" , "translate(-50%,100%)");
-  }
-);
-
 //沒團按鈕hover 
-$("#no_group .btn_3").hover(
-  function(){
-    $(".btn_3 a").css("color","#76AFAF");
-  },function(){
-    $(".btn_3 a").css("color","#FFF");
-  }
-);
-
-//按鈕切換
-$("button.tabbtn").on("click", function(){
-  $(this).closest("ul").find("button.tabbtn").removeClass("-on");
-  $(this).addClass("-on");
-
-  $("div.tabbtn_1").removeClass("-on");
-  $("div.tabbtn_1." + $(this).attr("data-target")).addClass("-on");
-});
-
-//內頁籤切換
-$("a.tab").on("click", function(){
-  $(this).closest("ul").find("a.tab").removeClass("-on");
-  $(this).addClass("-on");
-
-  $(this).parent().parent().parent().siblings().children("div.tab").removeClass("-on");
-  $("div." + $(this).attr("data-target")).addClass("-on");
-  let tab01 = $("div." + $(this).attr("data-target")).attr('id');
-  let page = $("div." + $(this).attr("data-target")).children('.page');
-  return false;
-});
-//會員資料修改送出
-$( "#sub_main" ).on( "click", function( event ) {
-  // event.preventDefault();
-  MEMBER_NAME = $("#mem_name").text();
-  MEMBER_PSW = $("#mem_psw").text();
-  MEMBER_EMAIL = $("#mem_email").text();
-  MEMBER_INTRODUCTION = $("#mem_introduction").text();
-  // console.log( $(this).serialize() );
-  $.ajax({
-    url:'php/update_mymain.php',
-    method:'POST',
-    dataType:'json',
-    cache:'true',
-    data: {
-      MEMBER_NAME: MEMBER_NAME,
-      MEMBER_PSW: MEMBER_PSW,
-      MEMBER_EMAIL: MEMBER_EMAIL,
-      MEMBER_INTRODUCTION: MEMBER_INTRODUCTION
-    },
-    success:function(res){
-          console.log(res);
-    },
-  });
-  return false;
-});
-
-//會員照片修改送出
-$( "#sub_pic" ).on( "click", function( event ) {
-  // event.preventDefault();
-  let avatar = document.getElementById('avatar');
-  let form = new FormData(avatar);
-  MEMBER_NAME = $("#mem_name").text();
-  $.ajax({
-    url:'php/update_pic.php',
-    method:'POST',
-    dataType:'json',
-    cache:'true',
-    data: form,
-    processData: false,
-    contentType: false,  
-    mimeType: 'multipart/form-data',
-    success: function(){
-
-    },
-  });
-  return false;
-});
-
-// function getMemberInfo(e){
-//   let xhr = new XMLHttpRequest(e);
-
-//   xhr.onload = function(){
-//     if(xhr.status == 200){ //success
-//       member = JSON.parse(xhr.responseText);
-//       if(member.MEMBER_ID){
-//         $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
-//         $id('spanLogin').innerHTML = '登出';
-//       }
-//     }else{ //error
-//       alert(xhr.status);
-//     }
-//   }
-
-//   xhr.open("get", "php/getMemberInfo_copy.php", true);
-//   xhr.send(null);
-// }
-
-
+function no_group_hover(){
+  $("#no_group .btn_3").hover(
+    function(){
+      $(".btn_3 a").css("color","#76AFAF");
+    },function(){
+      $(".btn_3 a").css("color","#FFF");
+    }
+  );
+}
 //定義ID
 function $id(id){
 	return document.getElementById(id);
 }	
-
+//渲染主頁+開團
 function my_main(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
@@ -344,7 +352,7 @@ function my_main(){
   xhr.open("GET", "./php/my_main.php", true);
   xhr.send(null);
 }
-
+//渲染目前想加我開的團的陌生人
 function myGroupNow(){
   console.log(1);
   let xhr = new XMLHttpRequest();
@@ -385,7 +393,7 @@ function myGroupNow(){
   xhr.open("GET", "./php/my_group.php", true);
   xhr.send(null);
 }
-
+//渲染自己確認參加的團
 function tab_ok(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
@@ -422,7 +430,7 @@ function tab_ok(){
   xhr.open("GET", "./php/tab_ok.php", true);
   xhr.send(null);
 }
-
+//渲染被邀請尚未答應的團
 function tab_notok(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
@@ -464,7 +472,7 @@ function tab_notok(){
   xhr.open("GET", "./php/tab_notok.php", true);
   xhr.send(null);
 }
-
+//美食團的收藏
 function gruop_collection(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
@@ -495,7 +503,7 @@ function gruop_collection(){
   xhr.open("GET", "./php/gruop_collection.php", true);
   xhr.send(null);
 }
-
+//餐廳的收藏
 function restaurant_collection(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
@@ -526,7 +534,7 @@ function restaurant_collection(){
   xhr.open("GET", "./php/restaurant_collection.php", true);
   xhr.send(null);
 }
-
+//文章的收藏
 function article_collection(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
@@ -559,7 +567,7 @@ function article_collection(){
   xhr.open("GET", "./php/article_collection.php", true);
   xhr.send(null);
 }
-
+//我的文章 日期排序
 function my_article(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
@@ -589,7 +597,7 @@ function my_article(){
   xhr.open("GET", "./php/article_select.php", true);
   xhr.send(null);
 }
-
+//我的文章 留言排序
 function my_article2(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
@@ -619,7 +627,7 @@ function my_article2(){
   xhr.open("GET", "./php/article_select_2.php", true);
   xhr.send(null);
 }
-
+//我的文章 愛心排序
 function my_article3(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
@@ -649,7 +657,7 @@ function my_article3(){
   xhr.open("GET", "./php/article_select_3.php", true);
   xhr.send(null);
 }
-
+//我的好友W
 function my_friend(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
@@ -685,8 +693,26 @@ function my_friend(){
   xhr.open("GET", "./php/my_friend.php", true);
   xhr.send(null);
 }
-
+//loading就執行
 function start(){
+      //側邊按鈕切換內容
+      sidetab_change_content();
+      //內頁籤切換
+      intab_change_content();
+      //btnhover效果
+      btnhover();
+      //上傳大頭貼是否為圖檔的hover
+      pic_up_hover();
+      //更換側邊圖片
+      picChange();
+      //照片修改送出
+      pic_modifyajax();
+      //會員更改顯示修改鈕
+      show_mem_modify();
+      //會員修改
+      member_modify();
+      //會員修改送出
+      member_modifyajax();
       //個人資訊+開團資訊
       my_main();
       //審核陌生團員
@@ -694,32 +720,21 @@ function start(){
       //確認餐團
       tab_ok();  
       //被邀請待回
-      tab_notok()
+      tab_notok();
       //美食團收藏
-      gruop_collection()
+      gruop_collection();
       //餐廳收藏
-      restaurant_collection()
+      restaurant_collection();
       //文章收藏
-      article_collection()
+      article_collection();
       //我的文章
-      my_article()
-      my_article2()
-      my_article3()
+      my_article();
+      my_article2();
+      my_article3();
       //我的朋友
-      my_friend()
-      //刪除收藏
-      doFirst()
+      my_friend();
 }
 window.addEventListener("load",start,false); 
-
-
-
-
-
-
-
-
-
 
 
 // //上下頁切換

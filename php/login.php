@@ -2,7 +2,7 @@
 try{
   session_start();
   require_once("../connectbook.php");
-  $sql = " SELECT MEMBER_ID ,MEMBER_PSW ,MEMBER_IMAGE,MEMBER_NO ,MEMBER_NAME
+  $sql = " SELECT MEMBER_ID ,MEMBER_PSW ,MEMBER_IMAGE ,MEMBER_NO ,MEMBER_NAME
   FROM `member_management` 
   WHERE MEMBER_ID=:MEMBER_ID
   AND MEMBER_PSW=:MEMBER_PSW";
@@ -21,6 +21,7 @@ try{
     $_SESSION["MEMBER_IMAGE"] = $memRow["MEMBER_IMAGE"];
     $_SESSION["MEMBER_NO"] = $memRow["MEMBER_NO"];
     $_SESSION["MEMBER_NAME"] = $memRow["MEMBER_NAME"];
+
     //送出登入者的相關資料
     echo json_encode($memRow) ;
   }

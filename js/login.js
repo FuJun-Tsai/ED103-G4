@@ -27,27 +27,36 @@ let member;
 
     function sendForm(){
       //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
-      let MEMBER_ID = document.getElementById("loginID").value;
-      let MEMBER_PSW = document.getElementById("loginPsd").value;
+      let MEMBER_ID = document.getElementsByName("MEMBER_ID")[0].value;
+      let MEMBER_PSW = document.getElementsByName("MEMBER_PSW")[0].value;
       let xhr = new XMLHttpRequest();
       xhr.onload = function(){
         member = JSON.parse(xhr.responseText);
-        if(Object.keys(member).length!= 0){
+        // console.log("====",member);
+        if(member.MEMBER_ID!=undefined){
           $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
           $id('spanLogin').innerHTML = '登出';
+          // document.getElementsByClassName('username')[0].innerText(`${member.MEMBERR_NO}`);
+          $('.username').text(`${member.MEMBER_NO}`);
           //將登入表單上的資料清空，並隱藏起來
           
           $id('login_box').style.display = 'none';
           MEMBER_ID = '';
-          MEMBER_PSW = '';          
+          MEMBER_PSW = '';
+          memberrender();
         }else{
             window.alert("帳密錯誤~");
         }
       }
+
       xhr.open("Post", "php/login.php", true);
       xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
       let data_info = `MEMBER_ID=${MEMBER_ID}&MEMBER_PSW=${MEMBER_PSW}`;
+      console.log(data_info);
+
+      // memberrender();
       xhr.send(data_info); 
+
     }
 
     function cancelLogin(){
@@ -67,18 +76,26 @@ let member;
           if(member.MEMBER_ID){
             $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
             $id('spanLogin').innerHTML = '登出';
+            $('.username').text(`${member.MEMBER_NO}`);  
           }
+
+
         }else{ //error
           alert(xhr.status);
         }
       }
 
-      xhr.open("get", "php/getMemberInfo_copy.php", true);
+      xhr.open("get", "php/getMemberInfo.php", true);
       xhr.send(null);
     }
 
-    function init(){
+    function toggleForm() {
+        var container_res = document.querySelector('.container_res');
+        container_res.classList.toggle('act');
+    }
 
+    function init(){
+      user = '';
       //-----------------------檢查是否已登入
       getMemberInfo();
 
@@ -92,12 +109,21 @@ let member;
       //===設定btnLoginCancel.onclick 事件處理程序是 cancelLogin
       $id('btnLoginCancel').onclick = cancelLogin;
 
+
     }; //window.onload
 
     window.addEventListener("load",init,false);
 
-    function toggleForm() {
-        var container_res = document.querySelector('.container_res');
-        container_res.classList.toggle('act')
-    }
+    //登入成功後整頁渲染
+    function memberrender(){
+      let herehref = location.href.split('?')[0].split('/')[location.href.split('?')[0].split('/').length-1];
 
+      if(herehref=='singlerestaurant.html'){
+          singleJS();
+      };
+
+      if(herehref=='searchrestaurant.html'){
+          searchJS();
+      };
+
+    };
