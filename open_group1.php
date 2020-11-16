@@ -6,9 +6,8 @@ $resNo = isset($_GET["resNo"]) ? $_GET["resNo"] : "";
 $mealDate = isset($_GET["mealDate"]) ? $_GET["mealDate"] : "";
 $nowNumJoin = isset($_GET["nowNumJoin"]) ? $_GET["nowNumJoin"] : "";
 $nowNumMax = isset($_GET["nowNumMax"]) ? $_GET["nowNumMax"] : "";
-$friendCheckboxVal=isset($_GET["friendCheckboxVal"]) ? $_GET["friendCheckboxVal"] : "";
-$memNo = isset($_GET["memNo"]) ? $_GET["memNo"] : "";
-$groupNo3 = isset($_GET["groupNo3"]) ? $_GET["groupNo3"] : "";
+$friendCheckboxVal=isset($_GET["friendCheckboxVal"]) ? $_GET["friendCheckboxVal"]:"";
+$memberNoNum = isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 
 // echo $memNo;
 // echo $groupNo3;
@@ -17,9 +16,9 @@ $groupNo3 = isset($_GET["groupNo3"]) ? $_GET["groupNo3"] : "";
 // echo $nowNumJoin;
 
 try{
-  require_once('connectRes.php');
-
-  $sql="select * from food_group;
+  require_once('connectbook.php');
+//開團
+  $sql="
   insert into food_group(
   MEMBER,
   GROUP_NO, 
@@ -30,17 +29,13 @@ try{
   MAX_NUMBER, 
   JOIN_NUMBER,
   MEAL_TIME)
-  VALUES (1,$groupNo,$resNo,'$groupName',CURRENT_DATE(),'$mealDate'+interval-1 day,$nowNumMax,$nowNumJoin,'$mealDate');";
-$products = $pdo->prepare($sql);
-$products->execute();
-
+  VALUES ($memberNoNum,$groupNo,$resNo,'$groupName',CURRENT_DATE(),'$mealDate'+interval-1 day,$nowNumMax,$nowNumJoin,'$mealDate');";
+  $products = $pdo->prepare($sql);
+  $products->execute();
 
 for($i=0;$i<count($friendCheckboxVal);$i++){
-
-  // echo $friendCheckboxVal[$i],'<br>';
-  // echo $groupNo;
+//開團加入邀請好友
   $sql1=" 
-  select * from food_group_people;
   insert into food_group_people( 
   GROUP_NO, 
   MEMBER_NO, 
@@ -50,6 +45,14 @@ for($i=0;$i<count($friendCheckboxVal);$i++){
   $products = $pdo->prepare($sql1);
   $products->execute();
 }
+
+
+
+//陌生人加入
+// $sql2="insert into food_group_people (GROUP_NO, MEMBER_NO, MEMBER_STATUS) VALUES ($groupNo3,$memNo,2);";
+
+// $products = $pdo->prepare($sql2);
+// $products->execute();
 
 // echo count($friendCheckboxVal);
 

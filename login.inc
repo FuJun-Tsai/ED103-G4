@@ -8,8 +8,8 @@
             <div class="form_res">
                 <form name="login">
                     <h2>會員登入</h2>
-                    <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
-                    <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
+                    <input type="text" name="MEMBER_ID" placeholder="請輸入帳號" id="loginID">
+                    <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼" id="loginPsd">
 
                     <input type="button" name="" value="登入" id="btnLogin">
                     <input type="button" name="" value="取消" id="btnLoginCancel">

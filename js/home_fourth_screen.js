@@ -19,17 +19,19 @@ function ppp(articleNo,memberNoNum) {
         success(data) {
             let loveyesorno = 0;
             let bbb = $('#spanLogin').text();
-            console.log(bbb);
+            // alert(bbb);
             console.log(data);
             console.log(data.responseText);
 
+            
             if (data.responseText == '他有收藏') {
                 loveyesorno = 1;
+
                 $('.chu_left_icon3 img').attr('src', './image/home/fourth_screen_redHollowHeart.png');
             } else {
                 $('.chu_left_icon3 img').attr('src', './image/home/fourth_screen_redHeart.png');
             }
-
+            
         },
 
     })
@@ -49,27 +51,26 @@ $(document).ready(function () {
             var collectionData = data[0];
             var messageData = data[1];
             var sharingData = data[2];
-
+            
             // console.log(data);
             // console.log(collectionData[0]);
             // console.log(messageData[0]);
             // console.log(sharingData[0]);
-
+            
             let loveyesorno = 0;
             let bbb = $('#spanLogin').text();
             console.log(bbb);
-
-
-
+            
+     
 
             let html = '';
             html +=
                 `
-                <div class="chu_left">
-                <div class="chu_left_icon1">
-                    <img src="./image/member/${collectionData[0].MEMBER_IMAGE}" alt="">
-                </div>
-                <div class="chu_left_icon3">
+                    <div class="chu_left">
+                    <div class="chu_left_icon1">
+                        <img src="./image/member/${collectionData[0].MEMBER_IMAGE}" alt="">
+                    </div>
+                    <div class="chu_left_icon3">
                 `
             if (loveyesorno == 1) {
                 html +=
@@ -82,32 +83,27 @@ $(document).ready(function () {
             }
 
             html += `
-                    <p>${collectionData[0].ARTICLE_LIKE}</p>
-                    <p class="articleNo" style="display:none">${collectionData[0].ARTICLE_NO}</p>
-                    <p></p>
-                </div>
-                <p class="chu_left_content"><img src="./image/home/fourth_screen_speaker.svg" alt="">${collectionData[0].ARTICLE_TITLE}</p>
-                <span>＜最多收藏貼文＞</span>
-                <div class="chu_left_icon2">
-                    <img src="./image/home/arrow_right.svg" alt="">
-                </div>
-            </div>
+                        <p>${collectionData[0].ARTICLE_LIKE}</p>
+                        <p class="articleNo" style="display:none">${collectionData[0].ARTICLE_NO}</p>
+                        <p></p>
+                    </div>
+                    <p class="chu_left_content"><img src="./image/home/fourth_screen_speaker.svg" alt="">${collectionData[0].ARTICLE_TITLE}</p>
+                    <span>＜最多收藏貼文＞</span>
 
+                </div>
 
-            <div class="chu_center">
-                <div class="chu_center_icon1">
-                    <img src="./image/member/${messageData[0].MEMBER_IMAGE}" alt="">
+                <div class="chu_center">
+                    <div class="chu_center_icon1">
+                        <img src="./image/member/${messageData[0].MEMBER_IMAGE}" alt="">
+                    </div>
+                    <div class="chu_center_icon3">
+                        <img src="./image/home/fourth_screen_comment.svg" alt="">
+                        <p>${messageData[0].ARTICLE_LIKE}</p>
+                    </div>
+                    <p class="chu_center_content"><img src="./image/home/fourth_screen_speaker.svg" alt="">${messageData[0].ARTICLE_TITLE}</p>
+                    <span>＜最多留言貼文＞</span>
+
                 </div>
-                <div class="chu_center_icon3">
-                    <img src="./image/home/fourth_screen_comment.svg" alt="">
-                    <p>${messageData[0].ARTICLE_LIKE}</p>
-                </div>
-                <p class="chu_center_content"><img src="./image/home/fourth_screen_speaker.svg" alt="">${messageData[0].ARTICLE_TITLE}</p>
-                <span>＜最多留言貼文＞</span>
-                <div class="chu_center_icon2">
-                    <img src="./image/home/arrow_right.svg" alt="">
-                </div>
-            </div>
             `
 
             $('.chu_row1').append(html);
@@ -170,13 +166,14 @@ $(document).ready(function () {
                     $('.section_res').css('display', 'flex');
                 }
             });
-
-
-
-
+                articleNo = $('.articleNo').text();
+                memberNoNum = $('.memberNoNum').text();
+                // alert(`articleNo: ${articleNo}`);
+                // alert(memberNoNum);
+                ppp(articleNo,memberNoNum);
 
             // }
-
+            
 
         },
 

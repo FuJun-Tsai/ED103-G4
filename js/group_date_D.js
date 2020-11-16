@@ -26,7 +26,7 @@ function doFirst() {
         }
         if (resDate != false) {
             // console.log(resDate);
-            $('.box2_row_right div:nth-child(2) h3:nth-child(12)').append(resDate);
+            $('.mealDate').append(resDate);
         } else {
             alert('請選擇日期');
             $('.den_box2').css('display', 'none');
@@ -34,7 +34,7 @@ function doFirst() {
         }
         if (resTime != '請選擇用餐時間') {
             // console.log(resTime);
-            $('.box2_row_right div:nth-child(2) h3:nth-child(12)').append(' / ' + resTime);
+            $('.mealDate').append(' / ' + resTime);
         } else {
             alert('請選擇用餐時間');
             $('.den_box2').css('display', 'none');
