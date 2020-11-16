@@ -1,13 +1,14 @@
 <?php
 session_start();
 try{
-  require_once("../connectRes.php");
-  $sql = "SELECT m.MEMBER_NAME'CHECK_NAME',m.MEMBER_IMAGE'CHECK_IMAGES',fgp.MEMBER_STATUS
+  require_once("../connectbook.php");
+  $sql = "SELECT m.MEMBER_NAME'CHECK_NAME',m.MEMBER_IMAGE'CHECK_IMAGES',fgp.MEMBER_STATUS,fgp.MEMBER_NO,fgp.GROUP_NO
           FROM `member_management` AS m JOIN `food_group_people` fgp ON (fgp.MEMBER_NO = m.MEMBER_NO)JOIN `food_group` AS f ON (fgp.GROUP_NO = f.GROUP_NO)
           WHERE f.MEMBER IN (SELECT f1.MEMBER
                             FROM `member_management` AS m1 JOIN `food_group` AS f1 ON (m1.MEMBER_NO = f1.MEMBER)
                             WHERE m1.MEMBER_ID =:MEMBER_ID )
-                            AND f.END_TIME >= DATE(NOW())";
+          AND f.END_TIME >= DATE(NOW())
+          AND fgp.MEMBER_STATUS = 2";
   $group = $pdo->prepare($sql);
   $group->bindValue(":MEMBER_ID",$_SESSION["MEMBER_ID"]);
   $group->execute();

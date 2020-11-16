@@ -1,7 +1,7 @@
 <?php
 session_start();
 try{
-  require_once("../connectRes.php");
+  require_once("../connectbook.php");
   $sql = "UPDATE member_management
   SET MEMBER_NAME = :MEMBER_NAME,
       MEMBER_PSW = :MEMBER_PSW,

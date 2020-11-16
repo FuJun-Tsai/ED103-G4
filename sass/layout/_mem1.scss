@@ -439,6 +439,12 @@
                                         vertical-align: middle;
                                         padding-left: 12%;
                                     }
+                                    .group_num{
+                                        display: none;
+                                    }
+                                    .num{
+                                        display: none;
+                                    }
                                 }
                                 .button_box{
                                     width: 49%;
@@ -546,6 +552,12 @@
                                     h4 {
                                         display: inline-block;
                                         color: $bgColor-style1;
+                                    }
+                                    .group_num{
+                                        display: none;
+                                    }
+                                    .num{
+                                        display: none;
                                     }
                                 }
                                 .ice_eatGroup_button {
@@ -946,6 +958,9 @@
                                     display: inline-block;
                                     line-height: 100px;
                                     padding-left: 12%;
+                                }
+                                .friend{
+                                    display: none;
                                 }
                             }
                             .ice_btn_box {

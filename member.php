@@ -318,7 +318,7 @@ require_once("login.inc");
                         </div>
                         <div class="add_stranger">
                             <h3 class="add_stranger_title">審核區</h3>
-                            <ul class="add_stranger_block">
+                            <ul class="add_stranger_block tab doingcontent" id="add_stranger_block">
                             </ul>
                         </div>
                     </div>
@@ -344,10 +344,10 @@ require_once("login.inc");
                                 </li>
                             </ul>
                         </div>
-                        <div class="tab_contents">
+                        <div class="tab_contents ">
                             <div class="tab tab_ok -on" id="tab_ok">
                             </div>
-                            <div class="tab tab_notok" id="tab_notok">
+                            <div class="tab tab_notok doingcontent" id="tab_notok">
                             </div>
                         </div>
                     </div>
@@ -487,7 +487,6 @@ require_once("login.inc");
                             </div>
                             <div class="tab tab_article_collection" id="article_collection">
                                 <div id="ac_page1" class="page -on">
-
                                 </div>
                             </div>
                         </div>
@@ -518,7 +517,7 @@ require_once("login.inc");
                         <div class="tab_list_block">
                             <ul class="tab_list">
                                 <li>
-                                    <a href="#" data-target="tab-date" class="tab -on btn_5 btn_js">
+                                    <a href="#" data-target="tab_date" class="tab -on btn_5 btn_js">
                                 日期排序<span></span>
                                 </a>
                                 </li>
@@ -535,16 +534,16 @@ require_once("login.inc");
                             </ul>
                         </div>
                         <div class="tab_contents">
-                            <div class="tab tab-date -on"  id="tab-date">
+                            <div class="tab tab_date -on"  id="tab_date">
                                 <div id="ma_page1" class="page -on">
                                 </div>
                             </div>
                             <div class="tab tab_leave_a_comment"  id="tab_leave_a_comment">
-                                <div  class="page -on">
-                                    </div>
+                                <div  class="page -on" id="mes_page1">
+                                </div>
                             </div>
                             <div class="tab tab_like"  id="tab_like">
-                                <div  class="page -on">
+                                <div  class="page -on" id="like_page1">
                                 </div>
                             </div>
                         </div>
@@ -570,7 +569,7 @@ require_once("login.inc");
                     </div>
 
                     <div class="fd_list">
-                        <ul class="fd_ul" id="fd_ul">
+                        <ul class="fd_ul doingcontent" id="fd_ul">
                         </ul>
                     </div>
                 </div>

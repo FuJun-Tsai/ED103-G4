@@ -1,9 +1,9 @@
 <?php
   try{
     session_start();
-    require_once("../connectRes.php");
+    require_once("../connectbook.php");
 
-    switch($_POST["collect"]){
+    switch($_POST["deletefrom"]){
       case 'food_group_collection':
         $sql1 = " DELETE 
         FROM food_group_collection
@@ -12,7 +12,6 @@
         $member = $pdo->prepare($sql1);
         $member->bindValue(":MEMBER_NO", $_SESSION["MEMBER_NO"]);
         $member->bindValue(":GROUP_NO", $_POST["num"]);
-        // $member->bindValue(":collect", $_POST["collect"]);
         $member->execute();
         break;
       case 'restaurant_collection':
@@ -23,7 +22,6 @@
         $member = $pdo->prepare($sql2);
         $member->bindValue(":MEMBER_NO", $_SESSION["MEMBER_NO"]);
         $member->bindValue(":RES_NO", $_POST["num"]);
-        // $member->bindValue(":restaurant_collection", $_POST["collect"]);
         $member->execute();
         break;
       case 'article_collection':
@@ -33,41 +31,37 @@
         AND ARTICLE_NO=:ARTICLE_NO";
         $member = $pdo->prepare($sql3);
         $member->bindValue(":MEMBER_NO", $_SESSION["MEMBER_NO"]);
-        // $member->bindValue(":article_collection", $_POST["collect"]);
         $member->bindValue(":ARTICLE_NO", $_POST["num"]);
         $member->execute();
         break;
-      case 'article_collection':
-        $sql3 = " DELETE 
-        FROM article_collection
+      case 'add_stranger_block':
+        $sql4 = " DELETE 
+        FROM food_group_people
         WHERE MEMBER_NO=:MEMBER_NO
-        AND ARTICLE_NO=:ARTICLE_NO";
-        $member = $pdo->prepare($sql3);
-        $member->bindValue(":MEMBER_NO", $_SESSION["MEMBER_NO"]);
-        // $member->bindValue(":article_collection", $_POST["collect"]);
-        $member->bindValue(":ARTICLE_NO", $_POST["num"]);
+        AND GROUP_NO=:GROUP_NO";
+        $member = $pdo->prepare($sql4);
+        $member->bindValue(":GROUP_NO", $_POST["group_num"]);
+        $member->bindValue(":MEMBER_NO", $_POST["num"]);
         $member->execute();
         break;
-      case 'article_collection':
-        $sql3 = " DELETE 
-        FROM article_collection
+      case 'tab_notok':
+        $sql5 = " DELETE 
+        FROM food_group_people
         WHERE MEMBER_NO=:MEMBER_NO
-        AND ARTICLE_NO=:ARTICLE_NO";
-        $member = $pdo->prepare($sql3);
-        $member->bindValue(":MEMBER_NO", $_SESSION["MEMBER_NO"]);
-        // $member->bindValue(":article_collection", $_POST["collect"]);
-        $member->bindValue(":ARTICLE_NO", $_POST["num"]);
+        AND GROUP_NO=:GROUP_NO";
+        $member = $pdo->prepare($sql5);
+        $member->bindValue(":GROUP_NO", $_POST["group_num"]);
+        $member->bindValue(":MEMBER_NO", $_POST["num"]);
         $member->execute();
         break;
-      case 'article_collection':
-        $sql3 = " DELETE 
-        FROM article_collection
+      case 'fd_ul':
+        $sql6 = " DELETE 
+        FROM track_list
         WHERE MEMBER_NO=:MEMBER_NO
-        AND ARTICLE_NO=:ARTICLE_NO";
-        $member = $pdo->prepare($sql3);
+        AND FRIENDS_NO=:FRIENDS_NO";
+        $member = $pdo->prepare($sql6);
+        $member->bindValue(":FRIENDS_NO", $_POST["num"]);
         $member->bindValue(":MEMBER_NO", $_SESSION["MEMBER_NO"]);
-        // $member->bindValue(":article_collection", $_POST["collect"]);
-        $member->bindValue(":ARTICLE_NO", $_POST["num"]);
         $member->execute();
         break;
     }

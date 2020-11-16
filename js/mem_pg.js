@@ -38,11 +38,61 @@ function fileChange() {
     $( "#fakebtn" ).hide();
   }
 }
-
+//確認/取消審核
+function review(){
+  $(".ok").on("click", function(e){
+    let X =$(this).closest(".mid_content");
+    let Y =$(this).parents().siblings(".sm_content").children('.num').text();
+    let Y2 =$(this).parents().siblings(".sm_content").children('.group_num').text();
+    let Z =$(this).closest(".doingcontent").attr('id');
+    e.preventDefault();
+    e.preventDefault();
+    $(X).remove();
+    okajax(Y,Y2,Z);
+  });
+  $(".notok").on("click", function(e){
+    let X =$(this).closest(".mid_content");
+    let Y =$(this).parents().siblings(".sm_content").children('.num').text();
+    let Y2 =$(this).parents().siblings(".sm_content").children('.group_num').text();
+    let Z =$(this).closest(".doingcontent").attr('id');
+    e.preventDefault();
+    $(X).remove();
+    delajax(Y,Y2,Z);
+  });
+}
+function del_friend(){
+  $(".defriend").on("click", function(e){
+    let X =$(this).closest(".mid_content");
+    let Y =$(this).parents().siblings().children('.friend').text();
+    let Z =$(this).closest(".doingcontent").attr('id');
+    console.log(X);
+    console.log(Y);
+    console.log(Z);
+    e.preventDefault();
+    $(X).remove();
+    delajax(Y,Z);
+  });
+}
+//確認審核ajax
+function okajax(Y,Y2,Z){
+  $.ajax({
+    url:'php/review.php',
+    method:'POST',
+    dataType:'json',
+    cache:'true',
+    data: {
+      changefrom: Z,
+      num: Y,
+      group_num: Y2,
+    },
+    success: function(){
+      console.log("確認審核成功");
+    },
+  });
+  return false;
+}
 //刪除收藏欄
-
 function dotrash(){
-  // console.log(5);
   $(".fa-trash").on("click", function(e){
     e.preventDefault();
     let X =$(this).closest(".tab_box");
@@ -53,9 +103,7 @@ function dotrash(){
       e.preventDefault();
       $(X).remove();
       $("div.overlay").removeClass("-on");
-      console.log(Y);
-      console.log(Z);
-      doajax(Y,Z);
+      delajax(Y,Z);
     });
     $(".btn_modal_close").on("click", function(){
       $("div.overlay").removeClass("-on");
@@ -63,15 +111,16 @@ function dotrash(){
   });
 }
 //刪除收藏用的ajax
-function doajax(Y,Z){
+function delajax(Y,Z,Y2){
   $.ajax({
     url:'php/deletecol.php',
     method:'POST',
     dataType:'json',
     cache:'true',
     data: {
-      collect: Z,
       num: Y,
+      group_num: Y2,
+      deletefrom: Z,
     },
     success: function(){
       console.log("刪除成功");
@@ -183,33 +232,6 @@ $("a.tab").on("click", function(){
   $("div." + $(this).attr("data-target")).addClass("-on");
   let tab01 = $("div." + $(this).attr("data-target")).attr('id');
   let page = $("div." + $(this).attr("data-target")).children('.page');
-  console.log(page);
-  $.ajax({
-    url:'php/article_select.php',
-    method:'Post',
-    dataType:'json',
-    cache:'true',
-    data: {
-      tab: tab01,
-    },
-    success:function(res){
-      for (let i = 0; i < ma.length; i++) {
-        $(page).append(`
-          <div class="tab_box">
-              <h5 class="small-title">
-                  <i class="fas fa-trash"></i> ${ma[i].ARTICLE_TITLE}
-              </h5>
-              <div class="pic">
-              <img src="./image/article_share/${ma[i].ARTICLE_IMAGE1}">
-              </div>
-              <h6 class="address">作者:${ma[i].MEMBER_NAME}</h6>
-              <h6 class="tel">時間:${ma[i].DATE}</h6>
-              <h6 class="hours">按讚數:${ma[i].ARTICLE_LIKE}</h6>
-          </div>
-        `);
-      }
-    },
-  });
   return false;
 });
 //會員資料修改送出
@@ -222,7 +244,7 @@ $( "#sub_main" ).on( "click", function( event ) {
   // console.log( $(this).serialize() );
   $.ajax({
     url:'php/update_mymain.php',
-    method:'Post',
+    method:'POST',
     dataType:'json',
     cache:'true',
     data: {
@@ -319,7 +341,7 @@ function my_main(){
       console.log(xhr.status);
     }
   }
-  xhr.open("Get", "./php/my_main.php", true);
+  xhr.open("GET", "./php/my_main.php", true);
   xhr.send(null);
 }
 
@@ -333,31 +355,34 @@ function myGroupNow(){
       var el = document.querySelector('.add_stranger_block');
       for (let i = 0; i < group.length; i++) {
         $(el).append(`
-          <li class="stranger_name_list">
-          <div class="stranger_name">
-            <img id="CHECK_IMAGES" src="./image/member/${group[i].CHECK_IMAGES}" >
-            <h5 id="CHECK_NAME">
-            ${group[i].CHECK_NAME}
-            </h5>
-          </div>
-          <div class="button_box">
-              <button class="btn_5 btn_js">
-                  <i class="fas fa-check">確認</i>
-                  <span></span>
-              </button>
-              <button class="btn_5 btn_js">
-                  <i class="fas fa-minus">刪除</i>
-                  <span></span>
-              </button>
-          </div>
-      </li>
+          <li class="stranger_name_list mid_content">
+            <div class="stranger_name sm_content">
+              <img id="CHECK_IMAGES" src="./image/member/${group[i].CHECK_IMAGES}" >
+              <h5 id="CHECK_NAME">
+              ${group[i].CHECK_NAME}
+              </h5>
+              <div class="group_num">${group[i].GROUP_NO}</div>
+              <div class="num">${group[i].MEMBER_NO}</div>
+            </div>
+            <div class="button_box">
+                <button class="btn_5 btn_js ok">
+                    <i class="fas fa-check">確認</i>
+                    <span></span>
+                </button>
+                <button class="btn_5 btn_js notok">
+                    <i class="fas fa-minus">刪除</i>
+                    <span></span>
+                </button>
+            </div>
+        </li>
         `);
       }
+      review();
     }else{ //error
       console.log(xhr.status);
     }
   }
-  xhr.open("Get", "./php/my_group.php", true);
+  xhr.open("GET", "./php/my_group.php", true);
   xhr.send(null);
 }
 
@@ -369,7 +394,7 @@ function tab_ok(){
       var el = document.getElementById('tab_ok');
       for (let i = 0; i < join.length; i++) {
         $(el).append(`
-        <div class="ice_eatGroup">
+        <div class="ice_eatGroup mid_content">
             <img src="./image/member/${join[i].MEMBER_IMAGE}">
             <div class="ice_eatGroup_content">
                 <h5>團名:</h5>
@@ -394,7 +419,7 @@ function tab_ok(){
       console.log(xhr.status);
     }
   }
-  xhr.open("Get", "./php/tab_ok.php", true);
+  xhr.open("GET", "./php/tab_ok.php", true);
   xhr.send(null);
 }
 
@@ -407,9 +432,9 @@ function tab_notok(){
       var el = document.getElementById('tab_notok');
       for (let i = 0; i < join.length; i++) {
         $(el).append(`
-        <div class="ice_eatGroup">
+        <div class="ice_eatGroup mid_content">
             <img src="./image/member/${join[i].MEMBER_IMAGE}">
-            <div class="ice_eatGroup_content">
+            <div class="ice_eatGroup_content sm_content">
                 <h5>團名:</h5>
                 <h5>${join[i].GROUP_NAME}</h5>
                 <br>
@@ -421,19 +446,22 @@ function tab_notok(){
                 <br>
                 <h5>用餐時間:</h5>
                 <h5>${join[i].TIME}</h5>
+                <div class="num">${join[i].MEMBER_NO}</div>
+                <div class="group_num">${join[i].GROUP_NO}</div>
             </div>
             <div class="ice_eatGroup_button">
-                <button class="btn_5 btn_js">確認 &#9658<span></span></button>
-                <button class="btn_5 btn_js">刪除 &#9658<span></span></button>
+                <button class="btn_5 btn_js ok">確認 &#9658<span></span></button>
+                <button class="btn_5 btn_js notok">刪除 &#9658<span></span></button>
             </div>
         </div>
         `);
       }
+      review();
     }else{
       console.log(xhr.status);
     }
   }
-  xhr.open("Get", "./php/tab_notok.php", true);
+  xhr.open("GET", "./php/tab_notok.php", true);
   xhr.send(null);
 }
 
@@ -464,7 +492,7 @@ function gruop_collection(){
       console.log(xhr.status);
     }
   }
-  xhr.open("Get", "./php/gruop_collection.php", true);
+  xhr.open("GET", "./php/gruop_collection.php", true);
   xhr.send(null);
 }
 
@@ -495,7 +523,7 @@ function restaurant_collection(){
       console.log(xhr.status);
     }
   }
-  xhr.open("Get", "./php/restaurant_collection.php", true);
+  xhr.open("GET", "./php/restaurant_collection.php", true);
   xhr.send(null);
 }
 
@@ -528,7 +556,7 @@ function article_collection(){
       console.log(xhr.status);
     }
   }
-  xhr.open("Get", "./php/article_collection.php", true);
+  xhr.open("GET", "./php/article_collection.php", true);
   xhr.send(null);
 }
 
@@ -558,7 +586,67 @@ function my_article(){
       console.log(xhr.status);
     }
   }
-  xhr.open("Get", "./php/my_article.php", true);
+  xhr.open("GET", "./php/article_select.php", true);
+  xhr.send(null);
+}
+
+function my_article2(){
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){ //success
+      ma = JSON.parse(xhr.responseText);
+      //選取元素
+      var el = document.getElementById('mes_page1');
+      for (let i = 0; i < ma.length; i++) {
+        $(el).append(`
+          <div class="tab_box">
+              <h5 class="small-title">
+                  <i class="fas fa-trash"></i> ${ma[i].ARTICLE_TITLE}
+              </h5>
+              <div class="pic">
+              <img src="./image/article_share/${ma[i].ARTICLE_IMAGE1}">
+              </div>
+              <h6 class="address">作者:${ma[i].MEMBER_NAME}</h6>
+              <h6 class="tel">時間:${ma[i].DATE}</h6>
+              <h6 class="hours">留言數:${ma[i].MESSAGE_TOTAL}</h6>
+          </div>
+        `);
+      }
+    }else{ //error
+      console.log(xhr.status);
+    }
+  }
+  xhr.open("GET", "./php/article_select_2.php", true);
+  xhr.send(null);
+}
+
+function my_article3(){
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){ //success
+      ma = JSON.parse(xhr.responseText);
+      //選取元素
+      var el = document.getElementById('like_page1');
+      for (let i = 0; i < ma.length; i++) {
+        $(el).append(`
+          <div class="tab_box">
+              <h5 class="small-title">
+                  <i class="fas fa-trash"></i> ${ma[i].ARTICLE_TITLE}
+              </h5>
+              <div class="pic">
+              <img src="./image/article_share/${ma[i].ARTICLE_IMAGE1}">
+              </div>
+              <h6 class="address">作者:${ma[i].MEMBER_NAME}</h6>
+              <h6 class="tel">時間:${ma[i].DATE}</h6>
+              <h6 class="hours">按讚數:${ma[i].ARTICLE_LIKE}</h6>
+          </div>
+        `);
+      }
+    }else{ //error
+      console.log(xhr.status);
+    }
+  }
+  xhr.open("GET", "./php/article_select_3.php", true);
   xhr.send(null);
 }
 
@@ -571,34 +659,37 @@ function my_friend(){
       var el = document.getElementById('fd_ul');
       for (let i = 0; i < mf.length; i++) {
         $(el).append(`
-        <li>
-            <div class="fd_name">
+        <li class="mid_content">
+            <div class="fd_name ">
                 <div>
                     <img src="./image/member/${mf[i].MEMBER_IMAGE}">
                 </div>
                 <h4>
                     ${mf[i].MEMBER_NAME}
                 </h4>
+                <div class="friend">${mf[i].FRIENDS_NO}</div>
             </div>
             <div class="ice_btn_box col-md-6">
                 <button class="go_h btn_5 btn_js"><i class="fas fa-home" aria-hidden="true">小屋</i><span></span></button>
                 <button class="invite btn_5 btn_js"><i class="fa fa-user-plus" aria-hidden="true">邀團</i><span></span></button>
-                <button class="de_fd btn_5 btn_js"><i class="fas fa-minus-circle" aria-hidden="true">刪除</i><span></span></button>
+                <button class="de_fd btn_5 btn_js"><i class="fas fa-minus-circle defriend" aria-hidden="true">刪除</i><span></span></button>
             </div>
         </li>
         `);
       }
+      del_friend();
     }else{ //error
       console.log(xhr.status);
     }
   }
-  xhr.open("Get", "./php/my_friend.php", true);
+  xhr.open("GET", "./php/my_friend.php", true);
   xhr.send(null);
 }
 
 function start(){
+      //個人資訊+開團資訊
       my_main();
-       //審核陌生團員
+      //審核陌生團員
       myGroupNow();
       //確認餐團
       tab_ok();  
@@ -612,6 +703,8 @@ function start(){
       article_collection()
       //我的文章
       my_article()
+      my_article2()
+      my_article3()
       //我的朋友
       my_friend()
       //刪除收藏

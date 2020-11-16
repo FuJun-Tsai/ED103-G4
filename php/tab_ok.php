@@ -1,7 +1,7 @@
 <?php
 session_start();
 try{
-  require_once("../connectRes.php");
+  require_once("../connectbook.php");
   $sql = " SELECT m.MEMBER_IMAGE, f.GROUP_NAME, r.RES_NAME, DATE(f.MEAL_TIME) 'DATE',Date_format((f.MEAL_TIME),'%H:%i') 'TIME'
   FROM `food_group` f JOIN `food_group_people` fdp ON (f.GROUP_NO = fdp.GROUP_NO)
           JOIN `restaurant_management` r ON (r.RES_NO = f.RES_NO)

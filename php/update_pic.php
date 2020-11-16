@@ -1,7 +1,7 @@
 <?php
 try{
   session_start();
-  require_once("../connectRes.php");
+  require_once("../connectbook.php");
   $no = $_SESSION["MEMBER_NO"];
   $dest_folder = "../image/member/";
   $tmp_name = $_FILES["theFile"]["tmp_name"];

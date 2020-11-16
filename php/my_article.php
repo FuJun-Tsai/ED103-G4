@@ -1,7 +1,7 @@
 <?php
 session_start();
 try{
-  require_once("../connectRes.php");
+  require_once("../connectbook.php");
   $sql = " SELECT a.ARTICLE_TITLE, a.ARTICLE_IMAGE1, m.MEMBER_NAME,  Date_format(a.ARTICLE_DATE,'%m/%d')'DATE', a.ARTICLE_LIKE
   FROM `article_sharing` a JOIN `article_collection` ac ON (a.ARTICLE_NO = ac.ARTICLE_NO) 
                             JOIN `member_management` m ON (a.MEMBER_NO = m.MEMBER_NO) 
