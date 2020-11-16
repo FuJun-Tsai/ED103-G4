@@ -1,6 +1,7 @@
 function $id(id){
 	return document.getElementById(id);
 }	
+
 let member;
 
     function showLoginForm(){
@@ -11,9 +12,7 @@ let member;
       //spanLogin的字改成登入
       //將頁面上的使用者資料清掉
       if($id('spanLogin').innerHTML == "登入"){
-        // $id('login_box').style.display = 'flex';
-        $id('login_box').setAttribute('display','flex');
-
+        $id('login_box').style.display = 'flex';
       }else{//登出
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
@@ -33,13 +32,18 @@ let member;
       let xhr = new XMLHttpRequest();
       xhr.onload = function(){
         member = JSON.parse(xhr.responseText);
-        if(member.MEMBER_ID){
+        // console.log("====",member);
+        if(member.MEMBER_ID!=undefined){
           $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
           $id('spanLogin').innerHTML = '登出';
+          // document.getElementsByClassName('username')[0].innerText(`${member.MEMBERR_NO}`);
+          $('.username').text(`${member.MEMBER_NO}`);
           //將登入表單上的資料清空，並隱藏起來
+          
           $id('login_box').style.display = 'none';
           MEMBER_ID = '';
-          MEMBER_PSW = '';          
+          MEMBER_PSW = '';
+          memberrender();
         }else{
             window.alert("帳密錯誤~");
         }
@@ -48,7 +52,11 @@ let member;
       xhr.open("Post", "php/login.php", true);
       xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
       let data_info = `MEMBER_ID=${MEMBER_ID}&MEMBER_PSW=${MEMBER_PSW}`;
+      console.log(data_info);
+
+      // memberrender();
       xhr.send(data_info); 
+
     }
 
     function cancelLogin(){
@@ -58,15 +66,20 @@ let member;
       document.getElementsByName("MEMBER_PSW").value = '';
     }
 
+
     function getMemberInfo(){
       let xhr = new XMLHttpRequest();
+
       xhr.onload = function(){
         if(xhr.status == 200){ //success
           member = JSON.parse(xhr.responseText);
           if(member.MEMBER_ID){
-            // $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
-            $id('spanLogin').innerHTML = '登出';            
+            $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+            $id('spanLogin').innerHTML = '登出';
+            $('.username').text(`${member.MEMBER_NO}`);  
           }
+
+
         }else{ //error
           alert(xhr.status);
         }
@@ -76,8 +89,13 @@ let member;
       xhr.send(null);
     }
 
-    function init(){
+    function toggleForm() {
+        var container_res = document.querySelector('.container_res');
+        container_res.classList.toggle('act');
+    }
 
+    function init(){
+      user = '';
       //-----------------------檢查是否已登入
       getMemberInfo();
 
@@ -91,12 +109,21 @@ let member;
       //===設定btnLoginCancel.onclick 事件處理程序是 cancelLogin
       $id('btnLoginCancel').onclick = cancelLogin;
 
+
     }; //window.onload
 
     window.addEventListener("load",init,false);
 
-    function toggleForm() {
-        var container_res = document.querySelector('.container_res');
-        container_res.classList.toggle('act')
-    }
+    //登入成功後整頁渲染
+    function memberrender(){
+      let herehref = location.href.split('?')[0].split('/')[location.href.split('?')[0].split('/').length-1];
 
+      if(herehref=='singlerestaurant.html'){
+          singleJS();
+      };
+
+      if(herehref=='searchrestaurant.html'){
+          searchJS();
+      };
+
+    };

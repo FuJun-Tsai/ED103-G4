@@ -1200,7 +1200,7 @@
         });
     </script>
     <!-- 餐廳新增 -->
-    <script>
+    <!-- <script>
         $(document).on('click', '#amd_add_submit', function(){
 
              $.ajax({
@@ -1221,58 +1221,58 @@
              });
              parent.location.reload();
          });
-    </script>
+    </script> -->
 
    
 
     <!-- 刪除餐廳 -->
     <script>
-        function deleteAMD(){
-         $('.amdtrash').on('click', function(){
-             let amdno = $(this).parent().siblings('.td_AMD_NO').text();
-             $.ajax({
-                 url:'amd_del.php',
-                 type:'GET',
-                 dataType:'json',
-                 data:{
-                     amd_no_del:amdno,
-                 },
-                 success:function(res){
+        // function deleteAMD(){
+        //  $('.amdtrash').on('click', function(){
+        //      let amdno = $(this).parent().siblings('.td_AMD_NO').text();
+        //      $.ajax({
+        //          url:'amd_del.php',
+        //          type:'GET',
+        //          dataType:'json',
+        //          data:{
+        //              amd_no_del:amdno,
+        //          },
+        //          success:function(res){
                      
-                 console.log('OK');
-                 },
-                 complete: function(){}
+        //          console.log('OK');
+        //          },
+        //          complete: function(){}
                  
-             });
-             $(this).parent().parent().remove();
-             // parent.location.reload();
-             });
-         }
+        //      });
+        //      $(this).parent().parent().remove();
+            
+        //      });
+        //  }
 
          // 修改餐廳
-         function changeAMD(){
-         $('.submit').on('click',function(){
-             $.ajax({
-                 url:'amd_chg.php',
-                 type:'POST',
-                 dataType:'json',
-                 data:{
-                     amd_id_chg:$('.ID').val(),
-                     amd_name_chg:$('.NAME').val(),
-                     amd_psd_chg:$('.PSD').val(),
-                     amd_no_chg:$('.submit').val()
-                 },
-                 success(e){
-                     console.log();
-                 },
-                 complete(e){
-                     console.log();
-                 },
+        //  function changeAMD(){
+        //  $('.submit').on('click',function(){
+        //      $.ajax({
+        //          url:'amd_chg.php',
+        //          type:'POST',
+        //          dataType:'json',
+        //          data:{
+        //              amd_id_chg:$('.ID').val(),
+        //              amd_name_chg:$('.NAME').val(),
+        //              amd_psd_chg:$('.PSD').val(),
+        //              amd_no_chg:$('.submit').val()
+        //          },
+        //          success(e){
+        //              console.log();
+        //          },
+        //          complete(e){
+        //              console.log();
+        //          },
                  
-             });
-             parent.location.reload();
-         });
-         }
+        //      });
+        //      parent.location.reload();
+        //  });
+        //  }
      </script>
       <!-- 留言接資料庫 -->
       <script>

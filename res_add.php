@@ -3,38 +3,38 @@ $Errmsg = '';
 
 try{
     require_once('connectBooks.php'); //換成自己的 php $pdo來源
-    $amd_id_add = $_REQUEST['amd_id_add'];
-    $amd_name_add = $_REQUEST['amd_name_add'];
-    $amd_psd_add = $_REQUEST['amd_psd_add'];
+//     $amd_id_add = $_REQUEST['amd_id_add'];
+//     $amd_name_add = $_REQUEST['amd_name_add'];
+//     $amd_psd_add = $_REQUEST['amd_psd_add'];
 
 
-    $sql = "INSERT INTO amd (AMD_ID, AMD_NAME, AMD_PSD) 
-            VALUES ('$amd_id_add', '$amd_name_add', '$amd_psd_add');";
+//     $sql = "INSERT INTO amd (AMD_ID, AMD_NAME, AMD_PSD) 
+//             VALUES ('$amd_id_add', '$amd_name_add', '$amd_psd_add');";
 
-    $data = $pdo->prepare($sql);
-    $data-> execute();
+//     $data = $pdo->prepare($sql);
+//     $data-> execute();
 
-    $sql = "SELECT * FROM `restaurant_management`
-            WHERE 
-                AMD_ID = '$amd_id_add' AND
-                AMD_NAME = '$amd_name_add' AND
-                AMD_PSD = '$amd_psd_add';";
+//     $sql = "SELECT * FROM `restaurant_management`
+//             WHERE 
+//                 AMD_ID = '$amd_id_add' AND
+//                 AMD_NAME = '$amd_name_add' AND
+//                 AMD_PSD = '$amd_psd_add';";
 
-    $data = $pdo->prepare($sql);
-    $data-> execute();
+//     $data = $pdo->prepare($sql);
+//     $data-> execute();
 
-    if($data->rowCount()==0){
-        echo '無法新增';
-    }else{
-        $result = $data->fetch(PDO::FETCH_ASSOC);
-        echo json_encode($result);
-    }
+//     if($data->rowCount()==0){
+//         echo '無法新增';
+//     }else{
+//         $result = $data->fetch(PDO::FETCH_ASSOC);
+//         echo json_encode($result);
+//     }
 
 
-}catch(PDOException $e){
-    $Errmsg.= $e->getLine() . '<br>' . $e->getMessage();
-    echo $Errmsg;
-}
+// }catch(PDOException $e){
+//     $Errmsg.= $e->getLine() . '<br>' . $e->getMessage();
+//     echo $Errmsg;
+// }
 
 
 ?>

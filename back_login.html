@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/allstyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <link rel="stylesheet" href="./css/background.css"> -->
 
 
@@ -38,34 +39,21 @@
                         <img src="./image/2.png" alt="">
                     </div>
                     <div class="form_res">
-                        <form name="login" action="" method="post">
+                        <div>
                             <h2>管理員登入</h2>
-                            <input type="text" name="" placeholder="請輸入帳號">
-                            <input type="password" name="" placeholder="請輸入密碼">
+                            <input id="user" type="text" name="MEMBER_ID" placeholder="請輸入帳號">
+                            <input id="pass" type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
 
-                            <input type="submit" name="" value="登入" style="background-color: #DF7219; color: #fff;" >
+                            <input type="submit" name="" value="登入" style="background-color: #DF7219; color: #fff;" id="backbtnLogin" >
+                            <input type="button" name="" value="取消" style="background-color: #DF7219; color: #fff;" id="backbtnLoginCancel" >
                             <!-- <p class="learn">需要新增管理員?<br><a href="#" onclick="toggleForm();">新增管理請點我</a></p> -->
-                        </form>
+                        </div>
                     </div>
 
                 </div>
 
 
-                <!-- <div class="user singupBx">
-                    <div class="form_res">
-                        <form action="signup.php" method="post">
-                            <h2>新增管理員</h2>
-                            <input type="text" name="" placeholder="請輸入註冊email">
-                            <input type="password" name="" placeholder="請輸入密碼">
-                            <input type="submit" name="submit" value="註冊">
-                            <p class="learn">已經有帳號了?<br><a href="#" onclick="toggleForm();">管理者登入請點我</a></p>
-                        </form>
-                    </div>
-                    <div class="img_res">
-                        <img src="./image/4.jpg" alt="">
-                    </div>
-
-                </div> -->
+                
 
             </div>
 
@@ -82,10 +70,158 @@
 
 
     <script>
+        function $id(id){
+            return document.getElementById(id);
+        }	
+
+        let member;
+
+        function showLoginForm(){
+        //檢查登入bar面版上 spanLogin 的字是登入或登出
+        //如果是登入，就顯示登入用的燈箱(lightBox)
+        //如果是登出
+        //將登入bar面版上，登入者資料清空 
+        //spanLogin的字改成登入
+        //將頁面上的使用者資料清掉
+        // if($id('spanLogin').innerHTML == "登入"){
+        //     $id('login_box').style.display = 'flex';
+        // }else{//登出
+        //     let xhr = new XMLHttpRequest();
+        //     xhr.onload = function(){
+        //     $id("headshot_icon").setAttribute("src","./image/icon.svg");
+        //     $id('spanLogin').innerHTML = '登入';          
+        //     }
+        //     xhr.open("post", "php/logout.php", true);
+        //     xhr.send(null);
+        // }
+
+        }//showLoginForm
+
+        // function sendForm(){
+        // //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
+        // let MEMBER_ID = document.getElementsByName("MEMBER_ID")[0].value;
+        // let MEMBER_PSW = document.getElementsByName("MEMBER_PSW")[0].value;
+        // let xhr = new XMLHttpRequest();
+        // xhr.onload = function(){
+        //     member = JSON.parse(xhr.responseText);
+        //     console.log(member);
+        //     // console.log("====",member);
+        //     if(member.MEMBER_ID!=undefined){
+        //     $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        //     $id('spanLogin').innerHTML = '登出';
+        //     // document.getElementsByClassName('username')[0].innerText(`${member.MEMBERR_NO}`);
+        //     $('.username').text(`${member.MEMBER_NO}`);
+        //     //將登入表單上的資料清空，並隱藏起來
+            
+        //     // $id('login_box').style.display = 'none';
+        //     MEMBER_ID = '';
+        //     MEMBER_PSW = '';
+        //     memberrender();
+        //     // window.location.assign("HTTP://www.google.com");
+        //     $(window).attr('location','/back_end.html');
+
+        //     }else{
+        //         // window.alert("帳密錯誤~");
+        //     }
+        // }
+
+        // xhr.open("Post", "back_login.php", true);
+        // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        // let data_info = `MEMBER_ID=${MEMBER_ID}&MEMBER_PSW=${MEMBER_PSW}`;
+        // console.log(data_info);
+
+        // // memberrender();
+        // xhr.send(data_info); 
+
+        // }
+        $('#backbtnLogin').on('click',function(){
+            $.ajax({
+                url:'back_login.php',
+                data:{
+                    user:$('#user').val(),
+                    pass:$('#pass').val(),
+                },
+                type:'POST',
+                dataType:'json',
+                success(e){
+                    console.log(e);
+                    $(window).attr('location','./back_end.html');
+                }
+
+            });
+        });
+
+
+
+        function cancelLogin(){
+            //將登入表單上的資料清空，並將燈箱隱藏起來
+            $id('login_box').style.display = 'none';
+            document.getElementsByName("MEMBER_ID").value = '';
+            document.getElementsByName("MEMBER_PSW").value = '';
+        }
+
+
+        function getMemberInfo(){
+        let xhr = new XMLHttpRequest();
+
+        xhr.onload = function(){
+            if(xhr.status == 200){ //success
+            member = JSON.parse(xhr.responseText);
+            if(member.MEMBER_ID){
+                $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+                $id('spanLogin').innerHTML = '登出';
+                $('.username').text(`${member.MEMBER_NO}`);  
+            }
+
+
+            }else{ //error
+            alert(xhr.status);
+            }
+        }
+
+        xhr.open("get", "php/getMemberInfo.php", true);
+        xhr.send(null);
+        }
+
         function toggleForm() {
             var container_res = document.querySelector('.container_res');
-            container_res.classList.toggle('act')
+            container_res.classList.toggle('act');
         }
+
+        function init(){
+            user = '';
+            //-----------------------檢查是否已登入
+            getMemberInfo();
+
+            //===設定spanLogin.onclick 事件處理程序是 showLoginForm
+
+            showLoginForm();
+
+            //===設定btnLogin.onclick 事件處理程序是 sendForm
+            // $id('backbtnLogin').onclick = sendForm;
+
+            //===設定btnLoginCancel.onclick 事件處理程序是 cancelLogin
+            $id('backbtnLoginCancel').onclick = cancelLogin;
+
+
+        }; //window.onload
+
+        window.addEventListener("load",init,false);
+
+        //登入成功後整頁渲染
+        function memberrender(){
+            let herehref = location.href.split('?')[0].split('/')[location.href.split('?')[0].split('/').length-1];
+
+            if(herehref=='singlerestaurant.html'){
+                singleJS();
+            };
+
+            if(herehref=='searchrestaurant.html'){
+                searchJS();
+            };
+
+        };
+
     </script>
 
 </body>

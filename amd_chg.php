@@ -18,7 +18,7 @@ try{
                 AMD_PSD = '$amd_psd_chg'
 
             WHERE 
-                AMD_NO = $amd_no_chg ;";
+                AMD_NO = "$amd_no_chg;";
 
     $data = $pdo -> prepare($sql);
     $data-> execute();
