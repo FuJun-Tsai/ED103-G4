@@ -34,7 +34,7 @@ $FRIENDS_MASTER_NO = isset($_GET["FRIENDS_MASTER_NO"]) ? $_GET["FRIENDS_MASTER_N
 // echo $FRIENDS_MASTER_NO;
 
 try{
-  require_once('./connectBooks.php');
+  require_once('./connectbook.php');
 
 
   //抓取全部餐廳
