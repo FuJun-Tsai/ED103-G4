@@ -56,12 +56,12 @@
                 </ul> -->
             </div>
             <div class="member">
-                <div class="icon">
+                <!-- <div class="icon">
                     <a href="./login.html">
                         <img src="./image/icon.svg" alt="">
                     </a>
-                </div>
-                <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+                </div> -->
+                <a href="./index.html" class="hvr-pulse-grow"><span style="color: black;">登出</span></a>
             </div>
             <div id="menu-bar">
                 <div id="menu" onclick="onClickMenu()">
@@ -889,7 +889,7 @@
                             <td class="td_AMD_PSD">${data[i].AMD_PSD}</td> 
                              
                             <td>
-                                <button class="btn_5 amdchange" data-toggle="modal" data-target="#modify_amdbtn${data[i].AMD_NO}">
+                                <button class="btn_5 amdchange" data-toggle="modal" data-target="#modify_amdbtn${data[i].AMD_NO}" value="${data[i].AMD_NO}">
                                     <i class="fas fa-pencil-alt"></i> 
                                 </button>
                                 <!-- 修改燈箱 -->
@@ -963,21 +963,23 @@
             // 修改管理者
             function changeAMD(){
             $('.submit').on('click',function(){
+                let num = $(this).val();
                 $.ajax({
                     url:'amd_chg.php',
                     type:'POST',
                     dataType:'json',
                     data:{
-                        amd_id_chg:$('.ID').val(),
-                        amd_name_chg:$('.NAME').val(),
-                        amd_psd_chg:$('.PSD').val(),
-                        amd_no_chg:$('.submit').val()
+                        // $('.modal fade').attr('')
+                        amd_id_chg:$(`#modify_amdbtn${num} .ID`).val(),
+                        amd_name_chg:$(`#modify_amdbtn${num} .NAME`).val(),
+                        amd_psd_chg:$(`#modify_amdbtn${num} .PSD`).val(),
+                        amd_no_chg:$(`#modify_amdbtn${num} .submit`).val()
                     },
                     success(e){
-                        console.log();
+                        console.log(e);
                     },
                     complete(e){
-                        console.log();
+                        console.log(e);
                     },
                     
                 });
@@ -994,10 +996,10 @@
                 type:'GET',
                 dataType:'json',
                 success(data){
-                    console.log(data);
-                    console.log(data.length);
-                    console.log(data[0].MEMBER_NAME);
-                    console.log(2);
+                    // console.log(data);
+                    // console.log(data.length);
+                    // console.log(data[0].MEMBER_NAME);
+                    // console.log(2);
                     for(let i=0 ; i<=data.length-1 ; i+=1){
                         $('.tbl_member_adm tbody').append(`
                             <tr> 
@@ -1030,9 +1032,9 @@
               type:'GET',
               dataType:'json',
               success(data){
-                  console.log(data);
-                  console.log(data.length);
-                  console.log(data[0].RES_NAME);
+                //   console.log(data);
+                //   console.log(data.length);
+                //   console.log(data[0].RES_NAME);
                   for(let i=0 ; i<=data.length -1 ; i+=1){
                       $('.tbl_res_adm tbody').append(`
                       <tr class="row_h"> 
@@ -1178,7 +1180,7 @@
                       `);
                   };
                   function restend(){
-                      console.log(1);
+                    //   console.log(1);
                     let ua = navigator.userAgent,
                     event = (ua.match(/iPad/i)) ? "touchstart" : "click";
                     if ($('.tbl_res_adm').length > 0) {
@@ -1283,7 +1285,7 @@
                 type:'GET',
                 dataType:'json',
                 success(data){
-                    console.log(data);
+                    // console.log(data);
                     // console.log(data.length);
                     // console.log(data[0].MESSAGE_NO);
                     for(let i=0 ; i<=data.length-1 ; i+=1){

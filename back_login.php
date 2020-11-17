@@ -1,8 +1,8 @@
 <?php
 try{
   session_start();
-  require_once("connectBooks.php");
-  // require_once("connectbook.php");
+  // require_once("connectBooks.php");
+  require_once("connectbook.php");
   $sql = " SELECT AMD_ID ,AMD_PSD
             FROM amd
             WHERE AMD_ID=:MEMBER_ID
@@ -12,7 +12,7 @@ try{
   $member->bindValue(":MEMBER_PSW", $_REQUEST["pass"]);
   $member->execute();
   if( $member->rowCount()==0){ //查無此人
-	  echo "error";
+	  echo "帳密錯誤";
   }else{ //登入成功
     //自資料庫中取回資料
   	$memRow = $member->fetch(PDO::FETCH_ASSOC);

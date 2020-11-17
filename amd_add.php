@@ -2,8 +2,8 @@
 $Errmsg = '';
 
 try{
-    require_once('connectBooks.php'); //換成自己的 php $pdo來源
-    // require_once('connectbook.php'); //換成自己的 php $pdo來源
+    // require_once('connectBooks.php'); //換成自己的 php $pdo來源
+    require_once('connectbook.php'); //換成自己的 php $pdo來源
     $amd_id_add = $_REQUEST['amd_id_add'];
     $amd_name_add = $_REQUEST['amd_name_add'];
     $amd_psd_add = $_REQUEST['amd_psd_add'];
