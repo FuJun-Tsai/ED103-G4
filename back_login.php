@@ -2,6 +2,7 @@
 try{
   session_start();
   require_once("connectBooks.php");
+  // require_once("connectbook.php");
   $sql = " SELECT AMD_ID ,AMD_PSD
             FROM amd
             WHERE AMD_ID=:MEMBER_ID
