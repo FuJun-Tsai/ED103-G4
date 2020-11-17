@@ -989,7 +989,7 @@
                                 success(data) {
                                     let FRIENDS_MASTER_NO = data.MEMBER_NO;
                                     console.log(FRIENDS_MASTER_NO);
-                                    $('.memberNoNum').text(FRIENDS_MASTER_NO);
+                                    $('#login .memberNoNum').append(`${data.MEMBER_NO}`);
                                     $.ajax({
                                         url: './open_group.php',
                                         type: 'GET',
