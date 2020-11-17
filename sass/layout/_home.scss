@@ -868,72 +868,75 @@ section.second_screen {
             }
         }
     }
+    .twoPeople {
+        background-image: url(../image/home/second_screen_twoPeople.svg);
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        bottom: 3%;
+        left: 5%;
+        background-repeat: no-repeat;
+        z-index: -1;
+        opacity: 30%;
+        @media all and (min-width: 1200px) and (max-width: 1439px) {
+            width: 250px;
+            height: 250px;
+            left: 1%;
+            bottom: 0;
+        }
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+            left: -3%;
+        }
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            display: none;
+        }
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            display: none;
+        }
+        @media all and (max-width: 575px) {
+            display: none;
+        }
+    }
+    
+    .friends {
+        background-image: url(../image/home/second_screen_friends.svg);
+        width: 420px;
+        height: 237px;
+        position: absolute;
+        bottom: 3%;
+        right: 5%;
+        background-repeat: no-repeat;
+        z-index: -100;
+        opacity: 30%;
+        @media all and (min-width: 1600px) and (max-width: 1920px) {
+            width: 320px;
+            bottom: -2%;
+        }
+        @media all and (min-width: 1440px) and (max-width: 1599px) {
+            width: 308px;
+            bottom: -6%;
+        }
+        @media all and (min-width: 1200px) and (max-width: 1439px) {
+            width: 250px;
+            right: 2%;
+            bottom: -10%;
+        }
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+            bottom: 18%;
+        }
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            display: none;
+        }
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            display: none;
+        }
+        @media all and (max-width: 575px) {
+            display: none;
+        }
+    }
+
 }
 
-.twoPeople {
-    background-image: url(../image/home/second_screen_twoPeople.svg);
-    width: 500px;
-    height: 500px;
-    position: absolute;
-    bottom: 3%;
-    left: 5%;
-    background-repeat: no-repeat;
-    z-index: -1;
-    @media all and (min-width: 1200px) and (max-width: 1439px) {
-        width: 250px;
-        height: 250px;
-        left: 1%;
-        bottom: 0;
-    }
-    @media all and (min-width: 992px) and (max-width: 1199px) {
-        left: -3%;
-    }
-    @media all and (min-width: 768px) and (max-width: 991px) {
-        display: none;
-    }
-    @media all and (min-width: 576px) and (max-width: 767px) {
-        display: none;
-    }
-    @media all and (max-width: 575px) {
-        display: none;
-    }
-}
-
-.friends {
-    background-image: url(../image/home/second_screen_friends.svg);
-    width: 420px;
-    height: 237px;
-    position: absolute;
-    bottom: 3%;
-    right: 5%;
-    background-repeat: no-repeat;
-    z-index: -100;
-    @media all and (min-width: 1600px) and (max-width: 1920px) {
-        width: 320px;
-        bottom: -2%;
-    }
-    @media all and (min-width: 1440px) and (max-width: 1599px) {
-        width: 308px;
-        bottom: -6%;
-    }
-    @media all and (min-width: 1200px) and (max-width: 1439px) {
-        width: 250px;
-        right: 2%;
-        bottom: -10%;
-    }
-    @media all and (min-width: 992px) and (max-width: 1199px) {
-        bottom: 18%;
-    }
-    @media all and (min-width: 768px) and (max-width: 991px) {
-        display: none;
-    }
-    @media all and (min-width: 576px) and (max-width: 767px) {
-        display: none;
-    }
-    @media all and (max-width: 575px) {
-        display: none;
-    }
-}
 
 section.third_screen {
     border: 1px solid black;
@@ -1172,7 +1175,6 @@ section.fourth_screen {
         width: 100%;
         margin: 0 auto;
         // border: 1px solid red;
-        height: 80vh;
         position: absolute;
         top: 13%;
         left: 50%;
@@ -1207,13 +1209,13 @@ section.fourth_screen {
                 top: 8%;
                 border-radius: 50%;
                 // border: 1px solid blue;
-                background-color: #601C8A;
+                background-color: #B71E68;
                 width: 260px;
                 height: 260px;
                 padding: 15px;
                 &:hover {
                     transform: scale(1.1);
-                    background-color:#dcaafb;
+                    background-color:#ffcce5;
                     transition: 0.5s;
                     border: 0.5px solid black;
                 }
@@ -1235,8 +1237,7 @@ section.fourth_screen {
                     margin: auto;
                     width: 230px;
                     height: 230px;
-                    top: 25%;
-                    transform: translateY(-18%);
+                    top: 20%;
                 }
                 .chu_left_icon1 {
                     margin-top: 15px;
