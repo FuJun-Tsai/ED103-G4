@@ -213,6 +213,9 @@ function review(){
     let Y =$(this).parents().siblings(".sm_content").children('.num').text();
     let Y2 =$(this).parents().siblings(".sm_content").children('.group_num').text();
     let Z =$(this).closest(".doingcontent").attr('id');
+    console.log(Y);
+    console.log(Y2);
+    console.log(Z);
     e.preventDefault();
     e.preventDefault();
     $(X).remove();
