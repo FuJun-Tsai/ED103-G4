@@ -447,7 +447,9 @@
                     success(data){
                         console.log(data); 
                         for(let i=0;i<=data.length-1;i+=1){
+                            $(`#${data[i].ID} .like i`).removeClass('far');
                             $(`#${data[i].ID} .like i`).addClass('tored');
+                            $(`#${data[i].ID} .like i`).addClass('fas');
                         }
                     },
                     complete(){
@@ -463,9 +465,13 @@
                                 console.log(num);
                                 if($(this).children('i').hasClass('tored')==false){
                                     num-=1;
+                                    $(this).children('i').removeClass('fas');
+                                    $(this).children('i').addClass('far');
                                     $(this).children('span').text(num);
                                 }else{
                                     num+=1;
+                                    $(this).children('i').removeClass('far');
+                                    $(this).children('i').addClass('fas');
                                     $(this).children('span').text(num);
                                 }
 
