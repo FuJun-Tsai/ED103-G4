@@ -30,6 +30,7 @@ try{
   JOIN_NUMBER,
   MEAL_TIME)
   VALUES ($memberNoNum,$groupNo,$resNo,'$groupName',CURRENT_DATE(),'$mealDate'+interval-1 day,$nowNumMax,$nowNumJoin,'$mealDate');";
+  // exit($sql);
   $products = $pdo->prepare($sql);
   $products->execute();
 
