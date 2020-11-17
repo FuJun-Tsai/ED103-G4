@@ -61,7 +61,9 @@ section.first_screen {
         }
         @media all and (max-width: 575px) {
             bottom: 23%;
-            right: 15%;
+            right: 50%;
+            transform: translateX(50%);
+            white-space: nowrap;
         }
     }
     .circle_fuchsia {
@@ -81,6 +83,11 @@ section.first_screen {
             @include circle(550px, #B71E68);
             left: 58%;
             top: 30%;
+            @media all and (max-height: 600px) {
+                @include circle(430px, #B71E68);
+                top: 22%;
+                left: 45%;
+            }
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
             @include circle(500px, #B71E68);
@@ -126,6 +133,12 @@ section.first_screen {
         top: 55%;
         right: 30%;
         z-index: -1;
+        @media all and (min-width: 1200px) and (max-width: 1439px) {
+            top: 50%;
+            right: 30%;
+            // top: 30%;
+            // right: 40%;
+        }
         @media all and (min-width: 992px) and (max-width: 1199px) {
             @include circle(340px, #5A1D81);
             top: 60%;
@@ -226,8 +239,9 @@ section.first_screen {
     }
     .circle_food_curry {
         background-image: url(../image/home/first_screen_friends_food4.svg);
-        width: 124px;
-        height: 124px;
+        background-repeat: no-repeat;
+        width: 100px;
+        height: 100px;
         position: absolute;
         bottom: 8%;
         left: 60%;
@@ -370,6 +384,9 @@ section.second_screen {
         @media all and (max-width: 575px) {
             top: 13%;
         }
+        @media all and (max-height: 800px) {
+            top: 15%;
+        }
     }
     h4.restaurant {
         color: white;
@@ -390,6 +407,9 @@ section.second_screen {
         }
         @media all and (max-width: 575px) {
             top: 18%;
+        }
+        @media all and (max-height: 800px) {
+            top: 20%;
         }
     }
     .circle_orange {
@@ -418,6 +438,7 @@ section.second_screen {
             .store:nth-child(2n+1) {
                 transform: translateY(1050px);
                 width: 15%;
+                filter: brightness(30%);
                 @media all and (min-width: 1200px) and (max-width: 1439px) {
                     transform: translateY(1160px);
                 }
@@ -449,6 +470,7 @@ section.second_screen {
             .store:nth-child(2n) {
                 transform: translateY(1150px);
                 width: 25%;
+                filter: brightness(30%);
                 @media all and (min-width: 1200px) and (max-width: 1439px) {
                     transform: translateY(1230px);
                 }
@@ -486,6 +508,9 @@ section.second_screen {
             .store:nth-child(3) {
                 transform: translateY(1250px);
                 width: 35%;
+                filter: brightness(100%);
+                // border: 5px solid #9B1E23;
+                border-radius: 50%;
                 @media all and (min-width: 1200px) and (max-width: 1439px) {
                     transform: translateY(1315px);
                 }
@@ -589,6 +614,7 @@ section.second_screen {
                 transform: scale(1.1);
                 background-color:#ade8e8;
                 transition: 0.5s;
+                border: 0.5px solid black;
             }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
                 left: 8%;
@@ -655,6 +681,7 @@ section.second_screen {
             transform: scale(1.1);
             background-color:#dcaafb;
             transition: 0.5s;
+            border: 0.5px solid black;
         }
         @media all and (min-width: 1600px) and (max-width: 1920px) {
             left: 30%;
@@ -721,6 +748,7 @@ section.second_screen {
             transform: scale(1.1);
             background-color:#f5e8bd;
             transition: 0.5s;
+            border: 0.5px solid black;
         }
         @media all and (min-width: 1600px) and (max-width: 1920px) {
             bottom: 1%;
@@ -785,6 +813,7 @@ section.second_screen {
             transform: scale(1.1);
             background-color:#ffcce5;
             transition: 0.5s;
+            border: 0.5px solid black;
         }
         @media all and (min-width: 1600px) and (max-width: 1920px) {
             bottom: 23%;
@@ -1063,6 +1092,9 @@ section.third_screen {
             bottom: -15%;
             left: 50%;
             transform: translateX(-50%);
+            @media all and (max-height: 600px) {
+                bottom: -20%;
+            }
         }
     }
 }
@@ -1155,9 +1187,9 @@ section.fourth_screen {
             display: flex;
             // border: 3px solid green;
             justify-content: space-around;
-            height: 40vh;
+            // height: 40vh;
             position: relative;
-            transform: translateY(75px);
+            transform: translateY(100px);
             * {
                 color: white;
             }
@@ -1166,7 +1198,7 @@ section.fourth_screen {
                 flex-direction: column;
             }
             @media all and (max-width: 575px) {
-                top: 10%;
+                top: 8%;
                 flex-direction: column;
             }
             .chu_left {
@@ -1183,8 +1215,15 @@ section.fourth_screen {
                     transform: scale(1.1);
                     background-color:#dcaafb;
                     transition: 0.5s;
+                    border: 0.5px solid black;
                 }
                 &:hover .chu_left_content{
+                    color: black;
+                }
+                &:hover span{
+                    color: black;
+                }
+                &:hover p{
                     color: black;
                 }
                 @media all and (min-width: 576px) and (max-width: 767px) {
@@ -1197,6 +1236,7 @@ section.fourth_screen {
                     width: 230px;
                     height: 230px;
                     top: 25%;
+                    transform: translateY(-18%);
                 }
                 .chu_left_icon1 {
                     margin-top: 15px;
@@ -1270,6 +1310,16 @@ section.fourth_screen {
                     transform: scale(1.1);
                     background-color:#ade8e8;
                     transition: 0.5s;
+                    border: 0.5px solid black;
+                }
+                &:hover .chu_left_content{
+                    color: black;
+                }
+                &:hover span{
+                    color: black;
+                }
+                &:hover p{
+                    color: black;
                 }
                 @media all and (min-width: 576px) and (max-width: 767px) {
                     margin: auto;
