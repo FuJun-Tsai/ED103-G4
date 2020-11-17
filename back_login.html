@@ -144,8 +144,12 @@
                 type:'POST',
                 dataType:'json',
                 success(e){
-                    console.log(e);
+                    // console.log('here');
                     $(window).attr('location','./back_end.html');
+                },
+                error(e){
+                    // console.log(e.responseText);
+                    alert(e.responseText);
                 }
 
             });
@@ -208,19 +212,6 @@
 
         window.addEventListener("load",init,false);
 
-        //登入成功後整頁渲染
-        function memberrender(){
-            let herehref = location.href.split('?')[0].split('/')[location.href.split('?')[0].split('/').length-1];
-
-            if(herehref=='singlerestaurant.html'){
-                singleJS();
-            };
-
-            if(herehref=='searchrestaurant.html'){
-                searchJS();
-            };
-
-        };
 
     </script>
 
