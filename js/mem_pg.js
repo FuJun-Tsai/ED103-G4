@@ -50,24 +50,23 @@ function pic_up_hover(){
 //第一頁功能
 //換側邊圖片
 function picChange() {
-  $('#theFile').on("click",function(){
+  $('#theFile').on("click",function(event){
     let res= $('#theFile').val();
     let arr= res.split("\\");
     let filename=arr.slice(-1)[0];
     filextension=filename.split(".");
     filext="."+filextension.slice(-1)[0];
     valid=[".jpg",".png",".jpeg",".bmp"];
-    // console.log(res);
-    // console.log(arr);
-    // console.log(filename);
-    // console.log(filextension);
-    // console.log(filext);
+    console.log(res);
+    console.log(arr);
+    console.log(filename);
+    console.log(filextension);
+    console.log(filext);
     //如果檔案不是圖檔，我們秀出error icon, 紅色X,然後取消掉 submit按鈕
     if (valid.indexOf(filext.toLowerCase())==-1){
       $("#namefile").css({"color":"red","font-weight":700});
       $("#namefile").html(filename+"不是圖檔喔!");
       $(".btn2").hide()
-      // $( "#submitbtn" ).hide();
       $( "#fakebtn" ).show();
     }else{
       let file = document.getElementById('theFile').files[0];
@@ -77,20 +76,24 @@ function picChange() {
         let image = document.getElementById('avatar_change');
         image.src = readFile.result;
       });
-
+  
       $('#namefile').css({"color":"green","font-weight":700});
       $('#namefile').html(filename);
-
+  
       $( ".btn2" ).show();
       $( "#fakebtn" ).hide();
     }
   });
 }
+// function picChange2(){
+
+// }
 //側邊圖片修改送出
 function pic_modifyajax(){
   $( "#sub_pic" ).on( "click", function( event ) {
     event.preventDefault();
     let avatar = document.getElementById('avatar');
+    console.log(avatar);
     let form = new FormData(avatar);
     MEMBER_NAME = $("#mem_name").text();
     $.ajax({
@@ -102,8 +105,8 @@ function pic_modifyajax(){
       processData: false,
       contentType: false,  
       mimeType: 'multipart/form-data',
-      success: function(){
-  
+      success: function(e){
+        console.log(e);
       },
     });
     return false;
