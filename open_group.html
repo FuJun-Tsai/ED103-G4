@@ -472,7 +472,9 @@
 
     <script>
         function doFirst() {
-
+            // $('#btnLogin').on('click', function() {
+            //     location = location;
+            // });
             //input 餐廳種類
             $('.den_res_type div input').on('change', function() {
                 $('.den_res_type div').css('background', 'rgba(255, 255, 255, 0)');
@@ -825,6 +827,7 @@
             }
         });
         $(document).ready(function() {
+
             $.ajax({
                 url: './open_group.php',
                 type: 'GET',
@@ -969,45 +972,45 @@
                     });
                     //好友欄位
                     // $(document).ready(function() {
-                    if ($('#spanLogin').text = '登出') {
+                    if ($('#spanLogin').text == '登出') {
+                        // $.ajax({
+                        //     url: './php/getuser.php',
+                        //     type: 'GET',
+                        //     dataType: 'JSON',
+                        // success(data) {
+                        let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
+                        console.log(data);
                         $.ajax({
-                            url: './php/getuser.php',
+                            url: './open_group.php',
                             type: 'GET',
+                            data: {
+                                FRIENDS_MASTER_NO: FRIENDS_MASTER_NO,
+                            },
                             dataType: 'JSON',
                             success(data) {
-                                // console.log(data);
-                                let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
-                                // console.log(FRIENDS_MASTER_NO);
-                                $.ajax({
-                                    url: './open_group.php',
-                                    type: 'GET',
-                                    data: {
-                                        FRIENDS_MASTER_NO: FRIENDS_MASTER_NO,
-                                    },
-                                    dataType: 'JSON',
-                                    success(data) {
-                                        friendData = data[1];
-                                        console.log(friendData);
-                                        for (let i = 0; i < friendData.length; i++) {
-                                            $('.den_friend_window form').append(
-                                                `
+                                friendData = data[1];
+                                console.log(friendData);
+                                for (let i = 0; i < friendData.length; i++) {
+                                    $('.den_friend_window form').append(
+                                        `
                                                         <div>
                                                             <img src="./image/member/${friendData[i].FRIENDS_IMAGE}">
                                                             <input type="checkbox" id=friend${[i+1]} name="friendCheckbox[]" value="${friendData[i].FRIENDS_NO}">
                                                             <label for="friend${[i+1]}">${friendData[i].FRIENDS_NAME}</label>
                                                         </div>
                                                     `)
-                                        }
-                                        MasterNO = friendData[1].MEMBER_NAME;
-                                    }
-                                });
+                                }
+                                MasterNO = friendData[1].MEMBER_NAME;
                             }
                         });
-                        $('.den_friend_window').css('display', 'block');
-                    } else {
-                        $('.den_friend_window').css('display', 'none');
-
+                        // $('.den_friend_window').css('display', 'block');
+                        // }
+                        // });
                     }
+                    // if ($('#spanLogin').text == '登入') {
+                    //     $('.den_friend_window').css('display', 'none');
+                    // }
+
                     // });
 
                     //燈箱2裡的button寫入資料庫
