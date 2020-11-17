@@ -3,6 +3,7 @@
 $Errmsg = '';
 
 try{
+    // require_once('connectBooks.php'); //換成自己的 php $pdo來源
     require_once('connectbook.php'); //換成自己的 php $pdo來源
     $amd_no_del = $_REQUEST['amd_no_del'];
     
