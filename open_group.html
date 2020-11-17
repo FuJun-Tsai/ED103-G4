@@ -134,6 +134,8 @@
 
     <!-- main -->
     <section class="den_section">
+        <!--抓會員NO-->
+        <span style="display: none;" class="memberNoNum1"></span>
         <div class="den_wrapper">
             <div class="den_background_round"></div>
             <div class="den_container">
@@ -210,7 +212,7 @@
                             <div class="den_food_map" id="map">
                             </div>
                             <div class="result_owl">
-                                <div class="den_row">
+                                <div class="den_owl_row">
                                     <div class="den_nav_left">
                                         <img src="./image/chevron-circle-left-solid.svg" alt="">
                                     </div>
@@ -433,7 +435,9 @@
             </div>
             <span>已成功開團，請前往會員畫面確認喔!</span>
             <div>
-                <button>前往會員</button>
+                <a href="./member.php">
+                    <button>前往會員</button>
+                </a>
             </div>
         </div>
     </div>
@@ -445,7 +449,9 @@
             </div>
             <span>已成功參團，請前往會員畫面確認喔!</span>
             <div>
-                <button>前往會員</button>
+                <a href="./member.php">
+                    <button>前往會員</button>
+                </a>
             </div>
         </div>
     </div>
@@ -482,6 +488,7 @@
 
                 $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
                 $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
+
             });
 
             //input 餐廳風格
@@ -492,6 +499,7 @@
                 } else {
                     $(this).parent().css('background', 'rgba(223, 114, 25, 0)');
                 }
+
             });
             //好友選擇
             $(".den_friend_box div input").click(function() {
@@ -526,7 +534,7 @@
 
             //點擊餐廳選進input.val
             let resAll = document.querySelectorAll('.den_content div');
-            console.log(resAll.length);
+            // console.log(resAll.length);
             for (let i = 0; i < resAll.length; i++) {
                 resAll[i].addEventListener('click', function() {
                     let name = this.children[3].innerText;
@@ -809,6 +817,18 @@
                         }
                         let resAll = document.querySelectorAll('.den_content div');
                         console.log(resAll.length);
+
+                        // let ggg222 = $('.den_content').children().length;
+                        // console.log(ggg222);
+
+                        if (resAll.length == '0') {
+                            $('.den_owl_row').css('display', 'none');
+                            // $('.result_owl').text('沒有找到符合的餐廳!!!!!');
+                        } else {
+                            $('.den_owl_row').css('display', 'flex');
+                        }
+
+
                         for (let i = 0; i < resAll.length; i++) {
                             resAll[i].addEventListener('click', function() {
                                 let name = this.children[3].innerText;
@@ -989,7 +1009,7 @@
                                 success(data) {
                                     let FRIENDS_MASTER_NO = data.MEMBER_NO;
                                     console.log(FRIENDS_MASTER_NO);
-                                    $('#login .memberNoNum').append(`${data.MEMBER_NO}`);
+                                    $('.memberNoNum1').append(`${data.MEMBER_NO}`);
                                     $.ajax({
                                         url: './open_group.php',
                                         type: 'GET',
@@ -1049,7 +1069,7 @@
                         var friendCheckboxVal = $("input[name='friendCheckbox[]']:checked").map(function() {
                             return $(this).val();
                         }).get();
-                        let memberNoNum = $('.memberNoNum').text();
+                        let memberNoNum = $('.memberNoNum1').text();
 
                         console.log('123');
                         console.log(groupNo);
@@ -1283,7 +1303,7 @@
                     //第三個燈箱參團button
                     $('.den_box3_button button').on('click', function() {
                         if ($('#spanLogin').text() == '登出') {
-                            let memNo = $('.memberNoNum').text();
+                            let memNo = $('.memberNoNum1').text();
                             console.log(memNo);
                             let groupNo3 = $('.groupNo').text();
                             console.log(groupNo3);
