@@ -1736,8 +1736,7 @@ header section .member {
 }
 
 header section .member .icon {
-  width: 50px;
-  height: 50px;
+  width: 75px;
   display: inline-block;
   padding: 0 5px;
 }
@@ -1829,10 +1828,14 @@ header section #menu-bar .nav1 .member {
 }
 
 header section #menu-bar .nav1 .member .icon {
-  width: 50px;
-  height: 50px;
+  width: 70px;
   display: inline-block;
   padding: 0 5px;
+}
+
+header section #menu-bar .nav1 .member .icon img {
+  width: 100%;
+  border-radius: 50%;
 }
 
 header section #menu-bar .nav1 .member span {
@@ -2026,11 +2029,11 @@ header section #menu-bar {
             justify-content: flex-start;
   }
   header section .member .icon {
-    width: 30px;
-    height: 30px;
+    width: 50px;
   }
-  header section .member .icon a img {
-    height: 100%;
+  header section .member .icon img {
+    width: 100%;
+    border-radius: 50%;
   }
   header section .member a span {
     padding: 0 8px;
@@ -2042,7 +2045,10 @@ header section #menu-bar {
   }
   header section #menu-bar .nav1 .member .icon {
     width: 40px;
-    height: 40px;
+  }
+  header section #menu-bar .nav1 .member .icon img {
+    width: 100%;
+    border-radius: 50%;
   }
   header section #menu-bar .nav1 .member span {
     padding: 10px;

@@ -1,4 +1,4 @@
-<!-- 燈箱 登入 -->
+<!-- 登入lightbox -->
 <section class="section_res" id="login_box" style="display:none">
     <div class="container_res">
         <div class="user singinBx">
