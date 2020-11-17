@@ -41,7 +41,7 @@
     <header>
         <section>
             <div class="logo">
-                <a href="./index.html">
+                <a href="./home.html">
                     <img src="./image/logoHeader.svg" alt="">
                 </a>
             </div>
@@ -65,12 +65,10 @@
                 </ul>
             </div>
             <div class="member" id="login">
-                <div class="icon">
+                <a class="icon" href="./member.php">
                     <img src="./image/icon.svg" id="headshot_icon">
-                </div>
-                <div id="nametest"></div>
+                </a>
                 <span style="display: none;" class="memberNoNum"></span>
-                <!-- <span id="memName">&nbsp;</span> -->
                 <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
@@ -81,12 +79,11 @@
                 </div>
                 <ul class="nav1" id="nav1">
                     <div class="member">
-                        <div class="icon">
-                            <a href="./login.html">
-                                <img src="./image/icon.svg" alt="">
-                            </a>
-                        </div>
-                        <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+                        <a class="icon" href="./member.php">
+                            <img src="./image/icon.svg" id="mobileheadshot_icon">
+                        </a>
+                        <span style="display: none;" class="memberNoNum"></span>
+                        <span id="mobilespanLogin">登入</span>
                     </div>
                     <li>
                         <a href="./game.html">吃吃配對</a>
@@ -354,7 +351,42 @@
 
     <!--燈箱背景-->
     <div class="box_background"></div>
+    <!-- 燈箱 登入 -->
+    <section class="section_res" id="login_box" style="display:none">
+        <div class="container_res">
+            <div class="user singinBx">
+                <div class="img_res">
+                    <img src="./image/2.png" alt="">
+                </div>
+                <div class="form_res">
+                    <form name="login">
+                        <h2>會員登入</h2>
+                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號" id="loginID">
+                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼" id="loginPsd">
 
+                        <input type="button" name="" value="登入" id="btnLogin">
+                        <input type="button" name="" value="取消" id="btnLoginCancel">
+                        <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
+                    </form>
+                </div>
+            </div>
+            <div class="user singupBx">
+                <div class="form_res">
+                    <form action="signup.php" method="post">
+                        <h2>註冊</h2>
+                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
+                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
+                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
+                        <input type="submit" name="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </form>
+                </div>
+                <div class="img_res">
+                    <img src="./image/4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
     <!--login燈箱 登入-->
     <section class="section_res" id="login_box" style="display:none">
         <div class="container_res">
@@ -1214,7 +1246,7 @@
                                         $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
                                             `
                                         <p>${memberName[i].MEMBER_NAME}</p>
-                                       `)
+                                        `)
                                     }
                                 }
                             });

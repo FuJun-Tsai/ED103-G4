@@ -17,6 +17,42 @@
 </head>
 
 <body>
+    <!-- 登入lightbox -->
+    <section class="section_res" id="login_box" style="display:none">
+        <div class="container_res">
+            <div class="user singinBx">
+                <div class="img_res">
+                    <img src="./image/2.png" alt="">
+                </div>
+                <div class="form_res">
+                    <form name="login">
+                        <h2>會員登入</h2>
+                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
+                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
+
+                        <input type="button" name="" value="登入" id="btnLogin">
+                        <input type="button" name="" value="取消" id="btnLoginCancel">
+                        <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
+                    </form>
+                </div>
+            </div>
+            <div class="user singupBx">
+                <div class="form_res">
+                    <form action="signup.php" method="post">
+                        <h2>註冊</h2>
+                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
+                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
+                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
+                        <input type="submit" name="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </form>
+                </div>
+                <div class="img_res">
+                    <img src="./image/4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- 背景泡泡 -->
     <div id="bubbles">
         <div class="bubble x1"></div>
@@ -32,7 +68,7 @@
     <header>
         <section>
             <div class="logo">
-                <a href="./index.html">
+                <a href="./home.html">
                     <img src="./image/logoHeader.svg" alt="">
                 </a>
             </div>
@@ -55,13 +91,12 @@
                     </li>
                 </ul>
             </div>
-            <div class="member">
-                <div class="icon">
-                    <a href="./login.html">
-                        <img src="./image/icon.svg" alt="">
-                    </a>
-                </div>
-                <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+            <div class="member" id="login">
+                <a class="icon" href="./member.php">
+                    <img src="./image/icon.svg" id="headshot_icon">
+                </a>
+                <span style="display: none;" class="memberNoNum"></span>
+                <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
                 <div id="menu" onclick="onClickMenu()">
@@ -71,12 +106,11 @@
                 </div>
                 <ul class="nav1" id="nav1">
                     <div class="member">
-                        <div class="icon">
-                            <a href="./login.html">
-                                <img src="./image/icon.svg" alt="">
-                            </a>
-                        </div>
-                        <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+                        <a class="icon" href="./member.php">
+                            <img src="./image/icon.svg" id="mobileheadshot_icon">
+                        </a>
+                        <span style="display: none;" class="memberNoNum"></span>
+                        <span id="mobilespanLogin">登入</span>
                     </div>
                     <li>
                         <a href="./game.html">吃吃配對</a>
@@ -101,13 +135,15 @@
 
     <!-- ***************************** -->
     <!-- 新增貼文 -->
-    <div class="banner_bg">
-        <div class="text">
-            <h1>　吃貨分享</h1>
-        </div>
+     <div class="banner_share">
+        <div class="banner_bg">
+            <div class="text">
+                <h1>　　吃　貨　分　享　　</h1>
+            </div>
+        </div>    
     </div>
 
-    <div class="po_wen">
+    <div class="btn_ballon">
         <div class="btnCust" id="newMoodBtn">
             <img src="./image/19.png">
         </div>
@@ -118,8 +154,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="tool_btn">
-                        <button type="button">揪團分享</button>
-                        <button type="button">美食分享</button>
+                        <button type="button" id="showall">全部分享</button>
+                        <button type="button" id="group">揪團分享</button>
+                        <button type="button" id="foodie">美食分享</button>
                         <select>
                             <option>排序方式</option>
                             <option>最新貼文</option>
@@ -131,265 +168,139 @@
             </div>
             <div class="row" id="cardshare">
                 <!-- -------------------卡片1--------------------- -->
-                <div class="col-md-4" id="c1">
+                <!-- <div class="col-md-4" id="C1">
                     <div class="content">
-                        <!-- ------卡片表頭------- -->
+                        ------卡片表頭-------
+                        <div class="ord">
+                            <h4>#美食分享</h4>
+                            <h3>超推嗜燒肉!</h3>
+                        </div>
                         <div class="head">
-                            <!-- ------用戶頭像圖片------- -->
+                            ------用戶頭像圖片-------
                             <div class="user_img_block">
                                 <img src="image/user.png">
                             </div>
-                            <!-- ------用戶名稱------- -->
+                            ------用戶名稱-------
                             <div class="user_name">
                                 <h5>孫小美</h5>
                             </div>
-                            <!-- ------貼文日期------- -->
+                            ------貼文日期-------
                             <div class="time">
                                 <h5>2020.11.27</h5>
                             </div>
                         </div>
-                        <!-- ------卡片分享圖片------- -->
-                        <div class="col-md-12 -outpic" id="c1-1">
+                            ------卡片分享圖片-------
+                        <div class="col-md-12 -innerc" id="c1-1">
                             <div class="btn_modal">
                                 <img src="image/1.jpg">
                             </div>
                         </div>
-                        <!-- ------卡片表尾------- -->
+                            ------卡片表尾-------
                         <div class="foot">
-                            <!-- ------收藏ICON------- -->
+                            ------收藏ICON-------
                             <div class="collect_block">
-                                <img src="image/heart-shape-silhouette.png">
-                                <!-- ------收藏數------- -->
+                                <div class="heartIcon">
+                                    <img src="image/heart-shape-outline.png" class="fillicon">
+                                </div>
+                            ------收藏數-------
                                 <div class="collect_sum">
                                     <h5>999</h5>
                                 </div>
                             </div>
-                            <!-- ------回文ICON------- -->
+                            ------回文ICON-------
                             <div class="msg_block">
                                 <img src="image/comment-alt-solid.svg">
-                                <!-- ------回文數------- -->
+                            ------回文數-------
                                 <div class="msg_sum">
                                     <h5>999</h5>
                                 </div>
                             </div>
                         </div>
-                        <!-- 新增心情 燈箱 -->
-                        <div class="overlay">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <article>
-                                            <div class="msg-title">
-                                                <h2>美食分享</h2>
-                                                <div class="btn_modal_close">
-                                                    <img src="./image/XX.svg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 order-1">
-                                                    <!-- ------內圖------- -->
-                                                    <div class="msg-left">
-                                                        <div class="img_block">
-                                                            <img>
-                                                        </div>
-                                                        <div class="user_img_block">
-                                                            <img>
-                                                        </div>
-                                                        <div class="user_name">
-                                                            <h5></h5>
-                                                        </div>
-                                                        <!-- ------收藏------- -->
-                                                        <div class="collect_block">
-                                                            <img src="image/heart-shape-silhouette.png">
-                                                            <div class="collect_sum">
-                                                                <h5>999</h5>
-                                                            </div>
-                                                        </div>
-                                                        <p>小小店舖，原先座落在耕莘醫院對面的騎樓間，而在前些日子突然宣布暫停營業，幸好只是因為搬遷。
-                                                        </p>
-                                                        <input type="button" value="檢舉">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6 order-2">
-                                                    <div class="msg-right">
-                                                        <div class="msgin">
-                                                            <div class="msgpost">
-                                                                <div class="user_img_block">
-                                                                    <img src="image/user.png">
-                                                                </div>
-                                                                <div class="user_name">
-                                                                    <h5>董董：</h5>
-                                                                </div>
-                                                                <p>看起來很讚!!</p>
-                                                                <input type="button" value="檢舉">
-                                                            </div>
-                                                            <div class="msgpost">
-                                                                <div class="user_img_block">
-                                                                    <img src="image/user.png">
-                                                                </div>
-                                                                <div class="user_name">
-                                                                    <h5>喵貓：</h5>
-                                                                </div>
-                                                                <p>看起來很讚很讚很讚很讚很讚很讚很讚很讚很讚很讚很讚很讚很讚很讚很讚很讚很讚很讚!!</p>
-                                                                <input type="button" value="檢舉">
-                                                            </div>
-                                                        </div>
-                                                        <form action="">
-                                                            <textarea name="" id="" placeholder="留言"></textarea>
-                                                            <br>
-                                                            <input type="submit" value="送 出">
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="more">more</div>
                     </div>
-                </div>
-                <!-- -------------------卡片2--------------------- -->
-                <div class="col-md-4" id="C2">
-                    <div class="content">
-                        <!-- ------卡片表頭------- -->
-                        <div class="head">
-                            <!-- ------用戶頭像圖片------- -->
-                            <div class="user_img_block">
-                                <img src="image/user.png">
-                            </div>
-                            <!-- ------用戶名稱------- -->
-                            <div class="user_name">
-                                <h5>孫小美</h5>
-                            </div>
-                            <!-- ------貼文日期------- -->
-                            <div class="time">
-                                <h5>2020.11.27</h5>
-                            </div>
-                        </div>
-
-                        <!-- ------卡片分享圖片------- -->
-                        <div class="col-md-12 -inner">
-                            <div class="btn_modal">
-                                <img src="image/8.jpg">
-                            </div>
-                        </div>
-                        <!-- ------卡片表尾------- -->
-                        <div class="foot">
-                            <!-- ------收藏ICON------- -->
-                            <div class="collect_block">
-                                <img src="image/heart-shape-silhouette.png">
-                                <!-- ------收藏數------- -->
-                                <div class="collect_sum">
-                                    <h5>999</h5>
-                                </div>
-                            </div>
-                            <!-- ------回文ICON------- -->
-                            <div class="msg_block">
-                                <img src="image/comment-alt-solid.svg">
-                                <!-- ------回文數------- -->
-                                <div class="msg_sum">
-                                    <h5>999</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- -------------------卡片3--------------------- -->
-                <div class="col-md-4" id="C2">
-                    <div class="content">
-                        <!-- ------卡片表頭------- -->
-                        <div class="head">
-                            <!-- ------用戶頭像圖片------- -->
-                            <div class="user_img_block">
-                                <img src="image/user.png">
-                            </div>
-                            <!-- ------用戶名稱------- -->
-                            <div class="user_name">
-                                <h5>孫小美</h5>
-                            </div>
-                            <!-- ------貼文日期------- -->
-                            <div class="time">
-                                <h5>2020.11.27</h5>
-                            </div>
-                        </div>
-                        <!-- ------卡片分享圖片------- -->
-                        <div class="col-md-12 -inner">
-                            <div class="btn_modal">
-                                <img src="image/5.jpg">
-                            </div>
-                        </div>
-                        <!-- ------卡片表尾------- -->
-                        <div class="foot">
-                            <!-- ------收藏ICON------- -->
-                            <div class="collect_block">
-                                <img src="image/heart-shape-silhouette.png">
-                                <!-- ------收藏數------- -->
-                                <div class="collect_sum">
-                                    <h5>999</h5>
-                                </div>
-                            </div>
-                            <!-- ------回文ICON------- -->
-                            <div class="msg_block">
-                                <img src="image/comment-alt-solid.svg">
-                                <!-- ------回文數------- -->
-                                <div class="msg_sum">
-                                    <h5>999</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- -------------------卡片4--------------------- -->
-                <div class="col-md-4" id="C2">
-                    <div class="content">
-                        <!-- ------卡片表頭------- -->
-                        <div class="head">
-                            <!-- ------用戶頭像圖片------- -->
-                            <div class="user_img_block">
-                                <img src="image/user.png">
-                            </div>
-                            <!-- ------用戶名稱------- -->
-                            <div class="user_name">
-                                <h5>孫小美</h5>
-                            </div>
-                            <!-- ------貼文日期------- -->
-                            <div class="time">
-                                <h5>2020.11.27</h5>
-                            </div>
-                        </div>
-                        <!-- ------卡片分享圖片------- -->
-                        <div class="col-md-12 -inner">
-                            <div class="btn_modal">
-                                <img src="image/9.jpg">
-                            </div>
-                        </div>
-                        <!-- ------卡片表尾------- -->
-                        <div class="foot">
-                            <!-- ------收藏ICON------- -->
-                            <div class="collect_block">
-                                <img src="image/heart-shape-silhouette.png">
-                                <!-- ------收藏數------- -->
-                                <div class="collect_sum">
-                                    <h5>999</h5>
-                                </div>
-                            </div>
-                            <!-- ------回文ICON------- -->
-                            <div class="msg_block">
-                                <img src="image/comment-alt-solid.svg">
-                                <!-- ------回文數------- -->
-                                <div class="msg_sum">
-                                    <h5>999</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
 
+    <!-- 新增心情 燈箱 -->
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <article>
+                        <button name="" value="id" style="display: none;"></button>
+                        <div class="btn_modal_close">
+                            <img src="./image/XX.svg" alt="">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 order-1">
+                                <!-- ------內圖------- -->
+                                <div class="msg-left">
+                                    <h4></h4>
+                                    <h2></h2>
+                                    <div class="img_block">
+                                        <img>
+                                    </div>
+                                    <div class="left_info">
+                                        <div class="user_block">
+                                            <div class="user_img_block">
+                                                <img>
+                                            </div>
+                                            <div class="user_name">
+                                                <h5></h5>
+                                            </div>
+                                        </div>
+                                        <!-- ------收藏------- -->
+                                        <div class="collect_block">
+                                            <div class="heartIcon">
+                                                <img src="image/heart-shape-outline.png" class="fillicon">
+                                            </div>
+                                            <div class="collect_sum">
+                                                <h5>999</h5>
+                                            </div>
+                                        </div>
+                                        <input type="button" value="檢舉">
+                                    </div>
+                                    <p>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 order-2">
+                                <div class="msg-right">
+                                    <!-- <h3>留言區</h3> -->
+                                    <div class="msgin">
+                                        <!-- <div class="msgpost">
+                                            <div class="right_info">
+                                                <div class="user_block">
+                                                    <div class="user_img_block">
+                                                        <img>
+                                                    </div>
+                                                    <div class="user_name">
+                                                        <h5>董董：</h5>
+                                                    </div>
+                                                </div>
+                                                <input type="button" value="檢舉">
+                                            </div>
+                                            <p>真的很讚<br>
+                                                第一次在台灣吃到那麼好吃的和牛燒烤店<br>
+                                                好像回到日本的時候～～～～和牛超級棒</p>
+                                        </div> -->
+                                    </div>
+
+                                    <!-- <form action="" id="nuan_LeaveMessage">
+                                        <textarea name="" id="" placeholder="留言"></textarea>
+                                        <input type="submit" value="送 出">
+                                    </form> -->
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="newMoodLightBox" id="newMoodLightBox">
         <div class="container">
@@ -401,25 +312,34 @@
                             <span class="line2"></span>
                         </div>
                         <h2>分享你的吃吃心得</h2>
-                        <form id="newMoodForm">
-                            <div class="moodBox">
-                                <h1>上傳圖片</h1>
-                                <div class="picWrap">
-                                    <img src="./image/newMoodPic.png" id="viewImg">
+                        <form id="newMoodForm" action="shareInsertPost.php" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="moodBox">
+                                        <h1>上傳圖片</h1>
+                                        <div class="picWrap">
+                                            <img src="" id="viewImg">
+                                        </div>
+                                        <input type="file" name="moodPic" id="inputImg">
+                                    </div>
                                 </div>
-                                <input type="file" name="moodPic" id="inputImg">
+                                <div class="col-md-6">
+                                    <div class="moodBox">
+                                        <h1>選擇貼文分類</h1>
+                                        <select name="moodClass" id="moodClass">
+                                            <option value="0">揪團分享</option>
+                                            <option value="1">美食分享</option>
+                                        </select>
+                                        <h1>寫下吃吃標題</h1>
+                                        <textarea name="moodTitle" id="moodTitle" class="moodTitle"></textarea>
+
+                                        <h1>寫下吃吃內容</h1>
+                                        <textarea name="moodContent" id="moodContent"></textarea>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="moodBox">
-                                <h1>選擇分類</h1>
-                                <select name="moodClass" id="moodClass">
-                                        <option value="揪團分享">揪團分享</option>
-                                        <option value="美食分享">美食分享</option>
-                                    </select>
-                                <h1>寫下吃吃心情</h1>
-                                <textarea name="moodContent" id="moodContent"></textarea>
-                            </div>
+                            <button class="btnPink" id="newMoodPostBtn">送出</button>
                         </form>
-                        <button class="btnPink" id="newMoodPostBtn">送出</button>
                     </div>
                 </div>
             </div>
@@ -473,63 +393,444 @@
             $("div.overlay").removeClass("-on -opacity-zero");
             }, 1000);
         });
-        
         });
     </script> -->
+
     <script>
-        $(function() {
-            // 開啟 Modal 彈跳視窗
-            $("div.btn_modal").on("click", function() {
-                $(".overlay").addClass("-on");
-                let index = parseInt($('.btn_modal').index(this)) + 1;
-                console.log(index);
-                let userimg = $(`#c${index} .user_img_block img`).attr('src');
-                let username = $(`#c${index} .head .user_name h5:nth-child(1)`).text();
-                let largeimg = $(this).children('img').attr('src');
+        $(document).ready(function(){
+            $.ajax({
+                url:'./shareRender.php',
+                dataType:'json',
+                type:'GET',
+                success(data){
+                    for(let i=0;i<data.length;i+=1){
+                        if(data[i].kind==0){
+                            data[i].kind='#美食分享';
+                        }else{
+                            data[i].kind='#揪團分享';
+                        };
 
-                $('.overlay .img_block img').attr('src', largeimg);
-                $('.overlay .user_img_block img').attr('src', userimg);
-                $('.overlay .user_name h5').text(username);
+                        $('#cardshare').append(`
+                            <div class="col-md-4" id="C${data[i].no}">
+                                <div class="content">
+
+                                    <div class="ord">
+                                        <h4>${data[i].kind}</h4>
+                                        <h3>${data[i].title}</h3>
+                                    </div>
+                                    <div class="head">
+
+                                        <div class="user_img_block">
+                                            <img src="image/${data[i].headimg}>
+                                        </div>
+
+                                        <div class="user_name">
+                                            <h5>${data[i].name}</h5>
+                                        </div>
+
+                                        <div class="time">
+                                            <h5>${data[i].date}</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="btn_modal">
+                                            <img src="image/article_sharing/${data[i].img}">
+                                        </div>
+                                    </div>
+
+                                    <div class="foot">
+
+                                        <div class="collect_block">
+                                            <div class="heartIcon">
+                                                <img src="image/heart-shape-outline.png" class="fillicon">
+                                            </div>
+
+                                            <div class="collect_sum">
+                                                <h5>${data[i].ac}</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="msg_block">
+                                            <img src="image/comment-alt-solid.svg">
+
+                                            <div class="msg_sum">
+                                                <h5>${data[i].am}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="more ${data[i].id}" style="outline:none; border:none;"  value="${data[i].no}">more</button>
+                                </div>
+                            </div>
+                        `);
+                        
+                        $(`.${data[i].id}`).on('click',function(){
+
+                            let id = $(this).val();
+                            $(".msg-left h4").text(`${data[i].kind}`);
+                            $(".msg-left h2").text(`${data[i].title}`);
+                            $(".img_block img").attr('src',`image/article_sharing/${data[i].img}`);
+                            $(".msg-left p").text(`${data[i].word}`);
+                            lightdetail(id);
+                        });
+                        
+                        // if(i==data.length-1){
+                        
+
+
+                            // htmljs();
+
+                        // };
+
+                    };
+
+                    htmljs();
+                
+                },
+            
             });
 
-            // 關閉 Modal
-            $("div.btn_modal_close").on("click", function() {
-                $("div.overlay").addClass("-opacity-zero");
+            $('#newMoodPostBtn').on('click',function(){
+                $.ajax({
+                    url:'shareInsertPost.php',
+                    type:'GET',
+                    data:{
+                        moodTitle:$('#moodTitle').val(),
+                        moodContent :$('#moodContent').val(),
+                        moodClass :$('#moodClass').val(),
+                        img  :new FormData($('#inputImg')),
+                        // img  :$('#inputImg'),
 
-                // 設定隔一秒後，移除相關 class
-                setTimeout(function() {
-                    $("div.overlay").removeClass("-on -opacity-zero");
-                }, 0);
+                    },
+                    // data:{
+                    //     title:1,
+                    //     word :2,
+                    //     kind :0,
+                    //     // img  :new FormData($('#inputImg')),
+
+                    // },
+                    // data:`title=1&word=1&kind=0`,
+                    dataType:'json',
+                    complete(data){
+                        let nowtime = new Date();
+                        let todate = String(nowtime.getDate());
+                        let timetext = `${nowtime.getFullYear()}-${nowtime.getMonth()+1}-${todate} ${nowtime.getHours()}:${nowtime.getMinutes()}:${nowtime.getSeconds()}`;
+                        let title = $('#moodClass').val();
+
+                        if(title==0){
+                            title = '美食分享';
+                        }else{
+                            title = '揪團分享';
+                        };
+                        
+                        console.log(data);
+                        
+                        $('#cardshare').append(`
+                            <div class="col-md-4">
+                                <div class="content">
+
+                                    <div class="ord">
+                                        <h4>${title}</h4>
+                                        <h3>${$('#moodTitle').val()}</h3>
+                                    </div>
+                                    <div class="head">
+
+                                        <div class="user_img_block">
+                                            <img src="image/{{headimg}}>
+                                        </div>
+
+                                        <div class="user_name">
+                                            <h5>{{哈洽馬}}</h5>
+                                        </div>
+
+                                        <div class="time">
+                                            <h5>${timetext}</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="btn_modal">
+                                            <img src="image/article_sharing/{{XX.img}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="foot">
+
+                                        <div class="collect_block">
+                                            <div class="heartIcon">
+                                                <img src="image/heart-shape-outline.png" class="fillicon">
+                                            </div>
+
+                                            <div class="collect_sum">
+                                                <h5>999</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="msg_block">
+                                            <img src="image/comment-alt-solid.svg">
+
+                                            <div class="msg_sum">
+                                                <h5>999</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="more newpost" style="outline:none; border:none;"  value="">more</button>
+                                </div>
+                            </div>
+                        `);
+
+                        $('.newpost').on('click',function(){
+                            // let id = $(this).val();
+                            // $(".msg-left h4").text(`${data[i].kind}`);
+                            // $(".msg-left h2").text(`${data[i].title}`);
+                            // $(".img_block img").attr('src',`image/article_sharing/${data[i].img}`);
+                            // $(".msg-left p").text(`${data[i].word}`);
+                            // lightdetail(id);
+                            console.log('here');
+
+                        });
+
+                    }
+
+                });
+
+
             });
+
+        
+            // $('.btn_modal').on('click',function(){
+            //     let id = $(this).closest('.col-md-4').attr('id');
+            //     console.log(id);
+            //     lightdetail(id);
+            // });
+
+            $.ajax({
+                
+            });
+
+            function lightdetail(e){
+                $.ajax({
+                    url:'sharelightRender.php',
+                    dataType:'json',
+                    type:'GET',
+                    data:{
+                        no:e,
+                    },
+                    success(data){
+                        console.log(data); 
+                        $(".overlay").addClass("-on");
+                        $(".msg-right").empty();
+
+                        $(".msg-right").append(`
+                        <h3>留言區</h3>
+                        `);
+
+                        for(let i=0;i<data.length;i+=1){
+                            $(".msg-right").append(`
+                            <div class="msgin">
+                                <div class="msgpost">
+                                    <div class="right_info">
+                                        <div class="user_block">
+                                            <div class="user_img_block">
+                                                <img src="${data[i].headimg}">
+                                            </div>
+                                            <div class="user_name">
+                                                <h5>${data[i].name}：</h5>
+                                            </div>
+                                        </div>
+                                        <button value="">檢舉</button>
+                                    </div>
+                                    <p>${data[i].word}</p>
+                                    <p>${data[i].time}</p>
+                                </div>
+                            </div>
+
+                            `);
+
+                        }
+
+                        $('.msg-right').append(`
+                        <div id="nuan_LeaveMessage">
+                            <textarea name="word" id="" placeholder="留言"></textarea>
+                            <button type="submit" name="no" value="${data[0].no}">送出</button>
+                        </div>
+                        `);
+
+                        LM();
+
+                    },
+
+                    complete(){
+
+                    }
+
+                });
+
+            };
+
+            function LM(){
+
+                $('#nuan_LeaveMessage button').on('click',function(){
+                    if($('#spanLogin').text()=='登入'){
+                        $('#login_box').css({'display':'flex'});
+                    }else{
+
+                        $.ajax({
+                            url:'shareInsertMessage.php',
+                            type:'GET',
+                            dataType:'json',
+                            data:{
+                                no:$(this).val(),
+                                word:$('#nuan_LeaveMessage textarea').val(),
+                            },
+                            complete(data){
+
+                            },
+
+                        });
+                        let lastindex = $('.msgpost').length -1;
+                        let message = $('#nuan_LeaveMessage textarea');
+                        let nowtime = new Date();
+                        let todate = String(nowtime.getDate());
+                        let timetext = `${nowtime.getFullYear()}-${nowtime.getMonth()+1}-${todate} ${nowtime.getHours()}:${nowtime.getMinutes()}:${nowtime.getSeconds()}`;
+
+                        $('.msgin').first().prepend(
+                            `<div class="msgpost">
+                                <div class="right_info">
+                                    <div class="user_block">
+                                        <div class="user_img_block">
+                                            <img src="{{會員大頭照}}">
+                                        </div>
+                                        <div class="user_name">
+                                            <h5>{{會員名稱}}：</h5>
+                                        </div>
+                                    </div>
+                                    <input type="button" value="檢舉">
+                                </div>
+                                <p>${message.val()}</p>
+                                <p>${timetext}</p>
+                            </div>`
+                        );
+                        return false;
+                        message.val('');
+
+                    }
+
+                });
+
+            }
+
+
         });
     </script>
+
     <script>
-        $(document).ready(function() {
-            $(window).scroll(function() {
-                var top = $(".goto-top");
-                if ($('body').height() <= ($(window).height() + $(window).scrollTop() + 200)) {
-                    top.animate({
-                        "margin-left": "0px"
-                    }, 1500);
-                } else {
-                    top.animate({
-                        "margin-left": "-100%"
-                    }, 1500);
-                }
-            });
+        function htmljs(){
+            $(document).ready(function () {
+                // 開啟 Modal 彈跳視窗
+                // $(".btn_modal").on("click", function() {
+                //     $(".overlay").addClass("-on");
+                //     let id = $(this).closest('.col-md-4').attr('id');
+                //     let userimg = $(`#${id} .user_img_block img`).attr('src');
+                //     let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
+                //     let largeimg = $(`#${id} .btn_modal img`).attr('src');
+                //     let condition = $(`#${id} .ord h4`).text(); 
+                //     let title = $(`#${id} .ord h3`).text(); 
+                //     console.log(condition);
+                //     console.log(title);
 
-            $(".goto-top").on('click', function() {
-                $("html, body").animate({
-                    scrollTop: 0
-                }, 400);
+                //     $('.overlay .img_block img').attr('src', largeimg);
+                //     $('.overlay .user_img_block img').attr('src', userimg);
+                //     $('.overlay .user_name h5').text(username);
+                //     $('.overlay .msg-left h4').text(condition);
+                //     $('.overlay .msg-left h2').text(title);
+
+                // });
+
+                // $('.more').on('click',function(){
+                //     $(".overlay").addClass("-on");
+                //     let id = $(this).closest('.col-md-4').attr('id');
+                //     let userimg = $(`#${id} .user_img_block img`).attr('src');
+                //     let username = $(`#${id} .head .user_name h5:nth-child(1)`).text();
+                //     let largeimg = $(`#${id} .btn_modal img`).attr('src');
+                //     let condition = $(`#${id} .ord h4`).text(); 
+                //     let title = $(`#${id} .ord h3`).text(); 
+
+                //     $('.overlay .img_block img').attr('src', largeimg);
+                //     $('.overlay .user_img_block img').attr('src', userimg);
+                //     $('.overlay .user_name h5').text(username);
+                //     $('.overlay .msg-left h4').text(condition);
+                //     $('.overlay .msg-left h2').text(title);
+                    
+                // }); 
+
+                // 關閉 Modal
+                $(".btn_modal_close").on("click", function() {
+                    $("div.overlay").addClass("-opacity-zero");
+
+                    // 設定隔一秒後，移除相關 class
+                    setTimeout(function() {
+                        $("div.overlay").removeClass("-on -opacity-zero");
+                    }, 0);
+                });
+
+                $(window).scroll(function () {
+                    let top =  $(".goto-top");
+                    if ($('body').height()<=($(window).height()+$(window).scrollTop()+200)) {
+                        top.animate({"margin-left": "0px"},1500);
+                    } else {
+                        top.animate({"margin-left": "-100%"},1500);
+                    }
+                });
+
+                $(".goto-top").on('click', function () {
+                    $("html, body").animate({scrollTop: 0}, 400);
+                });
+
+                //加入收藏、取消收藏
+                let uncollect = "image/heart-shape-outline.png";
+                let collected = "/image/heart-shape-silhouette.png";
+                $("img.fillicon").click(function(){
+                    if($('#spanLogin').text()!='登出'){
+                        $('#login_box').css({'display':'flex'});
+                    }
+
+                });
+
+                //條件篩選(揪團/美食)
+                $('.tool_btn button').on('click',function(){
+                    let id = $(this).attr('id');
+                    filter(id);
+                });
+                
+                // $('#nuan_LeaveMessage').on('submit',function(){
+                //     let message = $('#nuan_LeaveMessage textarea');
+                //     let lastindex = $('.msgpost').length -1;
+                //     $('.msgin').append(
+                //         `<div class="msgpost">
+                //             <div class="right_info">
+                //                 <div class="user_block">
+                //                     <div class="user_img_block">
+                //                         <img>
+                //                     </div>
+                //                     <div class="user_name">
+                //                         <h5>董董：</h5>
+                //                     </div>
+                //                 </div>
+                //                 <input type="button" value="檢舉">
+                //             </div>
+                //             <p>${message.val()}</p>
+                //         </div>`
+                //     );
+                //     return false;
+                //     message.val('');
+                // });
+
             });
-        });
+        };
     </script>
-
-
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+    <script src="js/login.js"></script>
 </body>
-
 </html>

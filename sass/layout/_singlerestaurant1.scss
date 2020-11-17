@@ -26,36 +26,39 @@
     #leavemessage::-webkit-scrollbar-thumb {
         background-color: #bb6573;
     }
+
     .single_small::-webkit-scrollbar-track {
         width: 4px;
         background-color: #f2c479;
     }
     //捲軸寬度
     .single_small::-webkit-scrollbar {
-        height: 6px;
+        height:  6px;
         background-color: black;
     }
     //捲軸本體顏色
     .single_small::-webkit-scrollbar-thumb {
         background-color: #bb6573;
     }
+    .tored{
+        color:red;
+    }
+
 }
 
 body {
     position: relative;
+    
 }
-
 body::-webkit-scrollbar-track {
     width: 4px;
     background-color: #f2c479;
 }
-
 //捲軸寬度
 body::-webkit-scrollbar {
-    width: 12px;
+    width:  12px;
     background-color: black;
 }
-
 //捲軸本體顏色
 body::-webkit-scrollbar-thumb {
     background-color: #bb6573;
@@ -64,17 +67,17 @@ body::-webkit-scrollbar-thumb {
 // body{
 section {
     // font-size: $fontSize!important;
-    .banner_rest_sear {
-        .banner_bg {
-            background-image: url("../image/20.jpg");
-            background-repeat: no-repeat;
-            height: 500px;
-            width: 100%;
-            background-size: cover;
-            background-position: center;
-            margin-bottom: 5%;
-            background-attachment: fixed;
-            .txt {
+    .banner_rest_sear{
+        .banner_bg{
+        background-image: url("../image/20.jpg");
+        background-repeat: no-repeat;
+        height: 500px;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 5%;
+        background-attachment: fixed;
+            .txt{
                 width: 90%;
                 height: 400px;
                 margin-top: 50px;
@@ -90,7 +93,7 @@ section {
                 outline: 5px solid white;
                 outline-offset: -13px;
                 background-color: rgba(223, 114, 25, 0.1);
-                h1 {
+                h1{
                     font-weight: 900;
                     background-color: white;
                     display: inline-block;
@@ -111,8 +114,7 @@ section {
         .single_attr {
             display: inline;
             #kind {
-                @include box(60px,
-                8px);
+                @include box(60px, 8px);
                 // @include borderT;
                 text-align: center;
                 display: inline-block;
@@ -123,8 +125,7 @@ section {
                 border: 0.1px solid;
             }
             #style {
-                @include box(60px,
-                8px);
+                @include box(60px, 8px);
                 // @include borderT;
                 text-align: center;
                 display: inline-block;
@@ -138,14 +139,10 @@ section {
         #introduction {
             display: flex;
             flex-direction: row;
-            @include box(100%,
-            0);
+            @include box(100%, 0);
             .container {
                 .single_restaurant {
-                    @include lineGradient(50%,
-                    345deg,
-                    #F2AB39,
-                    transparent);
+                    @include lineGradient(50%,345deg,#F2AB39,transparent);
                     border-radius: 24px;
                     margin-left: 0px;
                     margin-right: 0px;
@@ -160,13 +157,11 @@ section {
                         .single_large {
                             padding-left: 15px;
                             padding-right: 15px;
-                            @include box(600px,
-                            0);
+                            @include box(600px, 0);
                             height: 600px;
                             #mainimg {
                                 display: inline-block;
-                                @include box(600px,
-                                24px);
+                                @include box(600px, 24px);
                             }
                         }
                         .single_small {
@@ -179,8 +174,7 @@ section {
                             padding-right: 15px;
                             width: 100%;
                             overflow: auto;
-                            @include box(600px,
-                            0);
+                            @include box(600px, 0);
                             @media screen and(max-width: 652px) {
                                 padding-left: 0;
                             }
@@ -189,8 +183,7 @@ section {
                                 padding-right: 15px;
                             }
                             @media (min-width:711px) and (max-width:992px) {
-                                @include box(100%,
-                                24px);
+                                @include box(100%, 24px);
                             }
                             @media screen and (max-width:992px) {
                                 margin: 0 auto !important;
@@ -200,11 +193,11 @@ section {
                                 justify-content: start;
                                 margin: 0 auto;
                             }
+                            
                             .single_small_img {
                                 margin-right: 8px;
                                 cursor: pointer;
-                                @include box(140px,
-                                24px);
+                                @include box(140px, 24px);
                                 @media (min-width: 710px) and (max-width: 1200px) {
                                     @include box(100%, 24px);
                                 }
@@ -215,10 +208,10 @@ section {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-evenly;
-                        .single_item {
+                        .single_item{
                             margin-top: 16px;
                         }
-                        #rname {
+                        #rname{
                             line-height: 36px !important;
                             padding-left: 16px;
                         }
@@ -234,10 +227,10 @@ section {
                                 line-height: 32px !important;
                             }
                         }
-                        .single_address {
+                        .single_address{
                             margin-top: 16px;
                         }
-                        .single_tel {
+                        .single_tel{
                             margin-top: 16px;
                         }
                         .single_togroup {
@@ -253,6 +246,16 @@ section {
                                 // @include btnPurple_4;
                             }
                         }
+                        .like{
+                            position: absolute;
+                            top: 48px;
+                            right: 24px;
+                            cursor: pointer;
+                            i,span{
+                                font-size: 24px;
+
+                            }
+                        }
                     }
                 }
             }
@@ -260,11 +263,10 @@ section {
         h4 {
             margin: 24px;
         }
-        .single_messagecontrol {
+        .single_messagecontrol{
             margin: 0 15px;
             #leavemessage {
-                @include box(1200px,
-                0);
+                @include box(1200px, 0);
                 border-left: 6px solid #f2c479;
                 border-top: 6px solid #f2c479;
                 border-radius: 24px 0 0 0;
@@ -272,8 +274,7 @@ section {
                 height: 400px;
                 overflow: auto;
                 .single_L {
-                    @include box(90%,
-                    24px);
+                    @include box(90%, 24px);
                     background-color: white;
                     margin: 20px;
                     display: flex;
@@ -283,25 +284,31 @@ section {
                     position: relative;
                     img {
                         border-radius: 50%;
-                        // width: 40px;
-                        // height: 40px;
+                        width: 60px;
+                        height: 60px;
                         margin: 20px;
+                        background-size: cover;
                     }
                     i {
                         position: absolute;
                         right: 10px;
-                        bottom: 0;
+                        bottom: 4px;
                         cursor: pointer;
                     }
-                    .time {
+                    .time{
+                        position: absolute;
+                        top: 4px;
+                        right: 12px;
+                        padding: 0;
+                    }
+                    .name{
                         position: absolute;
                         top: 4px;
                         right: 12px;
                     }
-                    .name {
-                        position: absolute;
-                        top: 4px;
-                        right: 12px;
+                    p{
+                        padding-top: 20px;
+                        padding-bottom: 20px;
                     }
                 }
             }
@@ -317,6 +324,9 @@ section {
             img {
                 margin: 20px;
                 border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                background-size: cover;
             }
             #send {
                 height: 60px;
@@ -346,17 +356,15 @@ section {
             }
         }
     }
-    #report {
-        @include light-box-setting(100%,
-        500px,
-        absolute);
+    .single_report{
+        @include light-box-setting(100%,500px,absolute);
         display: none;
         border-radius: 24px;
         max-width: 500px;
         position: fixed;
         background-color: gray;
         z-index: 100;
-        .single_reportback {
+        .single_reportback{
             position: absolute;
             background-color: white;
             width: calc(100% - 40px);
@@ -390,12 +398,22 @@ section {
                 left: 50%;
                 transform: translate(-50%, 0);
             }
-            .single_cancel {
+            .single_cancel{
                 position: absolute;
                 top: 16px;
                 right: 16px;
                 font-size: 36px;
                 cursor: pointer;
+            }
+            .single_thank{
+                display: none;
+                p{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 32px;
+                }
             }
         }
     }
