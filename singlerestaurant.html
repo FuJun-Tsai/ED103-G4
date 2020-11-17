@@ -91,7 +91,7 @@
     <header>
         <section>
             <div class="logo">
-                <a href="./index.html">
+                <a href="./home.html">
                     <img src="./image/logoHeader.svg" alt="">
                 </a>
             </div>
@@ -115,12 +115,10 @@
                 </ul>
             </div>
             <div class="member" id="login">
-                <div class="icon" >
+                <a class="icon" href="./member.php">
                     <img src="./image/icon.svg" id="headshot_icon">
-                    <span class="username" style="display: none;"></span>
-                </div>
-                <div id="nametest"></div>
-                <!-- <span id="memName">&nbsp;</span> -->
+                </a>
+                <span style="display: none;" class="memberNoNum"></span>
                 <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
@@ -131,12 +129,11 @@
                 </div>
                 <ul class="nav1" id="nav1">
                     <div class="member">
-                        <div class="icon">
-                            <a href="./login.html">
-                                <img src="./image/icon.svg" alt="">
-                            </a>
-                        </div>
-                        <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+                        <a class="icon" href="./member.php">
+                            <img src="./image/icon.svg" id="mobileheadshot_icon">
+                        </a>
+                        <span style="display: none;" class="memberNoNum"></span>
+                        <span id="mobilespanLogin">登入</span>
                     </div>
                     <li>
                         <a href="./game.html">吃吃配對</a>
