@@ -531,8 +531,8 @@
                                          <th class="col-md-2 col-xs-2">留言檢舉編號</th>
                                          <th class="col-md-3 col-xs-3">檢舉原因</th>
                                          <th class="col-md-2 col-xs-2">檢舉時間</th>
-                                         <th class="col-md-2 col-xs-2">檢舉狀態</th>
-                                         <th class="col-md-2 col-xs-2">按鈕</th>
+                                         <th class="col-md-3 col-xs-3">留言內容</th>
+                                         <th class="col-md-1 col-xs-1">按鈕</th>
                                      </tr> 
                                  </thead>
                                  <tbody>
@@ -1287,28 +1287,17 @@
                     for(let i=0 ; i<=data.length-1 ; i+=1){
                         $('.res_ban_table tbody').append(`
                         <tr class="row_h"> 
-                                    <td>${data[i].RES_MES_RE_NO}</td> 
+                                    <td class="td_resre_NO">${data[i].RES_MES_RE_NO}</td> 
                                     <td>${data[i].MESSAGE_NO}</td> 
                                     <td>${data[i].RES_MES_REPORT_REASON}</td> 
                                     <td>${data[i].RES_MES_REPORT_TIME}</td> 
-                                    <td>${data[i].RES_MES_REPORT_STATUS}</td> 
+                                    
+                                    <td>${data[i].RES_MESSAGE_WORD}</td>
                                     <td>
-                                        
-                                        <button class="btn_5">
-                                            <i class="fas fa-angle-down"></i>
-                                            
+                                        <button class="btn_5 resreban" id=rop"${data[i].rop_NO}">
+                                            <i class="fas fa-ban"></i>
                                         </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6">
-                                        <span>
-                                            留言內容:
-                                        </span>
-                                        <div>
-                                            ${data[i].RES_MESSAGE_WORD}
-                                        </div>
-                                    </td>
+                                </td>
                                 </tr> 
                         `);
                     };
@@ -1324,12 +1313,38 @@
                             });
                         }
                         }
-                        down();
+                        deleteRESRE();
+                        
 
                 }
 
             });
         });
+
+        // ban留言
+        function deleteRESRE(){
+            $('.resreban').on('click', function(){
+                let td_resrno = $(this).parent().siblings('.td_resre_NO').text();
+                
+                $.ajax({
+                    url:'res_rep_del.php',
+                    type:'GET',
+                    dataType:'json',
+                    data:{
+                        res_re_no_del:td_resrno,
+                    },
+                    
+                    success:function(res){
+                        
+                    console.log('OK');
+                    },
+                    complete: function(){}
+                    
+                });
+                $(this).parent().parent().remove();
+                // parent.location.reload();
+                });
+            }
       </script>
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
