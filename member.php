@@ -122,7 +122,7 @@ require_once("login.inc");
                     </div>
                     <button type="button" class="btn_10 btn_js btn1">更換
                         <span></span>
-                        <input type="file" value="" name="theFile" id="theFile" class="theFile">
+                        <input type="file" name="theFile" id="theFileid" class="theFile">
                     </button>
                     <button type="button" class="btn_10 btn_js btn2">送出
                         <span></span>

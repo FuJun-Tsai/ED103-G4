@@ -39,7 +39,7 @@ function btnhover(){
 }
 //上傳大頭貼是否為圖檔的hover
 function pic_up_hover(){
-  $("#theFile").hover(
+  $("#theFileid").hover(
     function(){
       $(".upload").css("transform" , "translate(-50%,0%)");
     }, function(){
@@ -49,26 +49,28 @@ function pic_up_hover(){
 }
 //第一頁功能
 //換側邊圖片
-function picChange() {
-  $('#theFile').on("click",function(event){
-    let res= $('#theFile').val();
-    let arr= res.split("\\");
-    let filename=arr.slice(-1)[0];
-    filextension=filename.split(".");
-    filext="."+filextension.slice(-1)[0];
-    valid=[".jpg",".png",".jpeg",".bmp"];
-    console.log(res);
-    console.log(arr);
-    console.log(filename);
-    console.log(filextension);
-    console.log(filext);
+  $('#theFileid').on("click",function(){
+    // console.log(1);
+    // let res= $('#theFileid').val();
+    // let arr= res.split("\\");
+    // let filename=arr.slice(-1)[0];
+    // filextension=filename.split(".");
+    // filext="."+filextension.slice(-1)[0];
+    // valid=[".jpg",".png",".jpeg",".bmp"];
+    // console.log(res);
+    // console.log(arr);
+    // console.log(filename);
+    // console.log(filextension);
+    // console.log(filext);
     //如果檔案不是圖檔，我們秀出error icon, 紅色X,然後取消掉 submit按鈕
     if (valid.indexOf(filext.toLowerCase())==-1){
       $("#namefile").css({"color":"red","font-weight":700});
       $("#namefile").html(filename+"不是圖檔喔!");
       $(".btn2").hide()
       $( "#fakebtn" ).show();
+      console.log(2);
     }else{
+      console.log(3);
       let file = document.getElementById('theFile').files[0];
       let readFile = new FileReader();
       readFile.readAsDataURL(file);
@@ -84,7 +86,7 @@ function picChange() {
       $( "#fakebtn" ).hide();
     }
   });
-}
+
 // function picChange2(){
 
 // }
@@ -93,8 +95,8 @@ function pic_modifyajax(){
   $( "#sub_pic" ).on( "click", function( event ) {
     event.preventDefault();
     let avatar = document.getElementById('avatar');
-    console.log(avatar);
     let form = new FormData(avatar);
+    console.log(form);
     MEMBER_NAME = $("#mem_name").text();
     $.ajax({
       url:'php/update_pic.php',
@@ -105,8 +107,8 @@ function pic_modifyajax(){
       processData: false,
       contentType: false,  
       mimeType: 'multipart/form-data',
-      success: function(e){
-        console.log(e);
+      success: function(){
+  
       },
     });
     return false;
@@ -359,7 +361,6 @@ function my_main(){
 }
 //渲染目前想加我開的團的陌生人
 function myGroupNow(){
-  console.log(1);
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
@@ -712,7 +713,7 @@ function start(){
       //上傳大頭貼是否為圖檔的hover
       pic_up_hover();
       //更換側邊圖片
-      picChange();
+      // picChange();
       //照片修改送出
       pic_modifyajax();
       //會員更改顯示修改鈕
