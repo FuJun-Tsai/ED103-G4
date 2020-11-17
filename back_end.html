@@ -260,13 +260,13 @@
                  <table class="tbl_member_adm table table-hover table-bordered results">
                      <thead class="member_adm_ti">
                          <tr> 
-                             <th class="col-md-1 col-xs-1">編號</th> 
+                             <th class="col-md-2 col-xs-2">編號</th> 
                              <th class="col-md-2 col-xs-2">會員帳號</th>
                              <th class="col-md-2 col-xs-2">會員名稱</th>
                              <th class="col-md-2 col-xs-2">會員密碼</th>
-                             <th class="col-md-2 col-xs-2">會員信箱</th>
-                             <th class="col-md-2 col-xs-2">會員狀態</th>
-                             <th class="col-md-2 col-xs-2">停權</th>
+                             <th class="col-md-3 col-xs-3">會員信箱</th>
+                             <!-- <th class="col-md-2 col-xs-2">會員狀態</th> -->
+                             <!-- <th class="col-md-2 col-xs-2">停權</th> -->
                          </tr> 
                          <tr class="warning no-result">
                             <td colspan="4"><i class="fa fa-warning"></i> No result</td>
@@ -1004,16 +1004,12 @@
                         $('.tbl_member_adm tbody').append(`
                             <tr> 
                                 <td scope="row">${data[i].MEMBER_NO}</td> 
-                                <td>${data[i].MEMBER_ID}</td>
+                                <td >${data[i].MEMBER_ID}</td>
                                 <td>${data[i].MEMBER_NAME}</td>
                                 <td>${data[i].MEMBER_PSW}</td>
                                 <td>${data[i].MEMBER_EMAIL}</td>
-                                <td>${data[i].MEMBER_NO}</td> 
-                                <td>
-                                    <button class="btn_5">
-                                        <i class="fas fa-ban"></i>                                 
-                                    </button>
-                                </td>
+                                
+                                
                             </tr> 
                         `);
                     };
