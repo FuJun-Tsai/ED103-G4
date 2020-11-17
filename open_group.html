@@ -828,16 +828,19 @@
         });
         $(document).ready(function() {
 
-            $.ajax({
-                url: './open_group.php',
-                type: 'GET',
-                dataType: 'json',
-                success(data) {
-                    console.log(data);
-                    var resData = data[0];
-                    //抓全部餐廳
-                    for (let i = 0; i < resData.length - 1; i++) {
-                        $('.den_content').append(`
+                    // let FRIENDS_MASTER_NO = data.MEMBER_NO;
+                    // console.log(FRIENDS_MASTER_NO);
+
+                    $.ajax({
+                        url: './open_group.php',
+                        type: 'GET',
+                        dataType: 'json',
+                        success(data) {
+                            console.log(data);
+                            var resData = data[0];
+                            //抓全部餐廳
+                            for (let i = 0; i < resData.length - 1; i++) {
+                                $('.den_content').append(`
                     <div>
                         <span>${resData[i].KIND_NAME}</span>
                         <span>${resData[i].STYLE_NAME}</span>
@@ -847,15 +850,15 @@
                         <h6>查看餐廳介紹</h6>
                     </div>
                     `);
-                    }
-                    // 第1個燈箱
-                    let owlImage = document.querySelectorAll('.den_content div h6');
-                    for (let i = 0; i < owlImage.length; i++) {
-                        owlImage[i].addEventListener('click', function() {
-                            var ttt = this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
-                            // console.log(ttt);
-                            $('.den_box_row').empty();
-                            $('.den_box_row').append(`
+                            }
+                            // 第1個燈箱
+                            let owlImage = document.querySelectorAll('.den_content div h6');
+                            for (let i = 0; i < owlImage.length; i++) {
+                                owlImage[i].addEventListener('click', function() {
+                                    var ttt = this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
+                                    // console.log(ttt);
+                                    $('.den_box_row').empty();
+                                    $('.den_box_row').append(`
                             <div class="box_row_left">
                                 <div class="main_img">
                                     <img src="./image/restaurant_management_img/${resData[ttt-1].RES_IMAGE1}">
@@ -883,23 +886,23 @@
                                 </div>
                             </div>
                                     `)
-                            $('.den_box').css('display', 'block');
-                            $('.box_background').css('display', 'block');
-                        });
-                    }
-                    //第2個燈箱
-                    $('.den_button').on('click', function() {
-                        let resNameVal = $('.den_Information div:nth-child(1) input').val();
-                        console.log(data);
-                        console.log(MasterNO);
-                        for (let i = 0; i < resData.length; i++) {
-                            if (resNameVal == resData[i].RES_NAME) {
-                                var nameOf = i;
+                                    $('.den_box').css('display', 'block');
+                                    $('.box_background').css('display', 'block');
+                                });
                             }
-                        }
-                        // console.log(nameOf);
-                        // $('.den_box2_row').empty();
-                        $('.den_box2_row').append(`
+                            //第2個燈箱
+                            $('.den_button').on('click', function() {
+                                let resNameVal = $('.den_Information div:nth-child(1) input').val();
+                                console.log(data);
+                                console.log(MasterNO);
+                                for (let i = 0; i < resData.length; i++) {
+                                    if (resNameVal == resData[i].RES_NAME) {
+                                        var nameOf = i;
+                                    }
+                                }
+                                // console.log(nameOf);
+                                // $('.den_box2_row').empty();
+                                $('.den_box2_row').append(`
                     
                         <div class="box2_row_left">
                             <div class="main_img">
@@ -956,139 +959,143 @@
                     </div>
                         `)
 
-                        //好友input傳送
-                        var friendCheckbox = $("input[name='friendCheckbox[]']:checked").map(function() {
-                            return $(this).next().text();
-                        }).get();
-                        // console.log(friendCheckbox.length);
-                        // console.log(friendCheckbox);
-                        for (let i = 0; i < friendCheckbox.length; i++) {
-                            $('.friendLoad').after(
-                                `
+                                //好友input傳送
+                                var friendCheckbox = $("input[name='friendCheckbox[]']:checked").map(function() {
+                                    return $(this).next().text();
+                                }).get();
+                                // console.log(friendCheckbox.length);
+                                // console.log(friendCheckbox);
+                                for (let i = 0; i < friendCheckbox.length; i++) {
+                                    $('.friendLoad').after(
+                                        `
                                 <h4>${friendCheckbox[i]}</h4>
                                         `
-                            )
-                        }
-                    });
-                    console.log(data);
-                    let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
-                    console.log(FRIENDS_MASTER_NO);
+                                    )
+                                }
+                            });
 
-                    //好友欄位
-                    $(document).ready(function() {
-                        if ($('#spanLogin').text == '登出') {
-                            $.ajax({
-                                url: './php/getuser.php',
-                                type: 'GET',
-                                dataType: 'JSON',
-                                success(data) {
-                                    let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
-                                    console.log(FRIENDS_MASTER_NO);
 
-                                    $.ajax({
-                                        url: './open_group.php',
-                                        type: 'GET',
-                                        data: {
-                                            FRIENDS_MASTER_NO: FRIENDS_MASTER_NO,
-                                        },
-                                        dataType: 'JSON',
-                                        success(data) {
-                                            friendData = data[1];
-                                            console.log(friendData);
-                                            for (let i = 0; i < friendData.length; i++) {
-                                                $('.den_friend_window form').append(
-                                                    `
+
+                            // console.log(data);
+                            // let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
+                            // console.log(FRIENDS_MASTER_NO);
+
+                            //好友欄位
+                            $(document).ready(function() {
+                                    if ($('#spanLogin').text() == '登出') {
+                                        $('.den_friend_window').css('display', 'block');
+                                        $.ajax({
+                                            url: './php/getMemberInfo.php',
+                                            type: 'GET',
+                                            dataType: 'JSON',
+                                            success(data) {
+                                                let FRIENDS_MASTER_NO = data.MEMBER_NO;
+                                                console.log(FRIENDS_MASTER_NO);
+
+                                                $.ajax({
+                                                    url: './open_group.php',
+                                                    type: 'GET',
+                                                    data: {
+                                                        FRIENDS_MASTER_NO: FRIENDS_MASTER_NO,
+                                                    },
+                                                    dataType: 'JSON',
+                                                    success(data) {
+                                                        friendData = data[1];
+                                                        console.log(friendData);
+                                                        for (let i = 0; i < friendData.length; i++) {
+                                                            $('.den_friend_window form').append(
+                                                                `
                                                         <div>
                                                             <img src="./image/member/${friendData[i].FRIENDS_IMAGE}">
                                                             <input type="checkbox" id=friend${[i+1]} name="friendCheckbox[]" value="${friendData[i].FRIENDS_NO}">
                                                             <label for="friend${[i+1]}">${friendData[i].FRIENDS_NAME}</label>
                                                         </div>
                                                     `)
+                                                        }
+                                                        MasterNO = friendData[1].MEMBER_NAME;
+                                                    }
+                                                });
+
                                             }
-                                            MasterNO = friendData[1].MEMBER_NAME;
-                                        }
-                                    });
-                                    $('.den_friend_window').css('display', 'block');
-                                }
-                            });
-                        }
-                        if ($('#spanLogin').text == '登入') {
-                            $('.den_friend_window').css('display', 'none');
-                        }
+                                        });
+                                    }
+                                    if ($('#spanLogin').text() == '登入') {
+                                        $('.den_friend_window').css('display', 'none');
+                                    }
 
-                    });
+                                    // });
 
-                    //燈箱2裡的button寫入資料庫
-                    $('.den_box2_button button').on('click', function(nameOf) {
-                        let groupNo = parseInt(data[5][0].max) + 1; //團編號
-                        let groupName = $('.groupName').text(); //團名
-                        let resNo = $('.resNo').text(); //餐廳編號
-                        let meal = $('.mealDate').text();
-                        let meal1 = meal.substring(0, 10);
-                        let meal12 = meal.substring(13, 18);
-                        let mealDate = meal1 + ' ' + meal12; //用餐時間
+                                    //燈箱2裡的button寫入資料庫
+                                    $('.den_box2_button button').on('click', function(nameOf) {
+                                        let groupNo = parseInt(data[5][0].max) + 1; //團編號
+                                        let groupName = $('.groupName').text(); //團名
+                                        let resNo = $('.resNo').text(); //餐廳編號
+                                        let meal = $('.mealDate').text();
+                                        let meal1 = meal.substring(0, 10);
+                                        let meal12 = meal.substring(13, 18);
+                                        let mealDate = meal1 + ' ' + meal12; //用餐時間
 
-                        // mealDate = document.getElementsByClassName("mealDate")[0].previousElementSibling.innerText.replace(" / ", " ").replace("用餐時間:", "");
-                        let nowNum = $('.nowNum').text();
-                        let nowNumJoin = nowNum.substring(0, 1); //參加人數
-                        let nowNumMax = nowNum.substring(3, 2); //最大人數
-                        var friendCheckboxVal = $("input[name='friendCheckbox[]']:checked").map(function() {
-                            return $(this).val();
-                        }).get();
-                        let memberNoNum = $('.memberNoNum').text();
+                                        // mealDate = document.getElementsByClassName("mealDate")[0].previousElementSibling.innerText.replace(" / ", " ").replace("用餐時間:", "");
+                                        let nowNum = $('.nowNum').text();
+                                        let nowNumJoin = nowNum.substring(0, 1); //參加人數
+                                        let nowNumMax = nowNum.substring(3, 2); //最大人數
+                                        var friendCheckboxVal = $("input[name='friendCheckbox[]']:checked").map(function() {
+                                            return $(this).val();
+                                        }).get();
+                                        let memberNoNum = $('.memberNoNum').text();
 
-                        console.log(memberNoNum);
-                        console.log(groupNo);
-                        // console.log(groupName);
-                        // console.log(resNo);
-                        // console.log(mealDate);
-                        // console.log(meal.substring(13, 18));
-                        // console.log(meal.substring(0, 10));
-                        // console.log(mealDate);
-                        // console.log(nowNum);
-                        // console.log(nowNumJoin);
-                        // console.log(nowNumMax);
-                        console.log(friendCheckboxVal);
-                        //傳送-----資料
-                        $.ajax({
-                            url: './open_group1.php',
-                            data: {
-                                groupNo: groupNo,
-                                groupName: groupName,
-                                resNo: resNo,
-                                mealDate: mealDate,
-                                nowNumJoin: nowNumJoin,
-                                nowNumMax: nowNumMax,
-                                friendCheckboxVal: friendCheckboxVal,
-                                memberNoNum: memberNoNum,
-                            },
-                            type: 'GET',
-                            dataType: 'json',
-                        });
-                        // $.ajax({
-                        //     url: './open_group_open.php',
-                        //     data: {
-                        //         groupNo: groupNo,
-                        //         friendCheckboxVal: friendCheckboxVal,
-                        //     },
-                        //     type: 'GET',
-                        //     dataType: 'json',
-                        // });
-                        //接收資料
-                        $.ajax({
-                            url: './open_group.php',
-                            type: 'GET',
-                            dataType: 'json',
-                            complete(data) {
-                                $('.den_foodGroup').empty();
-                                let foodGroup1new = data.responseJSON[2];
-                                let foodGroup4new = data.responseJSON[4];
-                                // console.log(data.responseJSON);
-                                // console.log(data.responseJSON[2]);
-                                // console.log(data.responseJSON[4]);
-                                // console.log(foodGroup1new);
-                                for (let i = 0; i < foodGroup1new.length; i++) {
-                                    $('.den_foodGroup').append(`
+                                        console.log(memberNoNum);
+                                        console.log(groupNo);
+                                        // console.log(groupName);
+                                        // console.log(resNo);
+                                        // console.log(mealDate);
+                                        // console.log(meal.substring(13, 18));
+                                        // console.log(meal.substring(0, 10));
+                                        // console.log(mealDate);
+                                        // console.log(nowNum);
+                                        // console.log(nowNumJoin);
+                                        // console.log(nowNumMax);
+                                        console.log(friendCheckboxVal);
+                                        //傳送-----資料
+                                        $.ajax({
+                                            url: './open_group1.php',
+                                            data: {
+                                                groupNo: groupNo,
+                                                groupName: groupName,
+                                                resNo: resNo,
+                                                mealDate: mealDate,
+                                                nowNumJoin: nowNumJoin,
+                                                nowNumMax: nowNumMax,
+                                                friendCheckboxVal: friendCheckboxVal,
+                                                memberNoNum: memberNoNum,
+                                            },
+                                            type: 'GET',
+                                            dataType: 'json',
+                                        });
+                                        // $.ajax({
+                                        //     url: './open_group_open.php',
+                                        //     data: {
+                                        //         groupNo: groupNo,
+                                        //         friendCheckboxVal: friendCheckboxVal,
+                                        //     },
+                                        //     type: 'GET',
+                                        //     dataType: 'json',
+                                        // });
+                                        //接收資料
+                                        $.ajax({
+                                            url: './open_group.php',
+                                            type: 'GET',
+                                            dataType: 'json',
+                                            complete(data) {
+                                                $('.den_foodGroup').empty();
+                                                let foodGroup1new = data.responseJSON[2];
+                                                let foodGroup4new = data.responseJSON[4];
+                                                // console.log(data.responseJSON);
+                                                // console.log(data.responseJSON[2]);
+                                                // console.log(data.responseJSON[4]);
+                                                // console.log(foodGroup1new);
+                                                for (let i = 0; i < foodGroup1new.length; i++) {
+                                                    $('.den_foodGroup').append(`
                                         <div class="den_eatGroup" id="eatGroup${i+1}">
                                                 <span>${foodGroup1new[i].GROUP_NO}</span>
                                                 <img src="./image/member/${foodGroup1new[i].MEMBER_IMAGE}">
@@ -1114,37 +1121,37 @@
                                                 </div>
                                             </div>                           
                                         `)
-                                }
-                                let num = $('.den_eatGroup_content div h4:nth-child(2)')
-                                for (let i = 0; i < num.length; i++) {
-                                    if (num[i].innerText == '4/4') {
-                                        num[i].innerText = 'MAX';
-                                        $(num[i]).css('color', 'red');
-                                        // num[i].previousSibling.previousSibling.css('color', 'red');
-                                    }
-                                }
-                            }
-                        });
-                        $('.den_box2').css('display', 'none');
-                        $('.box_background').css('display', 'none');
-                        $('.box2_row_left').remove();
-                        $('.box2_row_right').remove();
-                        $('.den_true_box_open').css('display', 'block');
-                        // location = location;
+                                                }
+                                                let num = $('.den_eatGroup_content div h4:nth-child(2)')
+                                                for (let i = 0; i < num.length; i++) {
+                                                    if (num[i].innerText == '4/4') {
+                                                        num[i].innerText = 'MAX';
+                                                        $(num[i]).css('color', 'red');
+                                                        // num[i].previousSibling.previousSibling.css('color', 'red');
+                                                    }
+                                                }
+                                            }
+                                        });
+                                        $('.den_box2').css('display', 'none');
+                                        $('.box_background').css('display', 'none');
+                                        $('.box2_row_left').remove();
+                                        $('.box2_row_right').remove();
+                                        $('.den_true_box_open').css('display', 'block');
+                                        // location = location;
 
-                    });
-                    //美食團渲染
-                    $(document).ready(function() {
-                        var foodGroup1 = data[2];
-                        var foodGroup3 = data[3];
-                        var foodGroup4 = data[4]
-                            // console.log(data[4]);
-                            // console.log(foodGroup1);
-                            // console.log(foodGroup1.length);
-                            // console.log(foodGroup3);
+                                    });
+                                    //美食團渲染
+                                    $(document).ready(function() {
+                                        var foodGroup1 = data[2];
+                                        var foodGroup3 = data[3];
+                                        var foodGroup4 = data[4]
+                                            // console.log(data[4]);
+                                            // console.log(foodGroup1);
+                                            // console.log(foodGroup1.length);
+                                            // console.log(foodGroup3);
 
-                        for (let i = 0; i < foodGroup1.length; i++) {
-                            $('.den_foodGroup').append(`
+                                        for (let i = 0; i < foodGroup1.length; i++) {
+                                            $('.den_foodGroup').append(`
 
                             <div class="den_eatGroup" id="eatGroup${i+1}">
                                     <span>${foodGroup1[i].GROUP_NO}</span>
@@ -1171,26 +1178,26 @@
                                     </div>
                                 </div>                           
                             `)
-                        }
-                        let num = $('.den_eatGroup_content div h4:nth-child(2)')
-                        for (let i = 0; i < num.length; i++) {
-                            if (num[i].innerText == '4/4') {
-                                num[i].innerText = 'MAX';
-                                $(num[i]).css('color', 'red');
-                                // num[i].previousSibling.previousSibling.css('color', 'red');
-                            }
-                        }
-                    });
-                    //第3個燈箱
-                    $(document).ready(function() {
-                        $('.den_eatGroup').on('click', function() {
-                            var foodGroupBox = data[2];
-                            var yyy9 = this.children[0].innerText;
-                            let denEatGroupNum = $('.den_eatGroup').index(this);
-                            // console.log(yyy9);
-                            // console.log(foodGroupBox);
-                            $('.den_box3_row').empty();
-                            $('.den_box3_row').append(`
+                                        }
+                                        let num = $('.den_eatGroup_content div h4:nth-child(2)')
+                                        for (let i = 0; i < num.length; i++) {
+                                            if (num[i].innerText == '4/4') {
+                                                num[i].innerText = 'MAX';
+                                                $(num[i]).css('color', 'red');
+                                                // num[i].previousSibling.previousSibling.css('color', 'red');
+                                            }
+                                        }
+                                    });
+                                    //第3個燈箱
+                                    $(document).ready(function() {
+                                        $('.den_eatGroup').on('click', function() {
+                                            var foodGroupBox = data[2];
+                                            var yyy9 = this.children[0].innerText;
+                                            let denEatGroupNum = $('.den_eatGroup').index(this);
+                                            // console.log(yyy9);
+                                            // console.log(foodGroupBox);
+                                            $('.den_box3_row').empty();
+                                            $('.den_box3_row').append(`
                             <div class="box3_row_left">
                                 <div class="main_img">
                                     <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE1}">
@@ -1243,60 +1250,60 @@
                                 </div>
                             </div>
                             `)
-                            $('.den_box3').css('display', 'block');
-                            $('.box_background').css('display', 'block');
-                            $.ajax({
-                                url: './open_group.php',
-                                data: {
-                                    GROUP_NO: yyy9,
-                                },
-                                type: 'GET',
-                                dataType: 'json',
-                                complete(data) {
-                                    let memberName = data.responseJSON[3];
-                                    // console.log(memberName);
-                                    for (let i = 0; i < memberName.length; i++) {
-                                        $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
-                                            `
+                                            $('.den_box3').css('display', 'block');
+                                            $('.box_background').css('display', 'block');
+                                            $.ajax({
+                                                url: './open_group.php',
+                                                data: {
+                                                    GROUP_NO: yyy9,
+                                                },
+                                                type: 'GET',
+                                                dataType: 'json',
+                                                complete(data) {
+                                                    let memberName = data.responseJSON[3];
+                                                    // console.log(memberName);
+                                                    for (let i = 0; i < memberName.length; i++) {
+                                                        $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
+                                                            `
                                         <p>${memberName[i].MEMBER_NAME}</p>
                                         `)
-                                    }
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    });
+
+                                    //第三個燈箱參團button
+                                    $('.den_box3_button button').on('click', function() {
+                                        if ($('#spanLogin').text() == '登出') {
+                                            let memNo = $('.memberNoNum').text();
+                                            console.log(memNo);
+                                            let groupNo3 = $('.groupNo').text();
+                                            console.log(groupNo3);
+                                            // console.log(memNo);
+                                            $.ajax({
+                                                url: './open_group_join.php',
+                                                data: {
+                                                    memNo: memNo,
+                                                    groupNo3: groupNo3
+                                                },
+                                                type: 'GET',
+                                                dataType: 'JSON',
+                                            });
+                                            $('.den_box3').css('display', 'none');
+                                            $('.box_background').css('display', 'none');
+                                            $('.den_true_box_join').css('display', 'block');
+
+                                        } else {
+                                            alert('請先登入~~');
+                                            $('.section_res').css('display', 'block');
+                                            $('.den_box3').css('display', 'none');
+                                            $('.box_background').css('display', 'none');
+                                        }
+                                    });
                                 }
                             });
-                        });
                     });
-
-                    //第三個燈箱參團button
-                    $('.den_box3_button button').on('click', function() {
-                        if ($('#spanLogin').text() == '登出') {
-                            let memNo = $('.memberNoNum').text();
-                            console.log(memNo);
-                            let groupNo3 = $('.groupNo').text();
-                            console.log(groupNo3);
-                            // console.log(memNo);
-                            $.ajax({
-                                url: './open_group_join.php',
-                                data: {
-                                    memNo: memNo,
-                                    groupNo3: groupNo3
-                                },
-                                type: 'GET',
-                                dataType: 'JSON',
-                            });
-                            $('.den_box3').css('display', 'none');
-                            $('.box_background').css('display', 'none');
-                            $('.den_true_box_join').css('display', 'block');
-
-                        } else {
-                            alert('請先登入~~');
-                            $('.section_res').css('display', 'block');
-                            $('.den_box3').css('display', 'none');
-                            $('.box_background').css('display', 'none');
-                        }
-                    });
-                }
-            });
-        });
     </script>
 
 
