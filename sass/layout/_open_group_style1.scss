@@ -4,6 +4,7 @@ body {
 
 header {
     // @include lineGradient ('T', 180deg, rgba(255, 234, 167, .2), rgba(255, 234, 167, .3));
+    z-index: 999;
 }
 
 .den_banner {
@@ -418,6 +419,7 @@ header {
                             background-size: contain;
                             background-repeat: no-repeat;
                             background-position: right bottom;
+                            display: none;
                             .friend_title {
                                 text-align: left;
                                 h3 {

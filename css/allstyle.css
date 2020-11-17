@@ -5804,6 +5804,10 @@ body {
   position: relative;
 }
 
+header {
+  z-index: 999;
+}
+
 .den_banner {
   background-image: url(../image//den_image//den_friend2.png);
   background-repeat: no-repeat;
@@ -6314,6 +6318,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right bottom;
+  display: none;
 }
 
 .den_section .den_wrapper .den_container .den_row #den_tab1 .den_Fill_Information_wrapper .den_friend_window .friend_title {

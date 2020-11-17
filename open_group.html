@@ -968,43 +968,47 @@
                         }
                     });
                     //好友欄位
-                    $(document).ready(function() {
-                        if ($('#spanLogin').text = '登出') {
-                            $.ajax({
-                                url: './php/getuser.php',
-                                type: 'GET',
-                                dataType: 'JSON',
-                                success(data) {
-                                    // console.log(data);
-                                    let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
-                                    // console.log(FRIENDS_MASTER_NO);
-                                    $.ajax({
-                                        url: './open_group.php',
-                                        type: 'GET',
-                                        data: {
-                                            FRIENDS_MASTER_NO: FRIENDS_MASTER_NO,
-                                        },
-                                        dataType: 'JSON',
-                                        success(data) {
-                                            friendData = data[1];
-                                            console.log(friendData);
-                                            for (let i = 0; i < friendData.length; i++) {
-                                                $('.den_friend_window form').append(
-                                                    `
+                    // $(document).ready(function() {
+                    if ($('#spanLogin').text = '登出') {
+                        $.ajax({
+                            url: './php/getuser.php',
+                            type: 'GET',
+                            dataType: 'JSON',
+                            success(data) {
+                                // console.log(data);
+                                let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
+                                // console.log(FRIENDS_MASTER_NO);
+                                $.ajax({
+                                    url: './open_group.php',
+                                    type: 'GET',
+                                    data: {
+                                        FRIENDS_MASTER_NO: FRIENDS_MASTER_NO,
+                                    },
+                                    dataType: 'JSON',
+                                    success(data) {
+                                        friendData = data[1];
+                                        console.log(friendData);
+                                        for (let i = 0; i < friendData.length; i++) {
+                                            $('.den_friend_window form').append(
+                                                `
                                                         <div>
                                                             <img src="./image/member/${friendData[i].FRIENDS_IMAGE}">
                                                             <input type="checkbox" id=friend${[i+1]} name="friendCheckbox[]" value="${friendData[i].FRIENDS_NO}">
                                                             <label for="friend${[i+1]}">${friendData[i].FRIENDS_NAME}</label>
                                                         </div>
                                                     `)
-                                            }
-                                            MasterNO = friendData[1].MEMBER_NAME;
                                         }
-                                    });
-                                }
-                            });
-                        } else {}
-                    });
+                                        MasterNO = friendData[1].MEMBER_NAME;
+                                    }
+                                });
+                            }
+                        });
+                        $('.den_friend_window').css('display', 'block');
+                    } else {
+                        $('.den_friend_window').css('display', 'none');
+
+                    }
+                    // });
 
                     //燈箱2裡的button寫入資料庫
                     $('.den_box2_button button').on('click', function(nameOf) {
