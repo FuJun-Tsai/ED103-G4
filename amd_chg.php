@@ -3,7 +3,8 @@
 $Errmsg = '';
 
 try{
-    require_once('connectbook.php'); //換成自己的 php $pdo來源
+    require_once('connectBooks.php'); //換成自己的 php $pdo來源
+    // require_once('connectbook.php'); //換成自己的 php $pdo來源
     $amd_no_chg = $_REQUEST['amd_no_chg'];
     $amd_id_chg = $_REQUEST['amd_id_chg'];
     $amd_name_chg = $_REQUEST['amd_name_chg'];
