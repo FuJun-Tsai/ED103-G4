@@ -3,7 +3,7 @@ $Errmsg='';
 
 try{
 
-  require_once('connectRes.php');
+  require_once('./connectBooks.php');
   $sql = "select * FROM restaurant_management;";
 
   $data = $pdo->prepare($sql);

@@ -16,7 +16,7 @@ $memberNoNum = isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 // echo $nowNumJoin;
 
 try{
-  require_once('connectRes.php');
+  require_once('./connectBooks.php');
 //開團
   $sql="
   insert into food_group(
