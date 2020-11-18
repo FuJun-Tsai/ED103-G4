@@ -15,6 +15,9 @@ body{
     height: 0;
     position: fixed;
     z-index: 30;
+    // section{
+    //     background-color: rgba(255, 255, 255,0.75);
+    // }
 }
 
 .chu_footer {
@@ -553,9 +556,9 @@ section.second_screen {
             outline: none;
             background-color: transparent;
             // color: white;
-            border-radius: 10px;
             border: none;
             cursor: pointer;
+            z-index: 1000;
             @media all and (min-width: 1440px) and (max-width: 1599px) {
                 left: 31%;
             }
@@ -583,6 +586,7 @@ section.second_screen {
             outline: none;
             background-color: transparent;
             cursor: pointer;
+            z-index: 1000;
             // color: white;
             // border-radius: 10px;
             @media all and (min-width: 1440px) and (max-width: 1599px) {
@@ -608,8 +612,8 @@ section.second_screen {
             @include circle(225px, #76AFAF);
             position: absolute;
             left: 14%;
-            bottom: 8%;
-            z-index: 2;
+            bottom: 23%;
+            z-index: -1;
             &:hover {
                 transform: scale(1.1);
                 background-color:#ade8e8;
@@ -617,18 +621,18 @@ section.second_screen {
                 border: 0.5px solid black;
             }
             @media all and (min-width: 1600px) and (max-width: 1920px) {
-                left: 8%;
+                left: 13%;
             }
             @media all and (min-width: 1440px) and (max-width: 1599px) {
                 left: 7%;
             }
             @media all and (min-width: 1200px) and (max-width: 1439px) {
-                left: 5%;
-                bottom: 27%;
+                left: 4%;
+                bottom: 23%;
             }
             @media all and (min-width: 992px) and (max-width: 1199px) {
                 left: 2%;
-                bottom: 10%;
+                bottom: 5%;
             }
             @media all and (min-width: 768px) and (max-width: 991px) {
                 left: 3%;
@@ -637,6 +641,7 @@ section.second_screen {
             @media all and (min-width: 576px) and (max-width: 767px) {
                 left: 5%;
                 bottom: 26%;
+                z-index: 2;
             }
             @media all and (max-width: 575px) {
                 @include circle(180px, #76AFAF);
@@ -674,9 +679,9 @@ section.second_screen {
     .team_2 {
         @include circle(225px, #601C8A);
         position: absolute;
-        left: 33.5%;
-        bottom: 12%;
-        z-index: 2;
+        left: 31%;
+        bottom: 4%;
+        z-index: -1;
         &:hover {
             transform: scale(1.1);
             background-color:#dcaafb;
@@ -688,7 +693,7 @@ section.second_screen {
             bottom: 2%;
         }
         @media all and (min-width: 1440px) and (max-width: 1599px) {
-            left: 29.5%;
+            left: 28%;
             bottom: 1%;
         }
         @media all and (min-width: 1200px) and (max-width: 1439px) {
@@ -696,8 +701,9 @@ section.second_screen {
             bottom: 2%;
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
-            left: 28.5%;
+            left: 26.5%;
             bottom: 1%;
+            z-index: 2;
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
             left: 19.5%;
@@ -743,7 +749,7 @@ section.second_screen {
         position: absolute;
         right: 31%;
         bottom: 4%;
-        z-index: 2;
+        z-index: -3;
         &:hover {
             transform: scale(1.1);
             background-color:#f5e8bd;
@@ -754,15 +760,17 @@ section.second_screen {
             bottom: 1%;
         }
         @media all and (min-width: 1440px) and (max-width: 1599px) {
-            right: 27%;
+            right: 28%;
             bottom: 1%;
         }
         @media all and (min-width: 1200px) and (max-width: 1439px) {
-            right: 22%;
+            right: 23%;
+            bottom: 2%;
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
             bottom: 5%;
-            right: 24%;
+            right: 26.5%;
+            z-index: 2;
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
             right: 19.5%;
@@ -771,6 +779,7 @@ section.second_screen {
         @media all and (min-width: 576px) and (max-width: 767px) {
             right: 5%;
             bottom: 26%;
+            z-index: 2;
         }
         @media all and (max-width: 575px) {
             @include circle(180px, #F4EFDF);
@@ -806,9 +815,9 @@ section.second_screen {
     .team_4 {
         @include circle(225px, #B71E68);
         position: absolute;
-        right: 13%;
-        bottom: 32%;
-        z-index: 2;
+        right: 14%;
+        bottom: 23%;
+        z-index: -3;
         &:hover {
             transform: scale(1.1);
             background-color:#ffcce5;
@@ -819,15 +828,16 @@ section.second_screen {
             bottom: 23%;
         }
         @media all and (min-width: 1440px) and (max-width: 1599px) {
-            bottom: 19%;
+            right: 7%;
+            bottom: 23%;
         }
         @media all and (min-width: 1200px) and (max-width: 1439px) {
             bottom: 23%;
             right: 4%;
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
-            bottom: 3%;
-            right: 1%;
+            bottom: 1%;
+            right: 2%;
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
             right: 3%;
@@ -868,72 +878,74 @@ section.second_screen {
             }
         }
     }
+    .twoPeople {
+        background-image: url(../image/home/second_screen_twoPeople.svg);
+        width: 380px;
+        height: 380px;
+        position: absolute;
+        bottom: -5%;
+        left: 0%;
+        background-repeat: no-repeat;
+        z-index: -2;
+        opacity: 30%;
+        @media all and (min-width: 1200px) and (max-width: 1439px) {
+            width: 250px;
+            height: 250px;
+            left: 1%;
+        }
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+            display: none;
+        }
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            display: none;
+        }
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            display: none;
+        }
+        @media all and (max-width: 575px) {
+            display: none;
+        }
+    }
+    
+    .friends {
+        background-image: url(../image/home/second_screen_friends.svg);
+        width: 420px;
+        height: 237px;
+        position: absolute;
+        bottom: 3%;
+        right: 5%;
+        background-repeat: no-repeat;
+        z-index: -100;
+        opacity: 30%;
+        @media all and (min-width: 1600px) and (max-width: 1920px) {
+            width: 320px;
+            bottom: -2%;
+        }
+        @media all and (min-width: 1440px) and (max-width: 1599px) {
+            width: 308px;
+            bottom: -6%;
+        }
+        @media all and (min-width: 1200px) and (max-width: 1439px) {
+            width: 250px;
+            right: 2%;
+            bottom: -10%;
+        }
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+            display: none;
+        }
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            display: none;
+        }
+        @media all and (min-width: 576px) and (max-width: 767px) {
+            display: none;
+        }
+        @media all and (max-width: 575px) {
+            display: none;
+        }
+    }
+
 }
 
-.twoPeople {
-    background-image: url(../image/home/second_screen_twoPeople.svg);
-    width: 500px;
-    height: 500px;
-    position: absolute;
-    bottom: 3%;
-    left: 5%;
-    background-repeat: no-repeat;
-    z-index: -1;
-    @media all and (min-width: 1200px) and (max-width: 1439px) {
-        width: 250px;
-        height: 250px;
-        left: 1%;
-        bottom: 0;
-    }
-    @media all and (min-width: 992px) and (max-width: 1199px) {
-        left: -3%;
-    }
-    @media all and (min-width: 768px) and (max-width: 991px) {
-        display: none;
-    }
-    @media all and (min-width: 576px) and (max-width: 767px) {
-        display: none;
-    }
-    @media all and (max-width: 575px) {
-        display: none;
-    }
-}
-
-.friends {
-    background-image: url(../image/home/second_screen_friends.svg);
-    width: 420px;
-    height: 237px;
-    position: absolute;
-    bottom: 3%;
-    right: 5%;
-    background-repeat: no-repeat;
-    z-index: -100;
-    @media all and (min-width: 1600px) and (max-width: 1920px) {
-        width: 320px;
-        bottom: -2%;
-    }
-    @media all and (min-width: 1440px) and (max-width: 1599px) {
-        width: 308px;
-        bottom: -6%;
-    }
-    @media all and (min-width: 1200px) and (max-width: 1439px) {
-        width: 250px;
-        right: 2%;
-        bottom: -10%;
-    }
-    @media all and (min-width: 992px) and (max-width: 1199px) {
-        bottom: 18%;
-    }
-    @media all and (min-width: 768px) and (max-width: 991px) {
-        display: none;
-    }
-    @media all and (min-width: 576px) and (max-width: 767px) {
-        display: none;
-    }
-    @media all and (max-width: 575px) {
-        display: none;
-    }
-}
 
 section.third_screen {
     border: 1px solid black;
@@ -953,7 +965,7 @@ section.third_screen {
     h2 {
         color: white;
         position: absolute;
-        top: 24%;
+        top: 20%;
         left: 8%;
         z-index: 2;
         font-weight: 800;
@@ -1108,10 +1120,6 @@ section.fourth_screen {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    .header_padding {
-        height: 120px;
-        // border: 1px solid green;
-    }
     .fourth_screen_circle_orange {
         @include circle_bigOrange;
         top: 50%;
@@ -1123,7 +1131,7 @@ section.fourth_screen {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: 13%;
+        top: 20%;
         font-weight: 800;
         @media all and (min-width: 576px) and (max-width: 767px) {
             left: 12%;
@@ -1172,7 +1180,6 @@ section.fourth_screen {
         width: 100%;
         margin: 0 auto;
         // border: 1px solid red;
-        height: 80vh;
         position: absolute;
         top: 13%;
         left: 50%;
@@ -1207,13 +1214,13 @@ section.fourth_screen {
                 top: 8%;
                 border-radius: 50%;
                 // border: 1px solid blue;
-                background-color: #601C8A;
+                background-color: #B71E68;
                 width: 260px;
                 height: 260px;
                 padding: 15px;
                 &:hover {
                     transform: scale(1.1);
-                    background-color:#dcaafb;
+                    background-color:#ffcce5;
                     transition: 0.5s;
                     border: 0.5px solid black;
                 }
@@ -1235,8 +1242,7 @@ section.fourth_screen {
                     margin: auto;
                     width: 230px;
                     height: 230px;
-                    top: 25%;
-                    transform: translateY(-18%);
+                    top: 20%;
                 }
                 .chu_left_icon1 {
                     margin-top: 15px;
