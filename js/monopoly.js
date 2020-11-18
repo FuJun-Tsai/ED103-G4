@@ -181,8 +181,10 @@ $(document).ready(function() {
         }
         po1++;
         boxes[po1].append(i1);
-        boxes[po1].children[1].style.opacity = '1';
-        boxes[po1 - 1].children[1].style.opacity = '.4';
+        boxes[po1].children[1].style.filter = 'brightness(1)';
+        boxes[po1 - 1].children[1].style.filter = 'brightness(.7)';
+        // filter: brightness(.7);
+
 
 
 

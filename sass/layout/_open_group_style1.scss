@@ -838,10 +838,6 @@ header {
         display: flex;
         align-items: center;
         position: relative;
-        // top: 50%;
-        // transform: translateY(-50%);
-        // width: 90%;
-        // transform: translate(3%, -50%);
         .box3_row_left {
             flex: 1 1 50%;
             text-align: center;
@@ -1237,7 +1233,7 @@ header {
                     }
                     #den_tab1 {
                         padding: 0;
-                        >h3{
+                        >h3 {
                             margin-top: 25px;
                         }
                         #map {
@@ -1400,16 +1396,16 @@ header {
 }
 
 @include rwd(md_cellphone) {
-    .den_banner{
-        .container{
-    #den_banner_title {
-        width: 100%!important;
-        span{
-            font-size: 24px!important;
-                 }
+    .den_banner {
+        .container {
+            #den_banner_title {
+                width: 100%!important;
+                span {
+                    font-size: 24px!important;
+                }
+            }
         }
     }
-}
     .den_section {
         .den_wrapper {
             .den_container {
@@ -1477,7 +1473,7 @@ header {
                     }
                     #den_tab1 {
                         padding: 0;
-                        >h3{
+                        >h3 {
                             margin-top: 25px;
                         }
                         #map {

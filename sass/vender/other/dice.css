@@ -8,7 +8,6 @@
 .dice-container {
     width: 100px;
     height: 100px;
-    /* position: relative; */
     position: absolute;
     -webkit-perspective: 1000px;
     perspective: 1000px;
@@ -16,16 +15,9 @@
     cursor: grab;
     z-index: 999;
     top: 50%;
-    left: 45%;
-    /* transform: translate(-50%, -50%); */
-    /* -webkit-transition: -webkit-transform 0.2s ease 0;
-    transition: -webkit-transform 0.2s ease 0;
-    transition: transform 0.2s ease 0;
-    transition: transform 0.2s ease 0, -webkit-transform 0.2s ease 0;*/
+    left: 62%;
     -webkit-animation: bounce-down 3s linear infinite;
     animation: bounce-down 3s linear infinite;
-    /* -webkit-animation: rotate3d_run 3s linear infinite;
-    animation: rotate3d_run 3s linear infinite; */
 }
 
 .dice-container:hover {
@@ -66,8 +58,6 @@
     transform: rotateY(0deg) translateZ(-40px);
     background-image: url('https://alexerlandsson.github.io/assets/codepen/roll-the-dice/images/dice-1.png');
     background-size: contain;
-    /* -webkit-animation: rotate3d_run 3s linear infinite;
-    animation: rotate3d_run 3s linear infinite; */
 }
 
 #denDice .back {
