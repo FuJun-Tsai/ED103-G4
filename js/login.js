@@ -87,7 +87,7 @@ let member;
 
 
         }else{ //error
-          alert(xhr.status);
+          // alert(xhr.status);
         }
       }
 
@@ -100,6 +100,21 @@ let member;
         container_res.classList.toggle('act');
     }
 
+    function btnjs(){
+      $('.btn_js')
+      .on('mouseenter', function(e) {
+        var parentOffset = $(this).offset(),
+            relX = e.pageX - parentOffset.left,
+            relY = e.pageY - parentOffset.top;
+        $(this).find('span').css({top:relY, left:relX})
+      })
+      .on('mouseout', function(e) {
+        var parentOffset = $(this).offset(),
+            relX = e.pageX - parentOffset.left,
+            relY = e.pageY - parentOffset.top;
+        $(this).find('span').css({top:relY, left:relX})
+      });
+    }
     function init(){
       user = '';
       //-----------------------檢查是否已登入
@@ -116,7 +131,8 @@ let member;
       //===設定btnLoginCancel.onclick 事件處理程序是 cancelLogin
       $id('btnLoginCancel').onclick = cancelLogin;
 
-
+      //btnhover效果
+      btnjs();
     }; //window.onload
 
     window.addEventListener("load",init,false);

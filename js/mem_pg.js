@@ -369,7 +369,7 @@ function my_main(){
         $("#MAX_NUMBER").css("color","red");
       }          
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/my_main.php", true);
@@ -411,7 +411,7 @@ function myGroupNow(){
       btnhover();
       review();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/my_group.php", true);
@@ -448,7 +448,7 @@ function tab_ok(){
         `);
       }
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/tab_ok.php", true);
@@ -491,7 +491,7 @@ function tab_notok(){
       btnhover();
       review();
     }else{
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/tab_notok.php", true);
@@ -522,7 +522,7 @@ function gruop_collection(){
       }
       dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/gruop_collection.php", true);
@@ -553,7 +553,7 @@ function restaurant_collection(){
       }
       dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/restaurant_collection.php", true);
@@ -586,7 +586,7 @@ function article_collection(){
       }
       dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/article_collection.php", true);
@@ -617,7 +617,7 @@ function my_article(){
       }
       dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/article_select.php", true);
@@ -648,7 +648,7 @@ function my_article2(){
       }
       dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/article_select_2.php", true);
@@ -679,7 +679,7 @@ function my_article3(){
       }
       dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/article_select_3.php", true);
@@ -716,7 +716,7 @@ function my_friend(){
       btnhover();
       del_friend();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/my_friend.php", true);
