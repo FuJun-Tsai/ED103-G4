@@ -1,7 +1,6 @@
 {
     "total": 1186,
-    "data": [
-        {
+    "data": [{
             "id": 11,
             "pid": "Attractions-11",
             "typeName": "Attractions",

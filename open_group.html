@@ -517,8 +517,11 @@
 
     <script>
         function doFirst() {
-            //點擊圖片換圖事件
-
+            // console.log(location.hash);
+            if (location.hash == '#den_tab2') {
+                $('#den_tab1').css('display', 'none');
+                $('#den_tab2').css('display', 'block');
+            }
 
             $('#btnLogin').on('click', function() {
                 location = location;
@@ -657,7 +660,7 @@
                                     // '<i class="fas fa-share-square"></i>&nbsp;25 &nbsp;&nbsp;' +
                                     '<p>' + '地址：' + store[i].address + '</p>' +
                                     '<p>' + '電話：' + store[i].tel + '</p>' +
-                                    '<a href="#" style="text-align:end; display:block;" >' + 'more...' + '</a>'
+                                    '<a href="./singlerestaurant.html?RES_NO=" style="text-align:end; display:block;" >' + 'more...' + '</a>'
                                 ));
                         }
                     }
@@ -1167,13 +1170,26 @@
                                 }
                                 let num = $('.den_eatGroup_content div h4:nth-child(2)')
                                 for (let i = 0; i < num.length; i++) {
-                                    if (num[i].innerText == '4/4') {
+                                    if (num[i].innerText == '1/1' | num[i].innerText == '2/2' | num[i].innerText == '3/3' | num[i].innerText == '4/4') {
                                         num[i].innerText = 'MAX';
                                         console.log(num[i]);
-                                        // num[i].closest('.den_eatGroup').css('display','none');
                                         $(num[i]).css('color', 'red');
-                                        // num[i].previousSibling.previousSibling.css('color', 'red');
                                     }
+                                    // if (num[i].innerText == '2/2') {
+                                    //     num[i].innerText = 'MAX';
+                                    //     console.log(num[i]);
+                                    //     $(num[i]).css('color', 'red');
+                                    // }
+                                    // if (num[i].innerText == '3/3') {
+                                    //     num[i].innerText = 'MAX';
+                                    //     console.log(num[i]);
+                                    //     $(num[i]).css('color', 'red');
+                                    // }
+                                    // if (num[i].innerText == '4/4') {
+                                    //     num[i].innerText = 'MAX';
+                                    //     console.log(num[i]);
+                                    //     $(num[i]).css('color', 'red');
+                                    // }
                                 }
 
                             }
@@ -1225,11 +1241,10 @@
                         }
                         let num = $('.den_eatGroup_content div h4:nth-child(2)')
                         for (let i = 0; i < num.length; i++) {
-                            if (num[i].innerText == '4/4') {
+                            if (num[i].innerText == '1/1' | num[i].innerText == '2/2' | num[i].innerText == '3/3' | num[i].innerText == '4/4') {
                                 num[i].innerText = 'MAX';
-                                // num[i].closest('.den_eatGroup').css('background-color', 'red');
+                                console.log(num[i]);
                                 $(num[i]).css('color', 'red');
-                                // num[i].previousSibling.previousSibling.css('color', 'red');
                             }
                         }
 
@@ -1324,11 +1339,9 @@
                     //第三個燈箱參團button
                     $('.den_box3_button button').on('click', function() {
                         if ($('#spanLogin').text() == '登出') {
+
                             let memNo = $('.memberNoNum1').text();
-                            // console.log(memNo);
                             let groupNo3 = $('.groupNo').text();
-                            // console.log(groupNo3);
-                            // console.log(memNo);
                             $.ajax({
                                 url: './open_group_join.php',
                                 data: {
@@ -1341,12 +1354,15 @@
                             $('.den_box3').css('display', 'none');
                             $('.box_background').css('display', 'none');
                             $('.den_true_box_join').css('display', 'block');
+                            console.log()
+
                         } else {
                             alert('請先登入~~');
                             $('.section_res').css('display', 'block');
                             $('.den_box3').css('display', 'none');
                             $('.box_background').css('display', 'none');
                         }
+
                     });
                     //第一個燈箱圖片點擊
                     function clickImg1() {

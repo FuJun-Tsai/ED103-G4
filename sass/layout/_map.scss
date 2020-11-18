@@ -61,7 +61,6 @@ body {
 }
 
 // leaflet-marker-icon marker-cluster marker-cluster-medium leaflet-zoom-animated leaflet-interactive
-
 .leaflet-pane .leaflet-marker-icon div {
     background-color: rgba(110, 204, 57, 0.6)!important;
 }
@@ -104,7 +103,6 @@ body {
     border-radius: 15px;
     font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
     background-color: rgba(110, 204, 57, 0.6)!important;
-
 }
 
 .marker-cluster span {
@@ -122,10 +120,16 @@ h1 {
     color: #9B1E23;
 }
 
-.leaflet-popup-content{
-    width: 200px!important;
-    img{
-        width: 200px!important;
-        height: 200px!important;
+.leaflet-popup-content {
+    width: 180px!important;
+    img {
+        width: 180px!important;
+        height: 180px!important;
+    }
+    h1 {
+        padding: 10px;
+    }
+    p {
+        margin: 10px 0!important;
     }
 }

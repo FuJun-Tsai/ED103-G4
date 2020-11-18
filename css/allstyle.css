@@ -9875,11 +9875,19 @@ h1 {
 }
 
 .leaflet-popup-content {
-  width: 200px !important;
+  width: 180px !important;
 }
 
 .leaflet-popup-content img {
-  width: 200px !important;
-  height: 200px !important;
+  width: 180px !important;
+  height: 180px !important;
+}
+
+.leaflet-popup-content h1 {
+  padding: 10px;
+}
+
+.leaflet-popup-content p {
+  margin: 10px 0 !important;
 }
 /*# sourceMappingURL=allstyle.css.map */

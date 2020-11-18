@@ -1,4 +1,11 @@
 $(document).ready(function() {
+    function joinPage() {
+
+    }
+
+    function openPage() {
+
+    }
 
 
     var s = 1;
