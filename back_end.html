@@ -1111,9 +1111,7 @@
                                         </div>
                                         </div>
                                     </div>
-                                    <button class="btn_5 restrash" >
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                    
                                     <button class="btn_5">
                                         <i class="fas fa-angle-down"></i>                                   
                                     </button>
@@ -1204,8 +1202,8 @@
                     
                 }
                
-                // restend();
-                deleteRES();
+                restend();
+                // deleteRES();
                 // changeRES();
               }
 
@@ -1240,27 +1238,27 @@
 
     <!-- 刪除餐廳 -->
     <script>
-        function deleteRES(){
-         $('.restrash').on('click', function(){
-             let resno = $(this).parent().siblings('.td_RES_NO').text();
-             $.ajax({
-                 url:'back_res_del.php',
-                 type:'GET',
-                 dataType:'json',
-                 data:{
-                     res_no_del:resno,
-                 },
-                 success:function(res){
+        // function deleteRES(){
+        //  $('.restrash').on('click', function(){
+        //      let resno = $(this).parent().siblings('.td_RES_NO').text();
+        //      $.ajax({
+        //          url:'back_res_del.php',
+        //          type:'GET',
+        //          dataType:'json',
+        //          data:{
+        //              res_no_del:resno,
+        //          },
+        //          success:function(res){
                      
-                 console.log('OK');
-                 },
-                 complete: function(){}
+        //          console.log('OK');
+        //          },
+        //          complete: function(){}
                  
-             });
-             $(this).parent().parent().remove();
+        //      });
+        //      $(this).parent().parent().remove();
             
-             });
-         }
+        //      });
+        //  }
 
          // 修改餐廳
         //  function changeAMD(){
