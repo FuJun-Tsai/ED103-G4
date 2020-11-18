@@ -8,7 +8,7 @@ $cond3 = isset($_GET["RES_NO"]) ? " where RES_NO = $RES_NO":"";
 // echo $cond3;
 try{
 
-  require_once('connetbook.php');
+  require_once('connectbook.php');
   // SQL0 五間餐廳
   $sql0 = "select * from restaurant_management R
             join restaurant_kind rk on (R.RES_KIND = rk.KIND_NO)

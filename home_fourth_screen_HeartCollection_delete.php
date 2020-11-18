@@ -5,7 +5,7 @@ $Errmsg='';
 $articleNo = isset($_GET["articleNo"]) ? $_GET["articleNo"] : "";
 $memberNoNum = isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 try{
-  require_once('connetbook.php');
+  require_once('connectbook.php');
   $sql = "delete from article_collection where MEMBER_NO=:articleNo and ARTICLE_NO=:memberNoNum; ";
 
   $data = $pdo->prepare($sql);

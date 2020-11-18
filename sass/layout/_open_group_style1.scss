@@ -8,15 +8,16 @@ header {
 
 .den_banner {
     // background: linear-gradient( rgba(255, 234, 167, .3), rgba(255, 234, 167, .3)), url(../../image/團專開團參團背景圖/den_love_14.png);
-    background-image: url(../image/den_image/den_ground.jpg);
+    background-image: url(../image//den_image//den_friend2.png);
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center right 10%;
+    // background-size: contain;
+    background-size: cover;
+    background-position: center 10%;
     width: 100%;
     .container {
         padding-top: 120px;
         margin: 0 auto;
-        padding: 50px 0px;
+        padding: 120px 0px;
         max-width: 1366px;
         // max-width: 100%;
         text-align: center;
@@ -25,9 +26,9 @@ header {
             display: inline-block;
             // border: 1px solid;
             padding: 20px;
-            outline: 5px solid rgba(255, 255, 255, 1.0);
+            outline: 5px solid rgba(76, 175, 80, .5);
             outline-offset: -13px;
-            background-color: rgba(90, 157, 249, .3);
+            background-color: rgba(255, 255, 255, .8);
             span {
                 display: block;
                 font-size: $fontSize*1.5;
@@ -36,9 +37,9 @@ header {
                 margin: 30px 0px;
             }
             span:nth-child(1) {
-                // text-align: right;
-                // border-left: 10px solid #a40808;
-                ;
+                // // text-align: right;
+                // // border-left: 10px solid #a40808;
+                // ;
             }
             span:nth-child(2) {
                 text-align: center;
@@ -47,6 +48,7 @@ header {
         .den_search {
             padding: 30px 0px;
             // border: 1px solid red;
+            display: none;
             .den_search_icon {
                 margin: 0 auto;
                 position: relative;
@@ -94,62 +96,35 @@ header {
         padding: 5px;
     }
     .den_wrapper {
-        // background-image: url(../../image/background_round.svg);
-        // background-size: cover;
-        // background-position: left 50%;
-        // background-position: center center;
         .den_gif {
             position: absolute;
             bottom: 0;
             right: 0;
             width: 30%;
             z-index: -66;
-            // z-index: -99;
-            // position: absolute;
-            // top: 0;
-            // left: 0;
-            // width: 100%;
-            // height: 100%;
-            // background-image: url(../../image/giphy.gif);
-            // background-repeat: no-repeat;
-            // background-position: bottom right;
             img {
-                // position: absolute;
                 width: 100%;
                 height: 50%;
             }
         }
         .den_background_round {
-            // background-image: url(../image/14.svg);
-            // opacity: .7;
             z-index: -60;
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            // border: 1px solid red;
-            // background-repeat: no-repeat;
-            // background-size: cover;
         }
         .den_container {
             max-width: 1680px;
-            // max-width: 1440px;
             margin: 0 auto;
             padding: 30px;
-            // border: 1px solid green;
-            // box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
             .den_row {
                 .den_title {
                     width: 100%;
-                    // border: 1px solid green;
                     .title_left {
-                        // border: 1px solid red;
-                        // flex: 1 1 50%;
                         margin-bottom: 30px;
-                        // border-bottom: 1px solid #DF7219;
                         h2:nth-child(1) {
-                            // background-color: $bgColor-style5;
                             background-color: #DF7219;
                             color: #ffffff;
                             cursor: pointer;
@@ -171,9 +146,6 @@ header {
                         }
                     }
                     .title_right {
-                        // border: 1px solid blue;
-                        // flex: 1 1 50%;
-                        // justify-content: flex-end;
                         margin: 30px 0px;
                         text-align: right;
                         padding-right: 15%;
@@ -185,20 +157,16 @@ header {
                 }
                 h2 {
                     display: inline-block;
-                    // background-color: $bgColor-style2;
                 }
                 .den_Condition_search {
                     display: flex;
                     .den_row {
-                        // border: 1px solid red;
                         flex: 0 0 15%;
                         .den_selection {
                             background-color: rgba(245, 222, 179, 0.3);
                             >h3 {
                                 padding: 25px;
                                 display: inline-block;
-                                // padding-right: 15px;
-                                // background-color: white;
                             }
                             .den_res_type {
                                 padding: 20px 15%;
@@ -211,7 +179,6 @@ header {
                                     font-weight: $fontWeight_600;
                                 }
                                 div {
-                                    // margin: 5px 0px;
                                     text-align: center;
                                     padding: 10px;
                                     cursor: pointer;
@@ -276,16 +243,11 @@ header {
                     }
                 }
                 #den_tab1 {
-                    padding: 0px 30px;
+                    padding: 0px 10px;
                     display: block;
                     flex: 1 1 80%;
                     h3 {
                         padding: 5px 15px;
-                        // margin: 15px 0px;
-                        // line-height: 40px;
-                        // border-bottom: 1px solid rgba(223, 114, 25, .5);
-                        // background-color: rgba(223, 114, 25, .5);
-                        // border-bottom: 1px dashed;
                         border-left: 6px solid $bgColor-style1;
                     }
                     hr {
@@ -297,7 +259,7 @@ header {
                         position: relative;
                     }
                     .result_owl {
-                        max-width: 1250px;
+                        width: 75vw;
                         background-color: rgba(255, 255, 255, 1);
                         margin: 0 auto;
                         .den_row {
@@ -320,8 +282,7 @@ header {
                                 .den_content {
                                     flex: 1 1 90%;
                                     display: flex;
-                                    width: 600%;
-                                    // overflow: scroll;
+                                    width: 800%;
                                     div {
                                         padding: 5px;
                                         display: none;
@@ -404,21 +365,21 @@ header {
                         display: flex;
                         justify-content: space-around;
                         flex-direction: column;
-                        margin-top: 25px;
+                        margin-top: 100px;
                         .den_Fill_Information {
                             flex: 0 1 45%;
-                            // border: 1px solid red;
                             text-align: center;
+                            background-image: url(../image/den_image/den_friend.png);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: right;
                             .den_Information_title {
                                 text-align: left;
                             }
                             form {
                                 width: 100%;
                                 display: inline-block;
-                                // padding-top: 4%;
-                                // border: 1px solid #cccccc;
                                 padding: 20px;
-                                // margin-top: 15px;
                                 div {
                                     width: 60%;
                                     // border: 1px solid;
@@ -444,46 +405,46 @@ header {
                         }
                         .den_friend_window {
                             flex: 0 1 45%;
-                            // border: 1px solid blue;
-                            // text-align: center;
+                            margin-top: 50px;
+                            background-image: url(../image/den_image/Illustrations_food1.png);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: right bottom;
                             .friend_title {
                                 text-align: left;
                                 h3 {
-                                    // border: 1px solid red;
                                     display: inline-block;
                                     padding: 5px 15px;
                                 }
                             }
-                            form {
+                            .den_friend_box {
                                 text-align: left;
-                                // border: 1px solid #cccccc;
-                                // overflow: auto;
                                 overflow-y: scroll;
                                 display: inline-block;
-                                width: 60%;
+                                width: 40%;
                                 padding-top: 20px;
-                                // padding-top: 4%;
-                                // margin-top: 5%;
+                                border: 1px solid #ccc;
+                                border-radius: 15px;
+                                background-color: floralwhite;
                                 div {
                                     padding: 10px 10px 10px 15%;
                                     img {
-                                        width: 30px;
-                                        height: 27px;
+                                        width: 50px;
+                                        height: 50px;
+                                        border-radius: 50px;
                                     }
                                     input {
                                         width: 20px;
                                         height: 25px;
                                         margin-left: 5px;
                                         vertical-align: bottom;
+                                        display: none;
                                     }
                                     label {
-                                        margin-left: 5px;
+                                        margin-left: 30px;
                                         vertical-align: bottom;
+                                        line-height: 50px;
                                     }
-                                    //  {
-                                    //     display: inline-block;
-                                    //     vertical-align: bottom;
-                                    // }
                                 }
                             }
                         }
@@ -502,9 +463,9 @@ header {
                     }
                 }
                 #den_tab2 {
-                    // border: 1px solid red;
                     flex: 1 1 80%;
                     display: none;
+                    padding-left: 15px;
                     h3 {
                         padding: 15px;
                         background-color: rgba(223, 114, 25, 0.5);
@@ -580,7 +541,7 @@ header {
 }
 
 .den_box {
-    @include light-box-setting(105%, 100vh, absolute);
+    @include light-box-setting(auto, auto, absolute);
     box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
     background-color: rgba(255, 255, 255, .9);
@@ -593,9 +554,8 @@ header {
     box-shadow: 0px 0px 0px 10px #FFE1A4;
     border-radius: 10px;
     .leave_btn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
+        position: relative;
+        right: -90%;
         width: 50px;
         height: 50px;
         z-index: 99;
@@ -617,35 +577,25 @@ header {
     }
     .den_box_row {
         display: flex;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        position: relative;
+        // top: 50%;
+        // transform: translateY(-50%);
         align-items: center;
         .box_row_left {
             flex: 1 1 50%;
             text-align: center;
             .main_img {
                 padding: 10px;
-                // max-width: 690px;
-                // max-height: 460px;
-                // position: relative;
                 img {
-                    // position: absolute;
-                    // top: 0;
-                    // left: 0;
-                    // max-width: 690px;
-                    // max-height: 460px;
-                    width: 80%;
+                    width: 100%;
                     height: 80%;
                     object-fit: cover;
                     border-radius: 10px;
                 }
             }
             img {
-                // width: 100px;
-                // height: 100px;
-                width: 20%;
-                height: 110px;
+                width: 23%;
+                height: 100px;
                 display: inline-block;
                 padding: 3px;
                 object-fit: cover;
@@ -655,7 +605,7 @@ header {
         .box_row_right {
             flex: 1 1 50%;
             padding: 15px;
-            transform: translateX(-30px);
+            // transform: translateX(-30px);
             span {
                 @include box(70px, 8px);
                 // @include borderT;
@@ -710,20 +660,20 @@ header {
 }
 
 .den_box2 {
-    @include light-box-setting(105%, 105vh, absolute);
+    @include light-box-setting(auto, auto, absolute);
     // box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
     background-color: rgba(255, 255, 255, 1);
-    z-index: 10001;
+    z-index: 2000;
     position: fixed;
     overflow: auto;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 0px 0px 10px $bgColor-style2;
     .leave_btn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
+        position: relative;
+        // top: 20px;
+        right: -95%;
         width: 50px;
         height: 50px;
         z-index: 99;
@@ -746,27 +696,24 @@ header {
     .den_box2_row {
         display: flex;
         align-items: center;
-        position: absolute;
-        top: 50%;
-        width: 90%;
-        transform: translate(3%, -50%);
+        position: relative;
+        // width: 90%;
+        margin: auto;
         .box2_row_left {
             flex: 1 1 50%;
             text-align: center;
             .main_img {
                 padding: 10px;
                 img {
-                    width: 80%;
+                    width: 100%;
                     height: 80%;
                     object-fit: cover;
                     border-radius: 10px;
                 }
             }
             img {
-                // width: 100px;
-                // height: 100px;
-                width: 20%;
-                height: 120px;
+                width: 23%;
+                height: 100px;
                 display: inline-block;
                 padding: 3px;
                 object-fit: cover;
@@ -778,7 +725,7 @@ header {
             padding-left: 20px;
             max-height: 500px;
             overflow: auto;
-            transform: translateX(-30px);
+            // transform: translateX(-30px);
             div {
                 padding: 10px 10px;
                 margin: 10px 0px;
@@ -815,18 +762,10 @@ header {
         }
     }
     .denAllButton {
-        position: absolute;
-        left: 50%;
-        width: 80%;
-        bottom: 60px;
-        transform: translateX(-50%);
-        text-align: right;
-        // padding: 15px;
+        position: relative;
+        text-align: center;
         .den_box2_button {
-            transform: translateY(10px);
             text-align: center;
-            width: 50%;
-            // border: 1px solid;
             display: inline-block;
             margin-top: 15px;
             button {
@@ -851,20 +790,20 @@ header {
 }
 
 .den_box3 {
-    @include light-box-setting(105%, 105vh, absolute);
+    @include light-box-setting(auto, auto, absolute);
     // box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
     background-color: rgba(255, 255, 255, 1);
-    z-index: 10001;
+    z-index: 2000;
     position: fixed;
     overflow: auto;
-    padding: 25px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 0px 10px $bgColor-style2;
     .leave_btn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
+        position: relative;
+        // top: 20px;
+        right: -90%;
         width: 50px;
         height: 50px;
         z-index: 99;
@@ -887,18 +826,18 @@ header {
     .den_box3_row {
         display: flex;
         align-items: center;
-        position: absolute;
-        top: 50%;
+        position: relative;
+        // top: 50%;
         // transform: translateY(-50%);
-        width: 90%;
-        transform: translate(3%, -50%);
+        // width: 90%;
+        // transform: translate(3%, -50%);
         .box3_row_left {
             flex: 1 1 50%;
             text-align: center;
             .main_img {
                 padding: 10px;
                 img {
-                    width: 80%;
+                    width: 100%;
                     height: 80%;
                     object-fit: cover;
                     border-radius: 10px;
@@ -907,8 +846,8 @@ header {
             img {
                 // width: 100px;
                 // height: 100px;
-                width: 20%;
-                height: 120px;
+                width: 23%;
+                height: 100px;
                 display: inline-block;
                 padding: 3px;
                 object-fit: cover;
@@ -969,12 +908,13 @@ header {
         }
     }
     .denAllButton3 {
-        position: absolute;
-        left: 50%;
-        width: 80%;
-        bottom: 60px;
-        transform: translateX(-50%);
-        text-align: right;
+        position: relative;
+        text-align: center;
+        // left: 50%;
+        // width: 80%;
+        // bottom: 60px;
+        // transform: translateX(-50%);
+        // text-align: right;
         // padding: 15px;
         .den_box3_button {
             text-align: center;
@@ -1003,131 +943,9 @@ header {
     }
 }
 
-// .den_box3 {
-//     @include light-box-setting(100%, 115%, absolute);
-//     // border: 10px solid rgba(22, 22, 22, .6);
-//     box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
-//     display: none;
-//     background-color: white;
-//     z-index: 99;
-//     position: fixed;
-//     .leave_btn {
-//         position: absolute;
-//         top: 20px;
-//         right: 20px;
-//         width: 50px;
-//         height: 50px;
-//         // border: 1px solid red;
-//         z-index: 99;
-//         cursor: pointer;
-//         .line1 {
-//             width: 80%;
-//             height: 8%;
-//             background-color: black;
-//             transform: translate(0%, 550%) rotate(45deg);
-//             margin: auto;
-//         }
-//         .line2 {
-//             width: 80%;
-//             height: 8%;
-//             background-color: black;
-//             transform: translate(0%, 450%) rotate(-45deg);
-//             margin: auto;
-//         }
-//     }
-//     .den_box3_row {
-//         display: flex;
-//         align-items: center;
-//         // padding: 8% 15px;
-//         position: absolute;
-//         top: 50%;
-//         transform: translateY(-50%);
-//         .box3_row_left {
-//             // border: 1px solid red;
-//             flex: 1 1 50%;
-//             text-align: center;
-//             .main_img {
-//                 padding: 10px;
-//                 img {
-//                     width: 100%;
-//                     height: 100%;
-//                     object-fit: cover;
-//                 }
-//             }
-//             img {
-//                 // width: 100px;
-//                 // height: 100px;
-//                 width: 24%;
-//                 height: 120px;
-//                 display: inline-block;
-//                 padding: 3px;
-//                 object-fit: cover;
-//             }
-//             .den_box_button {
-//                 text-align: center;
-//                 width: 40%;
-//                 // border: 1px solid;
-//                 display: inline-block;
-//                 margin-top: 15px;
-//                 button {
-//                     @include btnBrown_6;
-//                     width: 150px;
-//                     // border-radius: 15px 15px!important;
-//                 }
-//             }
-//             .box_button_close {
-//                 text-align: center;
-//                 width: 40%;
-//                 // border: 1px solid;
-//                 display: inline-block;
-//                 margin-top: 15px;
-//                 display: none;
-//                 button {
-//                     // @include btnRed;
-//                     width: 150px;
-//                 }
-//             }
-//         }
-//         .box3_row_right {
-//             // border: 1px solid green;
-//             flex: 1 1 50%;
-//             // padding: 30px;
-//             padding-left: 20px;
-//             max-height: 450px;
-//             overflow: auto;
-//             div {
-//                 padding: 15px 0px;
-//                 // h2 {
-//                 //     // color: $btn_color_n_r;
-//                 //     display: block;
-//                 //     // border: 1px solid red;
-//                 //     padding: 10px 5px;
-//                 // }
-//                 h3 {
-//                     display: inline-block;
-//                     // border: 1px solid;
-//                     // border: 1px solid blue;
-//                     padding: 5px;
-//                 }
-//                 h4 {
-//                     display: inline-block;
-//                     padding: 5px;
-//                 }
-//                 h6 {
-//                     display: inline-block;
-//                     // border: 1px solid green;
-//                     padding: 5px 10px;
-//                     border-radius: 15px;
-//                     background-color: rgba(128, 128, 128, .6);
-//                     margin: 10px 5px 0px 5px;
-//                 }
-//             }
-//         }
-//     }
-// }
 .box_background {
     width: 100%;
-    height: 100%;
+    height: 1000%;
     position: absolute;
     top: 0;
     left: 0;
@@ -1136,41 +954,46 @@ header {
     z-index: 1000;
 }
 
-.den_true_box {
-    width: 250px;
-    height: 150px;
-    border-radius: 25px;
-    background-color: #c0c0c0;
-    border: 1px solid red;
-    padding: 10px;
+.den_true_box_open,
+.den_true_box_join {
+    width: 30%;
+    height: auto;
+    border-radius: 15px;
+    background-color: #ffe1a4;
+    border: 2px solid rgba(22, 22, 22, 1);
+    padding: 40px;
     line-height: 2rem;
     display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
     div {
-        border: 1px solid blue;
+        text-align: center;
+        // border: 1px solid blue;
         span {
             color: black;
             font-size: 25px;
         }
         div {
             text-align: center;
+            padding-top: 10px;
             button {
-                color: black;
+                @include btnBrown_6;
             }
         }
     }
 }
 
+.section_res {
+    z-index: 9999;
+    ;
+}
+
 @include rwd(md_desktop) {
-    // section {
-    //     .wrapper {
-    //         .gif {
-    //             display: none;
-    //         }
-    //     }
-    // }
     .box {
         .box_row {
-            // padding: 15% 15px;
             .box_row_right {
                 padding: 15px;
                 p {
@@ -1193,30 +1016,61 @@ header {
     .box3 {
         width: 90%;
         .box3_row {
-            // align-items: flex-start;
-            // padding: 9% 15px;
-            .box3_row_right {
-                // padding: 15px;
-            }
+            .box3_row_right {}
         }
+    }
+    .den_selection {
+        h3 {
+            padding: 10px!important;
+        }
+    }
+    .den_box {
+        width: 80%;
     }
 }
 
 @include rwd(md_medium) {
-    section {
-        .wrapper {
-            .container {
-                .row {
-                    .Condition_search {
-                        .row {
-                            .selection {
-                                .res_type {
+    .den_section {
+        .den_wrapper {
+            .den_container {
+                padding: 15px;
+                .den_row {
+                    .den_Condition_search {
+                        .den_row {
+                            .den_selection {
+                                h3 {
+                                    padding: 10px;
+                                }
+                                .den_res_type {
                                     padding: 20px 0px;
                                     text-align: center;
                                 }
-                                .cooking_style {
+                                .den_cooking_style {
                                     padding: 20px 0px;
                                     text-align: center;
+                                }
+                            }
+                        }
+                        #den_tab1 {
+                            #map {
+                                width: 80vw;
+                            }
+                        }
+                        #den_tab2 {
+                            .den_foodGroup {
+                                .den_eatGroup {
+                                    .den_eatGroup_content {
+                                        div {
+                                            right: -75px;
+                                            h4 {
+                                                font-size: 18px!important;
+                                            }
+                                        }
+                                        h3 {
+                                            padding: 5px;
+                                            font-size: 16px!important;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1225,11 +1079,19 @@ header {
             }
         }
     }
+    .den_content {
+        width: 1500%!important;
+    }
+    .den_nav_right {
+        margin-left: 5px;
+    }
+    .den_friend_box {
+        width: 80%!important;
+    }
     .box {
         width: 90%;
         height: 85vh;
         .box_row {
-            // padding: 5% 15px;
             flex-wrap: wrap;
             top: 0;
             transform: translateY(0px);
@@ -1278,63 +1140,82 @@ header {
     .box3 {
         width: 90%;
         .box3_row {
-            // align-items: flex-start;
-            // padding: 15% 15px;
-            .box3_row_right {
-                // padding: 15px;
-            }
+            .box3_row_right {}
             .box3_row_left {
                 .box_button {
                     width: 49%;
-                    // border: 1px solid red;
                 }
                 .box_button_close {
                     width: 49%;
-                    // border: 1px solid green;
                 }
             }
         }
+    }
+    .den_box {
+        width: 90%;
     }
 }
 
 @include rwd(md_small) {
-    section {
-        .wrapper {
-            .container {
-                padding: 15px;
-                .row {
-                    .title {
+    #den_banner_title {
+        width: 100%!important;
+    }
+    .den_section {
+        .den_wrapper {
+            .den_container {
+                padding: 0;
+                .den_row {
+                    .den_title {
                         .title_right {
                             padding: 0;
                             text-align: center;
                         }
                     }
-                    .Condition_search {
-                        .row {
-                            .selection {
-                                .res_type {
-                                    padding: 20px 0px;
+                    .den_Condition_search {
+                        flex-wrap: wrap;
+                        .den_row {
+                            flex: 1 1 100%;
+                            .den_selection {
+                                display: flex;
+                                flex-wrap: wrap;
+                                h3 {
+                                    flex: 1 1 100%;
+                                    width: 10px;
+                                    display: none;
+                                }
+                                .den_res_type {
+                                    display: flex;
+                                    padding: 0px;
                                     text-align: center;
+                                    align-items: center;
                                     h3 {
                                         font-size: 21px;
+                                        width: 10px;
+                                        margin: 0;
+                                        margin-right: 15px;
                                     }
                                     label {
                                         font-size: 18px;
+                                        line-height: 25px;
                                     }
                                     input {
                                         height: 20px;
                                     }
                                 }
-                                .cooking_style {
-                                    padding: 20px 0px;
+                                .den_cooking_style {
+                                    display: flex;
+                                    padding: 0px;
                                     text-align: center;
-                                    // width: 83%;
-                                    // margin: 0 auto;
+                                    align-items: center;
                                     h3 {
                                         font-size: 21px;
+                                        width: 10px;
+                                        margin: 0;
+                                        margin-right: 15px;
                                     }
                                     label {
                                         font-size: 18px;
+                                        line-height: 25px;
                                     }
                                     input {
                                         height: 20px;
@@ -1343,18 +1224,45 @@ header {
                             }
                         }
                     }
-                    #tab1 {
-                        .Fill_Information_wrapper {
-                            flex-wrap: wrap;
-                            .Fill_Information {
-                                flex: 1 1 100%;
+                    #den_tab1 {
+                        padding: 0;
+                        #map {
+                            margin: 0 auto;
+                            width: 95vw;
+                        }
+                        .result_owl {
+                            width: 95vw;
+                            .den_row {
+                                .den_nav_left {}
+                                .den_content_range {
+                                    .den_content {
+                                        width: 1500%;
+                                        // display: none;
+                                    }
+                                }
+                                .den_nav_right {}
                             }
-                            .friend_window {
+                        }
+                        .den_Fill_Information_wrapper {
+                            flex-wrap: wrap;
+                            .den_Fill_Information {
                                 flex: 1 1 100%;
+                                .den_Information {
+                                    background-color: rgba(245, 245, 245, .6);
+                                    border: 1px solid #ccc;
+                                    div {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                            .den_friend_window {
+                                flex: 1 1 100%;
+                                margin-top: 0;
                                 .friend_title {
                                     margin-top: 30px;
                                 }
-                                form {
+                                .den_friend_box {
+                                    width: 100%;
                                     margin-top: 15px;
                                 }
                             }
@@ -1363,16 +1271,26 @@ header {
                             width: 28%;
                         }
                     }
-                    #tab2 {
-                        .foodGroup {
-                            .eatGroup {
-                                // flex-wrap: wrap;
-                                .eatGroup_content {
+                    #den_tab2 {
+                        padding: 0px;
+                        .den_foodGroup {
+                            .den_eatGroup {
+                                display: flex;
+                                flex-direction: column;
+                                span {
+                                    display: none;
+                                }
+                                .den_eatGroup_content {
                                     padding: 0;
                                     flex: 1 1 80%;
                                     text-align: center;
+                                    margin-top: 15px;
+                                    div {
+                                        top: -80%;
+                                        right: -15%;
+                                    }
                                 }
-                                .eatGroup_button {
+                                .den_eatGroup_button {
                                     button {
                                         padding: 5px;
                                     }
@@ -1388,221 +1306,15 @@ header {
             }
         }
     }
-    .box {
+    .den_box {
         width: 90%;
         height: 85vh;
-        .box_row {
+        .den_box_row {
             // padding: 5% 15px;
             flex-wrap: wrap;
             top: 0;
             transform: translateY(0px);
-            padding: 60px 15px 15px 15px;
-            .box_row_left {
-                flex: 1 1 100%;
-                .main_img {
-                    padding: 5px;
-                    img {
-                        width: 70%;
-                    }
-                }
-                img {
-                    width: 24%;
-                }
-            }
-            .box_row_right {
-                padding: 0;
-                flex: 1 1 100%;
-                h2 {
-                    margin-top: 15px;
-                }
-            }
-        }
-    }
-    .box2 {
-        width: 95%;
-        height: 90%;
-        overflow-y: auto;
-        .box2_row {
-            // align-items: flex-start;
-            // padding: 15% 15px;
-            flex-wrap: wrap;
-            top: 9%;
-            transform: translateY(0px);
-            padding-bottom: 15%;
-            .box2_row_right {
-                // padding: 15px;
-                flex: 1 1 100%;
-            }
-            .box2_row_left {
-                flex: 1 1 100%;
-                .box_button {
-                    width: 49%;
-                    position: absolute;
-                    bottom: 10px;
-                    left: 0;
-                    // border: 1px solid red;
-                }
-                .box_button_close {
-                    width: 49%;
-                    position: absolute;
-                    bottom: 10px;
-                    right: 0;
-                    // border: 1px solid green;
-                }
-            }
-        }
-    }
-    .box3 {
-        width: 95%;
-        height: 90%;
-        overflow-y: auto;
-        .box3_row {
-            // align-items: flex-start;
-            // padding: 15% 15px;
-            flex-wrap: wrap;
-            top: 9%;
-            transform: translateY(0px);
-            padding-bottom: 15%;
-            .box3_row_right {
-                // padding: 15px;
-                flex: 1 1 100%;
-            }
-            .box3_row_left {
-                flex: 1 1 100%;
-                .box_button {
-                    width: 49%;
-                    position: absolute;
-                    bottom: 10px;
-                    left: 0;
-                    // border: 1px solid red;
-                }
-                .box_button_close {
-                    width: 49%;
-                    position: absolute;
-                    bottom: 10px;
-                    right: 0;
-                    // border: 1px solid green;
-                }
-            }
-        }
-    }
-}
-
-@include rwd(md_cellphone) {
-    section {
-        .wrapper {
-            .container {
-                padding: 15px;
-                .row {
-                    .title {
-                        // text-align: center;
-                        .title_right {
-                            padding: 0;
-                            text-align: center;
-                            span {
-                                letter-spacing: 0;
-                            }
-                        }
-                    }
-                    .search {
-                        .search_icon {
-                            width: 100%;
-                            height: 50px;
-                        }
-                    }
-                    .Condition_search {
-                        .row {
-                            .selection {
-                                .res_type {
-                                    padding: 20px 0px;
-                                    text-align: center;
-                                    h3 {
-                                        font-size: 21px;
-                                    }
-                                    label {
-                                        font-size: 18px;
-                                    }
-                                    input {
-                                        height: 20px;
-                                    }
-                                }
-                                .cooking_style {
-                                    padding: 20px 0px;
-                                    text-align: center;
-                                    // width: 83%;
-                                    // margin: 0 auto;
-                                    h3 {
-                                        font-size: 21px;
-                                    }
-                                    label {
-                                        font-size: 18px;
-                                    }
-                                    input {
-                                        height: 20px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    #tab1 {
-                        .Fill_Information_wrapper {
-                            flex-wrap: wrap;
-                            .Fill_Information {
-                                flex: 1 1 100%;
-                            }
-                            .friend_window {
-                                flex: 1 1 100%;
-                                .friend_title {
-                                    margin-top: 30px;
-                                }
-                                form {
-                                    margin-top: 15px;
-                                }
-                            }
-                        }
-                        .button {
-                            width: 28%;
-                        }
-                    }
-                    #tab2 {
-                        .foodGroup {
-                            // display: inline-flex;
-                            .eatGroup {
-                                flex-wrap: wrap;
-                                // flex: 1 0 100%;
-                                span {
-                                    display: none;
-                                }
-                                .eatGroup_content {
-                                    padding: 0;
-                                    flex: 1 1 80%;
-                                    text-align: center;
-                                }
-                                .eatGroup_button {
-                                    button {
-                                        padding: 5px;
-                                    }
-                                }
-                                img {
-                                    width: 150px;
-                                    height: 150px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .box {
-        width: 90%;
-        height: 85vh;
-        .box_row {
-            // padding: 20% 10px;
-            flex-wrap: wrap;
-            top: 0;
-            transform: translateY(0px);
-            padding: 55px 15px 15px 15px;
+            padding: 15px;
             .box_row_left {
                 flex: 1 1 100%;
                 .main_img {
@@ -1613,7 +1325,6 @@ header {
                 }
                 img {
                     width: 24%;
-                    height: 80px;
                 }
             }
             .box_row_right {
@@ -1625,54 +1336,35 @@ header {
             }
         }
     }
-    .box2 {
+    .den_box2 {
         width: 95%;
         height: 90%;
         overflow-y: auto;
-        .box2_row {
-            // align-items: flex-start;
-            // padding: 15% 15px;
+        .leave_btn {
+            right: -90%;
+        }
+        .den_box2_row {
             flex-wrap: wrap;
-            top: 9%;
-            transform: translateY(0px);
-            padding-bottom: 20%;
             .box2_row_right {
-                // padding: 15px;
                 flex: 1 1 100%;
+                padding: 0;
             }
             .box2_row_left {
                 flex: 1 1 100%;
-                .box_button {
-                    width: 49%;
-                    position: absolute;
-                    bottom: 10px;
-                    left: 0;
-                    // border: 1px solid red;
-                }
-                .box_button_close {
-                    width: 49%;
-                    position: absolute;
-                    bottom: 10px;
-                    right: 0;
-                    // border: 1px solid green;
-                }
             }
         }
     }
-    .box3 {
+    .den_box3 {
         width: 95%;
         height: 90%;
         overflow-y: auto;
-        .box3_row {
-            // align-items: flex-start;
-            // padding: 15% 15px;
+        .den_box3_row {
             flex-wrap: wrap;
-            top: 9%;
-            transform: translateY(0px);
-            padding-bottom: 20%;
+            // padding-bottom: 15%;
             .box3_row_right {
                 // padding: 15px;
                 flex: 1 1 100%;
+                padding: 0;
             }
             .box3_row_left {
                 flex: 1 1 100%;
@@ -1681,14 +1373,268 @@ header {
                     position: absolute;
                     bottom: 10px;
                     left: 0;
-                    // border: 1px solid red;
                 }
                 .box_button_close {
                     width: 49%;
                     position: absolute;
                     bottom: 10px;
                     right: 0;
-                    // border: 1px solid green;
+                }
+            }
+        }
+    }
+}
+
+@include rwd(md_cellphone) {
+    #den_banner_title {
+        width: 100%!important;
+    }
+    .den_section {
+        .den_wrapper {
+            .den_container {
+                padding: 0;
+                .den_row {
+                    .den_title {
+                        .title_right {
+                            padding: 0 15px;
+                            text-align: left;
+                        }
+                    }
+                    .den_Condition_search {
+                        flex-wrap: wrap;
+                        .den_row {
+                            flex: 1 1 100%;
+                            .den_selection {
+                                display: flex;
+                                flex-wrap: wrap;
+                                h3 {
+                                    flex: 1 1 100%;
+                                    width: 10px;
+                                    display: none;
+                                }
+                                .den_res_type {
+                                    display: flex;
+                                    padding: 0px;
+                                    text-align: center;
+                                    align-items: center;
+                                    h3 {
+                                        font-size: 18px!important;
+                                        width: 10px;
+                                        margin: 0;
+                                        padding: 10px;
+                                        margin-right: 13%;
+                                    }
+                                    label {
+                                        font-size: 18px;
+                                        line-height: 25px;
+                                    }
+                                    input {
+                                        height: 20px;
+                                    }
+                                }
+                                .den_cooking_style {
+                                    display: flex;
+                                    padding: 0px;
+                                    text-align: center;
+                                    align-items: center;
+                                    h3 {
+                                        font-size: 18px!important;
+                                        width: 10px;
+                                        margin: 0;
+                                        padding: 10px;
+                                    }
+                                    label {
+                                        font-size: 18px;
+                                        line-height: 25px;
+                                    }
+                                    input {
+                                        height: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    #den_tab1 {
+                        padding: 0;
+                        #map {
+                            margin: 0 auto;
+                            width: 95vw;
+                        }
+                        .result_owl {
+                            width: 95vw;
+                            .den_row {
+                                .den_nav_left {}
+                                .den_content_range {
+                                    .den_content {
+                                        width: 3000%;
+                                        div {
+                                            margin: 0 15px;
+                                        }
+                                    }
+                                }
+                                .den_nav_right {}
+                            }
+                        }
+                        .den_Fill_Information_wrapper {
+                            margin-top: 50px;
+                            flex-wrap: wrap;
+                            .den_Fill_Information {
+                                flex: 1 1 100%;
+                                .den_Information {
+                                    background-color: rgba(245, 245, 245, .6);
+                                    border: 1px solid #ccc;
+                                    div {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                            .den_friend_window {
+                                flex: 1 1 100%;
+                                margin-top: 0;
+                                .friend_title {
+                                    margin-top: 30px;
+                                }
+                                .den_friend_box {
+                                    width: 100%;
+                                    margin-top: 15px;
+                                }
+                            }
+                        }
+                        .den_button {
+                            width: 50%;
+                        }
+                        .button {
+                            width: 28%;
+                        }
+                    }
+                    #den_tab2 {
+                        padding: 0px;
+                        .den_foodGroup {
+                            .den_eatGroup {
+                                display: flex;
+                                flex-direction: column;
+                                span {
+                                    display: none;
+                                }
+                                .den_eatGroup_content {
+                                    padding: 0;
+                                    flex: 1 1 80%;
+                                    text-align: center;
+                                    margin-top: 15px;
+                                    div {
+                                        top: -107%;
+                                        right: -2%;
+                                    }
+                                    h3 {
+                                        font-size: 18px!important;
+                                    }
+                                }
+                                .den_eatGroup_button {
+                                    button {
+                                        padding: 5px;
+                                    }
+                                }
+                                img {
+                                    width: 150px;
+                                    height: 150px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .den_box {
+        padding: 15px;
+        width: 90%;
+        height: 85vh;
+        .leave_btn {
+            right: -85%;
+        }
+        .den_box_row {
+            // padding: 5% 15px;
+            flex-wrap: wrap;
+            top: 0;
+            transform: translateY(0px);
+            // padding: 15px;
+            .box_row_left {
+                flex: 1 1 100%;
+                .main_img {
+                    padding: 5px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                img {
+                    width: 23%;
+                    height: 70px;
+                }
+            }
+            .box_row_right {
+                padding: 0;
+                flex: 1 1 100%;
+                h2 {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+    .den_box2 {
+        width: 95%;
+        height: 90%;
+        overflow-y: auto;
+        .leave_btn {
+            right: -85%;
+        }
+        .den_box2_row {
+            flex-wrap: wrap;
+            .box2_row_right {
+                flex: 1 1 100%;
+                padding: 0;
+                h3 {
+                    font-size: 18px!important;
+                }
+                h4 {
+                    font-size: 16px!important;
+                }
+            }
+            .box2_row_left {
+                flex: 1 1 100%;
+                .main_img {
+                    padding: 0px;
+                    img {
+                        height: 70px;
+                    }
+                }
+            }
+        }
+    }
+    .den_box3 {
+        width: 95%;
+        height: 90%;
+        overflow-y: auto;
+        .den_box3_row {
+            flex-wrap: wrap;
+            // padding-bottom: 15%;
+            .box3_row_right {
+                // padding: 15px;
+                flex: 1 1 100%;
+                padding: 0;
+                h3 {
+                    font-size: 18px!important;
+                }
+                h4 {
+                    font-size: 16px!important;
+                }
+            }
+            .box3_row_left {
+                flex: 1 1 100%;
+                .main_img {
+                    padding: 0;
+                }
+                img {
+                    height: 70px;
                 }
             }
         }

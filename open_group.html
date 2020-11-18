@@ -35,12 +35,13 @@
         <div class="bubble x7"></div>
         <div class="bubble x8"></div>
         <div class="bubble x9"></div>
+
     </div>
     <!--header-->
     <header>
         <section>
             <div class="logo">
-                <a href="./index.html">
+                <a href="./home.html">
                     <img src="./image/logoHeader.svg" alt="">
                 </a>
             </div>
@@ -64,12 +65,10 @@
                 </ul>
             </div>
             <div class="member" id="login">
-                <div class="icon">
+                <a class="icon" href="./member.php">
                     <img src="./image/icon.svg" id="headshot_icon">
-                </div>
-                <div id="nametest"></div>
+                </a>
                 <span style="display: none;" class="memberNoNum"></span>
-                <!-- <span id="memName">&nbsp;</span> -->
                 <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
@@ -80,12 +79,11 @@
                 </div>
                 <ul class="nav1" id="nav1">
                     <div class="member">
-                        <div class="icon">
-                            <a href="./login.html">
-                                <img src="./image/icon.svg" alt="">
-                            </a>
-                        </div>
-                        <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+                        <a class="icon" href="./member.php">
+                            <img src="./image/icon.svg" id="mobileheadshot_icon">
+                        </a>
+                        <span style="display: none;" class="memberNoNum"></span>
+                        <span id="mobilespanLogin">登入</span>
                     </div>
                     <li>
                         <a href="./game.html">吃吃配對</a>
@@ -112,11 +110,7 @@
         <!-- <div class="den_banner_background"></div> -->
         <div class="container">
             <div id="den_banner_title">
-                <!-- <span>就算發一千條短信，心與心之間的距離也不曾拉近過一厘米，
-                那麼怎樣的速度，才能走完我與你之間的距離</span> -->
                 <span>天才總是伴隨著飢餓，但你不是</span>
-                <!-- <span>秒速5厘米，那是櫻花飄落的速度，
-                那麼怎樣的速度，才能走完我與你之間的距離?</span> -->
                 <span>還等什麼，一起加入美食團吧！</span>
             </div>
             <div class="den_search">
@@ -140,9 +134,6 @@
     <!-- main -->
     <section class="den_section">
         <div class="den_wrapper">
-            <!-- <div class="den_gif">
-                <img src="./image/giphy.gif" alt="">
-            </div> -->
             <div class="den_background_round"></div>
             <div class="den_container">
                 <div class="den_row">
@@ -186,27 +177,27 @@
                                 <div class="den_cooking_style">
                                     <h3>料理風格</h3>
                                     <div>
-                                        <input type="checkbox" name="style" value="1" id="style1">
+                                        <input type="checkbox" name="style[]" value="1" id="style1">
                                         <label for="style1">排餐</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="2" id="style2">
+                                        <input type="checkbox" name="style[]" value="2" id="style2">
                                         <label for="style2">炸物</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="3" id="style3">
+                                        <input type="checkbox" name="style[]" value="3" id="style3">
                                         <label for="style3">燒烤</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="4" id="style4">
+                                        <input type="checkbox" name="style[]" value="4" id="style4">
                                         <label for="style4">火鍋</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="5" id="style5">
+                                        <input type="checkbox" name="style[]" value="5" id="style5">
                                         <label for="style5">飯食</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="style" value="6" id="style6">
+                                        <input type="checkbox" name="style[]" value="6" id="style6">
                                         <label for="style6">麵食</label>
                                     </div>
                                 </div>
@@ -322,9 +313,6 @@
         </div>
         <div class="den_box_row" id="box1">
         </div>
-        <!-- <div class="den_box_button">
-            <button>送出</button>
-        </div> -->
     </div>
 
     <!--燈箱2/開團確認-->
@@ -333,7 +321,6 @@
             <div class="line1"></div>
             <div class="line2"></div>
         </div>
-        <!-- <form class="open_group_form" action="open_group1"> -->
         <div class="den_box2_row">
 
         </div>
@@ -364,7 +351,42 @@
 
     <!--燈箱背景-->
     <div class="box_background"></div>
+    <!-- 燈箱 登入 -->
+    <section class="section_res" id="login_box" style="display:none">
+        <div class="container_res">
+            <div class="user singinBx">
+                <div class="img_res">
+                    <img src="./image/2.png" alt="">
+                </div>
+                <div class="form_res">
+                    <form name="login">
+                        <h2>會員登入</h2>
+                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號" id="loginID">
+                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼" id="loginPsd">
 
+                        <input type="button" name="" value="登入" id="btnLogin">
+                        <input type="button" name="" value="取消" id="btnLoginCancel">
+                        <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
+                    </form>
+                </div>
+            </div>
+            <div class="user singupBx">
+                <div class="form_res">
+                    <form action="signup.php" method="post">
+                        <h2>註冊</h2>
+                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
+                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
+                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
+                        <input type="submit" name="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </form>
+                </div>
+                <div class="img_res">
+                    <img src="./image/4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
     <!--login燈箱 登入-->
     <section class="section_res" id="login_box" style="display:none">
         <div class="container_res">
@@ -402,19 +424,30 @@
     </section>
 
     <!--確認畫面-->
-    <div class="den_true_box">
+    <!-- 開團完成 -->
+    <div class="den_true_box_open">
         <div>
+            <div id="test-vue-id">
+                <tick></tick>
+            </div>
             <span>已成功開團，請前往會員畫面確認喔!</span>
             <div>
                 <button>前往會員</button>
             </div>
         </div>
     </div>
-
-
-
-
-
+    <!-- 參團完成 -->
+    <div class="den_true_box_join">
+        <div>
+            <div id="test-vue-id">
+                <tick></tick>
+            </div>
+            <span>已成功參團，請前往會員畫面確認喔!</span>
+            <div>
+                <button>前往會員</button>
+            </div>
+        </div>
+    </div>
 
 
     <!--javaScript--->
@@ -457,6 +490,15 @@
                     $(this).parent().css('background', 'rgba(223, 114, 25, 0)');
                 }
             });
+            //好友選擇
+            $(".den_friend_box div input").click(function() {
+                var checkis = $(this).is(":checked");
+                if (checkis == true) {
+                    $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
+                } else {
+                    $(this).parent().css('background', 'rgba(223, 114, 25, 0)');
+                }
+            });
 
 
             //頁籤
@@ -481,10 +523,11 @@
 
             //點擊餐廳選進input.val
             let resAll = document.querySelectorAll('.den_content div');
+            console.log(resAll.length);
             for (let i = 0; i < resAll.length; i++) {
                 resAll[i].addEventListener('click', function() {
                     let name = this.children[3].innerText;
-                    console.log(name);
+                    // console.log(name);
                     $('.den_Information div:nth-child(1) input').val(name);
                     $('.den_content div').css({
                         'background': '#ffffff'
@@ -499,8 +542,12 @@
             let yy = $('.den_Fill_Information form :input').val();
             // console.log(yy);
             $('.den_button button').on('click', function() {
-                $('.den_box2').css('display', 'block');
-                $('.box_background').css('display', 'block');
+                if ($('#spanLogin').text() == '登出') {
+                    $('.den_box2').css('display', 'block');
+                } else {
+                    alert('請先登入~~');
+                    $('.section_res').css('display', 'block');
+                }
             });
 
 
@@ -510,10 +557,9 @@
                 $('.den_box2').css('display', 'none');
                 $('.den_box3').css('display', 'none');
                 $('.box_background').css('display', 'none');
-                $('.box2_row_right div:nth-child(1) h3:nth-child(5)').empty();
-                $('.box2_row_right div:nth-child(1) h3:nth-child(8)').empty();
-                $('.box2_row_right div:nth-child(2) h3:nth-child(12)').empty();
-                $('.box2_row_right div:nth-child(2) h3:nth-child(5)').empty();
+                $('.box2_row_left').remove();
+                $('.box2_row_right').remove();
+
             });
 
             // owl左右移動
@@ -534,10 +580,11 @@
         window.addEventListener('load', doFirst);
     </script>
     <!--地圖-->
+
     <script>
         var map = L.map('map', {
             center: [24.9647762, 121.1908706], //哈堡堡
-            zoom: 18
+            zoom: 14
         });
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -550,130 +597,49 @@
             popupAnchor: [1, -34],
             shadowSize: [41, 41]
         });
-        var data = [{
-            'name': '竹香快餐',
-            'hover': '竹香快餐',
-            lat: 24.9643636,
-            lng: 121.1893723,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food1.jpg'
-        }, {
-            'name': '大中央厚切牛排',
-            'hover': '大中央厚切牛排',
-            lat: 24.9647076,
-            lng: 121.1885262,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food2.jpg'
-        }, {
-            'name': '重慶酸辣粉',
-            'hover': '重慶酸辣粉',
-            lat: 24.9647373,
-            lng: 121.1892811,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food3.jpg'
-        }, {
-            'name': '雞叔叔醬汁照燒雞排',
-            'hover': '雞叔叔醬汁照燒雞排',
-            lat: 24.9648977,
-            lng: 121.19345,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food4.jpg'
-        }, {
-            'name': '無敵蛋餅',
-            'hover': '無敵蛋餅',
-            lat: 24.9652668,
-            lng: 121.1931109,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food5.jpg'
-        }, {
-            'name': '霸王香雞排',
-            'hover': '霸王香雞排',
-            lat: 24.9650691,
-            lng: 121.1926797,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food6.jpg'
-        }, {
-            'name': '27秀梅',
-            'hover': '27秀梅',
-            lat: 24.9647026,
-            lng: 121.1910093,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food7.jpg'
-        }, {
-            'name': '哈堡堡輕食早午餐',
-            'hover': '哈堡堡輕食早午餐',
-            lat: 24.9647762,
-            lng: 121.1908706,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food8.jpg'
-        }, {
-            'name': '福泉豆花',
-            'hover': '福泉豆花',
-            lat: 24.965285,
-            lng: 121.1908942,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food9.jpg'
-        }, {
-            'name': '燒餅窯',
-            'hover': '燒餅窯',
-            lat: 24.9645288,
-            lng: 121.1930604,
-            'address': '地址：桃園市中壢區中央路216巷86弄',
-            'phoneNumber': '電話：(03)123-4567',
-            'photo': './image/map/food10.jpg'
-        }]
+
         var markers = new L.MarkerClusterGroup().addTo(map);;
+        $(document).ready(function() {
+            $.getJSON('./temp.json', function(e) {
+                let store = e.data;
+                for (let i = 0; i < 421; i++) {
+                    if (store[i].type == 3) {
+                        if (store[i].zipcode == 320) {
+                            // console.log(store[i].name);
+                            markers.addLayer(L.marker([store[i].latlng[0], store[i].latlng[1]], {
+                                    icon: redIcon
+                                })
+                                .bindPopup(
+                                    '<h1>' + store[i].name + '</h1>' +
+                                    '<img src=" ' + store[i].img + ' " / style="width:280px;height:280px"> <br>' +
+                                    '<i class="fas fa-heart"></i>&nbsp;30 &nbsp;&nbsp;' +
+                                    '<i class="fas fa-comments"></i>&nbsp;46 &nbsp;&nbsp;' +
+                                    '<i class="fas fa-share-square"></i>&nbsp;25 &nbsp;&nbsp;' +
+                                    '<p>' + '地址：' + store[i].address + '</p>' +
+                                    '<p>' + '電話：' + store[i].tel + '</p>' +
+                                    '<a href="#" style="text-align:end; display:block;" >' + 'more...' + '</a>'
+                                ));
+                        }
 
-        for (let i = 0; data.length > i; i++) {
-            // console.log(data[i].name)
-            markers.addLayer(L.marker([data[i].lat, data[i].lng], {
-                    icon: redIcon,
-                    title: data[i].hover
-                })
-                .bindPopup('<h1>' + data[i].name + '</h1>' +
-                    '<img src=" ' + data[i].photo + ' " /> <br>' +
-                    '<i class="fas fa-heart"></i>&nbsp;30 &nbsp;&nbsp;' +
-                    '<i class="fas fa-comments"></i>&nbsp;46 &nbsp;&nbsp;' +
-                    '<i class="fas fa-share-square"></i>&nbsp;25 &nbsp;&nbsp;' +
-                    '<p>' + data[i].address + '</p>' +
-                    '<p>' + data[i].phoneNumber + '</p>'
-                ));
-        }
+                    }
+                }
+            })
+        })
+
         map.addLayer(markers);
-
-        // var xhr = new XMLHttpRequest();
-        // xhr.open("get","https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json");
-        // xhr.send();
-        // xhr.onload = function(){
-        // var data = JSON.parse(xhr.responseText).features
-        // for(let i =0;data.length>i;i++){
-
-        // markers.addLayer(L.marker([data[i].geometry.coordinates[1],data[i].geometry.coordinates[0]], {icon: greenIcon}).bindPopup(data[i].properties.name));
-        // // add more markers here...
-        // // L.marker().addTo(map)
-        // //   )
-        // }
-        // map.addLayer(markers);
-        // }
     </script>
     <!-- AJAX -->
-
     <script>
         //餐廳種類
         $('.den_res_type div').on('change', function() {
             let yyy1 = $('.den_res_type div').index(this) + 1;
-            console.log(yyy1);
-            let yyy2 = $('.den_cooking_style div input[name=style]:checked').val();
+            let yyy2 = $("input[name='style[]']:checked").map(function() {
+                return $(this).val();
+            }).get();
             console.log(yyy2);
+
+            // console.log(yyy1);
+            // console.log(yyy2);
 
             $.ajax({
                 url: './open_group.php',
@@ -687,9 +653,9 @@
                     console.log('成功');
                 },
                 complete(data) {
-                    console.log(JSON.parse(data.responseText));
+                    // console.log(JSON.parse(data.responseText));
                     let resData1 = JSON.parse(data.responseText);
-                    console.log(resData1[0]);
+                    // console.log(resData1[0]);
 
                     //清掉並重新渲染
                     $('.den_content').empty();
@@ -705,47 +671,66 @@
                     </div>
                     `);
                     }
+
+                    let owlImage = document.querySelectorAll('.den_content div h6');
+                    for (let i = 0; i < owlImage.length; i++) {
+                        owlImage[i].addEventListener('click', function() {
+                            var ttt = this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
+                            // console.log(ttt);
+                            $('.den_box_row').empty();
+                            $('.den_box_row').append(`
+                            <div class="box_row_left">
+                                <div class="main_img">
+                                    <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE1}">
+                                </div>
+                                    <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE1}">
+                                    <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE2}">
+                                    <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE3}">
+                                    <img src="./image/restaurant_management_img/${resData1[0][i].RES_IMAGE4}">
+                            </div>
+                            <div class="box_row_right">
+                                    <h2>${resData1[0][i].RES_NAME}</h2>
+                                    <span>${resData1[0][i].KIND_NAME}</span>
+                                    <span>${resData1[0][i].STYLE_NAME}</span>
+                                        <br>
+                                <div class="den_box_msg">
+                                    <p>地址:</p>
+                                    <p>${resData1[0][i].RES_ADDRESS}</p>
+                                    <br>
+                                    <p>電話:</p>
+                                    <p>${resData1[0][i].RES_TEL}</p>
+                                </div>
+                                <div class="den_box_content">
+                                    <p>店家介紹:</p>
+                                    <p>${resData1[0][i].RES_INTRODUCTION}</p>
+                                </div>
+                            </div>
+                                    `)
+                            $('.den_box').css('display', 'block');
+                            $('.box_background').css('display', 'block');
+                        });
+                    }
+                    let resAll = document.querySelectorAll('.den_content div');
+                    console.log(resAll.length);
+                    for (let i = 0; i < resAll.length; i++) {
+                        resAll[i].addEventListener('click', function() {
+                            let name = this.children[3].innerText;
+                            // console.log(name);
+                            $('.den_Information div:nth-child(1) input').val(name);
+                            $('.den_content div').css({
+                                'background': '#ffffff'
+                            });
+                            this.style.background = '#FF7a85';
+                        });
+                    }
                 }
             });
         });
 
         //料理風格
-        // $('.den_cooking_style div').on('change', function() {
-        //     var yyy2 = $('.den_cooking_style div').index(this) + 1;
-        //     console.log(yyy2);
-
-        //     $.ajax({
-        //         url: './open_group.php' + '?' + 'RES_KIND=' + yyy2,
-        //         type: 'GET',
-        //         dataType: 'json',
-        //         success(data) {
-        //             // console.log('132');
-        //         }
-        //     });
-        // });
-
-        // $('#condition input:checkbox').on('click',function(){
-        //     if($(this).attr('name')=='kind'){
-        //         K = $("input[name='kind']:checked").map(function(){
-        //             return $(this).val();
-        //         }).get();
-
-        //     }else{
-        //         S = $("input[name='style[]']:checked").map(function(){
-        //             return $(this).val(); 
-        //         }).get();
-        //     }
-
-        //     ConditionSearch(K,S.join(','));
-        // });
-
-        //料理風格
         $(".den_cooking_style div input").click(function() {
             let yyy1 = $('.den_res_type div input[name=kind]:checked').val();
-            console.log(yyy1);
-
-            let yyy2 = $('.den_cooking_style div input').index(this) + 1;
-            // let yyy2 = $('.den_cooking_style div input[name=style]:checked').map();
+            let yyy2 = $("input[name='style[]']:checked").get().map(x => x.value);
             console.log(yyy2);
 
             var checkis = $(this).is(":checked");
@@ -762,9 +747,9 @@
                     dataType: 'json',
                     complete(data) {
                         console.log('有傳送回來');
-                        console.log(data);
+                        // console.log(data);
                         let resData2 = data.responseJSON[0];
-                        console.log(resData2);
+                        // console.log(resData2);
 
                         //清掉並重新渲染
                         $('.den_content').empty();
@@ -781,27 +766,71 @@
                             `);
                         }
 
+                        let owlImage = document.querySelectorAll('.den_content div h6');
+                        for (let i = 0; i < owlImage.length; i++) {
+                            owlImage[i].addEventListener('click', function() {
+                                var ttt = this.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText;
+                                // console.log(ttt);
+                                $('.den_box_row').empty();
+                                $('.den_box_row').append(`
+                            <div class="box_row_left">
+                                <div class="main_img">
+                                    <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE1}">
+                                </div>
+                                    <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE1}">
+                                    <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE2}">
+                                    <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE3}">
+                                    <img src="./image/restaurant_management_img/${resData2[i].RES_IMAGE4}">
+                            </div>
+                            <div class="box_row_right">
+                                    <h2>${resData2[i].RES_NAME}</h2>
+                                    <span>${resData2[i].KIND_NAME}</span>
+                                    <span>${resData2[i].STYLE_NAME}</span>
+                                        <br>
+                                <div class="den_box_msg">
+                                    <p>地址:</p>
+                                    <p>${resData2[i].RES_ADDRESS}</p>
+                                    <br>
+                                    <p>電話:</p>
+                                    <p>${resData2[i].RES_TEL}</p>
+                                </div>
+                                <div class="den_box_content">
+                                    <p>店家介紹:</p>
+                                    <p>${resData2[i].RES_INTRODUCTION}</p>
+                                </div>
+                            </div>
+                                    `)
+                                $('.den_box').css('display', 'block');
+                                $('.box_background').css('display', 'block');
+                            });
+                        }
+                        let resAll = document.querySelectorAll('.den_content div');
+                        console.log(resAll.length);
+                        for (let i = 0; i < resAll.length; i++) {
+                            resAll[i].addEventListener('click', function() {
+                                let name = this.children[3].innerText;
+                                // console.log(name);
+                                $('.den_Information div:nth-child(1) input').val(name);
+                                $('.den_content div').css({
+                                    'background': '#ffffff'
+                                });
+                                this.style.background = '#FF7a85';
+                            });
+                        }
                     }
                 });
             } else {
                 console.log('no');
-
             }
         });
-
-
-
         $(document).ready(function() {
-
             $.ajax({
                 url: './open_group.php',
                 type: 'GET',
                 dataType: 'json',
                 success(data) {
-                    // console.log(data);
+                    console.log(data);
                     var resData = data[0];
-                    // console.log(resData);
-                    // console.log(resData.length);
                     //抓全部餐廳
                     for (let i = 0; i < resData.length - 1; i++) {
                         $('.den_content').append(`
@@ -815,7 +844,6 @@
                     </div>
                     `);
                     }
-
                     // 第1個燈箱
                     let owlImage = document.querySelectorAll('.den_content div h6');
                     for (let i = 0; i < owlImage.length; i++) {
@@ -858,16 +886,15 @@
                     //第2個燈箱
                     $('.den_button').on('click', function() {
                         let resNameVal = $('.den_Information div:nth-child(1) input').val();
-                        // console.log(parseInt(data[5][0].max) + 1);
-                        // console.log(resNameVal);
-
+                        console.log(data);
+                        console.log(MasterNO);
                         for (let i = 0; i < resData.length; i++) {
                             if (resNameVal == resData[i].RES_NAME) {
                                 var nameOf = i;
                             }
                         }
-                        console.log(nameOf);
-                        $('.den_box2_row').empty();
+                        // console.log(nameOf);
+                        // $('.den_box2_row').empty();
                         $('.den_box2_row').append(`
                     
                         <div class="box2_row_left">
@@ -880,7 +907,7 @@
                             <img src="./image/restaurant_management_img/${resData[nameOf].RES_IMAGE4}">
                         </div>
                     <div class="box2_row_right">
-                        <div>
+                        <div class="box2_row_right_1">
                             <h3>團號:</h3>
                             <h3>${parseInt(data[5][0].max) + 1}</h3>
                             <br>
@@ -894,9 +921,9 @@
                             <h6>${resData[nameOf].KIND_NAME}</h6>
                             <h6>${resData[nameOf].STYLE_NAME}</h6>                           
                         </div>
-                        <div>
-                            <h3>開團團主:</h3>
-                            <h3 class="groupMaster">大大人</h3>
+                        <div class="box2_row_right_2">
+                            <h3 class="food_master">開團團主:</h3>
+                            <h3 class="groupMaster">${MasterNO}</h3>
                             <br>
                             <h3>目前人數:</h3>
                             <h3 class="nowNum"></h3>
@@ -907,7 +934,7 @@
                             <h3 class="mealDate"></h3>
                             <br>
                         </div>
-                        <div>
+                        <div class="box2_row_right_3">
                             <h3>店家資訊</h3>
                                 <br>
                             <h3>地址:</h3>
@@ -941,20 +968,41 @@
                     });
                     //好友欄位
                     $(document).ready(function() {
-                        var friendData = data[1];
-                        console.log(friendData);
-                        // console.log(friendData.length);
-
-                        for (let i = 0; i < friendData.length; i++) {
-                            $('.den_friend_window form').append(
-                                `
-                        <div>
-                            <img src="./image/icon.svg" alt="">
-                            <input type="checkbox" id=friend${[i+1]} name="friendCheckbox[]" value="${friendData[i].friends_NO}">
-                            <label for="friend${[i+1]}">${friendData[i].member_name}</label>
-                        </div>
-                            `)
-                        }
+                        if ($('#spanLogin').text = '登出') {
+                            $.ajax({
+                                url: './php/getuser.php',
+                                type: 'GET',
+                                dataType: 'JSON',
+                                success(data) {
+                                    // console.log(data);
+                                    let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
+                                    // console.log(FRIENDS_MASTER_NO);
+                                    $.ajax({
+                                        url: './open_group.php',
+                                        type: 'GET',
+                                        data: {
+                                            FRIENDS_MASTER_NO: FRIENDS_MASTER_NO,
+                                        },
+                                        dataType: 'JSON',
+                                        success(data) {
+                                            friendData = data[1];
+                                            console.log(friendData);
+                                            for (let i = 0; i < friendData.length; i++) {
+                                                $('.den_friend_window form').append(
+                                                    `
+                                                        <div>
+                                                            <img src="./image/member/${friendData[i].FRIENDS_IMAGE}">
+                                                            <input type="checkbox" id=friend${[i+1]} name="friendCheckbox[]" value="${friendData[i].FRIENDS_NO}">
+                                                            <label for="friend${[i+1]}">${friendData[i].FRIENDS_NAME}</label>
+                                                        </div>
+                                                    `)
+                                            }
+                                            MasterNO = friendData[1].MEMBER_NAME;
+                                        }
+                                    });
+                                }
+                            });
+                        } else {}
                     });
 
                     //燈箱2裡的button寫入資料庫
@@ -966,14 +1014,18 @@
                         let meal1 = meal.substring(0, 10);
                         let meal12 = meal.substring(13, 18);
                         let mealDate = meal1 + ' ' + meal12; //用餐時間
+
+                        // mealDate = document.getElementsByClassName("mealDate")[0].previousElementSibling.innerText.replace(" / ", " ").replace("用餐時間:", "");
                         let nowNum = $('.nowNum').text();
                         let nowNumJoin = nowNum.substring(0, 1); //參加人數
                         let nowNumMax = nowNum.substring(3, 2); //最大人數
                         var friendCheckboxVal = $("input[name='friendCheckbox[]']:checked").map(function() {
                             return $(this).val();
-                            // console.log($(this).val());
                         }).get();
-                        // console.log(groupNo);
+                        let memberNoNum = $('.memberNoNum').text();
+
+                        console.log(memberNoNum);
+                        console.log(groupNo);
                         // console.log(groupName);
                         // console.log(resNo);
                         // console.log(mealDate);
@@ -981,10 +1033,10 @@
                         // console.log(meal.substring(0, 10));
                         // console.log(mealDate);
                         // console.log(nowNum);
-                        console.log(nowNumJoin);
+                        // console.log(nowNumJoin);
                         // console.log(nowNumMax);
-                        // console.log(friendCheckboxVal);
-                        //傳送資料
+                        console.log(friendCheckboxVal);
+                        //傳送-----資料
                         $.ajax({
                             url: './open_group1.php',
                             data: {
@@ -994,12 +1046,22 @@
                                 mealDate: mealDate,
                                 nowNumJoin: nowNumJoin,
                                 nowNumMax: nowNumMax,
-                                friendCheckboxVal: friendCheckboxVal
+                                friendCheckboxVal: friendCheckboxVal,
+                                memberNoNum: memberNoNum,
                             },
                             type: 'GET',
                             dataType: 'json',
                         });
-
+                        // $.ajax({
+                        //     url: './open_group_open.php',
+                        //     data: {
+                        //         groupNo: groupNo,
+                        //         friendCheckboxVal: friendCheckboxVal,
+                        //     },
+                        //     type: 'GET',
+                        //     dataType: 'json',
+                        // });
+                        //接收資料
                         $.ajax({
                             url: './open_group.php',
                             type: 'GET',
@@ -1008,9 +1070,9 @@
                                 $('.den_foodGroup').empty();
                                 let foodGroup1new = data.responseJSON[2];
                                 let foodGroup4new = data.responseJSON[4];
-                                console.log(data.responseJSON);
-                                console.log(data.responseJSON[2]);
-                                console.log(data.responseJSON[4]);
+                                // console.log(data.responseJSON);
+                                // console.log(data.responseJSON[2]);
+                                // console.log(data.responseJSON[4]);
                                 // console.log(foodGroup1new);
                                 for (let i = 0; i < foodGroup1new.length; i++) {
                                     $('.den_foodGroup').append(`
@@ -1031,7 +1093,7 @@
                                                     <h3>用餐日期:</h3>
                                                     <h3>${foodGroup1new[i].MEAL_TIME}</h3>
                                                     <br>
-                                                    <h3>截止時間</h3>
+                                                    <h3>截止時間:</h3>
                                                     <h3>${foodGroup1new[i].END_TIME}</h3>
                                                 </div>
                                                 <div class="den_eatGroup_button">
@@ -1052,6 +1114,11 @@
                         });
                         $('.den_box2').css('display', 'none');
                         $('.box_background').css('display', 'none');
+                        $('.box2_row_left').remove();
+                        $('.box2_row_right').remove();
+                        $('.den_true_box_open').css('display', 'block');
+                        // location = location;
+
                     });
                     //美食團渲染
                     $(document).ready(function() {
@@ -1059,9 +1126,9 @@
                         var foodGroup3 = data[3];
                         var foodGroup4 = data[4]
                             // console.log(data[4]);
-                        console.log(foodGroup1);
-                        console.log(foodGroup1.length);
-                        // console.log(foodGroup3);
+                            // console.log(foodGroup1);
+                            // console.log(foodGroup1.length);
+                            // console.log(foodGroup3);
 
                         for (let i = 0; i < foodGroup1.length; i++) {
                             $('.den_foodGroup').append(`
@@ -1083,7 +1150,7 @@
                                         <h3>用餐日期:</h3>
                                         <h3>${foodGroup1[i].MEAL_TIME}</h3>
                                         <br>
-                                        <h3>截止時間</h3>
+                                        <h3>截止時間:</h3>
                                         <h3>${foodGroup1[i].END_TIME}</h3>
                                     </div>
                                     <div class="den_eatGroup_button">
@@ -1101,7 +1168,6 @@
                             }
                         }
                     });
-
                     //第3個燈箱
                     $(document).ready(function() {
                         $('.den_eatGroup').on('click', function() {
@@ -1109,7 +1175,7 @@
                             var yyy9 = this.children[0].innerText;
                             let denEatGroupNum = $('.den_eatGroup').index(this);
                             // console.log(yyy9);
-                            console.log(foodGroupBox);
+                            // console.log(foodGroupBox);
                             $('.den_box3_row').empty();
                             $('.den_box3_row').append(`
                             <div class="box3_row_left">
@@ -1166,7 +1232,6 @@
                             `)
                             $('.den_box3').css('display', 'block');
                             $('.box_background').css('display', 'block');
-
                             $.ajax({
                                 url: './open_group.php',
                                 data: {
@@ -1176,12 +1241,12 @@
                                 dataType: 'json',
                                 complete(data) {
                                     let memberName = data.responseJSON[3];
-                                    console.log(memberName);
+                                    // console.log(memberName);
                                     for (let i = 0; i < memberName.length; i++) {
                                         $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
                                             `
                                         <p>${memberName[i].MEMBER_NAME}</p>
-                                       `)
+                                        `)
                                     }
                                 }
                             });
@@ -1190,24 +1255,30 @@
 
                     //第三個燈箱參團button
                     $('.den_box3_button button').on('click', function() {
-                        let memNo = $('.memberNoNum').text();
-                        let groupNo = $('.groupNo').text();
-                        console.log(groupNo);
-                        console.log(memNo);
-
-                        $.ajax({
-                            url: './open_group1.php',
-                            data: {
-                                memNo: memNo,
-                                groupNo3: groupNo,
-                            },
-                            type: 'GET',
-                            dataType: 'JSON',
-                        });
+                        if ($('#spanLogin').text() == '登出') {
+                            let memNo = $('.memberNoNum').text();
+                            console.log(memNo);
+                            let groupNo3 = $('.groupNo').text();
+                            console.log(groupNo3);
+                            // console.log(memNo);
+                            $.ajax({
+                                url: './open_group_join.php',
+                                data: {
+                                    memNo: memNo,
+                                    groupNo3: groupNo3
+                                },
+                                type: 'GET',
+                                dataType: 'JSON',
+                            });
+                            $('.den_box3').css('display', 'none');
+                            $('.box_background').css('display', 'none');
+                        } else {
+                            alert('請先登入~~');
+                            $('.section_res').css('display', 'block');
+                            $('.den_box3').css('display', 'none');
+                            $('.box_background').css('display', 'none');
+                        }
                     });
-
-
-
                 }
             });
         });

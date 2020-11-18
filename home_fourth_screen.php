@@ -3,7 +3,7 @@ $Errmsg='';
 
 
 try{
-  require_once('connetbook.php');
+  require_once('connectbook.php');
   // SQL0 最多收藏
   $sql0 = "select * from article_collection AC
             join member_management MM on (AC.MEMBER_NO = MM.MEMBER_NO)

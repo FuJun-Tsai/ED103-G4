@@ -34,31 +34,12 @@ $(document).ready(function() {
         //Function triggered on dice dragstop
         var number = randomizeNumber();
 
+        // console.log('1');
+
 
         let ccc = document.querySelector('#denDice').className;
         console.log(ccc);
 
-
-
-        // if (number == 1) {
-        //     rollDice("front");
-        //     console.log('6');
-        // } else if (number == 2) {
-        //     rollDice("back");
-        //     console.log('1');
-        // } else if (number == 3) {
-        //     rollDice("right");
-        //     console.log('4');
-        // } else if (number == 4) {
-        //     rollDice("left");
-        //     console.log('3');
-        // } else if (number == 5) {
-        //     rollDice("top");
-        //     console.log('2');
-        // } else if (number == 6) {
-        //     rollDice("bottom");
-        //     console.log('5');
-        // }
 
         soundEffect();
     });

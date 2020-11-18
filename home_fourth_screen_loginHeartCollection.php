@@ -1,7 +1,7 @@
 <?php
 $Errmsg='';
 try{
-  require_once('connetbook.php');
+  require_once('connectbook.php');
   $sql = "select * from article_collection";
 
 

@@ -36,23 +36,7 @@
 
 
 <body>
-    <!-- 背景泡泡 -->
-    <div class="container-fluid">
-        <div class="row">
-            <div id="bubbles">
-                <div class="bubble x1"></div>
-                <div class="bubble x2"></div>
-                <div class="bubble x3"></div>
-                <div class="bubble x4"></div>
-                <div class="bubble x5"></div>
-                <div class="bubble x6"></div>
-                <div class="bubble x7"></div>
-                <div class="bubble x8"></div>
-                <div class="bubble x9"></div>
-            </div>
-        </div>
-    </div>
-    <!-- 登入lightbox-->
+    <!-- 登入lightbox -->
     <section class="section_res" id="login_box" style="display:none">
         <div class="container_res">
             <div class="user singinBx">
@@ -64,6 +48,7 @@
                         <h2>會員登入</h2>
                         <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
                         <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
+
                         <input type="button" name="" value="登入" id="btnLogin">
                         <input type="button" name="" value="取消" id="btnLoginCancel">
                         <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
@@ -87,10 +72,26 @@
             </div>
         </div>
     </section>
+    <!-- 背景泡泡 -->
+    <div class="container-fluid">
+        <div class="row">
+            <div id="bubbles">
+                <div class="bubble x1"></div>
+                <div class="bubble x2"></div>
+                <div class="bubble x3"></div>
+                <div class="bubble x4"></div>
+                <div class="bubble x5"></div>
+                <div class="bubble x6"></div>
+                <div class="bubble x7"></div>
+                <div class="bubble x8"></div>
+                <div class="bubble x9"></div>
+            </div>
+        </div>
+    </div>
     <header>
         <section>
             <div class="logo">
-                <a href="./index.html">
+                <a href="./home.html">
                     <img src="./image/logoHeader.svg" alt="">
                 </a>
             </div>
@@ -109,17 +110,17 @@
                         <a href="./about_us.html">關於我們</a>
                     </li>
                     <li>
-                        <a href="./open_group.html" class="hvr-pulse-grow"><button>揪團去!</button></a>
+                        <a href="./open_group.html" class="hvr-pulse-grow"><button style="padding: 10px 20px;">揪團去!</button></a>
                     </li>
                 </ul>
             </div>
-            <!-- <div class="member" id="login">
-                <div class="icon" >
+            <div class="member" id="login">
+                <a class="icon" href="./member.php">
                     <img src="./image/icon.svg" id="headshot_icon">
-                </div> -->
-            <!-- <span id="memName">&nbsp;</span> -->
-            <!-- <span id="spanLogin">登入</span>
-            </div> -->
+                </a>
+                <span style="display: none;" class="memberNoNum"></span>
+                <span id="spanLogin">登入</span>
+            </div>
             <div id="menu-bar">
                 <div id="menu" onclick="onClickMenu()">
                     <div id="bar1" class="bar"></div>
@@ -128,12 +129,11 @@
                 </div>
                 <ul class="nav1" id="nav1">
                     <div class="member">
-                        <div class="icon">
-                            <a href="./login.html">
-                                <img src="./image/icon.svg" alt="">
-                            </a>
-                        </div>
-                        <a href="./login.html" class="hvr-pulse-grow"><span style="color: black;">登入</span></a>
+                        <a class="icon" href="./member.php">
+                            <img src="./image/icon.svg" id="mobileheadshot_icon">
+                        </a>
+                        <span style="display: none;" class="memberNoNum"></span>
+                        <span id="mobilespanLogin">登入</span>
                     </div>
                     <li>
                         <a href="./game.html">吃吃配對</a>
@@ -164,7 +164,7 @@
                 <div class="txt">
                     <h1>　　餐　廳　介　紹　　</h1>
                 </div>
-            </div>
+            </div>    
         </div>
         <!-- <div class="back"></div>
         <div class="back"></div> -->
@@ -222,82 +222,6 @@
                         </aside>
                     </div>
                 </div>
-
-            </div>
-
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg">
-                        <h4>聽聽網友怎麼說：</h4>
-                        <div class="messagecontrol">
-                            <div id="leavemessage">
-                                <div id="L1" class="L">
-                                    <img src="http://fakeimg.pl/60x60" alt="">
-                                    <p>1231232313</p>
-                                </div>
-                                <div id="L2" class="L">
-                                    <img src="http://fakeimg.pl/60x60" alt="">
-                                    <p>1231232313</p>
-                                </div>
-                                <div id="L3" class="L">
-                                    <img src="http://fakeimg.pl/60x60" alt="">
-                                    <p>1231232313</p>
-                                </div>
-                                <div id="L4" class="L">
-                                    <img src="http://fakeimg.pl/60x60" alt="">
-                                    <p>1231232313</p>
-                                </div>
-                            </div>
-                            <div class="messaging">
-                                <img src="http://fakeimg.pl/60x60" alt="">
-                                <form id="send" action="">
-                                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                                    <div class="features">
-                                        <i class="fas fa-bold"></i>
-                                        <i class="fas fa-italic"></i>
-                                        <i class="fas fa-underline"></i>
-                                    </div>
-                                    <button class="btn_6 btn_js">送出
-
-           <div class="container">
-               <div class="row">
-                   <div class="col-lg">
-                       <h4>聽聽網友怎麼說：</h4>
-                       <div class="messagecontrol">
-                           <div id="leavemessage">
-                               <div id="L1" class="L">
-                                   <img src="http://fakeimg.pl/60x60" alt="">
-                                   <p>1231232313</p>
-                                   <i class="fas fa-exclamation-triangle">檢舉</i>
-                               </div>
-                               <div id="L2" class="L">
-                                   <img src="http://fakeimg.pl/60x60" alt="">
-                                   <p>1231232313</p>
-                                   <i class="fas fa-exclamation-triangle">檢舉</i>
-                               </div>
-                               <div id="L3" class="L">
-                                   <img src="http://fakeimg.pl/60x60" alt="">
-                                   <p>1231232313</p>
-                                   <i class="fas fa-exclamation-triangle">檢舉</i>
-                               </div>
-                               <div id="L4" class="L">
-                                   <img src="http://fakeimg.pl/60x60" alt="">
-                                   <p>1231232313</p>
-                                   <i class="fas fa-exclamation-triangle">檢舉</i>
-                               </div>
-                           </div>
-                           <div class="messaging">
-                               <img src="http://fakeimg.pl/60x60" alt="">
-                               <form id="send" action="">
-                                   <textarea name="" id="" cols="30" rows="10"></textarea>
-                                   <div class="features">
-                                       <i class="fas fa-bold"></i>
-                                       <i class="fas fa-italic"></i>
-                                       <i class="fas fa-underline"></i>
-                                   </div>
-                                   <button class="btn_6 btn_js">送出
-
             </div> -->
 
             <!-- <div class="container">
@@ -332,7 +256,6 @@
                                 <form id="send" action="">
                                     <textarea name="" id="" cols="30" rows="10"></textarea>
                                     <button class="btn_6 btn_js">送出
-
                                        <span></span>
                                    </button>
                                 </form>
@@ -340,38 +263,12 @@
                         </div>
                     </div>
                 </div>
-
             </div> -->
-
-
-            </div>
-
-            </div>
-
-
         </div>
 
-        <div id="report">
-            <div class="single_reportback">
-                <i class="fas fa-times single_cancel"></i>
-                <h2>檢舉餐廳留言</h2>
-                <label for="report">
-                    選擇檢舉類型:
-                    <select name="report">
-                        <option value="1">惡意謾罵</option>
-                        <option value="2">淫穢色情</option>
-                        <option value="3">無關主題</option>
-                        <option value="0">其他</option>
-                    </select>
-                </label>
-                <h4 style="font-weight: bold;">檢舉原因：</h4>
-                <textarea name="" id=""></textarea>
-                <button>送出檢舉</button>
-            </div>
-            <div class="single_thank">
-                <p>感謝你的檢舉</p>
-            </div>
-        </div>
+        <div class="single_report">
+
+        </div> 
 
     </section>
     <!-- ***************************** -->
@@ -402,33 +299,26 @@
     </script>
 
     <script>
-
+        
         $(document).ready(function(){
+            singleJS();
+        });
+
+        function singleJS(){
+
+            $('.single_content').empty();
 
             $.ajax({
                 url:`singleRenderRES.php${location.search}`,
                 type:'GET',
                 dataType:'json',
                 success(data){
+                    console.log(data);
                     let trade = data.trade.split('');
                     for(let i=0;i<7;i+=1){
                         if(trade[i]==1){
                             trade[i] = `${data.start} - ${data.close}`;
                         }else{
-
-        $(document).ready(function() {
-
-            $.ajax({
-                url: `singleRenderRES.php${location.search}`,
-                type: 'GET',
-                dataType: 'json',
-                success(data) {
-                    let trade = data.trade.split('');
-                    for (let i = 0; i < 7; i += 1) {
-                        if (trade[i] == 1) {
-                            trade[i] = `${data.start} - ${data.close}`;
-                        } else {
-
                             trade[i] = '公休';
                         }
                     }
@@ -437,7 +327,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg">
-                                <div class="single_bread"><a href="./index.html">首頁</a><span>></span><a href="./searchrestaurant.html">餐廳介紹</a><span>></span><a href="">碳佐麻里</a></div>
+                                <div class="single_bread"><a href="./index.html">首頁</a><span>></span><a href="./searchrestaurant.html">餐廳介紹</a><span>></span><a href="">${data.name}</a></div>
                                 <h2 id="name">${data.name}</h2>
                                 <div class="single_attr">
                                     <span id="kind">${data.kind}</span><span id="style">${data.style}</span>
@@ -461,7 +351,8 @@
                                 </div>
                                 <aside id="detail" class="col-lg-5">
                                     <h3 class="single_item">店家名稱：</h3>
-                                    <span id="rname">${data.name}</span>
+                                    <span id="rname" style="font-size:24px;font-weight:bold;">${data.name}</span>
+                                    <div class="like"><i class="far fa-heart"></i><span> 收藏</span></div>
                                     <h3 class="single_item">店家介紹：</h3>
                                     <p id="rint">${data.intro}</p>
                                     <h3 class="single_item">營業時間：</h3>
@@ -493,10 +384,10 @@
                                     <div id="leavemessage">
 
 
-
                                         
                                     </div>
                                     <div class="single_messaging">
+
                                     </div>
                                 </div>
                             </div>
@@ -504,195 +395,168 @@
                     </div>
                     `);
 
+                    singleRenderRLM();
 
                 }
 
             });
-            //./image/member/${data[i].img}<-大頭貼
-            $.ajax({
-                url: `singleRenderLM.php${location.search}`,
-                type: 'GET',
-                dataType: 'json',
-                success(data) {
-                    let items = data.length;
-                    console.log(data);
-                    for (let i = 0; i <= items - 1; i += 1) {
-                        $('#leavemessage').append(`
-                        <div id="${data[i].id}" class="single_L">
-                            <img src="http://fakeimg.pl/60x60" alt="">
-                            <p>${data[i].word}</p>
-                            <p class="time">${data[i].time}</p>
-                            <i class="fas fa-exclamation-triangle">檢舉</i>
-                        </div>              
-                        `);
 
-                    }
-                    $('.single_messaging').append(`
-                    <img src="http://fakeimg.pl/60x60" alt="">
-                    <form id="send" action="singleRenderRP.php">
-                        <textarea name="RES_MESSAGE_WORD" cols="30" rows="10"></textarea>
-                        <button class="btn_6 btn_js" name="test" value="${location.search.split('=')[1]},1">送出
-                            <span></span>
-                        </button>
-                    </form>
-                    `);
-                    itemfunction();
-
-                }
-            });
-
-            $('#send button').on('click', function() {
-                let content = $('#send textarea').val();
-                let array = content.split('');
-                for (let i = 0; i <= array.length - 1; i += 1) {
-                    if (array[i].charCodeAt() == 10) {
-                        array[i] = '<br>';
-                    }
-                    content = array.join('');
-                }
+            function singleRenderRLM(){
 
                 $.ajax({
-                    url: `singleRenderRP.php`,
-                    type: 'GET',
-                    data: {
-                        RES_ON: (location.search.split('=')[1]),
-                        MEMBER_NO: 1
+                    url:`singleRenderRLM.php${location.search}`,
+                    type:'GET',
+                    dataType:'json',
+                    success(data){
+
+                        let items = data.length;
+                        for(let i=0;i<=items-1;i+=1){
+
+                            let item = data[i].word.split('');
+                            let content = '';
+
+                            for(let i=0;i<=item.length-1;i+=1){
+                                if(item[i].charCodeAt()==10){
+                                    item[i]='<br>';
+                                }
+                                content = item.join('');
+                            }
+                            $('#leavemessage').append(`
+                            <div id="${data[i].id}" class="single_L">
+                                <img src="./image/member/${data[i].img}" alt="">
+                                <p>${content}</p>
+                                <p class="time">${data[i].time}</p>
+                                <i class="fas fa-exclamation-triangle">檢舉</i>
+                            </div>              
+                            `);
+                        
+                        }
+
 
                     },
-                    success(data) {
-                        console.log(data);
+                    complete(e){
+                        // itemfunction(); 
+                        GETUSER();
+                    }
+
+                });
+            
+            };
+
+            function GETUSER(){
+
+                $.ajax({
+                    url:'GETUSER.php',
+                    type:'POST',
+                    dataType:'json',
+                    success(e){
+
+                        console.log(e);
+
+                        $('.single_messaging').append(`
+                        <img src="./image/member/${e.IMG}">
+                        <div id="send">
+                            <textarea name="RES_MESSAGE_WORD" cols="30" rows="10"></textarea>
+                            <button class="btn_6 btn_js" name="RES_MEM" value="${location.search.split('=')[1]},${e.NO}">送出
+                                <span></span>
+                            </button>
+                        </div>
+                        `);
+
+                        $('.single_report').append(`
+                        <div class="single_reportback">
+                            <i class="fas fa-times single_cancel"></i>
+                            <h2>檢舉餐廳留言</h2>
+                                <!--<label for="report">
+                                        選擇檢舉類型:
+                                        <select name="report">
+                                            <option value="1">惡意謾罵</option>
+                                            <option value="2">淫穢色情</option>
+                                            <option value="3">無關主題</option>
+                                            <option value="0">其他</option>
+                                        </select>
+                                    </label> -->
+                                <h4 style="font-weight: bold;">檢舉原因：</h4>
+                                <textarea name="RES_MES_REPORT_REASON" id=""></textarea>
+                                <button type="submit" name="test" value="">送出檢舉</button>
+                            <div class="single_thank">
+                                <p>感謝你的檢舉</p>
+                            </div>
+                        </div>
+                        `);
+
                     },
-                    error(data) {
-                        console.log(data);
+
+                    complete(e){
+                        itemfunction(); 
+                        singlecollection();
                     }
 
                 });
 
-                content = '';
-                $('textarea').val('');
-            });
+
+            };
 
 
+            function singlecollection(){
 
-        });
-    </script>
-
-    </section>
-    <!-- ***************************** -->
-    <footer>
-        <div class="footer">
-            <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
-        </div>
-    </footer>
-
-    <!--hambuger-->
-    <script>
-        function onClickSubMenu() {
-            document.getElementById("sub_menu").classList.toggle("change1");
-            document.querySelector(".nav1>li:nth-child(1)").classList.toggle("none");
-            document.querySelector(".nav1>li:nth-child(3)").classList.toggle("none");
-            document.querySelector(".nav1>li:nth-child(4)").classList.toggle("none");
-            document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
-        }
-    </script>
-
-    <div class="jun_back"></div>
-
-
-    <!--hambuger-->
-    <script>
-        function onClickMenu() {
-            document.getElementById("menu").classList.toggle("change");
-            document.getElementById("nav1").classList.toggle("change");
-            document.getElementById("menu-bg").classList.toggle("change-bg");
-        }
-    </script>
-
-    <script src="./js/singlerestaurant.js"></script>
-    <script src="js/login.js"></script>
-
-
-                                        
-                                    </div>
-                                    <div class="single_messaging">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    `);
-
-                    
-                }
-            
-            });
-            //./image/member/${data[i].img}<-大頭貼
-            $.ajax({
-                url:`singleRenderLM.php${location.search}`,
-                type:'GET',
-                dataType:'json',
-                success(data){
-                    let items = data.length;
-                    console.log(data);
-                    for(let i=0;i<=items-1;i+=1){
-                        $('#leavemessage').append(`
-                        <div id="${data[i].id}" class="single_L">
-                            <img src="http://fakeimg.pl/60x60" alt="">
-                            <p>${data[i].word}</p>
-                            <p class="time">${data[i].time}</p>
-                            <i class="fas fa-exclamation-triangle">檢舉</i>
-                        </div>              
-                        `);
-                    
-                    }
-                    $('.single_messaging').append(`
-                    <img src="http://fakeimg.pl/60x60" alt="">
-                    <form id="send" action="singleRenderRP.php">
-                        <textarea name="RES_MESSAGE_WORD" cols="30" rows="10"></textarea>
-                        <button class="btn_6 btn_js" name="test" value="${location.search.split('=')[1]},1">送出
-                            <span></span>
-                        </button>
-                    </form>
-                    `);
-                    itemfunction(); 
-
-                }
-            });
-
-            $('#send button').on('click',function(){
-                let content = $('#send textarea').val();
-                let array = content.split('');
-                for(let i=0;i<=array.length-1;i+=1){
-                    if(array[i].charCodeAt()==10){
-                        array[i]='<br>';
-                    }
-                    content = array.join('');
-                }
 
                 $.ajax({
-                    url:`singleRenderRP.php`,
-                    type:'GET',
+                    url:'singlecollection.php',
+                    type:'POST',
+                    dataType:'json',
                     data:{
-                        RES_ON:(location.search.split('=')[1]),
-                        MEMBER_NO:1
-                        
+                        RES:location.search.split('=')[1],
                     },
                     success(data){
                         console.log(data);
+                        $(`.like i`).removeClass('far');
+                        $(`.like i`).addClass('tored');
+                        $(`.like i`).addClass('fas');
+
                     },
-                    error(data){
-                        console.log(data);
+                    complete(e){
+                        $('.like').on('click',function(){
+                            if($('#spanLogin').text()=='登入'){
+                                    $('#login_box').css({'display':'flex'});
+                            }else{
+                                $('.like i').toggleClass('tored');
+                                collect($('.like i').hasClass('tored'));
+                                if($(this).children('i').hasClass('tored')==false){
+                                    $(this).children('i').removeClass('fas');
+                                    $(this).children('i').addClass('far');
+
+                                }else{
+                                    $(this).children('i').removeClass('far');
+                                    $(this).children('i').addClass('fas');
+                                }
+
+                            }
+                        }); 
                     }
-    
                 });
 
-                content = '';
-                $('textarea').val('');
-            });
+            }
 
-            
-            
-        });
+            function collect(e){
+                $.ajax({
+                    url:'collect.php',
+                    type:'POST',
+                    dataType:'json',
+                    data:{
+                        do:e,
+                        RES:location.search.split('=')[1],
+                    },
+                    success(e){
+                        console.log(e);
+                    },
+                    complete(e){
+                        console.log(e);
+                    }
+                });
+            }
+
+        }
 
     </script>
 
