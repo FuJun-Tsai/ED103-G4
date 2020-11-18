@@ -20,6 +20,8 @@ switch ($_POST["changefrom"]) {
       SET MEMBER_STATUS = 3
       WHERE MEMBER_NO = :MEMBER_NO
       AND GROUP_NO = :GROUP_NO";
+      // var_dump($_POST["MEMBER_PSW"]);
+      // die;
       
       $member = $pdo->prepare($sql);
       $member->bindValue(":GROUP_NO", $_POST["group_num"]);
