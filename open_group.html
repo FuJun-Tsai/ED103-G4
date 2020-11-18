@@ -1239,11 +1239,13 @@
                                 </div>                           
                             `)
                         }
+                        //判斷是否團滿，滿了消失
                         let num = $('.den_eatGroup_content div h4:nth-child(2)')
                         for (let i = 0; i < num.length; i++) {
                             if (num[i].innerText == '1/1' | num[i].innerText == '2/2' | num[i].innerText == '3/3' | num[i].innerText == '4/4') {
                                 num[i].innerText = 'MAX';
-                                console.log(num[i]);
+                                console.log(num[i].parentNode.parentNode.parentNode);
+                                num[i].parentNode.parentNode.parentNode.style.display = 'none';
                                 $(num[i]).css('color', 'red');
                             }
                         }

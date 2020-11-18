@@ -83,7 +83,7 @@ join member_management MM on(T.FRIENDS_NO=MM.MEMBER_NO)
   GROUP_NAME, 
   MEMBER, 
   RES_NAME, 
-  MEAL_TIME, 
+  date_format(MEAL_TIME,'%Y-%m-%d %H:%i') MEAL_TIME, 
   END_TIME, 
   MAX_NUMBER, 
   JOIN_NUMBER, 
