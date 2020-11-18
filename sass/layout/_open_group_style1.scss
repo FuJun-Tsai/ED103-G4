@@ -125,9 +125,10 @@ header {
             height: 100%;
         }
         .den_container {
-            max-width: 1680px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 30px;
+            // border: 1px solid;
             .den_row {
                 .den_title {
                     width: 100%;
@@ -178,7 +179,7 @@ header {
                                 display: inline-block;
                             }
                             .den_res_type {
-                                padding: 20px 15%;
+                                padding: 20px 10%;
                                 text-align: center;
                                 h3 {
                                     background-color: $bgColor-style2;
@@ -214,7 +215,7 @@ header {
                                 }
                             }
                             .den_cooking_style {
-                                padding: 20px 15%;
+                                padding: 20px 10%;
                                 text-align: center;
                                 h3 {
                                     background-color: $bgColor-style2;
@@ -255,6 +256,9 @@ header {
                     padding: 0px 10px;
                     display: block;
                     flex: 1 1 80%;
+                    // max-width: 1000px;
+                    width: 80%;
+                    margin: 0 auto;
                     h3 {
                         padding: 5px 15px;
                         border-left: 6px solid $bgColor-style1;
@@ -268,7 +272,7 @@ header {
                         position: relative;
                     }
                     .result_owl {
-                        width: 75vw;
+                        // width: 75vw;
                         background-color: rgba(255, 255, 255, 1);
                         margin: 0 auto;
                         .den_owl_row {
@@ -286,7 +290,8 @@ header {
                                 }
                             }
                             .den_content_range {
-                                overflow: scroll;
+                                // overflow: scroll;
+                                overflow: hidden;
                                 margin-top: 10px;
                                 .den_content {
                                     flex: 1 1 90%;
@@ -551,7 +556,7 @@ header {
 }
 
 .den_box {
-    @include light-box-setting(auto, auto, absolute);
+    @include light-box-setting(90%, auto, absolute);
     box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
     background-color: rgba(255, 255, 255, .9);
@@ -559,9 +564,7 @@ header {
     position: fixed;
     overflow: auto;
     padding: 25px 15px;
-    // outline: 5px solid #9e9e9e66;
-    // outline-offset: -10px;
-    box-shadow: 0px 0px 0px 10px #FFE1A4;
+    // box-shadow: 0px 0px 0px 10px #FFE1A4;
     border-radius: 10px;
     .leave_btn {
         position: relative;
@@ -588,8 +591,6 @@ header {
     .den_box_row {
         display: flex;
         position: relative;
-        // top: 50%;
-        // transform: translateY(-50%);
         align-items: center;
         .box_row_left {
             flex: 1 1 50%;
@@ -670,7 +671,7 @@ header {
 }
 
 .den_box2 {
-    @include light-box-setting(auto, auto, absolute);
+    @include light-box-setting(90%, auto, absolute);
     // box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
     background-color: rgba(255, 255, 255, 1);
@@ -679,7 +680,7 @@ header {
     overflow: auto;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0px 0px 0px 10px $bgColor-style2;
+    // box-shadow: 0px 0px 0px 10px $bgColor-style2;
     .leave_btn {
         position: relative;
         // top: 20px;
@@ -800,7 +801,7 @@ header {
 }
 
 .den_box3 {
-    @include light-box-setting(auto, auto, absolute);
+    @include light-box-setting(90%, auto, absolute);
     // box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
     background-color: rgba(255, 255, 255, 1);
@@ -809,7 +810,7 @@ header {
     overflow: auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 0px 10px $bgColor-style2;
+    // box-shadow: 0px 0px 0px 10px $bgColor-style2;
     .leave_btn {
         position: relative;
         // top: 20px;
@@ -1063,7 +1064,7 @@ header {
                         }
                         #den_tab1 {
                             #map {
-                                width: 80vw;
+                                // width: 80vw;
                             }
                         }
                         #den_tab2 {
@@ -1236,6 +1237,9 @@ header {
                     }
                     #den_tab1 {
                         padding: 0;
+                        >h3{
+                            margin-top: 25px;
+                        }
                         #map {
                             margin: 0 auto;
                             width: 95vw;
@@ -1396,9 +1400,16 @@ header {
 }
 
 @include rwd(md_cellphone) {
+    .den_banner{
+        .container{
     #den_banner_title {
         width: 100%!important;
+        span{
+            font-size: 24px!important;
+                 }
+        }
     }
+}
     .den_section {
         .den_wrapper {
             .den_container {
@@ -1466,6 +1477,9 @@ header {
                     }
                     #den_tab1 {
                         padding: 0;
+                        >h3{
+                            margin-top: 25px;
+                        }
                         #map {
                             margin: 0 auto;
                             width: 95vw;

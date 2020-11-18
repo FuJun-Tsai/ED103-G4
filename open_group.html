@@ -107,11 +107,8 @@
     </header>
     <!--banner-->
     <div class="den_banner">
-        <!-- <div class="den_banner_background"></div> -->
         <div class="container">
             <div id="den_banner_title">
-                <!-- <span>天才總是伴隨著飢餓，但你不是</span>
-                <span>還等什麼，一起加入美食團吧！</span> -->
                 <span> 開 團 / 參 團 </span>
             </div>
             <div class="den_search">
@@ -149,7 +146,6 @@
                             <span>一起加入美食團吧 !</span>
                         </div>
                     </div>
-
                     <div class="den_Condition_search">
                         <div class="den_row">
                             <div class="den_selection col-lg-8">
@@ -225,7 +221,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="den_Fill_Information_wrapper">
                                 <div class="den_Fill_Information">
                                     <div class="den_Information_title">
@@ -332,9 +327,7 @@
                 <button type="submit">確認開團</button>
             </div>
         </div>
-        <!-- </form> -->
     </div>
-
     <!--燈箱3/美食團-->
     <div class="den_box3">
         <div class="leave_btn">
@@ -351,7 +344,6 @@
         </div>
     </div>
 
-
     <!--燈箱背景-->
     <div class="box_background"></div>
     <!-- 燈箱 登入 -->
@@ -366,7 +358,6 @@
                         <h2>會員登入</h2>
                         <input type="text" name="MEMBER_ID" placeholder="請輸入帳號" id="loginID">
                         <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼" id="loginPsd">
-
                         <input type="button" name="" value="登入" id="btnLogin">
                         <input type="button" name="" value="取消" id="btnLoginCancel">
                         <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
@@ -485,10 +476,8 @@
             $('.den_res_type div input').on('change', function() {
                 $('.den_res_type div').css('background', 'rgba(255, 255, 255, 0)');
                 $('.den_res_type div').css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0)');
-
                 $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
                 $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
-
             });
 
             //input 餐廳風格
@@ -499,7 +488,6 @@
                 } else {
                     $(this).parent().css('background', 'rgba(223, 114, 25, 0)');
                 }
-
             });
             //好友選擇
             $(".den_friend_box div input").click(function() {
@@ -510,8 +498,6 @@
                     $(this).parent().css('background', 'rgba(223, 114, 25, 0)');
                 }
             });
-
-
             //頁籤
             $('.title_left h2:nth-child(1)').on('click', function() {
                 $('#den_tab1').fadeIn();
@@ -529,29 +515,23 @@
                 $('.title_left h2:nth-child(2)').css('color', '#ffffff');
                 $('.title_left h2:nth-child(1)').css('background-color', '#ffffff');
                 $('.title_left h2:nth-child(1)').css('color', '#DF7219');
-
             });
 
             //點擊餐廳選進input.val
             let resAll = document.querySelectorAll('.den_content div');
-            // console.log(resAll.length);
             for (let i = 0; i < resAll.length; i++) {
                 resAll[i].addEventListener('click', function() {
                     let name = this.children[3].innerText;
-                    // console.log(name);
                     $('.den_Information div:nth-child(1) input').val(name);
                     $('.den_content div').css({
                         'background': '#ffffff'
                     });
                     this.style.background = '#FF7a85';
-
-
                 });
             }
 
             // 第2個燈箱
             let yy = $('.den_Fill_Information form :input').val();
-            // console.log(yy);
             $('.den_button button').on('click', function() {
                 if ($('#spanLogin').text() == '登出') {
                     $('.den_box2').css('display', 'block');
@@ -561,7 +541,6 @@
                 }
             });
 
-
             // 燈箱離開
             $('.leave_btn').on('click', function() {
                 $('.den_box').css('display', 'none');
@@ -570,7 +549,6 @@
                 $('.box_background').css('display', 'none');
                 $('.box2_row_left').remove();
                 $('.box2_row_right').remove();
-
             });
 
             // owl左右移動
@@ -578,20 +556,20 @@
                 let x = $('.den_content_range').scrollLeft() + 1
                 x = x + 150;
                 let scrollVal1 = $('.den_content_range').scrollLeft(x)
-                console.log(x);
+                // console.log(x);
             });
             // owl左右移動
             $('.den_nav_left').on('click', function() {
                 let x = $('.den_content_range').scrollLeft() + 1
                 x = x - 150;
                 let scrollVal1 = $('.den_content_range').scrollLeft(x)
-                console.log(x);
+                // console.log(x);
             });
         }
         window.addEventListener('load', doFirst);
     </script>
-    <!--地圖-->
 
+    <!--地圖-->
     <script>
         var map = L.map('map', {
             center: [24.9647762, 121.1908706], //哈堡堡
@@ -613,7 +591,7 @@
         $(document).ready(function() {
             $.getJSON('./temp.json', function(e) {
                 let store = e.data;
-                for (let i = 0; i < 421; i++) {
+                for (let i = 0; i < 150; i++) {
                     if (store[i].type == 3) {
                         if (store[i].zipcode == 320) {
                             // console.log(store[i].name);
@@ -621,17 +599,16 @@
                                     icon: redIcon
                                 })
                                 .bindPopup(
-                                    '<h1>' + store[i].name + '</h1>' +
+                                    '<h1 style="padding:10px 0px">' + store[i].name + '</h1>' +
                                     '<img src=" ' + store[i].img + ' " / style="width:280px;height:280px"> <br>' +
-                                    '<i class="fas fa-heart"></i>&nbsp;30 &nbsp;&nbsp;' +
-                                    '<i class="fas fa-comments"></i>&nbsp;46 &nbsp;&nbsp;' +
-                                    '<i class="fas fa-share-square"></i>&nbsp;25 &nbsp;&nbsp;' +
+                                    // '<i class="fas fa-heart"></i>&nbsp;30 &nbsp;&nbsp;' +
+                                    // '<i class="fas fa-comments"></i>&nbsp;46 &nbsp;&nbsp;' +
+                                    // '<i class="fas fa-share-square"></i>&nbsp;25 &nbsp;&nbsp;' +
                                     '<p>' + '地址：' + store[i].address + '</p>' +
                                     '<p>' + '電話：' + store[i].tel + '</p>' +
                                     '<a href="#" style="text-align:end; display:block;" >' + 'more...' + '</a>'
                                 ));
                         }
-
                     }
                 }
             })
@@ -647,8 +624,8 @@
             let yyy2 = $("input[name='style[]']:checked").map(function() {
                 return $(this).val();
             }).get();
-            console.log(yyy2);
 
+            // console.log(yyy2);
             // console.log(yyy1);
             // console.log(yyy2);
 
@@ -661,10 +638,9 @@
                 },
                 dataType: 'json',
                 success(data) {
-                    console.log('成功');
+                    // console.log('成功');
                 },
                 complete(data) {
-                    // console.log(JSON.parse(data.responseText));
                     let resData1 = JSON.parse(data.responseText);
                     // console.log(resData1[0]);
 
@@ -722,7 +698,7 @@
                         });
                     }
                     let resAll = document.querySelectorAll('.den_content div');
-                    console.log(resAll.length);
+                    // console.log(resAll.length);
                     for (let i = 0; i < resAll.length; i++) {
                         resAll[i].addEventListener('click', function() {
                             let name = this.children[3].innerText;
@@ -742,12 +718,12 @@
         $(".den_cooking_style div input").click(function() {
             let yyy1 = $('.den_res_type div input[name=kind]:checked').val();
             let yyy2 = $("input[name='style[]']:checked").get().map(x => x.value);
-            console.log(yyy2);
+
+            // console.log(yyy2);
 
             var checkis = $(this).is(":checked");
             if (checkis == true) {
-                console.log('yes');
-
+                // console.log('yes');
                 $.ajax({
                     url: './open_group.php',
                     type: 'GET',
@@ -757,7 +733,7 @@
                     },
                     dataType: 'json',
                     complete(data) {
-                        console.log('有傳送回來');
+                        // console.log('有傳送回來');
                         // console.log(data);
                         let resData2 = data.responseJSON[0];
                         // console.log(resData2);
@@ -776,7 +752,6 @@
                             </div>
                             `);
                         }
-
                         let owlImage = document.querySelectorAll('.den_content div h6');
                         for (let i = 0; i < owlImage.length; i++) {
                             owlImage[i].addEventListener('click', function() {
@@ -816,8 +791,8 @@
                             });
                         }
                         let resAll = document.querySelectorAll('.den_content div');
-                        console.log(resAll.length);
 
+                        // console.log(resAll.length);
                         // let ggg222 = $('.den_content').children().length;
                         // console.log(ggg222);
 
@@ -843,20 +818,18 @@
                     }
                 });
             } else {
-                console.log('no');
+                // console.log('no');
             }
         });
         $(document).ready(function() {
 
-            // let FRIENDS_MASTER_NO = data.MEMBER_NO;
-            // console.log(FRIENDS_MASTER_NO);
-
+          //全部餐廳渲染
             $.ajax({
                 url: './open_group.php',
                 type: 'GET',
                 dataType: 'json',
                 success(data) {
-                    console.log(data);
+                    // console.log(data);
                     var resData = data[0];
                     //抓全部餐廳
                     for (let i = 0; i < resData.length - 1; i++) {
@@ -871,6 +844,7 @@
                     </div>
                     `);
                     }
+
                     // 第1個燈箱
                     let owlImage = document.querySelectorAll('.den_content div h6');
                     for (let i = 0; i < owlImage.length; i++) {
@@ -913,14 +887,14 @@
                     //第2個燈箱
                     $('.den_button').on('click', function() {
                         let resNameVal = $('.den_Information div:nth-child(1) input').val();
-                        console.log(data);
-                        console.log(MasterNO);
+                        // console.log(data);
+                        // console.log(MasterNO);
                         for (let i = 0; i < resData.length; i++) {
                             if (resNameVal == resData[i].RES_NAME) {
                                 var nameOf = i;
                             }
                         }
-                        console.log(nameOf);
+                        // console.log(nameOf);
                         // $('.den_box2_row').empty();
                         $('.den_box2_row').append(`
                     
@@ -994,11 +968,7 @@
                         }
                     });
 
-                    // console.log(data);
-                    // let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
-                    // console.log(FRIENDS_MASTER_NO);
-
-                    //好友欄位
+                    //好友欄位顯示
                     $(document).ready(function() {
                         if ($('#spanLogin').text() == '登入') {
 
@@ -1008,7 +978,7 @@
                                 dataType: 'JSON',
                                 success(data) {
                                     let FRIENDS_MASTER_NO = data.MEMBER_NO;
-                                    console.log(FRIENDS_MASTER_NO);
+                                    // console.log(FRIENDS_MASTER_NO);
                                     $('.memberNoNum1').append(`${data.MEMBER_NO}`);
                                     $.ajax({
                                         url: './open_group.php',
@@ -1019,7 +989,7 @@
                                         dataType: 'JSON',
                                         success(data) {
                                             friendData = data[1];
-                                            console.log(friendData);
+                                            // console.log(friendData);
                                             for (let i = 0; i < friendData.length; i++) {
                                                 $('.den_friend_window form').append(
                                                     `
@@ -1061,8 +1031,6 @@
                         let meal1 = meal.substring(0, 10);
                         let meal12 = meal.substring(13, 18);
                         let mealDate = meal1 + ' ' + meal12; //用餐時間
-
-                        // mealDate = document.getElementsByClassName("mealDate")[0].previousElementSibling.innerText.replace(" / ", " ").replace("用餐時間:", "");
                         let nowNum = $('.nowNum').text();
                         let nowNumJoin = nowNum.substring(0, 1); //參加人數
                         let nowNumMax = nowNum.substring(3, 2); //最大人數
@@ -1071,8 +1039,8 @@
                         }).get();
                         let memberNoNum = $('.memberNoNum1').text();
 
-                        console.log('123');
-                        console.log(groupNo);
+                        // console.log('123');
+                        // console.log(groupNo);
                         // console.log(groupName);
                         // console.log(resNo);
                         // console.log(mealDate);
@@ -1082,7 +1050,7 @@
                         // console.log(nowNum);
                         // console.log(nowNumJoin);
                         // console.log(nowNumMax);
-                        console.log(friendCheckboxVal);
+                        // console.log(friendCheckboxVal);
                         //傳送-----資料
                         $.ajax({
                             url: './open_group1.php',
@@ -1099,15 +1067,6 @@
                             type: 'GET',
                             dataType: 'json',
                         });
-                        // $.ajax({
-                        //     url: './open_group_open.php',
-                        //     data: {
-                        //         groupNo: groupNo,
-                        //         friendCheckboxVal: friendCheckboxVal,
-                        //     },
-                        //     type: 'GET',
-                        //     dataType: 'json',
-                        // });
                         //接收資料
                         $.ajax({
                             url: './open_group.php',
@@ -1152,7 +1111,9 @@
                                 let num = $('.den_eatGroup_content div h4:nth-child(2)')
                                 for (let i = 0; i < num.length; i++) {
                                     if (num[i].innerText == '4/4') {
-                                        num[i].innerText = 'MAX';
+                                        // num[i].innerText = 'MAX';
+                                        // console.log(this);
+                                        // num[i].closest('.den_eatGroup').css('display','none');
                                         $(num[i]).css('color', 'red');
                                         // num[i].previousSibling.previousSibling.css('color', 'red');
                                     }
@@ -1176,10 +1137,8 @@
                             // console.log(foodGroup1);
                             // console.log(foodGroup1.length);
                             // console.log(foodGroup3);
-
                         for (let i = 0; i < foodGroup1.length; i++) {
                             $('.den_foodGroup').append(`
-
                             <div class="den_eatGroup" id="eatGroup${i+1}">
                                     <span>${foodGroup1[i].GROUP_NO}</span>
                                     <img src="./image/member/${foodGroup1[i].MEMBER_IMAGE}">
@@ -1209,7 +1168,8 @@
                         let num = $('.den_eatGroup_content div h4:nth-child(2)')
                         for (let i = 0; i < num.length; i++) {
                             if (num[i].innerText == '4/4') {
-                                num[i].innerText = 'MAX';
+                                // num[i].innerText = 'MAX';
+                                // num[i].closest('.den_eatGroup').css('display','none');
                                 $(num[i]).css('color', 'red');
                                 // num[i].previousSibling.previousSibling.css('color', 'red');
                             }
@@ -1304,9 +1264,9 @@
                     $('.den_box3_button button').on('click', function() {
                         if ($('#spanLogin').text() == '登出') {
                             let memNo = $('.memberNoNum1').text();
-                            console.log(memNo);
+                            // console.log(memNo);
                             let groupNo3 = $('.groupNo').text();
-                            console.log(groupNo3);
+                            // console.log(groupNo3);
                             // console.log(memNo);
                             $.ajax({
                                 url: './open_group_join.php',
@@ -1320,7 +1280,6 @@
                             $('.den_box3').css('display', 'none');
                             $('.box_background').css('display', 'none');
                             $('.den_true_box_join').css('display', 'block');
-
                         } else {
                             alert('請先登入~~');
                             $('.section_res').css('display', 'block');
