@@ -5934,7 +5934,7 @@ header {
 }
 
 .den_section .den_wrapper .den_container {
-  max-width: 1680px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 30px;
 }
@@ -6007,7 +6007,7 @@ header {
 }
 
 .den_section .den_wrapper .den_container .den_row .den_Condition_search .den_row .den_selection .den_res_type {
-  padding: 20px 15%;
+  padding: 20px 10%;
   text-align: center;
 }
 
@@ -6053,7 +6053,7 @@ header {
 }
 
 .den_section .den_wrapper .den_container .den_row .den_Condition_search .den_row .den_selection .den_cooking_style {
-  padding: 20px 15%;
+  padding: 20px 10%;
   text-align: center;
 }
 
@@ -6101,6 +6101,8 @@ header {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 80%;
           flex: 1 1 80%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .den_section .den_wrapper .den_container .den_row #den_tab1 h3 {
@@ -6119,7 +6121,6 @@ header {
 }
 
 .den_section .den_wrapper .den_container .den_row #den_tab1 .result_owl {
-  width: 75vw;
   background-color: white;
   margin: 0 auto;
 }
@@ -6148,7 +6149,7 @@ header {
 }
 
 .den_section .den_wrapper .den_container .den_row #den_tab1 .result_owl .den_owl_row .den_content_range {
-  overflow: scroll;
+  overflow: hidden;
   margin-top: 10px;
 }
 
@@ -6507,9 +6508,9 @@ header {
 .den_box {
   top: 50%;
   left: 50%;
-  width: auto;
+  width: 90%;
   height: auto;
-  width: auto-30;
+  width: 60%;
   height: auto-30;
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
@@ -6522,8 +6523,6 @@ header {
   position: fixed;
   overflow: auto;
   padding: 25px 15px;
-  -webkit-box-shadow: 0px 0px 0px 10px #FFE1A4;
-          box-shadow: 0px 0px 0px 10px #FFE1A4;
   border-radius: 10px;
 }
 
@@ -6660,9 +6659,9 @@ header {
 .den_box2 {
   top: 50%;
   left: 50%;
-  width: auto;
+  width: 90%;
   height: auto;
-  width: auto-30;
+  width: 60%;
   height: auto-30;
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
@@ -6674,8 +6673,6 @@ header {
   overflow: auto;
   padding: 15px;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 0px 10px #FFE1A4;
-          box-shadow: 0px 0px 0px 10px #FFE1A4;
 }
 
 .den_box2 .leave_btn {
@@ -6861,9 +6858,9 @@ header {
 .den_box3 {
   top: 50%;
   left: 50%;
-  width: auto;
+  width: 90%;
   height: auto;
-  width: auto-30;
+  width: 60%;
   height: auto-30;
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
@@ -6875,8 +6872,6 @@ header {
   overflow: auto;
   padding: 20px;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 0px 10px #FFE1A4;
-          box-shadow: 0px 0px 0px 10px #FFE1A4;
 }
 
 .den_box3 .leave_btn {
@@ -7189,9 +7184,6 @@ header {
     padding: 20px 0px;
     text-align: center;
   }
-  .den_section .den_wrapper .den_container .den_row .den_Condition_search #den_tab1 #map {
-    width: 80vw;
-  }
   .den_section .den_wrapper .den_container .den_row .den_Condition_search #den_tab2 .den_foodGroup .den_eatGroup .den_eatGroup_content div {
     right: -75px;
   }
@@ -7351,6 +7343,9 @@ header {
   }
   .den_section .den_wrapper .den_container .den_row #den_tab1 {
     padding: 0;
+  }
+  .den_section .den_wrapper .den_container .den_row #den_tab1 > h3 {
+    margin-top: 25px;
   }
   .den_section .den_wrapper .den_container .den_row #den_tab1 #map {
     margin: 0 auto;
@@ -7521,8 +7516,11 @@ header {
 }
 
 @media all and (max-width: 575px) {
-  #den_banner_title {
+  .den_banner .container #den_banner_title {
     width: 100% !important;
+  }
+  .den_banner .container #den_banner_title span {
+    font-size: 24px !important;
   }
   .den_section .den_wrapper .den_container {
     padding: 0;
@@ -7603,6 +7601,9 @@ header {
   }
   .den_section .den_wrapper .den_container .den_row #den_tab1 {
     padding: 0;
+  }
+  .den_section .den_wrapper .den_container .den_row #den_tab1 > h3 {
+    margin-top: 25px;
   }
   .den_section .den_wrapper .den_container .den_row #den_tab1 #map {
     margin: 0 auto;
@@ -9791,5 +9792,82 @@ a.tabs-menu.tabs-menu-active {
 
 .tbl_res_adm tbody tr:not(.row_h) td div {
   margin: 20px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+  margin: 0 auto;
+}
+
+.leaflet-pane .leaflet-marker-icon div {
+  background-color: rgba(110, 204, 57, 0.6) !important;
+}
+
+.marker-cluster-small {
+  background-color: rgba(181, 226, 140, 0.6);
+}
+
+.marker-cluster-small div {
+  background-color: rgba(110, 204, 57, 0.6) !important;
+}
+
+.marker-cluster-medium {
+  background-color: rgba(241, 211, 87, 0.6);
+}
+
+.marker-cluster-medium div {
+  background-color: rgba(240, 194, 12, 0.6) !important;
+}
+
+.marker-cluster-large {
+  background-color: rgba(253, 156, 115, 0.6);
+}
+
+.marker-cluster-large div {
+  background-color: rgba(241, 128, 23, 0.6) !important;
+}
+
+.marker-cluster {
+  background-clip: padding-box;
+  border-radius: 20px;
+}
+
+.marker-cluster div {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 15px;
+  font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background-color: rgba(110, 204, 57, 0.6) !important;
+}
+
+.marker-cluster span {
+  line-height: 30px;
+}
+
+/*-----------------------------*/
+.leaflet-popup-content p {
+  margin: 14px 0 0 0;
+}
+
+h1 {
+  color: #9B1E23;
+}
+
+.leaflet-popup-content {
+  width: 200px !important;
+}
+
+.leaflet-popup-content img {
+  width: 200px !important;
+  height: 200px !important;
 }
 /*# sourceMappingURL=allstyle.css.map */
