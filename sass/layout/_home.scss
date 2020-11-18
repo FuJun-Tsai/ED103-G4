@@ -370,7 +370,7 @@ section.second_screen {
     h2 {
         color: white;
         position: absolute;
-        top: 20%;
+        top: 18%;
         left: 50%;
         transform: translateX(-50%);
         z-index: 2;
@@ -394,7 +394,7 @@ section.second_screen {
     h4.restaurant {
         color: white;
         position: absolute;
-        top: 25%;
+        top: 23%;
         left: 50%;
         transform: translateX(-50%);
         z-index: 2;
@@ -965,7 +965,7 @@ section.third_screen {
     h2 {
         color: white;
         position: absolute;
-        top: 20%;
+        top: 18%;
         left: 8%;
         z-index: 2;
         font-weight: 800;
@@ -990,7 +990,7 @@ section.third_screen {
     h4 {
         color: white;
         position: absolute;
-        top: 29%;
+        top: 23%;
         left: 8%;
         z-index: 2;
         @media all and (min-width: 992px) and (max-width: 1199px) {
@@ -1131,7 +1131,7 @@ section.fourth_screen {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: 20%;
+        top: 18%;
         font-weight: 800;
         @media all and (min-width: 576px) and (max-width: 767px) {
             left: 12%;
@@ -1142,7 +1142,7 @@ section.fourth_screen {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: 18%;
+        top: 23%;
         @media all and (min-width: 576px) and (max-width: 767px) {
             left: 12%;
             transform: translateX(0);
