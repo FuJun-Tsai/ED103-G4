@@ -5,13 +5,13 @@ $Errmsg = '';
 try{
     // require_once('connectBooks.php'); //換成自己的 php $pdo來源
     require_once('connectbook.php'); //換成自己的 php $pdo來源
-    $res_re_no_del = $_REQUEST['res_re_no_del'];
+    $res_no_del = $_REQUEST['res_no_del'];
     
 
-    $sql = "DELETE FROM `report_restaurant_message` 
+    $sql = "DELETE FROM `restaurant_management` 
             WHERE   
 
-                RES_MES_RE_NO = '$res_re_no_del';";
+                RES_NO = '$res_no_del';";
 
     $data = $pdo -> prepare($sql);
     $data-> execute();
