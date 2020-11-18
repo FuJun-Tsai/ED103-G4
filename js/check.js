@@ -38,25 +38,21 @@ function doFirst(e) {
                     <p>${e[boxId].RES_SUMMARY}</p>
                 `
             );
-
-
-
-
-
-
-            // let rsTitle = document.createElement("h2");
-            // let rsName = document.createElement("h3");
-            // let rsContent = document.createElement("p");
-
-            // document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
-            // document.querySelector('.purchasebox_content_right').appendChild(rsName);
-            // let qq = document.querySelector('.purchasebox_content_right').appendChild(rsContent)
-            // rsTitle.innerText = "今晚!我想來點~"
-            // console.log(e);
-            // rsContent.innerText = e[boxId].RES_SUMMARY;
-            // rsName.innerText = e[boxId].RES_NAME;
             $('.purchasebox').css('visibility', ' visible');
             $('.game_background').css('display', 'block');
+
+            //圖片換選
+
+            function clickGameImg() {
+
+                $('.purchasebox_content_left .vice_img > img').not('.purchasebox_content_left .vice_img > img:nth-child(1)').addClass('togray');
+                $('.purchasebox_content_left .vice_img > img').on('click', function() {
+                    $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                    $('.purchasebox_content_left .vice_img > img').addClass('togray');
+                    $(this).removeClass('togray');
+                });
+            }
+            clickGameImg();
         });
 
     }

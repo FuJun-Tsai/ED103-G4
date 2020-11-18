@@ -75,10 +75,7 @@ $(document).ready(function() {
                         $('.purchasebox').css('visibility', 'visible');
                         $('.game_background').css('display', 'block');
                     }
-
-
                     if (e[0].state == 0) {
-
                         $('.purchasebox_content_left').append(
                             `
                                 <div class="main_img">
@@ -103,25 +100,12 @@ $(document).ready(function() {
                             `
                         );
 
-                        // let rsTitle = document.createElement("h2");
-                        // let rsName = document.createElement("h3");
-                        // let rsContent = document.createElement("p");
-
-                        // document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
-                        // document.querySelector('.purchasebox_content_right').appendChild(rsName)
-                        // document.querySelector('.purchasebox_content_right').appendChild(rsContent)
-                        // rsTitle.innerText = "今晚!我想來點~";
-
-
-                        // rsName.innerText = e[position].RES_NAME;
-                        // rsContent.innerText = e[position].RES_SUMMARY;
-                        // console.log()
                     }
                 }
                 //查看变化
                 // console.log(person.name + "现在有$" + person.money);
-
             }, v * num + v * 0.9);
+            // clickGameImg();
 
         }
 
@@ -132,6 +116,7 @@ $(document).ready(function() {
     function gameSequence() {
         if (text == "p1") {
             p1checkState();
+
         }
 
     }
@@ -184,6 +169,18 @@ $(document).ready(function() {
         boxes[po1].children[1].style.filter = 'brightness(1)';
         boxes[po1 - 1].children[1].style.filter = 'brightness(.7)';
         // filter: brightness(.7);
+
+
+        //圖片換選
+        function clickGameImg() {
+            // console.log(1);
+            $('.purchasebox_content_left > img').not('.purchasebox_content_left > img:nth-child(2)').addClass('togray');
+            $('.purchasebox_content_left > img').on('click', function() {
+                $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                $('.purchasebox_content_left > img').addClass('togray');
+                $(this).removeClass('togray');
+            });
+        }
 
 
 

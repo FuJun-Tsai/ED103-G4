@@ -517,6 +517,8 @@
 
     <script>
         function doFirst() {
+            //點擊圖片換圖事件
+
 
             $('#btnLogin').on('click', function() {
                 location = location;
@@ -603,14 +605,14 @@
             // owl左右移動
             $('.den_nav_right').on('click', function() {
                 let x = $('.den_content_range').scrollLeft() + 1
-                x = x + 150;
+                x = x + 225;
                 let scrollVal1 = $('.den_content_range').scrollLeft(x)
                     // console.log(x);
             });
             // owl左右移動
             $('.den_nav_left').on('click', function() {
                 let x = $('.den_content_range').scrollLeft() + 1
-                x = x - 150;
+                x = x - 225;
                 let scrollVal1 = $('.den_content_range').scrollLeft(x)
                     // console.log(x);
             });
@@ -931,8 +933,11 @@
                                     `)
                             $('.den_box').css('display', 'block');
                             $('.box_background').css('display', 'block');
+                            clickImg1()
                         });
+
                     }
+
                     //第2個燈箱
                     $('.den_button').on('click', function() {
                         let resNameVal = $('.den_Information div:nth-child(1) input').val();
@@ -1002,6 +1007,7 @@
                     </div>
                         `)
 
+
                         //好友input傳送
                         var friendCheckbox = $("input[name='friendCheckbox[]']:checked").map(function() {
                             return $(this).next().text();
@@ -1015,6 +1021,8 @@
                                         `
                             )
                         }
+                        clickImg2();
+
                     });
 
                     //好友欄位顯示
@@ -1224,6 +1232,7 @@
                                 // num[i].previousSibling.previousSibling.css('color', 'red');
                             }
                         }
+
                     });
                     //第3個燈箱
                     $(document).ready(function() {
@@ -1289,6 +1298,7 @@
                             `)
                             $('.den_box3').css('display', 'block');
                             $('.box_background').css('display', 'block');
+
                             $.ajax({
                                 url: './open_group.php',
                                 data: {
@@ -1307,6 +1317,7 @@
                                     }
                                 }
                             });
+                            clickImg3();
                         });
                     });
 
@@ -1337,7 +1348,39 @@
                             $('.box_background').css('display', 'none');
                         }
                     });
+                    //第一個燈箱圖片點擊
+                    function clickImg1() {
+                        console.log(1);
+                        $('.box_row_left > img').not('.box_row_left > img:nth-child(2)').addClass('togray');
+                        $('.box_row_left > img').on('click', function() {
+                            $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                            $('.box_row_left > img').addClass('togray');
+                            $(this).removeClass('togray');
+                        });
+                    }
+                    //第二個燈箱圖片點擊
+                    function clickImg2() {
+                        console.log(1);
+                        $('.box2_row_left > img').not('.box2_row_left > img:nth-child(2)').addClass('togray');
+                        $('.box2_row_left > img').on('click', function() {
+                            $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                            $('.box2_row_left > img').addClass('togray');
+                            $(this).removeClass('togray');
+                        });
+                    }
+                    //第三個燈箱圖片點擊
+                    function clickImg3() {
+                        console.log(1);
+                        $('.box3_row_left > img').not('.box3_row_left > img:nth-child(2)').addClass('togray');
+                        $('.box3_row_left > img').on('click', function() {
+                            $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                            $('.box3_row_left > img').addClass('togray');
+                            $(this).removeClass('togray');
+                        });
+                    }
+
                 }
+
             });
         });
     </script>

@@ -604,13 +604,14 @@ header {
                     border-radius: 10px;
                 }
             }
-            img {
+            >img {
                 width: 23%;
                 height: 100px;
                 display: inline-block;
                 padding: 3px;
                 object-fit: cover;
                 border-radius: 10px;
+                cursor: pointer;
             }
         }
         .box_row_right {
@@ -722,13 +723,14 @@ header {
                     border-radius: 10px;
                 }
             }
-            img {
+            >img {
                 width: 23%;
                 height: 100px;
                 display: inline-block;
                 padding: 3px;
                 object-fit: cover;
                 border-radius: 10px;
+                cursor: pointer;
             }
         }
         .box2_row_right {
@@ -802,7 +804,6 @@ header {
 
 .den_box3 {
     @include light-box-setting(90%, auto, absolute);
-    // box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
     background-color: rgba(255, 255, 255, 1);
     z-index: 2000;
@@ -810,10 +811,8 @@ header {
     overflow: auto;
     padding: 20px;
     border-radius: 10px;
-    // box-shadow: 0px 0px 0px 10px $bgColor-style2;
     .leave_btn {
         position: relative;
-        // top: 20px;
         right: -90%;
         width: 50px;
         height: 50px;
@@ -850,9 +849,8 @@ header {
                     border-radius: 10px;
                 }
             }
-            img {
-                // width: 100px;
-                // height: 100px;
+            >img {
+                cursor: pointer;
                 width: 23%;
                 height: 100px;
                 display: inline-block;
@@ -1505,6 +1503,9 @@ header {
                                     border: 1px solid #ccc;
                                     div {
                                         width: 100%;
+                                        label {
+                                            font-size: 18px!important;
+                                        }
                                     }
                                 }
                             }
@@ -1517,6 +1518,11 @@ header {
                                 .den_friend_box {
                                     width: 100%;
                                     margin-top: 15px;
+                                    div {
+                                        label {
+                                            font-size: 18px!important;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1525,6 +1531,9 @@ header {
                         }
                         .button {
                             width: 28%;
+                        }
+                        .den_food_map {
+                            height: 450px;
                         }
                     }
                     #den_tab2 {
@@ -1624,7 +1633,7 @@ header {
                 .main_img {
                     padding: 0px;
                     img {
-                        height: 70px;
+                        height: 70%;
                     }
                 }
             }

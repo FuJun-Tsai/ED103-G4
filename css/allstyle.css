@@ -6582,7 +6582,7 @@ header {
   border-radius: 10px;
 }
 
-.den_box .den_box_row .box_row_left img {
+.den_box .den_box_row .box_row_left > img {
   width: 23%;
   height: 100px;
   display: inline-block;
@@ -6590,6 +6590,7 @@ header {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .den_box .den_box_row .box_row_right {
@@ -6732,7 +6733,7 @@ header {
   border-radius: 10px;
 }
 
-.den_box2 .den_box2_row .box2_row_left img {
+.den_box2 .den_box2_row .box2_row_left > img {
   width: 23%;
   height: 100px;
   display: inline-block;
@@ -6740,6 +6741,7 @@ header {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .den_box2 .den_box2_row .box2_row_right {
@@ -6930,7 +6932,8 @@ header {
   border-radius: 10px;
 }
 
-.den_box3 .den_box3_row .box3_row_left img {
+.den_box3 .den_box3_row .box3_row_left > img {
+  cursor: pointer;
   width: 23%;
   height: 100px;
   display: inline-block;
@@ -7635,6 +7638,9 @@ header {
   .den_section .den_wrapper .den_container .den_row #den_tab1 .den_Fill_Information_wrapper .den_Fill_Information .den_Information div {
     width: 100%;
   }
+  .den_section .den_wrapper .den_container .den_row #den_tab1 .den_Fill_Information_wrapper .den_Fill_Information .den_Information div label {
+    font-size: 18px !important;
+  }
   .den_section .den_wrapper .den_container .den_row #den_tab1 .den_Fill_Information_wrapper .den_friend_window {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 100%;
@@ -7648,11 +7654,17 @@ header {
     width: 100%;
     margin-top: 15px;
   }
+  .den_section .den_wrapper .den_container .den_row #den_tab1 .den_Fill_Information_wrapper .den_friend_window .den_friend_box div label {
+    font-size: 18px !important;
+  }
   .den_section .den_wrapper .den_container .den_row #den_tab1 .den_button {
     width: 50%;
   }
   .den_section .den_wrapper .den_container .den_row #den_tab1 .button {
     width: 28%;
+  }
+  .den_section .den_wrapper .den_container .den_row #den_tab1 .den_food_map {
+    height: 450px;
   }
   .den_section .den_wrapper .den_container .den_row #den_tab2 {
     padding: 0px;
@@ -7763,7 +7775,7 @@ header {
     padding: 0px;
   }
   .den_box2 .den_box2_row .box2_row_left .main_img img {
-    height: 70px;
+    height: 70%;
   }
   .den_box3 {
     width: 95%;
