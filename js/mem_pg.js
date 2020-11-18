@@ -227,7 +227,7 @@ function review(){
   });
   $(".notok").on("click", function(e){
     let X =$(this).closest(".mid_content");
-    let Y =$(this).parents().siblings(".sm_content").children('.num').text();
+    // let Y =$(this).parents().siblings(".sm_content").children('.num').text();
     let Y2 =$(this).parents().siblings(".sm_content").children('.group_num').text();
     let Z =$(this).closest(".doingcontent").attr('id');
     e.preventDefault();
@@ -254,21 +254,16 @@ function okajax(Y,Y2,Z){
   return false;
 }
 function updategroupnum(Y2,Y3){
-  console.log(2);
-  $.ajax({
-    url:'php/updategroup.php',
-    method:'POST',
-    dataType:'json',
-    cache:'true',
-    data: {
-      group_num: Y2,
-      group_people: Y3
-    },
-    success: function(){
-      console.log("確認審核成功");
-    },
-  });
-  return false;
+  var num = $("#JOIN_NUMBER").text();
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    $("#JOIN_NUMBER").text(parseInt(num) +1);
+  }
+  xhr.open("POST", "php/updategroup.php", true);
+  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+  let data = `group_num=${Y2}&group_people=${Y3}`;
+  xhr.send(data);
+
 }
 //第4、5頁功能
 //刪除收藏欄
@@ -359,6 +354,7 @@ function my_main(){
       $id('KIND_NAME').innerHTML = `${main.KIND_NAME}`;
       $id('MEMBER_NAME').innerHTML = `${main.MEMBER_NAME}`;
       $id('JOIN_NUMBER').innerHTML = `${main.JOIN_NUMBER}`;
+      $id('MAX_NUMBER').innerHTML = '/'+`${main.MAX_NUMBER}`;
       $id('MEAL_TIME').innerHTML = `${main.MEAL_TIME}`;
       $id('RES_ADDRESS').innerHTML = `${main.RES_ADDRESS}`;
       $id('RES_TEL').innerHTML = `${main.RES_TEL}`;
@@ -367,7 +363,11 @@ function my_main(){
       $id('RES_IMAGE1').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE1}`);
       $id('RES_IMAGE2').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE2}`);
       $id('RES_IMAGE3').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE3}`);
-      $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE4}`);            
+      $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE4}`);
+      if (`${main.JOIN_NUMBER}`==`${main.MAX_NUMBER}`) {
+        $("#JOIN_NUMBER").css("color","red");
+        $("#MAX_NUMBER").css("color","red");
+      }          
     }else{ //error
       console.log(xhr.status);
     }
@@ -407,6 +407,7 @@ function myGroupNow(){
         </li>
         `);
       }
+
       btnhover();
       review();
     }else{ //error

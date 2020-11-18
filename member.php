@@ -9,15 +9,10 @@
 
     <!-- <script src="./js/header_fixed.js"></script> -->
     <title>會員專區</title>
-    <!--他的css -->
-    <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
     <!--按鈕的css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <!--冰山icon的css -->
-
-    
     <!--他的js -->
-    <script src="js/btn_hover.js"></script>
+    <!-- <script src="js/btn_hover.js"></script> -->
     <!--按鈕js -->
     <link rel="stylesheet" href="./css/allstyle.css">
 </head>
@@ -104,8 +99,44 @@
     </div>
 
     <!---------------------------------- 登入bar 區域開始 ---------------------------------->	
+    <!-- 登入lightbox -->
+    <section class="section_res" id="login_box" style="display:none">
+        <div class="container_res">
+            <div class="user singinBx">
+                <div class="img_res">
+                    <img src="./image/2.png" alt="">
+                </div>
+                <div class="form_res">
+                    <form name="login">
+                        <h2>會員登入</h2>
+                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號" id="loginID">
+                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼" id="loginPsd">
+
+                        <input type="button" name="" value="登入" id="btnLogin">
+                        <input type="button" name="" value="取消" id="btnLoginCancel">
+                        <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
+                    </form>
+                </div>
+            </div>
+            <div class="user singupBx">
+                <div class="form_res">
+                    <form action="signup.php" method="post">
+                        <h2>註冊</h2>
+                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
+                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
+                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
+                        <input type="submit" name="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </form>
+                </div>
+                <div class="img_res">
+                    <img src="./image/4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
 <?php 
-require_once("login.inc");
+// require_once("login.inc");
 ?>
 <!---------------------------------- 登入bar 區域結束 ---------------------------------->
     <!-- ***************************** -->
@@ -288,6 +319,7 @@ require_once("login.inc");
                                     <br>
                                     <h5>目前人數:</h5>
                                     <h5 id="JOIN_NUMBER"></h5>
+                                    <div id="MAX_NUMBER" class="MAX_NUMBER"></div>
                                     <h5></h5>
                                     <h5></h5>
                                     <h5></h5>
