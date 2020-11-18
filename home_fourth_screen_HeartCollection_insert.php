@@ -5,7 +5,7 @@ $Errmsg='';
 $articleNo = isset($_GET["articleNo"]) ? $_GET["articleNo"] : "";
 $memberNoNum = isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 try{
-  require_once('connectRes.php');
+  require_once('connetbook.php');
   $sql = "insert into article_collection (MEMBER_NO ,ARTICLE_NO) VALUES ( :articleNo,:memberNoNum) ;";
 
   $data = $pdo->prepare($sql);
