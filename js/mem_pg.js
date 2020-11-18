@@ -39,7 +39,7 @@ function btnhover(){
 }
 //上傳大頭貼是否為圖檔的hover
 function pic_up_hover(){
-  $("#theFile").hover(
+  $("#theFileid").hover(
     function(){
       $(".upload").css("transform" , "translate(-50%,0%)");
     }, function(){
@@ -50,18 +50,18 @@ function pic_up_hover(){
 //第一頁功能
 //換側邊圖片
 function picChange() {
-  $('#theFile').on("click",function(){
-    let res= $('#theFile').val();
+  $('#theFileid').on("change",function(){
+    let res= $('#theFileid').val();
     let arr= res.split("\\");
     let filename=arr.slice(-1)[0];
     filextension=filename.split(".");
     filext="."+filextension.slice(-1)[0];
     valid=[".jpg",".png",".jpeg",".bmp"];
-    // console.log(res);
-    // console.log(arr);
-    // console.log(filename);
-    // console.log(filextension);
-    // console.log(filext);
+    console.log(res);
+    console.log(arr);
+    console.log(filename);
+    console.log(filextension);
+    console.log(filext);
     //如果檔案不是圖檔，我們秀出error icon, 紅色X,然後取消掉 submit按鈕
     if (valid.indexOf(filext.toLowerCase())==-1){
       $("#namefile").css({"color":"red","font-weight":700});
@@ -70,7 +70,7 @@ function picChange() {
       // $( "#submitbtn" ).hide();
       $( "#fakebtn" ).show();
     }else{
-      let file = document.getElementById('theFile').files[0];
+      let file = document.getElementById('theFileid').files[0];
       let readFile = new FileReader();
       readFile.readAsDataURL(file);
       readFile.addEventListener('load',function(e){
@@ -92,6 +92,7 @@ function pic_modifyajax(){
     event.preventDefault();
     let avatar = document.getElementById('avatar');
     let form = new FormData(avatar);
+    console.log(avatar);
     MEMBER_NAME = $("#mem_name").text();
     $.ajax({
       url:'php/update_pic.php',
@@ -208,18 +209,21 @@ function member_modifyajax(){
 //第2、3頁功能
 //確認/取消審核
 function review(){
-  $(".ok").on("click", function(e){
+  $(".ok").off("click").on("click", function(e){
+    e.preventDefault();
+    e.stopPropagation();
     let X =$(this).closest(".mid_content");
     let Y =$(this).parents().siblings(".sm_content").children('.num').text();
     let Y2 =$(this).parents().siblings(".sm_content").children('.group_num').text();
     let Z =$(this).closest(".doingcontent").attr('id');
-    console.log(Y);
-    console.log(Y2);
-    console.log(Z);
-    e.preventDefault();
-    e.preventDefault();
+    let Y3 =$('#JOIN_NUMBER').text();
+    // console.log(Y);
+    // console.log(Y2);
+    // console.log(Z);
+    // console.log(Y3);
     $(X).remove();
     okajax(Y,Y2,Z);
+    updategroupnum(Y2,Y3);
   });
   $(".notok").on("click", function(e){
     let X =$(this).closest(".mid_content");
@@ -228,7 +232,7 @@ function review(){
     let Z =$(this).closest(".doingcontent").attr('id');
     e.preventDefault();
     $(X).remove();
-    delajax(Y,Y2,Z);
+    delajax(Y2,Z);
   });
 }
 //確認審核ajax
@@ -241,7 +245,24 @@ function okajax(Y,Y2,Z){
     data: {
       changefrom: Z,
       num: Y,
+      group_num: Y2
+    },
+    success: function(){
+      console.log("確認審核成功");
+    },
+  });
+  return false;
+}
+function updategroupnum(Y2,Y3){
+  console.log(2);
+  $.ajax({
+    url:'php/updategroup.php',
+    method:'POST',
+    dataType:'json',
+    cache:'true',
+    data: {
       group_num: Y2,
+      group_people: Y3
     },
     success: function(){
       console.log("確認審核成功");
@@ -257,15 +278,15 @@ function dotrash(){
     let X =$(this).closest(".tab_box");
     let Y =$(this).closest(".tab_box").children('.num').text();
     let Z =$(this).closest(".tab").attr('id');
-    $("div.overlay").addClass("-on");
+    $("div.overlay1").addClass("-on");
     $(".btn_modal_send").on("click", function(e){
       e.preventDefault();
       $(X).remove();
-      $("div.overlay").removeClass("-on");
+      $("div.overlay1").removeClass("-on");
       delajax(Y,Z);
     });
     $(".btn_modal_close").on("click", function(){
-      $("div.overlay").removeClass("-on");
+      $("div.overlay1").removeClass("-on");
     });
   });
 }
@@ -356,7 +377,6 @@ function my_main(){
 }
 //渲染目前想加我開的團的陌生人
 function myGroupNow(){
-  console.log(1);
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
@@ -594,6 +614,7 @@ function my_article(){
           </div>
         `);
       }
+      dotrash();
     }else{ //error
       console.log(xhr.status);
     }
@@ -624,6 +645,7 @@ function my_article2(){
           </div>
         `);
       }
+      dotrash();
     }else{ //error
       console.log(xhr.status);
     }
@@ -654,6 +676,7 @@ function my_article3(){
           </div>
         `);
       }
+      dotrash();
     }else{ //error
       console.log(xhr.status);
     }

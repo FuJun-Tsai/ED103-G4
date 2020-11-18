@@ -122,7 +122,7 @@ require_once("login.inc");
                     </div>
                     <button type="button" class="btn_10 btn_js btn1">更換
                         <span></span>
-                        <input type="file" value="" name="theFile" id="theFile" class="theFile">
+                        <input type="file" name="theFile" id="theFileid" class="theFile">
                     </button>
                     <button type="button" class="btn_10 btn_js btn2">送出
                         <span></span>
@@ -352,7 +352,7 @@ require_once("login.inc");
                 </div>
             </div>
             <div class="my_collect tabbtn_1">
-                <div class="overlay">
+                <div class="overlay1">
                     <article>
                         <h4>是否要刪除</h4>
                         <button type="button" class="btn_modal_send">是</button>
@@ -412,7 +412,7 @@ require_once("login.inc");
                 </div>
             </div>
             <div class="my_article tabbtn_1">
-                <div class="overlay">
+                <div class="overlay1">
                     <article>
                         <h1>是否要刪除</h1>
                         <button type="button" class="btn_modal_send">是</button>
