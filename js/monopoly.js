@@ -76,7 +76,7 @@ $(document).ready(function() {
                         $('.game_background').css('display', 'block');
                     }
 
-                    // 买公用地产
+
                     if (e[0].state == 0) {
 
                         $('.purchasebox_content_left').append(

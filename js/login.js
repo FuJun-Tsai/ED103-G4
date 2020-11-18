@@ -27,8 +27,9 @@ function showLoginForm() {
 
 } //showLoginForm
 
-function sendForm() {
+function sendForm(e) {
     //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
+    // e.preventDefault();
     let MEMBER_ID = document.getElementsByName("MEMBER_ID")[0].value;
     let MEMBER_PSW = document.getElementsByName("MEMBER_PSW")[0].value;
     let xhr = new XMLHttpRequest();
