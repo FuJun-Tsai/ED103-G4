@@ -2,28 +2,25 @@
 session_start();
 try{
   require_once("../connectbook.php");
-  require_once("../connectbook.php");
-  $sql = "SELECT m.MEMBER_NAME'CHECK_NAME',m.MEMBER_IMAGE'CHECK_IMAGES',fgp.MEMBER_STATUS,fgp.MEMBER_NO,fgp.GROUP_NO
-          FROM `member_management` AS m JOIN `food_group_people` fgp ON (fgp.MEMBER_NO = m.MEMBER_NO)JOIN `food_group` AS f ON (fgp.GROUP_NO = f.GROUP_NO)
-          WHERE f.MEMBER IN (SELECT f1.MEMBER
-                            FROM `member_management` AS m1 JOIN `food_group` AS f1 ON (m1.MEMBER_NO = f1.MEMBER)
-                            WHERE m1.MEMBER_ID =:MEMBER_ID )
-          AND f.END_TIME >= DATE(NOW())
-          AND fgp.MEMBER_STATUS = 2";
-  $group = $pdo->prepare($sql);
-  $group->bindValue(":MEMBER_ID",$_SESSION["MEMBER_ID"]);
-  $group->execute();
-  // echo $sql;
-  if( $group->rowCount()==0){ //查無此人
+  $sql = " SELECT f.GROUP_NO, f.GROUP_NAME, r.RES_NAME, rs.STYLE_NAME, rk.KIND_NAME, f.MEMBER, f.JOIN_NUMBER, f.MEAL_TIME, r.RES_ADDRESS, r.RES_TEL, r.RES_BUS_HOURS, r.RES_IMAGE1, r.RES_IMAGE2, r.RES_IMAGE3, r.RES_IMAGE4, f.MAX_NUMBER
+  FROM `food_group` f JOIN `member_management` m ON (m.MEMBER_NO = f.MEMBER)
+                      JOIN `restaurant_management` r ON (r.RES_NO = f.RES_NO)
+                      JOIN `restaurant_style` rs ON (rs.STYLE_NO = r.RES_STYLE)
+                      JOIN `restaurant_kind` rk ON (rk.KIND_NO = r.RES_KIND)
+  WHERE m.MEMBER_ID =:MEMBER_ID
+            AND  f.END_TIME >= DATE(NOW())";
+  $member = $pdo->prepare($sql);
+  $member->bindValue(":MEMBER_ID", $_SESSION["MEMBER_ID"]);
+  $member->execute();
+  if( $member->rowCount()==0){ //查無此人
 	  echo "{}";
   }else{ //登入成功
-    //送出登入者的相關資料
-  	$groupRow = $group->fetchAll(PDO::FETCH_ASSOC);
     //自資料庫中取回資料
+  	$memRow = $member->fetch(PDO::FETCH_ASSOC);
     // //--------------將登入者的資料寫入session
-    echo json_encode($groupRow) ;
-    
-
+    // session_start();
+    //送出登入者的相關資料
+    echo json_encode($memRow) ;
   }
 }catch(PDOException $e){
 	$error = array("errorMsg"=>$e->getMessage());
