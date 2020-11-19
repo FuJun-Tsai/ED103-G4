@@ -6973,6 +6973,7 @@ header {
 .den_box3 .den_box3_row .box3_row_right > div .collection img {
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 .den_box3 .den_box3_row .box3_row_right > div .collection span {

@@ -1258,7 +1258,8 @@
                             <div class="box3_row_right">
                                 <div>
                                     <div class="collection">           
-                                        <span>收藏</span>         
+                                        <span>收藏</span>
+                                        <span class="collect_status" style="display:none"></span>         
                                         <img src="./image/den_image/fourth_screen_redHollowHeart.png">
                                     </div>
                                     <br>
@@ -1305,6 +1306,9 @@
                             `)
                             $('.den_box3').css('display', 'block');
                             $('.box_background').css('display', 'block');
+
+                            //執行收藏功能
+                            collection(`${foodGroupBox[denEatGroupNum].GROUP_NO}`);
 
                             $.ajax({
                                 url: './open_group.php',
@@ -1378,7 +1382,7 @@
                     }
                     //第三個燈箱圖片點擊
                     function clickImg3() {
-                        console.log(1);
+                        // console.log(1);
                         $('.box3_row_left > img').not('.box3_row_left > img:nth-child(2)').addClass('togray');
                         $('.box3_row_left > img').on('click', function() {
                             $('.main_img img').attr('src', `${$(this).attr('src')}`);
@@ -1391,6 +1395,154 @@
 
             });
         });
+
+        //美食團收藏
+        function collection(groupNo) {
+            console.log('1----', groupNo);
+            $.ajax({
+                url: './open_group_join_collection.php',
+                type: 'GET',
+                dataType: 'JSON',
+                success(data) {
+                    let memberNoNum1 = $('.memberNoNum1').text();
+                    for (let i = 0; i < data.length; i++) {
+                        if (data[i].MEMBER_NO == memberNoNum1 && data[i].GROUP_NO == groupNo) {
+                            //有收藏
+                            $('.collection img').attr('src', './image/den_image/fourth_screen_redHeart.png');
+                            $('.collect_status').text('1');
+                            break;
+                        } else {
+                            //沒收藏
+                            $('.collection img').attr('src', './image/den_image/fourth_screen_redHollowHeart.png');
+                            $('.collect_status').text('2');
+                        }
+                    }
+                }
+            });
+
+            var toggle1 = true;
+            $('.collection img').click(function() {
+                let aaa = $('#spanLogin').text();
+                var memberNoNum1 = $('.memberNoNum1').text();
+                console.log(groupNo);
+                if (aaa == '登出') {
+                    if ($('.collect_status').text() == '1') {
+                        //這裡是紅色愛心變成黑色愛心的地方
+                        $('.collection img').attr('src', './image/den_image/fourth_screen_redHollowHeart.png');
+                        $('.collect_status').empty();
+                        $('.collect_status').append('2');
+                        alert('取消收藏');
+                        $.ajax({
+                            url: './open_group_delete_collection.php',
+                            type: 'GET',
+                            data: {
+                                memberNoNum1: memberNoNum1,
+                                groupNo: groupNo
+                            },
+                            dataType: 'JSON',
+                        });
+                    } else if ($('.collect_status').text() == '2') {
+                        // 這裡是黑色愛心變成紅色愛心的地方
+                        $('.collection img').attr('src', './image/den_image/fourth_screen_redHeart.png');
+                        $('.collect_status').empty();
+                        $('.collect_status').append('1');
+                        alert('收藏完成');
+                        $.ajax({
+                            url: './open_group_join_collection.php',
+                            type: 'GET',
+                            data: {
+                                memberNoNum1: memberNoNum1,
+                                groupNo: groupNo
+                            },
+                            dataType: 'JSON',
+                        });
+                    }
+                }
+                if (aaa == '登入') {
+                    alert('請先登入會員~~');
+                    $('.section_res').css('display', 'flex');
+                }
+            });
+
+
+
+
+
+            // if (toggle1) {
+            // $.ajax({
+            //     url: './open_group_join_collection.php',
+            //     type: 'GET',
+            //     dataType: 'JSON',
+            //     success(data) {
+            //         // let memberNoNum1 = $('.memberNoNum1').text();
+            //         // console.log(memberNoNum1);
+            //         console.log(data[1]);
+            //         for (let i = 0; i < data[1].length; i++) {
+            //             if (data[1][i].MEMBER_NO == memberNoNum1 & data[1][i].GROUP_NO == groupNo) {
+            //                 alert('你已經收藏了');
+            //             }
+            //         }
+            //     }
+            // });
+
+
+
+            // 這裡是黑色愛心變成紅色愛心的地方
+            // $('.collection img').attr('src', './image/den_image/fourth_screen_redHeart.png');
+            // $('.collect_status').append('1');
+            // alert('收藏完成');
+            // toggle1 = false;
+
+            // function join() {
+            //     $.ajax({
+            //         url: './open_group_join_collection.php',
+            //         type: 'GET',
+            //         dataType: 'JSON'
+            //     });
+            // }
+            // } else {
+            //這裡是紅色愛心變成黑色愛心的地方
+            // $('.collection img').attr('src', './image/den_image/fourth_screen_redHollowHeart.png');
+            // toggle1 = true;
+            // alert('取消收藏');
+
+            // $.ajax({
+            //     url: './open_group_join_collection.php',
+            //     type: 'GET',
+            //     data: {
+            //         memberNoNum1: memberNoNum1,
+            //         groupNo: groupNo
+            //     },
+            //     dataType: 'JSON',
+            //     success(data) {
+
+            //     }
+            // });
+
+            // function deleted() {
+            //     $.ajax({
+            //         url: 'open_group_delete_collection.php',
+            //         type: 'GET',
+            //         data: {
+            //             memberNoNum1: memberNoNum1,
+            //             groupNo: groupNo
+            //         },
+            //         dataType: 'JSON'
+            //     });
+            // }
+            // }
+
+
+
+
+
+            // articleNo = $('.articleNo').text();
+            // memberNoNum = $('.memberNoNum').text();
+            // // alert(`articleNo: ${articleNo}`);
+            // // alert(memberNoNum);
+            // ppp(articleNo, memberNoNum);
+
+        }
     </script>
 </body>
 

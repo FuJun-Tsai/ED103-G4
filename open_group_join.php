@@ -1,6 +1,6 @@
 <?php
 
-
+$Errmsg='';
 $memNo = isset($_GET["memNo"]) ? $_GET["memNo"] : "";
 $groupNo3 = isset($_GET["groupNo3"]) ? $_GET["groupNo3"] : "";
 
