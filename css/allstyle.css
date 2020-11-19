@@ -6952,24 +6952,45 @@ header {
   overflow: auto;
 }
 
-.den_box3 .den_box3_row .box3_row_right div {
+.den_box3 .den_box3_row .box3_row_right > div {
   padding: 10px 10px;
   margin: 10px 0px;
   background-color: rgba(204, 204, 204, 0.5);
   border-radius: 10px;
 }
 
-.den_box3 .den_box3_row .box3_row_right div h3 {
+.den_box3 .den_box3_row .box3_row_right > div .collection {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: right;
+  padding: 10px;
+}
+
+.den_box3 .den_box3_row .box3_row_right > div .collection img {
+  width: 30px;
+  height: 30px;
+}
+
+.den_box3 .den_box3_row .box3_row_right > div .collection span {
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.den_box3 .den_box3_row .box3_row_right > div h3 {
   display: inline-block;
   padding: 5px;
 }
 
-.den_box3 .den_box3_row .box3_row_right div h4 {
+.den_box3 .den_box3_row .box3_row_right > div h4 {
   display: inline-block;
   padding: 5px;
 }
 
-.den_box3 .den_box3_row .box3_row_right div h6 {
+.den_box3 .den_box3_row .box3_row_right > div h6 {
   display: inline-block;
   margin: 12px;
   padding: 5px 10px;
@@ -6981,17 +7002,17 @@ header {
   text-align: center;
 }
 
-.den_box3 .den_box3_row .box3_row_right div .den_groupPeople {
+.den_box3 .den_box3_row .box3_row_right > div .den_groupPeople {
   background-color: rgba(255, 255, 255, 0);
   margin: 5px 0px;
   padding: 0;
 }
 
-.den_box3 .den_box3_row .box3_row_right div .den_groupPeople h3 {
+.den_box3 .den_box3_row .box3_row_right > div .den_groupPeople h3 {
   vertical-align: bottom;
 }
 
-.den_box3 .den_box3_row .box3_row_right div .den_groupPeople p {
+.den_box3 .den_box3_row .box3_row_right > div .den_groupPeople p {
   display: inline-block;
   padding: 5px 4px;
   font-size: 14px;

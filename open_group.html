@@ -1243,8 +1243,7 @@
                             var foodGroupBox = data[2];
                             var yyy9 = this.children[0].innerText;
                             let denEatGroupNum = $('.den_eatGroup').index(this);
-                            // console.log(yyy9);
-                            // console.log(foodGroupBox);
+
                             $('.den_box3_row').empty();
                             $('.den_box3_row').append(`
                             <div class="box3_row_left">
@@ -1258,6 +1257,11 @@
                             </div>
                             <div class="box3_row_right">
                                 <div>
+                                    <div class="collection">           
+                                        <span>收藏</span>         
+                                        <img src="./image/den_image/fourth_screen_redHollowHeart.png">
+                                    </div>
+                                    <br>
                                     <h3>團號:</h3>
                                     <h3 class="groupNo">${foodGroupBox[denEatGroupNum].GROUP_NO}</h3>
                                     <br>
@@ -1311,7 +1315,7 @@
                                 dataType: 'json',
                                 complete(data) {
                                     let memberName = data.responseJSON[3];
-                                    // console.log(memberName);
+
                                     for (let i = 0; i < memberName.length; i++) {
                                         $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
                                             `
