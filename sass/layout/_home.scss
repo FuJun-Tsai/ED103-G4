@@ -74,48 +74,49 @@ section.first_screen {
         opacity: 0.85;
         position: absolute;
         top: 20%;
-        left: 55%;
-        transform: translate(-100%, 0);
+        left: 25%;
+        @media all and (min-width: 1600px) and (max-width: 1920px) {
+            left: 21%;
+        }
         @media all and (min-width: 1440px) and (max-width: 1599px) {
-            left: 58%;
+            left: 15%;
             @media all and (max-height:810px) {
                 @include circle(600px, #B71E68);
             }
         }
         @media all and (min-width: 1200px) and (max-width: 1439px) {
             @include circle(550px, #B71E68);
-            left: 58%;
+            left: 16%;
             top: 30%;
             @media all and (max-height: 600px) {
                 @include circle(430px, #B71E68);
                 top: 22%;
-                left: 45%;
+                left: 23%;
             }
         }
         @media all and (min-width: 992px) and (max-width: 1199px) {
             @include circle(500px, #B71E68);
-            left: 60%;
+            left: 15%;
             top: 33%;
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
             @include circle(400px, #B71E68);
-            left: 64%;
+            left: 8%;
             top: 41%;
         }
         @media all and (min-width: 576px) and (max-width: 767px) {
             @include circle(400px, #B71E68);
-            left: 70%;
+            left: 5%;
             top: 43%;
         }
         @media all and (min-width: 430px) and (max-width: 575px) {
             @include circle(350px, #B71E68);
-            left: 90%;
+            left: 1%;
             top: 43%;
         }
         @media all and (max-width: 429px) {
             @include circle(350px, #B71E68);
-            left: 50%;
-            transform: translateX(-50%);
+            left: 1%;
             top: 43%;
         }
         p {
@@ -613,7 +614,7 @@ section.second_screen {
             position: absolute;
             left: 14%;
             bottom: 23%;
-            z-index: -1;
+            z-index: 2;
             &:hover {
                 transform: scale(1.1);
                 background-color:#ade8e8;
@@ -648,21 +649,399 @@ section.second_screen {
                 left: 1%;
                 bottom: 26%;
             }
-        }
-        .content {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-35%);
-            top: 25%;
-            p {
-                font-size: $fontSize;
-                white-space: nowrap;
-                line-height: 1.5;
-                @media all and (max-width: 575px) {
-                    font-size: 0.8*$fontSize;
+            .content {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-35%);
+                top: 25%;
+                p {
+                    font-size: $fontSize;
+                    white-space: nowrap;
+                    line-height: 1.5;
+                    @media all and (max-width: 575px) {
+                        font-size: 0.8*$fontSize;
+                    }
                 }
             }
         }
+        .team_2 {
+            @include circle(225px, #601C8A);
+            position: absolute;
+            left: 31%;
+            bottom: 4%;
+            z-index: 2;
+            &:hover {
+                transform: scale(1.1);
+                background-color:#dcaafb;
+                transition: 0.5s;
+                border: 0.5px solid black;
+            }
+            @media all and (min-width: 1600px) and (max-width: 1920px) {
+                left: 30%;
+                bottom: 2%;
+            }
+            @media all and (min-width: 1440px) and (max-width: 1599px) {
+                left: 28%;
+                bottom: 1%;
+            }
+            @media all and (min-width: 1200px) and (max-width: 1439px) {
+                left: 23%;
+                bottom: 2%;
+            }
+            @media all and (min-width: 992px) and (max-width: 1199px) {
+                left: 26.5%;
+                bottom: 1%;
+                z-index: 2;
+            }
+            @media all and (min-width: 768px) and (max-width: 991px) {
+                left: 19.5%;
+                bottom: 1%;
+            }
+            @media all and (min-width: 576px) and (max-width: 767px) {
+                left: 5%;
+                bottom: 1%;
+            }
+            @media all and (max-width: 575px) {
+                @include circle(180px, #601C8A);
+                left: 1%;
+                bottom: 1%;
+            }
+            .content {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-35%);
+                top: 25%;
+                p {
+                    font-size: $fontSize;
+                    white-space: nowrap;
+                    line-height: 1.5;
+                    @media all and (max-width: 575px) {
+                        font-size: 0.8*$fontSize;
+                    }
+                }
+            }
+            button {
+                // padding: 5px 14px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 15%;
+                // border-radius: 8px;
+                @media all and (max-width: 575px) {
+                    bottom: 8%;
+                }
+            }
+        }
+        .team_3 {
+            @include circle(225px, #F4EFDF);
+            position: absolute;
+            right: 31%;
+            bottom: 4%;
+            z-index: 1;
+            &:hover {
+                transform: scale(1.1);
+                background-color:#f5e8bd;
+                transition: 0.5s;
+                border: 0.5px solid black;
+            }
+            @media all and (min-width: 1600px) and (max-width: 1920px) {
+                bottom: 1%;
+            }
+            @media all and (min-width: 1440px) and (max-width: 1599px) {
+                right: 28%;
+                bottom: 1%;
+            }
+            @media all and (min-width: 1200px) and (max-width: 1439px) {
+                right: 23%;
+                bottom: 2%;
+            }
+            @media all and (min-width: 992px) and (max-width: 1199px) {
+                bottom: 5%;
+                right: 26.5%;
+                z-index: 2;
+            }
+            @media all and (min-width: 768px) and (max-width: 991px) {
+                right: 19.5%;
+                bottom: 1%;
+            }
+            @media all and (min-width: 576px) and (max-width: 767px) {
+                right: 5%;
+                bottom: 26%;
+                z-index: 2;
+            }
+            @media all and (max-width: 575px) {
+                @include circle(180px, #F4EFDF);
+                right: 1%;
+                bottom: 26%;
+            }
+            .content {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-35%);
+                top: 25%;
+                p {
+                    font-size: $fontSize;
+                    white-space: nowrap;
+                    line-height: 1.5;
+                    @media all and (max-width: 575px) {
+                        font-size: 0.8*$fontSize;
+                    }
+                }
+            }
+            button {
+                // padding: 5px 14px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 15%;
+                // border-radius: 8px;
+                @media all and (max-width: 575px) {
+                    bottom: 8%;
+                }
+            }
+        }
+        .team_4 {
+            @include circle(225px, #B71E68);
+            position: absolute;
+            right: 14%;
+            bottom: 23%;
+            z-index: 1;
+            &:hover {
+                transform: scale(1.1);
+                background-color:#ffcce5;
+                transition: 0.5s;
+                border: 0.5px solid black;
+            }
+            @media all and (min-width: 1600px) and (max-width: 1920px) {
+                bottom: 23%;
+            }
+            @media all and (min-width: 1440px) and (max-width: 1599px) {
+                right: 7%;
+                bottom: 23%;
+            }
+            @media all and (min-width: 1200px) and (max-width: 1439px) {
+                bottom: 23%;
+                right: 4%;
+            }
+            @media all and (min-width: 992px) and (max-width: 1199px) {
+                bottom: 1%;
+                right: 2%;
+            }
+            @media all and (min-width: 768px) and (max-width: 991px) {
+                right: 3%;
+                bottom: 22%;
+            }
+            @media all and (min-width: 576px) and (max-width: 767px) {
+                right: 5%;
+                bottom: 1%;
+            }
+            @media all and (max-width: 575px) {
+                @include circle(180px, #B71E68);
+                right: 1%;
+                bottom: 1%;
+            }
+            .content {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-35%);
+                top: 25%;
+                p {
+                    font-size: $fontSize;
+                    white-space: nowrap;
+                    line-height: 1.5;
+                    @media all and (max-width: 575px) {
+                        font-size: 0.8*$fontSize;
+                    }
+                }
+            }
+            button {
+                // padding: 5px 14px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 15%;
+                // border-radius: 8px;
+                @media all and (max-width: 575px) {
+                    bottom: 8%;
+                }
+            }
+        }
+
+
+
+
+
+
+        .den_box3 {
+            @include light-box-setting(90%, auto, absolute);
+            display: none;
+            background-color: rgba(255, 255, 255, 1);
+            z-index: 2000;
+            position: fixed;
+            overflow: auto;
+            padding: 20px;
+            border-radius: 10px;
+            .leave_btn {
+                position: relative;
+                right: -90%;
+                width: 50px;
+                height: 50px;
+                z-index: 99;
+                cursor: pointer;
+                .line1 {
+                    width: 80%;
+                    height: 8%;
+                    background-color: black;
+                    transform: translate(0%, 550%) rotate(45deg);
+                    margin: auto;
+                }
+                .line2 {
+                    width: 80%;
+                    height: 8%;
+                    background-color: black;
+                    transform: translate(0%, 450%) rotate(-45deg);
+                    margin: auto;
+                }
+            }
+            .den_box3_row {
+                display: flex;
+                align-items: center;
+                position: relative;
+                .box3_row_left {
+                    flex: 1 1 50%;
+                    text-align: center;
+                    .main_img {
+                        padding: 10px;
+                        img {
+                            width: 100%;
+                            height: 80%;
+                            object-fit: cover;
+                            border-radius: 10px;
+                        }
+                    }
+                    >img {
+                        cursor: pointer;
+                        width: 23%;
+                        height: 100px;
+                        display: inline-block;
+                        padding: 3px;
+                        object-fit: cover;
+                        border-radius: 10px;
+                    }
+                }
+                .box3_row_right {
+                    flex: 1 1 50%;
+                    padding-left: 20px;
+                    max-height: 500px;
+                    overflow: auto;
+                    >div {
+                        padding: 10px 10px;
+                        margin: 10px 0px;
+                        background-color: rgba(204, 204, 204, .5);
+                        border-radius: 10px;
+                        .collection {
+                            display: inline-block;
+                            img {
+                                width: 50px;
+                                height: 50px;
+                            }
+                            span {
+                                font-size: 24px;
+                            }
+                        }
+                        h3 {
+                            display: inline-block;
+                            // border: 1px solid;
+                            // border: 1px solid blue;
+                            padding: 5px;
+                        }
+                        h4 {
+                            display: inline-block;
+                            padding: 5px;
+                        }
+                        h6 {
+                            display: inline-block;
+                            margin: 12px;
+                            padding: 5px 10px;
+                            font-size: 14px;
+                            background-color: #FFE1A4;
+                            border: 0.1px solid;
+                            border-radius: 8px;
+                            width: 70px;
+                            text-align: center;
+                        }
+                        .den_groupPeople {
+                            background-color: rgba(255, 255, 255, .0);
+                            margin: 5px 0px;
+                            padding: 0;
+                            h3 {
+                                vertical-align: bottom;
+                            }
+                            p {
+                                display: inline-block;
+                                // margin: 5px;
+                                padding: 5px 4px;
+                                font-size: 14px;
+                                background-color: #FFE1A4;
+                                border: 0.1px solid;
+                                border-radius: 8px;
+                                width: 70px;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+            .denAllButton3 {
+                position: relative;
+                text-align: center;
+                // left: 50%;
+                // width: 80%;
+                // bottom: 60px;
+                // transform: translateX(-50%);
+                // text-align: right;
+                // padding: 15px;
+                .den_box3_button {
+                    text-align: center;
+                    width: 40%;
+                    // border: 1px solid;
+                    display: inline-block;
+                    margin-top: 15px;
+                    button {
+                        @include btnBrown_6;
+                        width: 150px;
+                        // border-radius: 15px 15px!important;
+                    }
+                }
+                .box_button_close {
+                    display: none;
+                    text-align: center;
+                    width: 40%;
+                    // border: 1px solid;
+                    // display: inline-block;
+                    margin-top: 15px;
+                    button {
+                        @include btnBlue_3;
+                        width: 150px;
+                    }
+                }
+            }
+        }
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
         button {
             // padding: 5px 14px;
             position: absolute;
@@ -676,208 +1055,7 @@ section.second_screen {
             }
         }
     }
-    .team_2 {
-        @include circle(225px, #601C8A);
-        position: absolute;
-        left: 31%;
-        bottom: 4%;
-        z-index: -1;
-        &:hover {
-            transform: scale(1.1);
-            background-color:#dcaafb;
-            transition: 0.5s;
-            border: 0.5px solid black;
-        }
-        @media all and (min-width: 1600px) and (max-width: 1920px) {
-            left: 30%;
-            bottom: 2%;
-        }
-        @media all and (min-width: 1440px) and (max-width: 1599px) {
-            left: 28%;
-            bottom: 1%;
-        }
-        @media all and (min-width: 1200px) and (max-width: 1439px) {
-            left: 23%;
-            bottom: 2%;
-        }
-        @media all and (min-width: 992px) and (max-width: 1199px) {
-            left: 26.5%;
-            bottom: 1%;
-            z-index: 2;
-        }
-        @media all and (min-width: 768px) and (max-width: 991px) {
-            left: 19.5%;
-            bottom: 1%;
-        }
-        @media all and (min-width: 576px) and (max-width: 767px) {
-            left: 5%;
-            bottom: 1%;
-        }
-        @media all and (max-width: 575px) {
-            @include circle(180px, #601C8A);
-            left: 1%;
-            bottom: 1%;
-        }
-        .content {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-35%);
-            top: 25%;
-            p {
-                font-size: $fontSize;
-                white-space: nowrap;
-                line-height: 1.5;
-                @media all and (max-width: 575px) {
-                    font-size: 0.8*$fontSize;
-                }
-            }
-        }
-        button {
-            // padding: 5px 14px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 15%;
-            // border-radius: 8px;
-            @media all and (max-width: 575px) {
-                bottom: 8%;
-            }
-        }
-    }
-    .team_3 {
-        @include circle(225px, #F4EFDF);
-        position: absolute;
-        right: 31%;
-        bottom: 4%;
-        z-index: -3;
-        &:hover {
-            transform: scale(1.1);
-            background-color:#f5e8bd;
-            transition: 0.5s;
-            border: 0.5px solid black;
-        }
-        @media all and (min-width: 1600px) and (max-width: 1920px) {
-            bottom: 1%;
-        }
-        @media all and (min-width: 1440px) and (max-width: 1599px) {
-            right: 28%;
-            bottom: 1%;
-        }
-        @media all and (min-width: 1200px) and (max-width: 1439px) {
-            right: 23%;
-            bottom: 2%;
-        }
-        @media all and (min-width: 992px) and (max-width: 1199px) {
-            bottom: 5%;
-            right: 26.5%;
-            z-index: 2;
-        }
-        @media all and (min-width: 768px) and (max-width: 991px) {
-            right: 19.5%;
-            bottom: 1%;
-        }
-        @media all and (min-width: 576px) and (max-width: 767px) {
-            right: 5%;
-            bottom: 26%;
-            z-index: 2;
-        }
-        @media all and (max-width: 575px) {
-            @include circle(180px, #F4EFDF);
-            right: 1%;
-            bottom: 26%;
-        }
-        .content {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-35%);
-            top: 25%;
-            p {
-                font-size: $fontSize;
-                white-space: nowrap;
-                line-height: 1.5;
-                @media all and (max-width: 575px) {
-                    font-size: 0.8*$fontSize;
-                }
-            }
-        }
-        button {
-            // padding: 5px 14px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 15%;
-            // border-radius: 8px;
-            @media all and (max-width: 575px) {
-                bottom: 8%;
-            }
-        }
-    }
-    .team_4 {
-        @include circle(225px, #B71E68);
-        position: absolute;
-        right: 14%;
-        bottom: 23%;
-        z-index: -3;
-        &:hover {
-            transform: scale(1.1);
-            background-color:#ffcce5;
-            transition: 0.5s;
-            border: 0.5px solid black;
-        }
-        @media all and (min-width: 1600px) and (max-width: 1920px) {
-            bottom: 23%;
-        }
-        @media all and (min-width: 1440px) and (max-width: 1599px) {
-            right: 7%;
-            bottom: 23%;
-        }
-        @media all and (min-width: 1200px) and (max-width: 1439px) {
-            bottom: 23%;
-            right: 4%;
-        }
-        @media all and (min-width: 992px) and (max-width: 1199px) {
-            bottom: 1%;
-            right: 2%;
-        }
-        @media all and (min-width: 768px) and (max-width: 991px) {
-            right: 3%;
-            bottom: 22%;
-        }
-        @media all and (min-width: 576px) and (max-width: 767px) {
-            right: 5%;
-            bottom: 1%;
-        }
-        @media all and (max-width: 575px) {
-            @include circle(180px, #B71E68);
-            right: 1%;
-            bottom: 1%;
-        }
-        .content {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-35%);
-            top: 25%;
-            p {
-                font-size: $fontSize;
-                white-space: nowrap;
-                line-height: 1.5;
-                @media all and (max-width: 575px) {
-                    font-size: 0.8*$fontSize;
-                }
-            }
-        }
-        button {
-            // padding: 5px 14px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 15%;
-            // border-radius: 8px;
-            @media all and (max-width: 575px) {
-                bottom: 8%;
-            }
-        }
-    }
+
     .twoPeople {
         background-image: url(../image/home/second_screen_twoPeople.svg);
         width: 380px;
@@ -1188,7 +1366,7 @@ section.fourth_screen {
             top: 14%;
         }
         @media all and (max-width: 575px) {
-            top: 16%;
+            top: 21%;
         }
         .chu_row1 {
             display: flex;
@@ -1205,7 +1383,7 @@ section.fourth_screen {
                 flex-direction: column;
             }
             @media all and (max-width: 575px) {
-                top: 8%;
+                top: 10%;
                 flex-direction: column;
             }
             .chu_left {
@@ -1243,6 +1421,7 @@ section.fourth_screen {
                     width: 230px;
                     height: 230px;
                     top: 20%;
+                    margin-bottom: 20px;
                 }
                 .chu_left_icon1 {
                     margin-top: 15px;

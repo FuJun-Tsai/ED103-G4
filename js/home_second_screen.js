@@ -20,17 +20,43 @@ $(document).ready(function(){
 
             // console.log(data[0]);
             // console.log(resData);
+
+
+
+
+
+
+
+
+            // for(let i=0; i<5; i++){
+            //     $('.container').append(
+            //     `
+            //     <div class="store" id="store${i+1}">
+            //     <a href="#"><img src="./image/${resData[i].RES_IMAGE1}" alt="#"></a>
+            //     <h4>${resData[i].RES_NAME}</h4>
+            //     <input type="hidden" value="${resData[i].RES_NO}">
+            //     </div>
+            //     `
+            //     )
+            // }
+
+
             for(let i=0; i<5; i++){
                 $('.container').append(
                 `
                 <div class="store" id="store${i+1}">
-                <a href="#"><img src="./image/${resData[i].RES_IMAGE1}" alt="#"></a>
+                <a href="http://140.115.236.71/demo-projects/ED103/ED103G4/G4/singlerestaurant.html?RES_NO=${resData[i].RES_NO}"><img src="./image/${resData[i].RES_IMAGE1}" alt="#"></a>
                 <h4>${resData[i].RES_NAME}</h4>
                 <input type="hidden" value="${resData[i].RES_NO}">
                 </div>
                 `
                 )
             }
+
+
+
+
+
             // let Res_NO = storeContainer.querySelectorAll('div input');
             // var aaa=Res_NO[2].value;
             // console.log(aaa);
@@ -40,7 +66,7 @@ $(document).ready(function(){
             console.log(groupData1);
             
 
-            for(let j=0; j<4; j++){
+            for(let j=0; j<4 && groupData1.length; j++){
                 $('.fourTeam').append(
                 `
                 <div class="team team_${j+1}">
@@ -59,7 +85,26 @@ $(document).ready(function(){
                 )
             }
 
+
             left();
+
+
+
+            // $('.team team_3').on('click',function(){
+            // alert(3);
+            // });
+
+
+            //clcik
+// ------------------------------------------------
+
+
+
+
+
+
+
+
             
         },
 
@@ -149,7 +194,7 @@ Rarrow.addEventListener("click",function(){
 
             $('.fourTeam').empty();
 
-            for(let j=0; j<4; j++){
+            for(let j=0; j<4 && j<groupData1.length; j++){
                 $('.fourTeam').append(
                 `
                 <div class="team team_${j+1}">
@@ -167,8 +212,9 @@ Rarrow.addEventListener("click",function(){
                 `
                 )
             }
+        
         }
-    });
+    });   
 
 });
 
@@ -210,7 +256,7 @@ function left(){
     
                 $('.fourTeam').empty();
     
-                for(let j=0; j<4; j++){
+                for(let j=0; j<4 && j<groupData2.length; j++){
                     $('.fourTeam').append(
                     `
                     <div class="team team_${j+1}">
@@ -228,12 +274,140 @@ function left(){
                     `
                     )
                 }
+                
+                $('.btn_5').on('click', function() {
+                    // alert(2);
+                    console.log(123);
+
+                    let GROUP_NO = box.querySelectorAll('div');
+                    var ccc=GROUP_NO[2].value;
+                    console.log(ccc);
+                    
+
+
+                    $.ajax({
+                        url: 'home_fourTeam.php',
+                        type: 'GET',
+                        data: {
+                            GROUP_NO: ccc
+                        },
+                        dataType: 'json',
+                        complete(data) {
+
+
+
+
+
+                            console.log(test);
+
+
+
+
+
+
+
+                            let memberName = data.responseJSON[3];
+
+                            for (let i = 0; i < memberName.length; i++) {
+                                $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
+                                    `
+                                <p>${memberName[i].MEMBER_NAME}</p>
+                                `)
+                            }
+
+
+
+                            var foodGroupBox = data[2];
+                            var ccc = this.children[0].innerText;
+                            let denEatGroupNum = $('.btn_5 btn_js').index(this);
+                            // $('.den_box3').css('display','flex');
+                            // $('.den_box3').css('position','absolute');
+                            $('.den_box3_row').empty();
+                            $('.den_box3_row').append(`
+                            <div class="box3_row_left">
+                                <div class="main_img">
+                                    <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE1}">
+                                </div>
+                                <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE1}">
+                                <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE2}">
+                                <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE3}">
+                                <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE4}">
+                            </div>
+                            <div class="box3_row_right">
+                                <div>
+                                    <div class="collection">           
+                                        <span>收藏</span>         
+                                        <img src="./image/den_image/fourth_screen_redHollowHeart.png">
+                                    </div>
+                                    <br>
+                                    <h3>團號:</h3>
+                                    <h3 class="groupNo">${foodGroupBox[denEatGroupNum].GROUP_NO}</h3>
+                                    <br>
+                                    <h3>團名:</h3>
+                                    <h3>${foodGroupBox[denEatGroupNum].GROUP_NAME}</h3>
+                                    <br>
+                                    <h3>店名:</h3>
+                                    <h3>${foodGroupBox[denEatGroupNum].RES_NAME}</h3>
+                                    <br>
+                                    <h6>${foodGroupBox[denEatGroupNum].KIND_NAME}</h6>
+                                    <h6>${foodGroupBox[denEatGroupNum].STYLE_NAME}</h6>
+                                    
+                                </div>
+                                <div>
+                                    <h3>開團團主:</h3>
+                                    <h3>${foodGroupBox[denEatGroupNum].MEMBER_NAME}</h3>
+                                    <br>
+                                    <div class="den_groupPeople">
+                                        <h3>目前人數:</h3>
+                                    </div>                               
+                                    <h3>用餐時間:</h3>
+                                    <h3>${foodGroupBox[denEatGroupNum].MEAL_TIME}</h3>
+                                    <br>
+                                </div>
+                                <div>
+                                    <h3>店家資訊</h3>
+                                    <br>
+                                    <h3>地址:</h3>
+                                    <h3>${foodGroupBox[denEatGroupNum].RES_ADDRESS}</h3>
+                                    <a href="">
+                                        <img src="" alt="">
+                                    </a>
+                                    <br>
+                                    <h3>電話:</h3>
+                                    <h3>${foodGroupBox[denEatGroupNum].RES_TEL}</h3>
+                                    <br>
+                                    <h3>營業時間:</h3>
+                                    <h3>${foodGroupBox[denEatGroupNum].RES_START}-${foodGroupBox[denEatGroupNum].RES_CLOSE}</h3>
+                                </div>
+                            </div>
+                            `)
+                            $('.den_box3').css('display', 'block');
+                            $('.box_background').css('display', 'block');
+
+
+
+
+
+
+
+
+                        }
+                    });
+                    // clickImg3();
+
+
+
+                });
+                //--------------------------
+                // getNewGroup();
+                //--------------------------
             }
         });
 
     },false);
     Larrow.click();
 
+    
 }
 
 
