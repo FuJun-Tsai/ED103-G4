@@ -21,13 +21,17 @@ try{
                 R.RES_SUMMARY,
                 R.RES_STATUS,
                 R.RES_START,
-                R.RES_CLOSE
-
+                R.RES_CLOSE,
+                R.RES_STYLE,
+                R.RES_KIND
 
             FROM `restaurant_management` R
                 JOIN `RESTAURANT_KIND` K on( R.RES_KIND = K.KIND_NO)
                 
-                JOIN `RESTAURANT_STYLE` S on( R.RES_STYLE = S.STYLE_NO);';
+                JOIN `RESTAURANT_STYLE` S on( R.RES_STYLE = S.STYLE_NO)
+
+            ORDER BY R.RES_NO ASC
+            ;';
 
     $data = $pdo->prepare($sql);
     $data-> execute();

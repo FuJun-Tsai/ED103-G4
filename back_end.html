@@ -318,6 +318,7 @@
                                         <option value="5">東南亞</option>
                                     </select><span class="backerror">必填！</span>
                                     <br>
+                                    <br>
                                     <span>餐廳種類</span>
                                     <select name="reskind" id="" class="reskind">
                                         <option value="1">第一項</option>
@@ -331,8 +332,7 @@
                                 <span>餐廳電話</span>
                                 <input type="text" class="resphone" name="resphone"><span class="backerror">必填！</span>
                                 <br>
-                                <span>餐廳狀態</span>
-                                <input type="text" class="resstatus" name="resstatus">
+                                
                                 <br>
                                 <span>餐廳地址</span>
                                 <input type="text" class="resaddress" name="resaddress"><span class="backerror">必填！</span>
@@ -364,11 +364,11 @@
                                 <input type="text" class="resintro" name="resintro"><span class="backerror">必填！</span>
                                 
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                                <button id="res_add_submit" type="submit" class="btn_5" value=""><i class="fas fa-save"></i></button>
+                            </div>
                         </form>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                            <button id="res_add_submit" type="button" class="btn_5"><i class="fas fa-save"></i></button>
-                        </div>
                     </div>
                     </div>
                 </div>
@@ -381,9 +381,8 @@
                         <tr> 
                             <th class="col-md-1 col-xs-1">編號</th>
                             <th class="col-md-2 col-xs-2">風格&種類</th>
-                            <th class="col-md-3 col-xs-3">餐廳名稱</th> 
+                            <th class="col-md-4 col-xs-4">餐廳名稱</th> 
                             <th class="col-md-3 col-xs-3">餐廳電話</th>
-                            <th class="col-md-1 col-xs-1">餐廳狀態</th>
                             <th class="col-md-3 col-xs-3">按鈕</th>
                          </tr> 
                          <tr class="warning no-result">
@@ -929,91 +928,106 @@
               type:'GET',
               dataType:'json',
               success(data){
-                //   console.log(data);
+                  console.log(data);
                 //   console.log(data.length);
                 //   console.log(data[0].RES_NAME);
                   for(let i=0 ; i<=data.length -1 ; i+=1){
+
                       $('.tbl_res_adm tbody').append(`
                       <tr class="row_h"> 
                             <td scope="row" class="td_RES_NO">${data[i].RES_NO}</td> 
                             <td>${data[i].STYLE_NAME},${data[i].KIND_NAME}</td> 
                             <td>${data[i].RES_NAME}</td> 
                             <td>${data[i].RES_TEL}</td> 
-                            <td>${data[i].RES_STATUS}</td> 
+                             
                             <td>
                                
-                                <button class="btn_5" data-toggle="modal" data-target="#res_adm_modify">
+                                <button class="btn_5" data-toggle="modal" data-target="#res_chg_modify" value="${data[i].RES_KIND}&${data[i].RES_STYLE}">
                                      <i class="fas fa-pencil-alt"></i>
                                 </button>
                                     <!-- 餐廳修改燈箱 -->
-                                    <div class="modal fade" id="res_adm_modify" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal fade" id="res_chg_modify" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h3 class="modal-title" id="modify_amdbtnModalLongTitle">修改餐廳</h3>
                                             </div>
-                                            <div class="modal-body">
-                                                <span>餐廳名稱</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳風格</span>
-                                                    <select name="" id="">
-                                                        <option value="">第一項</option>
-                                                        <option value="">第二項</option>
-                                                        <option value="">第三項</option>
-                                                        <option value="">第四項</option>
-                                                        <option value="">第五項</option>
-                                                    </select>
-                                                <br>
-                                                <span>餐廳種類</span>
-                                                    <select name="" id="">
-                                                        <option value="">第一項</option>
-                                                        <option value="">第二項</option>
-                                                        <option value="">第三項</option>
-                                                        <option value="">第四項</option>
-                                                        <option value="">第五項</option>
-                                                    </select>
-                                                <br>
-                                                <span>餐廳電話</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳狀態</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳地址</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳營業日</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳開始營業時間</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳結束營業時間</span>
-                                                <input type="text">
-                                                <br>
-                                                <br>
-                                                <span>餐廳圖片:</span>
-                                                <br>
-                                                <br>
-                                                <br>
-                                                <span>圖片1</span><input type="file" name="upFile">
-                                                <span>圖片2</span><input type="file" name="upFile">
-                                                <span>圖片3</span><input type="file" name="upFile">
-                                                <span>圖片4</span><input type="file" name="upFile">
-                                                <input type="submit" name="submit">
-                                                <br>
-                                                <span>餐廳簡介</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳詳細介紹</span>
-                                                <input type="text">
-                                                
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                                                <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
-                                            </div>
+
+                                            <form name="chgres" action="back_res_chg.php" method="POST" enctype="multipart/form-data">
+                                                <div class="modal-body">
+                                                    <span>餐廳名稱</span>
+                                                    <input type="text" name="resname" value="${data[i].RES_NAME}">
+                                                    <br>
+                                                    <span>餐廳風格</span>
+                                                        <select name="resstyle" id="" value="">
+                                                            <option value="1">日式</option>
+                                                            <option value="2">西式</option>
+                                                            <option value="3">中台</option>
+                                                            <option value="4">韓式</option>
+                                                            <option value="5">東南亞</option>
+                                                        </select>
+                                                    <br>
+                                                    <span>餐廳種類</span>
+                                                        <select name="reskind" id="" value="${data[i].RES_KIND}">
+                                                            <option value="1">第一項</option>
+                                                            <option value="2">第二項</option>
+                                                            <option value="3">第三項</option>
+                                                            <option value="4">第四項</option>
+                                                            <option value="5">第五項</option>
+                                                            <option value="6">第六項</option>
+                                                        </select>
+                                                        <br>
+                                                    <span>餐廳電話</span>
+                                                    <input type="text" class="resphone" name="resphone" value="${data[i].RES_TEL}">
+                                                    <br>
+                                                    
+                                                    <br>
+                                                    <span>餐廳地址</span>
+                                                    <input type="text" class="resaddress" name="resaddress" value="${data[i].RES_ADDRESS}">
+                                                    <br>
+                                                    <span>餐廳營業日</span>
+                                                    <input type="text" class="reswork" name="reswork" value="${data[i].RES_TEL}">
+                                                    <br>
+                                                    <span>餐廳開始營業時間</span>
+                                                    <input type="text" class="resstart" name="resstart" value="${data[i].RES_START}">
+                                                    <br>
+                                                    <span>餐廳結束營業時間</span>
+                                                    <input type="text" class="resclose" name="resclose" value="${data[i].RES_CLOSE}">
+                                                    <br>
+                                                    <br>
+                                                    <span>餐廳圖片:</span>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <img style="width:70px; height:70px;" src="./image/restaurant_management_img/${data[i].RES_IMAGE1}">
+                                                    <img style="width:70px; height:70px;" src="./image/restaurant_management_img/${data[i].RES_IMAGE2}">
+                                                    <img style="width:70px; height:70px;" src="./image/restaurant_management_img/${data[i].RES_IMAGE3}">
+                                                    <img style="width:70px; height:70px;" src="./image/restaurant_management_img/${data[i].RES_IMAGE4}">
+                                                    <br>
+                                                    <span>圖片1</span><input type="file" name="upFile1" class="resimg[]" id="img01">
+                                                    <span>圖片2</span><input type="file" name="upFile2" class="resimg[]" id="img02">
+                                                    <span>圖片3</span><input type="file" name="upFile3" class="resimg[]" id="img03">
+                                                    <span>圖片4</span><input type="file" name="upFile4" class="resimg[]" id="img04">
+                                                    
+                                                    <br>
+                                                    <span>餐廳簡介：</span>
+                                                    <br>
+                                                    <br>
+                                                    <textarea class="ressum" name="ressum" cols="50" rows="10">${data[i].RES_SUMMARY}</textarea>
+                                                    <br>
+                                                    <br>
+                                                    <span>餐廳詳細介紹：</span>
+                                                    <br>
+                                                    <br>
+                                                    <textarea class="resintro" name="resintro" cols="50" rows="10" >${data[i].RES_INTRODUCTION}</textarea>
+                                                    
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                                                    <button type="submit" class="btn_5" id="res_chg_submit" value="${data[i].RES_NO}"><i class="fas fa-save"></i></button>
+                                                </div>
+                                            </form>
+
                                         </div>
                                         </div>
                                     </div>
@@ -1093,7 +1107,14 @@
                             
                         </tr> 
                       `);
+
+
                   };
+
+                  $().on('click',function(){
+                      
+                  });
+
                   function restend(){
                     //   console.log(1);
                     let ua = navigator.userAgent,
@@ -1107,6 +1128,9 @@
                     }  
                     
                 }
+
+                // $(`select[name='reskind'] option:nth-child(${data[i].RES_KIND})`).attr('selected','true');
+                // $(`select[name='resstyle'] option:nth-child(${data[i].RES_STYLE})`).attr('selected','true');
                
                 restend();
                 // deleteRES();
@@ -1158,8 +1182,8 @@
 
     <script>
 
-        $(document).on('click', '#res_add_submit', function(){
-            $('form').submit();
+        // $(document).on('click', '#res_add_submit', function(){
+            // $("form[name='addres']").submit();
             // let name = document.querySelector('.resname').value ;
             // let style = document.querySelector('.resstyle').value ;
             // let kind = document.querySelector('.reskind').value ;
@@ -1243,7 +1267,7 @@
 
             // }
 
-        });
+        // });
     </script>
 
    
