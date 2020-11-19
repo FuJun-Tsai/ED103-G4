@@ -8,11 +8,8 @@
     <link rel="stylesheet" href="./css/game.css">
     <link rel="stylesheet" href="./css/allstyle.css">
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
-    <link rel="stylesheet" href="./sass/vender/other/dice.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'></script>
     <script src="./js/monopoly.js"></script>
-
 </head>
 
 <body>
@@ -162,26 +159,64 @@
 
     <div class="map">
         <div class="game_content">
-
             <h3>遊玩說明:</h3>
-            <h3>遊戲採用拖曳骰子移動，提供隨機性餐廳跟餐廳資訊以於開團/參團，或點選格子選擇想要的餐廳</h3>
-
+            <h3>遊戲採用點擊骰子，提供隨機性餐廳跟餐廳資訊以於開團/參團，或點選格子選擇想要的餐廳</h3>
         </div>
         <div class="den_map_title">
-            <h3>按住骰子拖曳滑動擲骰</h3>
+            <h3>點擊骰子擲骰</h3>
             <h4 class="player_name" style="display: none;"></h4>
         </div>
+
         <!--骰子-->
-        <section class="dice-container">
-            <div id="denDice" class="show-front">
-                <figure class="front"></figure>
-                <figure class="back"></figure>
-                <figure class="right"></figure>
-                <figure class="left"></figure>
-                <figure class="top"></figure>
-                <figure class="bottom"></figure>
+        <div id="ui_dado">
+            <p id="result"></p>
+            <div id="platform">
+                <div id="dice">
+                    <div class="side front">
+                        <div class="dot center"></div>
+                    </div>
+                    <div class="side front inner"></div>
+                    <div class="side top">
+                        <div class="dot dtop dleft"></div>
+                        <div class="dot dbottom dright"></div>
+                    </div>
+                    <div class="side top inner"></div>
+                    <div class="side right">
+                        <div class="dot dtop dleft"></div>
+                        <div class="dot center"></div>
+                        <div class="dot dbottom dright"></div>
+                    </div>
+                    <div class="side right inner"></div>
+                    <div class="side left">
+                        <div class="dot dtop dleft"></div>
+                        <div class="dot dtop dright"></div>
+                        <div class="dot dbottom dleft"></div>
+                        <div class="dot dbottom dright"></div>
+                    </div>
+                    <div class="side left inner"></div>
+                    <div class="side bottom">
+                        <div class="dot center"></div>
+                        <div class="dot dtop dleft"></div>
+                        <div class="dot dtop dright"></div>
+                        <div class="dot dbottom dleft"></div>
+                        <div class="dot dbottom dright"></div>
+                    </div>
+                    <div class="side bottom inner"></div>
+                    <div class="side back">
+                        <div class="dot dtop dleft"></div>
+                        <div class="dot dtop dright"></div>
+                        <div class="dot dbottom dleft"></div>
+                        <div class="dot dbottom dright"></div>
+                        <div class="dot center dleft"></div>
+                        <div class="dot center dright"></div>
+                    </div>
+                    <div class="side back inner"></div>
+                    <div class="side cover x"></div>
+                    <div class="side cover y"></div>
+                    <div class="side cover z"></div>
+                </div>
             </div>
-        </section>
+        </div>
 
         <div class="box" id="b16">
 
@@ -323,7 +358,6 @@
         <source src="https://alexerlandsson.github.io/assets/codepen/roll-the-dice/sound/dice-sound.mp3"></source>
       </audio>
 
-    <script src="./js/dice.js"></script>
     <script src="./js/initializing.js"></script>
     <script src="./js/data.js"></script>
     <script src="./js/msg.js"></script>

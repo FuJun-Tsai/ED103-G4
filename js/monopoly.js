@@ -1,58 +1,78 @@
 $(document).ready(function() {
-    function joinPage() {
-
-    }
-
-    function openPage() {
-
-    }
-
 
     var s = 1;
     var v = 800;
     var po1 = 0;
     var boxes = [];
     var i1 = document.querySelector("#player1");
+    console.log('123');
 
-    $(".dice-container").on("dragstop ", game);
+    //點擊執行骰子
+    $('#platform').on('click', dado);
+
+    //骰子function();
+    function dado() {
+        $('#platform').removeClass('stop').addClass('playing');
+        $('#dice');
+        setTimeout(function() {
+            $('#platform').removeClass('playing').addClass('stop');
+            var number = Math.floor(Math.random() * 6) + 1;
+            var x = 0,
+                y = 20,
+                z = -20;
+            switch (number) {
+                case 1:
+                    x = 0;
+                    y = 20;
+                    z = -20;
+                    break;
+                case 2:
+                    x = -100;
+                    y = -150;
+                    z = 10;
+                    break;
+                case 3:
+                    x = 0;
+                    y = -100;
+                    z = -10;
+                    break;
+                case 4:
+                    x = 0;
+                    y = 100;
+                    z = -10;
+                    break;
+                case 5:
+                    x = 80;
+                    y = 120;
+                    z = -10;
+                    break;
+                case 6:
+                    x = 0;
+                    y = 200;
+                    x = 10;
+                    break;
+            }
+            $('#dice').css({
+                'transform': 'rotateX(' + x + 'deg) rotateY(' + y + 'deg) rotateZ(' + z + 'deg)'
+            });
+
+            $('#platform').css({
+                'transform': 'translate3d(0,0, 0px)'
+            });
+
+            $('#result').html(number);
+            game(number);
+
+        }, 1120);
 
 
+    };
 
-    function game() {
-        //骰子点数显示
-        var num = Math.ceil(Math.random() * 6);
+    //遊戲開始，人物跑動
+    function game(num) {
+        let result = $('#result').text()
         var bgi = Math.ceil(Math.random() * 2);
         console.log(num);
-
-        function rollDice(side) {
-            var dice = $("#denDice");
-            var currentClass = dice.attr("class");
-            var newClass = "show-" + side;
-
-            dice.removeClass();
-            dice.addClass(newClass);
-
-        }
-
-        if (num == 6) {
-            rollDice("front");
-            console.log('6');
-        } else if (num == 1) {
-            rollDice("back");
-            console.log('1');
-        } else if (num == 4) {
-            rollDice("right");
-            console.log('4');
-        } else if (num == 3) {
-            rollDice("left");
-            console.log('3');
-        } else if (num == 2) {
-            rollDice("top");
-            console.log('2');
-        } else if (num == 5) {
-            rollDice("bottom");
-            console.log('5');
-        }
 
         if (s == 1) {
             var move = setInterval(p1move, v);
@@ -106,6 +126,18 @@ $(document).ready(function() {
                                 <p>${e[position].RES_SUMMARY}</p>
                             `
                         );
+
+                        function clickGameImg() {
+
+                            $('.purchasebox_content_left .vice_img > img').not('.purchasebox_content_left .vice_img > img:nth-child(1)').addClass('togray');
+                            $('.purchasebox_content_left .vice_img > img').on('click', function() {
+                                $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                                $('.purchasebox_content_left .vice_img > img').addClass('togray');
+                                $(this).removeClass('togray');
+                            });
+                        }
+                        clickGameImg();
+
 
                     }
                 }

@@ -51,7 +51,6 @@ try{
   }
   $sql.=" order by RES_NO ASC";
   
-// echo $sql ,'<br>','<br>','<br>';
   $data0 = $pdo->prepare($sql);
   $data0-> execute();
 
@@ -75,8 +74,6 @@ join member_management MM on(T.FRIENDS_NO=MM.MEMBER_NO)
   $data1Rows = $data1->fetchAll(PDO::FETCH_ASSOC);
   $result[1] = $data1Rows;
   
-  // print_r($result[1]);
-
   //美食團資訊
   $sql2 = "
   select distinct 
