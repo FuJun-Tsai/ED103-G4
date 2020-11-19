@@ -1242,16 +1242,36 @@
                 // });
 
             // }
-      
 
         });
     </script>
 
    
 
-
+    <!-- 刪除餐廳 -->
     <script>
-      
+        // function deleteRES(){
+        //  $('.restrash').on('click', function(){
+        //      let resno = $(this).parent().siblings('.td_RES_NO').text();
+        //      $.ajax({
+        //          url:'back_res_del.php',
+        //          type:'GET',
+        //          dataType:'json',
+        //          data:{
+        //              res_no_del:resno,
+        //          },
+        //          success:function(res){
+                     
+        //          console.log('OK');
+        //          },
+        //          complete: function(){}
+                 
+        //      });
+        //      $(this).parent().parent().remove();
+            
+        //      });
+        //  }
+
          // 修改餐廳
         //  function changeAMD(){
         //  $('.submit').on('click',function(){
@@ -1286,11 +1306,10 @@
                 type:'GET',
                 dataType:'json',
                 success(data){
-                    console.log(data);
-                    console.log(data.length);
-                    console.log(data[0].MESSAGE_NO);
+                    // console.log(data);
+                    // console.log(data.length);
+                    // console.log(data[0].MESSAGE_NO);
                     for(let i=0 ; i<=data.length-1 ; i+=1){
-                        console.log(data[i]);
                         $('.res_ban_table tbody').append(`
                         <tr class="row_h"> 
                                     <td class="td_resre_NO">${data[i].RES_MES_RE_NO}</td> 
@@ -1308,8 +1327,9 @@
                         `);
                     };
                  
-                        deleteRESRE();
+                        // deleteRESRE();
                         
+
                 }
 
             });
@@ -1341,7 +1361,7 @@
         //     }
       </script>
 
-       <!-- 留言接資料庫 -->
+       <!-- 文章接資料庫 -->
       <script>
           $(document).ready(function(){
 
@@ -1406,7 +1426,6 @@
         </script>
 
 
-    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
