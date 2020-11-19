@@ -599,6 +599,68 @@ table{
       }
       
     }
+
+    //文章檢舉
+    #article_adm{
+      .article_table{
+
+        width: 99%;
+        margin: 0 auto;
+        line-height: 20px;
+        align-items: center;
+        border-radius: 20px 20px 0 0;
+        @media all and(max-width:992px) {
+          width: 992px;
+        }
+        .article_adm_ti{
+          background-color: #9B1E23;
+            tr{
+              height: 40px;
+              th{
+                vertical-align: middle;
+                border: 1px solid #ddd;
+                text-align:center;
+                color: #FFF;
+              }
+          }
+        }
+        tbody{       
+          tr{
+            background-color: rgba(245, 222, 179, .4);
+            border: 0.1px solid rgba(245, 222, 179, 1);
+            &:hover {
+              cursor: pointer;
+              background-color: rgba(245, 222, 179, .8);
+              border: 0.1px solid rgba(245, 222, 179, 1);
+          }
+            td{
+              border:0.1px solid #FFF;
+              // line-height: 50px;
+              align-items: center;
+              button{
+                background: #DF7219;
+                border: 0.1px solid rgba(255, 255, 255, 0);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin: 10px;
+                &:hover{
+                  background: #FFF;
+                  border: 0.1px solid #DF7219;
+                }
+                &:hover i{
+                  color: #DF7219;
+                }
+                i{  
+                  color: #FFF;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+    }
     
     // 聊天機器人
     // #ai_adm{

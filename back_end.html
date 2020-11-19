@@ -115,17 +115,17 @@
 
     <!-- 側邊欄 -->
     <div class="slidebar">
-      <ul>
+    <ul>
         <li>
             <a href="#administrator" data-toggle="tab">
                 <span class="icon"><i class="fas fa-user-cog"></i></span>
-                <span class="title">管理員管理</span>               
+                <span class="title">管理人員</span>               
             </a>
         </li>
         <li>
             <a href="#member_adm" data-toggle="tab">
                 <span class="icon"><i class="fas fa-address-book"></i></span>
-                <span class="title">會員<br></span>
+                <span class="title">會員名單<br></span>
                 
             </a>
         </li>
@@ -139,18 +139,18 @@
         <li>
             <a href="#report_adm" data-toggle="tab">
                 <span class="icon"><i class="fas fa-ban"></i></span>
-                <span class="title">檢舉審查</span>
+                <span class="title">留言檢舉</span>
                 
             </a>
         </li>
-        <!-- <li>
-            <a href="#ai_adm" data-toggle="tab">
-                <span class="icon"><i class="fas fa-robot"></i></span>
-                <span class="title">聊天機器人管理</span>
+        <li>
+            <a href="#article_adm" data-toggle="tab">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <span class="title">文章檢舉</span>
                 
             </a>
-        </li> -->
-      </ul>
+        </li>
+    </ul>
     </div>
     <div class="toggle" onclick="toggleMenu()"></div>
 
@@ -197,7 +197,6 @@
                             <th class="col-md-3 col-xs-3" style="vertical-align: middle;">管理員帳號</th>
                             <th class="col-md-3 col-xs-3" style="vertical-align: middle;">管理員名稱</th>
                             <th class="col-md-3 col-xs-3" style="vertical-align: middle;">管理員密碼</th>
-                            <!-- <th class="col-md-2 col-xs-2" style="vertical-align: middle;">管理員職稱</th> -->
                             <th class="col-md-2 col-xs-2" style="vertical-align: middle;">按鈕</th>
                         </tr> 
                     </thead>
@@ -206,8 +205,7 @@
                             <td>資料1</td> 
                             <td>資料2</td> 
                             <td>資料2</td> 
-                            <td>資料2</td> 
-                             
+                            <td>資料2</td>
                             <td>
                                 <button class="btn_5" data-toggle="modal" data-target="#modify_amdbtn">
                                     <i class="fas fa-pencil-alt"></i> 
@@ -217,7 +215,7 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                             <h3 class="modal-title" id="modify_amdbtnModalLongTitle">修改資料</h3>
+                                                <h3 class="modal-title" id="modify_amdbtnModalLongTitle">修改資料</h3>
                                             </div>
                                             <div class="modal-body">
                                                 <span>管理員帳號</span>
@@ -229,8 +227,7 @@
                                                 <span>管理員密碼</span>
                                                 <input type="text" >
                                                 <br>
-                                                <span>管理員職稱</span>
-                                                <input type="text">
+                                                
                                             </div>
                                             <div class="modal-footer">
                                                 
@@ -241,53 +238,47 @@
                                         </div>
                                         </div>
                                     </div>
-                              
                             </td>
                         </tr>  -->
-                       
                     </tbody>
                 </table>
-                 
-             </div>
-             <div class="tab-pane" id="member_adm">
-                 <h2 class="backend_h2">
-                     會員管理
-                 </h2>
-                 <div class="mem_search form-group pull-right">
+            </div>
+                <div class="tab-pane" id="member_adm">
+                    <h2 class="backend_h2">
+                        會員管理
+                    </h2>
+                <div class="mem_search form-group pull-right">
                     <input type="text" class="search form-control" placeholder="請輸入關鍵字">
                 </div>
                 <!-- <span class="counter pull-right"></span> -->
-                 <table class="tbl_member_adm table table-hover table-bordered results">
-                     <thead class="member_adm_ti">
-                         <tr> 
-                             <th class="col-md-2 col-xs-2">編號</th> 
-                             <th class="col-md-2 col-xs-2">會員帳號</th>
-                             <th class="col-md-2 col-xs-2">會員名稱</th>
-                             <th class="col-md-2 col-xs-2">會員密碼</th>
-                             <th class="col-md-3 col-xs-3">會員信箱</th>
-                             <!-- <th class="col-md-2 col-xs-2">會員狀態</th> -->
-                             <!-- <th class="col-md-2 col-xs-2">停權</th> -->
-                         </tr> 
-                         <tr class="warning no-result">
-                            <td colspan="4"><i class="fa fa-warning"></i> No result</td>
-                          </tr>
-                     </thead>
-                     <tbody>
-                         <tr> 
-                             <!-- <td scope="row">資料1</td> 
-                             <td>資料2</td>
-                             <td>資料2</td>
-                             <td>資料2</td>
-                             <td>資料2</td>
-                             <td>資料2</td> 
-                             <td>
+                    <table class="tbl_member_adm table table-hover table-bordered results">
+                        <thead class="member_adm_ti">
+                            <tr> 
+                                <th class="col-md-2 col-xs-2">編號</th> 
+                                <th class="col-md-2 col-xs-2">會員帳號</th>
+                                <th class="col-md-2 col-xs-2">會員名稱</th>
+                                <th class="col-md-2 col-xs-2">會員密碼</th>
+                                <th class="col-md-3 col-xs-3">會員信箱</th>
+                            </tr> 
+                            <tr class="warning no-result">
+                                <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr> 
+                            <!-- <td scope="row">資料1</td> 
+                            <td>資料2</td>
+                            <td>資料2</td>
+                            <td>資料2</td>
+                            <td>資料2</td>
+                            <td>資料2</td> 
+                            <td>
                                 <button class="btn_5">
                                     <i class="fas fa-ban"></i>                                 
                                 </button>
                             </td> -->
-                        </tr> 
-                         
-                     </tbody>
+                        </tr>
+                    </tbody>
                 </table>
                 <!-- <div style="height:px;margin:px ;">
                     <span id="spanFirst">第一頁</span>
@@ -297,12 +288,12 @@
                     第<span id="spanPageNum"></span>頁/共
                     <span id="spanTotalPage"></span>頁
                 </div> -->
-             </div>
-             <div class="tab-pane" id="restaurant_adm">
-                 <h2 class="backend_h2">
-                     餐廳管理
-                 </h2>
-                 <button class="res_adm_add btn_5"data-toggle="modal" data-target="#res_adm_addbox">
+            </div>
+            <div class="tab-pane" id="restaurant_adm">
+                <h2 class="backend_h2">
+                    餐廳管理
+                </h2>
+                <button class="res_adm_add btn_5"data-toggle="modal" data-target="#res_adm_addbox">
                     <i class="fas fa-plus"></i>
                     
                 </button>
@@ -381,20 +372,19 @@
                     </div>
                     </div>
                 </div>
-                 <!-- <div class="mem_search form-group pull-right">
+                <!-- <div class="mem_search form-group pull-right">
                     <input type="text" class="res_adm_search form-control" placeholder="請輸入關鍵字">
                 </div> -->
                 
-                 <table class="tbl_res_adm">
-                     
+                <table class="tbl_res_adm">
                     <thead class="res_adm_ti">
-                         <tr> 
-                             <th class="col-md-1 col-xs-1">編號</th>
-                             <th class="col-md-2 col-xs-2">風格&種類</th>
-                             <th class="col-md-3 col-xs-3">餐廳名稱</th> 
-                             <th class="col-md-3 col-xs-3">餐廳電話</th>
-                             <th class="col-md-1 col-xs-1">餐廳狀態</th>
-                             <th class="col-md-3 col-xs-3">按鈕</th>
+                        <tr> 
+                            <th class="col-md-1 col-xs-1">編號</th>
+                            <th class="col-md-2 col-xs-2">風格&種類</th>
+                            <th class="col-md-3 col-xs-3">餐廳名稱</th> 
+                            <th class="col-md-3 col-xs-3">餐廳電話</th>
+                            <th class="col-md-1 col-xs-1">餐廳狀態</th>
+                            <th class="col-md-3 col-xs-3">按鈕</th>
                          </tr> 
                          <tr class="warning no-result">
                             <td colspan="4"><i class="fa fa-warning"></i> No result</td>
@@ -545,7 +535,7 @@
              </div>
              <div class="tab-pane" id="report_adm">
                  <h2 class="backend_h2">
-                     檢舉審查
+                     留言檢舉
                 </h2>
                              <table class="res_ban_table report_table table-bordered">
                                  <thead class="word_adm_ti">
@@ -591,149 +581,63 @@
                                      
                                  </tbody>
                              </table>
-                 <div id="jquery-tabs">
-
-                    <!-- <div id="tabs-nav">
-                      <a href="#tab0" class="tabs-menu tabs-menu-active">貼文檢舉</a>
-                      <a href="#tab1" class="tabs-menu">留言檢舉</a>
-                    </div> -->
-                   
-                    <div class="tabs-container">
-                      <div id="tab0" class="tabs-panel" style="display:block">
-                        <!-- <table class="report_table table-bordered">
-                            <thead class="word_adm_ti">
-                                <tr> 
-                                    <th class="col-md-1 col-xs-1">編號</th> 
-                                    <th class="col-md-2 col-xs-2">貼文檢舉編號</th>
-                                    <th class="col-md-4 col-xs-4">檢舉原因</th>
-                                    <th class="col-md-2 col-xs-2">檢舉時間</th>
-                                    <th class="col-md-2 col-xs-2">檢舉狀態</th>
-                                    <th class="col-md-1 col-xs-1">按鈕</th>
-                                </tr> 
-                            </thead>
-                            <tbody>
-                                <tr class="row_h"> 
-                                    <td>資料1</td> 
-                                    <td>資料2</td> 
-                                    <td>資料2</td> 
-                                    <td>資料2</td> 
-                                    <td>資料2</td> 
-                                    <td>
-                                        <button class="btn_5">
-                                            <i class="fas fa-angle-down"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        貼文圖片
-                                        <div>
-                                            <img src="" alt="">
-                                        </div>
-                                    </td>
-                                    <td colspan="3">
-                                        貼文內容
-                                        <div>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <button class="btn_5">
-                                            <i class="fas fa-ban"></i>
-                                            
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table> -->
-                        <!-- <div style="height:px;margin:px ;">
-                            <span id="spanFirst">第一頁</span>
-                            <span id="spanPre">上一頁</span>
-                            <span id="spanNext">下一頁</span>
-                            <span id="spanLast">最後一頁</span>
-                            第<span id="spanPageNum"></span>頁/共
-                            <span id="spanTotalPage"></span>頁
-                        </div> -->
-                      </div>
-                   
-                      <div id="tab1" class="tabs-panel">
-                      </div>
-                   
-                      
-                   
                     </div>
+                    <div class="tab-pane" id="article_adm">
+                        <h2 class="backend_h2">
+                            貼文檢舉
+                       </h2>
+                                    <table class="res_ban_table article_table table-bordered">
+                                        <thead class="article_adm_ti">
+                                            <tr> 
+                                                <th class="col-md-1 col-xs-1">編號</th> 
+                                                <th class="col-md-2 col-xs-2">貼文檢舉編號</th>
+                                                <th class="col-md-3 col-xs-3">檢舉原因</th>
+                                                <th class="col-md-2 col-xs-2">檢舉時間</th>
+                                                <th class="col-md-3 col-xs-3">留言內容</th>
+                                                <th class="col-md-1 col-xs-1">按鈕</th>
+                                            </tr> 
+                                        </thead>
+                                        <tbody>
+                                            <!-- <tr class="row_h"> 
+                                                <td>資料1</td> 
+                                                <td>資料2</td> 
+                                                <td>資料2</td> 
+                                                <td>資料2</td> 
+                                                <td>資料2</td> 
+                                                <td>
+                                                    <button class="btn_5">
+                                                        <i class="fas fa-angle-down"></i>
+                                                        
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5">
+                                                    <span>
+                                                        留言內容:
+                                                    </span>
+                                                    <div>
+                   
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="btn_5">
+                                                        <i class="fas fa-ban"></i>
+                                                        
+                                                    </button>
+                                                </td>
+                                            </tr> -->
+                                            
+                                        </tbody>
+                                    </table>
+                           </div>
                 </div>
                    
              </div>
-             <!-- <div class="tab-pane" id="ai_adm">
-                 <h2>
-                     聊天機器人管理
-                 </h2>
-                 <button class="ai_add btn_5 btn_js">
-                    <i class="fas fa-plus"></i>
-                    <span></span>
-                </button>
-                 <table id="ai_adm_table">
-                     <thead>
-                         <th class="col-md-1 col-xs-1">內容編號</th>
-                         <th class="col-md-4 col-xs-4">問題關鍵字</th>
-                         <th class="col-md-6 col-xs-6">回答內容</th>
-                         <th class="col-md-1 col-xs-1">按鈕</th>
-                     </thead>
-                     <tbody>
-                         <tr>
-                             <td>Row1 cell1</td>
-                             <td>Row1 cell2</td>
-                             <td>Row1 cell2</td>
-                             <td>
-                                <button class="btn_5 btn_js">
-                                    <i class="fas fa-minus"></i>
-                                    <span></span>
-                                </button>
-                             </td>
-                         </tr>
-                         <tr>
-                            <td>Row1 cell1</td>
-                            <td>Row1 cell2</td>
-                            <td>Row1 cell2</td>
-                            <td>
-                                <button class="btn_5 btn_js">
-                                    <i class="fas fa-minus"></i>
-                                    <span></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Row1 cell1</td>
-                            <td>Row1 cell2</td>
-                            <td>Row1 cell2</td>
-                            <td>
-                                <button class="btn_5 btn_js">
-                                    <i class="fas fa-minus"></i>
-                                    <span></span>
-                                </button>
-                            </td>
-                        </tr>
-                     </tbody>
-                    </table>
-                    <div style="height:px;margin:px ;">
-                        <span id="spanFirst">第一頁</span>
-                        <span id="spanPre">上一頁</span>
-                        <span id="spanNext">下一頁</span>
-                        <span id="spanLast">最後一頁</span>
-                        第<span id="spanPageNum"></span>頁/共
-                        <span id="spanTotalPage"></span>頁
-                    </div>
-             </div> -->
     </div>
 
 
-       <!-- ***************************** -->
-    <!-- <footer>
-        <div class="footer">
-            <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
-        </div>
-    </footer> -->
+
 
     <!--hambuger-->
     <script>
@@ -1467,7 +1371,157 @@
                 });
             }
       </script>
-      
+
+       <!-- 留言接資料庫 -->
+      <script>
+          $(document).ready(function(){
+
+            $.ajax({
+                url:'back_res_rep.php',
+                type:'GET',
+                dataType:'json',
+                success(data){
+                    // console.log(data);
+                    // console.log(data.length);
+                    // console.log(data[0].MESSAGE_NO);
+                    for(let i=0 ; i<=data.length-1 ; i+=1){
+                        $('.article_table tbody').append(`
+                        <tr class="row_h"> 
+                                    <td class="td_resre_NO">${data[i].ARTICLE_RE_NO}</td> 
+                                    <td>${data[i].ARTICLE_NO}</td> 
+                                    <td>${data[i].ART_REPORT_REASON}</td> 
+                                    <td>${data[i].ART_REPORT_TIME}</td> 
+                                    
+                                    <td>${data[i].ART_REPORT_STATUS}</td>
+                                    <td>
+                                        <button class="btn_5 resreban" id=rop"${data[i].rop_NO}">
+                                            <i class="fas fa-ban"></i>
+                                        </button>
+                                </td>
+                                </tr> 
+                        `);
+                    };
+                    function down() {
+            
+                        let ua = navigator.userAgent,
+                            event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+                            if ($('.report_table').length > 0) {
+                            $('.report_table tbody .row_h').on(event, function() {
+                            $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
+                                return this.style.display === 'table-row' ? 'none' : 'table-row';
+                            });
+                            });
+                        }
+                        }
+                        deleteRESRE();
+                        
+
+                }
+
+            });
+        });
+
+        // ban留言
+        function deleteRESRE(){
+            $('.resreban').on('click', function(){
+                let td_resrno = $(this).parent().siblings('.td_resre_NO').text();
+                
+                $.ajax({
+                    url:'res_rep_del.php',
+                    type:'GET',
+                    dataType:'json',
+                    data:{
+                        res_re_no_del:td_resrno,
+                    },
+                    
+                    success:function(res){
+                        
+                    console.log('OK');
+                    },
+                    complete: function(){}
+                    
+                });
+                $(this).parent().parent().remove();
+                // parent.location.reload();
+                });
+            }
+        </script>
+
+
+            <!-- 文章接資料庫 -->
+        <script>
+            $(document).ready(function(){
+
+            $.ajax({
+                url:'back_art_rep.php',
+                type:'GET',
+                dataType:'json',
+                success(data){
+                    // console.log(data);
+                    // console.log(data.length);
+                    // console.log(data[0].MESSAGE_NO);
+                    for(let i=0 ; i<=data.length-1 ; i+=1){
+                        $('.res_ban_table tbody').append(`
+                        <tr class="row_h"> 
+                                    <td class="td_resre_NO">${data[i].RES_MES_RE_NO}</td> 
+                                    <td>${data[i].MESSAGE_NO}</td> 
+                                    <td>${data[i].RES_MES_REPORT_REASON}</td> 
+                                    <td>${data[i].RES_MES_REPORT_TIME}</td> 
+                                    
+                                    <td>${data[i].RES_MESSAGE_WORD}</td>
+                                    <td>
+                                        <button class="btn_5 resreban" id=rop"${data[i].rop_NO}">
+                                            <i class="fas fa-ban"></i>
+                                        </button>
+                                </td>
+                                </tr> 
+                        `);
+                    };
+                    function down() {
+            
+                        let ua = navigator.userAgent,
+                            event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+                            if ($('.report_table').length > 0) {
+                            $('.report_table tbody .row_h').on(event, function() {
+                            $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
+                                return this.style.display === 'table-row' ? 'none' : 'table-row';
+                            });
+                            });
+                        }
+                        }
+                        deleteRESRE();
+                        
+
+                }
+
+            });
+        });
+
+        // ban留言
+        function deleteRESRE(){
+            $('.resreban').on('click', function(){
+                let td_resrno = $(this).parent().siblings('.td_resre_NO').text();
+                
+                $.ajax({
+                    url:'res_rep_del.php',
+                    type:'GET',
+                    dataType:'json',
+                    data:{
+                        res_re_no_del:td_resrno,
+                    },
+                    
+                    success:function(res){
+                        
+                    console.log('OK');
+                    },
+                    complete: function(){}
+                    
+                });
+                $(this).parent().parent().remove();
+                // parent.location.reload();
+                });
+            }
+        </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
