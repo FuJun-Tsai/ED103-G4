@@ -101,32 +101,7 @@ try{
     echo $Errmsg;
 }
 
-// header('location:back_end.html');
+header('location:back_end.html');
 ?>
 
 
-
-<!-- 刪除的SQL -->
-<!--
-     
-    呼叫同一支php
-    在不同情境做對應的事情
-    新增的按鈕做上面的sql 
-    刪除的按鈕做下面的sql
-    再多傳送一個值，判斷進入哪一段SQL
-
- -->
-<?php
-    // $sql = "DELETE FROM `amd` 
-    //         WHERE   
-    //             AMD_ID = '$amd_id_add' AND
-    //             AMD_NAME = '$amd_name_add' AND
-    //             AMD_PSD = '$amd_psd_add';";
-                
-    // $data = $pdo -> prepare($sql);
-    // $data-> execute();
-
-    // if($data->rowCount()==0){
-    //     echo '已刪除';
-    // }
-?>

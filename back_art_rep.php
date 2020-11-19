@@ -6,10 +6,10 @@ try{
     require_once('connectbook.php'); //換成自己的 php $pdo來源
     $sql = 'SELECT 
                 A.ARTICLE_RE_NO ,
-                S.ARTICLE_NO,
+                A.ARTICLE_NO,
                 A.ART_REPORT_REASON,
                 A.ART_REPORT_TIME,
-                A.ART_REPORT_STATUS
+                S.ARTICLE_WORD
             FROM article_report A
 	            JOIN article_sharing S on( A.ARTICLE_NO = S.ARTICLE_NO);';
 
