@@ -57,7 +57,6 @@ let member;
       xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
       let data_info = `MEMBER_ID=${MEMBER_ID}&MEMBER_PSW=${MEMBER_PSW}`;
       console.log(data_info);
-
       // memberrender();
       xhr.send(data_info); 
 

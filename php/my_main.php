@@ -2,13 +2,9 @@
 session_start();
 try{
   require_once("../connectbook.php");
-  $sql = " SELECT m.MEMBER_ID, m.MEMBER_PSW, m.MEMBER_NAME, m.MEMBER_AGE, m.MEMBER_SEX, m.MEMBER_EMAIL, m.MEMBER_IMAGE, m.MEMBER_INTRODUCTION, f.GROUP_NO, f.GROUP_NAME, r.RES_NAME, rs.STYLE_NAME, rk.KIND_NAME, m.MEMBER_NAME, f.JOIN_NUMBER, f.MEAL_TIME, r.RES_ADDRESS, r.RES_TEL, r.RES_BUS_HOURS, r.RES_IMAGE1, r.RES_IMAGE2, r.RES_IMAGE3, r.RES_IMAGE4, f.MAX_NUMBER
-  FROM `food_group` f JOIN `member_management` m ON (m.MEMBER_NO = f.MEMBER)
-                      JOIN `restaurant_management` r ON (r.RES_NO = f.RES_NO)
-                      JOIN `restaurant_style` rs ON (rs.STYLE_NO = r.RES_STYLE)
-                      JOIN `restaurant_kind` rk ON (rk.KIND_NO = r.RES_KIND)
-  WHERE m.MEMBER_ID =:MEMBER_ID
-            AND  f.END_TIME >= DATE(NOW())";
+  $sql = " SELECT MEMBER_ID, MEMBER_PSW, MEMBER_NAME, MEMBER_AGE, MEMBER_SEX, MEMBER_EMAIL, MEMBER_IMAGE, MEMBER_INTRODUCTION
+  FROM `member_management` 
+  WHERE MEMBER_ID =:MEMBER_ID";
   $member = $pdo->prepare($sql);
   $member->bindValue(":MEMBER_ID", $_SESSION["MEMBER_ID"]);
   $member->execute();

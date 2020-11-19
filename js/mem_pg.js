@@ -1,3 +1,17 @@
+//渲染
+function memberrender(){
+  let herehref = location.href.split('?')[0].split('/')[location.href.split('?')[0].split('/').length-1];
+
+  if(herehref=='member.php'){
+      // singleJS();
+  };
+
+  if(herehref=='member.php'){
+      // searchJS();
+  };
+
+};
+
 //側邊按鈕切換內容
 function sidetab_change_content(){
   $("button.tabbtn").on("click", function(){
@@ -331,6 +345,43 @@ function no_group_hover(){
 //定義ID
 function $id(id){
 	return document.getElementById(id);
+}
+//註冊 
+function registered(){
+  $("#submit").on("click",function(event){
+    event.preventDefault;
+    var xhr = new XMLHttpRequest();
+    var newmem_account=$("#newmem_account").val();
+    var newmem_psw=$("#newmem_psw").val();
+    var newmem_email=$("#newmem_email").val();
+    var newmem_name=$("#newmem_name").val();
+    var newmem_in=$("#newmem_in").val();
+    var newmem_sex=$("#newmem_sex").val();
+    var newmem_age=$("#newmem_age").val();
+    console.log(newmem_age);
+    xhr.onload = function(){
+      member = JSON.parse(xhr.responseText);
+      if(xhr.status == 200){ //success
+        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        $id("mobileheadshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        $id('spanLogin').innerHTML = '登出';
+        $id('mobilespanLogin').innerHTML = '登出';
+        // document.getElementsByClassName('username')[0].innerText(`${member.MEMBERR_NO}`);
+        $('.username').text(`${member.MEMBER_NO}`);
+        //將登入表單上的資料清空，並隱藏起來
+        
+        $id('login_box').style.display = 'none';
+        MEMBER_ID = '';
+        MEMBER_PSW = '';
+        memberrender();
+      }else{ //error
+      }
+    }
+    xhr.open("POST", "./php/registered.php", true);
+    let data_info = `newmem_account=${newmem_account}&newmem_psw=${newmem_psw}&newmem_email=${newmem_email}&newmem_name=${newmem_name}&newmem_in=${newmem_in}&newmem_sex=${newmem_sex}&newmem_age=${newmem_age}`;
+    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    xhr.send(data_info);
+  });
 }	
 //渲染主頁+開團
 function my_main(){
@@ -347,6 +398,18 @@ function my_main(){
       $id('mem_sex').innerHTML = `${main.MEMBER_SEX}`;
       $id('mem_email').innerHTML = `${main.MEMBER_EMAIL}`;
       $id('mem_introduction').innerHTML = `${main.MEMBER_INTRODUCTION}`;
+    }else{ //error
+      //console.log(xhr.status);
+    }
+  }
+  xhr.open("GET", "./php/my_main.php", true);
+  xhr.send(null);
+}
+function my_group(){
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){ //success
+      main = JSON.parse(xhr.responseText);
       $id('GROUP_NO').innerHTML = `${main.GROUP_NO}`;
       $id('GROUP_NAME').innerHTML = `${main.GROUP_NAME}`; 
       $id('RES_NAME').innerHTML = `${main.RES_NAME}`;
@@ -372,7 +435,7 @@ function my_main(){
       //console.log(xhr.status);
     }
   }
-  xhr.open("GET", "./php/my_main.php", true);
+  xhr.open("GET", "./php/my_group.php", true);
   xhr.send(null);
 }
 //渲染目前想加我開的團的陌生人
@@ -414,7 +477,7 @@ function myGroupNow(){
       //console.log(xhr.status);
     }
   }
-  xhr.open("GET", "./php/my_group.php", true);
+  xhr.open("GET", "./php/my_group_now.php", true);
   xhr.send(null);
 }
 //渲染自己確認參加的團
@@ -724,6 +787,10 @@ function my_friend(){
 }
 //loading就執行
 function start(){
+      //渲染
+      memberrender();
+      //註冊
+      registered();
       //側邊按鈕切換內容
       sidetab_change_content();
       //內頁籤切換
@@ -742,8 +809,10 @@ function start(){
       member_modify();
       //會員修改送出
       member_modifyajax();
-      //個人資訊+開團資訊
+      //個人資訊
       my_main();
+      //開團資訊
+      my_group();
       //審核陌生團員
       myGroupNow();
       //確認餐團
