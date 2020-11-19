@@ -1,53 +1,99 @@
 <?php
 $Errmsg = '';
+$resname = $_REQUEST['resname'];
+$resstyle = $_REQUEST['resstyle'];
+$reskind = $_REQUEST['reskind'];
+$resaddress = $_REQUEST['resaddress'];
+$resphone = $_REQUEST['resphone'];
+$reswork = $_REQUEST['reswork'];
+$resintro = $_REQUEST['resintro'];
+$ressum = $_REQUEST['ressum'];
+$resstart = $_REQUEST['resstart'];
+$resclose = $_REQUEST['resclose'];
+
+$num = 1;
+$type = explode('/',$_FILES['upFile1']['type'])[1];
+$imgname1 = "$resname" . "_" . "{$num}" . ".$type"; 
+$from = $_FILES["upFile1"]["tmp_name"];
+$fileName = $_FILES["upFile1"]["name"];
+$to = "image/restaurant_management_img/{$imgname1}";
+copy($from, $to);
+
+
+$num+=1;
+$type = explode('/',$_FILES['upFile2']['type'])[1];
+$imgname2 = "$resname" . "_" . "{$num}" . ".$type";
+$from = $_FILES["upFile2"]["tmp_name"];
+$fileName = $_FILES["upFile2"]["name"];
+$to = "image/restaurant_management_img/{$imgname2}"; 
+copy($from, $to);
+
+
+$num+=1;
+$type = explode('/',$_FILES['upFile3']['type'])[1];
+$imgname3 = "$resname" . "_" . "{$num}" . ".$type"; 
+$from = $_FILES["upFile3"]["tmp_name"];
+$fileName = $_FILES["upFile3"]["name"];
+$to = "image/restaurant_management_img/{$imgname3}";
+copy($from, $to);
+
+
+$num+=1;
+$type = explode('/',$_FILES['upFile4']['type'])[1];
+$imgname4 = "$resname" . "_" . "{$num}" . ".$type"; 
+$from = $_FILES["upFile4"]["tmp_name"];
+$fileName = $_FILES["upFile4"]["name"];
+$to = "image/restaurant_management_img/{$imgname4}";
+copy($from, $to);
+
 
 try{
-    require_once('connectBooks.php'); //換成自己的 php $pdo來源
-    $res_name_add = $_REQUEST['res_name_add'];
-    $res_style_add = $_REQUEST['res_style_add'];
-    $res_kind_add = $_REQUEST['res_kind_add'];
+    // require_once('connectBooks.php'); //換成自己的 php $pdo來源
+    require_once('connectbook.php');
+    
+    $sql = "INSERT INTO restaurant_management (
+                RES_NAME,
+                RES_STYLE,
+                RES_KIND,
+                RES_ADDRESS,
+                RES_TEL,
+                RES_HOURS,
+                RES_INTRODUCTION,
+                RES_SUMMARY,
+                RES_STATUS,
+                RES_START,
+                RES_CLOSE,
+                RES_IMAGE1,
+                RES_IMAGE2,
+                RES_IMAGE3,
+                RES_IMAGE4
 
+                )
 
-    $sql = "INSERT INTO restaurant_management (AMD_ID, AMD_NAME, AMD_PSD) 
-            VALUES ('$amd_id_add', '$amd_name_add', '$amd_psd_add');";
+            VALUES(
+                '$resname',
+                $resstyle,
+                $reskind,
+                '$resaddress',
+                $resphone,
+                '$reswork',
+                '$resintro',
+                '$ressum',
+                '0',
+                '$resstart',
+                '$resclose',
+                '$imgname1',
+                '$imgname2',
+                '$imgname3',
+                '$imgname4'
 
+            );";
+
+    echo $sql;
     $data = $pdo->prepare($sql);
     $data-> execute();
 
 
-    $sql = 'SELECT 
-                R.RES_NO,
-                R.RES_NAME,
-                K.KIND_NAME,
-                S.STYLE_NAME,
-                R.RES_ADDRESS,
-                R.RES_TEL,
-                R.RES_HOURS,
-                R.RES_INTRODUCTION,
-                R.RES_IMAGE1,
-                R.RES_IMAGE2,
-                R.RES_IMAGE3,
-                R.RES_IMAGE4,
-                R.RES_SUMMARY,
-                R.RES_STATUS,
-                R.RES_START,
-                R.RES_CLOSE
-
-
-            FROM `restaurant_management` R
-                JOIN `RESTAURANT_KIND` K on( R.RES_KIND = K.KIND_NO)
-                
-                JOIN `RESTAURANT_STYLE` S on( R.RES_STYLE = S.STYLE_NO);';
-
-    $data = $pdo->prepare($sql);
-    $data-> execute();
-
-    if($data->rowCount()==0){
-        echo '無法新增';
-    }else{
-        $result = $data->fetch(PDO::FETCH_ASSOC);
-        echo json_encode($result);
-    }
 
 
 }catch(PDOException $e){
@@ -55,7 +101,7 @@ try{
     echo $Errmsg;
 }
 
-
+// header('location:back_end.html');
 ?>
 
 

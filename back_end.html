@@ -313,65 +313,67 @@
                         <div class="modal-header">
                             <h3 class="modal-title" id="modify_amdbtnModalLongTitle">新增餐廳</h3>
                         </div>
-                        <div class="modal-body">
-                            <span>餐廳名稱</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳風格</span>
-                                <select name="" id="">
-                                    <option value="">第一項</option>
-                                    <option value="">第二項</option>
-                                    <option value="">第三項</option>
-                                    <option value="">第四項</option>
-                                    <option value="">第五項</option>
-                                </select>
+                        <form name="addres" action="back_res_add.php" method="POST" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <span>餐廳名稱</span>
+                                <input type="text" class="resname" name="resname"><span class="backerror">必填！</span>
                                 <br>
-                                <span>餐廳種類</span>
-                                    <select name="" id="">
-                                    <option value="">第一項</option>
-                                    <option value="">第二項</option>
-                                    <option value="">第三項</option>
-                                    <option value="">第四項</option>
-                                    <option value="">第五項</option>
-                                    <option value="">第六項</option>
-                                </select>
-                            <br>
-                            <span>餐廳電話</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳狀態</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳地址</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳營業日</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳開始營業時間</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳結束營業時間</span>
-                            <input type="text">
-                            <br>
-                            <br>
-                            <span>餐廳圖片:</span>
-                            <br>
-                            <br>
-                            <br>
-                            <span>圖片1</span><input type="file" name="upFile">
-                            <span>圖片2</span><input type="file" name="upFile">
-                            <span>圖片3</span><input type="file" name="upFile">
-                            <span>圖片4</span><input type="file" name="upFile">
-                            
-                            <br>
-                            <span>餐廳簡介</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳詳細介紹</span>
-                            <input type="text">
-                            
-                        </div>
+                                <span>餐廳風格</span>
+                                    <select name="resstyle" id="" class="resstyle">
+                                        <option value="1">日式</option>
+                                        <option value="2">西式</option>
+                                        <option value="3">中台</option>
+                                        <option value="4">韓式</option>
+                                        <option value="5">東南亞</option>
+                                    </select><span class="backerror">必填！</span>
+                                    <br>
+                                    <span>餐廳種類</span>
+                                    <select name="reskind" id="" class="reskind">
+                                        <option value="1">第一項</option>
+                                        <option value="2">第二項</option>
+                                        <option value="3">第三項</option>
+                                        <option value="4">第四項</option>
+                                        <option value="5">第五項</option>
+                                        <option value="6">第六項</option>
+                                    </select><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳電話</span>
+                                <input type="text" class="resphone" name="resphone"><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳狀態</span>
+                                <input type="text" class="resstatus" name="resstatus">
+                                <br>
+                                <span>餐廳地址</span>
+                                <input type="text" class="resaddress" name="resaddress"><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳營業日</span>
+                                <input type="text" class="reswork" name="reswork"><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳開始營業時間</span>
+                                <input type="text" class="resstart" name="resstart"><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳結束營業時間</span>
+                                <input type="text" class="resclose" name="resclose"><span class="backerror">必填！</span>
+                                <br>
+                                <br>
+                                <span>餐廳圖片:</span>
+                                <br>
+                                <br>
+                                <br>
+                                <span>圖片1</span><span class="backerror">必填！</span><input type="file" name="upFile1" class="resimg[]" id="img01">
+                                <span>圖片2</span><input type="file" name="upFile2" class="resimg[]" id="img02">
+                                <span>圖片3</span><input type="file" name="upFile3" class="resimg[]" id="img03">
+                                <span>圖片4</span><input type="file" name="upFile4" class="resimg[]" id="img04">
+                                
+                                <br>
+                                <span>餐廳簡介</span>
+                                <input type="text" class="ressum" name="ressum"><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳詳細介紹</span>
+                                <input type="text" class="resintro" name="resintro"><span class="backerror">必填！</span>
+                                
+                            </div>
+                        </form>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
                             <button id="res_add_submit" type="button" class="btn_5"><i class="fas fa-save"></i></button>
@@ -1211,28 +1213,134 @@
         });
     </script>
     <!-- 餐廳新增 -->
-    <!-- <script>
-        $(document).on('click', '#res_add_submit', function(){
+    <script>
+        // $(document).on('click', '#res_add_submit', function(){
+        // let file = $('#img01')[0].files[0];
+        // console.log(file);
+        // let formData = new FormData();
+        // formData.append('images',file);
+        //     $.ajax({
+        //         url: `back_res_add.php`,
+        //         type: 'POST',
+        //         contentType : false,
+        //         processData : false,
+        //         data :formData,
+                // data: {
 
-             $.ajax({
-                 url:'back_res_add.php',
-                 type:'GET',
-                 dataType:'json',
-                 data:{
-                     res_id_add:$('#res_id_add').val(),
-                     res_name_add:$('#res_name_add').val(),
-                     res_psd_add:$('#res_psd_add').val(),
-                 },
-                 success:function(res){
-                     
-                     alert('OK');
-                 },
-                 // complete: function(){}
-                 
-             });
-             parent.location.reload();
-         });
-    </script> -->
+                    // name: $('.resname').val(),
+                    // style: $('.resstyle').val(),
+                    // kind: $('.reskind').val(),
+                    // phone: $('.resphone').val(),
+                    // address: $('.resname').val(),
+                    // work: $('.reswork').val(),
+                    // start: $('.resstart').val(),
+                    // close: $('.resclose').val(),
+                    // sum: $('.ressum').val(),
+                    // intro: $('.resintro').val(),
+                    // images: new FormData($("#img01")),
+                    // images2: file2,
+                    // images3: file3,
+                    // images4: file4,
+ 
+                // },
+        //         success(data){
+        //             console.log(data);
+        //         }
+        //     });
+
+        //     // parent.location.reload();
+        //  });
+    </script>
+
+    <script>
+
+        $(document).on('click', '#res_add_submit', function(){
+            $('form').submit();
+            // let name = document.querySelector('.resname').value ;
+            // let style = document.querySelector('.resstyle').value ;
+            // let kind = document.querySelector('.reskind').value ;
+            // let phone = document.querySelector('.resphone').value ;
+            // let address = document.querySelector('.resaddress').value ;
+            // let work = document.querySelector('.reswork').value ;
+            // let start = document.querySelector('.resstart').value ;
+            // let close = document.querySelector('.resclose').value ;
+            // let sum = document.querySelector('.ressum').value ;
+            // let intro = document.querySelector('.resintro').value ;
+            // let file1 = $("#img01").files;
+            // let file2 = $("#img02").files;
+            // let file3 = $("#img03").files;
+            // let file4 = $("#img04").files;
+            // let file1 = $("input[name='upFile[]']")[0].files;
+            // let file2 = $("input[name='upFile[]']")[1].files;
+            // let file3 = $("input[name='upFile[]']")[2].files;
+            // let file4 = $("input[name='upFile[]']")[3].files;
+
+            // console.log(file1);
+
+            // let formData = new FormData();
+
+            // formData.append('name', name);
+            // formData.append('style', style);
+            // formData.append('kind', kind);
+            // formData.append('phone', phone);
+            // formData.append('address', address);
+            // formData.append('work', work);
+            // formData.append('start', start);
+            // formData.append('close', close);
+            // formData.append('sum', sum);
+            // formData.append('intro', intro);
+            // formData.append('imgs1', file1);
+            // formData.append('imgs2', file2);
+            // formData.append('imgs3', file3);
+            // formData.append('imgs4', file4);
+
+            // console.log(formData.values());
+            // console.log(formData.keys());
+            // console.log(formData.values());
+            // console.log(formData.getAll('imgs[]')[0].keys());
+            // for (let i of formData.values()){
+            //     console.log(i);
+            // }
+            // for (let i of formData.keys()){
+            //     console.log(i);
+            // }
+            
+            
+            // post_items(event, formData);
+
+            // function post_items (event, form){
+
+                // $.ajax({
+                //     url: `back_res_add.php`,
+                //     type: 'POST',
+                //     data: {
+                //         name:document.querySelector('.resname').value,
+                //         style:document.querySelector('.resstyle').value,
+                //         kind:document.querySelector('.reskind').value,
+                //         phone:document.querySelector('.resphone').value,
+                //         address:document.querySelector('.resaddress').value,
+                //         work:document.querySelector('.reswork').value,
+                //         start:document.querySelector('.resstart').value,
+                //         close:document.querySelector('.resclose').value,
+                //         sum:document.querySelector('.ressum').value,
+                //         intro:document.querySelector('.resintro').value,
+                //         file1:new FormData($("#img01")),
+                //         file2:new FormData($("#img02")),
+                //         file3:new FormData($("#img03")),
+                //         file4:new FormData($("#img04"))
+                //     },
+                //     contentType: false,
+                //     processData: false,
+                //     success(data){
+                //         console.log(data);
+                //     },
+
+                // });
+
+            // }
+
+        });
+    </script>
 
    
 
