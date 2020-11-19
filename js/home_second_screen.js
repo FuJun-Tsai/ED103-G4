@@ -60,6 +60,7 @@ $(document).ready(function(){
             }
 
             left();
+            
         },
 
     });
@@ -231,6 +232,7 @@ function left(){
         });
 
     },false);
+    Larrow.click();
 
 }
 

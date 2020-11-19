@@ -318,10 +318,23 @@
                             <input type="text">
                             <br>
                             <span>餐廳風格</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳種類</span>
-                            <input type="text" >
+                                <select name="" id="">
+                                    <option value="">第一項</option>
+                                    <option value="">第二項</option>
+                                    <option value="">第三項</option>
+                                    <option value="">第四項</option>
+                                    <option value="">第五項</option>
+                                </select>
+                                <br>
+                                <span>餐廳種類</span>
+                                    <select name="" id="">
+                                    <option value="">第一項</option>
+                                    <option value="">第二項</option>
+                                    <option value="">第三項</option>
+                                    <option value="">第四項</option>
+                                    <option value="">第五項</option>
+                                    <option value="">第六項</option>
+                                </select>
                             <br>
                             <span>餐廳電話</span>
                             <input type="text">
@@ -341,8 +354,16 @@
                             <span>餐廳結束營業時間</span>
                             <input type="text">
                             <br>
-                            <span>餐廳圖片</span>
-                            <input type="image">
+                            <br>
+                            <span>餐廳圖片:</span>
+                            <br>
+                            <br>
+                            <br>
+                            <span>圖片1</span><input type="file" name="upFile">
+                            <span>圖片2</span><input type="file" name="upFile">
+                            <span>圖片3</span><input type="file" name="upFile">
+                            <span>圖片4</span><input type="file" name="upFile">
+                            
                             <br>
                             <span>餐廳簡介</span>
                             <input type="text">
@@ -353,7 +374,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                            <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
+                            <button id="res_add_submit" type="button" class="btn_5"><i class="fas fa-save"></i></button>
                         </div>
                     </div>
                     </div>
@@ -531,8 +552,8 @@
                                          <th class="col-md-2 col-xs-2">留言檢舉編號</th>
                                          <th class="col-md-3 col-xs-3">檢舉原因</th>
                                          <th class="col-md-2 col-xs-2">檢舉時間</th>
-                                         <th class="col-md-2 col-xs-2">檢舉狀態</th>
-                                         <th class="col-md-2 col-xs-2">按鈕</th>
+                                         <th class="col-md-3 col-xs-3">留言內容</th>
+                                         <th class="col-md-1 col-xs-1">按鈕</th>
                                      </tr> 
                                  </thead>
                                  <tbody>
@@ -813,34 +834,8 @@
 
           
 
-    // 檢舉切換
+    
 
-        $(function() {
-          $("#tabs-nav a").click(function() {
-             $("#tabs-nav a").removeClass("tabs-menu-active");
-             $(this).addClass("tabs-menu-active");
-             $(".tabs-panel").removeClass("animated bounceInDown").hide();
-             let tab_id = $(this).attr("href");
-             $(tab_id).addClass("animated bounceInDown").show();
-             return false;
-          });
-        });
-
-    //   檢舉延伸 
-
-        //   $(document).ready(function down() {
-        //     //Fixing jQuery Click Events for the iPad
-        //     let ua = navigator.userAgent,
-        //         event = (ua.match(/iPad/i)) ? "touchstart" : "click";
-        //         if ($('.report_table').length > 0) {
-        //         $('.report_table tbody .row_h').on(event, function() {
-        //         $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
-        //             return this.style.display === 'table-row' ? 'none' : 'table-row';
-        //         });
-        //         });
-        //     }
-        //     })
-        // }
 
       </script>
        <!-- 管理接資料庫 -->
@@ -1034,8 +1029,8 @@
                   for(let i=0 ; i<=data.length -1 ; i+=1){
                       $('.tbl_res_adm tbody').append(`
                       <tr class="row_h"> 
-                            <td scope="row">${data[i].RES_NO}</td> 
-                            <td>${data[i].RES_STYLE},${data[i].RES_KIND}</td> 
+                            <td scope="row" class="td_RES_NO">${data[i].RES_NO}</td> 
+                            <td>${data[i].STYLE_NAME},${data[i].KIND_NAME}</td> 
                             <td>${data[i].RES_NAME}</td> 
                             <td>${data[i].RES_TEL}</td> 
                             <td>${data[i].RES_STATUS}</td> 
@@ -1056,10 +1051,22 @@
                                                 <input type="text">
                                                 <br>
                                                 <span>餐廳風格</span>
-                                                <input type="text">
+                                                    <select name="" id="">
+                                                        <option value="">第一項</option>
+                                                        <option value="">第二項</option>
+                                                        <option value="">第三項</option>
+                                                        <option value="">第四項</option>
+                                                        <option value="">第五項</option>
+                                                    </select>
                                                 <br>
                                                 <span>餐廳種類</span>
-                                                <input type="text" >
+                                                    <select name="" id="">
+                                                        <option value="">第一項</option>
+                                                        <option value="">第二項</option>
+                                                        <option value="">第三項</option>
+                                                        <option value="">第四項</option>
+                                                        <option value="">第五項</option>
+                                                    </select>
                                                 <br>
                                                 <span>餐廳電話</span>
                                                 <input type="text">
@@ -1079,8 +1086,16 @@
                                                 <span>餐廳結束營業時間</span>
                                                 <input type="text">
                                                 <br>
-                                                <span>餐廳圖片</span>
-                                                <input type="image">
+                                                <br>
+                                                <span>餐廳圖片:</span>
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <span>圖片1</span><input type="file" name="upFile">
+                                                <span>圖片2</span><input type="file" name="upFile">
+                                                <span>圖片3</span><input type="file" name="upFile">
+                                                <span>圖片4</span><input type="file" name="upFile">
+                                                <input type="submit" name="submit">
                                                 <br>
                                                 <span>餐廳簡介</span>
                                                 <input type="text">
@@ -1096,9 +1111,7 @@
                                         </div>
                                         </div>
                                     </div>
-                                    <button class="btn_5">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                    
                                     <button class="btn_5">
                                         <i class="fas fa-angle-down"></i>                                   
                                     </button>
@@ -1190,8 +1203,8 @@
                 }
                
                 restend();
-                deleteAMD();
-                changeAMD();
+                // deleteRES();
+                // changeRES();
               }
 
           });
@@ -1199,16 +1212,16 @@
     </script>
     <!-- 餐廳新增 -->
     <!-- <script>
-        $(document).on('click', '#amd_add_submit', function(){
+        $(document).on('click', '#res_add_submit', function(){
 
              $.ajax({
-                 url:'res_add.php',
+                 url:'back_res_add.php',
                  type:'GET',
                  dataType:'json',
                  data:{
-                     amd_id_add:$('#amd_id_add').val(),
-                     amd_name_add:$('#amd_name_add').val(),
-                     amd_psd_add:$('#amd_psd_add').val(),
+                     res_id_add:$('#res_id_add').val(),
+                     res_name_add:$('#res_name_add').val(),
+                     res_psd_add:$('#res_psd_add').val(),
                  },
                  success:function(res){
                      
@@ -1225,15 +1238,15 @@
 
     <!-- 刪除餐廳 -->
     <script>
-        // function deleteAMD(){
-        //  $('.amdtrash').on('click', function(){
-        //      let amdno = $(this).parent().siblings('.td_AMD_NO').text();
+        // function deleteRES(){
+        //  $('.restrash').on('click', function(){
+        //      let resno = $(this).parent().siblings('.td_RES_NO').text();
         //      $.ajax({
-        //          url:'amd_del.php',
+        //          url:'back_res_del.php',
         //          type:'GET',
         //          dataType:'json',
         //          data:{
-        //              amd_no_del:amdno,
+        //              res_no_del:resno,
         //          },
         //          success:function(res){
                      
@@ -1287,30 +1300,17 @@
                     for(let i=0 ; i<=data.length-1 ; i+=1){
                         $('.res_ban_table tbody').append(`
                         <tr class="row_h"> 
-                                    <td>${data[i].RES_MES_RE_NO}</td> 
+                                    <td class="td_resre_NO">${data[i].RES_MES_RE_NO}</td> 
                                     <td>${data[i].MESSAGE_NO}</td> 
                                     <td>${data[i].RES_MES_REPORT_REASON}</td> 
                                     <td>${data[i].RES_MES_REPORT_TIME}</td> 
-                                    <td>${data[i].RES_MES_REPORT_STATUS}</td> 
+                                    
+                                    <td>${data[i].RES_MESSAGE_WORD}</td>
                                     <td>
-                                        <button class="btn_5">
-                                            <i class="fas fa-ban"></i>                                          
+                                        <button class="btn_5 resreban" id=rop"${data[i].rop_NO}">
+                                            <i class="fas fa-ban"></i>
                                         </button>
-                                        <button class="btn_5">
-                                            <i class="fas fa-angle-down"></i>
-                                            
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6">
-                                        <span>
-                                            留言內容:
-                                        </span>
-                                        <div>
-                                            ${data[i].RES_MESSAGE_WORD}
-                                        </div>
-                                    </td>
+                                </td>
                                 </tr> 
                         `);
                     };
@@ -1326,12 +1326,38 @@
                             });
                         }
                         }
-                        down();
+                        deleteRESRE();
+                        
 
                 }
 
             });
         });
+
+        // ban留言
+        function deleteRESRE(){
+            $('.resreban').on('click', function(){
+                let td_resrno = $(this).parent().siblings('.td_resre_NO').text();
+                
+                $.ajax({
+                    url:'res_rep_del.php',
+                    type:'GET',
+                    dataType:'json',
+                    data:{
+                        res_re_no_del:td_resrno,
+                    },
+                    
+                    success:function(res){
+                        
+                    console.log('OK');
+                    },
+                    complete: function(){}
+                    
+                });
+                $(this).parent().parent().remove();
+                // parent.location.reload();
+                });
+            }
       </script>
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
