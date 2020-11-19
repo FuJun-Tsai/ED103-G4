@@ -346,43 +346,6 @@ function no_group_hover(){
 function $id(id){
 	return document.getElementById(id);
 }
-//註冊 
-function registered(){
-  $("#submit").on("click",function(event){
-    event.preventDefault;
-    var xhr = new XMLHttpRequest();
-    var newmem_account=$("#newmem_account").val();
-    var newmem_psw=$("#newmem_psw").val();
-    var newmem_email=$("#newmem_email").val();
-    var newmem_name=$("#newmem_name").val();
-    var newmem_in=$("#newmem_in").val();
-    var newmem_sex=$("#newmem_sex").val();
-    var newmem_age=$("#newmem_age").val();
-    console.log(newmem_age);
-    xhr.onload = function(){
-      member = JSON.parse(xhr.responseText);
-      if(xhr.status == 200){ //success
-        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
-        $id("mobileheadshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
-        $id('spanLogin').innerHTML = '登出';
-        $id('mobilespanLogin').innerHTML = '登出';
-        // document.getElementsByClassName('username')[0].innerText(`${member.MEMBERR_NO}`);
-        $('.username').text(`${member.MEMBER_NO}`);
-        //將登入表單上的資料清空，並隱藏起來
-        
-        $id('login_box').style.display = 'none';
-        MEMBER_ID = '';
-        MEMBER_PSW = '';
-        memberrender();
-      }else{ //error
-      }
-    }
-    xhr.open("POST", "./php/registered.php", true);
-    let data_info = `newmem_account=${newmem_account}&newmem_psw=${newmem_psw}&newmem_email=${newmem_email}&newmem_name=${newmem_name}&newmem_in=${newmem_in}&newmem_sex=${newmem_sex}&newmem_age=${newmem_age}`;
-    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-    xhr.send(data_info);
-  });
-}	
 //渲染主頁+開團
 function my_main(){
   let xhr = new XMLHttpRequest();
@@ -790,7 +753,7 @@ function start(){
       //渲染
       memberrender();
       //註冊
-      registered();
+      // registered();
       //側邊按鈕切換內容
       sidetab_change_content();
       //內頁籤切換

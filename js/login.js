@@ -3,7 +3,70 @@ function $id(id){
 }	
 
 let member;
-
+    //註冊 
+    function registered(){
+      $("#submit").on("click",function(){
+        var newmem_account=$("#newmem_account").val();
+        var newmem_psw=$("#newmem_psw").val();
+        var again_psw=$("#again_psw").val();
+        var newmem_email=$("#newmem_email").val();
+        var newmem_name=$("#newmem_name").val();
+        var newmem_in=$("#newmem_in").val();
+        var newmem_sex=$("#newmem_sex").val();
+        var newmem_age=$("#newmem_age").val();
+        if (newmem_account == "" || newmem_psw == "" || again_psw ==""){
+          alert("不能為空喔!");
+          }
+          else{
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+            member = JSON.parse(xhr.responseText);
+            if(xhr.status == 200){ //success
+              $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+              $id("mobileheadshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+              $id('spanLogin').innerHTML = '登出';
+              $id('mobilespanLogin').innerHTML = '登出';
+              // document.getElementsByClassName('username')[0].innerText(`${member.MEMBERR_NO}`);
+              $('.username').text(`${member.MEMBER_NO}`);
+              //將登入表單上的資料清空，並隱藏起來
+              
+              $id('login_box').style.display = 'none';
+              MEMBER_ID = '';
+              MEMBER_PSW = '';
+              memberrender();
+            }else{ //error
+            }
+            xhr.open("POST", "./php/registered.php", true);
+            let data_info = `newmem_account=${newmem_account}&newmem_psw=${newmem_psw}&newmem_email=${newmem_email}&newmem_name=${newmem_name}&newmem_in=${newmem_in}&newmem_sex=${newmem_sex}&newmem_age=${newmem_age}`;
+            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            xhr.send(data_info);
+          }
+        }
+      });
+    }
+    //判斷帳號是否註冊過
+    function checkId(){
+      $("#newmem_account").on("change",function(){
+        console.log(1);
+        var xhr = new XMLHttpRequest();
+        //註冊callback function
+        xhr.onreadystatechange = function(){
+          if(xhr.readyState == XMLHttpRequest.DONE){ //server端已處理完畢
+              if(xhr.status === 200){ //xhr.status為200時表示, server端有正常的處理完畢
+                document.getElementById("idMsg").innerText = xhr.responseText;
+              }else{
+                alert(xhr.statusText);
+              }
+          }
+        }
+        //設定好所要連結的程式
+        // let url = "member.php?MEMBER_ID=" + document.getElementById("newmem_account").value;
+        // let url = "member.php"
+        xhr.open("get", url, true);
+        //送出資料
+        xhr.send(null);
+      });
+    }
     function showLoginForm(){
       //檢查登入bar面版上 spanLogin 的字是登入或登出
       //如果是登入，就顯示登入用的燈箱(lightBox)
@@ -25,7 +88,7 @@ let member;
         xhr.send(null);
       }
 
-    }//showLoginForm
+    }
 
     function sendForm(){
       //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
@@ -115,12 +178,14 @@ let member;
       });
     }
     function init(){
-      user = '';
       //-----------------------檢查是否已登入
       getMemberInfo();
 
+      //===註冊事件
+      registered();
+      //===判斷帳號是否能使用
+      checkId();
       //===設定spanLogin.onclick 事件處理程序是 showLoginForm
-
       $id('spanLogin').onclick = showLoginForm;
       $id('mobilespanLogin').onclick = showLoginForm;
 
