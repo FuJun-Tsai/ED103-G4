@@ -14,33 +14,31 @@ let member;
         var newmem_in=$("#newmem_in").val();
         var newmem_sex=$("#newmem_sex").val();
         var newmem_age=$("#newmem_age").val();
-        if (newmem_account == "" || newmem_psw == "" || again_psw ==""){
-          alert("不能為空喔!");
-          }
-          else{
-            var xhr = new XMLHttpRequest();
-            xhr.onload = function(){
+        if (newmem_account == "" || newmem_psw == "" || again_psw =="" || newmem_email ==""){
+          alert("左邊欄位不能為空喔!");
+        }else{
+          let xhr = new XMLHttpRequest();
+          console.log(1);
+          xhr.onload = function(){
             member = JSON.parse(xhr.responseText);
+            console.log(member);
             if(xhr.status == 200){ //success
               $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
               $id("mobileheadshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
               $id('spanLogin').innerHTML = '登出';
               $id('mobilespanLogin').innerHTML = '登出';
-              // document.getElementsByClassName('username')[0].innerText(`${member.MEMBERR_NO}`);
-              $('.username').text(`${member.MEMBER_NO}`);
-              //將登入表單上的資料清空，並隱藏起來
-              
+              $('.username').text(`${member.MEMBER_NO}`);              
               $id('login_box').style.display = 'none';
               MEMBER_ID = '';
               MEMBER_PSW = '';
-              memberrender();
+              // memberrender();
             }else{ //error
             }
-            xhr.open("POST", "./php/registered.php", true);
-            let data_info = `newmem_account=${newmem_account}&newmem_psw=${newmem_psw}&newmem_email=${newmem_email}&newmem_name=${newmem_name}&newmem_in=${newmem_in}&newmem_sex=${newmem_sex}&newmem_age=${newmem_age}`;
-            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-            xhr.send(data_info);
           }
+          xhr.open("POST", "./php/registered.php", true);
+          let data_info = `newmem_account=${newmem_account}&newmem_psw=${newmem_psw}&newmem_email=${newmem_email}&newmem_name=${newmem_name}&newmem_in=${newmem_in}&newmem_sex=${newmem_sex}&newmem_age=${newmem_age}`;
+          xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+          xhr.send(data_info);
         }
       });
     }
@@ -60,7 +58,8 @@ let member;
           }
         }
         //設定好所要連結的程式
-        // let url = "member.php?MEMBER_ID=" + document.getElementById("newmem_account").value;
+        let url = "./php/GetResponseText.php?MEMBER_ID=" + document.getElementById("newmem_account").value;
+        console.log(url);
         // let url = "member.php"
         xhr.open("get", url, true);
         //送出資料
@@ -110,7 +109,7 @@ let member;
           $id('login_box').style.display = 'none';
           MEMBER_ID = '';
           MEMBER_PSW = '';
-          memberrender();
+          // memberrender();
         }else{
             window.alert("帳密錯誤~");
         }
@@ -122,7 +121,6 @@ let member;
       console.log(data_info);
       // memberrender();
       xhr.send(data_info); 
-
     }
 
     function cancelLogin(){
@@ -178,13 +176,13 @@ let member;
       });
     }
     function init(){
-      //-----------------------檢查是否已登入
-      getMemberInfo();
-
-      //===註冊事件
-      registered();
+      
       //===判斷帳號是否能使用
       checkId();
+      //===註冊事件
+      registered();
+      //-----------------------檢查是否已登入
+      getMemberInfo();
       //===設定spanLogin.onclick 事件處理程序是 showLoginForm
       $id('spanLogin').onclick = showLoginForm;
       $id('mobilespanLogin').onclick = showLoginForm;

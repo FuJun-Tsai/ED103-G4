@@ -201,7 +201,6 @@ function member_modifyajax(){
     MEMBER_PSW = $("#mem_psw").text();
     MEMBER_EMAIL = $("#mem_email").text();
     MEMBER_INTRODUCTION = $("#mem_introduction").text();
-    // console.log( $(this).serialize() );
     $.ajax({
       url:'php/update_mymain.php',
       method:'POST',
@@ -336,9 +335,9 @@ function del_friend(){
 function no_group_hover(){
   $("#no_group .btn_3").hover(
     function(){
-      $(".btn_3 a").css("color","#76AFAF");
+      $("#no_groupbtn").css("color","#76AFAF");
     },function(){
-      $(".btn_3 a").css("color","#FFF");
+      $("#no_groupbtn").css("color","#FFF");
     }
   );
 }
@@ -390,16 +389,25 @@ function my_group(){
       $id('RES_IMAGE2').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE2}`);
       $id('RES_IMAGE3').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE3}`);
       $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE4}`);
-      if (`${main.JOIN_NUMBER}`==`${main.MAX_NUMBER}`) {
-        $("#JOIN_NUMBER").css("color","red");
-        $("#MAX_NUMBER").css("color","red");
-      }          
-    }else{ //error
-      //console.log(xhr.status);
+      let a = $("#GROUP_NO").text();
+      console.log(a);
+      if( a == "undefined"){
+        $("#have_group").css("display","none");
+        $("#no_group").css("display","flex");
+        no_group_hover();
+      }
+      else{
+        if (`${main.JOIN_NUMBER}`==`${main.MAX_NUMBER}`) {
+          $("#JOIN_NUMBER").css("color","red");
+          $("#MAX_NUMBER").css("color","red");
+        } 
+      }
+    }else{
     }
   }
   xhr.open("GET", "./php/my_group.php", true);
   xhr.send(null);
+
 }
 //渲染目前想加我開的團的陌生人
 function myGroupNow(){

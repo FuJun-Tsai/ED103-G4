@@ -1,7 +1,7 @@
 <?php
 try{
   require_once("../connectbook.php");
-  $sql = "select * from `member_management` where MEMBER_ID=?";
+  $sql = "select * from member_management where MEMBER_ID=?";
   $member = $pdo->prepare($sql);
   $member->bindValue(1, $_GET["MEMBER_ID"]);
   // $member->bindValue(1, "Sara");
