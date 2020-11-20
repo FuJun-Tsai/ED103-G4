@@ -2,7 +2,7 @@
 $ErrMsg='';
 try{
     require_once('./connectbook.php');
-    $sql = "select 
+    $sql = "SELECT 
                 R.RES_NO as no,
                 R.RES_NAME as name,
                 rk.KIND_NAME as kind,
@@ -12,8 +12,8 @@ try{
                 R.RES_IMAGE3 as img3,
                 R.RES_IMAGE4 as img4,
                 R.RES_INTRODUCTION as intro,
-                R.RES_START as start,
-                R.RES_CLOSE as close,
+                DATE_FORMAT(R.RES_START,'%H:%i')  as start,
+                DATE_FORMAT(R.RES_CLOSE,'%H:%i')  as close,
                 R.RES_HOURS as trade,
                 R.RES_TEL as tel,
                 R.RES_ADDRESS as address

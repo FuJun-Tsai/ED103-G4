@@ -3,19 +3,19 @@ $ErrMsg='';
 // JOIN member_management mm on(A.MEMBER_NO = mm.MEMBER_NO) 
 try{
     require_once("./connectbook.php");
-    $sql = 'SELECT 
+    $sql = "SELECT 
                 ART_MESSAGE_NO AS id,
                 A.ARTICLE_NO AS no,
                 mm.MEMBER_NAME AS name,
                 mm.MEMBER_IMAGE AS headimg,
-                A.ART_MES_TIME AS time,
+                DATE_FORMAT(A.ART_MES_TIME,'%Y-%m-%d %H:%i') AS time,
                 A.ART_MESSAGE_WORD AS word
                 
             FROM `article_message` A
                 JOIN member_management mm ON(A.MEMBER_NO = mm.MEMBER_NO)
 
             WHERE A.ARTICLE_NO = :no
-           ;';
+           ;";
     $data = $pdo->prepare($sql);
     $data-> bindValue(':no',$_REQUEST['no']);
     $data-> execute();
