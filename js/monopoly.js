@@ -123,7 +123,10 @@ $(document).ready(function() {
                                 <h4>${e[position].RES_NAME}</h4>
                                 <br>
                                 <h3>簡介:</h3>
-                                <p>${e[position].RES_SUMMARY}</p>
+                                <p>${e[position].RES_SUMMARY}詳細</p>
+                                <div class="game_res_btn">
+                                <button>詳細</button>
+                                </div>
                             `
                         );
 

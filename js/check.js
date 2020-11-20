@@ -35,7 +35,9 @@ function doFirst(e) {
                     <h4>  ${e[boxId].RES_NAME}</h4>
                     <br>
                     <h3>簡介:</h3>
-                    <p>${e[boxId].RES_SUMMARY}</p>
+                    <a href="#">
+                        <p>${e[boxId].RES_SUMMARY}詳細</p>
+                    </a>
                 `
             );
             $('.purchasebox').css('visibility', ' visible');

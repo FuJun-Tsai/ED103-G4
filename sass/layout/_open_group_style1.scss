@@ -923,7 +923,6 @@ header {
                     }
                     p {
                         display: inline-block;
-                        // margin: 5px;
                         padding: 5px 4px;
                         font-size: 14px;
                         background-color: #FFE1A4;
@@ -931,6 +930,12 @@ header {
                         border-radius: 8px;
                         width: 70px;
                         text-align: center;
+                    }
+                    img {
+                        width: 30px;
+                        height: 30px;
+                        transform: translateY(10px);
+                        cursor: pointer;
                     }
                 }
             }

@@ -436,7 +436,8 @@ z-index: 9999;
 
 .purchasebox,
 .upgradebox {
-    height: auto;
+    overflow: auto;
+    max-height: 600px;
     position: absolute;
     background: #fff;
     left: 50%;
@@ -598,6 +599,12 @@ z-index: 9999;
     padding: 30px;
     overflow: auto;
     max-height: 500px;
+    .game_res_btn {
+        text-align: right;
+        button {
+            padding: 10px;
+        }
+    }
 }
 
 .purchasebox_content_right h2 {
@@ -1102,8 +1109,6 @@ z-index: 9999;
         top: 55%;
     }
     .purchasebox_content {
-        max-height: 600px;
-        overflow: scroll;
         flex-wrap: wrap;
         .purchasebox_content_left {
             flex: 1 1 100%;
