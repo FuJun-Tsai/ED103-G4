@@ -12,19 +12,19 @@ for($i=0;$i<count($e);$i+=1){
 }
 try{
     require_once('./connectbook.php');
-    $sql = "select 
+    $sql = "SELECT 
                 concat('R' , R.RES_NO) as resno,
                 concat('L' , R.RES_MESSAGE_NO) as id,
-                R.RES_MES_TIME as time,
+                DATE_FORMAT(R.RES_MES_TIME,'%Y-%m-%d %H:%i') as time,
                 R.RES_MESSAGE_WORD as content,
                 mm.MEMBER_IMAGE as mmimg
 
-            from restaurant_message R
+            FROM restaurant_message R
                 JOIN member_management mm on(R.MEMBER_NO = mm.MEMBER_NO)    
 
-            where RES_NO in($word)
+            WHERE RES_NO in($word)
 
-            order by RES_NO;";
+            ORDER BY RES_NO;";
   
     $RESdata = $pdo->prepare($sql);
     $RESdata-> execute();

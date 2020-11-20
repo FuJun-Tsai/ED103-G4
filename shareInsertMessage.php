@@ -29,7 +29,7 @@ try{
     $sql = "SELECT 
                 A.ARTICLE_NO as ano,
                 A.MEMBER_NO as mno,
-                A.ART_MES_TIME as time,
+                DATE_FORMAT(A.ART_MES_TIME,'%Y-%m-%d %H:%i') as time,
                 A.ART_MESSAGE_WORD as word,
                 mm.MEMBER_NAME as name,
                 mm.MEMBER_IMAGE as img

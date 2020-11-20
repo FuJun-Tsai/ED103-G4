@@ -1,51 +1,78 @@
 $(document).ready(function() {
 
-
     var s = 1;
     var v = 800;
     var po1 = 0;
     var boxes = [];
     var i1 = document.querySelector("#player1");
+    console.log('123');
 
-    $(".dice-container").on("dragstop ", game);
+    //點擊執行骰子
+    $('#platform').on('click', dado);
+
+    //骰子function();
+    function dado() {
+        $('#platform').removeClass('stop').addClass('playing');
+        $('#dice');
+        setTimeout(function() {
+            $('#platform').removeClass('playing').addClass('stop');
+            var number = Math.floor(Math.random() * 6) + 1;
+            var x = 0,
+                y = 20,
+                z = -20;
+            switch (number) {
+                case 1:
+                    x = 0;
+                    y = 20;
+                    z = -20;
+                    break;
+                case 2:
+                    x = -100;
+                    y = -150;
+                    z = 10;
+                    break;
+                case 3:
+                    x = 0;
+                    y = -100;
+                    z = -10;
+                    break;
+                case 4:
+                    x = 0;
+                    y = 100;
+                    z = -10;
+                    break;
+                case 5:
+                    x = 80;
+                    y = 120;
+                    z = -10;
+                    break;
+                case 6:
+                    x = 0;
+                    y = 200;
+                    x = 10;
+                    break;
+            }
+            $('#dice').css({
+                'transform': 'rotateX(' + x + 'deg) rotateY(' + y + 'deg) rotateZ(' + z + 'deg)'
+            });
+
+            $('#platform').css({
+                'transform': 'translate3d(0,0, 0px)'
+            });
+
+            $('#result').html(number);
+            game(number);
+
+        }, 1120);
 
 
+    };
 
-    function game() {
-        //骰子点数显示
-        var num = Math.ceil(Math.random() * 6);
+    //遊戲開始，人物跑動
+    function game(num) {
+        let result = $('#result').text()
         var bgi = Math.ceil(Math.random() * 2);
         console.log(num);
-
-        function rollDice(side) {
-            var dice = $("#denDice");
-            var currentClass = dice.attr("class");
-            var newClass = "show-" + side;
-
-            dice.removeClass();
-            dice.addClass(newClass);
-
-        }
-
-        if (num == 6) {
-            rollDice("front");
-            console.log('6');
-        } else if (num == 1) {
-            rollDice("back");
-            console.log('1');
-        } else if (num == 4) {
-            rollDice("right");
-            console.log('4');
-        } else if (num == 3) {
-            rollDice("left");
-            console.log('3');
-        } else if (num == 2) {
-            rollDice("top");
-            console.log('2');
-        } else if (num == 5) {
-            rollDice("bottom");
-            console.log('5');
-        }
 
         if (s == 1) {
             var move = setInterval(p1move, v);
@@ -75,10 +102,7 @@ $(document).ready(function() {
                         $('.purchasebox').css('visibility', 'visible');
                         $('.game_background').css('display', 'block');
                     }
-
-                    // 买公用地产
                     if (e[0].state == 0) {
-
                         $('.purchasebox_content_left').append(
                             `
                                 <div class="main_img">
@@ -103,25 +127,24 @@ $(document).ready(function() {
                             `
                         );
 
-                        // let rsTitle = document.createElement("h2");
-                        // let rsName = document.createElement("h3");
-                        // let rsContent = document.createElement("p");
+                        function clickGameImg() {
 
-                        // document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
-                        // document.querySelector('.purchasebox_content_right').appendChild(rsName)
-                        // document.querySelector('.purchasebox_content_right').appendChild(rsContent)
-                        // rsTitle.innerText = "今晚!我想來點~";
+                            $('.purchasebox_content_left .vice_img > img').not('.purchasebox_content_left .vice_img > img:nth-child(1)').addClass('togray');
+                            $('.purchasebox_content_left .vice_img > img').on('click', function() {
+                                $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                                $('.purchasebox_content_left .vice_img > img').addClass('togray');
+                                $(this).removeClass('togray');
+                            });
+                        }
+                        clickGameImg();
 
 
-                        // rsName.innerText = e[position].RES_NAME;
-                        // rsContent.innerText = e[position].RES_SUMMARY;
-                        // console.log()
                     }
                 }
                 //查看变化
                 // console.log(person.name + "现在有$" + person.money);
-
             }, v * num + v * 0.9);
+            // clickGameImg();
 
         }
 
@@ -132,6 +155,7 @@ $(document).ready(function() {
     function gameSequence() {
         if (text == "p1") {
             p1checkState();
+
         }
 
     }
@@ -181,8 +205,22 @@ $(document).ready(function() {
         }
         po1++;
         boxes[po1].append(i1);
-        boxes[po1].children[1].style.opacity = '1';
-        boxes[po1 - 1].children[1].style.opacity = '.4';
+        boxes[po1].children[1].style.filter = 'brightness(1)';
+        boxes[po1 - 1].children[1].style.filter = 'brightness(.7)';
+        // filter: brightness(.7);
+
+
+        //圖片換選
+        function clickGameImg() {
+            // console.log(1);
+            $('.purchasebox_content_left > img').not('.purchasebox_content_left > img:nth-child(2)').addClass('togray');
+            $('.purchasebox_content_left > img').on('click', function() {
+                $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                $('.purchasebox_content_left > img').addClass('togray');
+                $(this).removeClass('togray');
+            });
+        }
+
 
 
 

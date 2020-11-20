@@ -2,7 +2,7 @@
 session_start();
 try{
   require_once("../connectbook.php");
-  $sql = " SELECT f.GROUP_NO, f.GROUP_NAME, r.RES_NAME, rs.STYLE_NAME, rk.KIND_NAME, f.MEMBER, f.JOIN_NUMBER, f.MEAL_TIME, r.RES_ADDRESS, r.RES_TEL, r.RES_BUS_HOURS, r.RES_IMAGE1, r.RES_IMAGE2, r.RES_IMAGE3, r.RES_IMAGE4, f.MAX_NUMBER
+  $sql = " SELECT f.GROUP_NO, f.GROUP_NAME, r.RES_NAME, rs.STYLE_NAME, rk.KIND_NAME, f.MEMBER, f.JOIN_NUMBER, f.MEAL_TIME, r.RES_ADDRESS, r.RES_TEL, r.RES_BUS_HOURS, r.RES_IMAGE1, r.RES_IMAGE2, r.RES_IMAGE3, r.RES_IMAGE4, f.MAX_NUMBER, m.MEMBER_NAME
   FROM `food_group` f JOIN `member_management` m ON (m.MEMBER_NO = f.MEMBER)
                       JOIN `restaurant_management` r ON (r.RES_NO = f.RES_NO)
                       JOIN `restaurant_style` rs ON (rs.STYLE_NO = r.RES_STYLE)

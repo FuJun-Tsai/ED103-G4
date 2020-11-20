@@ -3,58 +3,74 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get rich!</title>
-    <link rel="stylesheet" href="./sass/vender/other/monopoly.css">
-    <!-- <link rel="stylesheet" href="./css/head_footer_style.css"> -->
+    <link rel="stylesheet" href="./css/game.css">
     <link rel="stylesheet" href="./css/allstyle.css">
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
     <link rel="stylesheet" href="./sass/vender/other/dice.css">
-    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'></script>
+    <!--按鈕的css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="./js/dice.js"></script>
+    <script src="./js/monopoly.js"></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'></script>
     <script src="./js/initializing.js"></script>
     <script src="./js/data.js"></script>
-     <script src="./js/information.js"></script> 
-    <script src="./js/monopoly.js"></script>
-    <script src="./js/msg.js"></script>
-    <script src="./js/check.js"></script> -->
-
-
+    <script src="./js/information.js"></script> -->
 </head>
 
 <body>
     <!-- 登入lightbox -->
     <section class="section_res" id="login_box" style="display:none">
         <div class="container_res">
+            <div class="ic" id="btnLoginCancel"><i class="fas fa-times"></i></div>
             <div class="user singinBx">
-                <div class="img_res">
-                    <img src="./image/2.png" alt="">
+                <div class="img_res img_res1">
+                    <img src="./image/2.png">
                 </div>
-                <div class="form_res">
-                    <form name="login">
+                <div class="form_res form_res1">
+                    <form name="login" class="form">
                         <h2>會員登入</h2>
                         <input type="text" name="MEMBER_ID" placeholder="請輸入帳號" id="loginID">
                         <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼" id="loginPsd">
-
-                        <input type="button" name="" value="登入" id="btnLogin">
-                        <input type="button" name="" value="取消" id="btnLoginCancel">
+                        <div class="btn_6 btn_js loginuse">
+                            <input type="button" name="" value="登入" id="btnLogin">
+                            <span></span>
+                        </div>
+                        <!-- <input type="button" name="" value="取消" id="btnLoginCancel"> -->
                         <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
                     </form>
                 </div>
             </div>
             <div class="user singupBx">
-                <div class="form_res">
-                    <form action="signup.php" method="post">
+                <div class="form_res form_res2">
+                    <div class="form">
                         <h2>註冊</h2>
-                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
-                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
-                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
-                        <input type="submit" name="submit" value="註冊">
-                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
-                    </form>
+                        <input type="text" id="newmem_account" name="newmem_account" placeholder="請輸入帳號">
+                        <input type="password" id="newmem_psw" name="newmem_psw" placeholder="請輸入密碼">
+                        <input type="password" id="again_psw" name="again_psw" placeholder="再次確認密碼">
+                        <input type="text" id="newmem_email" name="newmem_email" placeholder="請輸入email">
+                    </div>
                 </div>
-                <div class="img_res">
-                    <img src="./image/4.jpg" alt="">
+                <div class="img_res img_res2">
+                    <div class="form">
+                        <input type="text" id="newmem_name" name="newmem_name" placeholder="來個暱稱吧">
+                        <input type="text" id="newmem_in" name="newmem_in" placeholder="簡短的介紹自己">
+                        <select name="newmem_sex" id="newmem_sex">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                        <select name="newmem_age" id="newmem_age">
+                            <option value="25↓">25↓</option>
+                            <option value="26~35">26~35</option>
+                            <option value="36~45">36~45</option>
+                            <option value="46~55">46~55</option>
+                            <option value="56↑">56↑</option>
+                        </select>
+                        <input type="submit" id="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </div>  
                 </div>
             </div>
         </div>
@@ -168,22 +184,66 @@
     </div>
 
     <div class="map">
-        <div class="game_background"></div>
+        <div class="game_content">
+            <h3>遊玩說明:</h3>
+            <h3>遊戲採用點擊骰子，提供隨機性餐廳跟餐廳資訊以於開團/參團，或點選格子選擇想要的餐廳</h3>
+        </div>
         <div class="den_map_title">
-            <h3>按住骰子拖曳滑動擲骰</h3>
+            <h3>點擊骰子擲骰</h3>
             <h4 class="player_name" style="display: none;"></h4>
         </div>
+
         <!--骰子-->
-        <section class="dice-container">
-            <div id="denDice" class="show-front">
-                <figure class="front"></figure>
-                <figure class="back"></figure>
-                <figure class="right"></figure>
-                <figure class="left"></figure>
-                <figure class="top"></figure>
-                <figure class="bottom"></figure>
+        <div id="ui_dado">
+            <p id="result"></p>
+            <div id="platform">
+                <div id="dice">
+                    <div class="side front">
+                        <div class="dot center"></div>
+                    </div>
+                    <div class="side front inner"></div>
+                    <div class="side top">
+                        <div class="dot dtop dleft"></div>
+                        <div class="dot dbottom dright"></div>
+                    </div>
+                    <div class="side top inner"></div>
+                    <div class="side right">
+                        <div class="dot dtop dleft"></div>
+                        <div class="dot center"></div>
+                        <div class="dot dbottom dright"></div>
+                    </div>
+                    <div class="side right inner"></div>
+                    <div class="side left">
+                        <div class="dot dtop dleft"></div>
+                        <div class="dot dtop dright"></div>
+                        <div class="dot dbottom dleft"></div>
+                        <div class="dot dbottom dright"></div>
+                    </div>
+                    <div class="side left inner"></div>
+                    <div class="side bottom">
+                        <div class="dot center"></div>
+                        <div class="dot dtop dleft"></div>
+                        <div class="dot dtop dright"></div>
+                        <div class="dot dbottom dleft"></div>
+                        <div class="dot dbottom dright"></div>
+                    </div>
+                    <div class="side bottom inner"></div>
+                    <div class="side back">
+                        <div class="dot dtop dleft"></div>
+                        <div class="dot dtop dright"></div>
+                        <div class="dot dbottom dleft"></div>
+                        <div class="dot dbottom dright"></div>
+                        <div class="dot center dleft"></div>
+                        <div class="dot center dright"></div>
+                    </div>
+                    <div class="side back inner"></div>
+                    <div class="side cover x"></div>
+                    <div class="side cover y"></div>
+                    <div class="side cover z"></div>
+                </div>
             </div>
-        </section>
+        </div>
+
         <div class="box" id="b16">
 
         </div>
@@ -303,11 +363,17 @@
         <div class="purchasebox_content">
             <div class="purchasebox_content_left"></div>
             <div class="purchasebox_content_right"></div>
+
         </div>
         <div class="btnAll">
-            <div class="btn1">參團</div>
-            <div class="btn2">開團</div>
+            <a href="./open_group.html#den_tab2" onclick="joinPage()">
+                <div class="btn1">參團</div>
+            </a>
+            <a href="./open_group.html#den_tab1" onclick="openPage()">
+                <div class="btn2">開團</div>
+            </a>
         </div>
+
     </div>
     <div class="game_background"></div>
 
@@ -317,8 +383,6 @@
     <audio preload="auto">
         <source src="https://alexerlandsson.github.io/assets/codepen/roll-the-dice/sound/dice-sound.mp3"></source>
       </audio>
-
-
     <script>
         function onClickMenu() {
             document.getElementById("menu").classList.toggle("change");
@@ -334,29 +398,13 @@
             document.querySelector(".nav1>li:nth-child(5)").classList.toggle("none");
         }
     </script>
-    <!-- <script>
-        function doFirst() {
-            $.ajax({
-                url: './gamedata.php',
-                type: 'GET',
-                dataType: 'JSON',
-                complete(data) {
-                    console.log(data);
-                },
-            });
-        }
-        window.addEventListener('load', doFirst);
-    </script> -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'></script>
-    <script src="./js/dice.js"></script>
+
     <script src="./js/initializing.js"></script>
     <script src="./js/data.js"></script>
-    <!-- <script src="./js/information.js"></script> -->
-    <script src="./js/monopoly.js"></script>
     <script src="./js/msg.js"></script>
     <script src="./js/check.js"></script>
     <script src="./js/login.js"></script>
 </body>
+
 
 </html>

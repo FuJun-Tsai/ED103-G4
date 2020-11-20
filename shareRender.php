@@ -3,14 +3,14 @@ $ErrMsg='';
 
 try{
     require_once("./connectbook.php");
-    $sql = 'SELECT 
-                concat("R" , A.ARTICLE_NO) as id,
+    $sql = "SELECT 
+                concat('R' , A.ARTICLE_NO) as id,
                 A.ARTICLE_NO as no,
                 mm.MEMBER_NAME as name,
                 mm.MEMBER_IMAGE as headimg,
                 A.ARTICLE_TITLE as title,
                 ARTICLE_WORD as word,
-                ARTICLE_DATE as date,
+                DATE_FORMAT(ARTICLE_DATE,'%Y-%m-%d') as date,
                 ARTICLE_IMAGE1 as img,
                 ARTICLE_KIND as kind,
                 (SELECT COUNT(*) FROM article_collection WHERE article_collection.ARTICLE_NO = A.ARTICLE_NO) as ac,
@@ -19,7 +19,7 @@ try{
             FROM `article_sharing` A
                 JOIN member_management mm on(A.MEMBER_NO = mm.MEMBER_NO) 
             ORDER BY A.ARTICLE_NO ASC
-           ';
+           ";
     $data = $pdo->prepare($sql);
 
     $data-> execute();

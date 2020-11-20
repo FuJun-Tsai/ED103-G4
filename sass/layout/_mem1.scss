@@ -143,6 +143,11 @@
             }
             .block {
                 @include box(700px, 24px);                
+                box-sizing: border-box;
+                margin: 0 auto;
+                border-radius: 24px;
+                max-width: 700px;
+                width: 100%;
                 background-color: rgba(245, 222, 179, 0.4);
                 margin-bottom: 100px;
                 .title {
@@ -244,6 +249,13 @@
                 width: 100%;
             }
             .block {
+                box-sizing: border-box;
+                margin: 0 auto;
+                border-radius: 24px;
+                max-width: 700px;
+                width: 100%;
+                margin-bottom: 100px;
+                background-color: rgba(245, 222, 179, 0.4);
                 @include box(700px, 24px);                
                 .title {
                     margin: 0 auto;
