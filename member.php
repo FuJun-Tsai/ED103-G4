@@ -294,7 +294,7 @@
                             目前沒有開團喔!快來糾一波
                         </h3>
                         <button class="btn_3 btn_js">
-                            <a href="./open_group.html">
+                            <a href="./open_group.html" id="no_groupbtn">
                                 前往開團
                             </a>
                             <span></span>
@@ -535,7 +535,7 @@
 
     <!-- ***************************** -->
     <footer>
-        <div class="footer">
+        <div class="footer1">
             <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
         </div>
     </footer>
