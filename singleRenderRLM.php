@@ -4,13 +4,13 @@ session_start();
 
 try{
     require_once('./connectbook.php');
-    $sql = 'select 
+    $sql = "select 
                 R.RES_NO as no,
-                concat("L" , R.RES_MESSAGE_NO) as id,
+                concat('L' , R.RES_MESSAGE_NO) as id,
                 mm.MEMBER_IMAGE as img,
                 mm.MEMBER_NAME as name,
                 R.RES_MESSAGE_WORD as word,
-                R.RES_MES_TIME as time
+                DATE_FORMAT(R.RES_MES_TIME,'%Y-%m-%d %H:%i') as time
 
             from restaurant_message R
                 JOIN restaurant_management rm on (R.RES_NO = rm.RES_NO)
@@ -18,7 +18,7 @@ try{
 
             where R.RES_NO=:RES_NO
 
-            order by R.RES_NO;';
+            order by R.RES_NO;";
 
     $LMdata = $pdo->prepare($sql);
     $LMdata-> bindValue(':RES_NO',$_REQUEST['RES_NO']);
