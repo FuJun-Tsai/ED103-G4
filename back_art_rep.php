@@ -5,15 +5,13 @@ try{
     // require_once('connectBooks.php'); //換成自己的 php $pdo來源
     require_once('connectbook.php'); //換成自己的 php $pdo來源
     $sql = 'SELECT 
-                R.RES_MES_RE_NO ,
-                R.MESSAGE_NO,
-                R.RES_MES_REPORT_REASON,
-                R.RES_MES_REPORT_TIME,
-                R.RES_MES_REPORT_STATUS,
-                rm.RES_MESSAGE_WORD
-            FROM report_restaurant_message R
-	            JOIN restaurant_message rm on( R.MESSAGE_NO = rm.RES_MESSAGE_NO)
-            WHERE RES_MES_REPORT_STATUS = 0;';
+                A.ARTICLE_RE_NO ,
+                A.ARTICLE_NO,
+                A.ART_REPORT_REASON,
+                A.ART_REPORT_TIME,
+                S.ARTICLE_WORD
+            FROM article_report A
+	            JOIN article_sharing S on( A.ARTICLE_NO = S.ARTICLE_NO);';
 
     $data = $pdo->prepare($sql);
     $data-> execute();
