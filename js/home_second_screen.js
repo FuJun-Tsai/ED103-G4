@@ -22,12 +22,6 @@ $(document).ready(function(){
             // console.log(resData);
 
 
-
-
-
-
-
-
             // for(let i=0; i<5; i++){
             //     $('.container').append(
             //     `
@@ -40,7 +34,7 @@ $(document).ready(function(){
             //     )
             // }
 
-
+            //餐廳渲染
             for(let i=0; i<5; i++){
                 $('.container').append(
                 `
@@ -52,10 +46,6 @@ $(document).ready(function(){
                 `
                 )
             }
-
-
-
-
 
             // let Res_NO = storeContainer.querySelectorAll('div input');
             // var aaa=Res_NO[2].value;
@@ -84,28 +74,12 @@ $(document).ready(function(){
                 `
                 )
             }
-
-
             left();
-
-
 
             // $('.team team_3').on('click',function(){
             // alert(3);
             // });
-
-
-            //clcik
-// ------------------------------------------------
-
-
-
-
-
-
-
-
-            
+         
         },
 
     });
@@ -261,6 +235,7 @@ function left(){
                     `
                     <div class="team team_${j+1}">
                         <div class="content">
+                            <p class="group_no">${groupData2[j].GROUP_NO}</p>
                             <p>團主：${groupData2[j].MEMBER_NAME}</p>
                             <p>團名：${groupData2[j].GROUP_NAME}</p>
                             <p>用餐日期：${groupData2[j].dMT}</p>
@@ -277,61 +252,50 @@ function left(){
                 
                 $('.btn_5').on('click', function() {
                     // alert(2);
-                    console.log(123);
-
-                    let GROUP_NO = box.querySelectorAll('div');
-                    var ccc=GROUP_NO[2].value;
-                    console.log(ccc);
+                    // console.log(123);
+                    // console.log(this);
+                    var groupNo=this.previousSibling.previousSibling.children[0].innerText;
+                    // let GROUP_NO = box.querySelectorAll('div');
+                    // var ccc=GROUP_NO[2].value;
+                    // console.log(ccc);
+                   
                     
-
-
                     $.ajax({
                         url: 'home_fourTeam.php',
                         type: 'GET',
                         data: {
-                            GROUP_NO: ccc
+                            groupNo: groupNo
                         },
                         dataType: 'json',
-                        complete(data) {
+                        success(data) {
+                            // console.log(data[1]);
+                            // let memberName = data.responseJSON[3];
+                            // let group = data.responseJSON;
 
-
-
-
-
-                            console.log(test);
-
-
-
-
-
-
-
-                            let memberName = data.responseJSON[3];
-
-                            for (let i = 0; i < memberName.length; i++) {
-                                $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
-                                    `
-                                <p>${memberName[i].MEMBER_NAME}</p>
-                                `)
-                            }
-
-
-
-                            var foodGroupBox = data[2];
-                            var ccc = this.children[0].innerText;
-                            let denEatGroupNum = $('.btn_5 btn_js').index(this);
+                            // console.log(group);
+                            // for (let i = 0; i < memberName.length; i++) {
+                            //     $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
+                            //         `
+                            //     <p>${memberName[i].MEMBER_NAME}</p>
+                            //     `)
+                            // }
+                            
+                            var foodGroupBox = data;
+                            console.log(foodGroupBox);
+                            // var ccc = this.children[0].innerText;
+                            // let denEatGroupNum = $('.btn_5 btn_js').index(this);
                             // $('.den_box3').css('display','flex');
                             // $('.den_box3').css('position','absolute');
                             $('.den_box3_row').empty();
                             $('.den_box3_row').append(`
                             <div class="box3_row_left">
                                 <div class="main_img">
-                                    <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE1}">
+                                    <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE1}">
                                 </div>
-                                <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE1}">
-                                <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE2}">
-                                <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE3}">
-                                <img src="./image/restaurant_management_img/${foodGroupBox[denEatGroupNum].RES_IMAGE4}">
+                                <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE1}">
+                                <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE2}">
+                                <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE3}">
+                                <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE4}">
                             </div>
                             <div class="box3_row_right">
                                 <div>
@@ -341,55 +305,48 @@ function left(){
                                     </div>
                                     <br>
                                     <h3>團號:</h3>
-                                    <h3 class="groupNo">${foodGroupBox[denEatGroupNum].GROUP_NO}</h3>
+                                    <h3 class="groupNo">${foodGroupBox[1].GROUP_NO}</h3>
                                     <br>
                                     <h3>團名:</h3>
-                                    <h3>${foodGroupBox[denEatGroupNum].GROUP_NAME}</h3>
+                                    <h3>${foodGroupBox[1].GROUP_NAME}</h3>
                                     <br>
                                     <h3>店名:</h3>
-                                    <h3>${foodGroupBox[denEatGroupNum].RES_NAME}</h3>
+                                    <h3>${foodGroupBox[1].RES_NAME}</h3>
                                     <br>
-                                    <h6>${foodGroupBox[denEatGroupNum].KIND_NAME}</h6>
-                                    <h6>${foodGroupBox[denEatGroupNum].STYLE_NAME}</h6>
+                                    <h6>${foodGroupBox[1].KIND_NAME}</h6>
+                                    <h6>${foodGroupBox[1].STYLE_NAME}</h6>
                                     
                                 </div>
                                 <div>
                                     <h3>開團團主:</h3>
-                                    <h3>${foodGroupBox[denEatGroupNum].MEMBER_NAME}</h3>
+                                    <h3>${foodGroupBox[1].MEMBER_NAME}</h3>
                                     <br>
                                     <div class="den_groupPeople">
                                         <h3>目前人數:</h3>
                                     </div>                               
                                     <h3>用餐時間:</h3>
-                                    <h3>${foodGroupBox[denEatGroupNum].MEAL_TIME}</h3>
+                                    <h3>${foodGroupBox[1].MEAL_TIME}</h3>
                                     <br>
                                 </div>
                                 <div>
                                     <h3>店家資訊</h3>
                                     <br>
                                     <h3>地址:</h3>
-                                    <h3>${foodGroupBox[denEatGroupNum].RES_ADDRESS}</h3>
+                                    <h3>${foodGroupBox[1].RES_ADDRESS}</h3>
                                     <a href="">
                                         <img src="" alt="">
                                     </a>
                                     <br>
                                     <h3>電話:</h3>
-                                    <h3>${foodGroupBox[denEatGroupNum].RES_TEL}</h3>
+                                    <h3>${foodGroupBox[1].RES_TEL}</h3>
                                     <br>
                                     <h3>營業時間:</h3>
-                                    <h3>${foodGroupBox[denEatGroupNum].RES_START}-${foodGroupBox[denEatGroupNum].RES_CLOSE}</h3>
+                                    <h3>${foodGroupBox[1].RES_START}-${foodGroupBox[1].RES_CLOSE}</h3>
                                 </div>
                             </div>
                             `)
                             $('.den_box3').css('display', 'block');
                             $('.box_background').css('display', 'block');
-
-
-
-
-
-
-
 
                         }
                     });
