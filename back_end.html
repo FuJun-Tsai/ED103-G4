@@ -115,17 +115,17 @@
 
     <!-- 側邊欄 -->
     <div class="slidebar">
-      <ul>
+    <ul>
         <li>
             <a href="#administrator" data-toggle="tab">
                 <span class="icon"><i class="fas fa-user-cog"></i></span>
-                <span class="title">管理員管理</span>               
+                <span class="title">管理人員</span>               
             </a>
         </li>
         <li>
             <a href="#member_adm" data-toggle="tab">
                 <span class="icon"><i class="fas fa-address-book"></i></span>
-                <span class="title">會員<br></span>
+                <span class="title">會員名單<br></span>
                 
             </a>
         </li>
@@ -144,13 +144,13 @@
             </a>
         </li>
         <!-- <li>
-            <a href="#ai_adm" data-toggle="tab">
-                <span class="icon"><i class="fas fa-robot"></i></span>
-                <span class="title">聊天機器人管理</span>
+            <a href="#article_adm" data-toggle="tab">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <span class="title">文章檢舉</span>
                 
             </a>
         </li> -->
-      </ul>
+    </ul>
     </div>
     <div class="toggle" onclick="toggleMenu()"></div>
 
@@ -197,7 +197,6 @@
                             <th class="col-md-3 col-xs-3" style="vertical-align: middle;">管理員帳號</th>
                             <th class="col-md-3 col-xs-3" style="vertical-align: middle;">管理員名稱</th>
                             <th class="col-md-3 col-xs-3" style="vertical-align: middle;">管理員密碼</th>
-                            <!-- <th class="col-md-2 col-xs-2" style="vertical-align: middle;">管理員職稱</th> -->
                             <th class="col-md-2 col-xs-2" style="vertical-align: middle;">按鈕</th>
                         </tr> 
                     </thead>
@@ -206,8 +205,7 @@
                             <td>資料1</td> 
                             <td>資料2</td> 
                             <td>資料2</td> 
-                            <td>資料2</td> 
-                             
+                            <td>資料2</td>
                             <td>
                                 <button class="btn_5" data-toggle="modal" data-target="#modify_amdbtn">
                                     <i class="fas fa-pencil-alt"></i> 
@@ -217,7 +215,7 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                             <h3 class="modal-title" id="modify_amdbtnModalLongTitle">修改資料</h3>
+                                                <h3 class="modal-title" id="modify_amdbtnModalLongTitle">修改資料</h3>
                                             </div>
                                             <div class="modal-body">
                                                 <span>管理員帳號</span>
@@ -229,8 +227,7 @@
                                                 <span>管理員密碼</span>
                                                 <input type="text" >
                                                 <br>
-                                                <span>管理員職稱</span>
-                                                <input type="text">
+                                                
                                             </div>
                                             <div class="modal-footer">
                                                 
@@ -241,53 +238,47 @@
                                         </div>
                                         </div>
                                     </div>
-                              
                             </td>
                         </tr>  -->
-                       
                     </tbody>
                 </table>
-                 
-             </div>
-             <div class="tab-pane" id="member_adm">
-                 <h2 class="backend_h2">
-                     會員管理
-                 </h2>
-                 <div class="mem_search form-group pull-right">
+            </div>
+                <div class="tab-pane" id="member_adm">
+                    <h2 class="backend_h2">
+                        會員管理
+                    </h2>
+                <div class="mem_search form-group pull-right">
                     <input type="text" class="search form-control" placeholder="請輸入關鍵字">
                 </div>
                 <!-- <span class="counter pull-right"></span> -->
-                 <table class="tbl_member_adm table table-hover table-bordered results">
-                     <thead class="member_adm_ti">
-                         <tr> 
-                             <th class="col-md-1 col-xs-1">編號</th> 
-                             <th class="col-md-2 col-xs-2">會員帳號</th>
-                             <th class="col-md-2 col-xs-2">會員名稱</th>
-                             <th class="col-md-2 col-xs-2">會員密碼</th>
-                             <th class="col-md-2 col-xs-2">會員信箱</th>
-                             <th class="col-md-2 col-xs-2">會員狀態</th>
-                             <th class="col-md-2 col-xs-2">停權</th>
-                         </tr> 
-                         <tr class="warning no-result">
-                            <td colspan="4"><i class="fa fa-warning"></i> No result</td>
-                          </tr>
-                     </thead>
-                     <tbody>
-                         <tr> 
-                             <!-- <td scope="row">資料1</td> 
-                             <td>資料2</td>
-                             <td>資料2</td>
-                             <td>資料2</td>
-                             <td>資料2</td>
-                             <td>資料2</td> 
-                             <td>
+                    <table class="tbl_member_adm table table-hover table-bordered results">
+                        <thead class="member_adm_ti">
+                            <tr> 
+                                <th class="col-md-2 col-xs-2">編號</th> 
+                                <th class="col-md-2 col-xs-2">會員帳號</th>
+                                <th class="col-md-2 col-xs-2">會員名稱</th>
+                                <th class="col-md-2 col-xs-2">會員密碼</th>
+                                <th class="col-md-3 col-xs-3">會員信箱</th>
+                            </tr> 
+                            <tr class="warning no-result">
+                                <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr> 
+                            <!-- <td scope="row">資料1</td> 
+                            <td>資料2</td>
+                            <td>資料2</td>
+                            <td>資料2</td>
+                            <td>資料2</td>
+                            <td>資料2</td> 
+                            <td>
                                 <button class="btn_5">
                                     <i class="fas fa-ban"></i>                                 
                                 </button>
                             </td> -->
-                        </tr> 
-                         
-                     </tbody>
+                        </tr>
+                    </tbody>
                 </table>
                 <!-- <div style="height:px;margin:px ;">
                     <span id="spanFirst">第一頁</span>
@@ -297,12 +288,12 @@
                     第<span id="spanPageNum"></span>頁/共
                     <span id="spanTotalPage"></span>頁
                 </div> -->
-             </div>
-             <div class="tab-pane" id="restaurant_adm">
-                 <h2 class="backend_h2">
-                     餐廳管理
-                 </h2>
-                 <button class="res_adm_add btn_5"data-toggle="modal" data-target="#res_adm_addbox">
+            </div>
+            <div class="tab-pane" id="restaurant_adm">
+                <h2 class="backend_h2">
+                    餐廳管理
+                </h2>
+                <button class="res_adm_add btn_5"data-toggle="modal" data-target="#res_adm_addbox">
                     <i class="fas fa-plus"></i>
                     
                 </button>
@@ -313,65 +304,86 @@
                         <div class="modal-header">
                             <h3 class="modal-title" id="modify_amdbtnModalLongTitle">新增餐廳</h3>
                         </div>
-                        <div class="modal-body">
-                            <span>餐廳名稱</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳風格</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳種類</span>
-                            <input type="text" >
-                            <br>
-                            <span>餐廳電話</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳狀態</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳地址</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳營業日</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳開始營業時間</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳結束營業時間</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳圖片</span>
-                            <input type="image">
-                            <br>
-                            <span>餐廳簡介</span>
-                            <input type="text">
-                            <br>
-                            <span>餐廳詳細介紹</span>
-                            <input type="text">
-                            
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                            <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
-                        </div>
+                        <form name="addres" action="back_res_add.php" method="POST" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <span>餐廳名稱</span>
+                                <input type="text" class="resname" name="resname"><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳風格</span>
+                                    <select name="resstyle" id="" class="resstyle">
+                                        <option value="1">日式</option>
+                                        <option value="2">西式</option>
+                                        <option value="3">中台</option>
+                                        <option value="4">韓式</option>
+                                        <option value="5">東南亞</option>
+                                    </select><span class="backerror">必填！</span>
+                                    <br>
+                                    <br>
+                                    <span>餐廳種類</span>
+                                    <select name="reskind" id="" class="reskind">
+                                        <option value="1">第一項</option>
+                                        <option value="2">第二項</option>
+                                        <option value="3">第三項</option>
+                                        <option value="4">第四項</option>
+                                        <option value="5">第五項</option>
+                                        <option value="6">第六項</option>
+                                    </select><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳電話</span>
+                                <input type="text" class="resphone" name="resphone"><span class="backerror">必填！</span>
+                                <br>
+                                
+                                <br>
+                                <span>餐廳地址</span>
+                                <input type="text" class="resaddress" name="resaddress"><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳營業日</span>
+                                <input type="text" class="reswork" name="reswork"><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳開始營業時間</span>
+                                <input type="text" class="resstart" name="resstart"><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳結束營業時間</span>
+                                <input type="text" class="resclose" name="resclose"><span class="backerror">必填！</span>
+                                <br>
+                                <br>
+                                <span>餐廳圖片:</span>
+                                <br>
+                                <br>
+                                <br>
+                                <span>圖片1</span><span class="backerror">必填！</span><input type="file" name="upFile1" class="resimg[]" id="img01">
+                                <span>圖片2</span><input type="file" name="upFile2" class="resimg[]" id="img02">
+                                <span>圖片3</span><input type="file" name="upFile3" class="resimg[]" id="img03">
+                                <span>圖片4</span><input type="file" name="upFile4" class="resimg[]" id="img04">
+                                
+                                <br>
+                                <span>餐廳簡介</span>
+                                <input type="text" class="ressum" name="ressum"><span class="backerror">必填！</span>
+                                <br>
+                                <span>餐廳詳細介紹</span>
+                                <input type="text" class="resintro" name="resintro"><span class="backerror">必填！</span>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                                <button id="res_add_submit" type="submit" class="btn_5" value=""><i class="fas fa-save"></i></button>
+                            </div>
+                        </form>
                     </div>
                     </div>
                 </div>
-                 <!-- <div class="mem_search form-group pull-right">
+                <!-- <div class="mem_search form-group pull-right">
                     <input type="text" class="res_adm_search form-control" placeholder="請輸入關鍵字">
                 </div> -->
                 
-                 <table class="tbl_res_adm">
-                     
+                <table class="tbl_res_adm">
                     <thead class="res_adm_ti">
-                         <tr> 
-                             <th class="col-md-1 col-xs-1">編號</th>
-                             <th class="col-md-2 col-xs-2">風格&種類</th>
-                             <th class="col-md-3 col-xs-3">餐廳名稱</th> 
-                             <th class="col-md-3 col-xs-3">餐廳電話</th>
-                             <th class="col-md-1 col-xs-1">餐廳狀態</th>
-                             <th class="col-md-3 col-xs-3">按鈕</th>
+                        <tr> 
+                            <th class="col-md-1 col-xs-1">編號</th>
+                            <th class="col-md-2 col-xs-2">風格&種類</th>
+                            <th class="col-md-4 col-xs-4">餐廳名稱</th> 
+                            <th class="col-md-3 col-xs-3">餐廳電話</th>
+                            <th class="col-md-3 col-xs-3">按鈕</th>
                          </tr> 
                          <tr class="warning no-result">
                             <td colspan="4"><i class="fa fa-warning"></i> No result</td>
@@ -528,11 +540,11 @@
                                  <thead class="word_adm_ti">
                                      <tr> 
                                          <th class="col-md-1 col-xs-1">編號</th> 
-                                         <th class="col-md-2 col-xs-2">留言檢舉編號</th>
+                                         <th class="col-md-2 col-xs-2">檢舉編號</th>
                                          <th class="col-md-3 col-xs-3">檢舉原因</th>
                                          <th class="col-md-2 col-xs-2">檢舉時間</th>
-                                         <th class="col-md-2 col-xs-2">檢舉狀態</th>
-                                         <th class="col-md-2 col-xs-2">按鈕</th>
+                                         <th class="col-md-3 col-xs-3">留言內容</th>
+                                         <th class="col-md-1 col-xs-1">按鈕</th>
                                      </tr> 
                                  </thead>
                                  <tbody>
@@ -568,149 +580,34 @@
                                      
                                  </tbody>
                              </table>
-                 <div id="jquery-tabs">
-
-                    <!-- <div id="tabs-nav">
-                      <a href="#tab0" class="tabs-menu tabs-menu-active">貼文檢舉</a>
-                      <a href="#tab1" class="tabs-menu">留言檢舉</a>
-                    </div> -->
-                   
-                    <div class="tabs-container">
-                      <div id="tab0" class="tabs-panel" style="display:block">
-                        <!-- <table class="report_table table-bordered">
-                            <thead class="word_adm_ti">
-                                <tr> 
-                                    <th class="col-md-1 col-xs-1">編號</th> 
-                                    <th class="col-md-2 col-xs-2">貼文檢舉編號</th>
-                                    <th class="col-md-4 col-xs-4">檢舉原因</th>
-                                    <th class="col-md-2 col-xs-2">檢舉時間</th>
-                                    <th class="col-md-2 col-xs-2">檢舉狀態</th>
-                                    <th class="col-md-1 col-xs-1">按鈕</th>
-                                </tr> 
-                            </thead>
-                            <tbody>
-                                <tr class="row_h"> 
-                                    <td>資料1</td> 
-                                    <td>資料2</td> 
-                                    <td>資料2</td> 
-                                    <td>資料2</td> 
-                                    <td>資料2</td> 
-                                    <td>
-                                        <button class="btn_5">
-                                            <i class="fas fa-angle-down"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        貼文圖片
-                                        <div>
-                                            <img src="" alt="">
-                                        </div>
-                                    </td>
-                                    <td colspan="3">
-                                        貼文內容
-                                        <div>
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <button class="btn_5">
-                                            <i class="fas fa-ban"></i>
-                                            
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table> -->
-                        <!-- <div style="height:px;margin:px ;">
-                            <span id="spanFirst">第一頁</span>
-                            <span id="spanPre">上一頁</span>
-                            <span id="spanNext">下一頁</span>
-                            <span id="spanLast">最後一頁</span>
-                            第<span id="spanPageNum"></span>頁/共
-                            <span id="spanTotalPage"></span>頁
-                        </div> -->
-                      </div>
-                   
-                      <div id="tab1" class="tabs-panel">
-                      </div>
-                   
-                      
-                   
                     </div>
+                    <!-- <div class="tab-pane" id="article_adm">
+                        <h2 class="backend_h2">
+                            貼文檢舉
+                       </h2>
+                                    <table class="article_table table-bordered">
+                                        <thead class="article_adm_ti">
+                                            <tr> 
+                                                <th class="col-md-1 col-xs-1">編號</th> 
+                                                <th class="col-md-2 col-xs-2">貼文檢舉編號</th>
+                                                <th class="col-md-3 col-xs-3">檢舉原因</th>
+                                                <th class="col-md-2 col-xs-2">檢舉時間</th>
+                                                <th class="col-md-3 col-xs-3">留言內容</th>
+                                                <th class="col-md-1 col-xs-1">按鈕</th>
+                                            </tr> 
+                                        </thead>
+                                        <tbody>
+                                           
+                                        </tbody>
+                                    </table>
+                           </div> -->
                 </div>
                    
              </div>
-             <!-- <div class="tab-pane" id="ai_adm">
-                 <h2>
-                     聊天機器人管理
-                 </h2>
-                 <button class="ai_add btn_5 btn_js">
-                    <i class="fas fa-plus"></i>
-                    <span></span>
-                </button>
-                 <table id="ai_adm_table">
-                     <thead>
-                         <th class="col-md-1 col-xs-1">內容編號</th>
-                         <th class="col-md-4 col-xs-4">問題關鍵字</th>
-                         <th class="col-md-6 col-xs-6">回答內容</th>
-                         <th class="col-md-1 col-xs-1">按鈕</th>
-                     </thead>
-                     <tbody>
-                         <tr>
-                             <td>Row1 cell1</td>
-                             <td>Row1 cell2</td>
-                             <td>Row1 cell2</td>
-                             <td>
-                                <button class="btn_5 btn_js">
-                                    <i class="fas fa-minus"></i>
-                                    <span></span>
-                                </button>
-                             </td>
-                         </tr>
-                         <tr>
-                            <td>Row1 cell1</td>
-                            <td>Row1 cell2</td>
-                            <td>Row1 cell2</td>
-                            <td>
-                                <button class="btn_5 btn_js">
-                                    <i class="fas fa-minus"></i>
-                                    <span></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Row1 cell1</td>
-                            <td>Row1 cell2</td>
-                            <td>Row1 cell2</td>
-                            <td>
-                                <button class="btn_5 btn_js">
-                                    <i class="fas fa-minus"></i>
-                                    <span></span>
-                                </button>
-                            </td>
-                        </tr>
-                     </tbody>
-                    </table>
-                    <div style="height:px;margin:px ;">
-                        <span id="spanFirst">第一頁</span>
-                        <span id="spanPre">上一頁</span>
-                        <span id="spanNext">下一頁</span>
-                        <span id="spanLast">最後一頁</span>
-                        第<span id="spanPageNum"></span>頁/共
-                        <span id="spanTotalPage"></span>頁
-                    </div>
-             </div> -->
     </div>
 
 
-       <!-- ***************************** -->
-    <!-- <footer>
-        <div class="footer">
-            <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
-        </div>
-    </footer> -->
+
 
     <!--hambuger-->
     <script>
@@ -813,34 +710,8 @@
 
           
 
-    // 檢舉切換
+    
 
-        $(function() {
-          $("#tabs-nav a").click(function() {
-             $("#tabs-nav a").removeClass("tabs-menu-active");
-             $(this).addClass("tabs-menu-active");
-             $(".tabs-panel").removeClass("animated bounceInDown").hide();
-             let tab_id = $(this).attr("href");
-             $(tab_id).addClass("animated bounceInDown").show();
-             return false;
-          });
-        });
-
-    //   檢舉延伸 
-
-        //   $(document).ready(function down() {
-        //     //Fixing jQuery Click Events for the iPad
-        //     let ua = navigator.userAgent,
-        //         event = (ua.match(/iPad/i)) ? "touchstart" : "click";
-        //         if ($('.report_table').length > 0) {
-        //         $('.report_table tbody .row_h').on(event, function() {
-        //         $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
-        //             return this.style.display === 'table-row' ? 'none' : 'table-row';
-        //         });
-        //         });
-        //     }
-        //     })
-        // }
 
       </script>
        <!-- 管理接資料庫 -->
@@ -1004,16 +875,12 @@
                         $('.tbl_member_adm tbody').append(`
                             <tr> 
                                 <td scope="row">${data[i].MEMBER_NO}</td> 
-                                <td>${data[i].MEMBER_ID}</td>
+                                <td >${data[i].MEMBER_ID}</td>
                                 <td>${data[i].MEMBER_NAME}</td>
                                 <td>${data[i].MEMBER_PSW}</td>
                                 <td>${data[i].MEMBER_EMAIL}</td>
-                                <td>${data[i].MEMBER_NO}</td> 
-                                <td>
-                                    <button class="btn_5">
-                                        <i class="fas fa-ban"></i>                                 
-                                    </button>
-                                </td>
+                                
+                                
                             </tr> 
                         `);
                     };
@@ -1032,77 +899,111 @@
               type:'GET',
               dataType:'json',
               success(data){
-                //   console.log(data);
+                  console.log(data);
                 //   console.log(data.length);
                 //   console.log(data[0].RES_NAME);
                   for(let i=0 ; i<=data.length -1 ; i+=1){
+
                       $('.tbl_res_adm tbody').append(`
                       <tr class="row_h"> 
-                            <td scope="row">${data[i].RES_NO}</td> 
-                            <td>${data[i].RES_STYLE},${data[i].RES_KIND}</td> 
+                            <td scope="row" class="td_RES_NO">${data[i].RES_NO}</td> 
+                            <td>${data[i].STYLE_NAME},${data[i].KIND_NAME}</td> 
                             <td>${data[i].RES_NAME}</td> 
                             <td>${data[i].RES_TEL}</td> 
-                            <td>${data[i].RES_STATUS}</td> 
+                             
                             <td>
                                
-                                <button class="btn_5" data-toggle="modal" data-target="#res_adm_modify">
+                                <button class="btn_5 reschgbtn" data-toggle="modal" data-target="#res_chg_modify${data[i].RES_NO}" value="${data[i].RES_KIND}&${data[i].RES_STYLE}">
                                      <i class="fas fa-pencil-alt"></i>
                                 </button>
                                     <!-- 餐廳修改燈箱 -->
-                                    <div class="modal fade" id="res_adm_modify" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal fade" id="res_chg_modify${data[i].RES_NO}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h3 class="modal-title" id="modify_amdbtnModalLongTitle">修改餐廳</h3>
                                             </div>
-                                            <div class="modal-body">
-                                                <span>餐廳名稱</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳風格</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳種類</span>
-                                                <input type="text" >
-                                                <br>
-                                                <span>餐廳電話</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳狀態</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳地址</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳營業日</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳開始營業時間</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳結束營業時間</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳圖片</span>
-                                                <input type="image">
-                                                <br>
-                                                <span>餐廳簡介</span>
-                                                <input type="text">
-                                                <br>
-                                                <span>餐廳詳細介紹</span>
-                                                <input type="text">
-                                                
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                                                <button type="button" class="btn_5"><i class="fas fa-save"></i></button>
-                                            </div>
+
+                                            <form name="chgres" action="back_res_chg.php" method="POST" enctype="multipart/form-data">
+                                                <div class="modal-body">
+                                                    <span>餐廳名稱</span>
+                                                    <input type="text" name="resname" value="${data[i].RES_NAME}">
+                                                    <br>
+                                                    <span>餐廳風格</span>
+                                                        <select name="resstyle" id="">
+                                                            <option value="1">日式</option>
+                                                            <option value="2">西式</option>
+                                                            <option value="3">中台</option>
+                                                            <option value="4">韓式</option>
+                                                            <option value="5">東南亞</option>
+                                                        </select>
+                                                    <br>
+                                                    <span>餐廳種類</span>
+                                                        <select name="reskind" id="">
+                                                            <option value="1">第一項</option>
+                                                            <option value="2">第二項</option>
+                                                            <option value="3">第三項</option>
+                                                            <option value="4">第四項</option>
+                                                            <option value="5">第五項</option>
+                                                            <option value="6">第六項</option>
+                                                        </select>
+                                                        <br>
+                                                    <span>餐廳電話</span>
+                                                    <input type="text" class="resphone" name="resphone" value="${data[i].RES_TEL}">
+                                                    <br>
+                                                    
+                                                    <br>
+                                                    <span>餐廳地址</span>
+                                                    <input type="text" class="resaddress" name="resaddress" value="${data[i].RES_ADDRESS}">
+                                                    <br>
+                                                    <span>餐廳營業日</span>
+                                                    <input type="text" class="reswork" name="reswork" value="${data[i].RES_HOURS}">
+                                                    <br>
+                                                    <span>餐廳開始營業時間</span>
+                                                    <input type="text" class="resstart" name="resstart" value="${data[i].RES_START}">
+                                                    <br>
+                                                    <span>餐廳結束營業時間</span>
+                                                    <input type="text" class="resclose" name="resclose" value="${data[i].RES_CLOSE}">
+                                                    <br>
+                                                    <br>
+                                                    <span>餐廳圖片:</span>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <img style="width:70px; height:70px;" src="./image/restaurant_management_img/${data[i].RES_IMAGE1}">
+                                                    <img style="width:70px; height:70px;" src="./image/restaurant_management_img/${data[i].RES_IMAGE2}">
+                                                    <img style="width:70px; height:70px;" src="./image/restaurant_management_img/${data[i].RES_IMAGE3}">
+                                                    <img style="width:70px; height:70px;" src="./image/restaurant_management_img/${data[i].RES_IMAGE4}">
+                                                    <br>
+                                                    <span>圖片1</span><input type="file" name="upFile1" class="resimg[]" id="img01">
+                                                    <span>圖片2</span><input type="file" name="upFile2" class="resimg[]" id="img02">
+                                                    <span>圖片3</span><input type="file" name="upFile3" class="resimg[]" id="img03">
+                                                    <span>圖片4</span><input type="file" name="upFile4" class="resimg[]" id="img04">
+                                                    
+                                                    <br>
+                                                    <span>餐廳簡介：</span>
+                                                    <br>
+                                                    <br>
+                                                    <textarea class="ressum" name="ressum" cols="50" rows="10">${data[i].RES_SUMMARY}</textarea>
+                                                    <br>
+                                                    <br>
+                                                    <span>餐廳詳細介紹：</span>
+                                                    <br>
+                                                    <br>
+                                                    <textarea class="resintro" name="resintro" cols="50" rows="10" >${data[i].RES_INTRODUCTION}</textarea>
+                                                    
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                                                    <button type="submit" class="btn_5" id="res_chg_submit" value="${data[i].RES_NO}"><i class="fas fa-save"></i></button>
+                                                </div>
+                                                <input type="hidden" name="res_no_chg" value="${data[i].RES_NO}">
+                                            </form>
+
                                         </div>
                                         </div>
                                     </div>
-                                    <button class="btn_5">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                    
                                     <button class="btn_5">
                                         <i class="fas fa-angle-down"></i>                                   
                                     </button>
@@ -1178,7 +1079,16 @@
                             
                         </tr> 
                       `);
+
+
                   };
+
+                  $('.reschgbtn').on('click',function(){
+                        let x = $(this).val().split('&');
+                        $(`select[name='resstyle'] option:nth-child(${x[0]})`).attr('selected',true);
+                        $(`select[name='reskind'] option:nth-child(${x[1]})`).attr('selected',true)
+                  });
+
                   function restend(){
                     //   console.log(1);
                     let ua = navigator.userAgent,
@@ -1192,52 +1102,161 @@
                     }  
                     
                 }
+
+                // $(`select[name='reskind'] option:nth-child(${data[i].RES_KIND})`).attr('selected','true');
+                // $(`select[name='resstyle'] option:nth-child(${data[i].RES_STYLE})`).attr('selected','true');
                
                 restend();
-                deleteAMD();
-                changeAMD();
+                // deleteRES();
+                // changeRES();
               }
 
           });
         });
     </script>
     <!-- 餐廳新增 -->
-    <!-- <script>
-        $(document).on('click', '#amd_add_submit', function(){
+    <script>
+        // $(document).on('click', '#res_add_submit', function(){
+        // let file = $('#img01')[0].files[0];
+        // console.log(file);
+        // let formData = new FormData();
+        // formData.append('images',file);
+        //     $.ajax({
+        //         url: `back_res_add.php`,
+        //         type: 'POST',
+        //         contentType : false,
+        //         processData : false,
+        //         data :formData,
+                // data: {
 
-             $.ajax({
-                 url:'res_add.php',
-                 type:'GET',
-                 dataType:'json',
-                 data:{
-                     amd_id_add:$('#amd_id_add').val(),
-                     amd_name_add:$('#amd_name_add').val(),
-                     amd_psd_add:$('#amd_psd_add').val(),
-                 },
-                 success:function(res){
-                     
-                     alert('OK');
-                 },
-                 // complete: function(){}
-                 
-             });
-             parent.location.reload();
-         });
-    </script> -->
+                    // name: $('.resname').val(),
+                    // style: $('.resstyle').val(),
+                    // kind: $('.reskind').val(),
+                    // phone: $('.resphone').val(),
+                    // address: $('.resname').val(),
+                    // work: $('.reswork').val(),
+                    // start: $('.resstart').val(),
+                    // close: $('.resclose').val(),
+                    // sum: $('.ressum').val(),
+                    // intro: $('.resintro').val(),
+                    // images: new FormData($("#img01")),
+                    // images2: file2,
+                    // images3: file3,
+                    // images4: file4,
+ 
+                // },
+        //         success(data){
+        //             console.log(data);
+        //         }
+        //     });
+
+        //     // parent.location.reload();
+        //  });
+    </script>
+
+    <script>
+
+        // $(document).on('click', '#res_add_submit', function(){
+            // $("form[name='addres']").submit();
+            // let name = document.querySelector('.resname').value ;
+            // let style = document.querySelector('.resstyle').value ;
+            // let kind = document.querySelector('.reskind').value ;
+            // let phone = document.querySelector('.resphone').value ;
+            // let address = document.querySelector('.resaddress').value ;
+            // let work = document.querySelector('.reswork').value ;
+            // let start = document.querySelector('.resstart').value ;
+            // let close = document.querySelector('.resclose').value ;
+            // let sum = document.querySelector('.ressum').value ;
+            // let intro = document.querySelector('.resintro').value ;
+            // let file1 = $("#img01").files;
+            // let file2 = $("#img02").files;
+            // let file3 = $("#img03").files;
+            // let file4 = $("#img04").files;
+            // let file1 = $("input[name='upFile[]']")[0].files;
+            // let file2 = $("input[name='upFile[]']")[1].files;
+            // let file3 = $("input[name='upFile[]']")[2].files;
+            // let file4 = $("input[name='upFile[]']")[3].files;
+
+            // console.log(file1);
+
+            // let formData = new FormData();
+
+            // formData.append('name', name);
+            // formData.append('style', style);
+            // formData.append('kind', kind);
+            // formData.append('phone', phone);
+            // formData.append('address', address);
+            // formData.append('work', work);
+            // formData.append('start', start);
+            // formData.append('close', close);
+            // formData.append('sum', sum);
+            // formData.append('intro', intro);
+            // formData.append('imgs1', file1);
+            // formData.append('imgs2', file2);
+            // formData.append('imgs3', file3);
+            // formData.append('imgs4', file4);
+
+            // console.log(formData.values());
+            // console.log(formData.keys());
+            // console.log(formData.values());
+            // console.log(formData.getAll('imgs[]')[0].keys());
+            // for (let i of formData.values()){
+            //     console.log(i);
+            // }
+            // for (let i of formData.keys()){
+            //     console.log(i);
+            // }
+            
+            
+            // post_items(event, formData);
+
+            // function post_items (event, form){
+
+                // $.ajax({
+                //     url: `back_res_add.php`,
+                //     type: 'POST',
+                //     data: {
+                //         name:document.querySelector('.resname').value,
+                //         style:document.querySelector('.resstyle').value,
+                //         kind:document.querySelector('.reskind').value,
+                //         phone:document.querySelector('.resphone').value,
+                //         address:document.querySelector('.resaddress').value,
+                //         work:document.querySelector('.reswork').value,
+                //         start:document.querySelector('.resstart').value,
+                //         close:document.querySelector('.resclose').value,
+                //         sum:document.querySelector('.ressum').value,
+                //         intro:document.querySelector('.resintro').value,
+                //         file1:new FormData($("#img01")),
+                //         file2:new FormData($("#img02")),
+                //         file3:new FormData($("#img03")),
+                //         file4:new FormData($("#img04"))
+                //     },
+                //     contentType: false,
+                //     processData: false,
+                //     success(data){
+                //         console.log(data);
+                //     },
+
+                // });
+
+            // }
+
+        // });
+    </script>
 
    
 
     <!-- 刪除餐廳 -->
     <script>
-        // function deleteAMD(){
-        //  $('.amdtrash').on('click', function(){
-        //      let amdno = $(this).parent().siblings('.td_AMD_NO').text();
+        // function deleteRES(){
+        //  $('.restrash').on('click', function(){
+        //      let resno = $(this).parent().siblings('.td_RES_NO').text();
         //      $.ajax({
-        //          url:'amd_del.php',
+        //          url:'back_res_del.php',
         //          type:'GET',
         //          dataType:'json',
         //          data:{
-        //              amd_no_del:amdno,
+        //              res_no_del:resno,
         //          },
         //          success:function(res){
                      
@@ -1291,53 +1310,153 @@
                     for(let i=0 ; i<=data.length-1 ; i+=1){
                         $('.res_ban_table tbody').append(`
                         <tr class="row_h"> 
-                                    <td>${data[i].RES_MES_RE_NO}</td> 
+                                    <td class="td_resre_NO">${data[i].RES_MES_RE_NO}</td> 
                                     <td>${data[i].MESSAGE_NO}</td> 
                                     <td>${data[i].RES_MES_REPORT_REASON}</td> 
                                     <td>${data[i].RES_MES_REPORT_TIME}</td> 
-                                    <td>${data[i].RES_MES_REPORT_STATUS}</td> 
+                                    
+                                    <td>${data[i].RES_MESSAGE_WORD}</td>
                                     <td>
-                                        <button class="btn_5">
-                                            <i class="fas fa-ban"></i>                                          
+                                        <button class="btn_5 resreban" id=rop"${data[i].RES_MES_RE_NO}">
+                                            <i class="fas fa-ban"></i>
                                         </button>
-                                        <button class="btn_5">
-                                            <i class="fas fa-angle-down"></i>
-                                            
+                                        <button class="btn_5 resreup" id=rop_nodown"${data[i].RES_MES_RE_NO}">
+                                            <i class="fas fa-check-square"></i>
                                         </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6">
-                                        <span>
-                                            留言內容:
-                                        </span>
-                                        <div>
-                                            ${data[i].RES_MESSAGE_WORD}
-                                        </div>
-                                    </td>
+                                </td>
                                 </tr> 
                         `);
                     };
-                    function down() {
-            
-                        let ua = navigator.userAgent,
-                            event = (ua.match(/iPad/i)) ? "touchstart" : "click";
-                            if ($('.report_table').length > 0) {
-                            $('.report_table tbody .row_h').on(event, function() {
-                            $(this).toggleClass("active", "").nextUntil('.row_h').css('display', function(i, v) {
-                                return this.style.display === 'table-row' ? 'none' : 'table-row';
-                            });
-                            });
-                        }
-                        }
-                        down();
+                 
+                        BANRESRE();
+                        UPRESRE();
+                        
 
                 }
 
             });
         });
+
+        // ban留言
+        function BANRESRE(){
+            $('.resreup').on('click', function(){
+                let td_resrno = $(this).parent().siblings('.td_resre_NO').text();
+
+                $.ajax({
+                    url:'B_res_rep_noban.php',
+                    type:'GET',
+                    dataType:'json',
+                    data:{
+                        RES_MES_RE_NO:td_resrno,
+                    },
+                    
+                    success:function(res){
+                        
+                    console.log('OK');
+                    },
+                    complete: function(){}
+                    
+                });
+                $(this).parent().parent().remove();
+                // parent.location.reload();
+                });
+            }
+
+             // ban留言
+        function UPRESRE(){
+            $('.resreban').on('click', function(){
+                let td_resrno = $(this).parent().siblings('.td_resre_NO').text();
+
+                $.ajax({
+                    url:'B_res_rep_ban.php',
+                    type:'GET',
+                    dataType:'json',
+                    data:{
+                        RES_MES_RE_NO:td_resrno,
+                    },
+                    
+                    success:function(res){
+                        
+                    console.log('OK');
+                    },
+                    complete: function(){}
+                    
+                });
+                $(this).parent().parent().remove();
+                // parent.location.reload();
+                });
+            }
       </script>
-      
+
+       <!-- 文章接資料庫 -->
+      <script>
+          $(document).ready(function(){
+
+            $.ajax({
+                url:'back_art_rep.php',
+                type:'GET',
+                dataType:'json',
+                success(data){
+                    // console.log(data);
+                    // console.log(data.length);
+                    // console.log(data[0].MESSAGE_NO);
+                    for(let i=0 ; i<=data.length-1 ; i+=1){
+                        $('.article_table tbody').append(`
+                        <tr class="row_h"> 
+                                    <td>${data[i].ARTICLE_RE_NO}</td> 
+                                    <td>${data[i].ARTICLE_NO}</td> 
+                                    <td>${data[i].ART_REPORT_REASON}</td> 
+                                    <td>${data[i].ART_REPORT_TIME}</td> 
+                                    
+                                    <td>${data[i].ARTICLE_WORD}</td>
+                                    <td>
+                                        <button class="btn_5 artreban" id=artre"${data[i].rop_NO}">
+                                            <i class="fas fa-ban"></i>
+                                        </button>
+                                        <button class="btn_5 artreup" id=artre_nodown"${data[i].RES_MES_RE_NO}">
+                                            <i class="fas fa-check-square"></i>
+                                        </button>
+                                </td>
+                                </tr> 
+                        `);
+                    };
+                    
+                        // deleteRESRE();
+                        
+
+                }
+
+            });
+        });
+
+        // ban留言
+        // function deleteRESRE(){
+        //     $('.resreban').on('click', function(){
+        //         let td_resrno = $(this).parent().siblings('.td_resre_NO').text();
+                
+        //         $.ajax({
+        //             url:'res_rep_del.php',
+        //             type:'GET',
+        //             dataType:'json',
+        //             data:{
+        //                 res_re_no_del:td_resrno,
+        //             },
+                    
+        //             success:function(res){
+                        
+        //             console.log('OK');
+        //             },
+        //             complete: function(){}
+                    
+        //         });
+        //         $(this).parent().parent().remove();
+        //         // parent.location.reload();
+        //         });
+        //     }
+        </script>
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>

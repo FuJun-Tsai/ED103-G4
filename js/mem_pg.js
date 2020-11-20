@@ -1,3 +1,17 @@
+//渲染
+function memberrender(){
+  let herehref = location.href.split('?')[0].split('/')[location.href.split('?')[0].split('/').length-1];
+
+  if(herehref=='member.php'){
+      // singleJS();
+  };
+
+  if(herehref=='member.php'){
+      // searchJS();
+  };
+
+};
+
 //側邊按鈕切換內容
 function sidetab_change_content(){
   $("button.tabbtn").on("click", function(){
@@ -39,7 +53,7 @@ function btnhover(){
 }
 //上傳大頭貼是否為圖檔的hover
 function pic_up_hover(){
-  $("#theFile").hover(
+  $("#theFileid").hover(
     function(){
       $(".upload").css("transform" , "translate(-50%,0%)");
     }, function(){
@@ -50,18 +64,18 @@ function pic_up_hover(){
 //第一頁功能
 //換側邊圖片
 function picChange() {
-  $('#theFile').on("click",function(){
-    let res= $('#theFile').val();
+  $('#theFileid').on("change",function(){
+    let res= $('#theFileid').val();
     let arr= res.split("\\");
     let filename=arr.slice(-1)[0];
     filextension=filename.split(".");
     filext="."+filextension.slice(-1)[0];
     valid=[".jpg",".png",".jpeg",".bmp"];
-    // console.log(res);
-    // console.log(arr);
-    // console.log(filename);
-    // console.log(filextension);
-    // console.log(filext);
+    console.log(res);
+    console.log(arr);
+    console.log(filename);
+    console.log(filextension);
+    console.log(filext);
     //如果檔案不是圖檔，我們秀出error icon, 紅色X,然後取消掉 submit按鈕
     if (valid.indexOf(filext.toLowerCase())==-1){
       $("#namefile").css({"color":"red","font-weight":700});
@@ -70,7 +84,7 @@ function picChange() {
       // $( "#submitbtn" ).hide();
       $( "#fakebtn" ).show();
     }else{
-      let file = document.getElementById('theFile').files[0];
+      let file = document.getElementById('theFileid').files[0];
       let readFile = new FileReader();
       readFile.readAsDataURL(file);
       readFile.addEventListener('load',function(e){
@@ -92,6 +106,7 @@ function pic_modifyajax(){
     event.preventDefault();
     let avatar = document.getElementById('avatar');
     let form = new FormData(avatar);
+    console.log(avatar);
     MEMBER_NAME = $("#mem_name").text();
     $.ajax({
       url:'php/update_pic.php',
@@ -208,24 +223,30 @@ function member_modifyajax(){
 //第2、3頁功能
 //確認/取消審核
 function review(){
-  $(".ok").on("click", function(e){
+  $(".ok").off("click").on("click", function(e){
+    e.preventDefault();
+    e.stopPropagation();
     let X =$(this).closest(".mid_content");
     let Y =$(this).parents().siblings(".sm_content").children('.num').text();
     let Y2 =$(this).parents().siblings(".sm_content").children('.group_num').text();
     let Z =$(this).closest(".doingcontent").attr('id');
-    e.preventDefault();
-    e.preventDefault();
+    let Y3 =$('#JOIN_NUMBER').text();
+    // console.log(Y);
+    // console.log(Y2);
+    // console.log(Z);
+    // console.log(Y3);
     $(X).remove();
     okajax(Y,Y2,Z);
+    updategroupnum(Y2,Y3);
   });
   $(".notok").on("click", function(e){
     let X =$(this).closest(".mid_content");
-    let Y =$(this).parents().siblings(".sm_content").children('.num').text();
+    // let Y =$(this).parents().siblings(".sm_content").children('.num').text();
     let Y2 =$(this).parents().siblings(".sm_content").children('.group_num').text();
     let Z =$(this).closest(".doingcontent").attr('id');
     e.preventDefault();
     $(X).remove();
-    delajax(Y,Y2,Z);
+    delajax(Y2,Z);
   });
 }
 //確認審核ajax
@@ -238,13 +259,25 @@ function okajax(Y,Y2,Z){
     data: {
       changefrom: Z,
       num: Y,
-      group_num: Y2,
+      group_num: Y2
     },
     success: function(){
       console.log("確認審核成功");
     },
   });
   return false;
+}
+function updategroupnum(Y2,Y3){
+  var num = $("#JOIN_NUMBER").text();
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    $("#JOIN_NUMBER").text(parseInt(num) +1);
+  }
+  xhr.open("POST", "php/updategroup.php", true);
+  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+  let data = `group_num=${Y2}&group_people=${Y3}`;
+  xhr.send(data);
+
 }
 //第4、5頁功能
 //刪除收藏欄
@@ -254,15 +287,15 @@ function dotrash(){
     let X =$(this).closest(".tab_box");
     let Y =$(this).closest(".tab_box").children('.num').text();
     let Z =$(this).closest(".tab").attr('id');
-    $("div.overlay").addClass("-on");
+    $("div.overlay1").addClass("-on");
     $(".btn_modal_send").on("click", function(e){
       e.preventDefault();
       $(X).remove();
-      $("div.overlay").removeClass("-on");
+      $("div.overlay1").removeClass("-on");
       delajax(Y,Z);
     });
     $(".btn_modal_close").on("click", function(){
-      $("div.overlay").removeClass("-on");
+      $("div.overlay1").removeClass("-on");
     });
   });
 }
@@ -312,6 +345,43 @@ function no_group_hover(){
 //定義ID
 function $id(id){
 	return document.getElementById(id);
+}
+//註冊 
+function registered(){
+  $("#submit").on("click",function(event){
+    event.preventDefault;
+    var xhr = new XMLHttpRequest();
+    var newmem_account=$("#newmem_account").val();
+    var newmem_psw=$("#newmem_psw").val();
+    var newmem_email=$("#newmem_email").val();
+    var newmem_name=$("#newmem_name").val();
+    var newmem_in=$("#newmem_in").val();
+    var newmem_sex=$("#newmem_sex").val();
+    var newmem_age=$("#newmem_age").val();
+    console.log(newmem_age);
+    xhr.onload = function(){
+      member = JSON.parse(xhr.responseText);
+      if(xhr.status == 200){ //success
+        $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        $id("mobileheadshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        $id('spanLogin').innerHTML = '登出';
+        $id('mobilespanLogin').innerHTML = '登出';
+        // document.getElementsByClassName('username')[0].innerText(`${member.MEMBERR_NO}`);
+        $('.username').text(`${member.MEMBER_NO}`);
+        //將登入表單上的資料清空，並隱藏起來
+        
+        $id('login_box').style.display = 'none';
+        MEMBER_ID = '';
+        MEMBER_PSW = '';
+        memberrender();
+      }else{ //error
+      }
+    }
+    xhr.open("POST", "./php/registered.php", true);
+    let data_info = `newmem_account=${newmem_account}&newmem_psw=${newmem_psw}&newmem_email=${newmem_email}&newmem_name=${newmem_name}&newmem_in=${newmem_in}&newmem_sex=${newmem_sex}&newmem_age=${newmem_age}`;
+    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    xhr.send(data_info);
+  });
 }	
 //渲染主頁+開團
 function my_main(){
@@ -328,6 +398,18 @@ function my_main(){
       $id('mem_sex').innerHTML = `${main.MEMBER_SEX}`;
       $id('mem_email').innerHTML = `${main.MEMBER_EMAIL}`;
       $id('mem_introduction').innerHTML = `${main.MEMBER_INTRODUCTION}`;
+    }else{ //error
+      //console.log(xhr.status);
+    }
+  }
+  xhr.open("GET", "./php/my_main.php", true);
+  xhr.send(null);
+}
+function my_group(){
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){ //success
+      main = JSON.parse(xhr.responseText);
       $id('GROUP_NO').innerHTML = `${main.GROUP_NO}`;
       $id('GROUP_NAME').innerHTML = `${main.GROUP_NAME}`; 
       $id('RES_NAME').innerHTML = `${main.RES_NAME}`;
@@ -335,6 +417,7 @@ function my_main(){
       $id('KIND_NAME').innerHTML = `${main.KIND_NAME}`;
       $id('MEMBER_NAME').innerHTML = `${main.MEMBER_NAME}`;
       $id('JOIN_NUMBER').innerHTML = `${main.JOIN_NUMBER}`;
+      $id('MAX_NUMBER').innerHTML = '/'+`${main.MAX_NUMBER}`;
       $id('MEAL_TIME').innerHTML = `${main.MEAL_TIME}`;
       $id('RES_ADDRESS').innerHTML = `${main.RES_ADDRESS}`;
       $id('RES_TEL').innerHTML = `${main.RES_TEL}`;
@@ -343,17 +426,20 @@ function my_main(){
       $id('RES_IMAGE1').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE1}`);
       $id('RES_IMAGE2').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE2}`);
       $id('RES_IMAGE3').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE3}`);
-      $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE4}`);            
+      $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE4}`);
+      if (`${main.JOIN_NUMBER}`==`${main.MAX_NUMBER}`) {
+        $("#JOIN_NUMBER").css("color","red");
+        $("#MAX_NUMBER").css("color","red");
+      }          
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
-  xhr.open("GET", "./php/my_main.php", true);
+  xhr.open("GET", "./php/my_group.php", true);
   xhr.send(null);
 }
 //渲染目前想加我開的團的陌生人
 function myGroupNow(){
-  console.log(1);
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){ //success
@@ -384,13 +470,14 @@ function myGroupNow(){
         </li>
         `);
       }
+
       btnhover();
       review();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
-  xhr.open("GET", "./php/my_group.php", true);
+  xhr.open("GET", "./php/my_group_now.php", true);
   xhr.send(null);
 }
 //渲染自己確認參加的團
@@ -424,7 +511,7 @@ function tab_ok(){
         `);
       }
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/tab_ok.php", true);
@@ -467,7 +554,7 @@ function tab_notok(){
       btnhover();
       review();
     }else{
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/tab_notok.php", true);
@@ -498,7 +585,7 @@ function gruop_collection(){
       }
       dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/gruop_collection.php", true);
@@ -529,7 +616,7 @@ function restaurant_collection(){
       }
       dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/restaurant_collection.php", true);
@@ -562,7 +649,7 @@ function article_collection(){
       }
       dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/article_collection.php", true);
@@ -591,8 +678,9 @@ function my_article(){
           </div>
         `);
       }
+      dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/article_select.php", true);
@@ -621,8 +709,9 @@ function my_article2(){
           </div>
         `);
       }
+      dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/article_select_2.php", true);
@@ -651,8 +740,9 @@ function my_article3(){
           </div>
         `);
       }
+      dotrash();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/article_select_3.php", true);
@@ -689,7 +779,7 @@ function my_friend(){
       btnhover();
       del_friend();
     }else{ //error
-      console.log(xhr.status);
+      //console.log(xhr.status);
     }
   }
   xhr.open("GET", "./php/my_friend.php", true);
@@ -697,6 +787,10 @@ function my_friend(){
 }
 //loading就執行
 function start(){
+      //渲染
+      memberrender();
+      //註冊
+      registered();
       //側邊按鈕切換內容
       sidetab_change_content();
       //內頁籤切換
@@ -715,8 +809,10 @@ function start(){
       member_modify();
       //會員修改送出
       member_modifyajax();
-      //個人資訊+開團資訊
+      //個人資訊
       my_main();
+      //開團資訊
+      my_group();
       //審核陌生團員
       myGroupNow();
       //確認餐團

@@ -353,6 +353,14 @@
                                 margin: 2%;
                                 width: 96%;
                                 text-align: left;
+                                .MAX_NUMBER{
+                                    display: inline-block;
+                                    line-height: 1.5;
+                                    padding: 0;
+                                    font-size: 16px;
+                                    width: unset;
+                                    margin: 0;
+                                }
                                 @include rwd(md_small){
                                     width: 30%;
                                     padding: 3px 0 3px 3px;
@@ -586,7 +594,7 @@
                 margin-top: 0;
                 width: 100%;
             }
-            .overlay {
+            .overlay1 {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -754,7 +762,7 @@
                 margin-top: 0;
                 width: 100%;
             }
-            .overlay {
+            .overlay1 {
                 position: fixed;
                 top: 0;
                 left: 0;

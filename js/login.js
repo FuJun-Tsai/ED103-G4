@@ -58,7 +58,6 @@ function sendForm(e) {
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     let data_info = `MEMBER_ID=${MEMBER_ID}&MEMBER_PSW=${MEMBER_PSW}`;
     console.log(data_info);
-
     // memberrender();
     xhr.send(data_info);
 
@@ -88,7 +87,7 @@ function getMemberInfo() {
 
 
         } else { //error
-            alert(xhr.status);
+            // alert(xhr.status);
         }
     }
 
@@ -96,9 +95,20 @@ function getMemberInfo() {
     xhr.send(null);
 }
 
-function toggleForm() {
-    var container_res = document.querySelector('.container_res');
-    container_res.classList.toggle('act');
+function btnjs() {
+    $('.btn_js')
+        .on('mouseenter', function(e) {
+            var parentOffset = $(this).offset(),
+                relX = e.pageX - parentOffset.left,
+                relY = e.pageY - parentOffset.top;
+            $(this).find('span').css({ top: relY, left: relX })
+        })
+        .on('mouseout', function(e) {
+            var parentOffset = $(this).offset(),
+                relX = e.pageX - parentOffset.left,
+                relY = e.pageY - parentOffset.top;
+            $(this).find('span').css({ top: relY, left: relX })
+        });
 }
 
 function init() {
@@ -106,17 +116,22 @@ function init() {
     //-----------------------檢查是否已登入
     getMemberInfo();
 
-    //===設定spanLogin.onclick 事件處理程序是 showLoginForm
+    function init() {
+        user = '';
+        //-----------------------檢查是否已登入
+        getMemberInfo();
 
-    $id('spanLogin').onclick = showLoginForm;
-    $id('mobilespanLogin').onclick = showLoginForm;
+        //===設定spanLogin.onclick 事件處理程序是 showLoginForm
 
-    //===設定btnLogin.onclick 事件處理程序是 sendForm
-    $id('btnLogin').onclick = sendForm;
+        $id('spanLogin').onclick = showLoginForm;
+        $id('mobilespanLogin').onclick = showLoginForm;
 
-    //===設定btnLoginCancel.onclick 事件處理程序是 cancelLogin
-    $id('btnLoginCancel').onclick = cancelLogin;
+        //===設定btnLogin.onclick 事件處理程序是 sendForm
+        $id('btnLogin').onclick = sendForm;
 
+        //btnhover效果
+        btnjs();
+    }; //window.onload
 
 }; //window.onload
 

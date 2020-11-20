@@ -70,19 +70,19 @@
 
 
     <script>
-        function $id(id){
-            return document.getElementById(id);
-        }	
+        // function $id(id){
+        //     return document.getElementById(id);
+        // }	
 
-        let member;
+        // let member;
 
-        function showLoginForm(){
-        //檢查登入bar面版上 spanLogin 的字是登入或登出
-        //如果是登入，就顯示登入用的燈箱(lightBox)
-        //如果是登出
-        //將登入bar面版上，登入者資料清空 
-        //spanLogin的字改成登入
-        //將頁面上的使用者資料清掉
+        // function showLoginForm(){
+        // 檢查登入bar面版上 spanLogin 的字是登入或登出
+        // 如果是登入，就顯示登入用的燈箱(lightBox)
+        // 如果是登出
+        // 將登入bar面版上，登入者資料清空 
+        // spanLogin的字改成登入
+        // 將頁面上的使用者資料清掉
         // if($id('spanLogin').innerHTML == "登入"){
         //     $id('login_box').style.display = 'flex';
         // }else{//登出
@@ -95,7 +95,7 @@
         //     xhr.send(null);
         // }
 
-        }//showLoginForm
+        // }//showLoginForm
 
         // function sendForm(){
         // //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
@@ -157,60 +157,58 @@
 
 
 
-        function cancelLogin(){
-            //將登入表單上的資料清空，並將燈箱隱藏起來
-            $id('login_box').style.display = 'none';
-            document.getElementsByName("MEMBER_ID").value = '';
-            document.getElementsByName("MEMBER_PSW").value = '';
-        }
+        // function cancelLogin(){
+        //     //將登入表單上的資料清空，並將燈箱隱藏起來
+        //     $id('login_box').style.display = 'none';
+        //     document.getElementsByName("MEMBER_ID").value = '';
+        //     document.getElementsByName("MEMBER_PSW").value = '';
+        // }
 
 
-        function getMemberInfo(){
-        let xhr = new XMLHttpRequest();
+        // function getMemberInfo(){
+        // let xhr = new XMLHttpRequest();
 
-        xhr.onload = function(){
-            if(xhr.status == 200){ //success
-            member = JSON.parse(xhr.responseText);
-            if(member.MEMBER_ID){
-                $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
-                $id('spanLogin').innerHTML = '登出';
-                $('.username').text(`${member.MEMBER_NO}`);  
-            }
+        // xhr.onload = function(){
+        //     if(xhr.status == 200){ //success
+        //     member = JSON.parse(xhr.responseText);
+        //     if(member.MEMBER_ID){
+        //         $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        //         $id('spanLogin').innerHTML = '登出';
+        //         $('.username').text(`${member.MEMBER_NO}`);  
+        //     }
 
 
-            }else{ //error
-            alert(xhr.status);
-            }
-        }
+        //     }else{ //error
+        //     alert(xhr.status);
+        //     }
+        // }
 
-        xhr.open("get", "php/getMemberInfo.php", true);
-        xhr.send(null);
-        }
+        // xhr.open("get", "php/getMemberInfo.php", true);
+        // xhr.send(null);
+        // }
 
-        function toggleForm() {
-            var container_res = document.querySelector('.container_res');
-            container_res.classList.toggle('act');
-        }
+        // function toggleForm() {
+        //     var container_res = document.querySelector('.container_res');
+        //     container_res.classList.toggle('act');
+        // }
 
-        function init(){
-            user = '';
+        // function init(){
+            // user = '';
             //-----------------------檢查是否已登入
-            getMemberInfo();
+            // getMemberInfo();
 
             //===設定spanLogin.onclick 事件處理程序是 showLoginForm
 
-            showLoginForm();
+            // showLoginForm();
 
             //===設定btnLogin.onclick 事件處理程序是 sendForm
             // $id('backbtnLogin').onclick = sendForm;
 
             //===設定btnLoginCancel.onclick 事件處理程序是 cancelLogin
-            $id('backbtnLoginCancel').onclick = cancelLogin;
+            // $id('backbtnLoginCancel').onclick = cancelLogin;}; 
+        //window.onload
 
-
-        }; //window.onload
-
-        window.addEventListener("load",init,false);
+        // window.addEventListener("load",init,false);
 
 
     </script>

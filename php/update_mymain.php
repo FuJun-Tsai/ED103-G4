@@ -25,7 +25,6 @@ try{
     //自資料庫中取回資料
   	$memRow = $member->fetch(PDO::FETCH_ASSOC);
     // //--------------將登入者的資料寫入session
-    $_SESSION["MEMBER_PSW"] = $memRow["MEMBER_PSW"];
 
     //送出登入者的相關資料
     echo json_encode($memRow) ;

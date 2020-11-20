@@ -52,9 +52,9 @@ $(document).ready(function () {
             var messageData = data[1];
             var sharingData = data[2];
             
-            // console.log(data);
-            // console.log(collectionData[0]);
-            // console.log(messageData[0]);
+            console.log(data);
+            console.log(collectionData[0]);
+            console.log(messageData[0]);
             // console.log(sharingData[0]);
             
             let loveyesorno = 0;
@@ -89,6 +89,7 @@ $(document).ready(function () {
                     </div>
                     <p class="chu_left_content"><img src="./image/home/fourth_screen_speaker.svg" alt="">${collectionData[0].ARTICLE_TITLE}</p>
                     <span>＜最多收藏貼文＞</span>
+
                 </div>
 
                 <div class="chu_center">
@@ -97,10 +98,11 @@ $(document).ready(function () {
                     </div>
                     <div class="chu_center_icon3">
                         <img src="./image/home/fourth_screen_comment.svg" alt="">
-                        <p>${messageData[0].ARTICLE_LIKE}</p>
+                        <p>${messageData[0].MESSAGE_TOTAL}</p>
                     </div>
                     <p class="chu_center_content"><img src="./image/home/fourth_screen_speaker.svg" alt="">${messageData[0].ARTICLE_TITLE}</p>
                     <span>＜最多留言貼文＞</span>
+
                 </div>
             `
 
