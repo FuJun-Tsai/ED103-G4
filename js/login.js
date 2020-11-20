@@ -210,5 +210,4 @@ let member;
       if(herehref=='searchrestaurant.html'){
           searchJS();
       };
-
     };

@@ -60,7 +60,7 @@
                         <a href="./about_us.html">關於我們</a>
                     </li>
                     <li>
-                        <a href="./connectRes.php" class="hvr-pulse-grow"><button>揪團去!</button></a>
+                        <a href="./open_group.html" class="hvr-pulse-grow"><button>揪團去!</button></a>
                     </li>
                 </ul>
             </div>
@@ -107,11 +107,9 @@
     </header>
     <!--banner-->
     <div class="den_banner">
-        <!-- <div class="den_banner_background"></div> -->
         <div class="container">
             <div id="den_banner_title">
-                <span>天才總是伴隨著飢餓，但你不是</span>
-                <span>還等什麼，一起加入美食團吧！</span>
+                <span> 開 團 / 參 團 </span>
             </div>
             <div class="den_search">
                 <div class="den_search_icon">
@@ -133,6 +131,8 @@
 
     <!-- main -->
     <section class="den_section">
+        <!--抓會員NO-->
+        <span style="display: none;" class="memberNoNum1"></span>
         <div class="den_wrapper">
             <div class="den_background_round"></div>
             <div class="den_container">
@@ -146,7 +146,6 @@
                             <span>一起加入美食團吧 !</span>
                         </div>
                     </div>
-
                     <div class="den_Condition_search">
                         <div class="den_row">
                             <div class="den_selection col-lg-8">
@@ -209,7 +208,7 @@
                             <div class="den_food_map" id="map">
                             </div>
                             <div class="result_owl">
-                                <div class="den_row">
+                                <div class="den_owl_row">
                                     <div class="den_nav_left">
                                         <img src="./image/chevron-circle-left-solid.svg" alt="">
                                     </div>
@@ -222,7 +221,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="den_Fill_Information_wrapper">
                                 <div class="den_Fill_Information">
                                     <div class="den_Information_title">
@@ -329,9 +327,7 @@
                 <button type="submit">確認開團</button>
             </div>
         </div>
-        <!-- </form> -->
     </div>
-
     <!--燈箱3/美食團-->
     <div class="den_box3">
         <div class="leave_btn">
@@ -348,10 +344,14 @@
         </div>
     </div>
 
-
     <!--燈箱背景-->
     <div class="box_background"></div>
+<<<<<<< HEAD
     <!-- 登入lightbox -->
+=======
+    <!-- 燈箱 登入 -->
+
+>>>>>>> dev
     <section class="section_res" id="login_box" style="display:none">
         <div class="container_res">
             <div class="ic" id="btnLoginCancel"><i class="fas fa-times"></i></div>
@@ -415,7 +415,9 @@
             </div>
             <span>已成功開團，請前往會員畫面確認喔!</span>
             <div>
-                <button>前往會員</button>
+                <a href="./member.php">
+                    <button>前往會員</button>
+                </a>
             </div>
         </div>
     </div>
@@ -427,7 +429,9 @@
             </div>
             <span>已成功參團，請前往會員畫面確認喔!</span>
             <div>
-                <button>前往會員</button>
+                <a href="./member.php">
+                    <button>前往會員</button>
+                </a>
             </div>
         </div>
     </div>
@@ -454,12 +458,19 @@
 
     <script>
         function doFirst() {
+            // console.log(location.hash);
+            if (location.hash == '#den_tab2') {
+                $('#den_tab1').css('display', 'none');
+                $('#den_tab2').css('display', 'block');
+            }
 
+            $('#btnLogin').on('click', function() {
+                location = location;
+            });
             //input 餐廳種類
             $('.den_res_type div input').on('change', function() {
                 $('.den_res_type div').css('background', 'rgba(255, 255, 255, 0)');
                 $('.den_res_type div').css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0)');
-
                 $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
                 $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
             });
@@ -482,8 +493,6 @@
                     $(this).parent().css('background', 'rgba(223, 114, 25, 0)');
                 }
             });
-
-
             //頁籤
             $('.title_left h2:nth-child(1)').on('click', function() {
                 $('#den_tab1').fadeIn();
@@ -501,29 +510,23 @@
                 $('.title_left h2:nth-child(2)').css('color', '#ffffff');
                 $('.title_left h2:nth-child(1)').css('background-color', '#ffffff');
                 $('.title_left h2:nth-child(1)').css('color', '#DF7219');
-
             });
 
             //點擊餐廳選進input.val
             let resAll = document.querySelectorAll('.den_content div');
-            console.log(resAll.length);
             for (let i = 0; i < resAll.length; i++) {
                 resAll[i].addEventListener('click', function() {
                     let name = this.children[3].innerText;
-                    // console.log(name);
                     $('.den_Information div:nth-child(1) input').val(name);
                     $('.den_content div').css({
                         'background': '#ffffff'
                     });
                     this.style.background = '#FF7a85';
-
-
                 });
             }
 
             // 第2個燈箱
             let yy = $('.den_Fill_Information form :input').val();
-            // console.log(yy);
             $('.den_button button').on('click', function() {
                 if ($('#spanLogin').text() == '登出') {
                     $('.den_box2').css('display', 'block');
@@ -533,7 +536,6 @@
                 }
             });
 
-
             // 燈箱離開
             $('.leave_btn').on('click', function() {
                 $('.den_box').css('display', 'none');
@@ -542,28 +544,27 @@
                 $('.box_background').css('display', 'none');
                 $('.box2_row_left').remove();
                 $('.box2_row_right').remove();
-
             });
 
             // owl左右移動
             $('.den_nav_right').on('click', function() {
                 let x = $('.den_content_range').scrollLeft() + 1
-                x = x + 150;
+                x = x + 225;
                 let scrollVal1 = $('.den_content_range').scrollLeft(x)
-                console.log(x);
+                    // console.log(x);
             });
             // owl左右移動
             $('.den_nav_left').on('click', function() {
                 let x = $('.den_content_range').scrollLeft() + 1
-                x = x - 150;
+                x = x - 225;
                 let scrollVal1 = $('.den_content_range').scrollLeft(x)
-                console.log(x);
+                    // console.log(x);
             });
         }
         window.addEventListener('load', doFirst);
     </script>
-    <!--地圖-->
 
+    <!--地圖-->
     <script>
         var map = L.map('map', {
             center: [24.9647762, 121.1908706], //哈堡堡
@@ -583,9 +584,9 @@
 
         var markers = new L.MarkerClusterGroup().addTo(map);;
         $(document).ready(function() {
-            $.getJSON('./temp.json', function(e) {
+            $.getJSON('./temp1.json', function(e) {
                 let store = e.data;
-                for (let i = 0; i < 421; i++) {
+                for (let i = 0; i < 27; i++) {
                     if (store[i].type == 3) {
                         if (store[i].zipcode == 320) {
                             // console.log(store[i].name);
@@ -593,17 +594,17 @@
                                     icon: redIcon
                                 })
                                 .bindPopup(
-                                    '<h1>' + store[i].name + '</h1>' +
+                                    // let aaa = store[i].RES_NO;
+                                    '<h1 style="padding:10px 0px">' + store[i].name + '</h1>' +
                                     '<img src=" ' + store[i].img + ' " / style="width:280px;height:280px"> <br>' +
-                                    '<i class="fas fa-heart"></i>&nbsp;30 &nbsp;&nbsp;' +
-                                    '<i class="fas fa-comments"></i>&nbsp;46 &nbsp;&nbsp;' +
-                                    '<i class="fas fa-share-square"></i>&nbsp;25 &nbsp;&nbsp;' +
+                                    // '<i class="fas fa-heart"></i>&nbsp;30 &nbsp;&nbsp;' +
+                                    // '<i class="fas fa-comments"></i>&nbsp;46 &nbsp;&nbsp;' +
+                                    // '<i class="fas fa-share-square"></i>&nbsp;25 &nbsp;&nbsp;' +
                                     '<p>' + '地址：' + store[i].address + '</p>' +
                                     '<p>' + '電話：' + store[i].tel + '</p>' +
-                                    '<a href="#" style="text-align:end; display:block;" >' + 'more...' + '</a>'
+                                    `<a href="./singlerestaurant.html?RES_NO=${store[i].RES_NO}" style="text-align:end; display:block;" >` + 'more...' + '</a>'
                                 ));
                         }
-
                     }
                 }
             })
@@ -619,8 +620,8 @@
             let yyy2 = $("input[name='style[]']:checked").map(function() {
                 return $(this).val();
             }).get();
-            console.log(yyy2);
 
+            // console.log(yyy2);
             // console.log(yyy1);
             // console.log(yyy2);
 
@@ -633,10 +634,9 @@
                 },
                 dataType: 'json',
                 success(data) {
-                    console.log('成功');
+                    // console.log('成功');
                 },
                 complete(data) {
-                    // console.log(JSON.parse(data.responseText));
                     let resData1 = JSON.parse(data.responseText);
                     // console.log(resData1[0]);
 
@@ -694,7 +694,7 @@
                         });
                     }
                     let resAll = document.querySelectorAll('.den_content div');
-                    console.log(resAll.length);
+                    // console.log(resAll.length);
                     for (let i = 0; i < resAll.length; i++) {
                         resAll[i].addEventListener('click', function() {
                             let name = this.children[3].innerText;
@@ -714,12 +714,12 @@
         $(".den_cooking_style div input").click(function() {
             let yyy1 = $('.den_res_type div input[name=kind]:checked').val();
             let yyy2 = $("input[name='style[]']:checked").get().map(x => x.value);
-            console.log(yyy2);
+
+            // console.log(yyy2);
 
             var checkis = $(this).is(":checked");
             if (checkis == true) {
-                console.log('yes');
-
+                // console.log('yes');
                 $.ajax({
                     url: './open_group.php',
                     type: 'GET',
@@ -729,7 +729,7 @@
                     },
                     dataType: 'json',
                     complete(data) {
-                        console.log('有傳送回來');
+                        // console.log('有傳送回來');
                         // console.log(data);
                         let resData2 = data.responseJSON[0];
                         // console.log(resData2);
@@ -748,7 +748,6 @@
                             </div>
                             `);
                         }
-
                         let owlImage = document.querySelectorAll('.den_content div h6');
                         for (let i = 0; i < owlImage.length; i++) {
                             owlImage[i].addEventListener('click', function() {
@@ -788,7 +787,19 @@
                             });
                         }
                         let resAll = document.querySelectorAll('.den_content div');
-                        console.log(resAll.length);
+
+                        // console.log(resAll.length);
+                        // let ggg222 = $('.den_content').children().length;
+                        // console.log(ggg222);
+
+                        if (resAll.length == '0') {
+                            $('.den_owl_row').css('display', 'none');
+                            // $('.result_owl').text('沒有找到符合的餐廳!!!!!');
+                        } else {
+                            $('.den_owl_row').css('display', 'flex');
+                        }
+
+
                         for (let i = 0; i < resAll.length; i++) {
                             resAll[i].addEventListener('click', function() {
                                 let name = this.children[3].innerText;
@@ -803,16 +814,18 @@
                     }
                 });
             } else {
-                console.log('no');
+                // console.log('no');
             }
         });
         $(document).ready(function() {
+
+            //全部餐廳渲染
             $.ajax({
                 url: './open_group.php',
                 type: 'GET',
                 dataType: 'json',
                 success(data) {
-                    console.log(data);
+                    // console.log(data);
                     var resData = data[0];
                     //抓全部餐廳
                     for (let i = 0; i < resData.length - 1; i++) {
@@ -827,6 +840,7 @@
                     </div>
                     `);
                     }
+
                     // 第1個燈箱
                     let owlImage = document.querySelectorAll('.den_content div h6');
                     for (let i = 0; i < owlImage.length; i++) {
@@ -864,13 +878,16 @@
                                     `)
                             $('.den_box').css('display', 'block');
                             $('.box_background').css('display', 'block');
+                            clickImg1()
                         });
+
                     }
+
                     //第2個燈箱
                     $('.den_button').on('click', function() {
                         let resNameVal = $('.den_Information div:nth-child(1) input').val();
-                        console.log(data);
-                        console.log(MasterNO);
+                        // console.log(data);
+                        // console.log(MasterNO);
                         for (let i = 0; i < resData.length; i++) {
                             if (resNameVal == resData[i].RES_NAME) {
                                 var nameOf = i;
@@ -935,6 +952,7 @@
                     </div>
                         `)
 
+
                         //好友input傳送
                         var friendCheckbox = $("input[name='friendCheckbox[]']:checked").map(function() {
                             return $(this).next().text();
@@ -948,18 +966,22 @@
                                         `
                             )
                         }
+                        clickImg2();
+
                     });
-                    //好友欄位
+
+                    //好友欄位顯示
                     $(document).ready(function() {
-                        if ($('#spanLogin').text = '登出') {
+                        if ($('#spanLogin').text() == '登入') {
+
                             $.ajax({
-                                url: './php/getuser.php',
+                                url: './php/getMemberInfo.php',
                                 type: 'GET',
                                 dataType: 'JSON',
                                 success(data) {
-                                    // console.log(data);
-                                    let FRIENDS_MASTER_NO = data.FRIENDS_MASTER_NO;
+                                    let FRIENDS_MASTER_NO = data.MEMBER_NO;
                                     // console.log(FRIENDS_MASTER_NO);
+                                    $('.memberNoNum1').append(`${data.MEMBER_NO}`);
                                     $.ajax({
                                         url: './open_group.php',
                                         type: 'GET',
@@ -969,7 +991,7 @@
                                         dataType: 'JSON',
                                         success(data) {
                                             friendData = data[1];
-                                            console.log(friendData);
+                                            // console.log(friendData);
                                             for (let i = 0; i < friendData.length; i++) {
                                                 $('.den_friend_window form').append(
                                                     `
@@ -981,13 +1003,27 @@
                                                     `)
                                             }
                                             MasterNO = friendData[1].MEMBER_NAME;
+                                            // if ($('#spanLogin').text() == '登入') {
+                                            //     $('.den_friend_window').css('display', 'none');
+                                            // }
                                         }
                                     });
+
                                 }
                             });
-                        } else {}
-                    });
+                            // $('.den_friend_window').css('display', 'block');
+                            // $('.den_friend_window').css('display', 'none');
+                        }
+                        $('#btnLogin').on('click', function() {
+                            $('.den_friend_window').css('display', 'block');
+                        });
+                        // if ($('#spanLogin').text() == '登出') {
+                        //     $('.den_friend_window').css('display', 'block');
 
+                        // }
+
+
+                    });
                     //燈箱2裡的button寫入資料庫
                     $('.den_box2_button button').on('click', function(nameOf) {
                         let groupNo = parseInt(data[5][0].max) + 1; //團編號
@@ -997,18 +1033,16 @@
                         let meal1 = meal.substring(0, 10);
                         let meal12 = meal.substring(13, 18);
                         let mealDate = meal1 + ' ' + meal12; //用餐時間
-
-                        // mealDate = document.getElementsByClassName("mealDate")[0].previousElementSibling.innerText.replace(" / ", " ").replace("用餐時間:", "");
                         let nowNum = $('.nowNum').text();
                         let nowNumJoin = nowNum.substring(0, 1); //參加人數
                         let nowNumMax = nowNum.substring(3, 2); //最大人數
                         var friendCheckboxVal = $("input[name='friendCheckbox[]']:checked").map(function() {
                             return $(this).val();
                         }).get();
-                        let memberNoNum = $('.memberNoNum').text();
+                        let memberNoNum = $('.memberNoNum1').text();
 
-                        console.log(memberNoNum);
-                        console.log(groupNo);
+                        // console.log('123');
+                        // console.log(groupNo);
                         // console.log(groupName);
                         // console.log(resNo);
                         // console.log(mealDate);
@@ -1018,7 +1052,7 @@
                         // console.log(nowNum);
                         // console.log(nowNumJoin);
                         // console.log(nowNumMax);
-                        console.log(friendCheckboxVal);
+                        // console.log(friendCheckboxVal);
                         //傳送-----資料
                         $.ajax({
                             url: './open_group1.php',
@@ -1035,15 +1069,6 @@
                             type: 'GET',
                             dataType: 'json',
                         });
-                        // $.ajax({
-                        //     url: './open_group_open.php',
-                        //     data: {
-                        //         groupNo: groupNo,
-                        //         friendCheckboxVal: friendCheckboxVal,
-                        //     },
-                        //     type: 'GET',
-                        //     dataType: 'json',
-                        // });
                         //接收資料
                         $.ajax({
                             url: './open_group.php',
@@ -1087,12 +1112,14 @@
                                 }
                                 let num = $('.den_eatGroup_content div h4:nth-child(2)')
                                 for (let i = 0; i < num.length; i++) {
-                                    if (num[i].innerText == '4/4') {
+                                    if (num[i].innerText == '1/1' | num[i].innerText == '2/2' | num[i].innerText == '3/3' | num[i].innerText == '4/4') {
                                         num[i].innerText = 'MAX';
+                                        console.log(num[i]);
                                         $(num[i]).css('color', 'red');
-                                        // num[i].previousSibling.previousSibling.css('color', 'red');
                                     }
+
                                 }
+
                             }
                         });
                         $('.den_box2').css('display', 'none');
@@ -1112,10 +1139,8 @@
                             // console.log(foodGroup1);
                             // console.log(foodGroup1.length);
                             // console.log(foodGroup3);
-
                         for (let i = 0; i < foodGroup1.length; i++) {
                             $('.den_foodGroup').append(`
-
                             <div class="den_eatGroup" id="eatGroup${i+1}">
                                     <span>${foodGroup1[i].GROUP_NO}</span>
                                     <img src="./image/member/${foodGroup1[i].MEMBER_IMAGE}">
@@ -1142,14 +1167,17 @@
                                 </div>                           
                             `)
                         }
+                        //判斷是否團滿，滿了消失
                         let num = $('.den_eatGroup_content div h4:nth-child(2)')
                         for (let i = 0; i < num.length; i++) {
-                            if (num[i].innerText == '4/4') {
+                            if (num[i].innerText == '1/1' | num[i].innerText == '2/2' | num[i].innerText == '3/3' | num[i].innerText == '4/4') {
                                 num[i].innerText = 'MAX';
+                                console.log(num[i].parentNode.parentNode.parentNode);
+                                num[i].parentNode.parentNode.parentNode.style.display = 'none';
                                 $(num[i]).css('color', 'red');
-                                // num[i].previousSibling.previousSibling.css('color', 'red');
                             }
                         }
+
                     });
                     //第3個燈箱
                     $(document).ready(function() {
@@ -1157,8 +1185,7 @@
                             var foodGroupBox = data[2];
                             var yyy9 = this.children[0].innerText;
                             let denEatGroupNum = $('.den_eatGroup').index(this);
-                            // console.log(yyy9);
-                            // console.log(foodGroupBox);
+
                             $('.den_box3_row').empty();
                             $('.den_box3_row').append(`
                             <div class="box3_row_left">
@@ -1172,6 +1199,12 @@
                             </div>
                             <div class="box3_row_right">
                                 <div>
+                                    <div class="collection">           
+                                        <span>收藏</span>
+                                        <span class="collect_status" style="display:none"></span>         
+                                        <img src="./image/den_image/fourth_screen_redHollowHeart.png">
+                                    </div>
+                                    <br>
                                     <h3>團號:</h3>
                                     <h3 class="groupNo">${foodGroupBox[denEatGroupNum].GROUP_NO}</h3>
                                     <br>
@@ -1215,6 +1248,10 @@
                             `)
                             $('.den_box3').css('display', 'block');
                             $('.box_background').css('display', 'block');
+
+                            //執行收藏功能
+                            collection(`${foodGroupBox[denEatGroupNum].GROUP_NO}`);
+
                             $.ajax({
                                 url: './open_group.php',
                                 data: {
@@ -1224,7 +1261,7 @@
                                 dataType: 'json',
                                 complete(data) {
                                     let memberName = data.responseJSON[3];
-                                    // console.log(memberName);
+
                                     for (let i = 0; i < memberName.length; i++) {
                                         $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
                                             `
@@ -1233,17 +1270,16 @@
                                     }
                                 }
                             });
+                            clickImg3();
                         });
                     });
 
                     //第三個燈箱參團button
                     $('.den_box3_button button').on('click', function() {
                         if ($('#spanLogin').text() == '登出') {
-                            let memNo = $('.memberNoNum').text();
-                            console.log(memNo);
+
+                            let memNo = $('.memberNoNum1').text();
                             let groupNo3 = $('.groupNo').text();
-                            console.log(groupNo3);
-                            // console.log(memNo);
                             $.ajax({
                                 url: './open_group_join.php',
                                 data: {
@@ -1255,19 +1291,201 @@
                             });
                             $('.den_box3').css('display', 'none');
                             $('.box_background').css('display', 'none');
+                            $('.den_true_box_join').css('display', 'block');
+                            console.log()
+
                         } else {
                             alert('請先登入~~');
                             $('.section_res').css('display', 'block');
                             $('.den_box3').css('display', 'none');
                             $('.box_background').css('display', 'none');
                         }
+
                     });
+                    //第一個燈箱圖片點擊
+                    function clickImg1() {
+                        console.log(1);
+                        $('.box_row_left > img').not('.box_row_left > img:nth-child(2)').addClass('togray');
+                        $('.box_row_left > img').on('click', function() {
+                            $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                            $('.box_row_left > img').addClass('togray');
+                            $(this).removeClass('togray');
+                        });
+                    }
+                    //第二個燈箱圖片點擊
+                    function clickImg2() {
+                        console.log(1);
+                        $('.box2_row_left > img').not('.box2_row_left > img:nth-child(2)').addClass('togray');
+                        $('.box2_row_left > img').on('click', function() {
+                            $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                            $('.box2_row_left > img').addClass('togray');
+                            $(this).removeClass('togray');
+                        });
+                    }
+                    //第三個燈箱圖片點擊
+                    function clickImg3() {
+                        // console.log(1);
+                        $('.box3_row_left > img').not('.box3_row_left > img:nth-child(2)').addClass('togray');
+                        $('.box3_row_left > img').on('click', function() {
+                            $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                            $('.box3_row_left > img').addClass('togray');
+                            $(this).removeClass('togray');
+                        });
+                    }
+
                 }
+
             });
         });
+
+        //美食團收藏
+        function collection(groupNo) {
+            console.log('1----', groupNo);
+            $.ajax({
+                url: './open_group_join_collection.php',
+                type: 'GET',
+                dataType: 'JSON',
+                success(data) {
+                    let memberNoNum1 = $('.memberNoNum1').text();
+                    for (let i = 0; i < data.length; i++) {
+                        if (data[i].MEMBER_NO == memberNoNum1 && data[i].GROUP_NO == groupNo) {
+                            //有收藏
+                            $('.collection img').attr('src', './image/den_image/fourth_screen_redHeart.png');
+                            $('.collect_status').text('1');
+                            break;
+                        } else {
+                            //沒收藏
+                            $('.collection img').attr('src', './image/den_image/fourth_screen_redHollowHeart.png');
+                            $('.collect_status').text('2');
+                        }
+                    }
+                }
+            });
+
+            var toggle1 = true;
+            $('.collection img').click(function() {
+                let aaa = $('#spanLogin').text();
+                var memberNoNum1 = $('.memberNoNum1').text();
+                console.log(groupNo);
+                if (aaa == '登出') {
+                    if ($('.collect_status').text() == '1') {
+                        //這裡是紅色愛心變成黑色愛心的地方
+                        $('.collection img').attr('src', './image/den_image/fourth_screen_redHollowHeart.png');
+                        $('.collect_status').empty();
+                        $('.collect_status').append('2');
+                        alert('取消收藏');
+                        $.ajax({
+                            url: './open_group_delete_collection.php',
+                            type: 'GET',
+                            data: {
+                                memberNoNum1: memberNoNum1,
+                                groupNo: groupNo
+                            },
+                            dataType: 'JSON',
+                        });
+                    } else if ($('.collect_status').text() == '2') {
+                        // 這裡是黑色愛心變成紅色愛心的地方
+                        $('.collection img').attr('src', './image/den_image/fourth_screen_redHeart.png');
+                        $('.collect_status').empty();
+                        $('.collect_status').append('1');
+                        alert('收藏完成');
+                        $.ajax({
+                            url: './open_group_join_collection.php',
+                            type: 'GET',
+                            data: {
+                                memberNoNum1: memberNoNum1,
+                                groupNo: groupNo
+                            },
+                            dataType: 'JSON',
+                        });
+                    }
+                }
+                if (aaa == '登入') {
+                    alert('請先登入會員~~');
+                    $('.section_res').css('display', 'flex');
+                }
+            });
+
+
+
+
+
+            // if (toggle1) {
+            // $.ajax({
+            //     url: './open_group_join_collection.php',
+            //     type: 'GET',
+            //     dataType: 'JSON',
+            //     success(data) {
+            //         // let memberNoNum1 = $('.memberNoNum1').text();
+            //         // console.log(memberNoNum1);
+            //         console.log(data[1]);
+            //         for (let i = 0; i < data[1].length; i++) {
+            //             if (data[1][i].MEMBER_NO == memberNoNum1 & data[1][i].GROUP_NO == groupNo) {
+            //                 alert('你已經收藏了');
+            //             }
+            //         }
+            //     }
+            // });
+
+
+
+            // 這裡是黑色愛心變成紅色愛心的地方
+            // $('.collection img').attr('src', './image/den_image/fourth_screen_redHeart.png');
+            // $('.collect_status').append('1');
+            // alert('收藏完成');
+            // toggle1 = false;
+
+            // function join() {
+            //     $.ajax({
+            //         url: './open_group_join_collection.php',
+            //         type: 'GET',
+            //         dataType: 'JSON'
+            //     });
+            // }
+            // } else {
+            //這裡是紅色愛心變成黑色愛心的地方
+            // $('.collection img').attr('src', './image/den_image/fourth_screen_redHollowHeart.png');
+            // toggle1 = true;
+            // alert('取消收藏');
+
+            // $.ajax({
+            //     url: './open_group_join_collection.php',
+            //     type: 'GET',
+            //     data: {
+            //         memberNoNum1: memberNoNum1,
+            //         groupNo: groupNo
+            //     },
+            //     dataType: 'JSON',
+            //     success(data) {
+
+            //     }
+            // });
+
+            // function deleted() {
+            //     $.ajax({
+            //         url: 'open_group_delete_collection.php',
+            //         type: 'GET',
+            //         data: {
+            //             memberNoNum1: memberNoNum1,
+            //             groupNo: groupNo
+            //         },
+            //         dataType: 'JSON'
+            //     });
+            // }
+            // }
+
+
+
+
+
+            // articleNo = $('.articleNo').text();
+            // memberNoNum = $('.memberNoNum').text();
+            // // alert(`articleNo: ${articleNo}`);
+            // // alert(memberNoNum);
+            // ppp(articleNo, memberNoNum);
+
+        }
     </script>
-
-
 </body>
 
 </html>

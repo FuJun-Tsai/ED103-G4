@@ -1,11 +1,11 @@
 <?php
 
-
+$Errmsg='';
 $memNo = isset($_GET["memNo"]) ? $_GET["memNo"] : "";
 $groupNo3 = isset($_GET["groupNo3"]) ? $_GET["groupNo3"] : "";
 
 try{
-  require_once('connectbook.php');
+  require_once('./connectbook.php');
   //陌生人加入
 $sql2="insert into food_group_people (GROUP_NO, MEMBER_NO, MEMBER_STATUS) VALUES ($groupNo3,$memNo,2);";
 

@@ -183,24 +183,36 @@
                 <div class="row">
                     <div class="selection col-lg-8" id="condition" method="POST" action="searchConditionRender.php">
 
-                        <input id="searchword" type="text" placeholder="美食快搜" name="searchbar">
-                        <button id="searchwordbtn" value="" name="condition">搜尋</button>
+                        <!-- <input id="searchword" type="text" placeholder="美食快搜" name="searchbar">
+                        <button id="searchwordbtn" value="" name="condition">搜尋</button> -->
 
-                        <label for="kind" class="kind">餐廳種類：
+                        <label for="kind" class="kind">
+                            <h3>
+                                餐廳種類
+                            </h3>
+                           <br>
+                        <div>
                             <label for="k1"><input type="checkbox" name="kind" id="k1" value="1">日式</label>
                             <label for="k2"><input type="checkbox" name="kind" id="k2" value="2">西式</label>
                             <label for="k3"><input type="checkbox" name="kind" id="k3" value="3">中台</label>
                             <label for="k4"><input type="checkbox" name="kind" id="k4" value="4">韓式</label>
                             <label for="k5"><input type="checkbox" name="kind" id="k5" value="5">東南亞</label>
+                        </div>
                         </label>
 
-                        <label for="style[]" class="style">料理風格：
+                        <label for="style[]" class="style">
+                            <h3>
+                                料理風格
+                            </h3>
+                            <br>
+                        <div>
                             <label for="s1"><input type="checkbox" name="style[]" id="s1" value="1">火鍋</label>
                             <label for="s2"><input type="checkbox" name="style[]" id="s2" value="2">燒烤</label>
                             <label for="s3"><input type="checkbox" name="style[]" id="s3" value="3">炸物</label>
                             <label for="s4"><input type="checkbox" name="style[]" id="s4" value="4">快炒</label>
                             <label for="s5"><input type="checkbox" name="style[]" id="s5" value="5">簡餐</label>
                             <label for="s6"><input type="checkbox" name="style[]" id="s6" value="6">排餐</label>
+                        </div>
                         </label>
 
                     </div>
@@ -587,6 +599,24 @@
     <script src="js/login.js"></script>
     <!-- <script src="./js/searchrestaurant.js"></script> -->
     <!-- <script src="./js/searchAnimate.js"></script> -->
+
+    <script>
+          $('.kind label input').on('change', function() {
+                $('.kind label').css('background', 'rgba(255, 255, 255, 0)');
+                $('.kind label').css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0)');
+
+                $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
+                $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
+          });
+          $(".style label input").click(function() {
+                var checkis = $(this).is(":checked");
+                if (checkis == true) {
+                    $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
+                } else {
+                    $(this).parent().css('background', 'rgba(223, 114, 25, 0)');
+                }
+            });
+    </script>
 
 </body>
 

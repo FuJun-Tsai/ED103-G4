@@ -12,7 +12,8 @@ try{
                 R.RES_MES_REPORT_STATUS,
                 rm.RES_MESSAGE_WORD
             FROM report_restaurant_message R
-	            JOIN restaurant_message rm on( R.MESSAGE_NO = rm.RES_MESSAGE_NO);';
+	            JOIN restaurant_message rm on( R.MESSAGE_NO = rm.RES_MESSAGE_NO)
+            WHERE RES_MES_REPORT_STATUS = 0;';
 
     $data = $pdo->prepare($sql);
     $data-> execute();

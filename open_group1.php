@@ -16,7 +16,7 @@ $memberNoNum = isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 // echo $nowNumJoin;
 
 try{
-  require_once('connectbook.php');
+  require_once('./connectbook.php');
 //開團
   $sql="
   insert into food_group(
@@ -30,6 +30,7 @@ try{
   JOIN_NUMBER,
   MEAL_TIME)
   VALUES ($memberNoNum,$groupNo,$resNo,'$groupName',CURRENT_DATE(),'$mealDate'+interval-1 day,$nowNumMax,$nowNumJoin,'$mealDate');";
+  // exit($sql);
   $products = $pdo->prepare($sql);
   $products->execute();
 
