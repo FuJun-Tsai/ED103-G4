@@ -139,17 +139,17 @@
         <li>
             <a href="#report_adm" data-toggle="tab">
                 <span class="icon"><i class="fas fa-ban"></i></span>
-                <span class="title">留言檢舉</span>
+                <span class="title">檢舉審查</span>
                 
             </a>
         </li>
-        <li>
+        <!-- <li>
             <a href="#article_adm" data-toggle="tab">
                 <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
                 <span class="title">文章檢舉</span>
                 
             </a>
-        </li>
+        </li> -->
     </ul>
     </div>
     <div class="toggle" onclick="toggleMenu()"></div>
@@ -534,13 +534,13 @@
              </div>
              <div class="tab-pane" id="report_adm">
                  <h2 class="backend_h2">
-                     留言檢舉
+                     檢舉審查
                 </h2>
                              <table class="res_ban_table report_table table-bordered">
                                  <thead class="word_adm_ti">
                                      <tr> 
                                          <th class="col-md-1 col-xs-1">編號</th> 
-                                         <th class="col-md-2 col-xs-2">留言檢舉編號</th>
+                                         <th class="col-md-2 col-xs-2">檢舉編號</th>
                                          <th class="col-md-3 col-xs-3">檢舉原因</th>
                                          <th class="col-md-2 col-xs-2">檢舉時間</th>
                                          <th class="col-md-3 col-xs-3">留言內容</th>
@@ -581,7 +581,7 @@
                                  </tbody>
                              </table>
                     </div>
-                    <div class="tab-pane" id="article_adm">
+                    <!-- <div class="tab-pane" id="article_adm">
                         <h2 class="backend_h2">
                             貼文檢舉
                        </h2>
@@ -597,39 +597,10 @@
                                             </tr> 
                                         </thead>
                                         <tbody>
-                                            <!-- <tr class="row_h"> 
-                                                <td>資料1</td> 
-                                                <td>資料2</td> 
-                                                <td>資料2</td> 
-                                                <td>資料2</td> 
-                                                <td>資料2</td> 
-                                                <td>
-                                                    <button class="btn_5">
-                                                        <i class="fas fa-angle-down"></i>
-                                                        
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5">
-                                                    <span>
-                                                        留言內容:
-                                                    </span>
-                                                    <div>
-                   
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <button class="btn_5">
-                                                        <i class="fas fa-ban"></i>
-                                                        
-                                                    </button>
-                                                </td>
-                                            </tr> -->
-                                            
+                                           
                                         </tbody>
                                     </table>
-                           </div>
+                           </div> -->
                 </div>
                    
              </div>
@@ -959,7 +930,7 @@
                                                     <input type="text" name="resname" value="${data[i].RES_NAME}">
                                                     <br>
                                                     <span>餐廳風格</span>
-                                                        <select name="resstyle" id="" value="">
+                                                        <select name="resstyle" id="" value=""${data[i].RES_STYLE}>
                                                             <option value="1">日式</option>
                                                             <option value="2">西式</option>
                                                             <option value="3">中台</option>
@@ -1343,15 +1314,19 @@
                                     
                                     <td>${data[i].RES_MESSAGE_WORD}</td>
                                     <td>
-                                        <button class="btn_5 resreban" id=rop"${data[i].rop_NO}">
+                                        <button class="btn_5 resreban" id=rop"${data[i].RES_MES_RE_NO}">
                                             <i class="fas fa-ban"></i>
+                                        </button>
+                                        <button class="btn_5 resreup" id=rop_nodown"${data[i].RES_MES_RE_NO}">
+                                            <i class="fas fa-check-square"></i>
                                         </button>
                                 </td>
                                 </tr> 
                         `);
                     };
                  
-                        // deleteRESRE();
+                        BANRESRE();
+                        UPRESRE();
                         
 
                 }
@@ -1360,29 +1335,54 @@
         });
 
         // ban留言
-        // function deleteRESRE(){
-        //     $('.resreban').on('click', function(){
-        //         let td_resrno = $(this).parent().siblings('.td_resre_NO').text();
-                
-        //         $.ajax({
-        //             url:'res_rep_del.php',
-        //             type:'GET',
-        //             dataType:'json',
-        //             data:{
-        //                 res_re_no_del:td_resrno,
-        //             },
+        function BANRESRE(){
+            $('.resreup').on('click', function(){
+                let td_resrno = $(this).parent().siblings('.td_resre_NO').text();
+
+                $.ajax({
+                    url:'B_res_rep_noban.php',
+                    type:'GET',
+                    dataType:'json',
+                    data:{
+                        RES_MES_RE_NO:td_resrno,
+                    },
                     
-        //             success:function(res){
+                    success:function(res){
                         
-        //             console.log('OK');
-        //             },
-        //             complete: function(){}
+                    console.log('OK');
+                    },
+                    complete: function(){}
                     
-        //         });
-        //         $(this).parent().parent().remove();
-        //         // parent.location.reload();
-        //         });
-        //     }
+                });
+                $(this).parent().parent().remove();
+                // parent.location.reload();
+                });
+            }
+
+             // ban留言
+        function UPRESRE(){
+            $('.resreban').on('click', function(){
+                let td_resrno = $(this).parent().siblings('.td_resre_NO').text();
+
+                $.ajax({
+                    url:'B_res_rep_ban.php',
+                    type:'GET',
+                    dataType:'json',
+                    data:{
+                        RES_MES_RE_NO:td_resrno,
+                    },
+                    
+                    success:function(res){
+                        
+                    console.log('OK');
+                    },
+                    complete: function(){}
+                    
+                });
+                $(this).parent().parent().remove();
+                // parent.location.reload();
+                });
+            }
       </script>
 
        <!-- 文章接資料庫 -->
@@ -1407,8 +1407,11 @@
                                     
                                     <td>${data[i].ARTICLE_WORD}</td>
                                     <td>
-                                        <button class="btn_5 artreban" id=rop"${data[i].rop_NO}">
+                                        <button class="btn_5 artreban" id=artre"${data[i].rop_NO}">
                                             <i class="fas fa-ban"></i>
+                                        </button>
+                                        <button class="btn_5 artreup" id=artre_nodown"${data[i].RES_MES_RE_NO}">
+                                            <i class="fas fa-check-square"></i>
                                         </button>
                                 </td>
                                 </tr> 
