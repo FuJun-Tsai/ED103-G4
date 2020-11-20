@@ -557,10 +557,13 @@ header {
 }
 
 .den_box {
+    // background: linear-gradient(45deg, #FFE1A4, white);
+    // background-color: rgba(255, 225, 164, 1);
+    background: linear-gradient(top, #FFE1A4, white);
     @include light-box-setting(90%, auto, absolute);
     box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
     display: none;
-    background-color: rgba(255, 255, 255, .9);
+    // background-color: rgba(255, 255, 255, .9);
     z-index: 10001;
     position: fixed;
     overflow: auto;
@@ -674,9 +677,12 @@ header {
 
 .den_box2 {
     @include light-box-setting(90%, auto, absolute);
+    // background: linear-gradient(45deg, #FFE1A4, white);
     // box-shadow: 8px 10px 10px rgba(22, 22, 22, .5);
+    // background-color: rgba(255, 225, 164, 1);
+    background: linear-gradient(top, #FFE1A4, white);
     display: none;
-    background-color: rgba(255, 255, 255, 1);
+    // background-color: rgba(255, 255, 255, 1);
     z-index: 2000;
     position: fixed;
     overflow: auto;
@@ -805,8 +811,10 @@ header {
 
 .den_box3 {
     @include light-box-setting(90%, auto, absolute);
+    background: linear-gradient(top, #FFE1A4, white);
+    // background-color: rgba(255, 225, 164, 1);
     display: none;
-    background-color: rgba(255, 255, 255, 1);
+    // background-color: rgba(255, 255, 255, 1);
     z-index: 2000;
     position: fixed;
     overflow: auto;
