@@ -20,6 +20,8 @@
     <!-- <link rel="stylesheet" type="text/css" href="./css/home.css" /> -->
     <!-- <link rel="stylesheet" href="./css/btn_hover.css"> -->
     <!--按鈕的css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!--按鈕的css -->
     <!-- <link rel="stylesheet" href="./css/background.css"> -->
     <title>首頁</title>
 
@@ -225,43 +227,60 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v9.0" nonce="883Y3opw"></script>
 
     
-    <!-- 登入的lightbox -->
+    <!-- 登入lightbox -->
     <section class="section_res" id="login_box" style="display:none">
         <div class="container_res">
+            <div class="ic" id="btnLoginCancel"><i class="fas fa-times"></i></div>
             <div class="user singinBx">
-                <div class="img_res">
-                    <img src="./image/2.png" alt="">
+                <div class="img_res img_res1">
+                    <img src="./image/2.png">
                 </div>
-                <div class="form_res">
-                    <form name="login">
+                <div class="form_res form_res1">
+                    <form name="login" class="form">
                         <h2>會員登入</h2>
-                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
-                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
-    
-                        <input type="button" name="" value="登入" id="btnLogin">
-                        <input type="button" name="" value="取消" id="btnLoginCancel">
+                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號" id="loginID">
+                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼" id="loginPsd">
+                        <div class="btn_6 btn_js loginuse">
+                            <input type="button" name="" value="登入" id="btnLogin">
+                            <span></span>
+                        </div>
+                        <!-- <input type="button" name="" value="取消" id="btnLoginCancel"> -->
                         <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
                     </form>
                 </div>
             </div>
             <div class="user singupBx">
-                <div class="form_res">
-                    <form action="signup.php" method="post">
+                <div class="form_res form_res2">
+                    <div class="form">
                         <h2>註冊</h2>
-                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
-                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
-                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
-                        <input type="submit" name="submit" value="註冊">
-                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
-                    </form>
+                        <input type="text" id="newmem_account" name="newmem_account" placeholder="請輸入帳號">
+                        <input type="password" id="newmem_psw" name="newmem_psw" placeholder="請輸入密碼">
+                        <input type="password" id="again_psw" name="again_psw" placeholder="再次確認密碼">
+                        <input type="text" id="newmem_email" name="newmem_email" placeholder="請輸入email">
+                    </div>
                 </div>
-                <div class="img_res">
-                    <img src="./image/4.jpg" alt="">
+                <div class="img_res img_res2">
+                    <div class="form">
+                        <input type="text" id="newmem_name" name="newmem_name" placeholder="來個暱稱吧">
+                        <input type="text" id="newmem_in" name="newmem_in" placeholder="簡短的介紹自己">
+                        <select name="newmem_sex" id="newmem_sex">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                        <select name="newmem_age" id="newmem_age">
+                            <option value="25↓">25↓</option>
+                            <option value="26~35">26~35</option>
+                            <option value="36~45">36~45</option>
+                            <option value="46~55">46~55</option>
+                            <option value="56↑">56↑</option>
+                        </select>
+                        <input type="submit" id="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </div>  
                 </div>
             </div>
         </div>
     </section>
-
 
     <header class="chu_header">
         <section>
@@ -331,7 +350,6 @@
         </section>
     </header>
 
-
     <div id="myContainer">
 
         <div class="section" id="section0">
@@ -350,15 +368,15 @@
                     <div class="bubble x9"></div>
                 </div>
 
-                <div class="circle_orange"></div>
-                <p class="titlewords" data-aos="flip-up" data-aos-duration="1500">美食大富翁</p>
-                <div class="circle_fuchsia">
-                    <p data-aos="zoom-in" data-aos-duration="3000">不知道今天吃什麼嗎？<br><br>
+                <div class="circle_orange" data-aos="fade-left" data-aos-duration="1500"></div>
+                <p class="titlewords" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-delay="200" data-aos-duration="1500">美食大富翁</p>
+                <div class="circle_fuchsia" data-aos="fade-right" data-aos-duration="1500">
+                    <p>不知道今天吃什麼嗎？<br><br>
                         快來找餐廳、找吃友！<br>
                         一起成為美食大富翁吧～
                     </p>
                 </div>
-                <div class="circle_purple"></div>
+                <div class="circle_purple" data-aos="zoom-in-left" data-aos-duration="1500"></div>
                 <div class="circle_food_cake"></div>
                 <div class="circle_food_noodles"></div>
                 <div class="circle_food_icecream"></div>
@@ -480,11 +498,55 @@
                             <span></span>
                         </button>
                     </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- 燈箱 -->
+                <div class="den_box3" id="box">
+                    <div class="leave_btn">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                    </div>
+                    <div class="den_box3_row">
+            
+                    </div>
+                    <div class="denAllButton3">
+                        <div class="den_box3_button">
+                            <button>確認參團</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
                 </div>
 
 
                 <div class="twoPeople"></div>
                 <div class="friends"></div>
+
+
+
+
+
+
+
+
+
+
+
             </section>
             <!-- <div class="slide"></div> -->
             <!-- <div class="slide"><div class="wrap"><h1>Slide 2.1</h1></div></div>
@@ -494,7 +556,6 @@
 
         <div class="section" id="section2">
             <section class="third_screen">
-
                 <!-- 背景泡泡 -->
                 <div id="bubbles" style="position:sticky; z-index: 2 !important;">
                     <div class="bubble x1"></div>
@@ -533,6 +594,8 @@
                     </a>
 
                 </div>
+
+
             </section>
         </div>
 

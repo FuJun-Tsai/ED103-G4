@@ -6,14 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
-
     <!-- <script src="./js/header_fixed.js"></script> -->
     <title>會員專區</title>
     <!--按鈕的css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <!--他的js -->
-    <!-- <script src="js/btn_hover.js"></script> -->
-    <!--按鈕js -->
     <link rel="stylesheet" href="./css/allstyle.css">
 </head>
 
@@ -116,7 +112,6 @@
                             <input type="button" name="" value="登入" id="btnLogin">
                             <span></span>
                         </div>
-                        <!-- <input type="button" name="" value="取消" id="btnLoginCancel"> -->
                         <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
                     </form>
                 </div>
@@ -126,9 +121,10 @@
                     <div class="form">
                         <h2>註冊</h2>
                         <input type="text" id="newmem_account" name="newmem_account" placeholder="請輸入帳號">
+                        <input type="button" id="btnCheckId" value="檢查帳號是否可用"><span id="idMsg"></span>
                         <input type="password" id="newmem_psw" name="newmem_psw" placeholder="請輸入密碼">
                         <input type="password" id="again_psw" name="again_psw" placeholder="再次確認密碼">
-                        <input type="text" id="newmem_email" name="newmem_email" placeholder="請輸入email">
+                        <input type="email" id="newmem_email" name="newmem_email" placeholder="請輸入email">
                     </div>
                 </div>
                 <div class="img_res img_res2">
@@ -298,7 +294,7 @@
                             目前沒有開團喔!快來糾一波
                         </h3>
                         <button class="btn_3 btn_js">
-                            <a href="./open_group.html">
+                            <a href="./open_group.html" id="no_groupbtn">
                                 前往開團
                             </a>
                             <span></span>
@@ -539,7 +535,7 @@
 
     <!-- ***************************** -->
     <footer>
-        <div class="footer">
+        <div class="footer1">
             <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
         </div>
     </footer>

@@ -25,7 +25,7 @@ try{
 
 
   // SQL0 四個美食團
-  $sql1 = "select F.RES_NO, MEMBER_NAME , GROUP_NAME , date(meal_time) dMT , date_format(time(meal_time),'%H : %i') hmMT  from food_group F
+  $sql1 = "select F.RES_NO, MEMBER_NAME , GROUP_NAME , date(meal_time) dMT , date_format(time(meal_time),'%H : %i') hmMT, F.GROUP_NO GROUP_NO from food_group F
   join member_management MM on (F.MEMBER = MM.MEMBER_NO)" ;
   $sql1.=$cond3;
 
