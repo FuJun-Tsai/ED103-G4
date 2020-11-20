@@ -331,7 +331,6 @@
                 type:'GET',
                 dataType:'json',
                 success(data){
-                    console.log(data);
                     let trade = data.trade.split('');
                     for(let i=0;i<7;i+=1){
                         if(trade[i]==1){
@@ -469,8 +468,6 @@
                     dataType:'json',
                     success(e){
 
-                        console.log(e);
-
                         $('.single_messaging').append(`
                         <img src="./image/member/${e.IMG}">
                         <div id="send">
@@ -527,7 +524,6 @@
                         RES:location.search.split('=')[1],
                     },
                     success(data){
-                        console.log(data);
                         $(`.like i`).removeClass('far');
                         $(`.like i`).addClass('tored');
                         $(`.like i`).addClass('fas');
@@ -565,12 +561,6 @@
                         do:e,
                         RES:location.search.split('=')[1],
                     },
-                    success(e){
-                        console.log(e);
-                    },
-                    complete(e){
-                        console.log(e);
-                    }
                 });
             }
 

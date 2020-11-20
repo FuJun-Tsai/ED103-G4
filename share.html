@@ -440,7 +440,6 @@
                 dataType:'json',
                 type:'GET',
                 success(data){
-                    console.log(data);
                     for(let i=0;i<data.length;i+=1){
                         if(data[i].kind==0){
                             data[i].kind='#美食分享';
@@ -506,8 +505,6 @@
                             let like = $(this).siblings('.foot').find('.collect_sum h5').text();
                             let id = $(this).val();
                             let classType = $(this).siblings('.foot').find('.fa-heart').attr('class');
-                            // console.log(classType);
-                            console.log(data);
                             $(".msg-left h4").text(`${data[i].kind}`);
                             $(".msg-left h2").text(`${data[i].title}`);
                             $(".img_block22 img").attr('src',`image/article_sharing/${data[i].img}`);
@@ -557,7 +554,6 @@
                             title = '揪團分享';
                         };
                         
-                        console.log(data);
                         
                         // $('#cardshare').append(`
                         //     <div class="col-md-4">
@@ -620,7 +616,6 @@
                             // $(".img_block img").attr('src',`image/article_sharing/${data[i].img}`);
                             // $(".msg-left p").text(`${data[i].word}`);
                             // lightdetail(id);
-                            console.log('here');
 
                         });
 
@@ -723,7 +718,6 @@
                                 word:$('#nuan_LeaveMessage textarea').val(),
                             },
                             success(data){
-                                console.log(data);
                                 $('#nuan_LeaveMessage').before(
                                     `<div class="msgin">
                                         <div class="msgpost">
@@ -790,7 +784,6 @@
                         let ID = $(this).closest('.col-md-4').attr('id').split('C')[1];
                         let num = parseInt($(this).find('.collect_sum h5').text());
                         
-                        console.log(ID);
                         
                         if($(this).find('i').hasClass('tored')==true){
                             num-=1;
@@ -904,7 +897,6 @@
 
                             $(`#C${ID} .fa-heart`).removeClass('fas');
                             $(`#C${ID} .fa-heart`).addClass('far');
-                            console.log($(`#C${ID} .collect_sum h5`).text());
 
                         }else{
                             num+=1;
@@ -914,7 +906,7 @@
 
                             $(`#C${ID} .fa-heart`).removeClass('far');
                             $(`#C${ID} .fa-heart`).addClass('fas');
-                            console.log($(`#C${ID} .collect_sum h5`).text());
+
                         }
 
                         docollect(bolin,ID);
