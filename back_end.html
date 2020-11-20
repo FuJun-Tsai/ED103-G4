@@ -913,11 +913,11 @@
                              
                             <td>
                                
-                                <button class="btn_5" data-toggle="modal" data-target="#res_chg_modify" value="${data[i].RES_KIND}&${data[i].RES_STYLE}">
+                                <button class="btn_5 reschgbtn" data-toggle="modal" data-target="#res_chg_modify${data[i].RES_NO}" value="${data[i].RES_KIND}&${data[i].RES_STYLE}">
                                      <i class="fas fa-pencil-alt"></i>
                                 </button>
                                     <!-- 餐廳修改燈箱 -->
-                                    <div class="modal fade" id="res_chg_modify" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal fade" id="res_chg_modify${data[i].RES_NO}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -930,7 +930,7 @@
                                                     <input type="text" name="resname" value="${data[i].RES_NAME}">
                                                     <br>
                                                     <span>餐廳風格</span>
-                                                        <select name="resstyle" id="" value=""${data[i].RES_STYLE}>
+                                                        <select name="resstyle" id="">
                                                             <option value="1">日式</option>
                                                             <option value="2">西式</option>
                                                             <option value="3">中台</option>
@@ -939,7 +939,7 @@
                                                         </select>
                                                     <br>
                                                     <span>餐廳種類</span>
-                                                        <select name="reskind" id="" value="${data[i].RES_KIND}">
+                                                        <select name="reskind" id="">
                                                             <option value="1">第一項</option>
                                                             <option value="2">第二項</option>
                                                             <option value="3">第三項</option>
@@ -957,7 +957,7 @@
                                                     <input type="text" class="resaddress" name="resaddress" value="${data[i].RES_ADDRESS}">
                                                     <br>
                                                     <span>餐廳營業日</span>
-                                                    <input type="text" class="reswork" name="reswork" value="${data[i].RES_TEL}">
+                                                    <input type="text" class="reswork" name="reswork" value="${data[i].RES_HOURS}">
                                                     <br>
                                                     <span>餐廳開始營業時間</span>
                                                     <input type="text" class="resstart" name="resstart" value="${data[i].RES_START}">
@@ -997,6 +997,7 @@
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
                                                     <button type="submit" class="btn_5" id="res_chg_submit" value="${data[i].RES_NO}"><i class="fas fa-save"></i></button>
                                                 </div>
+                                                <input type="hidden" name="res_no_chg" value="${data[i].RES_NO}">
                                             </form>
 
                                         </div>
@@ -1082,8 +1083,10 @@
 
                   };
 
-                  $().on('click',function(){
-                      
+                  $('.reschgbtn').on('click',function(){
+                        let x = $(this).val().split('&');
+                        $(`select[name='resstyle'] option:nth-child(${x[0]})`).attr('selected',true);
+                        $(`select[name='reskind'] option:nth-child(${x[1]})`).attr('selected',true)
                   });
 
                   function restend(){
