@@ -136,6 +136,8 @@ body{
                         h3{
                             margin: 0 3% 5% 5%;
                             font-weight: 900;
+                            width: 290px;
+                            text-overflow : ellipsis;
                             // border-bottom: 1px solid orangered;
                             // display: inline-block;
                             color: orangered;
@@ -259,7 +261,7 @@ body{
         opacity: 0;
         z-index: -1;
         article{
-            background: linear-gradient(#fbefa1,white);
+            background: linear-gradient(#FFE1A4,white);
             max-width: 90%;
             border-radius: 10px;
             box-shadow: 0 0 10px #ddd;
@@ -512,7 +514,7 @@ body{
     .newMoodLightBox {
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: hsla(0, 0%, 0%, .5);
         display: none;
         justify-content: center;
         align-items: center;
@@ -528,7 +530,7 @@ body{
             width: 90%;
             position: relative;
             border-radius: 10px;
-            background: linear-gradient(#fbefa1, white);
+            background: linear-gradient(#FFE1A4, white);
             align-items: center;
             #closeNewMoodBtn {
                 width: 50px;
@@ -554,9 +556,6 @@ body{
                 span.line2 {
                     transform: translate(-50%, -50%) rotate(-45deg);
                 }
-            }
-            #closeNewMoodBtn:hover {
-                transform: rotate(180deg);
             }
             h2 {
                 color: orangered;
@@ -641,15 +640,20 @@ body{
             }
         }
     }
-    @media screen and (max-width: 480px){
+    @media screen and (max-width: 992px){
         .newMoodLightBox{
-            .col-md-12{
-                margin-top: 15%;
-                .newMoodBlock{
-                   h2{
-                    font-size: 24px !important;
-                    }
+            .newMoodBlock{
+                h2{
+                font-size: 24px !important;
                 }
+            }
+        }
+    }
+    @media screen and (max-width: 350px){
+        .newMoodLightBox{
+            .newMoodBlock {
+                height: 500px;
+                overflow: auto;
             }
         }
     }
