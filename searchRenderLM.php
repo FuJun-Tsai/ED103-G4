@@ -22,17 +22,15 @@ try{
 
             FROM restaurant_message R
                 JOIN member_management mm on(R.MEMBER_NO = mm.MEMBER_NO)  
-                LEFT JOIN report_restaurant_message rrm on(R.RES_MESSAGE_NO = rrm.MESSAGE_NO)  
 
             WHERE 
-                RES_NO in($word) AND
-                rrm.MESSAGE_NO in(0,2)
+                RES_NO in($word)
 
             ORDER BY RES_NO;";
   
     $RESdata = $pdo->prepare($sql);
     $RESdata-> execute();
-    echo $sql;
+    // echo $sql;
     if($RESdata->rowCount()==0){
         echo '資料有誤';
     }else{
