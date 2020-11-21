@@ -3,21 +3,21 @@ $ErrMsg = '';
 $condition = explode("&",$_REQUEST['condition']);
 $word = '';
 $num = (settype($_REQUEST['page'],'integer')-1)*4;
-// $page = isset($num ? $num : 0);
-// $name = isset($data['name']) ? $data['name'] : 'aidec';
 $page = $_REQUEST['page'] ? ($_REQUEST['page'])*4 : 0;
-// echo $_REQUEST['page'];
-if(strlen($condition[1])>2){
+$kind = $condition[0];
+
+if($condition[1]){
     $item = explode(",",$condition[1]);
+
     for($i=0;$i<count($item);$i+=1){
         if($i!=count($item)-1){
-            $word.="'$item[$i]',";
+            $word.="$item[$i],";
         }else{
-            $word.="'$item[$i]'";
+            $word.="$item[$i]";
         }
     }
 }
-$search = $_REQUEST['search'];
+// echo $word;
 
 try{
     require_once('./connectbook.php');
@@ -41,7 +41,7 @@ try{
     if(strlen($_REQUEST['condition'])>1){
         $sql.= ' where ';
         if($condition[0]){
-            $sql.= ' rk.KIND_NO = :kind ';
+            $sql.= " rk.KIND_NO = $kind";
         };
         if($condition[0] and $condition[1]){
             $sql.= ' and ';
@@ -49,19 +49,22 @@ try{
         if(strlen($condition[1])>2){
             $sql.= " rs.STYLE_NO in($word) ";
         }else if($condition[1]){
-            $sql.= ' rs.STYLE_NO in(:style) '; 
+            // $sql.= ' rs.STYLE_NO in(:style) '; 
+            $sql.= " rs.STYLE_NO in($word) ";
+
         };
     };
 
     $sql.= ' order by no ASC;';
 
     $data = $pdo->prepare($sql);
-    if($condition[0]){
-        $data-> bindValue(':kind',$condition[0]);
-    };
-    if($condition[1]){
-        $data-> bindValue(':style',$condition[1]);
-    };
+    // if($condition[0]){
+    //     $data-> bindValue(':kind',$condition[0]);
+    // };
+    // if($condition[1]){
+    //     $data-> bindValue(':style',$condition[1]);
+    // };
+    // echo $sql;
     $data-> execute();
     
     if($data->rowCount()==0){
@@ -90,7 +93,7 @@ try{
     if(strlen($_REQUEST['condition'])>1){
         $sql.= ' where ';
         if($condition[0]){
-            $sql.= ' rk.KIND_NO = :kind ';
+            $sql.= " rk.KIND_NO = $kind";
         };
         if($condition[0] and $condition[1]){
             $sql.= ' and ';
@@ -98,7 +101,9 @@ try{
         if(strlen($condition[1])>2){
             $sql.= " rs.STYLE_NO in($word) ";
         }else if($condition[1]){
-            $sql.= ' rs.STYLE_NO in(:style) '; 
+            // $sql.= ' rs.STYLE_NO in(:style) '; 
+            $sql.= " rs.STYLE_NO in($word) ";
+
         };
     };
 
