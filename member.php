@@ -44,7 +44,7 @@
                 <a class="icon" href="./member.php">
                     <img src="./image/icon.svg" id="headshot_icon">
                 </a>
-                <span style="display: none;" class="memberNoNum"></span>
+                <span style="display: none;" class="memberNoNum" id="memberNoNum"></span>
                 <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
@@ -58,7 +58,7 @@
                         <a class="icon" href="./member.php">
                             <img src="./image/icon.svg" id="mobileheadshot_icon">
                         </a>
-                        <span style="display: none;" class="memberNoNum"></span>
+                        <span style="display: none;" class="memberNoNum" id="mob_memberNoNum"></span>
                         <span id="mobilespanLogin">登入</span>
                     </div>
                     <li>
@@ -96,7 +96,8 @@
 
     <!---------------------------------- 登入bar 區域開始 ---------------------------------->	
     <!-- 登入lightbox -->
-    <section class="section_res" id="login_box" style="display:none">
+    <div class="jun_back"></div>
+    <section class="section_res" id="login_box" style="display:none" >
         <div class="container_res">
             <div class="ic" id="btnLoginCancel"><i class="fas fa-times"></i></div>
             <div class="user singinBx">
@@ -121,10 +122,13 @@
                     <div class="form">
                         <h2>註冊</h2>
                         <input type="text" id="newmem_account" name="newmem_account" placeholder="請輸入帳號">
-                        <input type="button" id="btnCheckId" value="檢查帳號是否可用"><span id="idMsg"></span>
+                        <input type="button" id="btnCheckId" value="檢查帳號" class="checkbtn"><span id="idMsg" class="idMsg"></span>
                         <input type="password" id="newmem_psw" name="newmem_psw" placeholder="請輸入密碼">
                         <input type="password" id="again_psw" name="again_psw" placeholder="再次確認密碼">
                         <input type="email" id="newmem_email" name="newmem_email" placeholder="請輸入email">
+                        <button class="btn_5 btn_js" id="next_re">下一步
+                            <span></span>
+                        </button>
                     </div>
                 </div>
                 <div class="img_res img_res2">
@@ -143,7 +147,12 @@
                             <option value="56↑">56↑</option>
                         </select>
                         <input type="submit" id="submit" value="註冊">
-                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                        <p class="learn">已經有會員了?<br>
+                            <a href="#" onclick="toggleForm();">會員登入點我點我</a>
+                            <button class="btn_5 btn_js for_btn" id="previous_re">上一步
+                                <span></span>
+                            </button>
+                        </p>
                     </div>  
                 </div>
             </div>
@@ -183,22 +192,22 @@
                     <div class="mylist">
                         <ul>
                             <li>
-                                <button data-target="my_main" class="tabbtn -on btn_11 btn_js" id="my_main_btn">我的資訊<span></span></button>
+                                <button data-target="my_main" class="tabbtn -on btn_11 btn_js -on1" id="my_main_btn">我的資訊<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_group" class="tabbtn btn_11 btn_js" id="my_group_btn">我的開團<span></span></button>
+                                <button data-target="my_group" class="tabbtn btn_11 btn_js -on1" id="my_group_btn">我的開團<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_join" class="tabbtn btn_11 btn_js" id="my_jion_btn">我的參團<span></span></button>
+                                <button data-target="my_join" class="tabbtn btn_11 btn_js -on1" id="my_jion_btn">我的參團<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_collect" class="tabbtn btn_11 btn_js" id="my_collect_btn">我的收藏<span></span></button>
+                                <button data-target="my_collect" class="tabbtn btn_11 btn_js -on1" id="my_collect_btn">我的收藏<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_article" class="tabbtn btn_11 btn_js" id="my_article_btn">我的文章<span></span></button>
+                                <button data-target="my_article" class="tabbtn btn_11 btn_js -on1" id="my_article_btn">我的文章<span></span></button>
                             </li>
                             <li>
-                                <button data-target="my_friend" class="tabbtn btn_11 btn_js" id="my_friend_btn">我的好友<span></span></button>
+                                <button data-target="my_friend" class="tabbtn btn_11 btn_js -on1" id="my_friend_btn">我的好友<span></span></button>
                             </li>
                         </ul>
                     </div>
@@ -373,7 +382,18 @@
                     <h3 class="title">
                         我的參團
                     </h3>
-                    <div class="small_block">
+                    <div class="small_block no_group">
+                        <h3>
+                            目前沒有參團喔!快去參加吧
+                        </h3>
+                        <button class="btn_4 btn_js">
+                            <a href="./open_group.html">
+                                前往參團
+                            </a>
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="small_block" id="have_my_join">
                         <div class="tab_list_block">
                             <ul class="tab_list">
                                 <li>
@@ -409,7 +429,18 @@
                     <h3 class="title">
                         我的收藏
                     </h3>
-                    <div class="small_block">
+                    <div class="small_block no_group">
+                        <h3>
+                            目前沒有收藏喔!要不要去看看
+                        </h3>
+                        <button class="btn_6 btn_js">
+                            <a href="./searchrestaurant.html">
+                                去收藏
+                            </a>
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="small_block" id="have_con">
                         <div class="tab_list_block">
                             <ul class="tab_list">
                                 <li>
@@ -446,14 +477,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="change_page">
-                            <button class="Previous_page btn_11 btn_js">
-                            上一頁<span></span>
-                            </button>
-                            <button class="Next_page btn_11 btn_js">
-                            下一頁<span></span>
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -469,7 +492,18 @@
                     <h3 class="title">
                         我的文章
                     </h3>
-                    <div class="small_block">
+                    <div class="small_block no_group">
+                        <h3>
+                            你沒寫文章喔!要不要去看看
+                        </h3>
+                        <button class="btn_6 btn_js">
+                            <a href="./share.html">
+                                我想發文
+                            </a>
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="small_block" id="have_article">
                         <div class="tab_list_block">
                             <ul class="tab_list">
                                 <li>
@@ -503,14 +537,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="change_page">
-                            <button class="Previous_page btn_11 btn_js">
-                            上一頁<span></span>
-                            </button>
-                            <button class="Next_page btn_11 btn_js">
-                            下一頁<span></span>
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -519,7 +545,18 @@
                     <h3 class="title">
                         我的好友
                     </h3>
-                    <div class="fd_search">
+                    <div class="small_block no_group">
+                        <h3>
+                            目前沒有朋友喔!要不要去找個朋友呢
+                        </h3>
+                        <button class="btn_6 btn_js">
+                            <a href="./open_group.html">
+                                找朋友
+                            </a>
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="fd_search" id="have_friend">
                         <input type="text" placeholder="請輸入好友名稱">
                         <input type="submit" value="搜尋">
                     </div>

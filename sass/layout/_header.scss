@@ -18,11 +18,15 @@ header {
     z-index: 10;
     section {
         position: relative;
-        padding: 10px 20px;
+        padding: 0 20px;
         display: flex;
         align-items: center;
+        @include rwd(md_medium){
+            padding-right: 0;
+        }
         .logo {
             flex: 1 1 5%;
+            text-align: center;
             a {
                 img {
                     width: 150px;
@@ -31,7 +35,7 @@ header {
             }
         }
         .nav {
-            flex: 1 1 56%;
+            flex: 1 1 55%;
             ul {
                 display: flex;
                 justify-content: flex-end;
@@ -69,21 +73,24 @@ header {
         .member {
             display: flex;
             align-items: center;
+            text-align: center;
             justify-content: center;
-            flex: 1 1 0%;
+            flex: 1 1 5%;
             .icon {
-                width: 75px;
                 display: inline-block;
                 padding: 0 5px;
                 img{
-                    width: 100%;
+                    width: 70px;
+                    height: 70px;
                     border-radius: 50%;
                 }
             }
             span {
                 display: inline-block;
                 font-size: $fontSize;
-                padding: 0 5px;
+                font-size: 20px;
+                padding: 0 10%;
+                font-weight: bold;
                 cursor: pointer;
             }
         }
@@ -136,11 +143,12 @@ header {
                     justify-content: center;
                     flex: 1 1 0%;
                     .icon {
-                        width: 70px;
                         display: inline-block;
                         padding: 0 5px;
                         img{
-                            width: 100%;
+                            // width: 100%;
+                            width: 70px;
+                            height: 70px;
                             border-radius: 50%;
                         }
                     }
@@ -158,6 +166,7 @@ header {
                         font-size: 20px;
                         cursor: pointer;
                         font-weight: $fontWeight_600;
+                        color: black;
                         #sub_menu {
                             padding-top: 10px;
                             display: none;
@@ -216,13 +225,11 @@ header {
 @include rwd(md_desktop) {
     header {
         section {
-            .logo {
-            }
             .nav {
                 ul {
                     li {
                         a {
-                            padding: 5px 20px;
+                            padding: 5px 15px;
                         }
                     }
                 }
@@ -258,6 +265,7 @@ header {
     header {
         section {
             .logo {
+                // text-align: left;
                 a {
                     img {
                         width: 130px;
@@ -268,6 +276,19 @@ header {
                 display: block;
                 top: 23px;
                 right: 40px;
+                #menu{
+                    margin: 30px 15px 0 15px;
+                }
+                .nav1{
+                    .member{
+                        .icon{
+                            img{
+                                width: 50px;
+                                height: 50px;
+                            }
+                        }
+                    }
+                }
             }
             .nav {
                 flex: 1 1 7%;
@@ -295,6 +316,16 @@ header {
                 flex: 1 1 0%;
                 justify-content: flex-start;
                 display: none;
+                .icon{
+                    img{
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+                span{
+                    font-weight: bold;
+                    font-size: 24px;
+                }
             }
         }
     }
@@ -311,11 +342,6 @@ header {
                     }
                 }
                 flex: 1 1 0%;
-            }
-            #menu-bar {
-                display: block;
-                top: 20px;
-                right: 15px;
             }
             .menu-bg {
                 right: -40%;
@@ -360,11 +386,17 @@ header {
                 }
             }
             #menu-bar {
+                display: block;
+                top: 20px;
+                right: 15px;
+                #menu{
+                    margin: 15px;
+                }
                 .nav1 {
                     .member {
                         justify-content: flex-start;
                         .icon {
-                            width: 40px;
+                            width: 60px;
                             img{
                                 width: 100%;
                                 border-radius: 50%;
