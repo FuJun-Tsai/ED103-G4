@@ -17,6 +17,15 @@ try{
     $data = $pdo -> prepare($sql);
     $data-> execute();
 
+    $sql = "UPDATE `restaurant_message` 
+            SET
+                status = 1
+            WHERE   
+                RES_MESSAGE_NO = '$RES_MES_RE_NO';";
+
+    $data = $pdo -> prepare($sql);
+    $data-> execute();
+
     // if($data->rowCount()==0){
     //     echo '已刪除';
     // }
