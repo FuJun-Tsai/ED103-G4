@@ -30,15 +30,10 @@ body{
                     background-color: white;
                     display: inline-block;
                     padding-right: 28px;
-<<<<<<< HEAD
                     padding: 30px 20px 30px 40px;
                     letter-spacing: 20px;
                     margin-top: 0;
                     color: black;
-=======
-                    padding: 30px 0;
-                    margin-top: 0;
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                 }
             }
         }
@@ -56,11 +51,7 @@ body{
         z-index: 1;
         position: fixed;
         right: 5%;
-<<<<<<< HEAD
         bottom: 10%;
-=======
-        bottom: 40%;
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
         // display: inline-block;
         // border-radius: 50%;
         // background-image: url("../image/19.png");
@@ -145,11 +136,8 @@ body{
                         h3{
                             margin: 0 3% 5% 5%;
                             font-weight: 900;
-<<<<<<< HEAD
                             width: 290px;
                             text-overflow : ellipsis;
-=======
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                             // border-bottom: 1px solid orangered;
                             // display: inline-block;
                             color: orangered;
@@ -210,10 +198,7 @@ body{
                         padding-left: 10%;
                         margin-bottom: 5%;
                         display: inline-block;
-<<<<<<< HEAD
                         cursor: pointer;
-=======
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                             .heartIcon{
                                 display: inline-block;
                                 img {
@@ -277,11 +262,7 @@ body{
         opacity: 0;
         z-index: -1;
         article{
-<<<<<<< HEAD
             background: linear-gradient(#FFE1A4,white);
-=======
-            background: linear-gradient(#fbefa1,white);
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
             max-width: 90%;
             border-radius: 10px;
             box-shadow: 0 0 10px #ddd;
@@ -317,17 +298,10 @@ body{
                     font-weight: 900;
                     margin-top: 3%;
                 }
-<<<<<<< HEAD
                 .img_block22 {
                     width: 90%;
                     margin: 5%;
                     display: inline-block;
-=======
-                .img_block {
-                    width: 90%;
-                    margin: 5% 5%;
-                    display: block;
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                     img {
                         display: inline-block;
                         max-width: 100%;
@@ -353,10 +327,7 @@ body{
                     }
                     .collect_block {
                         display: inline-block;
-<<<<<<< HEAD
                         cursor: pointer;
-=======
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         .heartIcon{
                             display: inline-block;
                             img {
@@ -368,24 +339,17 @@ body{
                             display: inline-block;
                         }
                     }
-<<<<<<< HEAD
                     button{
                         border: 0;
                         float: right;
                         font-weight: 900;
                         font-size: 18px;
-=======
-                    input{
-                        float: right;
-                        margin: 1% 0 0 0;
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                     }
                 }
                 p {
                     display: inline-block;
                     text-align: justify;
                     padding: 3%;
-<<<<<<< HEAD
                     border-width:3px;
                     border-style:dashed;
                     border-color:#FFAC55;
@@ -394,13 +358,6 @@ body{
                     margin: 5% 5%;
                     width: 90%;
                     height: auto;
-=======
-                    border: 1px solid grey;
-                    line-height: 25px;
-                    margin: 5% 5%;
-                    width: 90%;
-                    height: 130px;
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                     overflow: auto;
                 }
             }
@@ -413,11 +370,8 @@ body{
                             height: auto;
                         }
                     }.msg-right{
-<<<<<<< HEAD
                         height: auto;
                         overflow: inherit;
-=======
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         .msgin {
                             height: auto;
                         }
@@ -430,7 +384,6 @@ body{
                 }
             }
             @media screen and (max-width: 480px){
-<<<<<<< HEAD
                 .banner_share{
                     .banner_bg{
                         .text{
@@ -453,20 +406,12 @@ body{
                         font-size: 16px;
                     }
                 }
-=======
-                article{
-                    margin-top: 45%;
-                }
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
             }
             .msg-right {
                 vertical-align: top;
                 margin: 5% 0 0 5%;
-<<<<<<< HEAD
                 height: 550px;
                 overflow: auto;
-=======
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                 h3 {
                     display: inline-block;
                     padding: 2% 0;
@@ -475,7 +420,6 @@ body{
                 }
                 .msgin {
                     margin: 0 5% 5% 0;
-<<<<<<< HEAD
                     overflow: auto;
                     .msgpost {
                         border: 1px solid grey;
@@ -483,12 +427,6 @@ body{
                         border-color:#FFAC55;
                         border-width:3px;
                         padding:5px;
-=======
-                    height: 350px;
-                    overflow: auto;
-                    .msgpost {
-                        border: 1px solid grey;
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         padding: 2%;
                         margin-bottom: 5%;
                         background-color: #FFE1A4;
@@ -511,7 +449,6 @@ body{
                                     }
                                 }
                             }
-<<<<<<< HEAD
                             button{
                                 border: 0;
                                 float: right;
@@ -519,8 +456,6 @@ body{
                                 background-color:  #FFE1A4;
                                 font-size: 18px;
                             }
-=======
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                             .collect_block {
                                 display: inline-block;
                                 .heartIcon{
@@ -544,22 +479,14 @@ body{
                             line-height: 25px;
                         }
                     }
-<<<<<<< HEAD
                 }#nuan_LeaveMessage{ 
-=======
-                }form{ 
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                     textarea {
                         outline: none;
                         width: 95%;
                         height: 80px;
                         margin-bottom: 1%;
                     }
-<<<<<<< HEAD
                     button {
-=======
-                    input {
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         padding: 0;
                         border: 0.1px solid #DF7219;
                         display: inline-block;
@@ -576,11 +503,7 @@ body{
                         /* font-weight: fontWeight_500; */
                         cursor: pointer;
                     }
-<<<<<<< HEAD
                     button:hover {
-=======
-                    input:hover {
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         background-color: white;
                         color: #DF7219;
                         border: 0.1px solid #DF7219;

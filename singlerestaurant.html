@@ -47,20 +47,12 @@
                 <div class="form_res form_res1">
                     <form name="login" class="form">
                         <h2>會員登入</h2>
-<<<<<<< HEAD
                         <input type="text" name="MEMBER_ID" placeholder="請輸入帳號" id="loginID">
                         <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼" id="loginPsd">
                         <div class="btn_6 btn_js loginuse">
                             <input type="button" name="" value="登入" id="btnLogin">
                             <span></span>
                         </div>
-=======
-                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
-                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
-
-                        <input type="button" name="" value="登入" id="btnLogin">
-                        <input type="button" name="" value="取消" id="btnLoginCancel">
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
                     </form>
                 </div>
@@ -141,19 +133,10 @@
                 </ul>
             </div>
             <div class="member" id="login">
-<<<<<<< HEAD
                 <a class="icon" href="./member.php">
                     <img src="./image/icon.svg" id="headshot_icon">
                 </a>
                 <span style="display: none;" class="memberNoNum"></span>
-=======
-                <div class="icon" >
-                    <img src="./image/icon.svg" id="headshot_icon">
-                    <span class="username" style="display: none;"></span>
-                </div>
-                <div id="nametest"></div>
-                <!-- <span id="memName">&nbsp;</span> -->
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                 <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
@@ -336,7 +319,6 @@
     <script>
         
         $(document).ready(function(){
-<<<<<<< HEAD
             singleJS();
         });
 
@@ -344,14 +326,11 @@
 
             $('.single_content').empty();
 
-=======
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
             $.ajax({
                 url:`singleRenderRES.php${location.search}`,
                 type:'GET',
                 dataType:'json',
                 success(data){
-                    console.log(data);
                     let trade = data.trade.split('');
                     for(let i=0;i<7;i+=1){
                         if(trade[i]==1){
@@ -390,11 +369,7 @@
                                 <aside id="detail" class="col-lg-5">
                                     <h3 class="single_item">店家名稱：</h3>
                                     <span id="rname" style="font-size:24px;font-weight:bold;">${data.name}</span>
-<<<<<<< HEAD
                                     <div class="like"><i class="far fa-heart"></i><span> 收藏</span></div>
-=======
-                                    <div class="like"><i class="fas fa-heart"></i><span> 收藏</span></div>
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                                     <h3 class="single_item">店家介紹：</h3>
                                     <p id="rint">${data.intro}</p>
                                     <h3 class="single_item">營業時間：</h3>
@@ -443,7 +418,6 @@
 
             });
 
-<<<<<<< HEAD
             function singleRenderRLM(){
 
                 $.ajax({
@@ -541,118 +515,8 @@
 
             function singlecollection(){
 
-=======
-            $.ajax({
-                url:`singleRenderRLM.php${location.search}`,
-                type:'GET',
-                dataType:'json',
-                success(data){
 
-                    let items = data.length;
-                    for(let i=0;i<=items-1;i+=1){
-
-                        let item = data[i].word.split('');
-                        let content = '';
-
-                        for(let i=0;i<=item.length-1;i+=1){
-                            if(item[i].charCodeAt()==10){
-                                item[i]='<br>';
-                            }
-                            content = item.join('');
-                        }
-                        $('#leavemessage').append(`
-                        <div id="${data[i].id}" class="single_L">
-                            <img src="./image/member/${data[i].img}" alt="">
-                            <p>${content}</p>
-                            <p class="time">${data[i].time}</p>
-                            <i class="fas fa-exclamation-triangle">檢舉</i>
-                        </div>              
-                        `);
-                    
-                    }
-
-
-                },
-                complete(e){
-                    itemfunction(); 
-                }
-
-
-                
-            });
-
-            $.ajax({
-                url:'GETUSER.php',
-                type:'POST',
-                dataType:'json',
-                success(e){
-
-                    console.log(e);
-
-                    $('.single_messaging').append(`
-                    <img src="./image/member/${e.IMG}">
-                    <form id="send" action="singleInsertRLM.php" method="POST">
-                        <textarea name="RES_MESSAGE_WORD" cols="30" rows="10"></textarea>
-                        <button class="btn_6 btn_js" name="RES_MEM" value="${location.search.split('=')[1]},${e.NO}">送出
-                            <span></span>
-                        </button>
-                    </form>
-                    `);
-
-                    $('.single_report').append(`
-                    <div class="single_reportback">
-                        <i class="fas fa-times single_cancel"></i>
-                        <h2>檢舉餐廳留言</h2>
-                            <!--<label for="report">
-                                    選擇檢舉類型:
-                                    <select name="report">
-                                        <option value="1">惡意謾罵</option>
-                                        <option value="2">淫穢色情</option>
-                                        <option value="3">無關主題</option>
-                                        <option value="0">其他</option>
-                                    </select>
-                                </label> -->
-                            <h4 style="font-weight: bold;">檢舉原因：</h4>
-                            <textarea name="RES_MES_REPORT_REASON" id=""></textarea>
-                            <button type="submit" name="test" value="">送出檢舉</button>
-                        <div class="single_thank">
-                            <p>感謝你的檢舉</p>
-                        </div>
-                    </div>
-                    `);
-
-                },
-    
-                complete(e){
-                    itemfunction(); 
-                }
-
-            });
-
-            $.ajax({
-                url:'singlecollection.php',
-                type:'POST',
-                dataType:'json',
-                data:{
-                    RES:location.search.split('=')[1],
-                },
-                success(data){
-                    console.log(data);
-                    $('.like i').addClass('tored');
-                },
-                complete(e){
-                    $('.like').on('click',function(){
-                        $('.like i').toggleClass('tored');
-                        collect($('.like i').hasClass('tored'));
-                    }); 
-                }
-            });
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
-
-            function collect(e){
-                // console.log(e);
                 $.ajax({
-<<<<<<< HEAD
                     url:'singlecollection.php',
                     type:'POST',
                     dataType:'json',
@@ -685,25 +549,9 @@
 
                             }
                         }); 
-=======
-                    url:'collect.php',
-                    type:'POST',
-                    dataType:'json',
-                    data:{
-                        do:e,
-                        RES:location.search.split('=')[1],
-                    },
-                    success(e){
-                        console.log(e);
-                    },
-                    complete(e){
-                        console.log(e);
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                     }
                 });
-            }
 
-<<<<<<< HEAD
             }
 
             function collect(e){
@@ -719,9 +567,6 @@
             }
 
         }
-=======
-        });
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
 
     </script>
 
