@@ -37,6 +37,7 @@
     <!-- 登入lightbox -->
     <section class="section_res" id="login_box" style="display:none">
         <div class="container_res">
+<<<<<<< HEAD
             <div class="ic" id="btnLoginCancel"><i class="fas fa-times"></i></div>
             <div class="user singinBx">
                 <div class="img_res img_res1">
@@ -51,11 +52,26 @@
                             <input type="button" name="" value="登入" id="btnLogin">
                             <span></span>
                         </div>
+=======
+            <div class="user singinBx">
+                <div class="img_res">
+                    <img src="./image/2.png" alt="">
+                </div>
+                <div class="form_res">
+                    <form name="login">
+                        <h2>會員登入</h2>
+                        <input type="text" name="MEMBER_ID" placeholder="請輸入帳號">
+                        <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼">
+
+                        <input type="button" name="" value="登入" id="btnLogin">
+                        <input type="button" name="" value="取消" id="btnLoginCancel">
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
                     </form>
                 </div>
             </div>
             <div class="user singupBx">
+<<<<<<< HEAD
                 <div class="form_res form_res2">
                     <div class="form">
                         <h2>註冊</h2>
@@ -84,6 +100,20 @@
                         <input type="submit" id="submit" value="註冊">
                         <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
                     </div>  
+=======
+                <div class="form_res">
+                    <form action="signup.php" method="post">
+                        <h2>註冊</h2>
+                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
+                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
+                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
+                        <input type="submit" name="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </form>
+                </div>
+                <div class="img_res">
+                    <img src="./image/4.jpg" alt="">
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                 </div>
             </div>
         </div>
@@ -127,10 +157,19 @@
                 </ul>
             </div>
             <div class="member" id="login">
+<<<<<<< HEAD
                 <a class="icon" href="./member.php">
                     <img src="./image/icon.svg" id="headshot_icon">
                 </a>
                 <span style="display: none;" class="memberNoNum"></span>
+=======
+                <div class="icon" >
+                    <img src="./image/icon.svg" id="headshot_icon">
+                    <span class="username" style="display: none;"></span>
+                </div>
+                <div id="nametest"></div>
+                <!-- <span id="memName">&nbsp;</span> -->
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                 <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
@@ -184,6 +223,7 @@
                 <div class="row">
                     <div class="selection col-lg-8" id="condition" method="POST" action="searchConditionRender.php">
 
+<<<<<<< HEAD
                         <!-- <input id="searchword" type="text" placeholder="美食快搜" name="searchbar">
                         <button id="searchwordbtn" value="" name="condition">搜尋</button> -->
 
@@ -214,6 +254,26 @@
                             <label for="s5"><input type="checkbox" name="style[]" id="s5" value="5">飯食</label>
                             <label for="s6"><input type="checkbox" name="style[]" id="s6" value="6">麵食</label>
                         </div>
+=======
+                        <input id="searchword" type="text" placeholder="美食快搜" name="searchbar">
+                        <button id="searchwordbtn" value="" name="condition">搜尋</button>
+
+                        <label for="kind" class="kind">餐廳種類：
+                            <label for="k1"><input type="checkbox" name="kind" id="k1" value="1">日式</label>
+                            <label for="k2"><input type="checkbox" name="kind" id="k2" value="2">美式</label>
+                            <label for="k3"><input type="checkbox" name="kind" id="k3" value="3">西式</label>
+                            <label for="k4"><input type="checkbox" name="kind" id="k4" value="4">韓式</label>
+                            <label for="k5"><input type="checkbox" name="kind" id="k5" value="5">中台</label>
+                        </label>
+
+                        <label for="style[]" class="style">料理風格：
+                            <label for="s1"><input type="checkbox" name="style[]" id="s1" value="1">火鍋</label>
+                            <label for="s2"><input type="checkbox" name="style[]" id="s2" value="2">燒烤</label>
+                            <label for="s3"><input type="checkbox" name="style[]" id="s3" value="3">炸物</label>
+                            <label for="s4"><input type="checkbox" name="style[]" id="s4" value="4">快炒</label>
+                            <label for="s5"><input type="checkbox" name="style[]" id="s5" value="5">簡餐</label>
+                            <label for="s6"><input type="checkbox" name="style[]" id="s6" value="6">排餐</label>
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         </label>
 
                     </div>
@@ -309,17 +369,24 @@
     <script>
 
         $(document).ready(function(){
+<<<<<<< HEAD
             searchJS();
         });
 
         function searchJS(){
 
             $('.result').empty();
+=======
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
             K = '';
             S = [];
             result = [];
             search = '';
+<<<<<<< HEAD
             ConditionSearch(K,S.join(','),result,search,page=0);
+=======
+            ConditionSearch(K,S.join(','),result,search);
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
             // MessageRender(result);
 
             function MessageRender(e){
@@ -340,6 +407,7 @@
                                 </div>
                             `);
                         };
+<<<<<<< HEAD
 
 
                     },
@@ -347,6 +415,9 @@
                         nomessage(e);
 
                     }
+=======
+                    },
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                     
                 });
                 imgcube();
@@ -364,6 +435,7 @@
                     }).get();
                 }
                 
+<<<<<<< HEAD
                 ConditionSearch(K,S.join(','),search,page);
             });
 
@@ -371,12 +443,35 @@
             function ConditionSearch(K,S,result,search='',page=0){
 
                 let condition = `${K}&${S}`;
+=======
+                ConditionSearch(K,S.join(','),search);
+            });
+
+
+            $('#searchwordbtn').on('click',function(){
+                $(this).val(`${$('#searchword').val()}`);
+                search = $('#searchword').val();
+                console.log(search);
+                console.log($('#searchword').val());
+                // console.log(K);
+                // console.log(S);
+
+                ConditionSearch(K,S.join(','),search);
+                return false;
+            });
+
+
+            function ConditionSearch(K,S,result,search=''){
+                let condition = `${K}&${S}`;
+                // console.log("----????????---",search); 
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                 $.ajax({
                     url:'searchConditionRender.php',
                     type:'GET',
                     dataType:'json',
                     data:{
                         condition:condition,
+<<<<<<< HEAD
                         search:search,
                         page:page
                     },
@@ -388,10 +483,24 @@
                                 data[1][i].collectRES = 'style="color:black;"';
                             }else{
                                 data[1][i].collectRES = 'style="color:red;"';
+=======
+                        search:search
+                    },
+                    success(data){
+                        console.log(data);
+                        result = [];
+                        for(let i=0;i<data.length;i+=1){
+                            result.push(data[i].no);
+                            if(data[i].collectRES == null){
+                                data[i].collectRES = 'style="color:black;"';
+                            }else{
+                                data[i].collectRES = 'style="color:red;"';
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                             }
                         };
                         $('.error').css({'display': 'none'});
                         $('.result').empty();
+<<<<<<< HEAD
                         for(let i=0;i<data[1].length;i+=1){
                             $('.result').append(`
                                 <div id="${data[1][i].id}" class="rest container">
@@ -431,18 +540,53 @@
                                             <div class="go">
                                                 <a href="./open_group.html#den_tab1"><button class="btnRed btn_3 btn_js">開團<span></span></button></a>
                                                 <a href="./open_group.html#den_tab2"><button class="btnBlue btn_4 btn_js">參團<span></span></button></a>
+=======
+                        for(let i=0;i<data.length;i+=1){
+                            $('.result').append(`
+                                <div id="${data[i].id}" class="rest container">
+                                    <div class="row">
+                                        <div class="rep col-lg-5">
+                                            <img src="./image/restaurant_management_img/${data[i].img1}" alt="">
+                                        </div>
+                                        <div class="detail col-lg-7">
+                                            <h2>${data[i].name}</h2>
+                                            <div class="kind west">${data[i].kind}</div>
+                                            <div class="style steak">${data[i].style}</div>
+                                            <div class="record">
+                                                <div class="like"><i class="fas fa-heart"></i><span>23</span></div>
+                                                <div class="mess"><i class="far fa-comment-dots"></i><span>45</span></div>
+                                                <div class="group"><i class="fas fa-users"></i><span>300</span></div>
+                                            </div>
+                                            <h3>餐廳介紹：</h3>
+                                            <p id="rint">${data[i].summary}</p>
+                                            <h3>網友留言：</h3>
+                                            <div id="leavemessage" class="insearch ${data[i].id}">
+
+                                            </div>
+                                            <form action="singlerestaurant.html" method="GET">
+                                                <button name="RES_NO" value="${data[i].no}" class="btnsingle btn_10 btn_js">詳細<span></span></button>
+                                            </form>
+                                            <div class="go">
+                                                <a href="./open_group.html"><button class="btnRed btn_3 btn_js">開團<span></span></button></a>
+                                                <a href=""><button class="btnBlue btn_4 btn_js">參團<span></span></button></a>
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             `);
 
+<<<<<<< HEAD
                             TweenLite.from(`#${data[1][i].id}`,0.5,{
+=======
+                            TweenLite.from(`#${data[i].id}`,0.5,{
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                                 opacity:-2,
                                 y:-300,
                             },);
 
                         };
+<<<<<<< HEAD
 
                         $('.page').empty();
                         let num = Math.ceil(data[0].length/4);
@@ -467,11 +611,20 @@
 
                     },
                     error(){
+=======
+                        
+                    },
+                    error(data){
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         $('.result').empty();
                         $('.error').css({'display': 'block'});
 
                     },
+<<<<<<< HEAD
                     complete(e){
+=======
+                    complete(){
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         MessageRender(result);
                         collection();
                     },
@@ -486,15 +639,22 @@
                     type:'POST',
                     dataType:'json',
                     success(data){
+<<<<<<< HEAD
                         // console.log(data); 
                         for(let i=0;i<=data.length-1;i+=1){
                             $(`#${data[i].ID} .like i`).removeClass('far');
                             $(`#${data[i].ID} .like i`).addClass('tored');
                             $(`#${data[i].ID} .like i`).addClass('fas');
+=======
+                        console.log(data); //R3
+                        for(let i=0;i<=data.length-1;i+=1){
+                            $(`#${data[i].ID} .like i`).addClass('tored');
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         }
                     },
                     complete(){
                         $('.like').on('click',function(){
+<<<<<<< HEAD
                             if($('#spanLogin').text()=='登入'){
                                 $('#login_box').css({'display':'flex'});
                             }else{
@@ -517,6 +677,11 @@
                                 }
 
                             }
+=======
+                            let RES = ($(this).closest('.rest').attr('id').split('R')[1]);
+                            $(this).children('.like i').toggleClass('tored');
+                            collect($(this).children('.like i').hasClass('tored'),RES);
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                         }); 
                     }
                 });
@@ -533,11 +698,16 @@
                         RES:RES,
                     },
                     success(e){
+<<<<<<< HEAD
                         
+=======
+                        // console.log(e);
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
                     },
                 
                 });
             }
+<<<<<<< HEAD
 
             function nomessage(e){
                 let array = [];
@@ -579,6 +749,29 @@
                 imgcube();
         });
 
+=======
+     
+        });
+
+    </script>
+
+    <script>
+  
+        function imgcube(){
+            let imgwidth = $('.rep img').width();
+            if($(window).width()<600){
+                $('.rep img').width($(window).width()-20);
+                $('.rep img').height($(window).width()-20);
+            }else{
+                $('.rep img').height(500);
+            }
+        };
+
+        window.addEventListener('resize',function(){
+                imgcube();
+        });
+
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
         $('.kind input').on('click',function(){
             if($(this).prop('checked')){
                 $('.kind input:checkbox').prop('checked',false);
@@ -591,6 +784,7 @@
     <script src="js/login.js"></script>
     <!-- <script src="./js/searchrestaurant.js"></script> -->
     <!-- <script src="./js/searchAnimate.js"></script> -->
+<<<<<<< HEAD
 
     <script>
         $('.kind label input').on('click', function() {
@@ -614,6 +808,8 @@
             }
         });
     </script>
+=======
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
 
 </body>
     <style>

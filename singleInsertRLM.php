@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 <?php
+=======
+<?
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
 header('Content-Type: application/json; charset=UTF-8');
 $ErrMsg='';
 $test = explode(",",$_REQUEST['RES_MEM']);
 try{
+<<<<<<< HEAD
     require_once('connectbook.php');
+=======
+    require_once('./connetbook.php');
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
     $sql = "INSERT into `restaurant_message` 
             (RES_NO,
             MEMBER_NO,

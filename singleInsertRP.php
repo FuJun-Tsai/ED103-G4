@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php
+=======
+<?
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
 header('Content-Type: application/json; charset=UTF-8');
 $ErrMsg='';
 $test = explode('&',$_REQUEST['MESSAGE_NO']);
@@ -6,7 +10,11 @@ $test = explode('&',$_REQUEST['MESSAGE_NO']);
 // echo($test[1]);
 // echo '<br><br>';
 try{
+<<<<<<< HEAD
     require_once('connectbook.php');
+=======
+    require_once('./connetbook.php');
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
     $sql = "insert into `report_restaurant_message` 
             (MESSAGE_NO,
             RES_MES_REPORT_REASON,

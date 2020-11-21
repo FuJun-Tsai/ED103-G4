@@ -3,6 +3,8 @@ function $id(id){
 }	
 
 let member;
+
+let member;
     //註冊 
     function registered(){
       $("#submit").on("click",function(){
@@ -99,8 +101,6 @@ let member;
       //將頁面上的使用者資料清掉
       if($id('spanLogin').innerHTML == "登入"){
         $id('login_box').style.display = 'flex';
-        $('.jun_back').css({'display':'block'});
-        // document.getElementsByClassName('jun_back')[0].getAttribute('display')='block';
       }else{//登出
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
@@ -122,12 +122,10 @@ let member;
       let xhr = new XMLHttpRequest();
       xhr.onload = function(){
         member = JSON.parse(xhr.responseText);
-        // console.log("====",member);
-        if(member.MEMBER_ID!=undefined){
+        if(member.MEMBER_ID = true){
           $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
           $id("mobileheadshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
           $id('spanLogin').innerHTML = '登出';
-          $id('mobilespanLogin').innerHTML = '登出';
           // document.getElementsByClassName('username')[0].innerText(`${member.MEMBERR_NO}`);
           $('.username').text(`${member.MEMBER_NO}`);
           //將登入表單上的資料清空，並隱藏起來
@@ -145,7 +143,6 @@ let member;
       xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
       let data_info = `MEMBER_ID=${MEMBER_ID}&MEMBER_PSW=${MEMBER_PSW}`;
       console.log(data_info);
-      // memberrender();
       xhr.send(data_info); 
     }
 
@@ -166,12 +163,11 @@ let member;
           member = JSON.parse(xhr.responseText);
           if(member.MEMBER_ID){
             $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
-            $id("mobileheadshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
             $id('spanLogin').innerHTML = '登出';
-            $id('mobilespanLogin').innerHTML = '登出';
-            $("#memberNoNum").text(`${member.MEMBER_NO}`);  
-            $("#mob_memberNoNum").text(`${member.MEMBER_NO}`);  
+            $('.username').text(`${member.MEMBER_NO}`);  
           }
+
+
         }else{ //error
           // alert(xhr.status);
         }
@@ -181,34 +177,8 @@ let member;
       xhr.send(null);
     }
 
-    function toggleForm() {
-        var container_res = document.querySelector('.container_res');
-        container_res.classList.toggle('act');
-    }
-
-    function btnjs(){
-      $('.btn_js')
-      .on('mouseenter', function(e) {
-        var parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
-        $(this).find('span').css({top:relY, left:relX})
-      })
-      .on('mouseout', function(e) {
-        var parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
-        $(this).find('span').css({top:relY, left:relX})
-      });
-    }
     function init(){
-      
-      //===判斷帳號是否能使用
-      checkId();
-      //===註冊事件
-      registered();
-      //手機板RWD註冊上下頁
-      registeredRWD();
+      user = '';
       //-----------------------檢查是否已登入
       getMemberInfo();
       //===設定spanLogin.onclick 事件處理程序是 showLoginForm
