@@ -187,7 +187,7 @@ Rarrow.addEventListener("click",function(){
                         clickImg3(); 
                         //執行收藏功能
                         collection(`${foodGroupBox[0].GROUP_NO}`);
-                  
+                    
                     }
                 });
             });
@@ -264,6 +264,9 @@ function left(){
                         },
                         dataType: 'json',
                         success(data) {
+
+                            $('.chu_header').css('display','none');
+
                             var foodGroupBox = data[1];
                             $('.chu_box_row').empty();
                             $('.chu_box_row').append(`
@@ -362,6 +365,7 @@ function left(){
                 $('.leave_btn').on('click',function(){
                     $('.chu_box').css('display', 'none');
                     $('.box_background').css('display', 'none');
+                    $('.chu_header').css('display','block');
                 }); 
                 //--------------------------
                 // getNewGroup();

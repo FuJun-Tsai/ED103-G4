@@ -15,6 +15,7 @@ body{
     }
     img{
         width: 8%!important;
+        cursor: pointer;
         // height: 30px!important;
         
     }
@@ -171,7 +172,7 @@ section.first_screen {
         @media all and (min-width: 576px) and (max-width: 767px) {
             @include circle(300px, #5A1D81);
             top: 50%;
-            right: 25%;
+            right: 7%;
         }
         @media all and (max-width: 575px) {
             top: 60%;
@@ -229,7 +230,7 @@ section.first_screen {
             left: 58%;
         }
         @media all and (max-width: 575px) {
-            top: 13%;
+            top: 38%;            
             left: 60%;
             width: 80px;
             height: 80px;
@@ -334,6 +335,8 @@ section.first_screen {
         @media all and (max-width: 575px) {
             bottom: 3%;
             right: 45%;
+            width: 75px;
+            height: 75px;
         }
     }
     .circle_food_breakfast {
@@ -929,12 +932,20 @@ section.second_screen {
         z-index: 1001;
         .leave_btn {
             position: relative;
-            right: -90%;
-            // float: right;
+            // right: -90%;
+            float: right;
             width: 50px;
             height: 50px;
             z-index: 99;
             cursor: pointer;
+            @media all and (min-width: 576px) and (max-width: 767px) {                    
+                float: unset;
+                right: -90%;
+            }
+            @media screen and (max-width:575px){
+                float: unset;
+                right: -90%;
+            }
             .line1 {
                 width: 80%;
                 height: 8%;
@@ -978,9 +989,15 @@ section.second_screen {
             }
             .box3_row_right {
                 flex: 1 1 50%;
-                // padding-left: 20px;
-                max-height: 500px;
+                padding-left: 20px;
+                max-height: 600px;
                 overflow: auto;
+                @media all and (max-height:850px) {
+                    max-height: 500px;
+                }
+                @media screen and (max-width:575px){
+                    max-height: 100%;
+                }
                 >div {
                     padding: 10px 10px;
                     margin: 10px 0px;
@@ -1050,7 +1067,7 @@ section.second_screen {
             // padding: 15px;
             .chu_box_button {
                 text-align: center;
-                width: 40%;
+                // width: 40%;
                 // border: 1px solid;
                 display: inline-block;
                 margin-top: 15px;
@@ -1089,9 +1106,43 @@ section.second_screen {
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 9999;
+        @media all and (max-width:575px){
+            width: 75%;
+        }
         div {
             text-align: center;
             // border: 1px solid blue;
+            .leave_btn {
+                position: relative;
+                // right: -90%;
+                float: right;
+                width: 50px;
+                height: 50px;
+                z-index: 99;
+                cursor: pointer;
+                @media all and (min-width: 576px) and (max-width: 767px) {                    
+                    float: unset;
+                    right: -90%;
+                }
+                @media screen and (max-width:575px){
+                    float: unset;
+                    right: -90%;
+                }
+                .line1 {
+                    width: 80%;
+                    height: 8%;
+                    background-color: black;
+                    transform: translate(0%, 550%) rotate(45deg);
+                    margin: auto;
+                }
+                .line2 {
+                    width: 80%;
+                    height: 8%;
+                    background-color: black;
+                    transform: translate(0%, 450%) rotate(-45deg);
+                    margin: auto;
+                }
+            }
             span {
                 color: black;
                 font-size: 25px;
@@ -1254,7 +1305,7 @@ section.third_screen {
         width: 431px;
         height: 50%;
         position: absolute;
-        bottom: 2%;
+        bottom: 8%;
         left: 6%;
         background-repeat: no-repeat;
         @media all and (min-width: 1440px) and (max-width: 1599px) {
@@ -1332,7 +1383,7 @@ section.third_screen {
             }
     
             @media all and (max-width: 575px) {
-    
+                top:-50% ;
             }
         }
         button {
@@ -1341,7 +1392,7 @@ section.third_screen {
             left: 50%;
             transform: translateX(-50%);
             @media all and (max-height: 600px) {
-                bottom: -20%;
+                bottom: -26%;
             }
         }
     }
@@ -1727,7 +1778,7 @@ section.fourth_screen {
             bottom: 10%;
         }
         @media all and (max-width: 575px) {
-            bottom: 10%;
+            bottom: 6%;
         }
     }
 }
