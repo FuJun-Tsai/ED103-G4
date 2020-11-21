@@ -37,11 +37,11 @@ function doFirst(e) {
                     <br>
                     <h3>簡介:</h3>   
                     <p>${e[boxId].RES_SUMMARY}</p>
-                                <div class="game_res_btn">
-                                <a href="./singlerestaurant.html?RES_NO=${e[boxId].RES_NO}">
-                                <button>詳細</button>
-                                </a>
-                                </div>
+                    <div class="game_res_btn">
+                    <a href="./singlerestaurant.html?RES_NO=${e[boxId].RES_NO}">
+                    <button>詳細</button>
+                    </a>
+                    </div>
                   
                 `
             );
@@ -65,4 +65,11 @@ function doFirst(e) {
     }
 
     $('#b0 img:nth-child(3)').remove();
+    // $('#b0').on('click', function() {
+    //     $('.game_background').css('display', 'none');
+    //     $('.purchasebox').css('visibility', ' hidden');
+    //     $('.main_img').remove();
+    //     $('.vice_img').remove();
+    //     $('.purchasebox_content_right').empty()
+    // });
 }

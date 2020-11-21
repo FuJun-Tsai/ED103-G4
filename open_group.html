@@ -19,7 +19,7 @@
     <script src="./js/header_fixed.js"></script>
     <script src="./js/group_date_D.js"></script>
     <script src="./js/res_change_D.js"></script>
-    <title>開團/參團頁面</title>
+    <title>開團參團</title>
 </head>
 
 <body>
@@ -108,9 +108,13 @@
     <!--banner-->
     <div class="den_banner">
         <div class="container">
-            <div id="den_banner_title">
-                <span> 開 團 / 參 團 </span>
+            <!-- <div id="den_banner_title">
+                <span>開團 / 參團</span>
+            </div> -->
+            <div class="text">
+                <h1>開團參團</h1>
             </div>
+
             <div class="den_search">
                 <div class="den_search_icon">
                     <input type="text" name="" id="" placeholder="餐廳快報">
@@ -149,7 +153,7 @@
                     <div class="den_Condition_search">
                         <div class="den_row">
                             <div class="den_selection col-lg-8">
-                                <h3>條件搜尋:</h3>
+                                <h3>條件搜尋：</h3>
                                 <div class="den_res_type">
                                     <h3>餐廳種類</h3>
                                     <div>
@@ -468,12 +472,17 @@
 
     <script>
         function doFirst() {
-          
-        
+
+
             //連結過去換分頁
             if (location.hash == '#den_tab2') {
                 $('#den_tab1').css('display', 'none');
                 $('#den_tab2').css('display', 'block');
+                $('.title_left h2:nth-child(2)').css('background', '#DF7219');
+                $('.title_left h2:nth-child(2)').css('color', 'white');
+                $('.title_left h2:nth-child(1)').css('background', 'white');
+                $('.title_left h2:nth-child(1)').css('color', '#DF7219');
+
             }
 
             $('#btnLogin').on('click', function() {
@@ -1275,26 +1284,26 @@
                                     $('.den_groupPeople div').on('click', function() {
                                         let friendNo = $(this).children()[2].innerText;
                                         let memberNoNum1 = 1;
-                                        $('.den_true_box_friend').css('display','block');
+                                        $('.den_true_box_friend').css('display', 'block');
                                         //    確認鈕
-                                        
-                                                $('.friend_yes').on('click',function(){
-                                                    $('.den_true_box_friend').css('display','none');
-                                                    console.log(friendNo);
-                                                            // let friendNo = $(this).children()[2].innerText;
-                                                            $.ajax({
-                                                                url: './open_group_friends.php',
-                                                                data: {
-                                                                    friendNo: friendNo,
-                                                                    memberNoNum1:memberNoNum1,   
-                                                                },
-                                                                type: 'GET',
-                                                                dataType: 'json',
-                                                            });            
-                                                });
-                                                $('.friend_no button').on('click',function(){
-                                                    $('.den_true_box_friend').css('display','none');
-                                                });
+
+                                        $('.friend_yes').on('click', function() {
+                                            $('.den_true_box_friend').css('display', 'none');
+                                            console.log(friendNo);
+                                            // let friendNo = $(this).children()[2].innerText;
+                                            $.ajax({
+                                                url: './open_group_friends.php',
+                                                data: {
+                                                    friendNo: friendNo,
+                                                    memberNoNum1: memberNoNum1,
+                                                },
+                                                type: 'GET',
+                                                dataType: 'json',
+                                            });
+                                        });
+                                        $('.friend_no button').on('click', function() {
+                                            $('.den_true_box_friend').css('display', 'none');
+                                        });
                                     });
                                 }
                             });
