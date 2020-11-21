@@ -36,7 +36,7 @@
 <body>
     <!-- 登入lightbox -->
     <div class="jun_back"></div>
-    <section class="section_res" id="login_box" style="display:none" >
+    <section class="section_res" id="login_box" style="display:none">
         <div class="container_res">
             <div class="ic" id="btnLoginCancel"><i class="fas fa-times"></i></div>
             <div class="user singinBx">
@@ -92,7 +92,7 @@
                                 <span></span>
                             </button>
                         </p>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
@@ -216,29 +216,20 @@
                             </h3>
                             <br>
                         <div>
-<<<<<<< HEAD
-                            <label for="s1"><input type="checkbox" name="style[]" id="s1" value="1">火鍋</label>
-                    <label for="s2"><input type="checkbox" name="style[]" id="s2" value="2">燒烤</label>
-                    <label for="s3"><input type="checkbox" name="style[]" id="s3" value="3">炸物</label>
-                    <label for="s4"><input type="checkbox" name="style[]" id="s4" value="4">快炒</label>
-                    <label for="s5"><input type="checkbox" name="style[]" id="s5" value="5">簡餐</label>
-                    <label for="s6"><input type="checkbox" name="style[]" id="s6" value="6">排餐</label>
-=======
                             <label for="s1"><input type="checkbox" name="style[]" id="s1" value="1">排餐</label>
-                            <label for="s2"><input type="checkbox" name="style[]" id="s2" value="2">炸物</label>
-                            <label for="s3"><input type="checkbox" name="style[]" id="s3" value="3">燒烤</label>
-                            <label for="s4"><input type="checkbox" name="style[]" id="s4" value="4">火鍋</label>
-                            <label for="s5"><input type="checkbox" name="style[]" id="s5" value="5">飯食</label>
-                            <label for="s6"><input type="checkbox" name="style[]" id="s6" value="6">麵食</label>
-                        </div>
-                        </label>
-
-                    </div>
->>>>>>> dev
+                    <label for="s2"><input type="checkbox" name="style[]" id="s2" value="2">炸物</label>
+                    <label for="s3"><input type="checkbox" name="style[]" id="s3" value="3">燒烤</label>
+                    <label for="s4"><input type="checkbox" name="style[]" id="s4" value="4">火鍋</label>
+                    <label for="s5"><input type="checkbox" name="style[]" id="s5" value="5">飯食</label>
+                    <label for="s6"><input type="checkbox" name="style[]" id="s6" value="6">麵食</label>
                 </div>
                 </label>
 
             </div>
+        </div>
+        </label>
+
+        </div>
         </div>
         </div>
 
@@ -351,15 +342,9 @@
                     data: {
                         e: e.join(','),
                     },
-<<<<<<< HEAD
                     success(data) {
-                        // console.log(data);
-                        for (let i = 0; i <= data.length - 1; i += 1) {
-=======
-                    success(data){
                         console.log(data);
-                        for(let i=0 ; i<=data.length-1 ;i+=1){
->>>>>>> dev
+                        for (let i = 0; i <= data.length - 1; i += 1) {
                             $(`.${data[i].resno}`).append(`
                                 <div id="${data[i].id}" class="L">
                                     <img src="./image/member/${data[i].mmimg}" alt="">
@@ -370,15 +355,11 @@
 
 
                     },
-<<<<<<< HEAD
-
-=======
-                    complete(){
+                    complete() {
                         nomessage(e);
 
                     }
-                    
->>>>>>> dev
+
                 });
                 imgcube();
 
@@ -399,12 +380,8 @@
             });
 
 
-<<<<<<< HEAD
             function ConditionSearch(K, S, result, search = '', page = 0) {
-=======
-            function ConditionSearch(K,S,result,search='',page=0){
 
->>>>>>> dev
                 let condition = `${K}&${S}`;
                 $.ajax({
                     url: 'searchConditionRender.php',
@@ -415,12 +392,7 @@
                         search: search,
                         page: page
                     },
-<<<<<<< HEAD
                     success(data) {
-                        console.log(data);
-=======
-                    success(data){
->>>>>>> dev
                         result = [];
                         for (let i = 0; i < data[1].length; i += 1) {
                             result.push(data[1][i].no);
@@ -496,43 +468,28 @@
 
                         $('.page li').on('click', function() {
                             let x = $(this).attr('data-page');
-<<<<<<< HEAD
+                            $("html , body").animate({
+                                scrollTop: 0
+                            }, "slow", "linear");
                             ConditionSearch(K, S, result, search = '', x);
-=======
-                            $("html , body").animate({scrollTop:0},"slow","linear");
-                            ConditionSearch(K,S,result,search='',x);
-          
->>>>>>> dev
+
                         });
 
                         $(`.page li:nth-child(${parseInt(page)+1})`).
                         css({
-<<<<<<< HEAD
                             'color': 'black',
                             'text-decoration': 'none'
                         });
 
                     },
-                    error(data) {
-=======
-                            'color':'black',
-                            'text-decoration':'none'
-                        });
-
-                    },
-                    error(){
->>>>>>> dev
+                    error() {
                         $('.result').empty();
                         $('.error').css({
                             'display': 'block'
                         });
 
                     },
-<<<<<<< HEAD
-                    complete() {
-=======
-                    complete(e){
->>>>>>> dev
+                    complete(e) {
                         MessageRender(result);
                         collection();
                     },
@@ -566,14 +523,8 @@
                                 collect($(this).children('.like i').hasClass('tored'), RES);
 
                                 let num = parseInt($(this).children('span').text());
-<<<<<<< HEAD
-                                console.log(num);
                                 if ($(this).children('i').hasClass('tored') == false) {
                                     num -= 1;
-=======
-                                if($(this).children('i').hasClass('tored')==false){
-                                    num-=1;
->>>>>>> dev
                                     $(this).children('i').removeClass('fas');
                                     $(this).children('i').addClass('far');
                                     $(this).children('span').text(num);
@@ -608,8 +559,7 @@
                 });
             }
 
-<<<<<<< HEAD
-            function nomessage() {
+            function nomessage(e) {
                 let array = [];
                 let num = $('.result').find('.rest').length;
 
@@ -618,20 +568,7 @@
                 }
 
                 for (let i = 0; i <= array.length - 1; i += 1) {
-                    // console.log(array[i]);
-                    if ($(`.${array[i]}`).children().length == 0) {
-=======
-            function nomessage(e){
-                let array = [];
-                let num = $('.result').find('.rest').length;
-
-                for(let i=0;i<=num-1;i+=1){
-                    array.push($('.result').find('.rest')[i].id);
-                }
-
-                for(let i=0;i<=array.length-1;i+=1){
-                    if($(`.${array[i]}`).children('.L').length==0){
->>>>>>> dev
+                    if ($(`.${array[i]}`).children('.L').length == 0) {
                         $(`.${array[i]}`).append(`
                             <div style="text-align:center; height:140px; line-height:140px; font-size:36px;">
                                 尚無留言
@@ -675,28 +612,18 @@
     <!-- <script src="./js/searchAnimate.js"></script> -->
 
     <script>
-<<<<<<< HEAD
-        $('.kind label input').on('change', function() {
-            $('.kind label').css('background', 'rgba(255, 255, 255, 0)');
-            $('.kind label').css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0)');
-
-            $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
-            $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
-        });
-=======
         $('.kind label input').on('click', function() {
 
             $('.kind label').not($(this).closest('label')).removeClass('kindonclick');
 
-            if($(this).closest('label').hasClass('kindonclick')){
+            if ($(this).closest('label').hasClass('kindonclick')) {
                 $(this).closest('label').removeClass('kindonclick');
-            }else{
+            } else {
                 $(this).closest('label').addClass('kindonclick');
             }
 
         });
 
->>>>>>> dev
         $(".style label input").click(function() {
             var checkis = $(this).is(":checked");
             if (checkis == true) {
@@ -708,14 +635,13 @@
     </script>
 
 </body>
-    <style>
-        .kindonclick{
-            background:rgba(223, 114, 25, 0.6);
-            box-shadow:0px 0px 0px 0px rgba(223, 114, 25, 0.8);
-        }
-        /* $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)'); */
-        /* $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)'); */
-
-    </style>
+<style>
+    .kindonclick {
+        background: rgba(223, 114, 25, 0.6);
+        box-shadow: 0px 0px 0px 0px rgba(223, 114, 25, 0.8);
+    }
+    /* $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)'); */
+    /* $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)'); */
+</style>
 
 </html>
