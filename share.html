@@ -514,6 +514,7 @@
                             let like = $(this).siblings('.foot').find('.collect_sum h5').text();
                             let id = $(this).val();
                             let classType = $(this).siblings('.foot').find('.fa-heart').attr('class');
+
                             $(".msg-left h4").text(`${data[i].kind}`);
                             $(".msg-left h2").text(`${data[i].title}`);
                             $(".img_block22 img").attr('src',`image/article_sharing/${data[i].img}`);
@@ -767,9 +768,9 @@
                     dataType:'json',
                     success(data){
                         for(let i=0;i<=data.length-1;i+=1){
-                            $(`#${data[i].ID} i`).addClass('tored');
-                            $(`#${data[i].ID} i`).removeClass('far');
-                            $(`#${data[i].ID} i`).addClass('fas');
+                            $(`#${data[i].ID} .fa-heart`).addClass('tored');
+                            $(`#${data[i].ID} .fa-heart`).removeClass('far');
+                            $(`#${data[i].ID} .fa-heart`).addClass('fas');
                         };
                     
                     },
