@@ -19,7 +19,7 @@
     <script src="./js/header_fixed.js"></script>
     <script src="./js/group_date_D.js"></script>
     <script src="./js/res_change_D.js"></script>
-    <title>開團/參團頁面</title>
+    <title>開團參團</title>
 </head>
 
 <body>
@@ -108,9 +108,13 @@
     <!--banner-->
     <div class="den_banner">
         <div class="container">
-            <div id="den_banner_title">
-                <span> 開 團 / 參 團 </span>
+            <!-- <div id="den_banner_title">
+                <span>開團 / 參團</span>
+            </div> -->
+            <div class="text">
+                <h1>開團參團</h1>
             </div>
+
             <div class="den_search">
                 <div class="den_search_icon">
                     <input type="text" name="" id="" placeholder="餐廳快報">
@@ -149,7 +153,7 @@
                     <div class="den_Condition_search">
                         <div class="den_row">
                             <div class="den_selection col-lg-8">
-                                <h3>條件搜尋:</h3>
+                                <h3>條件搜尋：</h3>
                                 <div class="den_res_type">
                                     <h3>餐廳種類</h3>
                                     <div>
@@ -364,6 +368,10 @@
                             <input type="button" name="" value="登入" id="btnLogin">
                             <span></span>
                         </div>
+<<<<<<< HEAD
+                        <!-- <input type="button" name="" value="取消" id="btnLoginCancel"> -->
+=======
+>>>>>>> dev
                         <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
                     </form>
                 </div>
@@ -373,6 +381,11 @@
                     <div class="form">
                         <h2>註冊</h2>
                         <input type="text" id="newmem_account" name="newmem_account" placeholder="請輸入帳號">
+<<<<<<< HEAD
+                        <input type="password" id="newmem_psw" name="newmem_psw" placeholder="請輸入密碼">
+                        <input type="password" id="again_psw" name="again_psw" placeholder="再次確認密碼">
+                        <input type="text" id="newmem_email" name="newmem_email" placeholder="請輸入email">
+=======
                         <input type="button" id="btnCheckId" value="檢查帳號" class="checkbtn"><span id="idMsg" class="idMsg"></span>
                         <input type="password" id="newmem_psw" name="newmem_psw" placeholder="請輸入密碼">
                         <input type="password" id="again_psw" name="again_psw" placeholder="再次確認密碼">
@@ -380,6 +393,7 @@
                         <button class="btn_5 btn_js" id="next_re">下一步
                             <span></span>
                         </button>
+>>>>>>> dev
                     </div>
                 </div>
                 <div class="img_res img_res2">
@@ -398,6 +412,10 @@
                             <option value="56↑">56↑</option>
                         </select>
                         <input type="submit" id="submit" value="註冊">
+<<<<<<< HEAD
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
+                    </div>
+=======
                         <p class="learn">已經有會員了?<br>
                             <a href="#" onclick="toggleForm();">會員登入點我點我</a>
                             <button class="btn_5 btn_js for_btn" id="previous_re">上一步
@@ -405,6 +423,7 @@
                             </button>
                         </p>
                     </div>  
+>>>>>>> dev
                 </div>
             </div>
         </div>
@@ -439,7 +458,21 @@
             </div>
         </div>
     </div>
-
+    <!-- 詢問是否加好友 -->
+    <div class="den_true_box_friend">
+        <div>
+            <div id="friend-vue-id">
+                <tick></tick>
+            </div>
+            <span>是否要加入好友?!</span>
+            <div class="friend_yes">
+                <button>確認</button>
+            </div>
+            <div class="friend_no">
+                <button>取消</button>
+            </div>
+        </div>
+    </div>
 
     <!--javaScript--->
     <script src="./js/login.js"></script>
@@ -462,10 +495,17 @@
 
     <script>
         function doFirst() {
-            // console.log(location.hash);
+
+
+            //連結過去換分頁
             if (location.hash == '#den_tab2') {
                 $('#den_tab1').css('display', 'none');
                 $('#den_tab2').css('display', 'block');
+                $('.title_left h2:nth-child(2)').css('background', '#DF7219');
+                $('.title_left h2:nth-child(2)').css('color', 'white');
+                $('.title_left h2:nth-child(1)').css('background', 'white');
+                $('.title_left h2:nth-child(1)').css('color', '#DF7219');
+
             }
 
             $('#btnLogin').on('click', function() {
@@ -624,10 +664,6 @@
             let yyy2 = $("input[name='style[]']:checked").map(function() {
                 return $(this).val();
             }).get();
-
-            // console.log(yyy2);
-            // console.log(yyy1);
-            // console.log(yyy2);
 
             $.ajax({
                 url: './open_group.php',
@@ -977,15 +1013,14 @@
                     //好友欄位顯示
                     $(document).ready(function() {
                         if ($('#spanLogin').text() == '登入') {
-
                             $.ajax({
                                 url: './php/getMemberInfo.php',
                                 type: 'GET',
                                 dataType: 'JSON',
                                 success(data) {
                                     let FRIENDS_MASTER_NO = data.MEMBER_NO;
-                                    // console.log(FRIENDS_MASTER_NO);
                                     $('.memberNoNum1').append(`${data.MEMBER_NO}`);
+                                    console.log(FRIENDS_MASTER_NO);
                                     $.ajax({
                                         url: './open_group.php',
                                         type: 'GET',
@@ -995,7 +1030,7 @@
                                         dataType: 'JSON',
                                         success(data) {
                                             friendData = data[1];
-                                            // console.log(friendData);
+                                            console.log(friendData);
                                             for (let i = 0; i < friendData.length; i++) {
                                                 $('.den_friend_window form').append(
                                                     `
@@ -1007,26 +1042,15 @@
                                                     `)
                                             }
                                             MasterNO = friendData[1].MEMBER_NAME;
-                                            // if ($('#spanLogin').text() == '登入') {
-                                            //     $('.den_friend_window').css('display', 'none');
-                                            // }
                                         }
                                     });
 
                                 }
                             });
-                            // $('.den_friend_window').css('display', 'block');
-                            // $('.den_friend_window').css('display', 'none');
                         }
                         $('#btnLogin').on('click', function() {
                             $('.den_friend_window').css('display', 'block');
                         });
-                        // if ($('#spanLogin').text() == '登出') {
-                        //     $('.den_friend_window').css('display', 'block');
-
-                        // }
-
-
                     });
                     //燈箱2裡的button寫入資料庫
                     $('.den_box2_button button').on('click', function(nameOf) {
@@ -1256,6 +1280,8 @@
                             //執行收藏功能
                             collection(`${foodGroupBox[denEatGroupNum].GROUP_NO}`);
 
+
+
                             $.ajax({
                                 url: './open_group.php',
                                 data: {
@@ -1265,13 +1291,55 @@
                                 dataType: 'json',
                                 complete(data) {
                                     let memberName = data.responseJSON[3];
+                                    console.log(memberName);
 
                                     for (let i = 0; i < memberName.length; i++) {
                                         $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
-                                            `
-                                        <p>${memberName[i].MEMBER_NAME}</p>
+                                            `                                      
+                                        <div>
+                                            <p>${memberName[i].MEMBER_NAME}</p>
+                                            <img src="./image/den_image/user-plus-solid.svg">
+                                            <p class="friendNO" style="display:none">${memberName[i].FRIEND}</p>
+                                        </div>
+                                       
                                         `)
                                     }
+                                    $('.den_groupPeople div').on('click', function() {
+                                        let friendNo = $(this).children()[2].innerText;
+                                        let memberNoNum1 = $('.memberNoNum1').text();
+                                        $('.den_true_box_friend').css('display', 'block');
+                                        //    確認鈕
+
+                                        if ($('#spanLogin').text() == '登出') {
+                                            $('.friend_yes').on('click', function() {
+                                                $('.den_true_box_friend').css('display', 'none');
+
+                                                console.log(friendNo);
+                                                // let friendNo = $(this).children()[2].innerText;
+                                                $.ajax({
+                                                    url: './open_group_friends.php',
+                                                    data: {
+                                                        friendNo: friendNo,
+                                                        memberNoNum1: memberNoNum1,
+                                                    },
+                                                    type: 'GET',
+                                                    dataType: 'json',
+                                                });
+                                            });
+                                            $('.friend_no button').on('click', function() {
+                                                $('.den_true_box_friend').css('display', 'none');
+                                            });
+                                        } else if ($('#spanLogin').text() == '登入') {
+                                            alert('請先登入喔');
+                                            $('.den_true_box_friend').css('display', 'none');
+                                            $('.den_box3').css('display', 'none');
+                                            $('.section_res').css('display', 'block');
+                                            $('.box_background').css('display', 'block');
+                                        }
+
+
+
+                                    });
                                 }
                             });
                             clickImg3();
@@ -1377,7 +1445,7 @@
                         $('.collection img').attr('src', './image/den_image/fourth_screen_redHollowHeart.png');
                         $('.collect_status').empty();
                         $('.collect_status').append('2');
-                        alert('取消收藏');
+                        // alert('取消收藏');
                         $.ajax({
                             url: './open_group_delete_collection.php',
                             type: 'GET',
@@ -1392,7 +1460,7 @@
                         $('.collection img').attr('src', './image/den_image/fourth_screen_redHeart.png');
                         $('.collect_status').empty();
                         $('.collect_status').append('1');
-                        alert('收藏完成');
+                        // alert('收藏完成');
                         $.ajax({
                             url: './open_group_join_collection.php',
                             type: 'GET',

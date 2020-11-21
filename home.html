@@ -222,6 +222,7 @@
 </head>
 
 <body>
+
         <!-- facebook外掛點讚分享 -->
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v9.0" nonce="883Y3opw"></script>
@@ -321,7 +322,7 @@
                 <a class="icon" href="./member.php">
                     <img src="./image/icon.svg" id="headshot_icon">
                 </a>
-                <span style="display: none;" class="memberNoNum"></span>
+                <span style="display: none;" class="memberNoNum" id="memberNoNum"></span>
                 <span id="spanLogin">登入</span>
             </div>
             <div id="menu-bar">
@@ -335,7 +336,7 @@
                         <a class="icon" href="./member.php">
                             <img src="./image/icon.svg" id="mobileheadshot_icon">
                         </a>
-                        <span style="display: none;" class="memberNoNum"></span>
+                        <span style="display: none;" class="memberNoNum" id="mob_memberNoNum"></span>
                         <span id="mobilespanLogin">登入</span>
                     </div>
                     <li>
@@ -360,6 +361,9 @@
     </header>
 
     <div id="myContainer">
+    <!--抓會員NO-->
+    <span style="display: none;" class="memberNoNum1"></span>
+
 
         <div class="section" id="section0">
             <section class="first_screen">
@@ -531,6 +535,31 @@
                 </div>
 
 
+                 <!-- 參團完成 -->
+    <div class="den_true_box_join">
+        <div>
+            <!-- <div class="leave_btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+            </div> -->
+            <div id="test-vue-id">
+                <tick></tick>
+            </div>
+            <span>已成功參團，請前往會員頁確認喔!</span>
+            <div>
+                <a href="./member.php">
+                    <button>前往會員</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 燈箱黑屏 -->
+    <div class="box_background"></div>
+
+
+
+
 
 
                 <div class="twoPeople"></div>
@@ -591,7 +620,6 @@
                     </button>
                 </a>
                 </div>
-
 
             </section>
         </div>

@@ -41,8 +41,8 @@ try{
   rm.RES_IMAGE3 RES_IMAGE3, 
   rm.RES_IMAGE4 RES_IMAGE4, 
   mm.MEMBER_IMAGE MEMBER_IMAGE, 
-  rm.RES_START RES_START, 
-  rm.RES_CLOSE RES_CLOSE,
+  date_format(rm.RES_START,'%H:%i') RES_START,
+  date_format(rm.RES_CLOSE,'%H:%i') RES_CLOSE,
   mm.MEMBER_NAME MEMBER_NAME,
   rk.KIND_NO,
   rs.STYLE_NO
