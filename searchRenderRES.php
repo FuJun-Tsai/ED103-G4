@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 <?php
 $ErrMsg='';
 try{
     require_once('./connectbook.php');
-=======
-<?
-$ErrMsg='';
-try{
-    require_once('./connetbook.php');
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
     $sql = 'select 
                 R.RES_NO as no,
                 concat("R" , R.RES_NO) as id,

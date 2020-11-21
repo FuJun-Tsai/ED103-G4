@@ -1,11 +1,7 @@
 <?php
 try{
   session_start();
-<<<<<<< HEAD
   require_once("../connectbook.php");
-=======
-  require_once("../connectRes.php");
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
   $sql = " SELECT MEMBER_ID ,MEMBER_PSW ,MEMBER_IMAGE ,MEMBER_NO ,MEMBER_NAME
   FROM `member_management` 
   WHERE MEMBER_ID=:MEMBER_ID

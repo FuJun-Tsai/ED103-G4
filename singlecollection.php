@@ -4,11 +4,7 @@ session_start();
 $member = $_SESSION['MEMBER_NO'];
 $res = $_REQUEST['RES'];
 try{
-<<<<<<< HEAD
     require_once('connectbook.php');
-=======
-    require_once('connetbook.php');
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
     $sql = "SELECT * FROM `restaurant_collection`
             WHERE 
                 MEMBER_NO = $member AND 

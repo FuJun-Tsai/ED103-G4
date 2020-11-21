@@ -1,5 +1,4 @@
 <?php 
-<<<<<<< HEAD
 try{
 	session_start();
 	require_once("../connectbook.php");
@@ -25,20 +24,5 @@ try{
 }catch(PDOException $e){
 		$error = array("errorMsg"=>$e->getMessage());
 		echo json_encode($error);
-=======
-session_start();
-if(isset($_SESSION["MEMBER_ID"]) === true){
-
-	$result = array(
-		"MEMBER_ID"=>$_SESSION["MEMBER_ID"], 
-		"MEMBER_PSW"=>$_SESSION["MEMBER_PSW"], 
-		"MEMBER_IMAGE"=>$_SESSION["MEMBER_IMAGE"],
-		"MEMBER_NO"=>$_SESSION["MEMBER_NO"],
-
-	);
-	echo json_encode($result);
-}else{
-	echo "{}";
->>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f
 }
 ?>
