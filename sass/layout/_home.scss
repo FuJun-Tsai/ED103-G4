@@ -3,7 +3,22 @@ body{
         background-color: rgba(255, 255, 255,0)!important;
     }
 }
-
+.chu_collection{
+    flex-flow: row-reverse;    
+    display: inline-flex;
+    align-items: center;
+    // position: absolute;
+    // right: 100%;
+    span{
+        font-size: 24px!important;
+        padding: 0px 5px;
+    }
+    img{
+        width: 8%!important;
+        // height: 30px!important;
+        
+    }
+}
 .slimScrollDiv{
     height: auto!important;
     .fp-scrollable{
@@ -15,9 +30,15 @@ body{
     height: 0;
     position: fixed;
     z-index: 30;
-    // section{
-    //     background-color: rgba(255, 255, 255,0.75);
-    // }
+    section{
+        background-color: rgba(255, 255, 255,0.75);
+        position: absolute;
+        width: 100%;
+        z-index: 99;
+        padding: 0px 20px;
+        background-color: rgba(255, 255, 255,.0);
+        z-index: 1;
+    }
 }
 
 .chu_footer {
@@ -905,9 +926,11 @@ section.second_screen {
         padding: 20px;
         border-radius: 10px;
         border: 1px solid;
+        z-index: 1001;
         .leave_btn {
             position: relative;
             right: -90%;
+            // float: right;
             width: 50px;
             height: 50px;
             z-index: 99;
@@ -955,7 +978,7 @@ section.second_screen {
             }
             .box3_row_right {
                 flex: 1 1 50%;
-                padding-left: 20px;
+                // padding-left: 20px;
                 max-height: 500px;
                 overflow: auto;
                 >div {
@@ -1047,6 +1070,37 @@ section.second_screen {
                 button {
                     @include btnBlue_3;
                     width: 150px;
+                }
+            }
+        }
+    }
+
+    .den_true_box_join {
+        width: 30%;
+        height: auto;
+        border-radius: 15px;
+        background-color: #ffe1a4;
+        border: 2px solid rgba(22, 22, 22, 1);
+        padding: 40px;
+        line-height: 2rem;
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        div {
+            text-align: center;
+            // border: 1px solid blue;
+            span {
+                color: black;
+                font-size: 25px;
+            }
+            div {
+                text-align: center;
+                padding-top: 10px;
+                button {
+                    @include btnBrown_6;
                 }
             }
         }
@@ -1674,6 +1728,269 @@ section.fourth_screen {
         }
         @media all and (max-width: 575px) {
             bottom: 10%;
+        }
+    }
+}
+
+
+// .chu_box {
+//     @include light-box-setting(90%, auto, absolute);
+//     background: linear-gradient(top, #FFE1A4, white);
+//     // background-color: rgba(255, 225, 164, 1);
+//     display: none;
+//     // background-color: rgba(255, 255, 255, 1);
+//     z-index: 2000;
+//     position: fixed;
+//     overflow: auto;
+//     padding: 20px;
+//     border-radius: 10px;
+//     .leave_btn {
+//         position: relative;
+//         right: -90%;
+//         width: 50px;
+//         height: 50px;
+//         z-index: 99;
+//         cursor: pointer;
+//         .line1 {
+//             width: 80%;
+//             height: 8%;
+//             background-color: black;
+//             transform: translate(0%, 550%) rotate(45deg);
+//             margin: auto;
+//         }
+//         .line2 {
+//             width: 80%;
+//             height: 8%;
+//             background-color: black;
+//             transform: translate(0%, 450%) rotate(-45deg);
+//             margin: auto;
+//         }
+//     }
+//     .chu_box_row {
+//         display: flex;
+//         align-items: center;
+//         position: relative;
+//         .box3_row_left {
+//             flex: 1 1 50%;
+//             text-align: center;
+//             .main_img {
+//                 padding: 10px;
+//                 img {
+//                     width: 100%;
+//                     height: 80%;
+//                     object-fit: cover;
+//                     border-radius: 10px;
+//                 }
+//             }
+//             >img {
+//                 cursor: pointer;
+//                 width: 23%;
+//                 height: 100px;
+//                 display: inline-block;
+//                 padding: 3px;
+//                 object-fit: cover;
+//                 border-radius: 10px;
+//             }
+//         }
+//         .box3_row_right {
+//             flex: 1 1 50%;
+//             padding-left: 20px;
+//             max-height: 500px;
+//             overflow: auto;
+//             >div {
+//                 padding: 10px 10px;
+//                 margin: 10px 0px;
+//                 background-color: rgba(204, 204, 204, .5);
+//                 border-radius: 10px;
+//                 .collection {
+//                     display: inline-flex;
+//                     align-items: center;
+//                     float: right;
+//                     padding: 10px;
+//                     img {
+//                         width: 30px;
+//                         height: 30px;
+//                         cursor: pointer;
+//                     }
+//                     span {
+//                         font-size: 24px;
+//                         padding: 0px 10px;
+//                     }
+//                 }
+//                 h3 {
+//                     display: inline-block;
+//                     // border: 1px solid;
+//                     // border: 1px solid blue;
+//                     padding: 5px;
+//                 }
+//                 h4 {
+//                     display: inline-block;
+//                     padding: 5px;
+//                 }
+//                 h6 {
+//                     display: inline-block;
+//                     margin: 12px;
+//                     padding: 5px 10px;
+//                     font-size: 14px;
+//                     background-color: #FFE1A4;
+//                     border: 0.1px solid;
+//                     border-radius: 8px;
+//                     width: 70px;
+//                     text-align: center;
+//                 }
+//                 .den_groupPeople {
+//                     background-color: rgba(255, 255, 255, .0);
+//                     margin: 5px 0px;
+//                     padding: 0;
+//                     h3 {
+//                         vertical-align: bottom;
+//                     }
+//                     p {
+//                         display: inline-block;
+//                         // margin: 5px;
+//                         padding: 5px 4px;
+//                         font-size: 14px;
+//                         background-color: #FFE1A4;
+//                         border: 0.1px solid;
+//                         border-radius: 8px;
+//                         width: 70px;
+//                         text-align: center;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     .denAllButton3 {
+//         position: relative;
+//         text-align: center;
+//         // left: 50%;
+//         // width: 80%;
+//         // bottom: 60px;
+//         // transform: translateX(-50%);
+//         // text-align: right;
+//         // padding: 15px;
+//         .chu_box_button {
+//             text-align: center;
+//             width: 40%;
+//             // border: 1px solid;
+//             display: inline-block;
+//             margin-top: 15px;
+//             button {
+//                 @include btnBrown_6;
+//                 width: 150px;
+//                 // border-radius: 15px 15px!important;
+//             }
+//         }
+//         .box_button_close {
+//             display: none;
+//             text-align: center;
+//             width: 40%;
+//             // border: 1px solid;
+//             // display: inline-block;
+//             margin-top: 15px;
+//             button {
+//                 @include btnBlue_3;
+//                 width: 150px;
+//             }
+//         }
+//     }
+// }
+
+.box_background {
+    width: 100%;
+    height: 1000%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(128, 128, 128, .8);
+    z-index: 1000;
+}
+
+@include rwd(md_desktop){ 
+    .chu_box {
+        width: 90%!important;
+        .chu_box_row {
+            .box3_row_right {}
+        }
+    }
+}
+@include rwd(md_medium){
+    .chu_box {
+        width: 90%!important;
+        .chu_box_row {
+            .box3_row_right {}
+            .box3_row_left {
+                .chu_box_button {
+                    width: 49%!important;
+                }
+                .box_button_close {
+                    width: 49%!important;
+                }
+            }
+        }
+    }
+
+ }
+@include rwd(md_small){ 
+    .chu_box {
+        width: 95%!important;
+        height: 90%!important;
+        overflow-y: auto!important;
+        .chu_box_row {
+            flex-wrap: wrap!important;
+            // padding-bottom: 15%;
+            .box3_row_right {
+                // padding: 15px;
+                flex: 1 1 100%!important;
+                padding: 0!important;
+            }
+            .box3_row_left {
+                flex: 1 1 100%;
+                .chu_box_button {
+                    width: 49%;
+                    position: absolute;
+                    bottom: 10px;
+                    left: 0;
+                }
+                .box_button_close {
+                    width: 49%;
+                    position: absolute;
+                    bottom: 10px;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+@include rwd(md_cellphone){ 
+    .chu_box {
+        width: 95%!important;
+        height: 90%!important;
+        overflow-y: auto!important;
+        .chu_box_row {
+            flex-wrap: wrap!important;
+            // padding-bottom: 15%;
+            .box3_row_right {
+                // padding: 15px;
+                flex: 1 1 100%!important;
+                padding: 0;
+                h3 {
+                    font-size: 18px!important;
+                }
+                h4 {
+                    font-size: 16px!important;
+                }
+            }
+            .box3_row_left {
+                flex: 1 1 100%;
+                .main_img {
+                    padding: 0;
+                }
+                img {
+                    height: 70px;
+                }
+            }
         }
     }
 }

@@ -142,7 +142,11 @@ let member;
             $id("mobileheadshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
             $id('spanLogin').innerHTML = '登出';
             $id('mobilespanLogin').innerHTML = '登出';
-            $('.username').text(`${member.MEMBER_NO}`);  
+            // $('.username').text(`${member.MEMBER_NO}`);  
+                        $('#memberNoNum').text(`${member.MEMBER_NO}`);  
+                        $('#mob_memberNoNum').text(`${member.MEMBER_NO}`);  
+
+
           }
 
 
