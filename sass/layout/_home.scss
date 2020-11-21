@@ -609,6 +609,7 @@ section.second_screen {
         }
     }
     .fourTeam {
+        // position: relative;
         .team_1 {
             @include circle(225px, #76AFAF);
             position: absolute;
@@ -871,177 +872,6 @@ section.second_screen {
 
 
 
-
-        .den_box3 {
-            @include light-box-setting(90%, auto, absolute);
-            display: none;
-            background-color: rgba(255, 255, 255, 1);
-            z-index: 2000;
-            position: fixed;
-            overflow: auto;
-            padding: 20px;
-            border-radius: 10px;
-            .leave_btn {
-                position: relative;
-                right: -90%;
-                width: 50px;
-                height: 50px;
-                z-index: 99;
-                cursor: pointer;
-                .line1 {
-                    width: 80%;
-                    height: 8%;
-                    background-color: black;
-                    transform: translate(0%, 550%) rotate(45deg);
-                    margin: auto;
-                }
-                .line2 {
-                    width: 80%;
-                    height: 8%;
-                    background-color: black;
-                    transform: translate(0%, 450%) rotate(-45deg);
-                    margin: auto;
-                }
-            }
-            .den_box3_row {
-                display: flex;
-                align-items: center;
-                position: relative;
-                .box3_row_left {
-                    flex: 1 1 50%;
-                    text-align: center;
-                    .main_img {
-                        padding: 10px;
-                        img {
-                            width: 100%;
-                            height: 80%;
-                            object-fit: cover;
-                            border-radius: 10px;
-                        }
-                    }
-                    >img {
-                        cursor: pointer;
-                        width: 23%;
-                        height: 100px;
-                        display: inline-block;
-                        padding: 3px;
-                        object-fit: cover;
-                        border-radius: 10px;
-                    }
-                }
-                .box3_row_right {
-                    flex: 1 1 50%;
-                    padding-left: 20px;
-                    max-height: 500px;
-                    overflow: auto;
-                    >div {
-                        padding: 10px 10px;
-                        margin: 10px 0px;
-                        background-color: rgba(204, 204, 204, .5);
-                        border-radius: 10px;
-                        .collection {
-                            display: inline-block;
-                            img {
-                                width: 50px;
-                                height: 50px;
-                            }
-                            span {
-                                font-size: 24px;
-                            }
-                        }
-                        h3 {
-                            display: inline-block;
-                            // border: 1px solid;
-                            // border: 1px solid blue;
-                            padding: 5px;
-                        }
-                        h4 {
-                            display: inline-block;
-                            padding: 5px;
-                        }
-                        h6 {
-                            display: inline-block;
-                            margin: 12px;
-                            padding: 5px 10px;
-                            font-size: 14px;
-                            background-color: #FFE1A4;
-                            border: 0.1px solid;
-                            border-radius: 8px;
-                            width: 70px;
-                            text-align: center;
-                        }
-                        .den_groupPeople {
-                            background-color: rgba(255, 255, 255, .0);
-                            margin: 5px 0px;
-                            padding: 0;
-                            h3 {
-                                vertical-align: bottom;
-                            }
-                            p {
-                                display: inline-block;
-                                // margin: 5px;
-                                padding: 5px 4px;
-                                font-size: 14px;
-                                background-color: #FFE1A4;
-                                border: 0.1px solid;
-                                border-radius: 8px;
-                                width: 70px;
-                                text-align: center;
-                            }
-                        }
-                    }
-                }
-            }
-            .denAllButton3 {
-                position: relative;
-                text-align: center;
-                // left: 50%;
-                // width: 80%;
-                // bottom: 60px;
-                // transform: translateX(-50%);
-                // text-align: right;
-                // padding: 15px;
-                .den_box3_button {
-                    text-align: center;
-                    width: 40%;
-                    // border: 1px solid;
-                    display: inline-block;
-                    margin-top: 15px;
-                    button {
-                        @include btnBrown_6;
-                        width: 150px;
-                        // border-radius: 15px 15px!important;
-                    }
-                }
-                .box_button_close {
-                    display: none;
-                    text-align: center;
-                    width: 40%;
-                    // border: 1px solid;
-                    // display: inline-block;
-                    margin-top: 15px;
-                    button {
-                        @include btnBlue_3;
-                        width: 150px;
-                    }
-                }
-            }
-        }
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
         button {
             // padding: 5px 14px;
             position: absolute;
@@ -1054,7 +884,181 @@ section.second_screen {
                 bottom: 8%;
             }
         }
+
+
+
+
+        
     }
+
+
+
+
+
+    .chu_box {
+        @include light-box-setting(90%, auto, absolute);
+        display: none;
+        background-color: rgba(255, 255, 255, 1);
+        z-index: 2000;
+        // position: fixed;
+        overflow: auto;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid;
+        .leave_btn {
+            position: relative;
+            right: -90%;
+            width: 50px;
+            height: 50px;
+            z-index: 99;
+            cursor: pointer;
+            .line1 {
+                width: 80%;
+                height: 8%;
+                background-color: black;
+                transform: translate(0%, 550%) rotate(45deg);
+                margin: auto;
+            }
+            .line2 {
+                width: 80%;
+                height: 8%;
+                background-color: black;
+                transform: translate(0%, 450%) rotate(-45deg);
+                margin: auto;
+            }
+        }
+        .chu_box_row {
+            display: flex;
+            align-items: center;
+            position: relative;
+            .box3_row_left {
+                flex: 1 1 50%;
+                text-align: center;
+                .main_img {
+                    padding: 10px;
+                    img {
+                        width: 100%;
+                        height: 80%;
+                        object-fit: cover;
+                        border-radius: 10px;
+                    }
+                }
+                >img {
+                    cursor: pointer;
+                    width: 23%;
+                    height: 100px;
+                    display: inline-block;
+                    padding: 3px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+            }
+            .box3_row_right {
+                flex: 1 1 50%;
+                padding-left: 20px;
+                max-height: 500px;
+                overflow: auto;
+                >div {
+                    padding: 10px 10px;
+                    margin: 10px 0px;
+                    background-color: rgba(204, 204, 204, .5);
+                    border-radius: 10px;
+                    .collection {
+                        display: inline-block;
+                        img {
+                            width: 50px;
+                            height: 50px;
+                        }
+                        span {
+                            font-size: 24px;
+                        }
+                    }
+                    h3 {
+                        display: inline-block;
+                        // border: 1px solid;
+                        // border: 1px solid blue;
+                        padding: 5px;
+                    }
+                    h4 {
+                        display: inline-block;
+                        padding: 5px;
+                    }
+                    h6 {
+                        display: inline-block;
+                        margin: 12px;
+                        padding: 5px 10px;
+                        font-size: 14px;
+                        background-color: #FFE1A4;
+                        border: 0.1px solid;
+                        border-radius: 8px;
+                        width: 70px;
+                        text-align: center;
+                    }
+                    .den_groupPeople {
+                        background-color: rgba(255, 255, 255, .0);
+                        margin: 5px 0px;
+                        padding: 0;
+                        h3 {
+                            vertical-align: bottom;
+                        }
+                        p {
+                            display: inline-block;
+                            // margin: 5px;
+                            padding: 5px 4px;
+                            font-size: 14px;
+                            background-color: #FFE1A4;
+                            border: 0.1px solid;
+                            border-radius: 8px;
+                            width: 70px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .denAllButton3 {
+            position: relative;
+            text-align: center;
+            // left: 50%;
+            // width: 80%;
+            // bottom: 60px;
+            // transform: translateX(-50%);
+            // text-align: right;
+            // padding: 15px;
+            .chu_box_button {
+                text-align: center;
+                width: 40%;
+                // border: 1px solid;
+                display: inline-block;
+                margin-top: 15px;
+                button {
+                    @include btnBrown_6;
+                    width: 150px;
+                    // border-radius: 15px 15px!important;
+                }
+            }
+            .box_button_close {
+                display: none;
+                text-align: center;
+                width: 40%;
+                // border: 1px solid;
+                // display: inline-block;
+                margin-top: 15px;
+                button {
+                    @include btnBlue_3;
+                    width: 150px;
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
 
     .twoPeople {
         background-image: url(../image/home/second_screen_twoPeople.svg);

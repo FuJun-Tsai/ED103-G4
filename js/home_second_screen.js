@@ -39,7 +39,7 @@ $(document).ready(function(){
                 $('.container').append(
                 `
                 <div class="store" id="store${i+1}">
-                <a href="http://140.115.236.71/demo-projects/ED103/ED103G4/G4/singlerestaurant.html?RES_NO=${resData[i].RES_NO}"><img src="./image/${resData[i].RES_IMAGE1}" alt="#"></a>
+                <a href="http://140.115.236.71/demo-projects/ED103/ED103G4/singlerestaurant.html?RES_NO=${resData[i].RES_NO}"><img src="./image/${resData[i].RES_IMAGE1}" alt="#"></a>
                 <h4>${resData[i].RES_NAME}</h4>
                 <input type="hidden" value="${resData[i].RES_NO}">
                 </div>
@@ -159,7 +159,7 @@ Rarrow.addEventListener("click",function(){
 
         complete(data) {
             console.log(data);
-           
+        
             // console.log(JSON.parse(data.responseText));
             let groupData1=JSON.parse(data.responseText)[1];
             // let groupData1=JSON.parse(date.responseText);
@@ -186,6 +186,114 @@ Rarrow.addEventListener("click",function(){
                 `
                 )
             }
+            $('.btn_5').on('click', function() {
+                // alert(2);
+                // console.log(123);
+                // console.log(this);
+                var groupNo=this.previousSibling.previousSibling.children[0].innerText;
+                // let GROUP_NO = box.querySelectorAll('div');
+                // var ccc=GROUP_NO[2].value;
+                // console.log(ccc);
+            
+                
+                $.ajax({
+                    url: 'home_fourTeam.php',
+                    type: 'GET',
+                    data: {
+                        groupNo: groupNo
+                    },
+                    dataType: 'json',
+                    success(data) {
+                        // console.log(data[1]);
+                        // let memberName = data.responseJSON[3];
+                        // let group = data.responseJSON;
+
+                        // console.log(group);
+                        // for (let i = 0; i < memberName.length; i++) {
+                        //     $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
+                        //         `
+                        //     <p>${memberName[i].MEMBER_NAME}</p>
+                        //     `)
+                        // }
+                        console.log(data);
+                        var foodGroupBox = data;
+                        console.log(foodGroupBox);
+                        console.log(groupNo);
+                        // var ccc = this.children[0].innerText;
+                        // let denEatGroupNum = $('.btn_5 btn_js').index(this);
+                        // $('.chu_box').css('display','flex');
+                        // $('.chu_box').css('position','absolute');
+                        $('.chu_box_row').empty();
+                        $('.chu_box_row').append(`
+                        <div class="box3_row_left">
+                            <div class="main_img">
+                                <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE1}">
+                            </div>
+                            <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE1}">
+                            <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE2}">
+                            <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE3}">
+                            <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE4}">
+                        </div>
+                        <div class="box3_row_right">
+                            <div>
+                                <div class="collection">           
+                                    <span>收藏</span>         
+                                    <img src="./image/den_image/fourth_screen_redHollowHeart.png">
+                                </div>
+                                <br>
+                                <h3>團號:</h3>
+                                <h3 class="groupNo">${foodGroupBox[1].GROUP_NO}</h3>
+                                <br>
+                                <h3>團名:</h3>
+                                <h3>${foodGroupBox[1].GROUP_NAME}</h3>
+                                <br>
+                                <h3>店名:</h3>
+                                <h3>${foodGroupBox[1].RES_NAME}</h3>
+                                <br>
+                                <h6>${foodGroupBox[1].KIND_NAME}</h6>
+                                <h6>${foodGroupBox[1].STYLE_NAME}</h6>
+                                
+                            </div>
+                            <div>
+                                <h3>開團團主:</h3>
+                                <h3>${foodGroupBox[1].MEMBER_NAME}</h3>
+                                <br>
+                                <div class="den_groupPeople">
+                                    <h3>目前人數:</h3>
+                                </div>                               
+                                <h3>用餐時間:</h3>
+                                <h3>${foodGroupBox[1].MEAL_TIME}</h3>
+                                <br>
+                            </div>
+                            <div>
+                                <h3>店家資訊</h3>
+                                <br>
+                                <h3>地址:</h3>
+                                <h3>${foodGroupBox[1].RES_ADDRESS}</h3>
+                                <a href="">
+                                    <img src="" alt="">
+                                </a>
+                                <br>
+                                <h3>電話:</h3>
+                                <h3>${foodGroupBox[1].RES_TEL}</h3>
+                                <br>
+                                <h3>營業時間:</h3>
+                                <h3>${foodGroupBox[1].RES_START}-${foodGroupBox[1].RES_CLOSE}</h3>
+                            </div>
+                        </div>
+                        `)
+                        $('.chu_box').css('display', 'block');
+                        $('.box_background').css('display', 'block');
+
+                    }
+                });
+                // clickImg3();
+
+
+
+            });
+            //--------------------------
+
         
         }
     });   
@@ -258,7 +366,7 @@ function left(){
                     // let GROUP_NO = box.querySelectorAll('div');
                     // var ccc=GROUP_NO[2].value;
                     // console.log(ccc);
-                   
+                
                     
                     $.ajax({
                         url: 'home_fourTeam.php',
@@ -279,15 +387,16 @@ function left(){
                             //     <p>${memberName[i].MEMBER_NAME}</p>
                             //     `)
                             // }
-                            
+                            console.log(data);
                             var foodGroupBox = data;
                             console.log(foodGroupBox);
+                            console.log(groupNo);
                             // var ccc = this.children[0].innerText;
                             // let denEatGroupNum = $('.btn_5 btn_js').index(this);
-                            // $('.den_box3').css('display','flex');
-                            // $('.den_box3').css('position','absolute');
-                            $('.den_box3_row').empty();
-                            $('.den_box3_row').append(`
+                            // $('.chu_box').css('display','flex');
+                            // $('.chu_box').css('position','absolute');
+                            $('.chu_box_row').empty();
+                            $('.chu_box_row').append(`
                             <div class="box3_row_left">
                                 <div class="main_img">
                                     <img src="./image/restaurant_management_img/${foodGroupBox[1].RES_IMAGE1}">
@@ -345,16 +454,25 @@ function left(){
                                 </div>
                             </div>
                             `)
-                            $('.den_box3').css('display', 'block');
+                            $('.chu_box').css('display', 'block');
                             $('.box_background').css('display', 'block');
+                            
 
                         }
                     });
                     // clickImg3();
 
-
-
                 });
+
+
+                $('.leave_btn').on('click',function(){
+                    $('.chu_box').css('display', 'none');
+                    $('.box_background').css('display', 'none');
+                }); 
+
+
+
+
                 //--------------------------
                 // getNewGroup();
                 //--------------------------

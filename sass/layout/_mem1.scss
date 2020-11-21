@@ -747,17 +747,6 @@
                             }
                         }
                     }
-                    .change_page {
-                        text-align: center;
-                        .Previous_page {
-                            border-radius: 25px;
-                            margin: 0 15px 20px 0;
-                        }
-                        .Next_page {
-                            border-radius: 25px;
-                            margin: 0 0 20px 15px;
-                        }
-                    }
                 }
             }
         }
@@ -902,17 +891,6 @@
                             }
                         }
                     }
-                    .change_page {
-                        text-align: center;
-                        .Previous_page {
-                            border-radius: 25px;
-                            margin: 0 15px 20px 0;
-                        }
-                        .Next_page {
-                            border-radius: 25px;
-                            margin: 0 0 20px 15px;
-                        }
-                    }
                 }
             }
         }
@@ -1005,6 +983,9 @@
             color: #DF7219;
             background-color: transparent;
             border: 0;
+        }
+        .-on1{
+            border: 2px solid #DF7219;
         }
     }
 }
