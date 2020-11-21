@@ -1283,27 +1283,39 @@
                                     }
                                     $('.den_groupPeople div').on('click', function() {
                                         let friendNo = $(this).children()[2].innerText;
-                                        let memberNoNum1 = 1;
+                                        let memberNoNum1 = $('.memberNoNum1').text();
                                         $('.den_true_box_friend').css('display', 'block');
                                         //    確認鈕
 
-                                        $('.friend_yes').on('click', function() {
-                                            $('.den_true_box_friend').css('display', 'none');
-                                            console.log(friendNo);
-                                            // let friendNo = $(this).children()[2].innerText;
-                                            $.ajax({
-                                                url: './open_group_friends.php',
-                                                data: {
-                                                    friendNo: friendNo,
-                                                    memberNoNum1: memberNoNum1,
-                                                },
-                                                type: 'GET',
-                                                dataType: 'json',
+                                        if ($('#spanLogin').text() == '登出') {
+                                            $('.friend_yes').on('click', function() {
+                                                $('.den_true_box_friend').css('display', 'none');
+
+                                                console.log(friendNo);
+                                                // let friendNo = $(this).children()[2].innerText;
+                                                $.ajax({
+                                                    url: './open_group_friends.php',
+                                                    data: {
+                                                        friendNo: friendNo,
+                                                        memberNoNum1: memberNoNum1,
+                                                    },
+                                                    type: 'GET',
+                                                    dataType: 'json',
+                                                });
                                             });
-                                        });
-                                        $('.friend_no button').on('click', function() {
+                                            $('.friend_no button').on('click', function() {
+                                                $('.den_true_box_friend').css('display', 'none');
+                                            });
+                                        } else if ($('#spanLogin').text() == '登入') {
+                                            alert('請先登入喔');
                                             $('.den_true_box_friend').css('display', 'none');
-                                        });
+                                            $('.den_box3').css('display', 'none');
+                                            $('.section_res').css('display', 'block');
+                                            $('.box_background').css('display', 'block');
+                                        }
+
+
+
                                     });
                                 }
                             });
