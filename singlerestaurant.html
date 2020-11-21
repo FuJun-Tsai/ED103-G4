@@ -533,6 +533,8 @@
                         $('.like').on('click',function(){
                             if($('#spanLogin').text()=='登入'){
                                     $('#login_box').css({'display':'flex'});
+                                    $('.jun_back').css({'display':'block'});
+
                             }else{
                                 $('.like i').toggleClass('tored');
                                 collect($('.like i').hasClass('tored'));
