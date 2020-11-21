@@ -264,7 +264,7 @@ $breakpoints: (
 		}
 		content:'';
 		@include square(0);
-		-webkit-transform: rotate(360deg);
+		// -webkit-transform: rotate(360deg);
 		border-style: solid;
 		@if $direction == up {
 			border-width: 0 $size ($size*1.625) $size;
