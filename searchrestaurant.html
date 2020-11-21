@@ -35,8 +35,7 @@
 
 <body>
     <!-- 登入lightbox -->
-    <div class="jun_back"></div>
-    <section class="section_res" id="login_box" style="display:none" >
+    <section class="section_res" id="login_box" style="display:none">
         <div class="container_res">
             <div class="ic" id="btnLoginCancel"><i class="fas fa-times"></i></div>
             <div class="user singinBx">
@@ -61,13 +60,10 @@
                     <div class="form">
                         <h2>註冊</h2>
                         <input type="text" id="newmem_account" name="newmem_account" placeholder="請輸入帳號">
-                        <input type="button" id="btnCheckId" value="檢查帳號" class="checkbtn"><span id="idMsg" class="idMsg"></span>
+                        <input type="button" id="btnCheckId" value="檢查帳號是否可用"><span id="idMsg"></span>
                         <input type="password" id="newmem_psw" name="newmem_psw" placeholder="請輸入密碼">
                         <input type="password" id="again_psw" name="again_psw" placeholder="再次確認密碼">
                         <input type="email" id="newmem_email" name="newmem_email" placeholder="請輸入email">
-                        <button class="btn_5 btn_js" id="next_re">下一步
-                            <span></span>
-                        </button>
                     </div>
                 </div>
                 <div class="img_res img_res2">
@@ -86,12 +82,7 @@
                             <option value="56↑">56↑</option>
                         </select>
                         <input type="submit" id="submit" value="註冊">
-                        <p class="learn">已經有會員了?<br>
-                            <a href="#" onclick="toggleForm();">會員登入點我點我</a>
-                            <button class="btn_5 btn_js for_btn" id="previous_re">上一步
-                                <span></span>
-                            </button>
-                        </p>
+                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
                     </div>  
                 </div>
             </div>
@@ -185,7 +176,7 @@
                 <div class="txt">
                     <h1 style="color:black;">餐廳介紹</h1>
                 </div>
-            </div>
+            </div>    
         </div>
 
         <div class="content">
@@ -203,27 +194,19 @@
                            <br>
                         <div>
                             <label for="k1"><input type="checkbox" name="kind" id="k1" value="1">日式</label>
-                        <label for="k2"><input type="checkbox" name="kind" id="k2" value="2">西式</label>
-                        <label for="k3"><input type="checkbox" name="kind" id="k3" value="3">中台</label>
-                        <label for="k4"><input type="checkbox" name="kind" id="k4" value="4">韓式</label>
-                        <label for="k5"><input type="checkbox" name="kind" id="k5" value="5">東南亞</label>
-                    </div>
-                    </label>
+                            <label for="k2"><input type="checkbox" name="kind" id="k2" value="2">西式</label>
+                            <label for="k3"><input type="checkbox" name="kind" id="k3" value="3">中台</label>
+                            <label for="k4"><input type="checkbox" name="kind" id="k4" value="4">韓式</label>
+                            <label for="k5"><input type="checkbox" name="kind" id="k5" value="5">東南亞</label>
+                        </div>
+                        </label>
 
-                    <label for="style[]" class="style">
+                        <label for="style[]" class="style">
                             <h3>
                                 料理風格
                             </h3>
                             <br>
                         <div>
-<<<<<<< HEAD
-                            <label for="s1"><input type="checkbox" name="style[]" id="s1" value="1">火鍋</label>
-                    <label for="s2"><input type="checkbox" name="style[]" id="s2" value="2">燒烤</label>
-                    <label for="s3"><input type="checkbox" name="style[]" id="s3" value="3">炸物</label>
-                    <label for="s4"><input type="checkbox" name="style[]" id="s4" value="4">快炒</label>
-                    <label for="s5"><input type="checkbox" name="style[]" id="s5" value="5">簡餐</label>
-                    <label for="s6"><input type="checkbox" name="style[]" id="s6" value="6">排餐</label>
-=======
                             <label for="s1"><input type="checkbox" name="style[]" id="s1" value="1">排餐</label>
                             <label for="s2"><input type="checkbox" name="style[]" id="s2" value="2">炸物</label>
                             <label for="s3"><input type="checkbox" name="style[]" id="s3" value="3">燒烤</label>
@@ -234,23 +217,18 @@
                         </label>
 
                     </div>
->>>>>>> dev
                 </div>
-                </label>
-
             </div>
-        </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="error">似乎沒有匹配篩選的店家...換其他的搜尋條件吧~</div>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="error">似乎沒有匹配篩選的店家...換其他的搜尋條件吧~</div>
+                </div>
             </div>
-        </div>
 
-        <div class="result">
+            <div class="result">
 
-            <!-- <div id="R1" class="rest container">
+                <!-- <div id="R1" class="rest container">
                     <div class="row">
                         <div class="rep col-lg-5">
                             <img src="./image/restaurant_management_img/牛篷牛排_1.jpg" alt="">
@@ -295,11 +273,11 @@
                         </div>
                     </div>
                 </div> -->
-        </div>
+            </div>
 
-        <ul class="page">
+            <ul class="page">
 
-        </ul>
+            </ul>
         </div>
 
     </section>
@@ -329,37 +307,32 @@
     </script>
 
     <script>
-        $(document).ready(function() {
+
+        $(document).ready(function(){
             searchJS();
         });
 
-        function searchJS() {
+        function searchJS(){
 
             $('.result').empty();
             K = '';
             S = [];
             result = [];
             search = '';
-            ConditionSearch(K, S.join(','), result, search, page = 0);
+            ConditionSearch(K,S.join(','),result,search,page=0);
             // MessageRender(result);
 
-            function MessageRender(e) {
+            function MessageRender(e){
                 $.ajax({
-                    url: 'searchRenderLM.php',
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        e: e.join(','),
+                    url:'searchRenderLM.php',
+                    type:'POST',
+                    dataType:'json',
+                    data:{
+                        e:e.join(','),
                     },
-<<<<<<< HEAD
-                    success(data) {
-                        // console.log(data);
-                        for (let i = 0; i <= data.length - 1; i += 1) {
-=======
                     success(data){
                         console.log(data);
                         for(let i=0 ; i<=data.length-1 ;i+=1){
->>>>>>> dev
                             $(`.${data[i].resno}`).append(`
                                 <div id="${data[i].id}" class="L">
                                     <img src="./image/member/${data[i].mmimg}" alt="">
@@ -370,71 +343,56 @@
 
 
                     },
-<<<<<<< HEAD
-
-=======
                     complete(){
                         nomessage(e);
 
                     }
                     
->>>>>>> dev
                 });
                 imgcube();
-
+                
             }
 
-            $('#condition input:checkbox').on('click', function() {
-                if ($(this).attr('name') == 'kind') {
-                    K = $("input[name='kind']:checked").map(function() {
+            $('#condition input:checkbox').on('click',function(){
+                if($(this).attr('name')=='kind'){
+                    K = $("input[name='kind']:checked").map(function(){
                         return $(this).val();
                     }).get();
-                } else {
-                    S = $("input[name='style[]']:checked").map(function() {
-                        return $(this).val();
+                }else{
+                    S = $("input[name='style[]']:checked").map(function(){
+                        return $(this).val(); 
                     }).get();
                 }
-
-                ConditionSearch(K, S.join(','), search, page);
+                
+                ConditionSearch(K,S.join(','),search,page);
             });
 
 
-<<<<<<< HEAD
-            function ConditionSearch(K, S, result, search = '', page = 0) {
-=======
             function ConditionSearch(K,S,result,search='',page=0){
 
->>>>>>> dev
                 let condition = `${K}&${S}`;
                 $.ajax({
-                    url: 'searchConditionRender.php',
-                    type: 'GET',
-                    dataType: 'json',
-                    data: {
-                        condition: condition,
-                        search: search,
-                        page: page
+                    url:'searchConditionRender.php',
+                    type:'GET',
+                    dataType:'json',
+                    data:{
+                        condition:condition,
+                        search:search,
+                        page:page
                     },
-<<<<<<< HEAD
-                    success(data) {
-                        console.log(data);
-=======
                     success(data){
->>>>>>> dev
                         result = [];
-                        for (let i = 0; i < data[1].length; i += 1) {
+                        for(let i=0;i<data[1].length;i+=1){
                             result.push(data[1][i].no);
-                            if (data[1][i].collectRES == null) {
+                            if(data[1][i].collectRES == null){
                                 data[1][i].collectRES = 'style="color:black;"';
-                            } else {
+                            }else{
                                 data[1][i].collectRES = 'style="color:red;"';
                             }
                         };
-                        $('.error').css({
-                            'display': 'none'
-                        });
+                        $('.error').css({'display': 'none'});
                         $('.result').empty();
-                        for (let i = 0; i < data[1].length; i += 1) {
+                        for(let i=0;i<data[1].length;i+=1){
                             $('.result').append(`
                                 <div id="${data[1][i].id}" class="rest container">
                                     <div class="row">
@@ -479,60 +437,41 @@
                                 </div>
                             `);
 
-                            TweenLite.from(`#${data[1][i].id}`, 0.5, {
-                                opacity: -2,
-                                y: -300,
-                            }, );
+                            TweenLite.from(`#${data[1][i].id}`,0.5,{
+                                opacity:-2,
+                                y:-300,
+                            },);
 
                         };
 
                         $('.page').empty();
-                        let num = Math.ceil(data[0].length / 4);
-                        for (let i = 1; i <= num; i += 1) {
+                        let num = Math.ceil(data[0].length/4);
+                        for(let i=1;i<=num;i+=1){
                             $('.page').append(`
                                 <li data-page='${i-1}'>${i}</li>
                             `);
                         };
 
-                        $('.page li').on('click', function() {
+                        $('.page li').on('click',function(){
                             let x = $(this).attr('data-page');
-<<<<<<< HEAD
-                            ConditionSearch(K, S, result, search = '', x);
-=======
                             $("html , body").animate({scrollTop:0},"slow","linear");
                             ConditionSearch(K,S,result,search='',x);
           
->>>>>>> dev
                         });
 
                         $(`.page li:nth-child(${parseInt(page)+1})`).
                         css({
-<<<<<<< HEAD
-                            'color': 'black',
-                            'text-decoration': 'none'
-                        });
-
-                    },
-                    error(data) {
-=======
                             'color':'black',
                             'text-decoration':'none'
                         });
 
                     },
                     error(){
->>>>>>> dev
                         $('.result').empty();
-                        $('.error').css({
-                            'display': 'block'
-                        });
+                        $('.error').css({'display': 'block'});
 
                     },
-<<<<<<< HEAD
-                    complete() {
-=======
                     complete(e){
->>>>>>> dev
                         MessageRender(result);
                         collection();
                     },
@@ -541,86 +480,65 @@
 
             };
 
-            function collection() {
+            function collection(){
                 $.ajax({
-                    url: 'REScollection.php',
-                    type: 'POST',
-                    dataType: 'json',
-                    success(data) {
+                    url:'REScollection.php',
+                    type:'POST',
+                    dataType:'json',
+                    success(data){
                         // console.log(data); 
-                        for (let i = 0; i <= data.length - 1; i += 1) {
+                        for(let i=0;i<=data.length-1;i+=1){
                             $(`#${data[i].ID} .like i`).removeClass('far');
                             $(`#${data[i].ID} .like i`).addClass('tored');
                             $(`#${data[i].ID} .like i`).addClass('fas');
                         }
                     },
-                    complete() {
-                        $('.like').on('click', function() {
-                            if ($('#spanLogin').text() == '登入') {
-                                $('#login_box').css({
-                                    'display': 'flex'
-                                });
-                            } else {
+                    complete(){
+                        $('.like').on('click',function(){
+                            if($('#spanLogin').text()=='登入'){
+                                $('#login_box').css({'display':'flex'});
+                            }else{
                                 let RES = ($(this).closest('.rest').attr('id').split('R')[1]);
                                 $(this).children('.like i').toggleClass('tored');
-                                collect($(this).children('.like i').hasClass('tored'), RES);
+                                collect($(this).children('.like i').hasClass('tored'),RES);
 
                                 let num = parseInt($(this).children('span').text());
-<<<<<<< HEAD
-                                console.log(num);
-                                if ($(this).children('i').hasClass('tored') == false) {
-                                    num -= 1;
-=======
                                 if($(this).children('i').hasClass('tored')==false){
                                     num-=1;
->>>>>>> dev
                                     $(this).children('i').removeClass('fas');
                                     $(this).children('i').addClass('far');
                                     $(this).children('span').text(num);
 
-                                } else {
-                                    num += 1;
+                                }else{
+                                    num+=1;
                                     $(this).children('i').removeClass('far');
                                     $(this).children('i').addClass('fas');
                                     $(this).children('span').text(num);
                                 }
 
                             }
-                        });
+                        }); 
                     }
                 });
 
             }
 
-            function collect(e, RES) {
+            function collect(e,RES){
                 $.ajax({
-                    url: 'collect.php',
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        do: e,
-                        RES: RES,
+                    url:'collect.php',
+                    type:'POST',
+                    dataType:'json',
+                    data:{
+                        do:e,
+                        RES:RES,
                     },
-                    success(e) {
-
+                    success(e){
+                        
                     },
-
+                
                 });
             }
 
-<<<<<<< HEAD
-            function nomessage() {
-                let array = [];
-                let num = $('.result').find('.rest').length;
-
-                for (let i = 0; i <= num - 1; i += 1) {
-                    array.push($('.result').find('.rest')[i].id);
-                }
-
-                for (let i = 0; i <= array.length - 1; i += 1) {
-                    // console.log(array[i]);
-                    if ($(`.${array[i]}`).children().length == 0) {
-=======
             function nomessage(e){
                 let array = [];
                 let num = $('.result').find('.rest').length;
@@ -631,7 +549,6 @@
 
                 for(let i=0;i<=array.length-1;i+=1){
                     if($(`.${array[i]}`).children('.L').length==0){
->>>>>>> dev
                         $(`.${array[i]}`).append(`
                             <div style="text-align:center; height:140px; line-height:140px; font-size:36px;">
                                 尚無留言
@@ -643,31 +560,32 @@
                 }
 
             }
-
+     
         }
-
+  
         ///////////////
 
-        function imgcube() {
+        function imgcube(){
             let imgwidth = $('.rep img').width();
-            if ($(window).width() < 600) {
-                $('.rep img').width($(window).width() - 20);
-                $('.rep img').height($(window).width() - 20);
-            } else {
+            if($(window).width()<600){
+                $('.rep img').width($(window).width()-20);
+                $('.rep img').height($(window).width()-20);
+            }else{
                 $('.rep img').height(500);
             }
         };
 
-        window.addEventListener('resize', function() {
-            imgcube();
+        window.addEventListener('resize',function(){
+                imgcube();
         });
 
-        $('.kind input').on('click', function() {
-            if ($(this).prop('checked')) {
-                $('.kind input:checkbox').prop('checked', false);
-                $(this).prop('checked', true);
+        $('.kind input').on('click',function(){
+            if($(this).prop('checked')){
+                $('.kind input:checkbox').prop('checked',false);
+                $(this).prop('checked',true);
             };
         });
+
     </script>
 
     <script src="js/login.js"></script>
@@ -675,15 +593,6 @@
     <!-- <script src="./js/searchAnimate.js"></script> -->
 
     <script>
-<<<<<<< HEAD
-        $('.kind label input').on('change', function() {
-            $('.kind label').css('background', 'rgba(255, 255, 255, 0)');
-            $('.kind label').css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0)');
-
-            $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
-            $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
-        });
-=======
         $('.kind label input').on('click', function() {
 
             $('.kind label').not($(this).closest('label')).removeClass('kindonclick');
@@ -696,7 +605,6 @@
 
         });
 
->>>>>>> dev
         $(".style label input").click(function() {
             var checkis = $(this).is(":checked");
             if (checkis == true) {
