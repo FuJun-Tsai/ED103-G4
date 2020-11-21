@@ -1,9 +1,6 @@
 function $id(id){
 	return document.getElementById(id);
 }	
-
-let member;
-
 let member;
     //註冊 
     function registered(){
@@ -88,7 +85,6 @@ let member;
         xhr.open("post", "php/logout.php", true);
         xhr.send(null);
       }
-
     }
 
     function sendForm(){
@@ -131,43 +127,34 @@ let member;
 
     function getMemberInfo(){
       let xhr = new XMLHttpRequest();
-
       xhr.onload = function(){
         if(xhr.status == 200){ //success
           member = JSON.parse(xhr.responseText);
           if(member.MEMBER_ID){
             $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
             $id('spanLogin').innerHTML = '登出';
-<<<<<<< HEAD
-            $('.username').text(`${member.MEMBER_NO}`);  
-          }
-
-
-=======
             $id('mobilespanLogin').innerHTML = '登出';
             $('.username').text(`${member.MEMBER_NO}`);  
           }
-
->>>>>>> dev
         }else{ //error
           // alert(xhr.status);
         }
       }
-
       xhr.open("get", "php/getMemberInfo.php", true);
       xhr.send(null);
     }
 
+    function toggleForm() {
+      var container_res = document.querySelector('.container_res');
+      container_res.classList.toggle('act');
+    }
+    
     function init(){
-<<<<<<< HEAD
-      user = '';
-=======
       
       //===判斷帳號是否能使用
       checkId();
       //===註冊事件
       registered();
->>>>>>> dev
       //-----------------------檢查是否已登入
       getMemberInfo();
       //===設定spanLogin.onclick 事件處理程序是 showLoginForm
@@ -198,6 +185,6 @@ let member;
           searchJS();
       };
     };
-    $('#btnLogin').on('click',function(){
-      $('.jun_back').css('display','none');
-    });
+    // $('#btnLogin').on('click',function(){
+    //   $('.jun_back').css('display','none');
+    // });
