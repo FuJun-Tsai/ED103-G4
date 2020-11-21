@@ -174,7 +174,7 @@
         <div class="banner_rest_sear">
             <div class="banner_bg">
                 <div class="txt">
-                    <h1>餐廳介紹</h1>
+                    <h1 style="color:black;">餐廳介紹</h1>
                 </div>
             </div>    
         </div>
@@ -207,12 +207,12 @@
                             </h3>
                             <br>
                         <div>
-                            <label for="s1"><input type="checkbox" name="style[]" id="s1" value="1">火鍋</label>
-                            <label for="s2"><input type="checkbox" name="style[]" id="s2" value="2">燒烤</label>
-                            <label for="s3"><input type="checkbox" name="style[]" id="s3" value="3">炸物</label>
-                            <label for="s4"><input type="checkbox" name="style[]" id="s4" value="4">快炒</label>
-                            <label for="s5"><input type="checkbox" name="style[]" id="s5" value="5">簡餐</label>
-                            <label for="s6"><input type="checkbox" name="style[]" id="s6" value="6">排餐</label>
+                            <label for="s1"><input type="checkbox" name="style[]" id="s1" value="1">排餐</label>
+                            <label for="s2"><input type="checkbox" name="style[]" id="s2" value="2">炸物</label>
+                            <label for="s3"><input type="checkbox" name="style[]" id="s3" value="3">燒烤</label>
+                            <label for="s4"><input type="checkbox" name="style[]" id="s4" value="4">火鍋</label>
+                            <label for="s5"><input type="checkbox" name="style[]" id="s5" value="5">飯食</label>
+                            <label for="s6"><input type="checkbox" name="style[]" id="s6" value="6">麵食</label>
                         </div>
                         </label>
 
@@ -342,10 +342,13 @@
 
 
                     },
+                    complete(){
+                        nomessage(e);
+
+                    }
                     
                 });
                 imgcube();
-                nomessage(e);
                 
             }
 
@@ -425,8 +428,8 @@
                                                 <button name="RES_NO" value="${data[1][i].no}" class="btnsingle btn_10 btn_js">詳細<span></span></button>
                                             </form>
                                             <div class="go">
-                                                <a href="./open_group.html"><button class="btnRed btn_3 btn_js">開團<span></span></button></a>
-                                                <a href=""><button class="btnBlue btn_4 btn_js">參團<span></span></button></a>
+                                                <a href="./open_group.html#den_tab1"><button class="btnRed btn_3 btn_js">開團<span></span></button></a>
+                                                <a href="./open_group.html#den_tab2"><button class="btnBlue btn_4 btn_js">參團<span></span></button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -538,14 +541,13 @@
             function nomessage(e){
                 let array = [];
                 let num = $('.result').find('.rest').length;
-                
+
                 for(let i=0;i<=num-1;i+=1){
                     array.push($('.result').find('.rest')[i].id);
                 }
 
                 for(let i=0;i<=array.length-1;i+=1){
-
-                    if($(`.${array[i]}`).children().length==0){
+                    if($(`.${array[i]}`).children('.L').length==0){
                         $(`.${array[i]}`).append(`
                             <div style="text-align:center; height:140px; line-height:140px; font-size:36px;">
                                 尚無留言
@@ -591,13 +593,14 @@
 
     <script>
         $('.kind label input').on('click', function() {
-            // $('.kind label').css('background', 'rgba(255, 255, 255, 0)');
-            // $('.kind label').css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0)');
 
-            // $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)');
-            // $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)');
-            $('.kind label').toggleClass('kindlabel');
-            $(this).parent().toggleClass('kindlabelinput');
+            $('.kind label').not($(this).closest('label')).removeClass('kindonclick');
+
+            if($(this).closest('label').hasClass('kindonclick')){
+                $(this).closest('label').removeClass('kindonclick');
+            }else{
+                $(this).closest('label').addClass('kindonclick');
+            }
 
         });
 
@@ -611,18 +614,15 @@
         });
     </script>
 
+</body>
     <style>
-        .kindlabel{
-            background: rgba(255,255,255,0);
-            box-shadow: 0px 0px 0px 0px rgba(223, 114, 25, 0);
+        .kindonclick{
+            background:rgba(223, 114, 25, 0.6);
+            box-shadow:0px 0px 0px 0px rgba(223, 114, 25, 0.8);
         }
-        .kindlabelinput{
-            background: rgba(223,114,25,0.6);
-            box-shadow: 0px 0px 0px 0px rgba(223, 114, 25, 0.8);
-        }
+        /* $(this).parent().css('background', 'rgba(223, 114, 25, 0.6)'); */
+        /* $(this).parent().css('box-shadow', '0px 0px 0px 0px rgba(223, 114, 25, 0.8)'); */
 
     </style>
-
-</body>
 
 </html>
