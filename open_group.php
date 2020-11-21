@@ -6,16 +6,12 @@ $word1='';
     $RES_KIND = isset($_GET["RES_KIND"]) ? $_GET["RES_KIND"] : "";
     $cond1 = isset($_GET["RES_KIND"]) ? "RES_KIND = $RES_KIND" : "";
     $RES_STYLE = isset($_GET["RES_STYLE"]) ? $_GET["RES_STYLE"] : "";  
-    // echo gettype($RES_STYLE);
-    // print_r($RES_STYLE);
     if(isset($_GET["RES_STYLE"])){
       for($i=0;$i<count($RES_STYLE);$i++){
         $word.="'$RES_STYLE[$i]',";
       }
     }
     $word1=substr($word,0,-1);
-
-    // print_r($word1);
     $cond2 = isset($_GET["RES_STYLE"]) ? "RES_STYLE in ($word1)" : "" ;
     $GROUP_NO = isset($_GET["GROUP_NO"]) ? $_GET["GROUP_NO"] : "";
     $cond3 = isset($_GET["GROUP_NO"]) ? " and fg.GROUP_NO = $GROUP_NO order by GROUP_NO ":"";
@@ -31,10 +27,9 @@ $memberNoNum=isset($_GET["memberNoNum"]) ? $_GET["memberNoNum"] : "";
 
 //好友
 $FRIENDS_MASTER_NO = isset($_GET["FRIENDS_MASTER_NO"]) ? $_GET["FRIENDS_MASTER_NO"] : "0";
-// echo $FRIENDS_MASTER_NO;
 
 try{
-  require_once('connectbook.php');
+  require_once('./connectbook.php');
 
 
   //抓取全部餐廳
@@ -56,7 +51,6 @@ try{
   }
   $sql.=" order by RES_NO ASC";
   
-// echo $sql ,'<br>','<br>','<br>';
   $data0 = $pdo->prepare($sql);
   $data0-> execute();
 
@@ -80,15 +74,13 @@ join member_management MM on(T.FRIENDS_NO=MM.MEMBER_NO)
   $data1Rows = $data1->fetchAll(PDO::FETCH_ASSOC);
   $result[1] = $data1Rows;
   
-  // print_r($result[1]);
-
   //美食團資訊
   $sql2 = "
   select distinct 
   GROUP_NAME, 
   MEMBER, 
   RES_NAME, 
-  MEAL_TIME, 
+  date_format(MEAL_TIME,'%Y-%m-%d %H:%i') MEAL_TIME, 
   END_TIME, 
   MAX_NUMBER, 
   JOIN_NUMBER, 
@@ -102,8 +94,8 @@ join member_management MM on(T.FRIENDS_NO=MM.MEMBER_NO)
   rm.RES_IMAGE3 RES_IMAGE3, 
   rm.RES_IMAGE4 RES_IMAGE4, 
   mm.MEMBER_IMAGE MEMBER_IMAGE, 
-  rm.RES_START RES_START, 
-  rm.RES_CLOSE RES_CLOSE,
+  date_format(rm.RES_START,'%H:%i') RES_START,
+  date_format(rm.RES_CLOSE,'%H:%i') RES_CLOSE,
   mm.MEMBER_NAME MEMBER_NAME,
   rk.KIND_NO,
   rs.STYLE_NO
@@ -126,7 +118,7 @@ join member_management MM on(T.FRIENDS_NO=MM.MEMBER_NO)
   
 //美食團燈箱裡的東西
 $sql3="
-      SELECT fg.MEMBER, fgp.MEMBER_NO, mm.MEMBER_NAME, fg.GROUP_NO, fgp.MEMBER_STATUS FROM ed103g4.food_group fg
+      SELECT fg.MEMBER, fgp.MEMBER_NO FRIEND, mm.MEMBER_NAME, fg.GROUP_NO, fgp.MEMBER_STATUS FROM ed103g4.food_group fg
       join food_group_people fgp on(fg.GROUP_NO=fgp.GROUP_NO)
       join member_management mm on(fgp.MEMBER_NO=mm.MEMBER_NO)
       where fgp.MEMBER_STATUS=3";

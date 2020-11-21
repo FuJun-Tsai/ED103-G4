@@ -12,6 +12,7 @@ function doFirst(e) {
             let boxss1 = boxss[i].id;
             let boxId = boxss1.substr(1, 2)
             let ccc = boxss[i].getElementsByTagName('img')[0];
+            console.log(e[boxId]);
 
             var newImg01
 
@@ -34,32 +35,41 @@ function doFirst(e) {
                     <h3>店名:</h3>
                     <h4>  ${e[boxId].RES_NAME}</h4>
                     <br>
-                    <h3>簡介:</h3>
+                    <h3>簡介:</h3>   
                     <p>${e[boxId].RES_SUMMARY}</p>
+                    <div class="game_res_btn">
+                    <a href="./singlerestaurant.html?RES_NO=${e[boxId].RES_NO}">
+                    <button>詳細</button>
+                    </a>
+                    </div>
+                  
                 `
             );
-
-
-
-
-
-
-            // let rsTitle = document.createElement("h2");
-            // let rsName = document.createElement("h3");
-            // let rsContent = document.createElement("p");
-
-            // document.querySelector('.purchasebox_content_right').appendChild(rsTitle)
-            // document.querySelector('.purchasebox_content_right').appendChild(rsName);
-            // let qq = document.querySelector('.purchasebox_content_right').appendChild(rsContent)
-            // rsTitle.innerText = "今晚!我想來點~"
-            // console.log(e);
-            // rsContent.innerText = e[boxId].RES_SUMMARY;
-            // rsName.innerText = e[boxId].RES_NAME;
             $('.purchasebox').css('visibility', ' visible');
             $('.game_background').css('display', 'block');
+
+            //圖片換選
+
+            function clickGameImg() {
+
+                $('.purchasebox_content_left .vice_img > img').not('.purchasebox_content_left .vice_img > img:nth-child(1)').addClass('togray');
+                $('.purchasebox_content_left .vice_img > img').on('click', function() {
+                    $('.main_img img').attr('src', `${$(this).attr('src')}`);
+                    $('.purchasebox_content_left .vice_img > img').addClass('togray');
+                    $(this).removeClass('togray');
+                });
+            }
+            clickGameImg();
         });
 
     }
 
     $('#b0 img:nth-child(3)').remove();
+    // $('#b0').on('click', function() {
+    //     $('.game_background').css('display', 'none');
+    //     $('.purchasebox').css('visibility', ' hidden');
+    //     $('.main_img').remove();
+    //     $('.vice_img').remove();
+    //     $('.purchasebox_content_right').empty()
+    // });
 }
