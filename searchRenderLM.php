@@ -12,23 +12,27 @@ for($i=0;$i<count($e);$i+=1){
 }
 try{
     require_once('./connectbook.php');
-    $sql = "select 
+    $sql = "SELECT 
+                R.RES_MESSAGE_NO,
                 concat('R' , R.RES_NO) as resno,
                 concat('L' , R.RES_MESSAGE_NO) as id,
-                R.RES_MES_TIME as time,
+                DATE_FORMAT(R.RES_MES_TIME,'%Y-%m-%d %H:%i') as time,
                 R.RES_MESSAGE_WORD as content,
                 mm.MEMBER_IMAGE as mmimg
 
-            from restaurant_message R
-                JOIN member_management mm on(R.MEMBER_NO = mm.MEMBER_NO)    
+            FROM restaurant_message R
+                JOIN member_management mm on(R.MEMBER_NO = mm.MEMBER_NO)  
+                LEFT JOIN report_restaurant_message rrm on(R.RES_MESSAGE_NO = rrm.MESSAGE_NO)  
 
-            where RES_NO in($word)
+            WHERE 
+                RES_NO in($word) AND
+                rrm.MESSAGE_NO in(0,2)
 
-            order by RES_NO;";
+            ORDER BY RES_NO;";
   
     $RESdata = $pdo->prepare($sql);
     $RESdata-> execute();
-
+    echo $sql;
     if($RESdata->rowCount()==0){
         echo '資料有誤';
     }else{

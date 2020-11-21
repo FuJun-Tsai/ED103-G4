@@ -15,10 +15,22 @@ let member;
         var newmem_sex=$("#newmem_sex").val();
         var newmem_age=$("#newmem_age").val();
         if (newmem_account == "" || newmem_psw == "" || again_psw =="" || newmem_email ==""){
+<<<<<<< HEAD
           alert("左邊欄位不能為空喔!");
         }else{
           let xhr = new XMLHttpRequest();
           console.log(1);
+=======
+          document.getElementById("idMsg").innerText = "左邊欄位不能為空喔";
+          document.getElementById("idMsg").style['color'] = 'red';
+        } else if(newmem_email.indexOf("@") == -1){
+          document.getElementById("idMsg").innerText = "email要正確填寫喔";
+          document.getElementById("idMsg").style['color'] = 'red';
+        }
+        
+        else{
+          let xhr = new XMLHttpRequest();
+>>>>>>> dev
           xhr.onload = function(){
             member = JSON.parse(xhr.responseText);
             console.log(member);
@@ -42,16 +54,46 @@ let member;
         }
       });
     }
+<<<<<<< HEAD
     //判斷帳號是否註冊過
     function checkId(){
       $("#newmem_account").on("change",function(){
         console.log(1);
+=======
+    //手機板RWD註冊上下頁
+    function registeredRWD(){
+      $("#next_re").on("click",function(){
+        console.log(1);
+        $(".form_res2").css({"width":"0%","display":"none"});
+        $(".img_res2").css({"width":"100%","display":"flex"});
+      });
+      $("#previous_re").on("click",function(){
+        $(".form_res2").css({"width":"100%","display":"flex"});
+        $(".img_res2").css({"width":"0%","display":"none"});
+      });
+    }
+    //判斷帳號是否註冊過
+    function checkId(){
+      $("#newmem_account").on("change",function(){
+>>>>>>> dev
         var xhr = new XMLHttpRequest();
         //註冊callback function
         xhr.onreadystatechange = function(){
           if(xhr.readyState == XMLHttpRequest.DONE){ //server端已處理完畢
               if(xhr.status === 200){ //xhr.status為200時表示, server端有正常的處理完畢
+<<<<<<< HEAD
                 document.getElementById("idMsg").innerText = xhr.responseText;
+=======
+                if (xhr.responseText == "此帳號已存在, 不可用"){
+                  document.getElementById("idMsg").innerText = xhr.responseText;
+                  document.getElementById("idMsg").style['color'] = 'red';
+
+                }
+                else{
+                  document.getElementById("idMsg").innerText = xhr.responseText;
+                  document.getElementById("idMsg").style['color'] = 'black';
+                }
+>>>>>>> dev
               }else{
                 alert(xhr.statusText);
               }
@@ -75,6 +117,11 @@ let member;
       //將頁面上的使用者資料清掉
       if($id('spanLogin').innerHTML == "登入"){
         $id('login_box').style.display = 'flex';
+<<<<<<< HEAD
+=======
+        $('.jun_back').css({'display':'block'});
+        // document.getElementsByClassName('jun_back')[0].getAttribute('display')='block';
+>>>>>>> dev
       }else{//登出
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
@@ -128,11 +175,16 @@ let member;
       $id('login_box').style.display = 'none';
       document.getElementsByName("MEMBER_ID").value = '';
       document.getElementsByName("MEMBER_PSW").value = '';
+<<<<<<< HEAD
     }
 
 
     function getMemberInfo(){
       let xhr = new XMLHttpRequest();
+=======
+      $('.jun_back').css({'display':'none'});
+    }
+>>>>>>> dev
 
       xhr.onload = function(){
         if(xhr.status == 200){ //success
@@ -145,7 +197,24 @@ let member;
             $('.username').text(`${member.MEMBER_NO}`);  
           }
 
+<<<<<<< HEAD
 
+=======
+    function getMemberInfo(){
+      let xhr = new XMLHttpRequest();
+
+      xhr.onload = function(){
+        if(xhr.status == 200){ //success
+          member = JSON.parse(xhr.responseText);
+          if(member.MEMBER_ID){
+            $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+            $id("mobileheadshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+            $id('spanLogin').innerHTML = '登出';
+            $id('mobilespanLogin').innerHTML = '登出';
+            $("#memberNoNum").text(`${member.MEMBER_NO}`);  
+            $("#mob_memberNoNum").text(`${member.MEMBER_NO}`);  
+          }
+>>>>>>> dev
         }else{ //error
           // alert(xhr.status);
         }
@@ -181,6 +250,11 @@ let member;
       checkId();
       //===註冊事件
       registered();
+<<<<<<< HEAD
+=======
+      //手機板RWD註冊上下頁
+      registeredRWD();
+>>>>>>> dev
       //-----------------------檢查是否已登入
       getMemberInfo();
       //===設定spanLogin.onclick 事件處理程序是 showLoginForm

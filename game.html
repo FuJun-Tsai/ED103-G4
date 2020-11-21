@@ -8,43 +8,78 @@
     <link rel="stylesheet" href="./css/game.css">
     <link rel="stylesheet" href="./css/allstyle.css">
     <link rel="stylesheet" href="./sass/vender/other/hover-min.css">
+    <link rel="stylesheet" href="./sass/vender/other/dice.css">
+    <!--按鈕的css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <script src="./js/dice.js"></script>
     <script src="./js/monopoly.js"></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'></script>
+    <script src="./js/initializing.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/information.js"></script> -->
 </head>
 
 <body>
     <!-- 登入lightbox -->
-    <section class="section_res" id="login_box" style="display:none">
+    <div class="jun_back"></div>
+    <section class="section_res" id="login_box" style="display:none" >
         <div class="container_res">
+            <div class="ic" id="btnLoginCancel"><i class="fas fa-times"></i></div>
             <div class="user singinBx">
-                <div class="img_res">
-                    <img src="./image/2.png" alt="">
+                <div class="img_res img_res1">
+                    <img src="./image/2.png">
                 </div>
-                <div class="form_res">
-                    <form name="login">
+                <div class="form_res form_res1">
+                    <form name="login" class="form">
                         <h2>會員登入</h2>
                         <input type="text" name="MEMBER_ID" placeholder="請輸入帳號" id="loginID">
                         <input type="password" name="MEMBER_PSW" placeholder="請輸入密碼" id="loginPsd">
-
-                        <input type="button" name="" value="登入" id="btnLogin">
-                        <input type="button" name="" value="取消" id="btnLoginCancel">
+                        <div class="btn_6 btn_js loginuse">
+                            <input type="button" name="" value="登入" id="btnLogin">
+                            <span></span>
+                        </div>
                         <p class="learn">還未成為會員?<br><a href="#" onclick="toggleForm();">註冊會員請點我</a></p>
                     </form>
                 </div>
             </div>
             <div class="user singupBx">
-                <div class="form_res">
-                    <form action="signup.php" method="post">
+                <div class="form_res form_res2">
+                    <div class="form">
                         <h2>註冊</h2>
-                        <input type="text" name="newmem_account" placeholder="請輸入註冊email">
-                        <input type="password" name="newmem_psw" placeholder="請輸入密碼">
-                        <!-- <input type="password" name="password" placeholder="再次確認密碼"> -->
-                        <input type="submit" name="submit" value="註冊">
-                        <p class="learn">已經有會員了?<br><a href="#" onclick="toggleForm();">會員登入點我點我</a></p>
-                    </form>
+                        <input type="text" id="newmem_account" name="newmem_account" placeholder="請輸入帳號">
+                        <input type="button" id="btnCheckId" value="檢查帳號" class="checkbtn"><span id="idMsg" class="idMsg"></span>
+                        <input type="password" id="newmem_psw" name="newmem_psw" placeholder="請輸入密碼">
+                        <input type="password" id="again_psw" name="again_psw" placeholder="再次確認密碼">
+                        <input type="email" id="newmem_email" name="newmem_email" placeholder="請輸入email">
+                        <button class="btn_5 btn_js" id="next_re">下一步
+                            <span></span>
+                        </button>
+                    </div>
                 </div>
-                <div class="img_res">
-                    <img src="./image/4.jpg" alt="">
+                <div class="img_res img_res2">
+                    <div class="form">
+                        <input type="text" id="newmem_name" name="newmem_name" placeholder="來個暱稱吧">
+                        <input type="text" id="newmem_in" name="newmem_in" placeholder="簡短的介紹自己">
+                        <select name="newmem_sex" id="newmem_sex">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                        <select name="newmem_age" id="newmem_age">
+                            <option value="25↓">25↓</option>
+                            <option value="26~35">26~35</option>
+                            <option value="36~45">36~45</option>
+                            <option value="46~55">46~55</option>
+                            <option value="56↑">56↑</option>
+                        </select>
+                        <input type="submit" id="submit" value="註冊">
+                        <p class="learn">已經有會員了?<br>
+                            <a href="#" onclick="toggleForm();">會員登入點我點我</a>
+                            <button class="btn_5 btn_js for_btn" id="previous_re">上一步
+                                <span></span>
+                            </button>
+                        </p>
+                    </div>  
                 </div>
             </div>
         </div>
