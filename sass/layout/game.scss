@@ -321,6 +321,21 @@ z-index: 9999;
 .box img:nth-child(2):hover {
     filter: brightness(1);
 }
+.game_res_btn{
+    button{
+      border-radius: 10px;
+      background-color:  #FFE1A4;
+      color: white;
+      border: 0.1px solid #FFE1A4;
+      &:hover{
+        border: 0.1px solid #FFE1A4;
+        background-color:  white;
+        color: #ffbc37;
+        cursor: pointer;
+      }
+
+    }
+}
 
 
 /*掷骰子区*/
@@ -420,8 +435,8 @@ z-index: 9999;
     width: 85%;
     position: absolute;
     z-index: 99;
-    width: 140px!important;
-    height: 140px!important;
+    width: 100px!important;
+    height: 100px!important;
     position: absolute;
     top: 0;
     left: 10px;

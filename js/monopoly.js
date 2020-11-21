@@ -123,15 +123,16 @@ $(document).ready(function() {
                                 <h4>${e[position].RES_NAME}</h4>
                                 <br>
                                 <h3>簡介:</h3>
-                                <p>${e[position].RES_SUMMARY}詳細</p>
+                                <p>${e[position].RES_SUMMARY}</p>
                                 <div class="game_res_btn">
+                                <a href="./singlerestaurant.html?RES_NO=${e[boxId].RES_NO}">
                                 <button>詳細</button>
+                                </a>
                                 </div>
                             `
                         );
 
                         function clickGameImg() {
-
                             $('.purchasebox_content_left .vice_img > img').not('.purchasebox_content_left .vice_img > img:nth-child(1)').addClass('togray');
                             $('.purchasebox_content_left .vice_img > img').on('click', function() {
                                 $('.main_img img').attr('src', `${$(this).attr('src')}`);
@@ -140,8 +141,6 @@ $(document).ready(function() {
                             });
                         }
                         clickGameImg();
-
-
                     }
                 }
                 //查看变化

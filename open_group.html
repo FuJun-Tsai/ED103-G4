@@ -446,6 +446,7 @@
             </div>
         </div>
     </div>
+
     <!--javaScript--->
     <script src="./js/login.js"></script>
     <!--hambuger-->
@@ -467,7 +468,9 @@
 
     <script>
         function doFirst() {
-            // console.log(location.hash);
+          
+        
+            //連結過去換分頁
             if (location.hash == '#den_tab2') {
                 $('#den_tab1').css('display', 'none');
                 $('#den_tab2').css('display', 'block');
@@ -629,10 +632,6 @@
             let yyy2 = $("input[name='style[]']:checked").map(function() {
                 return $(this).val();
             }).get();
-
-            // console.log(yyy2);
-            // console.log(yyy1);
-            // console.log(yyy2);
 
             $.ajax({
                 url: './open_group.php',
@@ -1249,6 +1248,8 @@
                             //執行收藏功能
                             collection(`${foodGroupBox[denEatGroupNum].GROUP_NO}`);
 
+
+
                             $.ajax({
                                 url: './open_group.php',
                                 data: {
@@ -1273,28 +1274,28 @@
                                     }
                                     $('.den_groupPeople div').on('click', function() {
                                         let friendNo = $(this).children()[2].innerText;
-                                        let memberNoNum1 = $('.memberNoNum1').text();
-
-
-
-                                        function friendsJoin() {
-                                            $.ajax({
-                                                url: './open_group_friends.php',
-                                                data: {
-                                                    friendNo: friendNo,
-                                                    memberNoNum1: memberNoNum1,
-                                                },
-                                                type: 'GET',
-                                                dataType: 'json',
-                                                complete(data) {
-
-                                                },
-
-                                            });
-                                        }
-
+                                        let memberNoNum1 = 1;
+                                        $('.den_true_box_friend').css('display','block');
+                                        //    確認鈕
+                                        
+                                                $('.friend_yes').on('click',function(){
+                                                    $('.den_true_box_friend').css('display','none');
+                                                    console.log(friendNo);
+                                                            // let friendNo = $(this).children()[2].innerText;
+                                                            $.ajax({
+                                                                url: './open_group_friends.php',
+                                                                data: {
+                                                                    friendNo: friendNo,
+                                                                    memberNoNum1:memberNoNum1,   
+                                                                },
+                                                                type: 'GET',
+                                                                dataType: 'json',
+                                                            });            
+                                                });
+                                                $('.friend_no button').on('click',function(){
+                                                    $('.den_true_box_friend').css('display','none');
+                                                });
                                     });
-
                                 }
                             });
                             clickImg3();

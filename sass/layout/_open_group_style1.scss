@@ -1025,6 +1025,47 @@ header {
     ;
 }
 
+.den_true_box_friend{
+    border: 1px solid;
+    width: 30%;
+    height: auto;
+    border-radius: 15px;
+    background-color: #ffe1a4;
+    border: 2px solid rgba(22, 22, 22, 1);
+    padding: 20px;
+    line-height: 2rem;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    >div{
+        text-align: center;
+
+    }
+    span{
+        color: black;
+        font-size: 25px;
+    }
+    .friend_yes{
+        text-align: center;
+        padding-top: 10px;
+        button {
+            @include btnBrown_6;
+        }
+    }
+    .friend_no{
+        text-align: center;
+        padding-top: 10px;
+        button {
+            @include btnBrown_6;
+        }
+    }
+}
+
+
+
 @include rwd(md_desktop) {
     .den_box {
         .den_box_row {
@@ -1191,6 +1232,9 @@ header {
 }
 
 @include rwd(md_small) {
+    .den_true_box_friend{
+        width: 45%;
+    }
     #den_banner_title {
         width: 100%!important;
     }
@@ -1423,6 +1467,9 @@ header {
 }
 
 @include rwd(md_cellphone) {
+    .den_true_box_friend{
+        width: 60%;
+    }
     .den_banner {
         .container {
             #den_banner_title {

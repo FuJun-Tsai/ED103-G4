@@ -7,7 +7,7 @@ $memberNoNum1 = isset($_GET["memberNoNum1"]) ? $_GET["memberNoNum1"] : "";
 try{
   require_once('./connectbook.php');
   //加入好友
-$sql="insert into food_group_people (GROUP_NO, MEMBER_NO, MEMBER_STATUS) VALUES ($groupNo3,$memNo,2);";
+$sql="insert into track_list (MEMBER_NO, FRIENDS_NO) VALUES ($memberNoNum1,$friendNo);";
 
 $products = $pdo->prepare($sql);
 $products->execute();

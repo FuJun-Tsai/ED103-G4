@@ -12,6 +12,7 @@ function doFirst(e) {
             let boxss1 = boxss[i].id;
             let boxId = boxss1.substr(1, 2)
             let ccc = boxss[i].getElementsByTagName('img')[0];
+            console.log(e[boxId]);
 
             var newImg01
 
@@ -34,10 +35,14 @@ function doFirst(e) {
                     <h3>店名:</h3>
                     <h4>  ${e[boxId].RES_NAME}</h4>
                     <br>
-                    <h3>簡介:</h3>
-                    <a href="#">
-                        <p>${e[boxId].RES_SUMMARY}詳細</p>
-                    </a>
+                    <h3>簡介:</h3>   
+                    <p>${e[boxId].RES_SUMMARY}</p>
+                                <div class="game_res_btn">
+                                <a href="./singlerestaurant.html?RES_NO=${e[boxId].RES_NO}">
+                                <button>詳細</button>
+                                </a>
+                                </div>
+                  
                 `
             );
             $('.purchasebox').css('visibility', ' visible');
