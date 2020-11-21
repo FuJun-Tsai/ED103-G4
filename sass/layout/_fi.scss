@@ -380,7 +380,13 @@ body {
                 }
             }
         }
+@media all and (max-height : 569px){
+    .make_two .make_card .content h3{
+        position: absolute;
+        top: 1px;
+    }
 
+}
   /* .make_two .make_card span.bor{
       transition: 0.5;
       opacity: 0;
