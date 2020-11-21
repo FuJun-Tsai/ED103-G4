@@ -22,14 +22,30 @@
         }
         @include rwd(md_small) {
             max-width: 500px;
-            height: 300px;
+            height: 400px;
+        }
+        @include rwd(md_cellphone){
+            max-width: 500px;
+            flex-basis: 73%;
+            height: 400px;
         }
         .ic{
             position: absolute;
             display: inline-block;
             right: 20px;
-            top: 50px;
+            top: 40px;
             z-index: 10;
+            font-size: 30px;
+            cursor: pointer;
+            @include rwd(md_medium){
+                top: 30px;
+            }
+            @include rwd(md_small){
+                top: 30px;
+            }
+            @include rwd(md_cellphone){
+                top: 20px;
+            }
             .fas{
                 cursor: pointer;
                 font-size: 30px;
@@ -54,6 +70,10 @@
                 align-items: center;
                 padding: 40px;
                 transition: 0.5s;
+                @include rwd(md_cellphone){
+                    display: none;
+                    padding: 20px;
+                }
                 .form {
                     transform: translateY(22px);
                     h2 {
@@ -129,6 +149,15 @@
                             color: #677eff;
                         }
                     }
+                    button{
+                        display: none;
+                        @include rwd(md_small){
+                            display: inline-block;
+                        }
+                        @include rwd(md_cellphone){
+                            display: inline-block;
+                        }
+                    }
                 }
             }
             .form_res {
@@ -141,6 +170,12 @@
                 align-items: center;
                 padding: 40px;
                 transition: 0.5s;
+                @include rwd(md_cellphone){
+                    width: 100%;
+                }
+                @include rwd(md_small){
+                    
+                }
                 .form{
                     h2 {
                         font-size: 18px;
@@ -173,6 +208,29 @@
                         font-weight: 500;
                         letter-spacing: 1px;
                         transition: 0.5s;
+                    }
+                    .checkbtn{
+                        max-width: 100px;
+                        cursor: pointer;
+                        font-size: 14px;
+                        font-weight: 500;
+                        letter-spacing: 1px;
+                        transition: 0.5s;
+                    }
+                    .idMsg{
+                        position: absolute;
+                        left: 40%;
+                        bottom: 55%;
+                        font-size: 14px;
+                        font-weight: 500;
+                        letter-spacing: 1px;
+                        transition: 0.5s;
+                        @include rwd(md_small){
+                            bottom: 60%;
+                        }
+                        @include rwd(md_cellphone){
+                            bottom: 62%;
+                        }
                     }
                     .loginuse{
                         width: 100%;
@@ -208,6 +266,15 @@
                             color: #677eff;
                         }
                     }
+                    button{
+                        display: none;
+                        @include rwd(md_small){
+                            display: inline-block;
+                        }
+                        @include rwd(md_cellphone){
+                            display: inline-block;
+                        }
+                    }
                 }
             }
             .form_res1{
@@ -217,18 +284,34 @@
             }
             .form_res2{
                 @include rwd(md_medium){
-                    padding: 40px 15px 40px 30px;
-                    transform: translateY(-27px);
+                    padding: 40px 15px 40px 30px;   
+                }
+                @include rwd(md_small){
+                    // display: none;
+                    width: 100%;
+                }
+                @include rwd(md_cellphone){
+                    // display: none;
+                    width: 100%;
                 }
             }
             .img_res1{  
                 @include rwd(md_small) {
                     display: none;
                 }
+                @include rwd(md_cellphone){
+                    display: none;
+                }
             }
             .img_res2{
                 @include rwd(md_medium){
                     padding: 40px 30px 40px 15px;
+                }
+                @include rwd(md_small){
+                    display: none;
+                }
+                @include rwd(md_cellphone){
+                    display: none;
                 }
             }
         }
@@ -271,15 +354,3 @@
     }
 }
 
-
-// @media (max-width: 991px) {
-//     .section_res .container_res {
-//         max-width: 800px;
-//     }
-//     .section_res .container_res .user .img_res {
-//         width: 100%;
-//     }
-//     .section_res .container_res .user .form_res {
-//         width: 100%;
-//     }
-// }

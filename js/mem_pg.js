@@ -333,11 +333,25 @@ function del_friend(){
 }
 //沒團按鈕hover 
 function no_group_hover(){
-  $("#no_group .btn_3").hover(
+  $(".btn_3").hover(
     function(){
       $("#no_groupbtn").css("color","#76AFAF");
     },function(){
       $("#no_groupbtn").css("color","#FFF");
+    }
+  );
+  $(".btn_4").hover(
+    function(){
+      $(".btn_4").css("color","#C9528E");
+    },function(){
+      $(".btn_4").css("color","#FFF");
+    }
+  );
+  $(".btn_6").hover(
+    function(){
+      $(".btn_6").css("color","#DF7219");
+    },function(){
+      $(".btn_6").css("color","#FFF");
     }
   );
 }
@@ -393,13 +407,22 @@ function my_group(){
       console.log(a);
       if( a == "undefined"){
         $("#have_group").css("display","none");
-        $("#no_group").css("display","flex");
+        $("#have_my_join").css("display","none");
+        $("#have_con").css("display","none");
+        $("#have_article").css("display","none");
+        $("#have_friend").css("display","none");
+        $(".no_group").css("display","flex");
         no_group_hover();
       }
       else{
         if (`${main.JOIN_NUMBER}`==`${main.MAX_NUMBER}`) {
           $("#JOIN_NUMBER").css("color","red");
           $("#MAX_NUMBER").css("color","red");
+          $("#have_group").css("display","flex");
+          $("#have_my_join").css("display","flex");
+          $("#have_con").css("display","flex");
+          $("#have_article").css("display","flex");
+          $("#have_friend").css("display","flexd");
         } 
       }
     }else{
