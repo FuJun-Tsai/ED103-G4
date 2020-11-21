@@ -240,11 +240,12 @@ section {
                             flex-direction: row;
                             justify-content: space-around;
                             .btnRed {
-                                // @include btnBlue_3;
-                                // @include btn ($btn-width,$btn-height,$use_color,$bd_radius);
+                                width: 100px;
+                                height: 40px;
                             }
                             .btnBlue {
-                                // @include btnPurple_4;
+                                width: 100px;
+                                height: 40px;                                
                             }
                         }
                         .like{
