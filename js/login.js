@@ -144,6 +144,11 @@ let member;
       xhr.send(null);
     }
 
+    function toggleForm() {
+      var container_res = document.querySelector('.container_res');
+      container_res.classList.toggle('act');
+    }
+    
     function init(){
       
       //===判斷帳號是否能使用
