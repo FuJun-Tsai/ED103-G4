@@ -556,6 +556,21 @@
 
     <!-- 燈箱黑屏 -->
     <div class="box_background"></div>
+    <!-- 詢問是否加好友 -->
+    <div class="den_true_box_friend">
+        <div>
+            <div id="friend-vue-id">
+                <tick></tick>
+            </div>
+            <span>是否要加入好友?!</span>
+            <div class="friend_yes">
+                <button>確認</button>
+            </div>
+            <div class="friend_no">
+                <button>取消</button>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -582,6 +597,7 @@
 			    <div class="slide"><h1>Slide 2.3</h1></div> -->
         </div>
 
+        
         <div class="section" id="section2">
             <section class="third_screen">
                 <!-- 背景泡泡 -->
@@ -608,9 +624,14 @@
                 <div class="video">
                 <div class="fb-like" data-href="http://140.115.236.71/demo-projects/ED103/ED103G4/G4/home.html" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true" style="z-index: 10000;"></div>
 
-                <video width="100%" height="100%" controls autoplay disablePictureInPicture controlsList="nodownload" poster="https://picsum.photos/id/406/500/300" muted loop> 
+                <video class="computer" width="100%" height="100%" controls autoplay disablePictureInPicture controlsList="nodownload" poster="https://picsum.photos/id/406/500/300" muted loop> 
                         <source src="./image/home/computerGame.mp4" type="video/mp4">
                         出現這個訊息，表示您的瀏覽器不支援 HTML5 video 標籤。
+                </video>
+
+                <video class="cellphone" width="100%" height="100%" controls autoplay disablePictureInPicture controlsList="nodownload" poster="https://picsum.photos/id/406/500/300" muted loop> 
+                    <source src="./image/home/cellphoneGame.mp4" type="video/mp4">
+                    出現這個訊息，表示您的瀏覽器不支援 HTML5 video 標籤。
                 </video>
 
                 <a href="./game.html">
@@ -623,6 +644,7 @@
 
             </section>
         </div>
+
 
         <div class="section" id="section3">
             <section class="fourth_screen">

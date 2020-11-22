@@ -1,18 +1,6 @@
 $(document).ready(function(){
     //________餐廳與團渲染______________
-
-// //燈箱圖片替換
-// function clickImg3() {
-//     // console.log(1);
-//     $('.box3_row_left > img').not('.box3_row_left > img:nth-child(2)').addClass('togray');
-//     $('.box3_row_left > img').on('click', function() {
-//         $('.main_img img').attr('src', `${$(this).attr('src')}`);
-//         $('.box3_row_left > img').addClass('togray');
-//         $(this).removeClass('togray');
-//     });
-// }
-
-
+ 
     $.ajax({
         url: './home_second_screen.php',
         type: 'GET',
@@ -110,87 +98,173 @@ Rarrow.addEventListener("click",function(){
                 `
                 )
             }
-            //點擊美食團跳燈箱
-            $('.btn_5').on('click', function() {             
-                var groupNo=this.previousSibling.previousSibling.children[0].innerText;       
-                $.ajax({
-                    url: 'home_fourTeam.php',
-                    type: 'GET',
-                    data: {
-                        groupNo: groupNo
-                    },
-                    dataType: 'json',
-                    success(data) {
-                        var foodGroupBox = data[1];
-                        $('.chu_box_row').empty();
-                        $('.chu_box_row').append(`
-                        <div class="box3_row_left">
-                            <div class="main_img">
-                                <img src="./image/restaurant_management_img/${foodGroupBox[0].RES_IMAGE1}">
-                            </div>
+        //點擊美食團跳燈箱
+        $('.btn_5').on('click', function() {             
+            var groupNo=this.previousSibling.previousSibling.children[0].innerText;       
+            $.ajax({
+                url: 'home_fourTeam.php',
+                type: 'GET',
+                data: {
+                    groupNo: groupNo
+                },
+                dataType: 'json',
+                success(data) {
+                    $('.chu_header').css('display','none');
+                    var foodGroupBox = data[1];
+                    $('.chu_box_row').empty();
+                    $('.chu_box_row').append(`
+                    <div class="box3_row_left">
+                        <div class="main_img">
                             <img src="./image/restaurant_management_img/${foodGroupBox[0].RES_IMAGE1}">
-                            <img src="./image/restaurant_management_img/${foodGroupBox[0].RES_IMAGE2}">
-                            <img src="./image/restaurant_management_img/${foodGroupBox[0].RES_IMAGE3}">
-                            <img src="./image/restaurant_management_img/${foodGroupBox[0].RES_IMAGE4}">
                         </div>
-                        <div class="box3_row_right">
-                            <div>
-                                <div class="chu_collection">           
-                                    <span>收藏</span>
-                                    <span class="collect_status" style="display:none"></span>                
-                                    <img src="./image/den_image/fourth_screen_redHollowHeart.png">
+                        <img src="./image/restaurant_management_img/${foodGroupBox[0].RES_IMAGE1}">
+                        <img src="./image/restaurant_management_img/${foodGroupBox[0].RES_IMAGE2}">
+                        <img src="./image/restaurant_management_img/${foodGroupBox[0].RES_IMAGE3}">
+                        <img src="./image/restaurant_management_img/${foodGroupBox[0].RES_IMAGE4}">
+                    </div>
+                    <div class="box3_row_right">
+                        <div>
+                            <div class="chu_collection">           
+                                <span>收藏</span> 
+                                <span class="collect_status" style="display:none"></span>                        
+                                <img src="./image/den_image/fourth_screen_redHollowHeart.png">
+                            </div>
+                            <br>
+                            <h3>團號：</h3>
+                            <h3 class="groupNo">${foodGroupBox[0].GROUP_NO}</h3>
+                            <br>
+                            <h3>團名：</h3>
+                            <h3>${foodGroupBox[0].GROUP_NAME}</h3>
+                            <br>
+                            <h3>店名：</h3>
+                            <h3>${foodGroupBox[0].RES_NAME}</h3>
+                            <br>
+                            <h6>${foodGroupBox[0].KIND_NAME}</h6>
+                            <h6>${foodGroupBox[0].STYLE_NAME}</h6>
+                            
+                        </div>
+                        <div>
+                            <h3>開團團主：</h3>
+                            <h3>${foodGroupBox[0].MEMBER_NAME}</h3>
+                            <br>
+                            <div class="den_groupPeople">
+                                <h3>目前人數：</h3>
+                            </div>                               
+                            <h3>用餐時間：</h3>
+                            <h3>${foodGroupBox[0].MEAL_TIME}</h3>
+                            <br>
+                        </div>
+                        <div>
+                            <h3>店家資訊</h3>
+                            <br>
+                            <h3>地址：</h3>
+                            <h3>${foodGroupBox[0].RES_ADDRESS}</h3>
+                            <a href="">
+                                <img src="" alt="">
+                            </a>
+                            <br>
+                            <h3>電話：</h3>
+                            <h3>${foodGroupBox[0].RES_TEL}</h3>
+                            <br>
+                            <h3>營業時間：</h3>
+                            <h3>${foodGroupBox[0].RES_START}-${foodGroupBox[0].RES_CLOSE}</h3>
+                        </div>
+                    </div>
+                    `)
+                    $('.chu_box').css('display', 'block');
+                    $('.box_background').css('display', 'block');
+                    clickImg3(); 
+                    //執行收藏功能
+                    collection(`${foodGroupBox[0].GROUP_NO}`);
+
+                    //目前加入的人
+                    let groupNo = $('.groupNo').text();
+                    $.ajax({
+                        url: './home_second_screen_friend.php',
+                        data: {
+                            groupNo: groupNo,
+                        },
+                        type: 'GET',
+                        dataType: 'json',
+                        success(data) {
+                            let memberName = data;
+                            console.log(memberName);
+
+                            for (let i = 0; i < memberName.length; i++) {
+                                $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
+                                    `                                      
+                                <div>
+                                    <p>${memberName[i].MEMBER_NAME}</p>
+                                    <img src="./image/den_image/user-plus-solid.svg">
+                                    <p class="friendNO" style="display:none">${memberName[i].FRIEND}</p>
                                 </div>
-                                <br>
-                                <h3>團號:</h3>
-                                <h3 class="groupNo">${foodGroupBox[0].GROUP_NO}</h3>
-                                <br>
-                                <h3>團名:</h3>
-                                <h3>${foodGroupBox[0].GROUP_NAME}</h3>
-                                <br>
-                                <h3>店名:</h3>
-                                <h3>${foodGroupBox[0].RES_NAME}</h3>
-                                <br>
-                                <h6>${foodGroupBox[0].KIND_NAME}</h6>
-                                <h6>${foodGroupBox[0].STYLE_NAME}</h6>
-                                
-                            </div>
-                            <div>
-                                <h3>開團團主:</h3>
-                                <h3>${foodGroupBox[0].MEMBER_NAME}</h3>
-                                <br>
-                                <div class="den_groupPeople">
-                                    <h3>目前人數:</h3>
-                                </div>                               
-                                <h3>用餐時間:</h3>
-                                <h3>${foodGroupBox[0].MEAL_TIME}</h3>
-                                <br>
-                            </div>
-                            <div>
-                                <h3>店家資訊</h3>
-                                <br>
-                                <h3>地址:</h3>
-                                <h3>${foodGroupBox[0].RES_ADDRESS}</h3>
-                                <a href="">
-                                    <img src="" alt="">
-                                </a>
-                                <br>
-                                <h3>電話:</h3>
-                                <h3>${foodGroupBox[0].RES_TEL}</h3>
-                                <br>
-                                <h3>營業時間:</h3>
-                                <h3>${foodGroupBox[0].RES_START}-${foodGroupBox[0].RES_CLOSE}</h3>
-                            </div>
-                        </div>
-                        `)
-                        $('.chu_box').css('display', 'block');
-                        $('.box_background').css('display', 'block');
-                        clickImg3(); 
-                        //執行收藏功能
-                        collection(`${foodGroupBox[0].GROUP_NO}`);
-                    
-                    }
-                });
+                               
+                                `)
+                            }
+                            //加入好友
+                            $('.den_groupPeople div').on('click', function() {
+                                let friendNo = $(this).children()[2].innerText;
+                                let memberNoNum1 = $('.memberNoNum1').text();
+                                $('.den_true_box_friend').css('display', 'block');
+                                //    確認鈕
+                                if ($('#spanLogin').text() == '登出') {
+                                    $('.friend_yes').on('click', function() {
+                                        $('.den_true_box_friend').css('display', 'none');
+                                        let groupNo3 = $('.groupNo').text();
+                                        // let friendNo = $(this).children()[2].innerText;
+                                        $.ajax({
+                                            url: './open_group_friends.php',
+                                            data: {
+                                                friendNo: friendNo,
+                                                memberNoNum1: memberNoNum1,
+                                            },
+                                            type: 'GET',
+                                            dataType: 'json',
+                                        });
+                                    });
+                                    $('.friend_no button').on('click', function() {
+                                        $('.den_true_box_friend').css('display', 'none');
+                                    });
+                                } else if ($('#spanLogin').text() == '登入') {
+                                    alert('請先登入喔');
+                                    $('.den_true_box_friend').css('display', 'none');
+                                    $('.den_box3').css('display', 'none');
+                                    $('.section_res').css('display', 'block');
+                                    $('.box_background').css('display', 'block');
+                                }
+                            });
+                        }
+                    });
+                    clickImg3();                         
+                }              
             });
+
+            $('.chu_box_button button').on('click',function(){
+                //第三個燈箱參團button
+                if ($('#spanLogin').text() == '登出') {
+                    // let memNo = $('.memberNoNum1').text();
+                    let groupNo3 = $('.groupNo').text();
+                    $.ajax({
+                        url: './home_second_screen_join.php',
+                        data: {
+                            // memNo: memNo,
+                            groupNo3: groupNo3,
+                        },
+                        type: 'GET',
+                        dataType: 'JSON',
+                    });
+                    $('.chu_box').css('display', 'none');
+                    $('.box_background').css('display', 'none');
+                    $('.den_true_box_join').css('display', 'block');
+                    console.log()
+                } else {
+                    alert('請先登入~~');
+                    $('.section_res').css('display', 'block');
+                    $('.chu_box').css('display', 'none');
+                    $('.box_background').css('display', 'none');
+                }
+            });
+        });
     //--------------------------      
         }
     });   
@@ -215,7 +289,6 @@ function left(){
         if(index > 4){
             index = 0;
         }
-
         let Res_NO = storeContainer.querySelectorAll('div input');
         var bbb=Res_NO[2].value;
         console.log(bbb);
@@ -227,11 +300,9 @@ function left(){
                 RES_NO:bbb
             },
             dataType: 'json',
-    
             complete(data) {
                 let groupData2=JSON.parse(data.responseText)[1];
                 console.log(groupData2);
-    
                 $('.fourTeam').empty();
     
                 for(let j=0; j<4 && j<groupData2.length; j++){
@@ -264,9 +335,7 @@ function left(){
                         },
                         dataType: 'json',
                         success(data) {
-
                             $('.chu_header').css('display','none');
-
                             var foodGroupBox = data[1];
                             $('.chu_box_row').empty();
                             $('.chu_box_row').append(`
@@ -287,13 +356,13 @@ function left(){
                                         <img src="./image/den_image/fourth_screen_redHollowHeart.png">
                                     </div>
                                     <br>
-                                    <h3>團號:</h3>
+                                    <h3>團號：</h3>
                                     <h3 class="groupNo">${foodGroupBox[0].GROUP_NO}</h3>
                                     <br>
-                                    <h3>團名:</h3>
+                                    <h3>團名：</h3>
                                     <h3>${foodGroupBox[0].GROUP_NAME}</h3>
                                     <br>
-                                    <h3>店名:</h3>
+                                    <h3>店名：</h3>
                                     <h3>${foodGroupBox[0].RES_NAME}</h3>
                                     <br>
                                     <h6>${foodGroupBox[0].KIND_NAME}</h6>
@@ -301,29 +370,29 @@ function left(){
                                     
                                 </div>
                                 <div>
-                                    <h3>開團團主:</h3>
+                                    <h3>開團團主：</h3>
                                     <h3>${foodGroupBox[0].MEMBER_NAME}</h3>
                                     <br>
                                     <div class="den_groupPeople">
-                                        <h3>目前人數:</h3>
+                                        <h3>目前人數：</h3>
                                     </div>                               
-                                    <h3>用餐時間:</h3>
+                                    <h3>用餐時間：</h3>
                                     <h3>${foodGroupBox[0].MEAL_TIME}</h3>
                                     <br>
                                 </div>
                                 <div>
                                     <h3>店家資訊</h3>
                                     <br>
-                                    <h3>地址:</h3>
+                                    <h3>地址：</h3>
                                     <h3>${foodGroupBox[0].RES_ADDRESS}</h3>
                                     <a href="">
                                         <img src="" alt="">
                                     </a>
                                     <br>
-                                    <h3>電話:</h3>
+                                    <h3>電話：</h3>
                                     <h3>${foodGroupBox[0].RES_TEL}</h3>
                                     <br>
-                                    <h3>營業時間:</h3>
+                                    <h3>營業時間：</h3>
                                     <h3>${foodGroupBox[0].RES_START}-${foodGroupBox[0].RES_CLOSE}</h3>
                                 </div>
                             </div>
@@ -332,11 +401,69 @@ function left(){
                             $('.box_background').css('display', 'block');
                             clickImg3(); 
                             //執行收藏功能
-                            collection(`${foodGroupBox[0].GROUP_NO}`);                
-                        }
+                            collection(`${foodGroupBox[0].GROUP_NO}`);
+
+                            //加入的好友
+                            let groupNo = $('.groupNo').text();
+                            $.ajax({
+                                url: './home_second_screen_friend.php',
+                                data: {
+                                    groupNo: groupNo,
+                                },
+                                type: 'GET',
+                                dataType: 'json',
+                                success(data) {
+                                    let memberName = data;
+                                    console.log(memberName);
+                                    for (let i = 0; i < memberName.length; i++) {
+                                        $('.box3_row_right div:nth-child(2) .den_groupPeople').append(
+                                            `                                      
+                                        <div>
+                                            <p>${memberName[i].MEMBER_NAME}</p>
+                                            <img src="./image/den_image/user-plus-solid.svg">
+                                            <p class="friendNO" style="display:none">${memberName[i].FRIEND}</p>
+                                        </div>                             
+                                        `)
+                                    }
+                                    //加入好友
+                                    $('.den_groupPeople div').on('click', function() {
+                                        let friendNo = $(this).children()[2].innerText;
+                                        let memberNoNum1 = $('.memberNoNum1').text();
+                                        $('.den_true_box_friend').css('display', 'block');
+                                        //    確認鈕
+                                        if ($('#spanLogin').text() == '登出') {
+                                            $('.friend_yes').on('click', function() {
+                                                $('.den_true_box_friend').css('display', 'none');
+                                                let groupNo3 = $('.groupNo').text();
+                                                // let friendNo = $(this).children()[2].innerText;
+                                                $.ajax({
+                                                    url: './open_group_friends.php',
+                                                    data: {
+                                                        friendNo: friendNo,
+                                                        memberNoNum1: memberNoNum1,
+                                                    },
+                                                    type: 'GET',
+                                                    dataType: 'json',
+                                                });
+                                            });
+                                            $('.friend_no button').on('click', function() {
+                                                $('.den_true_box_friend').css('display', 'none');
+                                            });
+                                        } else if ($('#spanLogin').text() == '登入') {
+                                            alert('請先登入喔');
+                                            $('.den_true_box_friend').css('display', 'none');
+                                            $('.den_box3').css('display', 'none');
+                                            $('.section_res').css('display', 'block');
+                                            $('.box_background').css('display', 'block');
+                                        }
+                                    });
+                                }
+                            });
+                            clickImg3();                         
+                        }              
                     });
-                    $('.chu_box_button button').on('click',function(){
-                        //第三個燈箱參團button
+                    //第三個燈箱參團button
+                    $('.chu_box_button button').on('click',function(){       
                         if ($('#spanLogin').text() == '登出') {
                             // let memNo = $('.memberNoNum1').text();
                             let groupNo3 = $('.groupNo').text();
@@ -387,7 +514,6 @@ function left(){
         $(this).removeClass('togray');
     });
 }
-
         //美食團收藏
         function collection(groupNo) {
             console.log('1----', groupNo);
