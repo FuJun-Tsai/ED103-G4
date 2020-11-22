@@ -334,11 +334,12 @@ header {
 @include rwd(md_cellphone) {
     header {
         section {
-            padding: 10px;
+            padding: 0px;
             .logo {
                 a {
                     img {
                         width: 100px;
+                        height: 70px;
                     }
                 }
                 flex: 1 1 0%;
@@ -387,7 +388,7 @@ header {
             }
             #menu-bar {
                 display: block;
-                top: 20px;
+                top: 15px;
                 right: 15px;
                 #menu{
                     margin: 15px;

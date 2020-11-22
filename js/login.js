@@ -16,6 +16,7 @@ let member;
         if (newmem_account == "" || newmem_psw == "" || again_psw =="" || newmem_email ==""){
           alert("左邊欄位不能為空喔!");
         }else{
+          $('.jun_back').css({'display':'none'});
           let xhr = new XMLHttpRequest();
           console.log(1);
           xhr.onload = function(){
@@ -30,7 +31,7 @@ let member;
               $id('login_box').style.display = 'none';
               MEMBER_ID = '';
               MEMBER_PSW = '';
-              // memberrender();
+              memberrender();
             }else{ //error
             }
           }
@@ -72,6 +73,10 @@ let member;
       //將登入bar面版上，登入者資料清空 
       //spanLogin的字改成登入
       //將頁面上的使用者資料清掉
+      if($(this).text()=='登入'){
+        $('.jun_back').css({'display':'block'});
+      }
+
       if($id('spanLogin').innerHTML == "登入"){
         $id('login_box').style.display = 'flex';
       }else{//登出
@@ -84,6 +89,7 @@ let member;
         }
         xhr.open("post", "php/logout.php", true);
         xhr.send(null);
+
       }
     }
 
@@ -104,7 +110,9 @@ let member;
           $id('login_box').style.display = 'none';
           MEMBER_ID = '';
           MEMBER_PSW = '';
-          // memberrender();
+          memberrender();
+          $('.jun_back').css({'display':'none'});
+
         }else{
             window.alert("帳密錯誤~");
         }
@@ -122,6 +130,8 @@ let member;
       $id('login_box').style.display = 'none';
       document.getElementsByName("MEMBER_ID").value = '';
       document.getElementsByName("MEMBER_PSW").value = '';
+      memberrender();
+      $('.jun_back').css({'display':'none'});
     }
 
 
