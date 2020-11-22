@@ -71,7 +71,7 @@ body {
 .purchasebox_content_left .vice_img img {
     position: relative;
     width: 23%;
-    height: 100px;
+    height: 80px;
     margin-top: 5px;
     border-radius: 15px;
     cursor: pointer;
@@ -600,9 +600,12 @@ z-index: 9999;
 }
 
 .bar .close {
-    float: right;
+    // float: right;
     cursor: pointer;
     margin: 1%;
+    position: absolute;
+    display: inline-block;
+    right: 0;
 }
 
 .bar .close img {
@@ -1200,7 +1203,7 @@ z-index: 9999;
     .map {
         padding: 0;
         width: 100%;
-        height: 75%;
+        height: 86%;
         grid-gap: 0px;
     }
     .chr {
