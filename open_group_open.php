@@ -16,7 +16,7 @@ try{
       GROUP_NO, 
       MEMBER_NO, 
       MEMBER_STATUS)
-      VALUES ($groupNo,$friendCheckboxVal[$i],0);";
+      VALUES ($groupNo,$friendCheckboxVal[$i],2);";
     
       $products = $pdo->prepare($sql1);
       $products->execute();

@@ -2,6 +2,8 @@
 $ErrMsg='';
 // print_r($_FILES['moodPic']['type']);
 // JOIN member_management mm on(A.MEMBER_NO = mm.MEMBER_NO) 
+
+session_start();
 try{
     require_once("./connectbook.php");
     $sql = "SELECT MAX(ARTICLE_NO) 
@@ -26,7 +28,7 @@ try{
             )
 
             VALUES(
-            '1',
+            :name,
             :title,
             :word,
             now(),
@@ -41,6 +43,7 @@ try{
     $data-> bindValue(':word',$_REQUEST['moodContent']);
     $data-> bindValue(':kind',$_REQUEST['moodClass']);
     // $data-> bindValue(':img',$_FILES['moodPic']['name']);
+    $data-> bindValue(':name',$_SESSION['MEMBER_NO']);
     $data-> execute();
 
     if($data->rowCount()==0){

@@ -620,12 +620,12 @@
                         // `);
 
                         $('.newpost').on('click',function(){
-                            // let id = $(this).val();
-                            // $(".msg-left h4").text(`${data[i].kind}`);
-                            // $(".msg-left h2").text(`${data[i].title}`);
-                            // $(".img_block img").attr('src',`image/article_sharing/${data[i].img}`);
-                            // $(".msg-left p").text(`${data[i].word}`);
-                            // lightdetail(id);
+                            let id = $(this).val();
+                            $(".msg-left h4").text(`${data[i].kind}`);
+                            $(".msg-left h2").text(`${data[i].title}`);
+                            $(".img_block img").attr('src',`image/article_sharing/${data[i].img}`);
+                            $(".msg-left p").text(`${data[i].word}`);
+                            lightdetail(id);
 
                         });
 

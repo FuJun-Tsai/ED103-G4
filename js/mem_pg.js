@@ -533,7 +533,6 @@ function tab_notok(){
                 <div class="group_num">${join[i].GROUP_NO}</div>
             </div>
             <div class="ice_eatGroup_button">
-                <button class="btn_5 btn_js ok">確認 &#9658<span></span></button>
                 <button class="btn_5 btn_js notok">刪除 &#9658<span></span></button>
             </div>
         </div>

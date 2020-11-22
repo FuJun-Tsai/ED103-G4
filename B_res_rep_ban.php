@@ -1,14 +1,13 @@
 <?php
 
 $Errmsg = '';
-echo $_REQUEST['RES_MES_RE_NO'];
+
 try{
     // require_once('connectBooks.php'); //換成自己的 php $pdo來源
     require_once('connectbook.php'); //換成自己的 php $pdo來源
     $RES_MES_RE_NO = $_REQUEST['RES_MES_RE_NO'];
+    // echo $RES_MES_RE_NO;
 
-    $pdo->beginTransaction();
-    $pdo->rollback();
 
     $sql = "UPDATE `report_restaurant_message` 
             SET
@@ -28,9 +27,6 @@ try{
 
     $data = $pdo -> prepare($sql);
     $data-> execute();
-
-    $pdo->commit();
-
 
 
 }catch(PDOException $e){

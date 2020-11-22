@@ -5,6 +5,9 @@ $test = explode('&',$_REQUEST['MESSAGE_NO']);
 // echo($test[0]);
 // echo($test[1]);
 // echo '<br><br>';
+// echo $_REQUEST['MESSAGE_NO'];
+// echo $test[0];
+
 try{
     require_once('connectbook.php');
     $sql = "insert into `report_restaurant_message` 

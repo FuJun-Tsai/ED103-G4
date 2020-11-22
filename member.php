@@ -403,7 +403,7 @@
                                 </li>
                                 <li>
                                     <a href="#" data-target="tab_notok" class="tab btn_5 btn_js">
-                                    被邀請待回復的團<span></span>
+                                    團主待回覆<span></span>
                                     </a>
                                 </li>
                             </ul>

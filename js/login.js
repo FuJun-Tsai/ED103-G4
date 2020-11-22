@@ -19,6 +19,18 @@ function buttonrwd(){
     $(this).find('span').css({top:relY, left:relX})
   });
 }
+
+function next(){
+  $('#next_re').on('click',function(){
+    $('.form_res2').css({'display':'none'});
+    $('.img_res2').css({'display':'flex','width':'100%'});
+  });
+  $('#previous_re').on('click',function(){
+    $('.img_res2').css({'display':'none'});
+    $('.form_res2').css({'display':'flex','width':'100%'});
+  });
+}
+
 function registered(){
   $("#submit").on("click",function(){
     var newmem_account=$("#newmem_account").val();
@@ -31,10 +43,7 @@ function registered(){
     var newmem_age=$("#newmem_age").val();
     if (newmem_account == "" || newmem_psw == "" || again_psw =="" || newmem_email ==""){
       alert("左邊欄位不能為空喔!");
-    }else if(newmem_email !=="@"){
-
-    }
-    else{
+    } else{
       $('.jun_back').css({'display':'none'});
       let xhr = new XMLHttpRequest();
       console.log(1);
@@ -64,7 +73,6 @@ function registered(){
 //判斷帳號是否註冊過
 function checkId(){
   $("#newmem_account").on("change",function(){
-    console.log(1);
     var xhr = new XMLHttpRequest();
     //註冊callback function
     xhr.onreadystatechange = function(){
@@ -167,6 +175,8 @@ function getMemberInfo(){
       member = JSON.parse(xhr.responseText);
       if(member.MEMBER_ID){
         $id("headshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        // $id("mobileheadshot_icon").setAttribute("src",`./image/member/${member.MEMBER_IMAGE}`);
+        $('#mobileheadshot_icon').attr('src',`./image/member/${member.MEMBER_IMAGE}`);
         $id('spanLogin').innerHTML = '登出';
         $id('mobilespanLogin').innerHTML = '登出';
         $('.username').text(`${member.MEMBER_NO}`);  
@@ -203,6 +213,7 @@ function init(){
   //===設定btnLoginCancel.onclick 事件處理程序是 cancelLogin
   $id('btnLoginCancel').onclick = cancelLogin;
 
+  next();
   //btnhover效果
   // btnjs();
 }; //window.onload
