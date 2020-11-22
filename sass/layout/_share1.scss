@@ -644,17 +644,21 @@ body{
     @media screen and (max-width: 992px){
         .newMoodLightBox{
             .newMoodBlock{
+                margin-top: 12%;
+                height: 700px;
+                overflow: auto; 
                 h2{
                 font-size: 24px !important;
                 }
             }
         }
     }
-    @media screen and (max-width: 350px){
+    @media screen and (max-width: 768px){
         .newMoodLightBox{
             .newMoodBlock {
-                height: 500px;
-                overflow: auto;
+                margin-top: 20%;
+                height: 600px;
+                overflow: auto;               
             }
         }
     }

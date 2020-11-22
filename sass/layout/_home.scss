@@ -1043,7 +1043,6 @@ section.second_screen {
                         }
                         p {
                             display: inline-block;
-                            // margin: 5px;
                             padding: 5px 4px;
                             font-size: 14px;
                             background-color: #FFE1A4;
@@ -1051,6 +1050,12 @@ section.second_screen {
                             border-radius: 8px;
                             width: 70px;
                             text-align: center;
+                        }
+                        img {
+                            width: 30px;
+                            height: 30px;
+                            transform: translateY(10px);
+                            cursor: pointer;
                         }
                     }
                 }
@@ -1156,6 +1161,46 @@ section.second_screen {
             }
         }
     }
+    
+.den_true_box_friend{
+    border: 1px solid;
+    width: 30%;
+    height: auto;
+    border-radius: 15px;
+    background-color: #ffe1a4;
+    border: 2px solid rgba(22, 22, 22, 1);
+    padding: 20px;
+    line-height: 2rem;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    >div{
+        text-align: center;
+
+    }
+    span{
+        color: black;
+        font-size: 25px;
+    }
+    .friend_yes{
+        text-align: center;
+        padding-top: 10px;
+        button {
+            @include btnBrown_6;
+        }
+    }
+    .friend_no{
+        text-align: center;
+        padding-top: 10px;
+        button {
+            @include btnBrown_6;
+        }
+    }
+}
+
 
 
 
@@ -1340,7 +1385,7 @@ section.third_screen {
             width: 300px;
         }
         @media all and (min-width: 768px) and (max-width: 991px) {
-            width: 300px;
+            display: none;
         }
         @media all and (min-width: 576px) and (max-width: 767px) {
             display: none;
@@ -1377,13 +1422,22 @@ section.third_screen {
             @media all and (min-width: 768px) and (max-width: 991px) {
                 left: 74%;            
             }
-    
             @media all and (min-width: 576px) and (max-width: 767px) {
-    
+                left: 10%;
             }
-    
             @media all and (max-width: 575px) {
-                top:-50% ;
+                top:-50%;
+                left: -6%;
+            }
+        }
+        .computer{
+            @media all and (max-width: 575px) {
+                display: none;
+            }
+        }
+        .cellphone{   
+            @media all and (min-width: 576px) {
+                display: none;
             }
         }
         button {
@@ -1393,6 +1447,18 @@ section.third_screen {
             transform: translateX(-50%);
             @media all and (max-height: 600px) {
                 bottom: -26%;
+            }
+            @media all and (min-height: 600px) and (max-height: 700px) {
+                bottom: -23.5%;
+            }
+            @media all and (max-width: 575px) {
+                bottom: -27%;
+                @media all and (min-height: 800px) and (max-height: 975px) {
+                    bottom: -20%;
+                }
+                @media all and (max-height: 750px) {
+                    bottom: -45%;
+                }
             }
         }
     }
