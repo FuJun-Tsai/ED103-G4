@@ -120,15 +120,19 @@ $(document).ready(function() {
                             `
                                 <h2>今晚！我想來點～</h2>
                                 <h3>店名:</h3>
-                                <h4>${e[position].RES_NAME}</h4>
+                                <h4>  ${e[position].RES_NAME}</h4>
                                 <br>
-                                <h3>簡介:</h3>
+                                <h3>簡介:</h3>   
                                 <p>${e[position].RES_SUMMARY}</p>
-                            `
+                                <div class="game_res_btn">
+                                <a href="./singlerestaurant.html?RES_NO=${e[position].RES_NO}">
+                                <button>詳細</button>
+                                </a>
+                                </div>
+                             `
                         );
 
                         function clickGameImg() {
-
                             $('.purchasebox_content_left .vice_img > img').not('.purchasebox_content_left .vice_img > img:nth-child(1)').addClass('togray');
                             $('.purchasebox_content_left .vice_img > img').on('click', function() {
                                 $('.main_img img').attr('src', `${$(this).attr('src')}`);
@@ -137,8 +141,6 @@ $(document).ready(function() {
                             });
                         }
                         clickGameImg();
-
-
                     }
                 }
                 //查看变化
@@ -443,4 +445,6 @@ $(document).ready(function() {
 
 
     }
+
+
 });

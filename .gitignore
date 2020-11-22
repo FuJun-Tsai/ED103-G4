@@ -2,3 +2,8 @@
 .vscode
 connectbook.php
 node_modules
+<<<<<<< HEAD
+=======
+dist
+css/
+>>>>>>> 619f65a39a25f34385a8b62c2b7bfc58b20c5e7f

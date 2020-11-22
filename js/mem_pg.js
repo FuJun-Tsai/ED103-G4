@@ -71,11 +71,11 @@ function picChange() {
     filextension=filename.split(".");
     filext="."+filextension.slice(-1)[0];
     valid=[".jpg",".png",".jpeg",".bmp"];
-    console.log(res);
-    console.log(arr);
-    console.log(filename);
-    console.log(filextension);
-    console.log(filext);
+    // console.log(res);
+    // console.log(arr);
+    // console.log(filename);
+    // console.log(filextension);
+    // console.log(filext);
     //如果檔案不是圖檔，我們秀出error icon, 紅色X,然後取消掉 submit按鈕
     if (valid.indexOf(filext.toLowerCase())==-1){
       $("#namefile").css({"color":"red","font-weight":700});
@@ -106,7 +106,7 @@ function pic_modifyajax(){
     event.preventDefault();
     let avatar = document.getElementById('avatar');
     let form = new FormData(avatar);
-    console.log(avatar);
+    // console.log(avatar);
     MEMBER_NAME = $("#mem_name").text();
     $.ajax({
       url:'php/update_pic.php',
@@ -213,7 +213,7 @@ function member_modifyajax(){
         MEMBER_INTRODUCTION: MEMBER_INTRODUCTION
       },
       success:function(res){
-            console.log(res);
+            // console.log(res);
       },
     });
     return false;
@@ -261,7 +261,7 @@ function okajax(Y,Y2,Z){
       group_num: Y2
     },
     success: function(){
-      console.log("確認審核成功");
+      // console.log("確認審核成功");
     },
   });
   return false;
@@ -311,7 +311,7 @@ function delajax(Y,Z,Y2){
       deletefrom: Z,
     },
     success: function(){
-      console.log("刪除成功");
+      // console.log("刪除成功");
     },
   });
   return false;
@@ -323,9 +323,9 @@ function del_friend(){
     let X =$(this).closest(".mid_content");
     let Y =$(this).parents().siblings().children('.friend').text();
     let Z =$(this).closest(".doingcontent").attr('id');
-    console.log(X);
-    console.log(Y);
-    console.log(Z);
+    // console.log(X);
+    // console.log(Y);
+    // console.log(Z);
     e.preventDefault();
     $(X).remove();
     delajax(Y,Z);
@@ -342,16 +342,18 @@ function no_group_hover(){
   );
   $(".btn_4").hover(
     function(){
-      $(".btn_4").css("color","#C9528E");
+      $("#no_groupbtn2").css("color","#C9528E");
     },function(){
-      $(".btn_4").css("color","#FFF");
+      $("#no_groupbtn2").css("color","#FFF");
     }
   );
   $(".btn_6").hover(
     function(){
-      $(".btn_6").css("color","#DF7219");
+      $("#no_groupbtn3").css("color","#DF7219");
+      $("#no_groupbtn4").css("color","#DF7219");
     },function(){
-      $(".btn_6").css("color","#FFF");
+      $("#no_groupbtn3").css("color","#FFF");
+      $("#no_groupbtn4").css("color","#FFF");
     }
   );
 }
@@ -404,25 +406,15 @@ function my_group(){
       $id('RES_IMAGE3').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE3}`);
       $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE4}`);
       let a = $("#GROUP_NO").text();
-      console.log(a);
       if( a == "undefined"){
         $("#have_group").css("display","none");
-        $("#have_my_join").css("display","none");
-        $("#have_con").css("display","none");
-        $("#have_article").css("display","none");
-        $("#have_friend").css("display","none");
-        $(".no_group").css("display","flex");
+        $("#no_group").css("display","flex");
         no_group_hover();
       }
       else{
         if (`${main.JOIN_NUMBER}`==`${main.MAX_NUMBER}`) {
           $("#JOIN_NUMBER").css("color","red");
           $("#MAX_NUMBER").css("color","red");
-          $("#have_group").css("display","flex");
-          $("#have_my_join").css("display","flex");
-          $("#have_con").css("display","flex");
-          $("#have_article").css("display","flex");
-          $("#have_friend").css("display","flexd");
         } 
       }
     }else{
@@ -430,7 +422,6 @@ function my_group(){
   }
   xhr.open("GET", "./php/my_group.php", true);
   xhr.send(null);
-
 }
 //渲染目前想加我開的團的陌生人
 function myGroupNow(){
@@ -464,7 +455,6 @@ function myGroupNow(){
         </li>
         `);
       }
-
       btnhover();
       review();
     }else{ //error
@@ -487,7 +477,7 @@ function tab_ok(){
             <img src="./image/member/${join[i].MEMBER_IMAGE}">
             <div class="ice_eatGroup_content">
                 <h5>團名:</h5>
-                <h5>${join[i].GROUP_NAME}</h5>
+                <h5 class="gn">${join[i].GROUP_NAME}</h5>
                 <br>
                 <h5>店名:</h5>
                 <h5>${join[i].RES_NAME}</h5>
@@ -504,6 +494,14 @@ function tab_ok(){
         </div>
         `);
       }
+      let a = $(".gn").text();
+      console.log(a);
+      if(a == ""){
+        $("#have_my_join").css("display","none");
+        $("#no_group2").css("display","flex");
+        no_group_hover();
+      }
+
     }else{ //error
       //console.log(xhr.status);
     }
@@ -578,6 +576,13 @@ function gruop_collection(){
         `);
       }
       dotrash();
+      let a = $(".num").text();
+      console.log(a);
+      if(a == ""){
+        $("#have_con").css("display","none");
+        $("#no_group3").css("display","flex");
+        no_group_hover();
+      }
     }else{ //error
       //console.log(xhr.status);
     }
@@ -673,6 +678,13 @@ function my_article(){
         `);
       }
       dotrash();
+      let a = $(".small-title").text();
+      console.log(a);
+      if(a == ""){
+        $("#have_article").css("display","none");
+        $("#no_group4").css("display","flex");
+        no_group_hover();
+      }
     }else{ //error
       //console.log(xhr.status);
     }
@@ -827,36 +839,5 @@ function start(){
       my_friend();
 }
 window.addEventListener("load",start,false); 
-
-
-// //上下頁切換
-// //下一頁
-// let Next_page1 = document.getElementsByClassName('Next_page')[0];
-// let Next_page2 = document.getElementsByClassName('Next_page')[1];
-// let Previous_page1 = document.getElementsByClassName('Previous_page')[0];
-// let Previous_page2 = document.getElementsByClassName('Previous_page')[1];
-// let asd =1;
-// Next_page1.addEventListener('click',nextPageChange);
-// function nextPageChange(){
-//     document.getElementsByClassName(`page${asd}`).classList.remove('-on');
-//     document.getElementsByClassName(`page${asd+1}`).classList.add('-on');
-//     asd++;
-// }
-
-
-// Previous_page1.addEventListener('click',PreviousPageChange);
-// function PreviousPageChange(){
-//     document.getElementById(`page${asd}`).classList.remove('-on');
-//     document.getElementById(`page${asd-1}`).classList.add('-on');
-//     asd--;
-// }
-
-// //上一頁
-// $(".Previous_page").click(function(){
-//   var num = $(this).parent().siblings().children().children('-on').index() - 1;
-//   console.log(num);
-//   page.removeClass("-on");
-//   $(".tab_gruop_collection .page").eq(num).addClass("-on");
-// });
 
 
