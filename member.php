@@ -559,11 +559,11 @@
     </section>
 
     <!-- ***************************** -->
-    <footer>
+    <!-- <footer>
         <div class="footer">
             <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
         </div>
-    </footer>
+    </footer> -->
 
     <!--hambuger-->
     <script>

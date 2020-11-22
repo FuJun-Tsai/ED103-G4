@@ -214,6 +214,7 @@ function member_modifyajax(){
       },
       success:function(res){
             // console.log(res);
+            location=location;
       },
     });
     return false;
@@ -237,6 +238,7 @@ function review(){
     $(X).remove();
     okajax(Y,Y2,Z);
     updategroupnum(Y2,Y3);
+    location=location;
   });
   $(".notok").on("click", function(e){
     let X =$(this).closest(".mid_content");
@@ -246,6 +248,7 @@ function review(){
     e.preventDefault();
     $(X).remove();
     delajax(Y2,Z);
+    location=location;
   });
 }
 //確認審核ajax
@@ -477,7 +480,7 @@ function tab_ok(){
             <img src="./image/member/${join[i].MEMBER_IMAGE}">
             <div class="ice_eatGroup_content">
                 <h5>團名:</h5>
-                <h5 class="gn">${join[i].GROUP_NAME}</h5>
+                <h5>${join[i].GROUP_NAME}</h5>
                 <br>
                 <h5>店名:</h5>
                 <h5>${join[i].RES_NAME}</h5>
@@ -493,13 +496,6 @@ function tab_ok(){
             </div>
         </div>
         `);
-      }
-      let a = $(".gn").text();
-      console.log(a);
-      if(a == ""){
-        $("#have_my_join").css("display","none");
-        $("#no_group2").css("display","flex");
-        no_group_hover();
       }
 
     }else{ //error
@@ -523,7 +519,7 @@ function tab_notok(){
             <img src="./image/member/${join[i].MEMBER_IMAGE}">
             <div class="ice_eatGroup_content sm_content">
                 <h5>團名:</h5>
-                <h5>${join[i].GROUP_NAME}</h5>
+                <h5  class="gn">${join[i].GROUP_NAME}</h5>
                 <br>
                 <h5>店名:</h5>
                 <h5>${join[i].RES_NAME}</h5>
@@ -545,6 +541,13 @@ function tab_notok(){
       }
       btnhover();
       review();
+      let a = $(".gn").text();
+      console.log(a);
+      if(a == ""){
+        $("#have_my_join").css("display","none");
+        $("#no_group2").css("display","flex");
+        no_group_hover();
+      }
     }else{
       //console.log(xhr.status);
     }
@@ -608,7 +611,6 @@ function restaurant_collection(){
               </div>
               <h6 class="address">地址:${rc[i].RES_ADDRESS}</h6>
               <h6 class="tel">電話:${rc[i].RES_TEL}</h6>
-              <h6 class="hours">營業時間:${rc[i].RES_HOURS}</h6>
               <div class="num">${rc[i].RES_NO}</div>
           </div>
         `);
@@ -616,6 +618,13 @@ function restaurant_collection(){
       dotrash();
     }else{ //error
       //console.log(xhr.status);
+    }
+    let a = $(".num").text();
+    console.log(a);
+    if(a == ""){
+      $("#have_con").css("display","none");
+      $("#no_group3").css("display","flex");
+      no_group_hover();
     }
   }
   xhr.open("GET", "./php/restaurant_collection.php", true);
@@ -641,12 +650,19 @@ function article_collection(){
               </div>
               <h6 class="address">作者:${ac[i].MEMBER_NAME}</h6>
               <h6 class="tel">時間:${ac[i].DATE}</h6>
-              <h6 class="hours">按讚數:${ac[i].ARTICAL_LIKE}</h6>
+              <h6 class="hours">按讚數:${ac[i].ac }</h6>
               <div class="num">${ac[i].ARTICLE_NO}</div>
           </div>
         `);
       }
       dotrash();
+      let a = $(".num").text();
+      console.log(a);
+      if(a == ""){
+        $("#have_con").css("display","none");
+        $("#no_group3").css("display","flex");
+        no_group_hover();
+      }
     }else{ //error
       //console.log(xhr.status);
     }
@@ -678,13 +694,13 @@ function my_article(){
         `);
       }
       dotrash();
-      let a = $(".small-title").text();
-      console.log(a);
-      if(a == ""){
-        $("#have_article").css("display","none");
-        $("#no_group4").css("display","flex");
-        no_group_hover();
-      }
+      // let a = $(".small-title").text();
+      // console.log(a);
+      // if(a == ""){
+      //   $("#have_article").css("display","none");
+      //   $("#no_group4").css("display","flex");
+      //   no_group_hover();
+      // }
     }else{ //error
       //console.log(xhr.status);
     }
