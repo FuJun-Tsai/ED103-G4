@@ -226,7 +226,7 @@ Rarrow.addEventListener("click",function(){
                                         $('.den_true_box_friend').css('display', 'none');
                                     });
                                 } else if ($('#spanLogin').text() == '登入') {
-                                    alert('請先登入喔');
+                                    // alert('請先登入喔');
                                     $('.den_true_box_friend').css('display', 'none');
                                     $('.den_box3').css('display', 'none');
                                     $('.section_res').css('display', 'block');
@@ -258,7 +258,7 @@ Rarrow.addEventListener("click",function(){
                     $('.den_true_box_join').css('display', 'block');
                     console.log()
                 } else {
-                    alert('請先登入~~');
+                    // alert('請先登入~~');
                     $('.section_res').css('display', 'block');
                     $('.chu_box').css('display', 'none');
                     $('.box_background').css('display', 'none');
@@ -450,7 +450,7 @@ function left(){
                                                 $('.den_true_box_friend').css('display', 'none');
                                             });
                                         } else if ($('#spanLogin').text() == '登入') {
-                                            alert('請先登入喔');
+                                            // alert('請先登入喔');
                                             $('.den_true_box_friend').css('display', 'none');
                                             $('.den_box3').css('display', 'none');
                                             $('.section_res').css('display', 'block');
@@ -481,7 +481,7 @@ function left(){
                             $('.den_true_box_join').css('display', 'block');
                             console.log()
                         } else {
-                            alert('請先登入~~');
+                            // alert('請先登入~~');
                             $('.section_res').css('display', 'block');
                             $('.chu_box').css('display', 'none');
                             $('.box_background').css('display', 'none');

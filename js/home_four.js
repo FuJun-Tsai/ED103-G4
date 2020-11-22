@@ -1,11 +1,11 @@
 // $(document).ready(function() {
     
 
-    alert(1);
+    // alert(1);
     let btns = document.querySelectorAll(".btn_5");
     console.log(btns.length);
     $('.btn_5').on('click', function() {
-        alert(2);
+        // alert(2);
         // var foodGroupBox = data[2];
         // var yyy9 = this.children[0].innerText;
         // let denEatGroupNum = $('.btn_5 btn_js').index(this);
