@@ -289,6 +289,7 @@ function dotrash(){
     let X =$(this).closest(".tab_box");
     let Y =$(this).closest(".tab_box").children('.num').text();
     let Z =$(this).closest(".tab").attr('id');
+    // console.log(z);
     $("div.overlay1").addClass("-on");
     $(".btn_modal_send").on("click", function(e){
       e.preventDefault();
@@ -310,8 +311,8 @@ function delajax(Y,Z,Y2){
     cache:'true',
     data: {
       num: Y,
-      group_num: Y2,
       deletefrom: Z,
+      group_num: Y2,
     },
     success: function(){
       // console.log("刪除成功");
@@ -689,17 +690,11 @@ function my_article(){
               <h6 class="address">作者:${ma[i].MEMBER_NAME}</h6>
               <h6 class="tel">時間:${ma[i].DATE}</h6>
               <h6 class="hours">按讚數:${ma[i].ARTICLE_LIKE}</h6>
+              <div class="num">${ma[i].ARTICLE_NO}</div>
           </div>
         `);
       }
       dotrash();
-      // let a = $(".small-title").text();
-      // console.log(a);
-      // if(a == ""){
-      //   $("#have_article").css("display","none");
-      //   $("#no_group4").css("display","flex");
-      //   no_group_hover();
-      // }
     }else{ //error
       //console.log(xhr.status);
     }
@@ -727,6 +722,8 @@ function my_article2(){
               <h6 class="address">作者:${ma[i].MEMBER_NAME}</h6>
               <h6 class="tel">時間:${ma[i].DATE}</h6>
               <h6 class="hours">留言數:${ma[i].MESSAGE_TOTAL}</h6>
+              <div class="num">${ma[i].ARTICLE_NO}</div>
+
           </div>
         `);
       }
@@ -758,6 +755,7 @@ function my_article3(){
               <h6 class="address">作者:${ma[i].MEMBER_NAME}</h6>
               <h6 class="tel">時間:${ma[i].DATE}</h6>
               <h6 class="hours">按讚數:${ma[i].ARTICLE_LIKE}</h6>
+              <div class="num">${ma[i].ARTICLE_NO}</div>
           </div>
         `);
       }

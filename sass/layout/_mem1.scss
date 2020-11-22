@@ -960,11 +960,17 @@
                                             height: 120px;
                                         }
                                     }
-                                    .author {
+                                    .address {
                                         padding: 5px 0;
                                     }
-                                    .date {
+                                    .tel {
                                         padding-bottom: 5px;
+                                    }
+                                    .hours{
+                                        padding-bottom: 5px;
+                                    }
+                                    .num{
+                                        display: none;
                                     }
                                 }
                             }

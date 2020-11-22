@@ -54,6 +54,28 @@
         $member->bindValue(":MEMBER_NO", $_POST["num"]);
         $member->execute();
         break;
+      case 'tab_date':
+        $sql4 =" DELETE FROM `article_message` 
+        WHERE ARTICLE_NO= :ARTICLE_NO";
+        $member = $pdo->prepare($sql4);
+        // $member->bindValue(":MEMBER_NO", $_SESSION["MEMBER_NO"]);
+        $member->bindValue(":ARTICLE_NO", $_POST["num"]);
+        $member->execute();
+        $sql5 =" DELETE FROM `article_collection` 
+        WHERE ARTICLE_NO= :ARTICLE_NO";
+        $member = $pdo->prepare($sql5);
+        // $member->bindValue(":MEMBER_NO", $_SESSION["MEMBER_NO"]);
+        $member->bindValue(":ARTICLE_NO", $_POST["num"]);
+        $member->execute();
+        $sql6 = " DELETE 
+        FROM article_sharing
+        WHERE MEMBER_NO=:MEMBER_NO
+        AND ARTICLE_NO=:ARTICLE_NO";
+        $member1 = $pdo->prepare($sql6);
+        $member1->bindValue(":MEMBER_NO", $_SESSION["MEMBER_NO"]);
+        $member1->bindValue(":ARTICLE_NO", $_POST["num"]);
+        $member1->execute();
+        break;
       case 'fd_ul':
         $sql6 = " DELETE 
         FROM track_list

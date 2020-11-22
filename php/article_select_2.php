@@ -2,7 +2,7 @@
 session_start();
 try{
   require_once("../connectbook.php");
-  $sql2 = " SELECT a.ARTICLE_TITLE, a.ARTICLE_IMAGE1, m.MEMBER_NAME,  Date_format(a.ARTICLE_DATE,'%m/%d')'DATE', a.MESSAGE_TOTAL
+  $sql2 = " SELECT a.ARTICLE_TITLE, a.ARTICLE_IMAGE1, m.MEMBER_NAME,  Date_format(a.ARTICLE_DATE,'%m/%d')'DATE', a.MESSAGE_TOTAL, a.ARTICLE_NO
   FROM `article_sharing` a JOIN `member_management` m ON (a.MEMBER_NO = m.MEMBER_NO) 
   WHERE m.MEMBER_ID =:MEMBER_ID
   ORDER BY a.MESSAGE_TOTAL DESC";

@@ -545,10 +545,10 @@
                     <h3 class="title">
                         我的好友
                     </h3>
-                    <div class="fd_search" id="have_friend">
+                    <!-- <div class="fd_search" id="have_friend">
                         <input type="text" placeholder="請輸入好友名稱">
                         <input type="submit" value="搜尋">
-                    </div>
+                    </div> -->
                     <div class="fd_list">
                         <ul class="fd_ul doingcontent" id="fd_ul">
                         </ul>
