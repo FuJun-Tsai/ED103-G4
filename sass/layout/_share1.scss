@@ -30,8 +30,10 @@ body{
                     background-color: white;
                     display: inline-block;
                     padding-right: 28px;
-                    padding: 30px 0;
+                    padding: 30px 20px 30px 40px;
+                    letter-spacing: 20px;
                     margin-top: 0;
+                    color: black;
                 }
             }
         }
@@ -49,7 +51,7 @@ body{
         z-index: 1;
         position: fixed;
         right: 5%;
-        bottom: 40%;
+        bottom: 10%;
         // display: inline-block;
         // border-radius: 50%;
         // background-image: url("../image/19.png");
@@ -134,6 +136,8 @@ body{
                         h3{
                             margin: 0 3% 5% 5%;
                             font-weight: 900;
+                            width: 290px;
+                            text-overflow : ellipsis;
                             // border-bottom: 1px solid orangered;
                             // display: inline-block;
                             color: orangered;
@@ -194,6 +198,7 @@ body{
                         padding-left: 10%;
                         margin-bottom: 5%;
                         display: inline-block;
+                        cursor: pointer;
                             .heartIcon{
                                 display: inline-block;
                                 img {
@@ -257,7 +262,7 @@ body{
         opacity: 0;
         z-index: -1;
         article{
-            background: linear-gradient(#fbefa1,white);
+            background: linear-gradient(#FFE1A4,white);
             max-width: 90%;
             border-radius: 10px;
             box-shadow: 0 0 10px #ddd;
@@ -293,10 +298,10 @@ body{
                     font-weight: 900;
                     margin-top: 3%;
                 }
-                .img_block {
+                .img_block22 {
                     width: 90%;
-                    margin: 5% 5%;
-                    display: block;
+                    margin: 5%;
+                    display: inline-block;
                     img {
                         display: inline-block;
                         max-width: 100%;
@@ -322,6 +327,7 @@ body{
                     }
                     .collect_block {
                         display: inline-block;
+                        cursor: pointer;
                         .heartIcon{
                             display: inline-block;
                             img {
@@ -333,20 +339,25 @@ body{
                             display: inline-block;
                         }
                     }
-                    input{
+                    button{
+                        border: 0;
                         float: right;
-                        margin: 1% 0 0 0;
+                        font-weight: 900;
+                        font-size: 18px;
                     }
                 }
                 p {
                     display: inline-block;
                     text-align: justify;
                     padding: 3%;
-                    border: 1px solid grey;
+                    border-width:3px;
+                    border-style:dashed;
+                    border-color:#FFAC55;
+                    padding:5px;
                     line-height: 25px;
                     margin: 5% 5%;
                     width: 90%;
-                    height: 130px;
+                    height: auto;
                     overflow: auto;
                 }
             }
@@ -359,6 +370,8 @@ body{
                             height: auto;
                         }
                     }.msg-right{
+                        height: auto;
+                        overflow: inherit;
                         .msgin {
                             height: auto;
                         }
@@ -371,13 +384,34 @@ body{
                 }
             }
             @media screen and (max-width: 480px){
+                .banner_share{
+                    .banner_bg{
+                        .text{
+                            h1{
+                                font-size: 20px !important;
+                            }
+                        }
+                    }
+                }
+                .btnCust {
+                    position: fixed;
+                    bottom: 70%;
+                }
                 article{
                     margin-top: 45%;
+                }
+                .col-md-12.mood{
+                    margin: 30% 0;
+                    h2{
+                        font-size: 16px;
+                    }
                 }
             }
             .msg-right {
                 vertical-align: top;
                 margin: 5% 0 0 5%;
+                height: 550px;
+                overflow: auto;
                 h3 {
                     display: inline-block;
                     padding: 2% 0;
@@ -386,10 +420,13 @@ body{
                 }
                 .msgin {
                     margin: 0 5% 5% 0;
-                    height: 350px;
                     overflow: auto;
                     .msgpost {
                         border: 1px solid grey;
+                        border-style:dashed;
+                        border-color:#FFAC55;
+                        border-width:3px;
+                        padding:5px;
                         padding: 2%;
                         margin-bottom: 5%;
                         background-color: #FFE1A4;
@@ -411,6 +448,13 @@ body{
                                         display: inline-block;
                                     }
                                 }
+                            }
+                            button{
+                                border: 0;
+                                float: right;
+                                font-weight: 900;
+                                background-color:  #FFE1A4;
+                                font-size: 18px;
                             }
                             .collect_block {
                                 display: inline-block;
@@ -435,14 +479,14 @@ body{
                             line-height: 25px;
                         }
                     }
-                }form{ 
+                }#nuan_LeaveMessage{ 
                     textarea {
                         outline: none;
                         width: 95%;
                         height: 80px;
                         margin-bottom: 1%;
                     }
-                    input {
+                    button {
                         padding: 0;
                         border: 0.1px solid #DF7219;
                         display: inline-block;
@@ -459,7 +503,7 @@ body{
                         /* font-weight: fontWeight_500; */
                         cursor: pointer;
                     }
-                    input:hover {
+                    button:hover {
                         background-color: white;
                         color: #DF7219;
                         border: 0.1px solid #DF7219;
