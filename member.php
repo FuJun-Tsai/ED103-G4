@@ -382,12 +382,12 @@
                     <h3 class="title">
                         我的參團
                     </h3>
-                    <div class="small_block no_group">
+                    <div class="small_block no_group" id="no_group2">
                         <h3>
-                            目前沒有參團喔!快去參加吧
+                            目前沒有參團喔!快來糾一波
                         </h3>
                         <button class="btn_4 btn_js">
-                            <a href="./open_group.html">
+                            <a href="./open_group.html" id="no_groupbtn2">
                                 前往參團
                             </a>
                             <span></span>
@@ -429,13 +429,13 @@
                     <h3 class="title">
                         我的收藏
                     </h3>
-                    <div class="small_block no_group">
+                    <div class="small_block no_group" id="no_group3">
                         <h3>
-                            目前沒有收藏喔!要不要去看看
+                            目前沒有收藏喔!快來糾一波
                         </h3>
                         <button class="btn_6 btn_js">
-                            <a href="./searchrestaurant.html">
-                                去收藏
+                            <a href="./searchrestaurant.html" id="no_groupbtn3">
+                                前往收藏
                             </a>
                             <span></span>
                         </button>
@@ -492,13 +492,13 @@
                     <h3 class="title">
                         我的文章
                     </h3>
-                    <div class="small_block no_group">
+                    <div class="small_block no_group" id="no_group4">
                         <h3>
-                            你沒寫文章喔!要不要去看看
+                            目前沒有撰文喔!快來寫一波
                         </h3>
                         <button class="btn_6 btn_js">
-                            <a href="./share.html">
-                                我想發文
+                            <a href="./share.html" id="no_groupbtn4">
+                                前往寫文
                             </a>
                             <span></span>
                         </button>
@@ -545,22 +545,10 @@
                     <h3 class="title">
                         我的好友
                     </h3>
-                    <div class="small_block no_group">
-                        <h3>
-                            目前沒有朋友喔!要不要去找個朋友呢
-                        </h3>
-                        <button class="btn_6 btn_js">
-                            <a href="./open_group.html">
-                                找朋友
-                            </a>
-                            <span></span>
-                        </button>
-                    </div>
                     <div class="fd_search" id="have_friend">
                         <input type="text" placeholder="請輸入好友名稱">
                         <input type="submit" value="搜尋">
                     </div>
-
                     <div class="fd_list">
                         <ul class="fd_ul doingcontent" id="fd_ul">
                         </ul>

@@ -113,6 +113,7 @@
                             button{
                                 margin: 8px 0;
                                 width: 150px;
+                                z-index: 0;
                                 @include rwd(md_small){
                                     margin: 10px 0;
                                 }
@@ -669,7 +670,7 @@
                 }
                 .no_group{
                     margin: 0 auto;
-                    max-width: 600px;
+                    max-width: 700px;
                     width: 100%;
                     height: 40vh;
                     padding-top: 30px;

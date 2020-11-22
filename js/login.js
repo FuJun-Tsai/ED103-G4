@@ -168,7 +168,7 @@ let member;
       $id('btnLoginCancel').onclick = cancelLogin;
 
       //btnhover效果
-      btnjs();
+      // btnjs();
     }; //window.onload
 
     window.addEventListener("load",init,false);
