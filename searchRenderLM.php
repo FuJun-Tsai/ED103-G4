@@ -24,7 +24,8 @@ try{
                 JOIN member_management mm on(R.MEMBER_NO = mm.MEMBER_NO)  
 
             WHERE 
-                RES_NO in($word)
+                RES_NO in($word) AND
+                status = 0
 
             ORDER BY RES_NO;";
   

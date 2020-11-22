@@ -16,7 +16,8 @@ try{
                 JOIN restaurant_management rm on (R.RES_NO = rm.RES_NO)
                 JOIN member_management mm on (R.MEMBER_NO = mm.MEMBER_NO)
 
-            where R.RES_NO=:RES_NO
+            where R.RES_NO=:RES_NO AND
+            status = 0
 
             order by R.RES_NO;";
 

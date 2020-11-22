@@ -560,7 +560,7 @@
 
     <!-- ***************************** -->
     <footer>
-        <div class="footer1">
+        <div class="footer">
             <h6>Copyright © 2020 食緣 All Rights Reserved</h6>
         </div>
     </footer>
