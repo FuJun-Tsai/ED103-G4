@@ -1259,6 +1259,9 @@ header {
 }
 
 @include rwd(md_small) {
+    .den_true_box_join,.den_true_box_open{
+        width: 40%;
+    }
     .den_true_box_friend {
         width: 45%;
     }
@@ -1494,6 +1497,9 @@ header {
 }
 
 @include rwd(md_cellphone) {
+    .den_true_box_join,.den_true_box_open{
+        width: 70%;
+    }
     .den_true_box_friend {
         width: 60%;
     }

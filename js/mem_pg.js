@@ -414,8 +414,9 @@ function my_group(){
         $("#have_group").css("display","none");
         $("#no_group").css("display","flex");
         no_group_hover();
-      }
-      else{
+      }else{
+        $("#have_group").css("display","flex");
+        $("#no_group").css("display","none");
         if (`${main.JOIN_NUMBER}`==`${main.MAX_NUMBER}`) {
           $("#JOIN_NUMBER").css("color","red");
           $("#MAX_NUMBER").css("color","red");
@@ -534,6 +535,7 @@ function tab_notok(){
                 <div class="group_num">${join[i].GROUP_NO}</div>
             </div>
             <div class="ice_eatGroup_button">
+                <button class="btn_5 btn_js ok">確認 &#9658<span></span></button>
                 <button class="btn_5 btn_js notok">刪除 &#9658<span></span></button>
             </div>
         </div>
@@ -541,13 +543,13 @@ function tab_notok(){
       }
       btnhover();
       review();
-      let a = $(".gn").text();
-      console.log(a);
-      if(a == ""){
-        $("#have_my_join").css("display","none");
-        $("#no_group2").css("display","flex");
-        no_group_hover();
-      }
+      // let a = $(".gn").text();
+      // console.log(a);
+      // if(a == ""){
+      //   $("#have_my_join").css("display","none");
+      //   $("#no_group2").css("display","flex");
+      //   no_group_hover();
+      // }
     }else{
       //console.log(xhr.status);
     }
@@ -585,6 +587,9 @@ function gruop_collection(){
         $("#have_con").css("display","none");
         $("#no_group3").css("display","flex");
         no_group_hover();
+      }else{
+        $("#have_con").css("display","flex");
+        $("#no_group3").css("display","none");
       }
     }else{ //error
       //console.log(xhr.status);
