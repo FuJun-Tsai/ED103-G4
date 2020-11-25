@@ -588,7 +588,7 @@ function gruop_collection(){
         $("#no_group3").css("display","flex");
         no_group_hover();
       }else{
-        $("#have_con").css("display","flex");
+        // $("#have_con").css("display","flex");
         $("#no_group3").css("display","none");
       }
     }else{ //error
