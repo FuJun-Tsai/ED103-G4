@@ -410,18 +410,18 @@ function my_group(){
       $id('RES_IMAGE3').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE3}`);
       $id('RES_IMAGE4').setAttribute("src",`./image/restaurant_management_img/${main.RES_IMAGE4}`);
       let a = $("#GROUP_NO").text();
-      if( a == "undefined"){
-        $("#have_group").css("display","none");
-        $("#no_group").css("display","flex");
-        no_group_hover();
-      }else{
-        $("#have_group").css("display","flex");
-        $("#no_group").css("display","none");
-        if (`${main.JOIN_NUMBER}`==`${main.MAX_NUMBER}`) {
-          $("#JOIN_NUMBER").css("color","red");
-          $("#MAX_NUMBER").css("color","red");
-        } 
-      }
+      if (`${main.JOIN_NUMBER}`==`${main.MAX_NUMBER}`) {
+        $("#JOIN_NUMBER").css("color","red");
+        $("#MAX_NUMBER").css("color","red");
+      } 
+      // if( a == "undefined"){
+      //   $("#have_group").css("display","none");
+      //   $("#no_group").css("display","flex");
+      //   no_group_hover();
+      // }else{
+      //   $("#have_group").css("display","flex");
+      //   $("#no_group").css("display","none");
+      // }
     }else{
     }
   }
@@ -499,7 +499,6 @@ function tab_ok(){
         </div>
         `);
       }
-
     }else{ //error
       //console.log(xhr.status);
     }
@@ -543,13 +542,6 @@ function tab_notok(){
       }
       btnhover();
       review();
-      // let a = $(".gn").text();
-      // console.log(a);
-      // if(a == ""){
-      //   $("#have_my_join").css("display","none");
-      //   $("#no_group2").css("display","flex");
-      //   no_group_hover();
-      // }
     }else{
       //console.log(xhr.status);
     }
@@ -582,15 +574,6 @@ function gruop_collection(){
       }
       dotrash();
       let a = $(".num").text();
-      console.log(a);
-      if(a == ""){
-        $("#have_con").css("display","none");
-        $("#no_group3").css("display","flex");
-        no_group_hover();
-      }else{
-        // $("#have_con").css("display","flex");
-        $("#no_group3").css("display","none");
-      }
     }else{ //error
       //console.log(xhr.status);
     }
@@ -625,12 +608,6 @@ function restaurant_collection(){
       //console.log(xhr.status);
     }
     let a = $(".num").text();
-    console.log(a);
-    if(a == ""){
-      $("#have_con").css("display","none");
-      $("#no_group3").css("display","flex");
-      no_group_hover();
-    }
   }
   xhr.open("GET", "./php/restaurant_collection.php", true);
   xhr.send(null);
@@ -662,12 +639,6 @@ function article_collection(){
       }
       dotrash();
       let a = $(".num").text();
-      console.log(a);
-      if(a == ""){
-        $("#have_con").css("display","none");
-        $("#no_group3").css("display","flex");
-        no_group_hover();
-      }
     }else{ //error
       //console.log(xhr.status);
     }

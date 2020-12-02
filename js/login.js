@@ -42,8 +42,11 @@ function registered(){
     var newmem_sex=$("#newmem_sex").val();
     var newmem_age=$("#newmem_age").val();
     if (newmem_account == "" || newmem_psw == "" || again_psw =="" || newmem_email ==""){
-      alert("左邊欄位不能為空喔!");
+      // alert("左邊欄位不能為空喔!");
+      $("#idMsg").text("左邊欄位不能為空喔!");
+      $("#idMsg").css("color","red");
     } else{
+      $("#idMsg").css("color","black");
       $('.jun_back').css({'display':'none'});
       let xhr = new XMLHttpRequest();
       console.log(1);
@@ -79,7 +82,7 @@ function checkId(){
       if(xhr.readyState == XMLHttpRequest.DONE){ //server端已處理完畢
         if(xhr.status === 200){ //xhr.status為200時表示, server端有正常的處理完畢
           document.getElementById("idMsg").innerText = xhr.responseText;
-          if(xhr.responseText =="此帳號已存在,不可用"){
+          if(xhr.responseText =="此帳號已存在, 不可用"){
             $("#idMsg").css("color","red");
           }else{
             $("#idMsg").css("color","black");
